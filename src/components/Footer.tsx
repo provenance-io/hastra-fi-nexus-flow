@@ -1,5 +1,6 @@
 
 import { footerLinks } from '@/data/content';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -9,6 +10,16 @@ const Footer = () => {
           <div className="col-span-2">
             <h3 className="font-bold text-lg">Hastra-Fi</h3>
             <p className="mt-2 text-sm text-muted-foreground">Pushing Forward the Future of Finance</p>
+            <div className="mt-4">
+              <h4 className="font-semibold capitalize">Products</h4>
+              <ul className="mt-2 space-y-2">
+                <li>
+                  <Link to="/wYLDs" className="text-sm text-muted-foreground hover:text-foreground">
+                    wYLDs
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
           {Object.entries(footerLinks).map(([key, links]) => (
             <div key={key}>
