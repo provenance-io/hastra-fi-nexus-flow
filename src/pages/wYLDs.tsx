@@ -1,6 +1,7 @@
 import Footer from '@/components/Footer';
 import WYLDsHeader from '@/components/wylds/WYLDsHeader';
 import WYLDsHero from '@/components/wylds/WYLDsHero';
+import WYLDsStatsDashboard from '@/components/wylds/WYLDsStatsDashboard';
 
 const WYLDsPage = () => {
   return (
@@ -8,6 +9,7 @@ const WYLDsPage = () => {
       <WYLDsHeader />
       <main className="flex-grow">
         <WYLDsHero />
+        <WYLDsStatsDashboard />
         {/* Other sections will be added here in next steps */}
       </main>
       <Footer />
