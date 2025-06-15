@@ -51,6 +51,9 @@
 }
 
 @layer base {
+  html {
+    @apply scroll-smooth;
+  }
   * {
     @apply border-border;
   }
@@ -61,11 +64,5 @@
 }
 
 @layer components {
-  .btn-gradient {
-    @apply bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white;
-  }
-  .card-border-gradient {
-    @apply border border-transparent p-[1px] bg-clip-border rounded-lg;
-    background-image: linear-gradient(theme('colors.background'), theme('colors.background')), linear-gradient(to right, theme('colors.blue.900'), theme('colors.purple.900'));
-  }
+/* // ... keep existing code */
 }

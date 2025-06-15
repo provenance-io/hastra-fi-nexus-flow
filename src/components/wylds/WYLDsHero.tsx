@@ -1,0 +1,42 @@
+
+import { Button } from '@/components/ui/button';
+
+const WYLDsHero = () => {
+  const currentApy = '4.75%'; // Placeholder
+
+  return (
+    <section className="relative py-20 md:py-32 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-blue-900/10 to-purple-900/10 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMTAsIDIwLCA0MCwwLjA1KSI+PGQgcGF0aD0iTTAtMSAwIDEgTS0xIDAgMSAwIj48L2Q+PC9zdmc+')] opacity-60"></div>
+      <div className="container relative text-center animate-fade-in">
+        <div className="inline-block bg-gray-700/50 border border-gray-600 rounded-full px-3 py-1 text-sm mb-4">
+          Powered by Hastra-Fi Innovation
+        </div>
+        
+        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight">
+          wYLDS
+        </h1>
+        <h2 className="mt-4 text-4xl md:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">
+          Earn Yield on Your Stable
+        </h2>
+        <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
+          A Hastra-Fi Innovation: The world's first SEC-registered yield-bearing stablecoin, now bridged to Solana.
+        </p>
+
+        <div className="my-8">
+            <p className="text-lg text-muted-foreground">Current APY</p>
+            <p className="text-6xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">{currentApy}</p>
+        </div>
+        
+        <div className="mt-8 flex justify-center gap-4">
+          <Button size="lg" className="btn-gradient font-bold px-8 py-3 rounded-lg text-base">Start Earning</Button>
+          <Button size="lg" variant="outline" className="font-bold px-8 py-3 rounded-lg text-base bg-background/50 hover:bg-background/80">
+            Learn About YLDS
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default WYLDsHero;

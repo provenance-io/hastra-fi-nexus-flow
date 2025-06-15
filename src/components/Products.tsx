@@ -1,10 +1,11 @@
 
 import { products } from '@/data/content';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const Products = () => {
   return (
-    <section className="py-20 sm:py-24 bg-secondary/20">
+    <section id="products" className="py-20 sm:py-24 bg-secondary/20">
       <div className="container">
         <h2 className="text-3xl font-bold tracking-tight text-center">Current Products</h2>
         <div className="mt-12 grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
@@ -24,7 +25,9 @@ const Products = () => {
                       </div>
                   ))}
               </div>
-              <Button className="w-full mt-auto pt-6 btn-gradient font-semibold">{products.live.cta}</Button>
+              <Link to="/wYLDs" className="block w-full mt-auto pt-6">
+                <Button className="w-full btn-gradient font-semibold">{products.live.cta}</Button>
+              </Link>
             </div>
           </div>
            <div className="card-border-gradient">

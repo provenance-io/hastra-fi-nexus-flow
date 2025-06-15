@@ -3,7 +3,7 @@ import { innovationFocusAreas } from '@/data/content';
 
 const InnovationFocus = () => {
   return (
-    <section className="py-20 sm:py-24">
+    <section id="innovation-focus" className="py-20 sm:py-24">
       <div className="container">
         <h2 className="text-3xl font-bold tracking-tight text-center">Innovation Focus Areas</h2>
         <div className="mt-12 grid gap-8 md:grid-cols-3">

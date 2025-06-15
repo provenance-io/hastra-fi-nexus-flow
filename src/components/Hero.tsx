@@ -14,9 +14,11 @@ const Hero = () => {
           Developing innovative use cases and cutting-edge financial solutions that redefine how the world interacts with money.
         </p>
         <div className="mt-8 flex justify-center gap-4">
-          <Button size="lg" className="btn-gradient font-bold px-8 py-3 rounded-lg text-base">Explore Our Innovation</Button>
-          <Button size="lg" variant="outline" className="font-bold px-8 py-3 rounded-lg text-base bg-background/50 hover:bg-background/80">
-            View Products
+          <Button size="lg" className="btn-gradient font-bold px-8 py-3 rounded-lg text-base" asChild>
+            <a href="#innovation-focus">Explore Our Innovation</a>
+          </Button>
+          <Button size="lg" variant="outline" className="font-bold px-8 py-3 rounded-lg text-base bg-background/50 hover:bg-background/80" asChild>
+            <a href="#products">View Products</a>
           </Button>
         </div>
       </div>
