@@ -1,7 +1,7 @@
 import { FlaskConical, Shield, Network } from 'lucide-react';
 
 export const navigationLinks = [
-  { label: 'Products', href: '#' },
+  // Removed Products link
 ];
 
 export const innovationFocusAreas = [
