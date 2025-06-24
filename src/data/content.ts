@@ -3,9 +3,7 @@ import { FlaskConical, Shield, Network } from 'lucide-react';
 
 export const navigationLinks = [
   { label: 'Products', href: '#' },
-  { label: 'Developers', href: '#' },
-  { label: 'Company', href: '#' },
-  { label: 'Research', href: '#' },
+  { label: 'About', href: '#' },
 ];
 
 export const innovationFocusAreas = [
@@ -67,21 +65,9 @@ export const footerLinks = {
     products: [
         { label: 'wYLDs', href: '/wYLDs' },
     ],
-    company: [
-        { label: 'About', href: '#' },
-        { label: 'Mission', href: '#' },
-        { label: 'Team', href: '#' },
-        { label: 'Careers', href: '#' },
-    ],
-    research: [
-        { label: 'Whitepapers', href: '#' },
-        { label: 'Analysis', href: '#' },
-        { label: 'Publications', href: '#' },
-    ],
-    developers: [
-        { label: 'Documentation', href: '#' },
-        { label: 'APIs', href: '#' },
-        { label: 'Community', href: '#' },
+    about: [
+        { label: 'Mission & Vision', href: '#' },
+        { label: 'Innovation Focus', href: '#' },
     ],
     legal: [
         { label: 'Terms', href: '#' },

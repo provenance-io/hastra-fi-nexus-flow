@@ -1,5 +1,6 @@
 
 import { navigationLinks } from '@/data/content';
+import HastraLogo from './HastraLogo';
 
 const Header = () => {
   return (
@@ -7,7 +8,7 @@ const Header = () => {
       <div className="container flex h-14 items-center">
         <div className="mr-4 flex">
           <a href="/" className="mr-6 flex items-center space-x-2">
-            <span className="font-bold text-lg">Hastra-Fi</span>
+            <HastraLogo />
           </a>
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
             {navigationLinks.map((link) => (

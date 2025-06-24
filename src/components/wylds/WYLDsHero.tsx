@@ -51,7 +51,12 @@ const WYLDsHero = () => {
                   rel="noopener noreferrer"
                   className="flex items-center w-full cursor-pointer"
                 >
-                  <span className="flex-1">Earn on Kamino</span>
+                  <div className="flex items-center gap-3 flex-1">
+                    <div className="w-6 h-6 rounded bg-gradient-to-r from-blue-400 to-cyan-400 flex items-center justify-center text-xs font-bold text-white">
+                      K
+                    </div>
+                    <span>Earn on Kamino</span>
+                  </div>
                   <ExternalLink className="h-4 w-4" />
                 </a>
               </DropdownMenuItem>
@@ -62,7 +67,12 @@ const WYLDsHero = () => {
                   rel="noopener noreferrer"
                   className="flex items-center w-full cursor-pointer"
                 >
-                  <span className="flex-1">Earn on Raydium</span>
+                  <div className="flex items-center gap-3 flex-1">
+                    <div className="w-6 h-6 rounded bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-xs font-bold text-white">
+                      R
+                    </div>
+                    <span>Earn on Raydium</span>
+                  </div>
                   <ExternalLink className="h-4 w-4" />
                 </a>
               </DropdownMenuItem>

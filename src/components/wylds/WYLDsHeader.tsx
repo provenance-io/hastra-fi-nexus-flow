@@ -1,5 +1,6 @@
 
 import { Link } from 'react-router-dom';
+import HastraLogo from '../HastraLogo';
 
 const WYLDsHeader = () => {
   return (
@@ -7,7 +8,7 @@ const WYLDsHeader = () => {
       <div className="container flex h-14 items-center">
         <div className="mr-4 flex">
           <Link to="/" className="mr-6 flex items-center space-x-2">
-            <span className="font-bold text-lg">Hastra-Fi</span>
+            <HastraLogo />
           </Link>
         </div>
       </div>

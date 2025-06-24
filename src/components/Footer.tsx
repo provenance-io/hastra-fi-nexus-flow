@@ -1,25 +1,19 @@
 
 import { footerLinks } from '@/data/content';
 import { Link } from 'react-router-dom';
+import HastraLogo from './HastraLogo';
 
 const Footer = () => {
   return (
     <footer className="border-t py-12">
       <div className="container">
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           <div className="col-span-2">
-            <h3 className="font-bold text-lg">Hastra-Fi</h3>
+            <HastraLogo className="h-8 mb-4" />
             <p className="mt-2 text-sm text-muted-foreground">Pushing Forward the Future of Finance</p>
-            <div className="mt-4">
-              <h4 className="font-semibold capitalize">Products</h4>
-              <ul className="mt-2 space-y-2">
-                <li>
-                  <Link to="/wYLDs" className="text-sm text-muted-foreground hover:text-foreground">
-                    wYLDs
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            <p className="mt-2 text-xs text-muted-foreground">
+              Building protocol use cases that expand the financial ecosystem through regulatory-compliant innovation.
+            </p>
           </div>
           {Object.entries(footerLinks).map(([key, links]) => (
             <div key={key}>
@@ -27,9 +21,15 @@ const Footer = () => {
               <ul className="mt-4 space-y-2">
                 {links.map(link => (
                   <li key={link.label}>
-                    <a href={link.href} className="text-sm text-muted-foreground hover:text-foreground">
-                      {link.label}
-                    </a>
+                    {link.href.startsWith('/') ? (
+                      <Link to={link.href} className="text-sm text-muted-foreground hover:text-foreground">
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a href={link.href} className="text-sm text-muted-foreground hover:text-foreground">
+                        {link.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>

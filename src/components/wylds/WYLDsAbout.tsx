@@ -29,6 +29,24 @@ const benefits = [
   'Low transaction fees on Solana',
 ];
 
+const howItWorks = [
+  {
+    step: '1',
+    title: 'Hold wYLDS tokens',
+    description: 'Simply hold wYLDS tokens in any compatible wallet',
+  },
+  {
+    step: '2',
+    title: 'Automatic yield calculation',
+    description: 'Yield is automatically calculated and distributed daily',
+  },
+  {
+    step: '3',
+    title: 'Watch your balance grow',
+    description: 'Watch your balance grow without any additional action',
+  },
+];
+
 const WYLDsAbout = () => {
   return (
     <section className="py-20 md:py-24">
@@ -60,38 +78,38 @@ const WYLDsAbout = () => {
           ))}
         </div>
 
-        <div className="grid gap-12 md:grid-cols-2 items-center">
+        <div className="grid gap-16 lg:grid-cols-2 items-start mb-16">
           <div>
-            <h3 className="text-2xl font-bold mb-6">Key Benefits</h3>
-            <div className="space-y-3">
+            <h3 className="text-2xl font-bold mb-8 text-center lg:text-left">Key Benefits</h3>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
               {benefits.map((benefit) => (
-                <div key={benefit} className="flex items-center gap-3">
+                <div key={benefit} className="flex items-center gap-3 p-3 rounded-lg bg-secondary/20">
                   <CheckCircle className="h-5 w-5 text-green-400 flex-shrink-0" />
                   <span className="text-foreground/90">{benefit}</span>
                 </div>
               ))}
             </div>
           </div>
-          <div className="bg-secondary/20 p-8 rounded-lg">
-            <h3 className="text-xl font-semibold mb-4">Protocol Integration</h3>
-            <div className="space-y-4 text-sm text-muted-foreground">
-              <div className="flex gap-3">
-                <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold flex-shrink-0">1</span>
-                <p>wYLDS integrates with leading DeFi protocols like Kamino and Raydium</p>
-              </div>
-              <div className="flex gap-3">
-                <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold flex-shrink-0">2</span>
-                <p>Yield is automatically calculated and distributed through protocol mechanics</p>
-              </div>
-              <div className="flex gap-3">
-                <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold flex-shrink-0">3</span>
-                <p>Users benefit from expanded utility across the Hastra ecosystem</p>
-              </div>
+          
+          <div>
+            <h3 className="text-2xl font-bold mb-8 text-center lg:text-left">How It Works</h3>
+            <div className="space-y-6">
+              {howItWorks.map((item) => (
+                <div key={item.step} className="flex items-start gap-4 p-4 rounded-lg bg-secondary/20">
+                  <div className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold flex-shrink-0">
+                    {item.step}
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-lg mb-1">{item.title}</h4>
+                    <p className="text-muted-foreground">{item.description}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
-        <div className="mt-16 text-center">
+        <div className="text-center">
           <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-lg p-8">
             <h3 className="text-xl font-semibold mb-4">Building the Future of Finance</h3>
             <p className="text-muted-foreground max-w-2xl mx-auto">
