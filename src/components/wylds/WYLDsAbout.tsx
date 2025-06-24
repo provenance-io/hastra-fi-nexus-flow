@@ -1,5 +1,5 @@
 
-import { Shield, TrendingUp, Globe, CheckCircle } from 'lucide-react';
+import { Shield, TrendingUp, Globe, CheckCircle, Building2 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const features = [
@@ -34,12 +34,17 @@ const WYLDsAbout = () => {
     <section className="py-20 md:py-24">
       <div className="container">
         <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-2 mb-6">
+            <Building2 className="h-4 w-4 text-blue-400" />
+            <span className="text-sm font-medium text-blue-400">Hastra-Fi Protocol Innovation</span>
+          </div>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            What Makes wYLDS Different?
+            Expanding the Hastra Ecosystem
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            wYLDS combines the stability of traditional finance with the innovation of DeFi, 
-            creating a new category of yield-bearing digital assets.
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            wYLDS represents Hastra-Fi's commitment to building protocol use cases that expand the Hastra ecosystem. 
+            By bridging traditional finance regulations with DeFi innovation, we're creating new opportunities 
+            for yield generation across the broader financial landscape.
           </p>
         </div>
 
@@ -68,21 +73,31 @@ const WYLDsAbout = () => {
             </div>
           </div>
           <div className="bg-secondary/20 p-8 rounded-lg">
-            <h3 className="text-xl font-semibold mb-4">How It Works</h3>
+            <h3 className="text-xl font-semibold mb-4">Protocol Integration</h3>
             <div className="space-y-4 text-sm text-muted-foreground">
               <div className="flex gap-3">
                 <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold flex-shrink-0">1</span>
-                <p>Hold wYLDS tokens in any compatible wallet</p>
+                <p>wYLDS integrates with leading DeFi protocols like Kamino and Raydium</p>
               </div>
               <div className="flex gap-3">
                 <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold flex-shrink-0">2</span>
-                <p>Yield is automatically calculated and distributed daily</p>
+                <p>Yield is automatically calculated and distributed through protocol mechanics</p>
               </div>
               <div className="flex gap-3">
                 <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold flex-shrink-0">3</span>
-                <p>Watch your balance grow without any additional action</p>
+                <p>Users benefit from expanded utility across the Hastra ecosystem</p>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="mt-16 text-center">
+          <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-lg p-8">
+            <h3 className="text-xl font-semibold mb-4">Building the Future of Finance</h3>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              As part of Hastra-Fi's mission to expand protocol capabilities, wYLDS serves as a foundational 
+              building block for creating new financial primitives that bridge traditional and decentralized finance.
+            </p>
           </div>
         </div>
       </div>

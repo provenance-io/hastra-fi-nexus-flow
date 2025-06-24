@@ -1,5 +1,12 @@
 
 import { Button } from '@/components/ui/button';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { ChevronDown, ExternalLink } from 'lucide-react';
 
 const WYLDsHero = () => {
   const currentApy = '4.75%'; // Placeholder
@@ -29,7 +36,38 @@ const WYLDsHero = () => {
         </div>
         
         <div className="mt-8 flex justify-center gap-4">
-          <Button size="lg" className="btn-gradient font-bold px-8 py-3 rounded-lg text-base">Learn More</Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button size="lg" className="btn-gradient font-bold px-8 py-3 rounded-lg text-base">
+                Start Earning
+                <ChevronDown className="ml-2 h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56 bg-background/95 backdrop-blur border-border/50">
+              <DropdownMenuItem asChild>
+                <a 
+                  href="https://app.kamino.finance" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center w-full cursor-pointer"
+                >
+                  <span className="flex-1">Earn on Kamino</span>
+                  <ExternalLink className="h-4 w-4" />
+                </a>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <a 
+                  href="https://raydium.io" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center w-full cursor-pointer"
+                >
+                  <span className="flex-1">Earn on Raydium</span>
+                  <ExternalLink className="h-4 w-4" />
+                </a>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
           <Button size="lg" variant="outline" className="font-bold px-8 py-3 rounded-lg text-base bg-background/50 hover:bg-background/80" asChild>
             <a href="https://ylds.com" target="_blank" rel="noopener noreferrer">
               Learn About YLDS
