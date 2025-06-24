@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -52,9 +51,11 @@ const WYLDsHero = () => {
                   className="flex items-center w-full cursor-pointer"
                 >
                   <div className="flex items-center gap-3 flex-1">
-                    <div className="w-6 h-6 rounded bg-gradient-to-r from-blue-400 to-cyan-400 flex items-center justify-center text-xs font-bold text-white">
-                      K
-                    </div>
+                    <img 
+                      src="/lovable-uploads/9edb1ae1-8f98-4dcd-90f7-4f7e3135521e.png" 
+                      alt="Kamino" 
+                      className="w-6 h-6 rounded-full"
+                    />
                     <span>Earn on Kamino</span>
                   </div>
                   <ExternalLink className="h-4 w-4" />
