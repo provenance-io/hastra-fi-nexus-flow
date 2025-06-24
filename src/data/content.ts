@@ -1,9 +1,7 @@
-
 import { FlaskConical, Shield, Network } from 'lucide-react';
 
 export const navigationLinks = [
   { label: 'Products', href: '#' },
-  { label: 'About', href: '#' },
 ];
 
 export const innovationFocusAreas = [
@@ -64,10 +62,6 @@ export const innovationApproach = [
 export const footerLinks = {
     products: [
         { label: 'wYLDs', href: '/wYLDs' },
-    ],
-    about: [
-        { label: 'Mission & Vision', href: '#' },
-        { label: 'Innovation Focus', href: '#' },
     ],
     legal: [
         { label: 'Terms', href: '#' },

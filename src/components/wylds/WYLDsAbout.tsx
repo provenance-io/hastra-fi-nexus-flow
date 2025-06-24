@@ -45,6 +45,11 @@ const howItWorks = [
     title: 'Watch your balance grow',
     description: 'Watch your balance grow without any additional action',
   },
+  {
+    step: '4',
+    title: 'Redeem via key Solana partners',
+    description: 'Easily redeem your wYLDS through Raydium and Kamino protocols',
+  },
 ];
 
 const WYLDsAbout = () => {
