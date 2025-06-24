@@ -29,9 +29,11 @@ const WYLDsHero = () => {
         </div>
         
         <div className="mt-8 flex justify-center gap-4">
-          <Button size="lg" className="btn-gradient font-bold px-8 py-3 rounded-lg text-base">Start Earning</Button>
-          <Button size="lg" variant="outline" className="font-bold px-8 py-3 rounded-lg text-base bg-background/50 hover:bg-background/80">
-            Learn About YLDS
+          <Button size="lg" className="btn-gradient font-bold px-8 py-3 rounded-lg text-base">Learn More</Button>
+          <Button size="lg" variant="outline" className="font-bold px-8 py-3 rounded-lg text-base bg-background/50 hover:bg-background/80" asChild>
+            <a href="https://ylds.com" target="_blank" rel="noopener noreferrer">
+              Learn About YLDS
+            </a>
           </Button>
         </div>
       </div>

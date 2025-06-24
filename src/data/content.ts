@@ -36,17 +36,12 @@ export const products = {
     description: "The world's first SEC-registered yield-bearing stablecoin, now available on Solana.",
     innovation: 'Regulatory compliance meets DeFi yield generation.',
     status: 'Live on Solana',
-    cta: 'Start Earning',
+    cta: 'Learn More',
     stats: [
       { label: 'Current APY', value: '4.75%' },
       { label: 'Total Supply', value: '$150.3M' },
       { label: 'Active Users', value: '12,403' },
     ],
-  },
-  comingSoon: {
-    title: 'Cross-Chain Yield Protocol',
-    description: 'A new protocol to unify yield generation across multiple blockchain networks.',
-    cta: 'Notify Me',
   }
 };
 
@@ -70,8 +65,7 @@ export const innovationApproach = [
 
 export const footerLinks = {
     products: [
-        { label: 'wYLDS', href: '#' },
-        { label: 'Upcoming', href: '#' },
+        { label: 'wYLDs', href: '/wYLDs' },
     ],
     company: [
         { label: 'About', href: '#' },

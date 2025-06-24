@@ -1,12 +1,24 @@
 
-import { File } from 'lucide-react';
+import { File, ExternalLink, BookOpen } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
 const resources = [
   {
+    title: 'Learn About YLDS',
+    description: 'Visit the official YLDS website to understand the underlying technology and ecosystem.',
+    href: 'https://ylds.com',
+    icon: ExternalLink,
+  },
+  {
+    title: 'wYLDS Documentation',
+    description: 'Technical documentation and integration guides for developers.',
+    href: '#',
+    icon: BookOpen,
+  },
+  {
     title: 'wYLDS Whitepaper',
     description: 'Read the full technical details and vision for wYLDS.',
-    href: '#', // Placeholder link
+    href: '#',
     icon: File,
   },
 ];
@@ -16,7 +28,7 @@ const WYLDsResources = () => {
     <section className="py-20 md:py-24 border-t border-border/40">
       <div className="container">
         <h2 className="text-3xl font-bold tracking-tight text-center mb-12">Documentation & Resources</h2>
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-3xl mx-auto space-y-4">
           {resources.map((resource) => (
             <a
               key={resource.title}

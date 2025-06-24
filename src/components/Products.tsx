@@ -8,8 +8,8 @@ const Products = () => {
     <section id="products" className="py-20 sm:py-24 bg-secondary/20">
       <div className="container">
         <h2 className="text-3xl font-bold tracking-tight text-center">Current Products</h2>
-        <div className="mt-12 grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
-          <div className="card-border-gradient">
+        <div className="mt-12 flex justify-center max-w-2xl mx-auto">
+          <div className="card-border-gradient w-full">
             <div className="bg-background h-full p-8 rounded-lg flex flex-col">
               <div className="flex justify-between items-start">
                   <h3 className="text-2xl font-bold">{products.live.name}</h3>
@@ -30,13 +30,6 @@ const Products = () => {
               </Link>
             </div>
           </div>
-           <div className="card-border-gradient">
-            <div className="bg-background h-full p-8 rounded-lg flex flex-col justify-center items-center text-center">
-                <h3 className="text-xl font-bold">{products.comingSoon.title}</h3>
-                <p className="mt-4 text-muted-foreground">{products.comingSoon.description}</p>
-                <Button variant="outline" className="w-full mt-6">{products.comingSoon.cta}</Button>
-            </div>
-           </div>
         </div>
       </div>
     </section>

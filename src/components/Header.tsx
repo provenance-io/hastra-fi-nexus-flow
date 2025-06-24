@@ -1,6 +1,5 @@
 
 import { navigationLinks } from '@/data/content';
-import { Button } from '@/components/ui/button';
 
 const Header = () => {
   return (
@@ -17,9 +16,6 @@ const Header = () => {
               </a>
             ))}
           </nav>
-        </div>
-        <div className="flex flex-1 items-center justify-end space-x-4">
-          <Button className="btn-gradient font-semibold px-6 py-2 rounded-md">Launch App</Button>
         </div>
       </div>
     </header>
