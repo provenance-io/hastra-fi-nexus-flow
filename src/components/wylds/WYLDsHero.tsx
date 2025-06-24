@@ -69,9 +69,11 @@ const WYLDsHero = () => {
                   className="flex items-center w-full cursor-pointer"
                 >
                   <div className="flex items-center gap-3 flex-1">
-                    <div className="w-6 h-6 rounded bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-xs font-bold text-white">
-                      R
-                    </div>
+                    <img 
+                      src="/lovable-uploads/30e0a19d-182e-4457-b5e0-58c467109e2f.png" 
+                      alt="Raydium" 
+                      className="w-6 h-6 rounded-full"
+                    />
                     <span>Earn on Raydium</span>
                   </div>
                   <ExternalLink className="h-4 w-4" />
