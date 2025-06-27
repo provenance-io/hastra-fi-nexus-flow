@@ -1,0 +1,73 @@
+name: build-mainnet
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: ci-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  build-mainnet:
+    runs-on: ubuntu-latest
+    env:
+      DOCKER_IMAGE: us-central1-docker.pkg.dev/provenance-io/docker/hastra-fi-nexus-flow
+    steps:
+      - uses: actions/checkout@main
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install npm Packages
+        run: npm ci
+
+      - name: Build
+        run: node --max-old-space-size=4096 ./node_modules/.bin/tsc -b && node --max-old-space-size=4096 ./node_modules/.bin/vite build
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Set Up GAR Meta
+        uses: docker/metadata-action@v5
+        id: set_up_gar_meta
+        with:
+          images: ${{env.DOCKER_IMAGE}}
+          tags: |
+            type=ref,event=branch,enable=${{ github.ref == 'refs/tags' }}
+            type=raw,value=mainnet-latest,enable=${{ startsWith(github.ref, 'refs/tags/v') }}
+            type=raw,value=${{ github.ref_name }},enable=${{ startsWith(github.ref, 'refs/tags/v') }}
+            type=sha,prefix=git-,priority=1100            
+
+      - name: Google GHA Auth
+        uses: google-github-actions/auth@v1
+        id: gha_auth_prod
+        with:
+          token_format: access_token
+          workload_identity_provider: projects/164083564568/locations/global/workloadIdentityPools/gha-runner-pool/providers/gha-runner-pool-provider
+          service_account: gha-runner@provenance-io.iam.gserviceaccount.com
+
+      - name: Docker Login
+        uses: docker/login-action@v3
+        with:
+          registry: us-central1-docker.pkg.dev
+          username: oauth2accesstoken
+          password: ${{ steps.gha_auth_prod.outputs.access_token }}
+
+      - name: Push Docker File
+        uses: docker/build-push-action@v6
+        id: docker_build_push
+        with:
+          context: .
+          push: true
+          file: ./docker/Dockerfile
+          tags: ${{ steps.set_up_gar_meta.outputs.tags }}
