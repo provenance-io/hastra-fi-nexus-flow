@@ -15,46 +15,46 @@ const HOMESFeatures = () => {
   const investmentFeatures = [
     {
       icon: Wallet,
-      title: "Easy Investment",
-      description: "Connect your wallet and start investing in premium real estate with just a few clicks."
+      title: "Easy Access",
+      description: "Connect your wallet and start earning competitive yields in RWA pools with just a few clicks."
     },
     {
       icon: PieChart,
-      title: "Portfolio Tracking",
-      description: "Monitor your real estate investments in real-time with detailed analytics and performance metrics."
+      title: "Yield Tracking",
+      description: "Monitor your yield positions in real-time with detailed analytics and performance metrics."
     },
     {
       icon: FileText,
-      title: "Transparent Reporting",
-      description: "Access detailed property reports, financial statements, and legal documentation."
+      title: "Transparent Operations",
+      description: "Access detailed pool reports, yield distributions, and underlying asset documentation."
     },
     {
       icon: CreditCard,
-      title: "Automated Distributions",
-      description: "Receive rental income and profits automatically distributed to your wallet monthly."
+      title: "Automated Rewards",
+      description: "Receive yield distributions automatically - choose between yield tokens or HASH token rewards."
     }
   ];
 
   const managementFeatures = [
     {
       icon: BarChart3,
-      title: "Professional Management",
-      description: "Expert property management teams handle all operational aspects of real estate investments."
+      title: "Professional Operations",
+      description: "Expert fund management teams handle all operational aspects of yield pool optimization."
     },
     {
       icon: Shield,
-      title: "Legal Compliance",
-      description: "Full regulatory compliance with SEC requirements and proper legal structuring."
+      title: "Risk Management",
+      description: "Rigorous risk assessment and management protocols ensure sustainable yield generation."
     },
     {
       icon: Clock,
-      title: "24/7 Liquidity",
-      description: "Trade your property tokens anytime on our secondary market for instant liquidity."
+      title: "Flexible Liquidity",
+      description: "Access your funds when needed through our liquidity mechanisms and secondary markets."
     },
     {
       icon: Users,
-      title: "Community Governance",
-      description: "Participate in key property decisions through our decentralized governance system."
+      title: "Community Driven",
+      description: "Participate in pool governance and strategic decisions through decentralized voting."
     }
   ];
 
@@ -63,10 +63,10 @@ const HOMESFeatures = () => {
       <div className="container">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Built for Modern Investors
+            Built for DeFi Natives
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Experience real estate investment like never before with our comprehensive platform designed for the digital age.
+            Experience yield farming like never before with our comprehensive RWA platform designed for the Solana ecosystem.
           </p>
         </div>
 
@@ -111,23 +111,23 @@ const HOMESFeatures = () => {
 
         <div className="mt-16 bg-gradient-to-r from-amber-500/10 to-orange-500/10 rounded-2xl p-8 md:p-12 text-center">
           <h3 className="text-2xl md:text-3xl font-bold mb-4">
-            Ready to Build Your Real Estate Portfolio?
+            Ready to Start Earning?
           </h3>
           <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Join thousands of investors who are already earning passive income through tokenized real estate. Start with as little as $100.
+            Join yield-seeking capital providers who are already earning competitive returns through our RWA pools. Be part of the Solana DeFi revolution.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Card className="glass-effect border-border/50 p-4 min-w-[200px]">
-              <div className="text-2xl font-bold text-header-glow mb-1">$100</div>
-              <div className="text-sm text-muted-foreground">Minimum Investment</div>
+              <div className="text-2xl font-bold text-header-glow mb-1">10%</div>
+              <div className="text-sm text-muted-foreground">Target APY</div>
             </Card>
             <Card className="glass-effect border-border/50 p-4 min-w-[200px]">
-              <div className="text-2xl font-bold text-header-glow mb-1">Monthly</div>
-              <div className="text-sm text-muted-foreground">Income Distributions</div>
+              <div className="text-2xl font-bold text-header-glow mb-1">Dual</div>
+              <div className="text-sm text-muted-foreground">Token Options</div>
             </Card>
             <Card className="glass-effect border-border/50 p-4 min-w-[200px]">
-              <div className="text-2xl font-bold text-header-glow mb-1">0%</div>
-              <div className="text-sm text-muted-foreground">Management Fees</div>
+              <div className="text-2xl font-bold text-header-glow mb-1">Solana</div>
+              <div className="text-sm text-muted-foreground">Fast & Low Cost</div>
             </Card>
           </div>
         </div>

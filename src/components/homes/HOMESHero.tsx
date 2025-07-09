@@ -18,22 +18,23 @@ const HOMESHero = () => {
       <div className="container relative text-center animate-fade-in">
         <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-header-glow/20 text-sm font-medium text-foreground/80 animate-glow-pulse mb-6">
           <span className="mr-2 w-2 h-2 bg-header-glow rounded-full animate-pulse"></span>
-          Powered by Provenance Blockchain
+          First-Mover in Solana RWA Yield Space
         </div>
         
         <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-4">
           <span className="block text-gradient">HOMES</span>
         </h1>
         <h2 className="text-4xl md:text-6xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
-          Tokenized Real Estate
+          RWA Yield Pools
         </h2>
         <p className="mt-6 max-w-4xl mx-auto text-xl md:text-2xl text-muted-foreground leading-relaxed">
-          Access premium real estate investments through blockchain technology. Own fractions of high-value properties with complete transparency and liquidity.
+          Access competitive yields through Real World Asset pools on Solana. Earn attractive returns with both yield tokens and enhanced HASH token rewards.
         </p>
 
         <div className="my-8">
-          <p className="text-lg text-muted-foreground">Total Value Locked</p>
-          <p className="text-6xl md:text-7xl font-bold text-gradient">$2.4M</p>
+          <p className="text-lg text-muted-foreground">Target Yield</p>
+          <p className="text-6xl md:text-7xl font-bold text-gradient">10%</p>
+          <p className="text-sm text-muted-foreground mt-2">Annual Percentage Yield</p>
         </div>
         
         <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
@@ -41,7 +42,7 @@ const HOMESHero = () => {
             size="lg" 
             className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-4 text-lg rounded-xl min-w-[200px] group"
           >
-            Explore Properties
+            Start Earning
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Button>
           <Button 
@@ -49,7 +50,7 @@ const HOMESHero = () => {
             className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-4 text-lg rounded-xl min-w-[200px] group"
           >
             Learn More
-            <Home className="ml-2 h-4 w-4" />
+            <TrendingUp className="ml-2 h-4 w-4" />
           </Button>
         </div>
       </div>

@@ -1,27 +1,27 @@
-import { Shield, TrendingUp, Users, Globe } from 'lucide-react';
+import { Shield, TrendingUp, Coins, Zap } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const HOMESAbout = () => {
   const features = [
     {
       icon: Shield,
-      title: "SEC Compliant",
-      description: "Fully regulated real estate tokenization with complete legal compliance and investor protection."
+      title: "Institutional Grade",
+      description: "Professional-grade DeFi product with rigorous risk management and transparent operations."
     },
     {
       icon: TrendingUp,
-      title: "Fractional Ownership",
-      description: "Own portions of premium properties starting from as little as $100, democratizing real estate investment."
+      title: "Competitive Yields",
+      description: "Target 10% APY through strategic Real World Asset backing and yield optimization."
     },
     {
-      icon: Users,
-      title: "Professional Management",
-      description: "Expert property management and transparent reporting ensure optimal returns for all token holders."
+      icon: Coins,
+      title: "Dual Token Options",
+      description: "Choose between stable yield tokens or enhanced returns with native HASH token rewards."
     },
     {
-      icon: Globe,
-      title: "Global Access",
-      description: "Invest in prime real estate across major markets worldwide, all from your digital wallet."
+      icon: Zap,
+      title: "Solana-Powered",
+      description: "Built on Solana for fast, low-cost transactions and seamless DeFi integration."
     }
   ];
 
@@ -30,10 +30,10 @@ const HOMESAbout = () => {
       <div className="container">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Revolutionizing Real Estate Investment
+            Democratizing Financial Opportunities
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            HOMES brings institutional-grade real estate opportunities to crypto-native investors through tokenization, offering unprecedented access to premium properties with complete transparency.
+            HOMES pools provide access to high-yield opportunities traditionally reserved for institutions, removing barriers that have historically excluded everyday investors from top-tier financial products.
           </p>
         </div>
 
@@ -53,23 +53,23 @@ const HOMESAbout = () => {
 
         <div className="bg-gradient-to-r from-header-glow/10 to-crypto-accent/10 rounded-2xl p-8 md:p-12 text-center">
           <h3 className="text-2xl md:text-3xl font-bold mb-4">
-            Real Estate Meets DeFi
+            RWA Meets DeFi Innovation
           </h3>
           <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Bridge traditional real estate with modern DeFi capabilities. Earn rental yields, participate in property appreciation, and maintain liquidity through our secondary market.
+            Experience the convergence of Real World Assets and decentralized finance. Earn competitive yields while maintaining the transparency and accessibility that DeFi promises.
           </p>
           <div className="grid md:grid-cols-3 gap-8 mt-8">
             <div>
-              <div className="text-3xl font-bold text-header-glow mb-2">4-12%</div>
-              <div className="text-sm text-muted-foreground">Annual Yield Range</div>
+              <div className="text-3xl font-bold text-header-glow mb-2">10%</div>
+              <div className="text-sm text-muted-foreground">Target APY</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-header-glow mb-2">$50M+</div>
-              <div className="text-sm text-muted-foreground">Properties Under Management</div>
+              <div className="text-3xl font-bold text-header-glow mb-2">$5M-$100M</div>
+              <div className="text-sm text-muted-foreground">Projected Pool Size</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-header-glow mb-2">24/7</div>
-              <div className="text-sm text-muted-foreground">Trading Availability</div>
+              <div className="text-3xl font-bold text-header-glow mb-2">First</div>
+              <div className="text-sm text-muted-foreground">Mover on Solana RWA</div>
             </div>
           </div>
         </div>
