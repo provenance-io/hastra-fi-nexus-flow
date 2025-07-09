@@ -26,13 +26,13 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-header-glow/20 bg-header-bg/95 backdrop-blur supports-[backdrop-filter]:bg-header-bg/80 shadow-[0_0_20px_hsl(var(--header-glow)/0.1)]">
       <div className="container flex h-16 items-center justify-between">
-        <div className="flex items-center space-x-8">
+        <div className="flex items-center space-x-12">
           <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
             <HastraLogo />
           </Link>
           <nav className="hidden md:flex items-center space-x-6">
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center text-base font-medium text-foreground/70 hover:text-foreground transition-colors relative group">
+              <DropdownMenuTrigger className="flex items-center text-lg font-medium text-foreground/70 hover:text-foreground transition-colors relative group">
                 Products
                 <ChevronDown className="ml-1 h-4 w-4" />
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-header-glow transition-all duration-300 group-hover:w-full" />
@@ -89,7 +89,7 @@ const Header = () => {
             ))}
             <Link
               to="/start-earning"
-              className="text-base font-medium text-foreground/70 hover:text-foreground transition-colors relative group"
+              className="text-lg font-medium text-foreground/70 hover:text-foreground transition-colors relative group"
             >
               Start Earning
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-header-glow transition-all duration-300 group-hover:w-full" />
@@ -103,7 +103,7 @@ const Header = () => {
             size="sm" 
             className="hidden md:flex btn-gradient text-base px-4 py-2"
           >
-            <Link to="/yield">Launch YIELD</Link>
+            <Link to="/yield">Connect Your Wallet</Link>
           </Button>
           <MobileMenu />
         </div>
