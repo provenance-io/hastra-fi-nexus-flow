@@ -1,0 +1,75 @@
+@layer components {
+  .btn-gradient {
+    @apply bg-gradient-to-r from-header-glow to-crypto-accent text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95;
+  }
+  
+  .header-enhanced {
+    background: linear-gradient(135deg, hsl(var(--header-bg)) 0%, hsl(var(--header-bg)) 80%, hsl(var(--header-glow) / 0.05) 100%);
+  }
+  
+  .logo-container {
+    @apply relative p-2 rounded-lg bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 shadow-lg;
+  }
+
+  .card-gradient {
+    @apply bg-gradient-to-br from-secondary/40 to-secondary/20 border border-border/50 backdrop-blur-sm;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-header-glow/10 hover:border-header-glow/30;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-header-glow to-crypto-accent;
+  }
+
+  .glass-effect {
+    @apply bg-background/80 backdrop-blur-md border border-border/50;
+  }
+
+  .floating-card {
+    @apply relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-header-glow/5 before:to-crypto-accent/5 before:opacity-0 before:transition-opacity before:duration-300 hover:before:opacity-100;
+  }
+
+  .pulse-glow {
+    @apply animate-pulse shadow-lg shadow-header-glow/20;
+  }
+
+  .interactive-link {
+    @apply relative group cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95;
+  }
+
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-header-glow focus:ring-offset-2 focus:ring-offset-background;
+  }
+
+  /* Stable Hero animations - prevent glitches */
+  .hero-content-loaded {
+    animation: hero-fade-in 0.8s ease-out forwards;
+  }
+
+  .hero-badge {
+    animation: hero-badge-enter 0.6s ease-out 0.1s forwards;
+    opacity: 0;
+  }
+
+  .hero-title-primary {
+    animation: hero-title-slide-left 0.7s ease-out 0.2s forwards;
+    opacity: 0;
+  }
+
+  .hero-title-secondary {
+    animation: hero-title-slide-right 0.7s ease-out 0.4s forwards;
+    opacity: 0;
+  }
+
+  .hero-subtitle {
+    animation: hero-subtitle-enter 0.6s ease-out 0.6s forwards;
+    opacity: 0;
+  }
+
+  .hero-cta-container {
+    animation: hero-cta-enter 0.6s ease-out 0.8s forwards;
+    opacity: 0;
+  }
+}

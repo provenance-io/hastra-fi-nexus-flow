@@ -1,0 +1,300 @@
+/* Enhanced stable coin animation - Optimized for performance */
+
+.falling-coin-stable {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  animation: stable-coin-fall var(--fall-duration, 4s) infinite cubic-bezier(0.25, 0.46, 0.45, 0.94) var(--animation-delay, 0s);
+  opacity: 0;
+  left: var(--fall-start-x);
+  top: -80px;
+  transform-style: preserve-3d;
+  perspective: 800px;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 4px 8px hsl(var(--mint-green) / 0.2));
+}
+
+/* Legacy falling coin for backwards compatibility */
+.falling-coin {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  animation: coin-fall var(--fall-duration, 4s) infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 0;
+  left: var(--fall-start-x);
+  top: -80px;
+  transform-style: preserve-3d;
+  perspective: 800px;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 4px 8px hsl(var(--mint-green) / 0.2));
+}
+
+/* Enhanced 3D Coin Structure */
+.coin-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, 
+    hsl(var(--mint-green-light)) 0%, 
+    hsl(var(--mint-green)) 30%,
+    hsl(var(--mint-green-dark)) 70%,
+    hsl(var(--mint-green-light)) 100%);
+  border: 2px solid hsl(var(--mint-green-dark));
+  box-shadow: 
+    0 4px 12px hsl(var(--mint-green) / 0.4),
+    inset 0 2px 4px hsl(var(--mint-green-light) / 0.7),
+    inset 0 -2px 4px hsl(var(--mint-green-dark) / 0.4),
+    inset 0 0 8px hsl(var(--mint-green) / 0.3);
+  position: relative;
+  z-index: 2;
+}
+
+.coin-face::before {
+  content: '$';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  font-weight: bold;
+  color: hsl(var(--mint-green-dark));
+  text-shadow: 0 1px 2px hsl(var(--mint-green-light) / 0.8);
+}
+
+.coin-face::after {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, 
+    hsl(var(--mint-green-light) / 0.8) 0%,
+    hsl(var(--mint-green-light) / 0.3) 40%,
+    transparent 70%);
+  pointer-events: none;
+}
+
+.coin-edge {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, 
+    hsl(var(--mint-green-dark)) 0%,
+    hsl(var(--mint-green)) 25%,
+    hsl(var(--mint-green-light)) 50%,
+    hsl(var(--mint-green)) 75%,
+    hsl(var(--mint-green-dark)) 100%);
+  transform: translateZ(-4px) scale(0.95);
+  box-shadow: inset 0 0 4px hsl(var(--mint-green-dark) / 0.5);
+  z-index: 1;
+}
+
+@keyframes stable-coin-fall {
+  0% {
+    opacity: 0;
+    transform: translateY(-80px) 
+               translateX(0) 
+               rotateY(var(--rotation-start, 0deg))
+               rotateX(0deg)
+               scale(0.8);
+  }
+  
+  10% {
+    opacity: 0.4;
+    transform: translateY(10vh) 
+               translateX(calc(var(--drift-early, 0px) * 0.3))
+               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 1))
+               rotateX(calc(var(--tilt-speed, 15deg) * 0.5))
+               scale(0.9);
+  }
+  
+  30% {
+    opacity: 0.8;
+    transform: translateY(30vh) 
+               translateX(calc(var(--drift-mid, 0px) * 0.7))
+               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 2.5))
+               rotateX(calc(var(--tilt-speed, 15deg) * 1.5))
+               scale(1);
+  }
+  
+  50% {
+    opacity: 1;
+    transform: translateY(50vh) 
+               translateX(var(--drift-mid, 0px))
+               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 4))
+               rotateX(calc(var(--tilt-speed, 15deg) * 2.5))
+               scale(1);
+  }
+  
+  70% {
+    opacity: 1;
+    transform: translateY(70vh) 
+               translateX(calc(var(--drift-late, 0px) * 0.8))
+               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 5.5))
+               rotateX(calc(var(--tilt-speed, 15deg) * 3.5))
+               scale(0.95);
+  }
+  
+  90% {
+    opacity: 0.6;
+    transform: translateY(90vh) 
+               translateX(var(--drift-end, 0px))
+               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 7))
+               rotateX(calc(var(--tilt-speed, 15deg) * 4.5))
+               scale(0.9);
+  }
+  
+  100% {
+    opacity: 0;
+    transform: translateY(105vh) 
+               translateX(var(--drift-end, 0px))
+               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 8))
+               rotateX(calc(var(--tilt-speed, 15deg) * 5))
+               scale(0.8);
+  }
+}
+
+@keyframes coin-fall {
+  0% {
+    opacity: 0;
+    transform: translateY(-80px) 
+               translateX(0) 
+               rotateY(var(--rotation-start, 0deg))
+               rotateX(var(--tilt-start, 0deg))
+               scale(0.7);
+  }
+  
+  5% {
+    opacity: 0.3;
+    transform: translateY(5vh) 
+               translateX(calc(var(--drift-early, 0px) * 0.2))
+               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 0.5))
+               rotateX(calc(var(--tilt-start, 0deg) + var(--tilt-speed, 15deg) * 0.3))
+               scale(0.8);
+  }
+  
+  15% {
+    opacity: 0.7;
+    transform: translateY(15vh) 
+               translateX(calc(var(--drift-early, 0px) * 0.6))
+               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 1.2))
+               rotateX(calc(var(--tilt-start, 0deg) + var(--tilt-speed, 15deg) * 0.8))
+               scale(0.95);
+  }
+  
+  35% {
+    opacity: 1;
+    transform: translateY(35vh) 
+               translateX(var(--drift-mid, 0px))
+               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 2.5))
+               rotateX(calc(var(--tilt-start, 0deg) + var(--tilt-speed, 15deg) * 2))
+               scale(1);
+  }
+  
+  60% {
+    opacity: 1;
+    transform: translateY(60vh) 
+               translateX(calc(var(--drift-late, 0px) * 0.8))
+               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 4))
+               rotateX(calc(var(--tilt-start, 0deg) + var(--tilt-speed, 15deg) * 3.5))
+               scale(1.02);
+  }
+  
+  80% {
+    opacity: 0.9;
+    transform: translateY(80vh) 
+               translateX(var(--drift-late, 0px))
+               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 5.5))
+               rotateX(calc(var(--tilt-start, 0deg) + var(--tilt-speed, 15deg) * 4.5))
+               scale(1.05);
+  }
+  
+  95% {
+    opacity: 0.4;
+    transform: translateY(95vh) 
+               translateX(var(--drift-end, 0px))
+               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 6.5))
+               rotateX(calc(var(--tilt-start, 0deg) + var(--tilt-speed, 15deg) * 5.5))
+               scale(0.9);
+  }
+  
+  100% {
+    opacity: 0;
+    transform: translateY(105vh) 
+               translateX(var(--drift-end, 0px))
+               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 7))
+               rotateX(calc(var(--tilt-start, 0deg) + var(--tilt-speed, 15deg) * 6))
+               scale(0.8);
+  }
+}
+
+/* Hero content animation keyframes */
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hero-badge-enter {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes hero-title-slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes hero-title-slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes hero-subtitle-enter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-cta-enter {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
