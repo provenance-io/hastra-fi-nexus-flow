@@ -32,7 +32,7 @@ const About = () => {
             </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
-              Bringing Top-Tier Financial Opportunities to All
+              Bringing Top-Tier Financial Opportunities to Everyone Through DeFi Solutions
             </p>
           </div>
         </section>
