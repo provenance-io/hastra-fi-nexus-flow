@@ -35,9 +35,15 @@ const Products = () => {
             {/* Product header */}
             <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
               <div className="space-y-3">
-                <h3 className="text-3xl md:text-4xl font-bold text-foreground group-hover:text-header-glow transition-colors">
-                  {products.live.name}
-                </h3>
+                <div className="flex items-center gap-4">
+                  {/* YIELD Token Icon Placeholder */}
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-header-glow/20 to-header-glow/10 border-2 border-header-glow/30 flex items-center justify-center shadow-lg shadow-header-glow/20">
+                    <span className="text-2xl font-bold text-header-glow">Y</span>
+                  </div>
+                  <h3 className="text-3xl md:text-4xl font-bold text-foreground group-hover:text-header-glow transition-colors">
+                    {products.live.name}
+                  </h3>
+                </div>
                 <p className="text-xl md:text-2xl font-semibold text-gradient">
                   TradFi Yields, Defi Velocity
                 </p>
@@ -106,9 +112,15 @@ const Products = () => {
             {/* Product header */}
             <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
               <div className="space-y-3">
-                <h3 className="text-3xl md:text-4xl font-bold text-foreground group-hover:text-header-glow transition-colors">
-                  {products.homes.name}
-                </h3>
+                <div className="flex items-center gap-4">
+                  {/* HOMES Token Icon Placeholder */}
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-crypto-accent/20 to-crypto-accent/10 border-2 border-crypto-accent/30 flex items-center justify-center shadow-lg shadow-crypto-accent/20">
+                    <span className="text-2xl font-bold text-crypto-accent">H</span>
+                  </div>
+                  <h3 className="text-3xl md:text-4xl font-bold text-foreground group-hover:text-header-glow transition-colors">
+                    {products.homes.name}
+                  </h3>
+                </div>
                 <p className="text-xl md:text-2xl font-semibold text-gradient">
                   {products.homes.tagline}
                 </p>
