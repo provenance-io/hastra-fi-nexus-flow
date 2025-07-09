@@ -3,6 +3,7 @@ import Header from '@/components/Header';
 import HOMESHero from '@/components/homes/HOMESHero';
 import HOMESAbout from '@/components/homes/HOMESAbout';
 import HOMESPortfolio from '@/components/homes/HOMESPortfolio';
+import HOMESPoolComposition from '@/components/homes/HOMESPoolComposition';
 import HOMESFeatures from '@/components/homes/HOMESFeatures';
 import HOMESFAQ from '@/components/homes/HOMESFAQ';
 import AccessibilityFeatures from '@/components/AccessibilityFeatures';
@@ -18,6 +19,7 @@ const HOMESPage = () => {
         <HOMESHero />
         <HOMESAbout />
         <HOMESPortfolio />
+        <HOMESPoolComposition />
         <HOMESFeatures />
         <HOMESFAQ />
       </main>
