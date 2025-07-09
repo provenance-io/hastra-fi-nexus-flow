@@ -5,57 +5,57 @@
 
 @layer base {
   :root {
-    /* Light mode green-based color scheme */
-    --background: 0 0% 100%;
-    --foreground: 140 10% 10%;
+    /* Sophisticated neutral color scheme */
+    --background: 0 0% 98%;
+    --foreground: 215 25% 15%;
     --card: 0 0% 100%;
-    --card-foreground: 140 10% 10%;
+    --card-foreground: 215 25% 15%;
     --popover: 0 0% 100%;
-    --popover-foreground: 140 10% 10%;
-    --primary: 142 76% 36%;
+    --popover-foreground: 215 25% 15%;
+    --primary: 215 25% 15%;
     --primary-foreground: 0 0% 98%;
-    --secondary: 142 30% 94%;
-    --secondary-foreground: 142 50% 20%;
-    --muted: 142 30% 96%;
-    --muted-foreground: 142 20% 50%;
-    --accent: 142 30% 94%;
-    --accent-foreground: 142 50% 20%;
+    --secondary: 215 15% 94%;
+    --secondary-foreground: 215 25% 25%;
+    --muted: 215 15% 96%;
+    --muted-foreground: 215 15% 45%;
+    --accent: 215 15% 94%;
+    --accent-foreground: 215 25% 25%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 142 30% 88%;
-    --input: 142 30% 92%;
-    --ring: 142 76% 36%;
+    --border: 215 15% 88%;
+    --input: 215 15% 92%;
+    --ring: 215 25% 15%;
     --radius: 0.5rem;
     
-    /* Enhanced green-based colors */
+    /* Sophisticated accent colors */
     --header-bg: 0 0% 100%;
-    --header-glow: 142 76% 36%;
-    --crypto-accent: 32 81% 48%;
-    --gradient-primary: linear-gradient(135deg, hsl(142 76% 36% / 0.1), hsl(32 81% 48% / 0.1));
-    --shadow-glow: 0 0 20px hsl(142 76% 36% / 0.3);
+    --header-glow: 215 25% 25%;
+    --crypto-accent: 25 80% 55%;
+    --gradient-primary: linear-gradient(135deg, hsl(215 25% 25% / 0.05), hsl(25 80% 55% / 0.05));
+    --shadow-glow: 0 0 20px hsl(215 25% 25% / 0.1);
   }
 
   .dark {
-    /* Keep dark mode similar but with green tones */
-    --background: 142 50% 4%;
-    --foreground: 0 0% 98%;
-    --card: 142 50% 4%;
-    --card-foreground: 0 0% 98%;
-    --popover: 142 50% 4%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 142 76% 36%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 142 30% 12%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 142 30% 12%;
-    --muted-foreground: 142 20% 65%;
-    --accent: 142 30% 12%;
-    --accent-foreground: 0 0% 98%;
+    /* Sophisticated dark mode */
+    --background: 215 30% 8%;
+    --foreground: 0 0% 95%;
+    --card: 215 30% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 215 30% 10%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 0 0% 95%;
+    --primary-foreground: 215 30% 8%;
+    --secondary: 215 25% 15%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 215 25% 15%;
+    --muted-foreground: 215 15% 65%;
+    --accent: 215 25% 15%;
+    --accent-foreground: 0 0% 95%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 142 30% 12%;
-    --input: 142 30% 12%;
-    --ring: 142 76% 36%;
+    --border: 215 25% 15%;
+    --input: 215 25% 15%;
+    --ring: 0 0% 95%;
   }
 }
 
