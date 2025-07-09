@@ -10,29 +10,59 @@ const quickStarters = [
   {
     id: 1,
     title: "DeFi Safety First",
-    description: "Essential security practices before you start",
+    description: "Essential security practices before you start investing",
     duration: "5 min read",
     difficulty: "Essential",
     icon: CheckCircle,
-    topics: ["Wallet security", "Scam recognition", "Safe practices"]
+    topics: ["Wallet security fundamentals", "Identifying common scams", "Transaction verification", "Smart contract risks"],
+    content: {
+      intro: "Before diving into DeFi, protecting your assets is paramount. This guide covers essential security practices every DeFi participant must know.",
+      keyPoints: [
+        "Never share your private keys or seed phrases with anyone",
+        "Always verify contract addresses before transactions", 
+        "Use hardware wallets for large amounts",
+        "Be wary of 'too good to be true' APY offers",
+        "Double-check URLs and watch for phishing sites"
+      ]
+    }
   },
   {
     id: 2,
     title: "Your First $100",
-    description: "Step-by-step guide to your first DeFi investment",
+    description: "Complete walkthrough for your first DeFi investment",
     duration: "12 min read",
     difficulty: "Beginner",
     icon: Target,
-    topics: ["Token selection", "Risk management", "Platform choice"]
+    topics: ["Platform selection", "Risk assessment", "Token purchase", "Yield strategies"],
+    content: {
+      intro: "Start your DeFi journey with confidence. This step-by-step guide walks you through making your first $100 investment safely and strategically.",
+      keyPoints: [
+        "Start with established platforms like Raydium or Kamino",
+        "Consider YIELD token for stable, consistent returns",
+        "Diversify across 2-3 different strategies initially",
+        "Set aside funds for transaction fees (usually $1-5)",
+        "Track your positions and understand how to exit"
+      ]
+    }
   },
   {
     id: 3,
     title: "Understanding APY",
-    description: "How yields work and what to expect",
+    description: "Master yield calculations and return expectations",
     duration: "8 min read",
     difficulty: "Beginner",
     icon: TrendingUp,
-    topics: ["APY vs APR", "Compounding", "Risk factors"]
+    topics: ["APY calculations", "Compounding effects", "Risk vs reward", "Market factors"],
+    content: {
+      intro: "APY (Annual Percentage Yield) determines your earnings potential. Learn how it works, what affects it, and how to calculate realistic returns.",
+      keyPoints: [
+        "APY includes compounding effects, APR does not",
+        "High APY often means higher risk - assess carefully",
+        "Market conditions can cause APY to fluctuate",
+        "Factor in gas fees when calculating net returns",
+        "Sustainable APY for stablecoins: 3-15% annually"
+      ]
+    }
   }
 ];
 
@@ -98,19 +128,40 @@ const comprehensiveGuides = [
 
 const quickTips = [
   {
-    title: "Start Small",
-    tip: "Begin with $50-100 to learn without significant risk",
-    icon: Target
+    title: "Start Small, Scale Smart",
+    tip: "Begin with $50-100 to learn the ropes without risking significant capital. Once comfortable, gradually increase your position sizes based on your risk tolerance and experience level.",
+    icon: Target,
+    details: "Perfect for beginners who want to experience DeFi mechanics firsthand without major financial exposure."
   },
   {
-    title: "Diversify Early",
-    tip: "Don't put all funds in one protocol or token",
-    icon: Users
+    title: "Diversify Across Strategies",
+    tip: "Never put all your funds in one protocol, token, or strategy. Spread risk across lending, liquidity provision, and different tokens to protect against protocol failures or market volatility.",
+    icon: Users,
+    details: "Experienced DeFi users typically allocate funds across 3-5 different protocols and strategies."
   },
   {
-    title: "Check Everything Twice",
-    tip: "Always verify contract addresses and transaction details",
-    icon: CheckCircle
+    title: "Verify Everything Twice",
+    tip: "Always double-check contract addresses, transaction amounts, and recipient addresses before confirming any transaction. One wrong character can mean permanent loss of funds.",
+    icon: CheckCircle,
+    details: "Copy-paste addresses instead of typing them manually, and always verify on official websites."
+  },
+  {
+    title: "Understand Gas Fees",
+    tip: "Solana's low fees make it ideal for DeFi, but always factor transaction costs into your profit calculations. High-frequency strategies need careful fee management.",
+    icon: TrendingUp,
+    details: "Typical Solana transaction fees range from $0.00025 to $0.01, making small transactions viable."
+  },
+  {
+    title: "Track Performance Actively",
+    tip: "Monitor your positions regularly, set up alerts for significant changes, and have exit strategies ready. Markets can move quickly in DeFi.",
+    icon: Lightbulb,
+    details: "Use portfolio tracking tools and set price alerts to stay informed about your investments."
+  },
+  {
+    title: "Learn from Community",
+    tip: "Join Discord communities, follow experienced DeFi users on Twitter, and participate in protocol governance. The community is your best learning resource.",
+    icon: BookOpen,
+    details: "Active communities often share alpha, warn about risks, and provide real-time market insights."
   }
 ];
 
@@ -143,7 +194,7 @@ const LearningSectionExpanded = () => {
   };
 
   return (
-    <section className="py-24 md:py-32 bg-gradient-to-br from-header-glow/5 via-background to-crypto-accent/5">
+    <section className="py-24 md:py-32 bg-gradient-to-br from-header-glow/5 via-background to-crypto-accent/5" data-section="learning">
       <div className="container">
         {/* Section Header */}
         <div className="text-center mb-20">
@@ -171,7 +222,7 @@ const LearningSectionExpanded = () => {
                 <Lightbulb className="w-4 h-4 mr-2" />
                 Quick Start
               </TabsTrigger>
-              <TabsTrigger value="comprehensive" className="text-sm">
+              <TabsTrigger value="comprehensive" className="text-sm" data-tab="comprehensive">
                 <BookOpen className="w-4 h-4 mr-2" />
                 Full Guides
               </TabsTrigger>
@@ -324,33 +375,6 @@ const LearningSectionExpanded = () => {
             </TabsContent>
           </Tabs>
 
-          {/* Learning Progress Card */}
-          <Card className="glass-effect border-border/50 mt-16">
-            <CardContent className="p-8">
-              <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-                <div className="text-center lg:text-left">
-                  <h3 className="text-2xl font-bold mb-3">Track Your Progress</h3>
-                  <p className="text-muted-foreground text-lg">
-                    Complete guides to unlock advanced strategies and build confidence
-                  </p>
-                </div>
-                <div className="flex items-center gap-8">
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-header-glow">3/18</div>
-                    <div className="text-sm text-muted-foreground">Guides Completed</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-crypto-accent">12</div>
-                    <div className="text-sm text-muted-foreground">Tips Saved</div>
-                  </div>
-                  <Button className="btn-gradient">
-                    View Dashboard
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </div>
     </section>

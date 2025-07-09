@@ -111,7 +111,16 @@ const BuyEarnSection = () => {
                       </div>
                     ))}
                   </div>
-                  <Button className="w-full bg-crypto-accent/20 border border-crypto-accent/30 text-crypto-accent hover:bg-crypto-accent/30">
+                  <Button 
+                    className="w-full bg-crypto-accent/20 border border-crypto-accent/30 text-crypto-accent hover:bg-crypto-accent/30"
+                    onClick={() => {
+                      // Navigate to quick start guides
+                      const learningSection = document.querySelector('[data-section="learning"]');
+                      if (learningSection) {
+                        learningSection.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                  >
                     Learn More
                     <Info className="ml-2 h-4 w-4" />
                   </Button>
@@ -160,10 +169,17 @@ const BuyEarnSection = () => {
                     ))}
                   </div>
                   <div className="flex gap-3">
-                    <Button variant="outline" className="flex-1">
-                      Platform Guide
-                      <Info className="ml-2 h-4 w-4" />
-                    </Button>
+                  <Button 
+                    variant="outline" 
+                    className="flex-1"
+                    onClick={() => {
+                      // Navigate to comprehensive guides section
+                      document.querySelector('[data-tab="comprehensive"]')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                  >
+                    Platform Guide
+                    <Info className="ml-2 h-4 w-4" />
+                  </Button>
                     <Button asChild className="flex-1 btn-gradient group-hover:shadow-lg transition-shadow">
                       <a href={platform.link} target="_blank" rel="noopener noreferrer">
                         Start Trading
