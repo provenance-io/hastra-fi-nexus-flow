@@ -64,6 +64,10 @@ export default {
 				'auburn-dark': 'hsl(var(--auburn-dark))',
 				'auburn-glow': 'hsl(var(--auburn-glow))',
 			},
+			boxShadow: {
+				'auburn': '0 0 20px hsl(var(--auburn-primary) / 0.3)',
+				'auburn-lg': '0 0 30px hsl(var(--auburn-primary) / 0.4)',
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
