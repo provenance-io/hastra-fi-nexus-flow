@@ -28,7 +28,7 @@ const Hero = () => {
           {[...Array(12)].map((_, i) => {
             const startX = 5 + Math.random() * 90; // Random start across full hero width
             const endX = 20 + Math.random() * 60; // Land across wider area
-            const drift = (Math.random() - 0.5) * 40; // Side-to-side drift from air resistance
+            const drift = (Math.random() - 0.5) * 25; // Reduced drift for smoother motion
             
             return (
               <div 
@@ -39,14 +39,14 @@ const Hero = () => {
                   '--fall-start-x': `${startX}%`,
                   '--fall-end-x': `${endX}%`,
                   '--drift-amount': `${drift}px`,
-                  '--tumble-x-speed': `${0.3 + Math.random() * 0.8}`,
-                  '--tumble-y-speed': `${0.5 + Math.random() * 1.2}`,
-                  '--tumble-z-speed': `${0.2 + Math.random() * 0.6}`,
-                  '--wobble-amount': `${(Math.random() - 0.5) * 20}px`,
-                  '--fall-duration': `${4 + Math.random() * 2}s`,
-                  '--initial-rotation-x': `${Math.random() * 360}deg`,
-                  '--initial-rotation-y': `${Math.random() * 360}deg`,
-                  '--initial-rotation-z': `${Math.random() * 360}deg`
+                  '--tumble-x-speed': `${0.15 + Math.random() * 0.25}`, // Much slower X rotation
+                  '--tumble-y-speed': `${0.2 + Math.random() * 0.3}`,  // Slower Y rotation  
+                  '--tumble-z-speed': `${0.1 + Math.random() * 0.2}`,  // Much slower Z rotation
+                  '--wobble-amount': `${(Math.random() - 0.5) * 15}px`, // Reduced wobble
+                  '--fall-duration': `${5 + Math.random() * 2}s`,      // Slightly longer fall
+                  '--initial-rotation-x': `${Math.random() * 180}deg`, // Reduced initial rotation
+                  '--initial-rotation-y': `${Math.random() * 180}deg`,
+                  '--initial-rotation-z': `${Math.random() * 90}deg`
                 } as React.CSSProperties}
               >
                 <div className="coin-face" />
