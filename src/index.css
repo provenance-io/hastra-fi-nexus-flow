@@ -28,10 +28,10 @@
     
     /* Enhanced crypto-native colors */
     --header-bg: 240 10% 8%;
-    --header-glow: 220 100% 50%;
-    --crypto-accent: 280 100% 70%;
-    --gradient-primary: linear-gradient(135deg, hsl(220 100% 50% / 0.1), hsl(280 100% 70% / 0.1));
-    --shadow-glow: 0 0 20px hsl(220 100% 50% / 0.3);
+    --header-glow: 180 100% 50%;
+    --crypto-accent: 120 100% 50%;
+    --gradient-primary: linear-gradient(135deg, hsl(180 100% 50% / 0.1), hsl(120 100% 50% / 0.1));
+    --shadow-glow: 0 0 20px hsl(120 100% 50% / 0.3);
   }
 
   .dark {
