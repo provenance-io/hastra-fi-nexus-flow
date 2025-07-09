@@ -59,11 +59,12 @@ const Hero = () => {
             <Button 
               size="lg" 
               className="btn-gradient focus-ring font-bold px-8 py-4 text-lg rounded-xl min-w-[200px] group"
-              onClick={handleExploreClick}
-              aria-label="Explore HOMES products"
+              asChild
             >
-              Explore HOMES
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              <Link to="/homes">
+                Explore HOMES
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Link>
             </Button>
             <Button 
               size="lg" 
@@ -71,7 +72,7 @@ const Hero = () => {
               className="focus-ring font-bold px-8 py-4 text-lg rounded-xl min-w-[200px] glass-effect hover:bg-background/90 border-border/50 hover:border-header-glow/30 transition-all duration-300 group"
               asChild
             >
-              <Link to="/wYLDs">
+              <Link to="/yield">
                 Get YIELD
                 <TrendingUp className="ml-2 h-5 w-5 transition-transform group-hover:scale-110" />
               </Link>

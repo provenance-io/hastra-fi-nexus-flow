@@ -3,10 +3,16 @@ import { Link } from 'react-router-dom';
 import HastraLogo from './HastraLogo';
 import MobileMenu from './MobileMenu';
 import { Button } from '@/components/ui/button';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { ChevronDown } from 'lucide-react';
 
 const Header = () => {
   const navItems = [
-    { label: 'Products', href: '/wYLDs' },
     { label: 'Innovation', href: '#innovation-focus', isAnchor: true },
     { label: 'Approach', href: '#innovation-approach', isAnchor: true },
   ];
@@ -26,6 +32,41 @@ const Header = () => {
             <HastraLogo />
           </Link>
           <nav className="hidden md:flex items-center space-x-6">
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center text-sm font-medium text-foreground/70 hover:text-foreground transition-colors relative group">
+                Products
+                <ChevronDown className="ml-1 h-4 w-4" />
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-header-glow transition-all duration-300 group-hover:w-full" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56 glass-effect border-border/50" align="start">
+                <DropdownMenuItem asChild>
+                  <Link to="/yield" className="flex items-center w-full cursor-pointer p-3 hover:bg-header-glow/10 rounded-lg transition-colors">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                        <span className="text-blue-400 font-bold text-sm">Y</span>
+                      </div>
+                      <div>
+                        <div className="font-medium">YIELD</div>
+                        <div className="text-xs text-muted-foreground">Earn up to 8% APY</div>
+                      </div>
+                    </div>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/homes" className="flex items-center w-full cursor-pointer p-3 hover:bg-amber-500/10 rounded-lg transition-colors">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center">
+                        <span className="text-amber-400 font-bold text-sm">H</span>
+                      </div>
+                      <div>
+                        <div className="font-medium">HOMES</div>
+                        <div className="text-xs text-muted-foreground">Tokenized Real Estate</div>
+                      </div>
+                    </div>
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             {navItems.map((item) => (
               <div key={item.label}>
                 {item.isAnchor ? (
@@ -56,7 +97,7 @@ const Header = () => {
             size="sm" 
             className="hidden md:flex btn-gradient text-sm px-4 py-2"
           >
-            <Link to="/wYLDs">Launch wYLDS</Link>
+            <Link to="/yield">Launch YIELD</Link>
           </Button>
           <MobileMenu />
         </div>
