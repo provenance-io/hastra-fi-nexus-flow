@@ -23,7 +23,7 @@ const HOMESPoolComposition = () => {
   };
 
   return (
-    <section className="py-20 md:py-32 bg-background" id="pool-composition">
+    <section className="py-20 md:py-32 bg-gradient-to-br from-header-glow/5 via-background to-background" id="pool-composition">
       <div className="container">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
@@ -119,41 +119,17 @@ const HOMESPoolComposition = () => {
           ))}
         </div>
 
-        {/* Pool Overview */}
-        <Card className="border-border/50 bg-gradient-to-br from-header-glow/5 via-background to-background">
+        {/* About Figure Lending */}
+        <Card className="border-border/50 bg-background/60 backdrop-blur-sm">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Info className="w-5 h-5 text-header-glow" />
-              Collateral Overview
+              About Figure Lending
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-              <div className="text-center p-4 rounded-xl bg-background/60 border border-border/30">
-                <div className="text-2xl font-bold text-header-glow mb-1">{poolOverview.collateralValue}</div>
-                <div className="text-sm text-muted-foreground">Total Collateral</div>
-              </div>
-              <div className="text-center p-4 rounded-xl bg-background/60 border border-border/30">
-                <div className="text-2xl font-bold text-header-glow mb-1">{poolOverview.advanceRate}</div>
-                <div className="text-sm text-muted-foreground">Advance Rate</div>
-              </div>
-              <div className="text-center p-4 rounded-xl bg-background/60 border border-border/30">
-                <div className="text-2xl font-bold text-header-glow mb-1">{poolOverview.avgLoanAmount}</div>
-                <div className="text-sm text-muted-foreground">Avg. Loan Size</div>
-              </div>
-              <div className="text-center p-4 rounded-xl bg-background/60 border border-border/30">
-                <div className="text-2xl font-bold text-header-glow mb-1">{poolOverview.totalLoans}</div>
-                <div className="text-sm text-muted-foreground">Total Loans</div>
-              </div>
-            </div>
-            
             <div className="p-6 rounded-xl bg-background/40 border border-border/20">
-              <div className="flex items-start gap-3">
-                <Badge variant="outline" className="bg-header-glow/10 text-header-glow border-header-glow/30">
-                  About Figure Lending
-                </Badge>
-              </div>
-              <p className="text-muted-foreground mt-4 leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 {poolOverview.description}
               </p>
             </div>
