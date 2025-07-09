@@ -30,6 +30,9 @@
     --header-bg: 240 10% 35%;
     --header-glow: 180 100% 50%;
     --crypto-accent: 120 70% 45%;
+    --mint-green: 152 68% 55%;
+    --mint-green-light: 152 68% 70%;
+    --mint-green-dark: 152 68% 40%;
     --gradient-primary: linear-gradient(135deg, hsl(180 100% 50% / 0.05), hsl(120 70% 45% / 0.05));
     --shadow-glow: 0 0 20px hsl(120 70% 45% / 0.3);
   }
@@ -117,285 +120,116 @@
   }
 }
 
-/* Coin pile and falling animation styles */
-.coin-pile-base {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  height: 80px;
-  width: 1400px;
-  perspective: 200px;
-}
-
-.base-coin {
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: linear-gradient(145deg, 
-    hsl(var(--crypto-accent) / 0.4) 0%, 
-    hsl(var(--header-glow) / 0.25) 30%,
-    hsl(var(--crypto-accent) / 0.35) 60%,
-    hsl(var(--header-glow) / 0.15) 100%);
-  border: 2px solid hsl(var(--crypto-accent) / 0.5);
-  box-shadow: 
-    0 3px 8px hsl(var(--crypto-accent) / 0.3),
-    inset 0 2px 4px hsl(var(--header-glow) / 0.2),
-    inset 0 -2px 4px hsl(var(--crypto-accent) / 0.25),
-    0 0 0 1px hsl(var(--crypto-accent) / 0.15);
-  bottom: var(--pile-y);
-  left: calc(50% + var(--pile-x));
-  transform: translate3d(0, 0, 0) 
-             rotate(var(--pile-rotation)) 
-             scale(var(--pile-scale)) 
-             rotateX(var(--coin-tilt)) 
-             rotateY(var(--coin-lean));
-  z-index: var(--pile-layer);
-  transform-style: preserve-3d;
-}
-
-.base-coin::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(180deg, 
-    hsl(var(--crypto-accent) / 0.6) 0%,
-    hsl(var(--crypto-accent) / 0.2) 50%,
-    hsl(var(--crypto-accent) / 0.4) 100%);
-  border-radius: 50%;
-  transform: translateZ(-4px);
-  z-index: -1;
-}
-
-.tower-coin {
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: linear-gradient(145deg, 
-    hsl(var(--crypto-accent) / 0.45) 0%, 
-    hsl(var(--header-glow) / 0.3) 30%,
-    hsl(var(--crypto-accent) / 0.4) 60%,
-    hsl(var(--header-glow) / 0.2) 100%);
-  border: 2px solid hsl(var(--crypto-accent) / 0.6);
-  box-shadow: 
-    0 4px 10px hsl(var(--crypto-accent) / 0.35),
-    inset 0 2px 4px hsl(var(--header-glow) / 0.25),
-    inset 0 -2px 4px hsl(var(--crypto-accent) / 0.3),
-    0 0 0 1px hsl(var(--crypto-accent) / 0.2);
-  bottom: calc(35px + var(--tower-y));
-  left: calc(50% + var(--tower-x));
-  transform: translate3d(0, 0, 0) 
-             rotate(var(--tower-rotation)) 
-             scale(var(--tower-scale)) 
-             rotateX(var(--coin-tilt)) 
-             rotateY(var(--coin-lean));
-  z-index: var(--tower-layer);
-  transform-style: preserve-3d;
-}
-
-.tower-coin::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(180deg, 
-    hsl(var(--crypto-accent) / 0.7) 0%,
-    hsl(var(--crypto-accent) / 0.25) 50%,
-    hsl(var(--crypto-accent) / 0.5) 100%);
-  border-radius: 50%;
-  transform: translateZ(-4px);
-  z-index: -1;
-}
+/* Falling coin animation styles */
 
 .falling-coin {
   position: absolute;
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: linear-gradient(145deg, 
-    hsl(var(--crypto-accent) / 0.5) 0%, 
-    hsl(var(--header-glow) / 0.35) 30%,
-    hsl(var(--crypto-accent) / 0.45) 60%,
-    hsl(var(--header-glow) / 0.25) 100%);
-  border: 2px solid hsl(var(--crypto-accent) / 0.7);
+    hsl(var(--mint-green-light)) 0%, 
+    hsl(var(--mint-green)) 40%,
+    hsl(var(--mint-green-dark)) 70%,
+    hsl(var(--mint-green)) 100%);
+  border: 2px solid hsl(var(--mint-green-dark));
   box-shadow: 
-    0 5px 15px hsl(var(--crypto-accent) / 0.4),
-    inset 0 3px 6px hsl(var(--header-glow) / 0.3),
-    inset 0 -3px 6px hsl(var(--crypto-accent) / 0.35),
-    0 0 0 1px hsl(var(--crypto-accent) / 0.25);
-  animation: coin-fall-smooth var(--fall-duration, 6s) infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    0 4px 12px hsl(var(--mint-green) / 0.4),
+    inset 0 2px 4px hsl(var(--mint-green-light) / 0.6),
+    inset 0 -2px 4px hsl(var(--mint-green-dark) / 0.4),
+    0 0 0 1px hsl(var(--mint-green) / 0.3);
+  animation: coin-fall-smooth var(--fall-duration, 7s) infinite ease-out;
   opacity: 0;
   left: var(--fall-start-x);
   top: -50px;
   transform-style: preserve-3d;
-  perspective: 200px;
+  perspective: 300px;
 }
 
-.falling-coin::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(180deg, 
-    hsl(var(--crypto-accent) / 0.8) 0%,
-    hsl(var(--crypto-accent) / 0.3) 50%,
-    hsl(var(--crypto-accent) / 0.6) 100%);
-  border-radius: 50%;
-  transform: translateZ(-5px);
-  z-index: -1;
-}
-
-/* Enhanced coin details for 3D metallic appearance */
-.coin-outer-ring {
+.coin-face {
   position: absolute;
   top: 4px;
   left: 4px;
   right: 4px;
   bottom: 4px;
   border-radius: 50%;
-  border: 1px solid hsl(var(--crypto-accent) / 0.4);
-  background: linear-gradient(45deg, 
-    transparent 0%, 
-    hsl(var(--header-glow) / 0.1) 25%,
-    transparent 50%,
-    hsl(var(--crypto-accent) / 0.1) 75%,
-    transparent 100%);
-  transform: translateZ(1px);
+  background: radial-gradient(circle at 30% 30%, 
+    hsl(var(--mint-green-light) / 0.8) 0%,
+    hsl(var(--mint-green)) 40%,
+    hsl(var(--mint-green-dark)) 100%);
+  border: 1px solid hsl(var(--mint-green-dark) / 0.5);
 }
 
-.coin-inner-ring {
-  position: absolute;
-  top: 7px;
-  left: 7px;
-  right: 7px;
-  bottom: 7px;
-  border-radius: 50%;
-  border: 1px solid hsl(var(--crypto-accent) / 0.3);
-  background: radial-gradient(circle, 
-    hsl(var(--header-glow) / 0.08) 0%,
-    transparent 40%,
-    hsl(var(--crypto-accent) / 0.06) 100%);
-  transform: translateZ(2px);
-}
-
-.coin-center {
+.coin-edge {
   position: absolute;
   top: 50%;
   left: 50%;
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  transform: translate(-50%, -50%) translateZ(3px);
-  background: radial-gradient(circle, 
-    hsl(var(--crypto-accent) / 0.5) 0%, 
-    hsl(var(--header-glow) / 0.3) 60%, 
-    transparent 100%);
+  transform: translate(-50%, -50%);
+  background: hsl(var(--mint-green-dark));
   box-shadow: 
-    0 0 3px hsl(var(--crypto-accent) / 0.2),
-    inset 0 1px 1px hsl(var(--header-glow) / 0.2);
+    0 0 2px hsl(var(--mint-green-light)),
+    inset 0 1px 1px hsl(var(--mint-green-light) / 0.4);
 }
 
-.coin-text {
-  display: none; /* Simplify by removing this layer */
-}
 
 @keyframes coin-fall-smooth {
   0% {
     opacity: 0;
-    transform: translateY(-80px) translateX(0) 
-               rotateZ(0deg) rotateY(0deg) rotateX(var(--coin-tilt)) scale(0.9);
+    transform: translateY(-100px) translateX(0) 
+               rotateY(0deg) rotateX(var(--coin-tilt)) scale(0.8);
   }
-  5% {
-    opacity: 0.6;
-    transform: translateY(-60px) translateX(0) 
-               rotateZ(45deg) rotateY(180deg) rotateX(var(--coin-tilt)) scale(1);
-  }
-  15% {
-    opacity: 0.8;
-    transform: translateY(10vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.1)) 
-               rotateZ(calc(180deg * var(--rotation-speed))) 
-               rotateY(calc(360deg * var(--spin-speed))) 
+  10% {
+    opacity: 0.7;
+    transform: translateY(-40px) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.05)) 
+               rotateY(calc(180deg * var(--spin-speed))) 
                rotateX(var(--coin-tilt)) scale(1);
   }
-  30% {
+  25% {
     opacity: 0.9;
-    transform: translateY(30vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.3)) 
-               rotateZ(calc(360deg * var(--rotation-speed))) 
-               rotateY(calc(720deg * var(--spin-speed))) 
+    transform: translateY(20vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.2)) 
+               rotateY(calc(450deg * var(--spin-speed))) 
                rotateX(var(--coin-tilt)) scale(1);
   }
   50% {
     opacity: 1;
-    transform: translateY(55vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.6)) 
-               rotateZ(calc(540deg * var(--rotation-speed))) 
-               rotateY(calc(1080deg * var(--spin-speed))) 
+    transform: translateY(50vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.5)) 
+               rotateY(calc(900deg * var(--spin-speed))) 
                rotateX(var(--coin-tilt)) scale(1);
   }
-  70% {
+  75% {
     opacity: 1;
-    transform: translateY(75vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.85)) 
-               rotateZ(calc(720deg * var(--rotation-speed))) 
-               rotateY(calc(1440deg * var(--spin-speed))) 
-               rotateX(var(--coin-tilt)) scale(1);
-  }
-  85% {
-    opacity: 1;
-    transform: translateY(calc(100vh - 80px)) translateX(calc(var(--fall-end-x) - var(--fall-start-x))) 
-               rotateZ(calc(900deg * var(--rotation-speed))) 
-               rotateY(calc(1800deg * var(--spin-speed))) 
+    transform: translateY(80vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.8)) 
+               rotateY(calc(1350deg * var(--spin-speed))) 
                rotateX(var(--coin-tilt)) scale(1);
   }
   90% {
     opacity: 1;
-    transform: translateY(calc(100vh - 70px)) translateX(calc(var(--fall-end-x) - var(--fall-start-x))) 
-               rotateZ(calc(900deg * var(--rotation-speed))) 
-               rotateY(calc(1800deg * var(--spin-speed))) 
-               rotateX(var(--coin-tilt)) scale(1.03);
-  }
-  95% {
-    opacity: 1;
-    transform: translateY(calc(100vh - 60px)) translateX(calc(var(--fall-end-x) - var(--fall-start-x))) 
-               rotateZ(calc(900deg * var(--rotation-speed))) 
-               rotateY(calc(1800deg * var(--spin-speed))) 
-               rotateX(var(--coin-tilt)) scale(1);
+    transform: translateY(calc(100vh - 50px)) translateX(calc(var(--fall-end-x) - var(--fall-start-x))) 
+               rotateY(calc(1620deg * var(--spin-speed))) 
+               rotateX(var(--coin-tilt)) scale(1.02);
   }
   100% {
     opacity: 0;
-    transform: translateY(calc(100vh - 60px)) translateX(calc(var(--fall-end-x) - var(--fall-start-x))) 
-               rotateZ(calc(900deg * var(--rotation-speed))) 
+    transform: translateY(calc(100vh - 30px)) translateX(calc(var(--fall-end-x) - var(--fall-start-x))) 
                rotateY(calc(1800deg * var(--spin-speed))) 
-               rotateX(var(--coin-tilt)) scale(0.95);
+               rotateX(var(--coin-tilt)) scale(0.9);
   }
 }
 
 /* Responsive coin sizing */
 @media (max-width: 768px) {
-  .coin-pile-base {
-    width: 1000px;
-    height: 60px;
-  }
-  .base-coin, .tower-coin, .falling-coin {
-    width: 28px;
-    height: 28px;
+  .falling-coin {
+    width: 24px;
+    height: 24px;
   }
 }
 
 @media (max-width: 480px) {
-  .coin-pile-base {
-    width: 600px;
-    height: 50px;
-  }
-  .base-coin, .tower-coin, .falling-coin {
-    width: 24px;
-    height: 24px;
+  .falling-coin {
+    width: 20px;
+    height: 20px;
   }
 }

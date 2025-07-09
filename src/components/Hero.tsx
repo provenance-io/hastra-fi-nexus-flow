@@ -21,110 +21,30 @@ const Hero = () => {
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMTAsIDIwLCA0MCwwLjA1KSI+PGQgcGF0aD0iTTAtMSAwIDEgTS0xIDAgMSAwIj48L2Q+PC9zdmc+')] opacity-40"></div>
       <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/80"></div>
       
-      {/* Permanent coin pile at bottom */}
-      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 pointer-events-none z-0">
-        <div className="coin-pile-base">
-          {/* Base scattered coins - spread across full hero width */}
-          {[...Array(120)].map((_, i) => (
-            <div 
-              key={`base-${i}`}
-              className="base-coin"
-              style={{ 
-                '--pile-x': `${(Math.random() - 0.5) * 1200}px`,
-                '--pile-y': `${Math.random() * 35}px`,
-                '--pile-rotation': `${Math.random() * 360}deg`,
-                '--pile-scale': `${0.9 + Math.random() * 0.2}`,
-                '--pile-layer': Math.floor(Math.random() * 4),
-                '--coin-tilt': `${(Math.random() - 0.5) * 15}deg`,
-                '--coin-lean': `${(Math.random() - 0.5) * 10}deg`
-              } as React.CSSProperties}
-            >
-              <div className="coin-outer-ring" />
-              <div className="coin-inner-ring" />
-              <div className="coin-center" />
-            </div>
-          ))}
-          
-          {/* Vertical tower coins - varying heights distributed across hero */}
-          {[...Array(60)].map((_, i) => {
-            // Create 12 towers of varying heights (3-8 coins each)
-            const towers = [
-              { coins: 6, x: -500 },
-              { coins: 4, x: -350 },
-              { coins: 8, x: -200 },
-              { coins: 5, x: -80 },
-              { coins: 7, x: 20 },
-              { coins: 3, x: 120 },
-              { coins: 6, x: 220 },
-              { coins: 5, x: 320 },
-              { coins: 4, x: 420 },
-              { coins: 7, x: 520 },
-              { coins: 3, x: 350 },
-              { coins: 5, x: 450 }
-            ];
-            
-            let towerIndex = 0;
-            let coinInTower = i;
-            
-            // Find which tower this coin belongs to
-            for (let t = 0; t < towers.length; t++) {
-              if (coinInTower < towers[t].coins) {
-                towerIndex = t;
-                break;
-              }
-              coinInTower -= towers[t].coins;
-            }
-            
-            if (towerIndex >= towers.length) return null;
-            
-            return (
-              <div 
-                key={`tower-${i}`}
-                className="tower-coin"
-                style={{ 
-                  '--tower-x': `${towers[towerIndex].x + (Math.random() - 0.5) * 4}px`, // Small random offset
-                  '--tower-y': `${-coinInTower * 2.8}px`,
-                  '--tower-rotation': `${(Math.random() - 0.5) * 6}deg`,
-                  '--tower-scale': `${0.98 + Math.random() * 0.04}`,
-                  '--tower-layer': coinInTower + 20,
-                  '--coin-tilt': `${(Math.random() - 0.5) * 8}deg`,
-                  '--coin-lean': `${(Math.random() - 0.5) * 6}deg`
-                } as React.CSSProperties}
-              >
-                <div className="coin-outer-ring" />
-                <div className="coin-inner-ring" />
-                <div className="coin-center" />
-              </div>
-            );
-          })}
-        </div>
-      </div>
       
       {/* Falling coins animation - smooth natural physics */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="falling-coins-container">
-          {[...Array(8)].map((_, i) => {
-            const startX = 10 + Math.random() * 80; // Random start across hero width
-            const endX = 45 + (Math.random() - 0.5) * 20; // Land in center area with variation
+          {[...Array(12)].map((_, i) => {
+            const startX = 5 + Math.random() * 90; // Random start across full hero width
+            const endX = 20 + Math.random() * 60; // Land across wider area
             
             return (
               <div 
                 key={`falling-${i}`}
                 className="falling-coin"
                 style={{ 
-                  animationDelay: `${i * 1.5 + Math.random() * 2}s`,
+                  animationDelay: `${i * 2 + Math.random() * 3}s`,
                   '--fall-start-x': `${startX}%`,
                   '--fall-end-x': `${endX}%`,
-                  '--rotation-speed': `${0.8 + Math.random() * 0.6}`,
-                  '--spin-speed': `${1.2 + Math.random() * 0.8}`,
-                  '--fall-duration': `${4 + Math.random() * 2}s`,
-                  '--coin-tilt': `${(Math.random() - 0.5) * 20}deg`,
-                  '--coin-lean': `${(Math.random() - 0.5) * 15}deg`
+                  '--rotation-speed': `${0.5 + Math.random() * 0.4}`,
+                  '--spin-speed': `${0.8 + Math.random() * 0.6}`,
+                  '--fall-duration': `${5 + Math.random() * 3}s`,
+                  '--coin-tilt': `${(Math.random() - 0.5) * 10}deg`
                 } as React.CSSProperties}
               >
-                <div className="coin-outer-ring" />
-                <div className="coin-inner-ring" />
-                <div className="coin-center" />
+                <div className="coin-face" />
+                <div className="coin-edge" />
               </div>
             );
           })}
