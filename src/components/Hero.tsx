@@ -34,7 +34,9 @@ const Hero = () => {
                 '--pile-y': `${Math.random() * 35}px`,
                 '--pile-rotation': `${Math.random() * 360}deg`,
                 '--pile-scale': `${0.9 + Math.random() * 0.2}`,
-                '--pile-layer': Math.floor(Math.random() * 4)
+                '--pile-layer': Math.floor(Math.random() * 4),
+                '--coin-tilt': `${(Math.random() - 0.5) * 15}deg`,
+                '--coin-lean': `${(Math.random() - 0.5) * 10}deg`
               } as React.CSSProperties}
             >
               <div className="coin-outer-ring" />
@@ -80,11 +82,13 @@ const Hero = () => {
                 key={`tower-${i}`}
                 className="tower-coin"
                 style={{ 
-                  '--tower-x': `${towers[towerIndex].x}px`,
+                  '--tower-x': `${towers[towerIndex].x + (Math.random() - 0.5) * 4}px`, // Small random offset
                   '--tower-y': `${-coinInTower * 2.8}px`,
                   '--tower-rotation': `${(Math.random() - 0.5) * 6}deg`,
                   '--tower-scale': `${0.98 + Math.random() * 0.04}`,
-                  '--tower-layer': coinInTower + 20
+                  '--tower-layer': coinInTower + 20,
+                  '--coin-tilt': `${(Math.random() - 0.5) * 8}deg`,
+                  '--coin-lean': `${(Math.random() - 0.5) * 6}deg`
                 } as React.CSSProperties}
               >
                 <div className="coin-outer-ring" />
@@ -114,6 +118,8 @@ const Hero = () => {
                   '--rotation-speed': `${0.8 + Math.random() * 0.6}`,
                   '--spin-speed': `${1.2 + Math.random() * 0.8}`,
                   '--fall-duration': `${4 + Math.random() * 2}s`,
+                  '--coin-tilt': `${(Math.random() - 0.5) * 20}deg`,
+                  '--coin-lean': `${(Math.random() - 0.5) * 15}deg`
                 } as React.CSSProperties}
               >
                 <div className="coin-outer-ring" />
