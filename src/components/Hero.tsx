@@ -40,17 +40,17 @@ const Hero = () => {
           {/* Main heading with enhanced typography */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight">
             <span className="block text-gradient animate-slide-in-left">
-              Pushing Forward
+              Stack Real Assets
             </span>
             <span className="block bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70 animate-slide-in-right" style={{ animationDelay: '0.2s' }}>
-              the Future of Finance
+              On-Chain
             </span>
           </h1>
 
           {/* Subtitle with better spacing */}
           <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Developing <span className="text-header-glow font-semibold">innovative use cases</span> and cutting-edge financial solutions that redefine how the world interacts with money.
+              Elite DeFi Products for the <span className="text-header-glow font-semibold">Crypto Savvy</span>, Backed by Real-World Assets.
             </p>
           </div>
 
@@ -60,9 +60,9 @@ const Hero = () => {
               size="lg" 
               className="btn-gradient focus-ring font-bold px-8 py-4 text-lg rounded-xl min-w-[200px] group"
               onClick={handleExploreClick}
-              aria-label="Explore our innovation focus areas"
+              aria-label="Explore HOMES products"
             >
-              Explore Our Innovation
+              Explore HOMES
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button 
@@ -72,7 +72,7 @@ const Hero = () => {
               asChild
             >
               <Link to="/wYLDs">
-                Launch wYLDS
+                Get YIELD
                 <TrendingUp className="ml-2 h-5 w-5 transition-transform group-hover:scale-110" />
               </Link>
             </Button>
