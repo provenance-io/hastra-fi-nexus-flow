@@ -3,6 +3,14 @@
     @apply bg-gradient-to-r from-header-glow to-crypto-accent text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95;
   }
   
+  .btn-auburn {
+    @apply bg-gradient-to-r from-auburn-primary to-auburn-light text-white font-bold shadow-lg hover:shadow-xl hover:shadow-auburn transition-all duration-300 hover:scale-105 active:scale-95;
+  }
+  
+  .btn-auburn-outline {
+    @apply border border-auburn-primary/30 bg-auburn-primary/10 text-auburn-primary hover:bg-auburn-primary/20 hover:border-auburn-primary/50 font-bold shadow-lg hover:shadow-auburn transition-all duration-300 hover:scale-105 active:scale-95;
+  }
+  
   .header-enhanced {
     background: linear-gradient(135deg, hsl(var(--header-bg)) 0%, hsl(var(--header-bg)) 80%, hsl(var(--header-glow) / 0.05) 100%);
   }

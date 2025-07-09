@@ -59,6 +59,10 @@ export default {
 				'header-bg': 'hsl(var(--header-bg))',
 				'header-glow': 'hsl(var(--header-glow))',
 				'crypto-accent': 'hsl(var(--crypto-accent))',
+				'auburn-primary': 'hsl(var(--auburn-primary))',
+				'auburn-light': 'hsl(var(--auburn-light))',
+				'auburn-dark': 'hsl(var(--auburn-dark))',
+				'auburn-glow': 'hsl(var(--auburn-glow))',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

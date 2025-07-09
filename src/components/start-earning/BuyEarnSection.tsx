@@ -55,11 +55,11 @@ const riskColors = {
 
 const BuyEarnSection = () => {
   return (
-    <section className="py-24 md:py-32 bg-gradient-to-br from-crypto-accent/5 via-background to-header-glow/5">
+    <section className="py-24 md:py-32 bg-gradient-to-br from-auburn-primary/5 via-background to-auburn-light/5">
       <div className="container">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <Badge className="mb-6 bg-crypto-accent/20 border-crypto-accent/30 text-crypto-accent hover:bg-crypto-accent/30">
+          <Badge className="mb-6 bg-auburn-primary/20 border-auburn-primary/30 text-auburn-primary hover:bg-auburn-primary/30">
             <Coins className="w-4 h-4 mr-2" />
             Buy & Earn
           </Badge>
@@ -80,14 +80,14 @@ const BuyEarnSection = () => {
           <h3 className="text-2xl md:text-3xl font-bold text-center mb-12">Available Tokens</h3>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {tokens.map((token, index) => (
-              <Card key={index} className="glass-effect border-border/50 hover:border-crypto-accent/30 transition-all duration-300">
+              <Card key={index} className="glass-effect border-border/50 hover:border-auburn-primary/30 transition-all duration-300">
                 <CardHeader>
                   <div className="flex items-center justify-between mb-3">
                     <Badge className={riskColors[token.risk as keyof typeof riskColors]}>
                       <Shield className="w-3 h-3 mr-1" />
                       {token.risk} Risk
                     </Badge>
-                    <Badge variant="outline" className="text-crypto-accent border-crypto-accent/30">
+                    <Badge variant="outline" className="text-auburn-primary border-auburn-primary/30">
                       {token.apy} APY
                     </Badge>
                   </div>
@@ -106,13 +106,14 @@ const BuyEarnSection = () => {
                   <div className="space-y-3 mb-6">
                     {token.features.map((feature, i) => (
                       <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <div className="w-2 h-2 bg-crypto-accent rounded-full"></div>
+                        <div className="w-2 h-2 bg-auburn-primary rounded-full"></div>
                         <span>{feature}</span>
                       </div>
                     ))}
                   </div>
                   <Button 
-                    className="w-full bg-crypto-accent/20 border border-crypto-accent/30 text-crypto-accent hover:bg-crypto-accent/30"
+                    variant="auburn-outline"
+                    className="w-full"
                     onClick={() => {
                       // Navigate to quick start guides
                       const learningSection = document.querySelector('[data-section="learning"]');
@@ -135,10 +136,10 @@ const BuyEarnSection = () => {
           <h3 className="text-2xl md:text-3xl font-bold text-center mb-12">Trading Platforms</h3>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {platforms.map((platform, index) => (
-              <Card key={index} className="glass-effect border-border/50 hover:border-crypto-accent/30 transition-all duration-300 group">
+              <Card key={index} className="glass-effect border-border/50 hover:border-auburn-primary/30 transition-all duration-300 group">
                 <CardHeader>
                   <div className="flex items-center justify-between mb-4">
-                    <Badge variant="outline" className="text-crypto-accent border-crypto-accent/30">
+                    <Badge variant="outline" className="text-auburn-primary border-auburn-primary/30">
                       {platform.type}
                     </Badge>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -163,7 +164,7 @@ const BuyEarnSection = () => {
                   <div className="space-y-3 mb-6">
                     {platform.features.map((feature, i) => (
                       <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <div className="w-2 h-2 bg-crypto-accent rounded-full"></div>
+                        <div className="w-2 h-2 bg-auburn-primary rounded-full"></div>
                         <span>{feature}</span>
                       </div>
                     ))}
@@ -180,7 +181,7 @@ const BuyEarnSection = () => {
                     Platform Guide
                     <Info className="ml-2 h-4 w-4" />
                   </Button>
-                    <Button asChild className="flex-1 btn-gradient group-hover:shadow-lg transition-shadow">
+                    <Button asChild variant="auburn" className="flex-1 group-hover:shadow-lg transition-shadow">
                       <a href={platform.link} target="_blank" rel="noopener noreferrer">
                         Start Trading
                         <ExternalLink className="ml-2 h-4 w-4" />
@@ -205,30 +206,30 @@ const BuyEarnSection = () => {
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
               <div className="text-center">
-                <div className="text-2xl font-bold text-crypto-accent">12.4k+</div>
+                <div className="text-2xl font-bold text-auburn-primary">12.4k+</div>
                 <div className="text-sm text-muted-foreground">Active users</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-header-glow">$2.3M+</div>
+                <div className="text-2xl font-bold text-auburn-light">$2.3M+</div>
                 <div className="text-sm text-muted-foreground">Total value locked</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-crypto-accent">95%</div>
+                <div className="text-2xl font-bold text-auburn-primary">95%</div>
                 <div className="text-sm text-muted-foreground">Success rate</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-header-glow">24/7</div>
+                <div className="text-2xl font-bold text-auburn-light">24/7</div>
                 <div className="text-sm text-muted-foreground">Support</div>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="btn-gradient">
+              <Button size="lg" variant="auburn" className="btn-auburn">
                 <Clock className="mr-2 h-5 w-5" />
                 Get Started in 5 Minutes
                 <ChevronRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button size="lg" variant="outline">
+              <Button size="lg" variant="auburn-outline">
                 View All Platforms
                 <ExternalLink className="ml-2 h-5 w-5" />
               </Button>

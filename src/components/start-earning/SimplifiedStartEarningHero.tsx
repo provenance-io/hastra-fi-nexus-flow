@@ -13,7 +13,7 @@ const SimplifiedStartEarningHero = () => {
       <div className="container relative">
         {/* Hero Content */}
         <div className="text-center mb-16 animate-fade-in">
-          <Badge className="mb-6 bg-header-glow/20 border-header-glow/30 text-header-glow hover:bg-header-glow/30">
+          <Badge className="mb-6 bg-auburn-primary/20 border-auburn-primary/30 text-auburn-primary hover:bg-auburn-primary/30">
             <Play className="w-3 h-3 mr-2" />
             Your DeFi Journey Starts Here
           </Badge>
@@ -30,11 +30,11 @@ const SimplifiedStartEarningHero = () => {
         {/* Main Action Cards */}
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 mb-16">
           {/* Learn Path */}
-          <Card className="glass-effect border-border/50 hover:border-header-glow/30 transition-all duration-300 group cursor-pointer">
+          <Card className="glass-effect border-border/50 hover:border-auburn-primary/30 transition-all duration-300 group cursor-pointer">
             <CardContent className="p-8">
               <div className="text-center">
-                <div className="w-16 h-16 bg-header-glow/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <BookOpen className="w-8 h-8 text-header-glow" />
+                <div className="w-16 h-16 bg-auburn-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <BookOpen className="w-8 h-8 text-auburn-primary" />
                 </div>
                 
                 <h3 className="text-2xl font-bold mb-4">Learn First</h3>
@@ -42,22 +42,22 @@ const SimplifiedStartEarningHero = () => {
                   Master DeFi basics with our guided tutorials and interactive content before investing
                 </p>
                 
-                <div className="space-y-3 mb-6">
+                  <div className="space-y-3 mb-6">
                   <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-                    <div className="w-2 h-2 bg-header-glow rounded-full"></div>
+                    <div className="w-2 h-2 bg-auburn-primary rounded-full"></div>
                     <span>18 Step-by-step guides</span>
                   </div>
                   <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-                    <div className="w-2 h-2 bg-header-glow rounded-full"></div>
+                    <div className="w-2 h-2 bg-auburn-primary rounded-full"></div>
                     <span>Video tutorials</span>
                   </div>
                   <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-                    <div className="w-2 h-2 bg-header-glow rounded-full"></div>
+                    <div className="w-2 h-2 bg-auburn-primary rounded-full"></div>
                     <span>Interactive exercises</span>
                   </div>
                 </div>
                 
-                <Button className="w-full btn-gradient group-hover:shadow-lg transition-shadow">
+                <Button className="w-full btn-auburn group-hover:shadow-lg transition-shadow">
                   Start Learning
                   <BookOpen className="ml-2 h-4 w-4" />
                 </Button>
@@ -66,11 +66,11 @@ const SimplifiedStartEarningHero = () => {
           </Card>
 
           {/* Buy Path */}
-          <Card className="glass-effect border-border/50 hover:border-crypto-accent/30 transition-all duration-300 group cursor-pointer">
+          <Card className="glass-effect border-border/50 hover:border-auburn-primary/30 transition-all duration-300 group cursor-pointer">
             <CardContent className="p-8">
               <div className="text-center">
-                <div className="w-16 h-16 bg-crypto-accent/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <ShoppingCart className="w-8 h-8 text-crypto-accent" />
+                <div className="w-16 h-16 bg-auburn-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <ShoppingCart className="w-8 h-8 text-auburn-primary" />
                 </div>
                 
                 <h3 className="text-2xl font-bold mb-4">Buy & Earn Now</h3>
@@ -80,20 +80,20 @@ const SimplifiedStartEarningHero = () => {
                 
                 <div className="space-y-3 mb-6">
                   <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-                    <div className="w-2 h-2 bg-crypto-accent rounded-full"></div>
+                    <div className="w-2 h-2 bg-auburn-primary rounded-full"></div>
                     <span>YIELD token - Up to 8% APY</span>
                   </div>
                   <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-                    <div className="w-2 h-2 bg-crypto-accent rounded-full"></div>
+                    <div className="w-2 h-2 bg-auburn-primary rounded-full"></div>
                     <span>sHASH token - DeFi participation</span>
                   </div>
                   <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-                    <div className="w-2 h-2 bg-crypto-accent rounded-full"></div>
+                    <div className="w-2 h-2 bg-auburn-primary rounded-full"></div>
                     <span>Multiple platforms available</span>
                   </div>
                 </div>
                 
-                <Button className="w-full bg-crypto-accent/20 border border-crypto-accent/30 text-crypto-accent hover:bg-crypto-accent/30 group-hover:shadow-lg transition-shadow">
+                <Button className="w-full btn-auburn-outline group-hover:shadow-lg transition-shadow">
                   Buy Tokens
                   <ExternalLink className="ml-2 h-4 w-4" />
                 </Button>
@@ -107,15 +107,15 @@ const SimplifiedStartEarningHero = () => {
           <p className="text-sm text-muted-foreground mb-4">Join thousands already earning</p>
           <div className="flex flex-wrap justify-center gap-8 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-header-glow rounded-full animate-pulse"></div>
+              <div className="w-2 h-2 bg-auburn-primary rounded-full animate-pulse"></div>
               <span>12.4k+ Active users</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-crypto-accent rounded-full animate-pulse"></div>
+              <div className="w-2 h-2 bg-auburn-light rounded-full animate-pulse"></div>
               <span>$2.3M+ Total value locked</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-header-glow rounded-full animate-pulse"></div>
+              <div className="w-2 h-2 bg-auburn-primary rounded-full animate-pulse"></div>
               <span>95% Success rate</span>
             </div>
           </div>

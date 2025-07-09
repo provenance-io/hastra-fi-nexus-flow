@@ -541,19 +541,19 @@ const EnhancedGuidesSection = () => {
           {/* Learning Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
             <div className="text-center">
-              <div className="text-2xl font-bold text-header-glow">12+</div>
+              <div className="text-2xl font-bold text-auburn-primary">12+</div>
               <div className="text-sm text-muted-foreground">Complete Guides</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-crypto-accent">150+</div>
+              <div className="text-2xl font-bold text-auburn-light">150+</div>
               <div className="text-sm text-muted-foreground">Pro Tips</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-header-glow">40+</div>
+              <div className="text-2xl font-bold text-auburn-primary">40+</div>
               <div className="text-sm text-muted-foreground">Video Tutorials</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-crypto-accent">24/7</div>
+              <div className="text-2xl font-bold text-auburn-light">24/7</div>
               <div className="text-sm text-muted-foreground">Support</div>
             </div>
           </div>
@@ -649,7 +649,8 @@ const EnhancedGuidesSection = () => {
                         )}
                       </div>
                       <Button 
-                        className="w-full btn-gradient group-hover:shadow-lg transition-shadow"
+                        variant="auburn"
+                        className="w-full group-hover:shadow-lg transition-shadow"
                         onClick={() => startReading(starter)}
                       >
                         Start Reading
@@ -752,7 +753,8 @@ const EnhancedGuidesSection = () => {
                             </Button>
                           )}
                           <Button 
-                            className="flex-1 btn-gradient"
+                            variant="auburn"
+                            className="flex-1"
                             onClick={() => openComprehensiveGuide(guide)}
                           >
                             Read Full Guide
@@ -800,8 +802,8 @@ const EnhancedGuidesSection = () => {
                       <div className="flex gap-3">
                         <Button 
                           onClick={() => showEnhancedTip(tip)}
-                          className="flex-1 group-hover:bg-header-glow/20 transition-colors"
-                          variant="outline"
+                          className="flex-1 group-hover:bg-auburn-primary/20 transition-colors"
+                          variant="auburn-outline"
                         >
                           Save Strategy
                           <CheckCircle className="ml-2 h-4 w-4" />
@@ -935,7 +937,8 @@ const EnhancedGuidesSection = () => {
                     Close Guide
                   </Button>
                   <Button 
-                    className="flex-1 btn-gradient"
+                    variant="auburn"
+                    className="flex-1"
                     onClick={() => {
                       setReadingProgress(100);
                       toast({
@@ -1027,7 +1030,7 @@ const EnhancedGuidesSection = () => {
                   >
                     Close
                   </Button>
-                  <Button className="flex-1 btn-gradient">
+                  <Button variant="auburn" className="flex-1">
                     <ExternalLink className="mr-2 h-4 w-4" />
                     Access Full Guide
                   </Button>
