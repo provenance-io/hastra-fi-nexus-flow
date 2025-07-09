@@ -13,8 +13,7 @@ import { ChevronDown } from 'lucide-react';
 
 const Header = () => {
   const navItems = [
-    { label: 'Innovation', href: '#innovation-focus', isAnchor: true },
-    { label: 'Approach', href: '#innovation-approach', isAnchor: true },
+    // Removed innovation and approach items
   ];
 
   const handleNavClick = (href: string, isAnchor?: boolean) => {
