@@ -24,7 +24,7 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white backdrop-blur supports-[backdrop-filter]:bg-white/95 shadow-sm">
+    <header className="sticky top-0 z-50 w-full border-b border-gray-200/30 bg-gradient-to-r from-white via-gray-50/80 to-white backdrop-blur supports-[backdrop-filter]:bg-gradient-to-r supports-[backdrop-filter]:from-white/95 supports-[backdrop-filter]:via-gray-50/60 supports-[backdrop-filter]:to-white/95 shadow-lg shadow-header-glow/10">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center space-x-12">
           <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
@@ -36,13 +36,13 @@ const Header = () => {
               className="text-lg font-medium text-gray-700 hover:text-gray-900 transition-colors relative group"
             >
               About
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-500 transition-all duration-300 group-hover:w-full" />
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent transition-all duration-300 group-hover:w-full" />
             </Link>
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center text-lg font-medium text-gray-700 hover:text-gray-900 transition-colors relative group">
                 Products
                 <ChevronDown className="ml-1 h-4 w-4" />
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-500 transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent transition-all duration-300 group-hover:w-full" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-72 bg-white/95 backdrop-blur-md border border-gray-200 shadow-2xl" align="start">
                 <DropdownMenuItem asChild>
@@ -81,7 +81,7 @@ const Header = () => {
                     className="text-base font-medium text-gray-700 hover:text-gray-900 transition-colors relative group"
                   >
                     {item.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-500 transition-all duration-300 group-hover:w-full" />
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent transition-all duration-300 group-hover:w-full" />
                   </button>
                 ) : (
                   <Link
@@ -89,7 +89,7 @@ const Header = () => {
                     className="text-base font-medium text-gray-700 hover:text-gray-900 transition-colors relative group"
                   >
                     {item.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-500 transition-all duration-300 group-hover:w-full" />
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent transition-all duration-300 group-hover:w-full" />
                   </Link>
                 )}
               </div>
@@ -99,14 +99,14 @@ const Header = () => {
               className="text-lg font-medium text-gray-700 hover:text-gray-900 transition-colors relative group"
             >
               (L)earn
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-500 transition-all duration-300 group-hover:w-full" />
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent transition-all duration-300 group-hover:w-full" />
             </Link>
             <Link
               to="/earn"
               className="text-lg font-medium text-gray-700 hover:text-gray-900 transition-colors relative group"
             >
               Earn
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-500 transition-all duration-300 group-hover:w-full" />
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent transition-all duration-300 group-hover:w-full" />
             </Link>
           </nav>
         </div>
