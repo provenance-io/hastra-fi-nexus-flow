@@ -132,19 +132,14 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: linear-gradient(135deg, 
-    hsl(var(--header-glow) / 0.06) 0%, 
-    hsl(var(--crypto-accent) / 0.12) 25%,
-    hsl(var(--header-glow) / 0.1) 50%, 
-    hsl(var(--crypto-accent) / 0.15) 75%,
-    hsl(var(--header-glow) / 0.04) 100%);
-  border: 1px solid hsl(var(--header-glow) / 0.2);
+  background: linear-gradient(145deg, 
+    hsl(var(--crypto-accent) / 0.3) 0%, 
+    hsl(var(--header-glow) / 0.2) 50%, 
+    hsl(var(--crypto-accent) / 0.15) 100%);
+  border: 1px solid hsl(var(--crypto-accent) / 0.4);
   box-shadow: 
-    0 1px 4px hsl(var(--header-glow) / 0.08),
-    inset 0 1px 2px hsl(var(--foreground) / 0.02),
-    0 0 6px hsl(var(--crypto-accent) / 0.1),
-    inset 0 -1px 1px hsl(var(--header-glow) / 0.12);
-  backdrop-filter: blur(3px);
+    0 1px 3px hsl(var(--crypto-accent) / 0.2),
+    inset 0 1px 1px hsl(var(--header-glow) / 0.1);
   bottom: var(--pile-y);
   left: calc(50% + var(--pile-x));
   transform: rotate(var(--pile-rotation)) scale(var(--pile-scale));
@@ -156,19 +151,14 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: linear-gradient(135deg, 
-    hsl(var(--header-glow) / 0.1) 0%, 
-    hsl(var(--crypto-accent) / 0.18) 25%,
-    hsl(var(--header-glow) / 0.15) 50%, 
-    hsl(var(--crypto-accent) / 0.22) 75%,
-    hsl(var(--header-glow) / 0.08) 100%);
-  border: 1px solid hsl(var(--header-glow) / 0.3);
+  background: linear-gradient(145deg, 
+    hsl(var(--crypto-accent) / 0.4) 0%, 
+    hsl(var(--header-glow) / 0.3) 50%, 
+    hsl(var(--crypto-accent) / 0.2) 100%);
+  border: 1px solid hsl(var(--crypto-accent) / 0.5);
   box-shadow: 
-    0 2px 6px hsl(var(--header-glow) / 0.12),
-    inset 0 1px 3px hsl(var(--foreground) / 0.03),
-    0 0 8px hsl(var(--crypto-accent) / 0.15),
-    inset 0 -1px 2px hsl(var(--header-glow) / 0.18);
-  backdrop-filter: blur(5px);
+    0 2px 4px hsl(var(--crypto-accent) / 0.25),
+    inset 0 1px 2px hsl(var(--header-glow) / 0.15);
   bottom: calc(35px + var(--tower-y));
   left: calc(50% + var(--tower-x));
   transform: rotate(var(--tower-rotation)) scale(var(--tower-scale));
@@ -180,83 +170,54 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: linear-gradient(135deg, 
-    hsl(var(--header-glow) / 0.12) 0%, 
-    hsl(var(--crypto-accent) / 0.2) 25%,
-    hsl(var(--header-glow) / 0.18) 50%, 
-    hsl(var(--crypto-accent) / 0.25) 75%,
-    hsl(var(--header-glow) / 0.1) 100%);
-  border: 1px solid hsl(var(--header-glow) / 0.35);
+  background: linear-gradient(145deg, 
+    hsl(var(--crypto-accent) / 0.5) 0%, 
+    hsl(var(--header-glow) / 0.4) 50%, 
+    hsl(var(--crypto-accent) / 0.3) 100%);
+  border: 1px solid hsl(var(--crypto-accent) / 0.6);
   box-shadow: 
-    0 3px 10px hsl(var(--header-glow) / 0.15),
-    inset 0 2px 4px hsl(var(--foreground) / 0.05),
-    0 0 15px hsl(var(--crypto-accent) / 0.2),
-    inset 0 -2px 3px hsl(var(--header-glow) / 0.2);
-  backdrop-filter: blur(8px);
+    0 3px 6px hsl(var(--crypto-accent) / 0.3),
+    inset 0 1px 3px hsl(var(--header-glow) / 0.2);
   animation: coin-fall-and-spin 8s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
   opacity: 0;
   left: var(--fall-start-x);
   top: -50px;
 }
 
-/* Enhanced coin details for realistic appearance */
+/* Simplified coin details */
 .coin-outer-ring {
   position: absolute;
-  top: 2px;
-  left: 2px;
-  right: 2px;
-  bottom: 2px;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
   border-radius: 50%;
-  border: 1px solid hsl(var(--header-glow) / 0.15);
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    hsl(var(--crypto-accent) / 0.05) 50%, 
-    transparent 100%);
+  border: 1px solid hsl(var(--crypto-accent) / 0.3);
 }
 
 .coin-inner-ring {
   position: absolute;
-  top: 4px;
-  left: 4px;
-  right: 4px;
-  bottom: 4px;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
   border-radius: 50%;
-  border: 1px solid hsl(var(--header-glow) / 0.12);
-  background: linear-gradient(45deg, 
-    transparent 0%, 
-    hsl(var(--crypto-accent) / 0.08) 50%, 
-    transparent 100%);
+  border: 1px solid hsl(var(--crypto-accent) / 0.2);
 }
 
 .coin-center {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 4px;
-  height: 4px;
+  width: 3px;
+  height: 3px;
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle, 
-    hsl(var(--header-glow) / 0.25) 0%, 
-    hsl(var(--crypto-accent) / 0.15) 60%, 
-    transparent 100%);
-  box-shadow: 0 0 2px hsl(var(--header-glow) / 0.1);
+  background: hsl(var(--crypto-accent) / 0.4);
 }
 
 .coin-text {
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  right: 6px;
-  bottom: 6px;
-  border-radius: 50%;
-  border: 1px solid hsl(var(--header-glow) / 0.08);
-  background: linear-gradient(135deg, 
-    transparent 0%, 
-    hsl(var(--crypto-accent) / 0.04) 25%,
-    transparent 50%,
-    hsl(var(--header-glow) / 0.04) 75%,
-    transparent 100%);
+  display: none; /* Simplify by removing this layer */
 }
 
 @keyframes coin-fall-and-spin {
