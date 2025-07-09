@@ -176,6 +176,7 @@ const LearningSectionExpanded = () => {
   const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("quick");
   const [expandedGuide, setExpandedGuide] = useState<number | null>(null);
+  const [readingGuide, setReadingGuide] = useState<number | null>(null);
 
   const showQuickTip = (tip: typeof quickTips[0]) => {
     toast({
@@ -191,6 +192,10 @@ const LearningSectionExpanded = () => {
       description: `${guide.title} - ${guide.difficulty} level guide ready to read`,
       duration: 3000,
     });
+  };
+
+  const startReading = (starter: typeof quickStarters[0]) => {
+    setReadingGuide(readingGuide === starter.id ? null : starter.id);
   };
 
   return (
@@ -264,10 +269,31 @@ const LearningSectionExpanded = () => {
                           </div>
                         ))}
                       </div>
-                      <Button className="w-full btn-gradient group-hover:shadow-lg transition-shadow">
-                        Start Reading
+                      <Button 
+                        className="w-full btn-gradient group-hover:shadow-lg transition-shadow"
+                        onClick={() => startReading(starter)}
+                      >
+                        {readingGuide === starter.id ? 'Close Guide' : 'Start Reading'}
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
+                      
+                      {/* Detailed Content Display */}
+                      {readingGuide === starter.id && (
+                        <div className="mt-6 p-6 bg-header-glow/5 rounded-lg border border-header-glow/20 animate-fade-in">
+                          <h4 className="text-lg font-semibold mb-4 text-header-glow">Guide Content</h4>
+                          <p className="text-muted-foreground mb-6 leading-relaxed">{starter.content.intro}</p>
+                          
+                          <h5 className="font-semibold mb-3">Key Points:</h5>
+                          <div className="space-y-3">
+                            {starter.content.keyPoints.map((point, i) => (
+                              <div key={i} className="flex items-start gap-3">
+                                <CheckCircle className="w-5 h-5 text-header-glow mt-0.5 flex-shrink-0" />
+                                <span className="text-sm text-muted-foreground">{point}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </CardContent>
                   </Card>
                 ))}
