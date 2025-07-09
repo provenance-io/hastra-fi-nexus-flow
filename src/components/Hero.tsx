@@ -24,19 +24,41 @@ const Hero = () => {
       {/* Permanent coin pile at bottom */}
       <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 pointer-events-none z-0">
         <div className="coin-pile-base">
-          {[...Array(20)].map((_, i) => (
+          {/* Base scattered coins */}
+          {[...Array(100)].map((_, i) => (
             <div 
               key={`base-${i}`}
               className="base-coin"
               style={{ 
-                '--pile-x': `${(Math.random() - 0.5) * 200}px`,
-                '--pile-y': `${Math.random() * 20}px`,
+                '--pile-x': `${(Math.random() - 0.5) * 280}px`,
+                '--pile-y': `${Math.random() * 25}px`,
                 '--pile-rotation': `${Math.random() * 360}deg`,
-                '--pile-scale': `${0.8 + Math.random() * 0.4}`,
-                '--pile-layer': Math.floor(Math.random() * 5)
+                '--pile-scale': `${0.7 + Math.random() * 0.4}`,
+                '--pile-layer': Math.floor(Math.random() * 3)
               } as React.CSSProperties}
             />
           ))}
+          
+          {/* Vertical tower coins */}
+          {[...Array(30)].map((_, i) => {
+            const towerIndex = Math.floor(i / 6); // 6 coins per tower
+            const coinInTower = i % 6;
+            const towerOffset = (towerIndex - 2.5) * 40; // 5 towers spread across center
+            
+            return (
+              <div 
+                key={`tower-${i}`}
+                className="tower-coin"
+                style={{ 
+                  '--tower-x': `${towerOffset}px`,
+                  '--tower-y': `${-coinInTower * 22}px`,
+                  '--tower-rotation': `${(Math.random() - 0.5) * 20}deg`,
+                  '--tower-scale': `${0.9 + Math.random() * 0.2}`,
+                  '--tower-layer': coinInTower + 10
+                } as React.CSSProperties}
+              />
+            );
+          })}
         </div>
       </div>
       

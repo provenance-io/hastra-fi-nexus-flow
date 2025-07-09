@@ -123,29 +123,50 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  height: 60px;
-  width: 300px;
+  height: 150px;
+  width: 400px;
 }
 
 .base-coin {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, 
+    hsl(var(--header-glow) / 0.1) 0%, 
+    hsl(var(--crypto-accent) / 0.18) 50%, 
+    hsl(var(--header-glow) / 0.06) 100%);
+  border: 1px solid hsl(var(--header-glow) / 0.2);
+  box-shadow: 
+    0 1px 4px hsl(var(--header-glow) / 0.08),
+    inset 0 1px 2px hsl(var(--foreground) / 0.02),
+    0 0 6px hsl(var(--crypto-accent) / 0.12);
+  backdrop-filter: blur(4px);
+  bottom: var(--pile-y);
+  left: calc(50% + var(--pile-x));
+  transform: rotate(var(--pile-rotation)) scale(var(--pile-scale));
+  z-index: var(--pile-layer);
+}
+
+.tower-coin {
   position: absolute;
   width: 24px;
   height: 24px;
   border-radius: 50%;
   background: linear-gradient(135deg, 
-    hsl(var(--header-glow) / 0.12) 0%, 
-    hsl(var(--crypto-accent) / 0.2) 50%, 
-    hsl(var(--header-glow) / 0.08) 100%);
-  border: 1px solid hsl(var(--header-glow) / 0.25);
+    hsl(var(--header-glow) / 0.15) 0%, 
+    hsl(var(--crypto-accent) / 0.25) 50%, 
+    hsl(var(--header-glow) / 0.1) 100%);
+  border: 1px solid hsl(var(--header-glow) / 0.3);
   box-shadow: 
-    0 2px 6px hsl(var(--header-glow) / 0.12),
-    inset 0 1px 2px hsl(var(--foreground) / 0.03),
-    0 0 8px hsl(var(--crypto-accent) / 0.15);
+    0 2px 6px hsl(var(--header-glow) / 0.15),
+    inset 0 1px 3px hsl(var(--foreground) / 0.04),
+    0 0 10px hsl(var(--crypto-accent) / 0.18);
   backdrop-filter: blur(6px);
-  bottom: var(--pile-y);
-  left: calc(50% + var(--pile-x));
-  transform: rotate(var(--pile-rotation)) scale(var(--pile-scale));
-  z-index: var(--pile-layer);
+  bottom: calc(25px + var(--tower-y));
+  left: calc(50% + var(--tower-x));
+  transform: rotate(var(--tower-rotation)) scale(var(--tower-scale));
+  z-index: var(--tower-layer);
 }
 
 .falling-coins-container {
@@ -243,8 +264,16 @@
     height: 24px;
   }
   .coin-pile-base {
-    width: 250px;
-    height: 50px;
+    width: 300px;
+    height: 120px;
+  }
+  .base-coin {
+    width: 18px;
+    height: 18px;
+  }
+  .tower-coin {
+    width: 20px;
+    height: 20px;
   }
 }
 
@@ -258,7 +287,15 @@
     height: 20px;
   }
   .coin-pile-base {
-    width: 200px;
-    height: 40px;
+    width: 250px;
+    height: 100px;
+  }
+  .base-coin {
+    width: 16px;
+    height: 16px;
+  }
+  .tower-coin {
+    width: 18px;
+    height: 18px;
   }
 }
