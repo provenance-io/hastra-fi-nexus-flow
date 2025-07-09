@@ -124,112 +124,131 @@
 
 .falling-coin {
   position: absolute;
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: linear-gradient(145deg, 
-    hsl(var(--mint-green-light)) 0%, 
-    hsl(var(--mint-green)) 40%,
-    hsl(var(--mint-green-dark)) 70%,
-    hsl(var(--mint-green)) 100%);
-  border: 2px solid hsl(var(--mint-green-dark));
+    hsl(var(--mint-green-light)) 10%, 
+    hsl(var(--mint-green)) 30%,
+    hsl(var(--mint-green-dark)) 60%,
+    hsl(var(--mint-green)) 85%,
+    hsl(var(--mint-green-light)) 100%);
+  border: 3px solid hsl(var(--mint-green-dark));
   box-shadow: 
-    0 4px 12px hsl(var(--mint-green) / 0.4),
-    inset 0 2px 4px hsl(var(--mint-green-light) / 0.6),
-    inset 0 -2px 4px hsl(var(--mint-green-dark) / 0.4),
-    0 0 0 1px hsl(var(--mint-green) / 0.3);
-  animation: coin-fall-smooth var(--fall-duration, 7s) infinite ease-out;
+    0 6px 20px hsl(var(--mint-green) / 0.5),
+    inset 0 3px 8px hsl(var(--mint-green-light) / 0.7),
+    inset 0 -3px 8px hsl(var(--mint-green-dark) / 0.5),
+    0 0 0 1px hsl(var(--mint-green) / 0.4),
+    0 0 15px hsl(var(--mint-green) / 0.3);
+  animation: coin-fall-smooth var(--fall-duration, 8s) infinite cubic-bezier(0.25, 0.1, 0.25, 1);
   opacity: 0;
   left: var(--fall-start-x);
-  top: -50px;
+  top: -80px;
   transform-style: preserve-3d;
-  perspective: 300px;
+  perspective: 400px;
 }
 
 .coin-face {
   position: absolute;
-  top: 4px;
-  left: 4px;
-  right: 4px;
-  bottom: 4px;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, 
-    hsl(var(--mint-green-light) / 0.8) 0%,
-    hsl(var(--mint-green)) 40%,
-    hsl(var(--mint-green-dark)) 100%);
-  border: 1px solid hsl(var(--mint-green-dark) / 0.5);
+  background: radial-gradient(circle at 25% 25%, 
+    hsl(var(--mint-green-light) / 0.9) 0%,
+    hsl(var(--mint-green)) 30%,
+    hsl(var(--mint-green-dark)) 70%,
+    hsl(var(--mint-green)) 100%);
+  border: 1px solid hsl(var(--mint-green-dark) / 0.6);
+  box-shadow: inset 0 2px 4px hsl(var(--mint-green-light) / 0.5);
 }
 
 .coin-edge {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  background: hsl(var(--mint-green-dark));
+  background: radial-gradient(circle, 
+    hsl(var(--mint-green-light)) 0%,
+    hsl(var(--mint-green-dark)) 100%);
   box-shadow: 
-    0 0 2px hsl(var(--mint-green-light)),
-    inset 0 1px 1px hsl(var(--mint-green-light) / 0.4);
+    0 0 4px hsl(var(--mint-green-light)),
+    inset 0 1px 2px hsl(var(--mint-green-light) / 0.6),
+    inset 0 -1px 2px hsl(var(--mint-green-dark) / 0.4);
 }
 
 
 @keyframes coin-fall-smooth {
   0% {
     opacity: 0;
-    transform: translateY(-100px) translateX(0) 
-               rotateY(0deg) rotateX(var(--coin-tilt)) scale(0.8);
+    transform: translateY(-120px) translateX(0) 
+               rotateY(0deg) rotateX(var(--coin-tilt)) scale(0.7);
   }
-  10% {
-    opacity: 0.7;
-    transform: translateY(-40px) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.05)) 
-               rotateY(calc(180deg * var(--spin-speed))) 
+  8% {
+    opacity: 0.6;
+    transform: translateY(-60px) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.03)) 
+               rotateY(calc(120deg * var(--spin-speed))) 
+               rotateX(var(--coin-tilt)) scale(0.9);
+  }
+  15% {
+    opacity: 0.8;
+    transform: translateY(-20px) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.08)) 
+               rotateY(calc(270deg * var(--spin-speed))) 
                rotateX(var(--coin-tilt)) scale(1);
   }
   25% {
     opacity: 0.9;
-    transform: translateY(20vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.2)) 
+    transform: translateY(15vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.18)) 
                rotateY(calc(450deg * var(--spin-speed))) 
                rotateX(var(--coin-tilt)) scale(1);
   }
-  50% {
+  40% {
     opacity: 1;
-    transform: translateY(50vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.5)) 
-               rotateY(calc(900deg * var(--spin-speed))) 
+    transform: translateY(35vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.35)) 
+               rotateY(calc(720deg * var(--spin-speed))) 
                rotateX(var(--coin-tilt)) scale(1);
   }
-  75% {
+  60% {
     opacity: 1;
-    transform: translateY(80vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.8)) 
-               rotateY(calc(1350deg * var(--spin-speed))) 
+    transform: translateY(60vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.6)) 
+               rotateY(calc(1080deg * var(--spin-speed))) 
                rotateX(var(--coin-tilt)) scale(1);
   }
-  90% {
+  80% {
     opacity: 1;
-    transform: translateY(calc(100vh - 50px)) translateX(calc(var(--fall-end-x) - var(--fall-start-x))) 
-               rotateY(calc(1620deg * var(--spin-speed))) 
-               rotateX(var(--coin-tilt)) scale(1.02);
+    transform: translateY(85vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.85)) 
+               rotateY(calc(1440deg * var(--spin-speed))) 
+               rotateX(var(--coin-tilt)) scale(1);
+  }
+  95% {
+    opacity: 1;
+    transform: translateY(calc(100vh - 40px)) translateX(calc(var(--fall-end-x) - var(--fall-start-x))) 
+               rotateY(calc(1710deg * var(--spin-speed))) 
+               rotateX(var(--coin-tilt)) scale(1.05);
   }
   100% {
     opacity: 0;
-    transform: translateY(calc(100vh - 30px)) translateX(calc(var(--fall-end-x) - var(--fall-start-x))) 
+    transform: translateY(calc(100vh - 20px)) translateX(calc(var(--fall-end-x) - var(--fall-start-x))) 
                rotateY(calc(1800deg * var(--spin-speed))) 
-               rotateX(var(--coin-tilt)) scale(0.9);
+               rotateX(var(--coin-tilt)) scale(0.85);
   }
 }
 
 /* Responsive coin sizing */
 @media (max-width: 768px) {
   .falling-coin {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
   }
 }
 
 @media (max-width: 480px) {
   .falling-coin {
-    width: 20px;
-    height: 20px;
+    width: 28px;
+    height: 28px;
   }
 }
