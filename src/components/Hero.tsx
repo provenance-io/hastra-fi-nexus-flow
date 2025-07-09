@@ -58,13 +58,6 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Floating elements */}
-      <div className="absolute top-20 left-10 opacity-20 animate-float z-10">
-        <TrendingUp className="w-8 h-8 text-header-glow" />
-      </div>
-      <div className="absolute top-32 right-16 opacity-20 animate-float z-10" style={{ animationDelay: '1s' }}>
-        <Shield className="w-6 h-6 text-crypto-accent" />
-      </div>
       
       <div className="container relative z-20">
         <div className="text-center space-y-8 animate-fade-in">
