@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -15,7 +16,7 @@ const WYLDsHero = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-background via-blue-900/10 to-purple-900/10 backdrop-blur-sm"></div>
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMTAsIDIwLCA0MCwwLjA1KSI+PGQgcGF0aD0iTTAtMSAwIDEgTS0xIDAgMSAwIj48L2Q+PC9zdmc+')] opacity-60"></div>
       <div className="container relative text-center animate-fade-in">
-        <div className="inline-block bg-gray-700/50 border border-gray-600 rounded-full px-3 py-1 text-sm mb-4">
+        <div className="inline-block bg-gray-700/50 border border-gray-600 rounded-full px-3 py-1 text-sm mb-4 animate-pulse-light">
           Powered by Hastra-Fi Innovation
         </div>
         
