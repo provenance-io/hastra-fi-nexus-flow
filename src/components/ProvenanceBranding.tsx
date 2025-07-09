@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 
 const ProvenanceBranding = () => {
@@ -12,7 +13,7 @@ const ProvenanceBranding = () => {
       <div className="container">
         <div className="flex items-center justify-center gap-3">
           <span className="text-base text-muted-foreground font-medium">
-            Powered by Provenance Blockchain
+            Built on Provenance Blockchain
           </span>
         </div>
       </div>

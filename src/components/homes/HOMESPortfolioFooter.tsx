@@ -1,3 +1,4 @@
+
 import { Home, TrendingUp, Coins } from 'lucide-react';
 
 const HOMESPortfolioFooter = () => {
@@ -16,7 +17,7 @@ const HOMESPortfolioFooter = () => {
           </div>
         </div>
         <div className="text-left">
-          <div className="font-semibold text-sm">Powered by Solana DeFi</div>
+          <div className="font-semibold text-sm">Built on Solana DeFi</div>
           <div className="text-xs text-muted-foreground">Kamino & Raydium</div>
         </div>
       </div>

@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -25,7 +24,7 @@ const WYLDsHero = () => {
       <div className="container relative text-center">
         <div className="glass-premium rounded-full px-6 py-3 text-sm font-medium mb-8 animate-glow-pulse inline-block">
           <span className="mr-2 w-2 h-2 bg-electric-blue rounded-full animate-pulse"></span>
-          <span className="text-premium-gradient font-semibold">Powered by Provenance Blockchain</span>
+          <span className="text-premium-gradient font-semibold">Built on Provenance Blockchain</span>
         </div>
         
         <h1 className="text-6xl md:text-8xl font-black tracking-tight mb-6 relative">
