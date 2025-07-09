@@ -27,7 +27,7 @@
     --radius: 0.5rem;
     
     /* Enhanced crypto-native colors */
-    --header-bg: 240 10% 25%;
+    --header-bg: 240 10% 35%;
     --header-glow: 180 100% 50%;
     --crypto-accent: 120 70% 45%;
     --gradient-primary: linear-gradient(135deg, hsl(180 100% 50% / 0.05), hsl(120 70% 45% / 0.05));
