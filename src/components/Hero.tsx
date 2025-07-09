@@ -82,15 +82,15 @@ const Hero = () => {
       </div>
       
       {/* Animated coin stacking element */}
-      <div className="absolute bottom-0 left-0 right-0 h-20 overflow-hidden pointer-events-none">
-        <div className="coin-container">
-          {[...Array(12)].map((_, i) => (
+      <div className="absolute bottom-0 left-0 right-0 h-32 overflow-hidden pointer-events-none">
+        <div className="coin-stack-container">
+          {[...Array(8)].map((_, i) => (
             <div 
               key={i}
-              className="coin"
+              className="falling-coin"
               style={{ 
-                animationDelay: `${i * 0.3}s`,
-                left: `${i * 8.33}%`
+                animationDelay: `${i * 0.8}s`,
+                left: `calc(50% - 16px + ${(Math.random() - 0.5) * 60}px)`
               }}
             />
           ))}
