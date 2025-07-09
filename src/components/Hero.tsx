@@ -21,15 +21,49 @@ const Hero = () => {
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMTAsIDIwLCA0MCwwLjA1KSI+PGQgcGF0aD0iTTAtMSAwIDEgTS0xIDAgMSAwIj48L2Q+PC9zdmc+')] opacity-40"></div>
       <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/80"></div>
       
+      {/* Permanent coin pile at bottom */}
+      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 pointer-events-none z-0">
+        <div className="coin-pile-base">
+          {[...Array(8)].map((_, i) => (
+            <div 
+              key={`base-${i}`}
+              className="base-coin"
+              style={{ 
+                '--pile-layer': i,
+                '--pile-offset': `${(i % 2 === 0 ? 1 : -1) * Math.random() * 8}px`
+              } as React.CSSProperties}
+            />
+          ))}
+        </div>
+      </div>
+      
+      {/* Falling coins animation */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="falling-coins-container">
+          {[...Array(6)].map((_, i) => (
+            <div 
+              key={`falling-${i}`}
+              className="falling-coin"
+              style={{ 
+                animationDelay: `${i * 1.2}s`,
+                '--fall-start-x': `${20 + Math.random() * 60}%`,
+                '--fall-end-x': `${45 + Math.random() * 10}%`,
+                '--rotation-speed': `${2 + Math.random() * 2}`,
+              } as React.CSSProperties}
+            />
+          ))}
+        </div>
+      </div>
+      
       {/* Floating elements */}
-      <div className="absolute top-20 left-10 opacity-20 animate-float">
+      <div className="absolute top-20 left-10 opacity-20 animate-float z-10">
         <TrendingUp className="w-8 h-8 text-header-glow" />
       </div>
-      <div className="absolute top-32 right-16 opacity-20 animate-float" style={{ animationDelay: '1s' }}>
+      <div className="absolute top-32 right-16 opacity-20 animate-float z-10" style={{ animationDelay: '1s' }}>
         <Shield className="w-6 h-6 text-crypto-accent" />
       </div>
       
-      <div className="container relative">
+      <div className="container relative z-20">
         <div className="text-center space-y-8 animate-fade-in">
           {/* Badge */}
           <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-header-glow/20 text-sm font-medium text-foreground/80 animate-glow-pulse">
@@ -78,25 +112,6 @@ const Hero = () => {
               </Link>
             </Button>
           </div>
-        </div>
-      </div>
-      
-      {/* Animated coin stacking element */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 overflow-hidden pointer-events-none">
-        <div className="coin-pile-container">
-          {[...Array(12)].map((_, i) => (
-            <div 
-              key={i}
-              className="falling-coin"
-              style={{ 
-                animationDelay: `${i * 0.6}s`,
-                '--fall-offset': `${(Math.random() - 0.5) * 120}px`,
-                '--rotation': `${Math.random() * 360}deg`,
-                '--final-x': `${(Math.random() - 0.5) * 80}px`,
-                '--final-rotation': `${(Math.random() - 0.5) * 60}deg`
-              } as React.CSSProperties}
-            />
-          ))}
         </div>
       </div>
     </section>
