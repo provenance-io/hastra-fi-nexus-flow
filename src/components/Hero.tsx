@@ -24,13 +24,16 @@ const Hero = () => {
       {/* Permanent coin pile at bottom */}
       <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 pointer-events-none z-0">
         <div className="coin-pile-base">
-          {[...Array(8)].map((_, i) => (
+          {[...Array(20)].map((_, i) => (
             <div 
               key={`base-${i}`}
               className="base-coin"
               style={{ 
-                '--pile-layer': i,
-                '--pile-offset': `${(i % 2 === 0 ? 1 : -1) * Math.random() * 8}px`
+                '--pile-x': `${(Math.random() - 0.5) * 200}px`,
+                '--pile-y': `${Math.random() * 20}px`,
+                '--pile-rotation': `${Math.random() * 360}deg`,
+                '--pile-scale': `${0.8 + Math.random() * 0.4}`,
+                '--pile-layer': Math.floor(Math.random() * 5)
               } as React.CSSProperties}
             />
           ))}
@@ -40,15 +43,15 @@ const Hero = () => {
       {/* Falling coins animation */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="falling-coins-container">
-          {[...Array(6)].map((_, i) => (
+          {[...Array(10)].map((_, i) => (
             <div 
               key={`falling-${i}`}
               className="falling-coin"
               style={{ 
-                animationDelay: `${i * 1.2}s`,
-                '--fall-start-x': `${20 + Math.random() * 60}%`,
-                '--fall-end-x': `${45 + Math.random() * 10}%`,
-                '--rotation-speed': `${2 + Math.random() * 2}`,
+                animationDelay: `${i * 0.8}s`,
+                '--fall-start-x': `${5 + (i * 9)}%`,
+                '--fall-end-x': `${40 + Math.random() * 20}%`,
+                '--rotation-speed': `${1.5 + Math.random() * 1.5}`,
               } as React.CSSProperties}
             />
           ))}
