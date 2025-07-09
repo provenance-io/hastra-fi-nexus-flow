@@ -7,7 +7,7 @@ const HOMESPortfolio = () => {
       <div className="container">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Manage Your HOMES Investment
+            Manage Your HOMES
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Purchase tokens, redeem yields, and manage your portfolio seamlessly.
