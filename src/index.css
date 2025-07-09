@@ -117,8 +117,8 @@
   }
 }
 
-/* Coin stacking animation styles */
-.coin-stack-container {
+/* Coin pile animation styles */
+.coin-pile-container {
   position: relative;
   width: 100%;
   height: 100%;
@@ -133,73 +133,103 @@
   height: 32px;
   border-radius: 50%;
   background: linear-gradient(135deg, 
-    hsl(var(--header-glow) / 0.4) 0%, 
-    hsl(var(--crypto-accent) / 0.5) 50%, 
-    hsl(var(--header-glow) / 0.3) 100%);
-  border: 2px solid hsl(var(--header-glow) / 0.5);
+    hsl(45 100% 70%) 0%,
+    hsl(45 100% 60%) 25%, 
+    hsl(40 100% 50%) 50%,
+    hsl(45 100% 65%) 75%,
+    hsl(50 100% 75%) 100%);
+  border: 2px solid hsl(40 80% 45%);
   box-shadow: 
-    0 4px 12px hsl(var(--header-glow) / 0.3),
-    inset 0 2px 4px hsl(var(--foreground) / 0.1),
-    0 0 24px hsl(var(--crypto-accent) / 0.4);
-  backdrop-filter: blur(10px);
-  animation: coin-fall-and-stack 6.4s infinite ease-in-out;
+    0 4px 12px hsl(40 70% 30% / 0.4),
+    inset 0 2px 4px hsl(50 100% 80% / 0.3),
+    inset 0 -2px 4px hsl(30 80% 40% / 0.3),
+    0 0 24px hsl(45 100% 60% / 0.3);
+  animation: coin-fall-and-pile 7.2s infinite ease-in-out;
   opacity: 0;
-  z-index: 1;
+  left: calc(50% - 16px);
+  bottom: 0;
 }
 
-.falling-coin:nth-child(1) { z-index: 8; }
-.falling-coin:nth-child(2) { z-index: 7; }
-.falling-coin:nth-child(3) { z-index: 6; }
-.falling-coin:nth-child(4) { z-index: 5; }
-.falling-coin:nth-child(5) { z-index: 4; }
-.falling-coin:nth-child(6) { z-index: 3; }
-.falling-coin:nth-child(7) { z-index: 2; }
-.falling-coin:nth-child(8) { z-index: 1; }
+/* Layering for realistic pile effect */
+.falling-coin:nth-child(1) { z-index: 1; }
+.falling-coin:nth-child(2) { z-index: 2; }
+.falling-coin:nth-child(3) { z-index: 3; }
+.falling-coin:nth-child(4) { z-index: 4; }
+.falling-coin:nth-child(5) { z-index: 5; }
+.falling-coin:nth-child(6) { z-index: 6; }
+.falling-coin:nth-child(7) { z-index: 7; }
+.falling-coin:nth-child(8) { z-index: 8; }
+.falling-coin:nth-child(9) { z-index: 9; }
+.falling-coin:nth-child(10) { z-index: 10; }
+.falling-coin:nth-child(11) { z-index: 11; }
+.falling-coin:nth-child(12) { z-index: 12; }
 
-@keyframes coin-fall-and-stack {
+@keyframes coin-fall-and-pile {
   0% {
     opacity: 0;
-    transform: translateY(-100px) rotateY(0deg) scale(0.8);
+    transform: translateY(-120px) translateX(var(--fall-offset)) rotate(var(--rotation)) scale(0.8);
   }
   5% {
-    opacity: 0.8;
-    transform: translateY(-100px) rotateY(180deg) scale(1);
-  }
-  20% {
-    opacity: 1;
-    transform: translateY(calc(-1 * var(--stack-height, 0px))) rotateY(360deg) scale(1);
+    opacity: 0.9;
+    transform: translateY(-100px) translateX(var(--fall-offset)) rotate(calc(var(--rotation) + 180deg)) scale(1);
   }
   25% {
     opacity: 1;
-    transform: translateY(calc(-1 * var(--stack-height, 0px) - 4px)) rotateY(360deg) scale(1.05);
+    transform: translateY(calc(-8px + var(--pile-height, 0px))) 
+               translateX(var(--final-x)) 
+               rotate(calc(var(--rotation) + 720deg + var(--final-rotation))) 
+               scale(1);
   }
   30% {
     opacity: 1;
-    transform: translateY(calc(-1 * var(--stack-height, 0px))) rotateY(360deg) scale(1);
+    transform: translateY(calc(-12px + var(--pile-height, 0px))) 
+               translateX(var(--final-x)) 
+               rotate(calc(var(--rotation) + 720deg + var(--final-rotation))) 
+               scale(1.05);
+  }
+  35% {
+    opacity: 1;
+    transform: translateY(calc(0px + var(--pile-height, 0px))) 
+               translateX(var(--final-x)) 
+               rotate(calc(var(--rotation) + 720deg + var(--final-rotation))) 
+               scale(1);
   }
   85% {
     opacity: 1;
-    transform: translateY(calc(-1 * var(--stack-height, 0px))) rotateY(360deg) scale(1);
+    transform: translateY(calc(0px + var(--pile-height, 0px))) 
+               translateX(var(--final-x)) 
+               rotate(calc(var(--rotation) + 720deg + var(--final-rotation))) 
+               scale(1);
   }
   95% {
-    opacity: 0.6;
-    transform: translateY(calc(-1 * var(--stack-height, 0px))) rotateY(360deg) scale(0.9);
+    opacity: 0.7;
+    transform: translateY(calc(0px + var(--pile-height, 0px))) 
+               translateX(var(--final-x)) 
+               rotate(calc(var(--rotation) + 720deg + var(--final-rotation))) 
+               scale(0.9);
   }
   100% {
     opacity: 0;
-    transform: translateY(calc(-1 * var(--stack-height, 0px))) rotateY(360deg) scale(0.8);
+    transform: translateY(calc(0px + var(--pile-height, 0px))) 
+               translateX(var(--final-x)) 
+               rotate(calc(var(--rotation) + 720deg + var(--final-rotation))) 
+               scale(0.8);
   }
 }
 
-/* Individual coin positioning for stacking effect */
-.falling-coin:nth-child(1) { --stack-height: 0px; }
-.falling-coin:nth-child(2) { --stack-height: 28px; }
-.falling-coin:nth-child(3) { --stack-height: 56px; }
-.falling-coin:nth-child(4) { --stack-height: 84px; }
-.falling-coin:nth-child(5) { --stack-height: 112px; }
-.falling-coin:nth-child(6) { --stack-height: 140px; }
-.falling-coin:nth-child(7) { --stack-height: 168px; }
-.falling-coin:nth-child(8) { --stack-height: 196px; }
+/* Pile height variations for natural stacking */
+.falling-coin:nth-child(1) { --pile-height: 0px; }
+.falling-coin:nth-child(2) { --pile-height: -8px; }
+.falling-coin:nth-child(3) { --pile-height: -4px; }
+.falling-coin:nth-child(4) { --pile-height: -16px; }
+.falling-coin:nth-child(5) { --pile-height: -12px; }
+.falling-coin:nth-child(6) { --pile-height: -24px; }
+.falling-coin:nth-child(7) { --pile-height: -20px; }
+.falling-coin:nth-child(8) { --pile-height: -32px; }
+.falling-coin:nth-child(9) { --pile-height: -28px; }
+.falling-coin:nth-child(10) { --pile-height: -40px; }
+.falling-coin:nth-child(11) { --pile-height: -36px; }
+.falling-coin:nth-child(12) { --pile-height: -48px; }
 
 /* Responsive coin sizing */
 @media (max-width: 768px) {
@@ -207,14 +237,18 @@
     width: 28px;
     height: 28px;
   }
-  .falling-coin:nth-child(1) { --stack-height: 0px; }
-  .falling-coin:nth-child(2) { --stack-height: 24px; }
-  .falling-coin:nth-child(3) { --stack-height: 48px; }
-  .falling-coin:nth-child(4) { --stack-height: 72px; }
-  .falling-coin:nth-child(5) { --stack-height: 96px; }
-  .falling-coin:nth-child(6) { --stack-height: 120px; }
-  .falling-coin:nth-child(7) { --stack-height: 144px; }
-  .falling-coin:nth-child(8) { --stack-height: 168px; }
+  .falling-coin:nth-child(1) { --pile-height: 0px; }
+  .falling-coin:nth-child(2) { --pile-height: -6px; }
+  .falling-coin:nth-child(3) { --pile-height: -3px; }
+  .falling-coin:nth-child(4) { --pile-height: -12px; }
+  .falling-coin:nth-child(5) { --pile-height: -9px; }
+  .falling-coin:nth-child(6) { --pile-height: -18px; }
+  .falling-coin:nth-child(7) { --pile-height: -15px; }
+  .falling-coin:nth-child(8) { --pile-height: -24px; }
+  .falling-coin:nth-child(9) { --pile-height: -21px; }
+  .falling-coin:nth-child(10) { --pile-height: -30px; }
+  .falling-coin:nth-child(11) { --pile-height: -27px; }
+  .falling-coin:nth-child(12) { --pile-height: -36px; }
 }
 
 @media (max-width: 480px) {
@@ -222,12 +256,16 @@
     width: 24px;
     height: 24px;
   }
-  .falling-coin:nth-child(1) { --stack-height: 0px; }
-  .falling-coin:nth-child(2) { --stack-height: 20px; }
-  .falling-coin:nth-child(3) { --stack-height: 40px; }
-  .falling-coin:nth-child(4) { --stack-height: 60px; }
-  .falling-coin:nth-child(5) { --stack-height: 80px; }
-  .falling-coin:nth-child(6) { --stack-height: 100px; }
-  .falling-coin:nth-child(7) { --stack-height: 120px; }
-  .falling-coin:nth-child(8) { --stack-height: 140px; }
+  .falling-coin:nth-child(1) { --pile-height: 0px; }
+  .falling-coin:nth-child(2) { --pile-height: -4px; }
+  .falling-coin:nth-child(3) { --pile-height: -2px; }
+  .falling-coin:nth-child(4) { --pile-height: -8px; }
+  .falling-coin:nth-child(5) { --pile-height: -6px; }
+  .falling-coin:nth-child(6) { --pile-height: -12px; }
+  .falling-coin:nth-child(7) { --pile-height: -10px; }
+  .falling-coin:nth-child(8) { --pile-height: -16px; }
+  .falling-coin:nth-child(9) { --pile-height: -14px; }
+  .falling-coin:nth-child(10) { --pile-height: -20px; }
+  .falling-coin:nth-child(11) { --pile-height: -18px; }
+  .falling-coin:nth-child(12) { --pile-height: -24px; }
 }
