@@ -1,6 +1,5 @@
 import { portfolioCards } from '@/data/homesPortfolioData';
 import HOMESPortfolioCard from './HOMESPortfolioCard';
-import HOMESPortfolioFooter from './HOMESPortfolioFooter';
 
 const HOMESPortfolio = () => {
   return (
@@ -20,8 +19,6 @@ const HOMESPortfolio = () => {
             <HOMESPortfolioCard key={card.id} card={card} />
           ))}
         </div>
-
-        <HOMESPortfolioFooter />
       </div>
     </section>
   );
