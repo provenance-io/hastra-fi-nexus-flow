@@ -32,7 +32,7 @@ const About = () => {
             </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
-              Democratizing access to <span className="text-header-glow font-semibold">elite financial products</span> through blockchain innovation and regulatory compliance.
+              Bringing Top-Tier Financial Opportunities to All
             </p>
           </div>
         </section>
