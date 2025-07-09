@@ -5,57 +5,55 @@
 
 @layer base {
   :root {
-    /* Sophisticated neutral color scheme */
-    --background: 41 22% 90%;
-    --foreground: 215 25% 15%;
-    --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
-    --primary: 215 25% 15%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 215 15% 94%;
-    --secondary-foreground: 215 25% 25%;
-    --muted: 215 15% 96%;
-    --muted-foreground: 215 15% 45%;
-    --accent: 215 15% 94%;
-    --accent-foreground: 215 25% 25%;
-    --destructive: 0 84% 60%;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 215 15% 88%;
-    --input: 215 15% 92%;
-    --ring: 215 25% 15%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
     --radius: 0.5rem;
     
-    /* Sophisticated accent colors */
-    --header-bg: 0 0% 100%;
-    --header-glow: 142 85% 18%;
-    --crypto-accent: 142 85% 18%;
-    --gradient-primary: hsl(142 85% 18% / 0.18);
-    --shadow-glow: 0 0 25px hsl(142 85% 18% / 0.25);
+    /* Enhanced crypto-native colors */
+    --header-bg: 240 10% 8%;
+    --header-glow: 220 100% 50%;
+    --crypto-accent: 280 100% 70%;
+    --gradient-primary: linear-gradient(135deg, hsl(220 100% 50% / 0.1), hsl(280 100% 70% / 0.1));
+    --shadow-glow: 0 0 20px hsl(220 100% 50% / 0.3);
   }
 
   .dark {
-    /* Sophisticated dark mode */
-    --background: 215 30% 8%;
-    --foreground: 0 0% 95%;
-    --card: 215 30% 10%;
-    --card-foreground: 0 0% 95%;
-    --popover: 215 30% 10%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 0 0% 95%;
-    --primary-foreground: 215 30% 8%;
-    --secondary: 215 25% 15%;
-    --secondary-foreground: 0 0% 95%;
-    --muted: 215 25% 15%;
-    --muted-foreground: 215 15% 65%;
-    --accent: 215 25% 15%;
-    --accent-foreground: 0 0% 95%;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 215 25% 15%;
-    --input: 215 25% 15%;
-    --ring: 0 0% 95%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
   }
 }
 
@@ -74,7 +72,7 @@
 
 @layer components {
   .btn-gradient {
-    @apply bg-header-glow text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95;
+    @apply bg-gradient-to-r from-header-glow to-crypto-accent text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95;
   }
   
   .header-enhanced {
@@ -94,7 +92,7 @@
   }
 
   .text-gradient {
-    @apply text-header-glow;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-header-glow to-crypto-accent;
   }
 
   .glass-effect {
@@ -115,33 +113,5 @@
 
   .focus-ring {
     @apply focus:outline-none focus:ring-2 focus:ring-header-glow focus:ring-offset-2 focus:ring-offset-background;
-  }
-
-  /* Color blocking sections */
-  .section-white {
-    @apply bg-white;
-  }
-
-  .section-accent-light {
-    background: hsl(142 85% 18% / 0.18);
-  }
-
-  .section-accent-subtle {
-    background: hsl(142 85% 18% / 0.12);
-    border-top: 1px solid hsl(142 85% 18% / 0.25);
-  }
-
-  .section-alternate {
-    @apply bg-secondary/30;
-  }
-
-  .section-dark-green {
-    background: hsl(142 85% 18% / 0.95);
-    color: hsl(0 0% 98%);
-  }
-
-  .section-antique {
-    background: hsl(41 22% 90%);
-    color: hsl(215 25% 15%);
   }
 }

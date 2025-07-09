@@ -36,7 +36,7 @@ const WYLDsStatsDashboard = () => {
                 <CardTitle className="text-sm font-medium text-muted-foreground">{stat.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-header-glow to-crypto-accent">{stat.value}</div>
+                <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">{stat.value}</div>
                 <p className="text-xs text-muted-foreground mt-2">{stat.description}</p>
               </CardContent>
             </Card>
