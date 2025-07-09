@@ -44,29 +44,29 @@ const Header = () => {
                 <ChevronDown className="ml-1 h-4 w-4" />
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-header-glow transition-all duration-300 group-hover:w-full" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-80 bg-orange-950/95 backdrop-blur-md border border-orange-800/40 shadow-2xl shadow-orange-900/20" align="start">
+              <DropdownMenuContent className="w-72 bg-orange-900/20 backdrop-blur-md border border-orange-800/30 shadow-2xl" align="start">
                 <DropdownMenuItem asChild>
-                  <Link to="/yield" className="flex items-center w-full cursor-pointer p-4 hover:bg-orange-900/30 rounded-lg transition-all duration-200 group">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-header-glow/20 border border-header-glow/30 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <span className="text-header-glow font-bold text-lg">Y</span>
+                  <Link to="/yield" className="flex items-center w-full cursor-pointer p-3 hover:bg-orange-900/30 hover:border-orange-800/40 rounded-lg transition-all duration-200 group">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-lg bg-header-glow/20 border border-header-glow/30 flex items-center justify-center group-hover:scale-105 transition-transform">
+                        <span className="text-header-glow font-bold">Y</span>
                       </div>
                       <div>
-                        <div className="font-semibold text-lg text-orange-100 mb-1">YIELD</div>
-                        <div className="text-sm text-orange-300/80">Earn Up to 3.5% APY</div>
+                        <div className="font-semibold text-orange-300 mb-1">YIELD</div>
+                        <div className="text-sm text-orange-300/70">Earn Up to 3.5% APY</div>
                       </div>
                     </div>
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/homes" className="flex items-center w-full cursor-pointer p-4 hover:bg-orange-900/30 rounded-lg transition-all duration-200 group">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-crypto-accent/20 border border-crypto-accent/30 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <span className="text-crypto-accent font-bold text-lg">H</span>
+                  <Link to="/homes" className="flex items-center w-full cursor-pointer p-3 hover:bg-orange-900/30 hover:border-orange-800/40 rounded-lg transition-all duration-200 group">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-lg bg-crypto-accent/20 border border-crypto-accent/30 flex items-center justify-center group-hover:scale-105 transition-transform">
+                        <span className="text-crypto-accent font-bold">H</span>
                       </div>
                       <div>
-                        <div className="font-semibold text-lg text-orange-100 mb-1">HOMES</div>
-                        <div className="text-sm text-orange-300/80">Earn Up to 8% APY</div>
+                        <div className="font-semibold text-orange-300 mb-1">HOMES</div>
+                        <div className="text-sm text-orange-300/70">Earn Up to 8% APY</div>
                       </div>
                     </div>
                   </Link>

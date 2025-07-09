@@ -37,7 +37,7 @@ const Footer = () => {
           ))}
         </div>
         <div className="mt-12 border-t pt-8 text-center text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} Hastra-Fi. All rights reserved.
+          &copy; {new Date().getFullYear()} Hastra Protocol Foundation. All rights reserved.
         </div>
       </div>
     </footer>
