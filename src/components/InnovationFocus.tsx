@@ -6,13 +6,13 @@ const InnovationFocus = () => {
   const getStatusIcon = (area: any) => {
     if (area.product) return <CheckCircle className="w-5 h-5 text-green-400" />;
     if (area.status === 'In Development') return <Clock className="w-5 h-5 text-yellow-400" />;
-    return <FlaskConical className="w-5 h-5 text-blue-400" />;
+    return <FlaskConical className="w-5 h-5 text-header-glow" />;
   };
 
   const getStatusColor = (area: any) => {
     if (area.product) return 'text-green-400';
     if (area.status === 'In Development') return 'text-yellow-400';
-    return 'text-blue-400';
+    return 'text-header-glow';
   };
 
   return (

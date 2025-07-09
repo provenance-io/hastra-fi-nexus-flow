@@ -57,9 +57,9 @@ const WYLDsAbout = () => {
     <section className="py-20 md:py-24">
       <div className="container">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-2 mb-6">
-            <Building2 className="h-4 w-4 text-blue-400" />
-            <span className="text-sm font-medium text-blue-400">Hastra-Fi Protocol Innovation</span>
+          <div className="inline-flex items-center gap-2 bg-header-glow/10 border border-header-glow/20 rounded-full px-4 py-2 mb-6">
+            <Building2 className="h-4 w-4 text-header-glow" />
+            <span className="text-sm font-medium text-header-glow">Hastra-Fi Protocol Innovation</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
             Expanding the Hastra Ecosystem
@@ -75,7 +75,7 @@ const WYLDsAbout = () => {
           {features.map((feature) => (
             <Card key={feature.title} className="bg-secondary/30 border-border/50">
               <CardContent className="p-6 text-center">
-                <feature.icon className="h-12 w-12 mx-auto mb-4 text-blue-400" />
+                <feature.icon className="h-12 w-12 mx-auto mb-4 text-header-glow" />
                 <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
                 <p className="text-muted-foreground">{feature.description}</p>
               </CardContent>
@@ -101,7 +101,7 @@ const WYLDsAbout = () => {
             <div className="space-y-6">
               {howItWorks.map((item) => (
                 <div key={item.step} className="flex items-start gap-4 p-4 rounded-lg bg-secondary/20">
-                  <div className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold flex-shrink-0">
+                  <div className="bg-header-glow text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold flex-shrink-0">
                     {item.step}
                   </div>
                   <div>
@@ -115,7 +115,7 @@ const WYLDsAbout = () => {
         </div>
 
         <div className="text-center">
-          <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-lg p-8">
+          <div className="bg-gradient-to-r from-header-glow/10 to-crypto-accent/10 border border-header-glow/20 rounded-lg p-8">
             <h3 className="text-xl font-semibold mb-4">Building the Future of Finance</h3>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               As part of Hastra-Fi's mission to expand protocol capabilities, YIELD serves as a foundational 

@@ -39,7 +39,7 @@ const WYLDsResources = () => {
             >
               <Card className="bg-secondary/30 border-border/50 group-hover:bg-secondary/50 transition-colors">
                 <div className="flex items-center p-6">
-                  <resource.icon className="h-8 w-8 mr-6 text-blue-400 flex-shrink-0" />
+                  <resource.icon className="h-8 w-8 mr-6 text-header-glow flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-lg">{resource.title}</h3>
                     <p className="text-sm text-muted-foreground mt-1">{resource.description}</p>

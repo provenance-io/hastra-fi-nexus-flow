@@ -42,8 +42,8 @@ const Header = () => {
                 <DropdownMenuItem asChild>
                   <Link to="/yield" className="flex items-center w-full cursor-pointer p-3 hover:bg-header-glow/10 rounded-lg transition-colors">
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center">
-                        <span className="text-blue-400 font-bold text-sm">Y</span>
+                      <div className="w-8 h-8 rounded-lg bg-header-glow/20 flex items-center justify-center">
+                        <span className="text-header-glow font-bold text-sm">Y</span>
                       </div>
                       <div>
                         <div className="font-medium">YIELD</div>
@@ -53,10 +53,10 @@ const Header = () => {
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/homes" className="flex items-center w-full cursor-pointer p-3 hover:bg-amber-500/10 rounded-lg transition-colors">
+                  <Link to="/homes" className="flex items-center w-full cursor-pointer p-3 hover:bg-crypto-accent/10 rounded-lg transition-colors">
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center">
-                        <span className="text-amber-400 font-bold text-sm">H</span>
+                      <div className="w-8 h-8 rounded-lg bg-crypto-accent/20 flex items-center justify-center">
+                        <span className="text-crypto-accent font-bold text-sm">H</span>
                       </div>
                       <div>
                         <div className="font-medium">HOMES</div>
