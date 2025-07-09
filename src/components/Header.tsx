@@ -32,13 +32,6 @@ const Header = () => {
             <HastraLogo />
           </Link>
           <nav className="hidden md:flex items-center space-x-6">
-            <Link
-              to="/start-earning"
-              className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors relative group"
-            >
-              Start Earning
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-header-glow transition-all duration-300 group-hover:w-full" />
-            </Link>
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center text-sm font-medium text-foreground/70 hover:text-foreground transition-colors relative group">
                 Products
@@ -95,6 +88,13 @@ const Header = () => {
                 )}
               </div>
             ))}
+            <Link
+              to="/start-earning"
+              className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors relative group"
+            >
+              Start Earning
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-header-glow transition-all duration-300 group-hover:w-full" />
+            </Link>
           </nav>
         </div>
         
