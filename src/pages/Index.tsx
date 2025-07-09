@@ -12,11 +12,6 @@ const Index = () => {
         <Hero />
         <Products />
         <InnovationApproach />
-        <div className="py-8 text-center">
-          <p className="text-base text-muted-foreground font-medium">
-            Powered by Provenance Blockchain
-          </p>
-        </div>
       </div>
     </div>
   );

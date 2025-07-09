@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ProvenanceBranding from "@/components/ProvenanceBranding";
 import AccessibilityFeatures from "@/components/AccessibilityFeatures";
 import PerformanceOptimizer from "@/components/PerformanceOptimizer";
 import Index from "./pages/Index";
@@ -39,6 +40,7 @@ const App = () => (
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
+          <ProvenanceBranding />
           <Footer />
         </div>
       </BrowserRouter>
