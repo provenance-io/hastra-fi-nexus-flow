@@ -125,6 +125,7 @@
   align-items: flex-end;
   height: 80px;
   width: 1400px;
+  perspective: 200px;
 }
 
 .base-coin {
@@ -145,9 +146,11 @@
     0 0 0 1px hsl(var(--crypto-accent) / 0.15);
   bottom: var(--pile-y);
   left: calc(50% + var(--pile-x));
-  transform: rotate(var(--pile-rotation)) scale(var(--pile-scale)) 
-             rotateX(var(--coin-tilt)) rotateY(var(--coin-lean)) 
-             perspective(100px);
+  transform: translate3d(0, 0, 0) 
+             rotate(var(--pile-rotation)) 
+             scale(var(--pile-scale)) 
+             rotateX(var(--coin-tilt)) 
+             rotateY(var(--coin-lean));
   z-index: var(--pile-layer);
   transform-style: preserve-3d;
 }
@@ -186,9 +189,11 @@
     0 0 0 1px hsl(var(--crypto-accent) / 0.2);
   bottom: calc(35px + var(--tower-y));
   left: calc(50% + var(--tower-x));
-  transform: rotate(var(--tower-rotation)) scale(var(--tower-scale)) 
-             rotateX(var(--coin-tilt)) rotateY(var(--coin-lean)) 
-             perspective(100px);
+  transform: translate3d(0, 0, 0) 
+             rotate(var(--tower-rotation)) 
+             scale(var(--tower-scale)) 
+             rotateX(var(--coin-tilt)) 
+             rotateY(var(--coin-lean));
   z-index: var(--tower-layer);
   transform-style: preserve-3d;
 }
@@ -230,6 +235,7 @@
   left: var(--fall-start-x);
   top: -50px;
   transform-style: preserve-3d;
+  perspective: 200px;
 }
 
 .falling-coin::before {
@@ -305,112 +311,90 @@
 @keyframes coin-fall-smooth {
   0% {
     opacity: 0;
-    transform: translateY(-80px) translateX(0) rotateZ(0deg) rotateY(0deg) scale(0.9);
+    transform: translateY(-80px) translateX(0) 
+               rotateZ(0deg) rotateY(0deg) rotateX(var(--coin-tilt)) scale(0.9);
   }
   5% {
     opacity: 0.6;
-    transform: translateY(-60px) translateX(0) rotateZ(45deg) rotateY(180deg) scale(1);
+    transform: translateY(-60px) translateX(0) 
+               rotateZ(45deg) rotateY(180deg) rotateX(var(--coin-tilt)) scale(1);
   }
   15% {
     opacity: 0.8;
     transform: translateY(10vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.1)) 
                rotateZ(calc(180deg * var(--rotation-speed))) 
-               rotateY(calc(360deg * var(--spin-speed))) scale(1);
+               rotateY(calc(360deg * var(--spin-speed))) 
+               rotateX(var(--coin-tilt)) scale(1);
   }
   30% {
     opacity: 0.9;
     transform: translateY(30vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.3)) 
                rotateZ(calc(360deg * var(--rotation-speed))) 
-               rotateY(calc(720deg * var(--spin-speed))) scale(1);
+               rotateY(calc(720deg * var(--spin-speed))) 
+               rotateX(var(--coin-tilt)) scale(1);
   }
   50% {
     opacity: 1;
     transform: translateY(55vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.6)) 
                rotateZ(calc(540deg * var(--rotation-speed))) 
-               rotateY(calc(1080deg * var(--spin-speed))) scale(1);
+               rotateY(calc(1080deg * var(--spin-speed))) 
+               rotateX(var(--coin-tilt)) scale(1);
   }
   70% {
     opacity: 1;
     transform: translateY(75vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.85)) 
                rotateZ(calc(720deg * var(--rotation-speed))) 
-               rotateY(calc(1440deg * var(--spin-speed))) scale(1);
+               rotateY(calc(1440deg * var(--spin-speed))) 
+               rotateX(var(--coin-tilt)) scale(1);
   }
   85% {
     opacity: 1;
     transform: translateY(calc(100vh - 80px)) translateX(calc(var(--fall-end-x) - var(--fall-start-x))) 
                rotateZ(calc(900deg * var(--rotation-speed))) 
-               rotateY(calc(1800deg * var(--spin-speed))) scale(1);
+               rotateY(calc(1800deg * var(--spin-speed))) 
+               rotateX(var(--coin-tilt)) scale(1);
   }
   90% {
     opacity: 1;
     transform: translateY(calc(100vh - 70px)) translateX(calc(var(--fall-end-x) - var(--fall-start-x))) 
                rotateZ(calc(900deg * var(--rotation-speed))) 
-               rotateY(calc(1800deg * var(--spin-speed))) scale(1.03);
+               rotateY(calc(1800deg * var(--spin-speed))) 
+               rotateX(var(--coin-tilt)) scale(1.03);
   }
   95% {
     opacity: 1;
     transform: translateY(calc(100vh - 60px)) translateX(calc(var(--fall-end-x) - var(--fall-start-x))) 
                rotateZ(calc(900deg * var(--rotation-speed))) 
-               rotateY(calc(1800deg * var(--spin-speed))) scale(1);
+               rotateY(calc(1800deg * var(--spin-speed))) 
+               rotateX(var(--coin-tilt)) scale(1);
   }
   100% {
     opacity: 0;
     transform: translateY(calc(100vh - 60px)) translateX(calc(var(--fall-end-x) - var(--fall-start-x))) 
                rotateZ(calc(900deg * var(--rotation-speed))) 
-               rotateY(calc(1800deg * var(--spin-speed))) scale(0.95);
+               rotateY(calc(1800deg * var(--spin-speed))) 
+               rotateX(var(--coin-tilt)) scale(0.95);
   }
 }
 
 /* Responsive coin sizing */
 @media (max-width: 768px) {
-  .falling-coin {
-    width: 28px;
-    height: 28px;
-  }
-  .base-coin {
-    width: 24px;
-    height: 24px;
-  }
   .coin-pile-base {
     width: 1000px;
     height: 60px;
   }
-  .base-coin {
-    width: 28px;
-    height: 28px;
-  }
-  .tower-coin {
-    width: 28px;
-    height: 28px;
-  }
-  .falling-coin {
+  .base-coin, .tower-coin, .falling-coin {
     width: 28px;
     height: 28px;
   }
 }
 
 @media (max-width: 480px) {
-  .falling-coin {
-    width: 24px;
-    height: 24px;
-  }
-  .base-coin {
-    width: 20px;
-    height: 20px;
-  }
   .coin-pile-base {
     width: 600px;
     height: 50px;
   }
-  .base-coin {
-    width: 24px;
-    height: 24px;
-  }
-  .tower-coin {
-    width: 24px;
-    height: 24px;
-  }
-  .falling-coin {
+  .base-coin, .tower-coin, .falling-coin {
     width: 24px;
     height: 24px;
   }
