@@ -14,6 +14,7 @@ const quickStarters = [
     duration: "5 min read",
     difficulty: "Essential",
     icon: CheckCircle,
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop",
     topics: ["Wallet security fundamentals", "Identifying common scams", "Transaction verification", "Smart contract risks"],
     content: {
       intro: "Before diving into DeFi, protecting your assets is paramount. This guide covers essential security practices every DeFi participant must know.",
@@ -33,6 +34,7 @@ const quickStarters = [
     duration: "12 min read",
     difficulty: "Beginner",
     icon: Target,
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=300&fit=crop",
     topics: ["Platform selection", "Risk assessment", "Token purchase", "Yield strategies"],
     content: {
       intro: "Start your DeFi journey with confidence. This step-by-step guide walks you through making your first $100 investment safely and strategically.",
@@ -52,6 +54,7 @@ const quickStarters = [
     duration: "8 min read",
     difficulty: "Beginner",
     icon: TrendingUp,
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop",
     topics: ["APY calculations", "Compounding effects", "Risk vs reward", "Market factors"],
     content: {
       intro: "APY (Annual Percentage Yield) determines your earnings potential. Learn how it works, what affects it, and how to calculate realistic returns.",
@@ -176,7 +179,6 @@ const LearningSectionExpanded = () => {
   const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("quick");
   const [expandedGuide, setExpandedGuide] = useState<number | null>(null);
-  const [readingGuide, setReadingGuide] = useState<number | null>(null);
 
   const showQuickTip = (tip: typeof quickTips[0]) => {
     toast({
@@ -195,7 +197,28 @@ const LearningSectionExpanded = () => {
   };
 
   const startReading = (starter: typeof quickStarters[0]) => {
-    setReadingGuide(readingGuide === starter.id ? null : starter.id);
+    // Create rich toast with guide content
+    toast({
+      title: `📖 ${starter.title}`,
+      description: (
+        <div className="space-y-3 mt-2">
+          <p className="text-sm leading-relaxed">{starter.content.intro}</p>
+          <div className="space-y-2">
+            <p className="font-medium text-xs">Key Points:</p>
+            {starter.content.keyPoints.slice(0, 3).map((point, i) => (
+              <div key={i} className="flex items-start gap-2 text-xs">
+                <div className="w-1 h-1 bg-current rounded-full mt-2 flex-shrink-0"></div>
+                <span>{point}</span>
+              </div>
+            ))}
+            {starter.content.keyPoints.length > 3 && (
+              <p className="text-xs text-muted-foreground">...and {starter.content.keyPoints.length - 3} more points</p>
+            )}
+          </div>
+        </div>
+      ) as any,
+      duration: 8000,
+    });
   };
 
   return (
@@ -241,61 +264,55 @@ const LearningSectionExpanded = () => {
             <TabsContent value="quick">
               <div className="grid md:grid-cols-3 gap-8">
                 {quickStarters.map((starter) => (
-                  <Card key={starter.id} className="glass-effect border-border/50 hover:border-header-glow/30 transition-all duration-300 group">
-                    <CardHeader>
-                      <div className="flex items-center justify-between mb-3">
-                        <Badge className={difficultyColors[starter.difficulty as keyof typeof difficultyColors]}>
-                          {starter.difficulty}
-                        </Badge>
-                        <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                          <Clock className="w-4 h-4" />
-                          {starter.duration}
-                        </div>
-                      </div>
-                      <CardTitle className="text-xl flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-header-glow/10 flex items-center justify-center">
-                          <starter.icon className="w-5 h-5 text-header-glow" />
-                        </div>
-                        {starter.title}
-                      </CardTitle>
-                      <CardDescription className="text-base">{starter.description}</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-3 mb-6">
-                        {starter.topics.map((topic, i) => (
-                          <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                            <div className="w-2 h-2 bg-header-glow rounded-full"></div>
-                            <span>{topic}</span>
-                          </div>
-                        ))}
-                      </div>
-                      <Button 
-                        className="w-full btn-gradient group-hover:shadow-lg transition-shadow"
-                        onClick={() => startReading(starter)}
-                      >
-                        {readingGuide === starter.id ? 'Close Guide' : 'Start Reading'}
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
-                      
-                      {/* Detailed Content Display */}
-                      {readingGuide === starter.id && (
-                        <div className="mt-6 p-6 bg-header-glow/5 rounded-lg border border-header-glow/20 animate-fade-in">
-                          <h4 className="text-lg font-semibold mb-4 text-header-glow">Guide Content</h4>
-                          <p className="text-muted-foreground mb-6 leading-relaxed">{starter.content.intro}</p>
-                          
-                          <h5 className="font-semibold mb-3">Key Points:</h5>
-                          <div className="space-y-3">
-                            {starter.content.keyPoints.map((point, i) => (
-                              <div key={i} className="flex items-start gap-3">
-                                <CheckCircle className="w-5 h-5 text-header-glow mt-0.5 flex-shrink-0" />
-                                <span className="text-sm text-muted-foreground">{point}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                    </CardContent>
-                  </Card>
+                   <Card key={starter.id} className="glass-effect border-border/50 hover:border-header-glow/30 transition-all duration-300 group overflow-hidden">
+                     {/* Hero Image */}
+                     <div className="relative h-48 overflow-hidden">
+                       <img 
+                         src={starter.image} 
+                         alt={starter.title}
+                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                       />
+                       <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
+                       <div className="absolute bottom-4 left-4 right-4">
+                         <Badge className={difficultyColors[starter.difficulty as keyof typeof difficultyColors]}>
+                           {starter.difficulty}
+                         </Badge>
+                       </div>
+                     </div>
+
+                     <CardHeader>
+                       <div className="flex items-center justify-between mb-3">
+                         <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                           <Clock className="w-4 h-4" />
+                           {starter.duration}
+                         </div>
+                       </div>
+                       <CardTitle className="text-xl flex items-center gap-3">
+                         <div className="w-10 h-10 rounded-lg bg-header-glow/10 flex items-center justify-center">
+                           <starter.icon className="w-5 h-5 text-header-glow" />
+                         </div>
+                         {starter.title}
+                       </CardTitle>
+                       <CardDescription className="text-base">{starter.description}</CardDescription>
+                     </CardHeader>
+                     <CardContent>
+                       <div className="space-y-3 mb-6">
+                         {starter.topics.map((topic, i) => (
+                           <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+                             <div className="w-2 h-2 bg-header-glow rounded-full"></div>
+                             <span>{topic}</span>
+                           </div>
+                         ))}
+                       </div>
+                       <Button 
+                         className="w-full btn-gradient group-hover:shadow-lg transition-shadow"
+                         onClick={() => startReading(starter)}
+                       >
+                         Read Guide
+                         <ArrowRight className="ml-2 h-4 w-4" />
+                       </Button>
+                     </CardContent>
+                   </Card>
                 ))}
               </div>
             </TabsContent>
