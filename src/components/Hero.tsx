@@ -22,31 +22,32 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/80"></div>
       
       
-      {/* Falling coins animation - realistic physics */}
+      {/* Falling coins animation - smooth realistic physics */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="falling-coins-container">
-          {[...Array(12)].map((_, i) => {
-            const startX = 5 + Math.random() * 90; // Random start across full hero width
-            const endX = 20 + Math.random() * 60; // Land across wider area
-            const drift = (Math.random() - 0.5) * 25; // Reduced drift for smoother motion
+          {[...Array(8)].map((_, i) => {
+            const startX = 10 + Math.random() * 80;
+            const driftEarly = (Math.random() - 0.5) * 40;
+            const driftMid = (Math.random() - 0.5) * 60;
+            const driftLate = (Math.random() - 0.5) * 80;
+            const driftEnd = (Math.random() - 0.5) * 100;
             
             return (
               <div 
                 key={`falling-${i}`}
                 className="falling-coin"
                 style={{ 
-                  animationDelay: `${i * 2 + Math.random() * 3}s`,
+                  animationDelay: `${i * 1.5 + Math.random() * 2}s`,
                   '--fall-start-x': `${startX}%`,
-                  '--fall-end-x': `${endX}%`,
-                  '--drift-amount': `${drift}px`,
-                  '--tumble-x-speed': `${0.15 + Math.random() * 0.25}`, // Much slower X rotation
-                  '--tumble-y-speed': `${0.2 + Math.random() * 0.3}`,  // Slower Y rotation  
-                  '--tumble-z-speed': `${0.1 + Math.random() * 0.2}`,  // Much slower Z rotation
-                  '--wobble-amount': `${(Math.random() - 0.5) * 15}px`, // Reduced wobble
-                  '--fall-duration': `${5 + Math.random() * 2}s`,      // Slightly longer fall
-                  '--initial-rotation-x': `${Math.random() * 180}deg`, // Reduced initial rotation
-                  '--initial-rotation-y': `${Math.random() * 180}deg`,
-                  '--initial-rotation-z': `${Math.random() * 90}deg`
+                  '--drift-early': `${driftEarly}px`,
+                  '--drift-mid': `${driftMid}px`,
+                  '--drift-late': `${driftLate}px`,
+                  '--drift-end': `${driftEnd}px`,
+                  '--fall-duration': `${3.5 + Math.random() * 1.5}s`,
+                  '--rotation-start': `${Math.random() * 360}deg`,
+                  '--tilt-start': `${Math.random() * 60 - 30}deg`,
+                  '--spin-speed': `${120 + Math.random() * 120}deg`,
+                  '--tilt-speed': `${20 + Math.random() * 40}deg`
                 } as React.CSSProperties}
               >
                 <div className="coin-face" />
