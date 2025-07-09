@@ -110,7 +110,7 @@ const Header = () => {
             size="sm" 
             className="hidden md:flex btn-gradient text-base px-4 py-2"
           >
-            <Link to="/yield">Connect Your Wallet</Link>
+            <Link to="/yield"><span className="text-premium-gradient">Connect Your Wallet</span></Link>
           </Button>
           <MobileMenu />
         </div>

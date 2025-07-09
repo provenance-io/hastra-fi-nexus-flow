@@ -22,9 +22,9 @@ const HOMESHero = () => {
         </div>
         
         <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-4">
-          <span className="block text-gradient">HOMES</span>
+          <span className="block text-premium-gradient">HOMES</span>
         </h1>
-        <h2 className="text-4xl md:text-6xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
+        <h2 className="text-4xl md:text-6xl font-black tracking-tight text-premium-gradient">
           RWA Yield Pools
         </h2>
         <p className="mt-6 max-w-4xl mx-auto text-xl md:text-2xl text-muted-foreground leading-relaxed">
@@ -33,7 +33,7 @@ const HOMESHero = () => {
 
         <div className="my-8">
           <p className="text-lg text-muted-foreground">Target Yield</p>
-          <p className="text-6xl md:text-7xl font-bold text-gradient">10%</p>
+          <p className="text-6xl md:text-7xl font-bold text-premium-gradient">10%</p>
           <p className="text-sm text-muted-foreground mt-2">Annual Percentage Yield</p>
         </div>
         

@@ -89,10 +89,10 @@ const Hero = () => {
 
           {/* Main heading with stable animations */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight">
-            <span className="block text-gradient hero-title-primary">
+            <span className="block text-premium-gradient hero-title-primary">
               Stack Real Assets
             </span>
-            <span className="block bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70 hero-title-secondary">
+            <span className="block text-premium-gradient hero-title-secondary">
               On-Chain
             </span>
           </h1>
