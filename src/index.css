@@ -25,6 +25,13 @@
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
     --radius: 0.5rem;
+    
+    /* Enhanced crypto-native colors */
+    --header-bg: 240 10% 8%;
+    --header-glow: 220 100% 50%;
+    --crypto-accent: 280 100% 70%;
+    --gradient-primary: linear-gradient(135deg, hsl(220 100% 50% / 0.1), hsl(280 100% 70% / 0.1));
+    --shadow-glow: 0 0 20px hsl(220 100% 50% / 0.3);
   }
 
   .dark {
@@ -64,5 +71,15 @@
 }
 
 @layer components {
-/* // ... keep existing code */
+  .btn-gradient {
+    @apply bg-gradient-to-r from-header-glow to-crypto-accent text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105;
+  }
+  
+  .header-enhanced {
+    background: linear-gradient(135deg, hsl(var(--header-bg)) 0%, hsl(var(--header-bg)) 80%, hsl(var(--header-glow) / 0.05) 100%);
+  }
+  
+  .logo-container {
+    @apply relative p-2 rounded-lg bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 shadow-lg;
+  }
 }

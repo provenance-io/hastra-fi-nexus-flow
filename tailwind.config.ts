@@ -56,6 +56,9 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				'header-bg': 'hsl(var(--header-bg))',
+				'header-glow': 'hsl(var(--header-glow))',
+				'crypto-accent': 'hsl(var(--crypto-accent))',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
