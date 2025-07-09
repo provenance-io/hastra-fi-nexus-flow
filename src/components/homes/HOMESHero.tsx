@@ -18,7 +18,7 @@ const HOMESHero = () => {
       <div className="container relative text-center animate-fade-in">
         <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-header-glow/20 text-sm font-medium text-foreground/80 animate-glow-pulse mb-6">
           <span className="mr-2 w-2 h-2 bg-header-glow rounded-full animate-pulse"></span>
-          First-Mover in Solana RWA Yield Space
+          Now Available on Solana
         </div>
         
         <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-4">
