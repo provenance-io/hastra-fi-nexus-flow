@@ -14,7 +14,7 @@ const MobileMenu = () => {
   const [open, setOpen] = useState(false);
 
   const navItems = [
-    { label: 'Products', href: '/wYLDs' },
+    { label: 'Products', href: '/yield' },
     { label: 'Innovation', href: '#innovation-focus', isAnchor: true },
     { label: 'Approach', href: '#innovation-approach', isAnchor: true },
   ];
@@ -64,8 +64,8 @@ const MobileMenu = () => {
           ))}
           <div className="pt-6 space-y-3">
             <Button asChild size="lg" className="w-full btn-gradient">
-              <Link to="/wYLDs">
-                Explore wYLDS
+              <Link to="/yield">
+                Explore YIELD
                 <ExternalLink className="ml-2 h-4 w-4" />
               </Link>
             </Button>

@@ -8,7 +8,7 @@ export const innovationFocusAreas = [
   {
     title: 'Yield-Bearing Infrastructure',
     description: 'Reimagining how stable assets generate yield through regulatory-compliant mechanisms.',
-    product: 'Current Product: wYLDS - First SEC-registered yield-bearing stablecoin',
+    product: 'Current Product: YIELD - First SEC-registered yield-bearing stablecoin',
     innovation: 'Bridging traditional finance regulations with DeFi accessibility.',
   },
   {
@@ -27,7 +27,7 @@ export const innovationFocusAreas = [
 
 export const products = {
   live: {
-    name: 'wYLDS',
+    name: 'YIELD',
     tagline: 'Earn Yield on Your Stable',
     description: "The world's first SEC-registered yield-bearing stablecoin, now available on Solana.",
     innovation: 'Regulatory compliance meets DeFi yield generation.',
@@ -37,6 +37,19 @@ export const products = {
       { label: 'Current APY', value: '4.75%' },
       { label: 'Total Supply', value: '$150.3M' },
       { label: 'Active Users', value: '12,403' },
+    ],
+  },
+  homes: {
+    name: 'HOMES',
+    tagline: 'Tokenized Real Estate',
+    description: "Access premium real estate investments through blockchain technology. Own fractions of high-value properties with complete transparency and liquidity.",
+    innovation: 'Traditional real estate meets modern DeFi capabilities.',
+    status: 'Live on Provenance',
+    cta: 'Explore Properties',
+    stats: [
+      { label: 'Total Value Locked', value: '$2.4M' },
+      { label: 'Properties', value: '8' },
+      { label: 'Avg. Yield', value: '6.2%' },
     ],
   }
 };
@@ -61,7 +74,8 @@ export const innovationApproach = [
 
 export const footerLinks = {
     products: [
-        { label: 'wYLDs', href: '/wYLDs' },
+        { label: 'YIELD', href: '/yield' },
+        { label: 'HOMES', href: '/homes' },
     ],
     legal: [
         { label: 'Terms', href: '#' },

@@ -21,7 +21,7 @@ const WYLDsHero = () => {
         </div>
         
         <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight">
-          wYLDS
+          YIELD
         </h1>
         <h2 className="mt-4 text-4xl md:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">
           Earn Yield on Your Stable

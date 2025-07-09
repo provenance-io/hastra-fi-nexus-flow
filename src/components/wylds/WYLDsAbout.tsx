@@ -11,7 +11,7 @@ const features = [
   {
     icon: TrendingUp,
     title: 'Automatic Yield',
-    description: 'Earn yield automatically just by holding wYLDS in your wallet - no staking required.',
+    description: 'Earn yield automatically just by holding YIELD in your wallet - no staking required.',
   },
   {
     icon: Globe,
@@ -32,8 +32,8 @@ const benefits = [
 const howItWorks = [
   {
     step: '1',
-    title: 'Hold wYLDS tokens',
-    description: 'Simply hold wYLDS tokens in any compatible wallet',
+    title: 'Hold YIELD tokens',
+    description: 'Simply hold YIELD tokens in any compatible wallet',
   },
   {
     step: '2',
@@ -48,7 +48,7 @@ const howItWorks = [
   {
     step: '4',
     title: 'Redeem via key Solana partners',
-    description: 'Easily redeem your wYLDS through Raydium and Kamino protocols',
+    description: 'Easily redeem your YIELD through Raydium and Kamino protocols',
   },
 ];
 
@@ -65,7 +65,7 @@ const WYLDsAbout = () => {
             Expanding the Hastra Ecosystem
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            wYLDS represents Hastra-Fi's commitment to building protocol use cases that expand the Hastra ecosystem. 
+            YIELD represents Hastra-Fi's commitment to building protocol use cases that expand the Hastra ecosystem. 
             By bridging traditional finance regulations with DeFi innovation, we're creating new opportunities 
             for yield generation across the broader financial landscape.
           </p>
@@ -118,7 +118,7 @@ const WYLDsAbout = () => {
           <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-lg p-8">
             <h3 className="text-xl font-semibold mb-4">Building the Future of Finance</h3>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              As part of Hastra-Fi's mission to expand protocol capabilities, wYLDS serves as a foundational 
+              As part of Hastra-Fi's mission to expand protocol capabilities, YIELD serves as a foundational 
               building block for creating new financial primitives that bridge traditional and decentralized finance.
             </p>
           </div>

@@ -87,7 +87,7 @@ const PerformanceOptimizer = () => {
     // Resource hints for better performance
     const addResourceHints = () => {
       // Prefetch likely next pages
-      const routes = ['/wYLDs'];
+      const routes = ['/yield'];
       
       routes.forEach(route => {
         const link = document.createElement('link');

@@ -3,24 +3,24 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const stats = [
   {
-    title: 'Total wYLDS in Circulation',
+    title: 'Total YIELD in Circulation',
     value: '$150.3M',
-    description: 'The total value of wYLDS tokens currently in circulation.',
+    description: 'The total value of YIELD tokens currently in circulation.',
   },
   {
     title: 'Current APY',
     value: '4.75%',
-    description: 'The current annual percentage yield for holding wYLDS.',
+    description: 'The current annual percentage yield for holding YIELD.',
   },
   {
     title: 'Total Yield Earned',
     value: '$1.2M',
-    description: 'Cumulative yield distributed to all wYLDS holders.',
+    description: 'Cumulative yield distributed to all YIELD holders.',
   },
   {
     title: '24h Volume',
     value: '$5.6M',
-    description: 'The total trading volume of wYLDS in the last 24 hours.',
+    description: 'The total trading volume of YIELD in the last 24 hours.',
   },
 ];
 

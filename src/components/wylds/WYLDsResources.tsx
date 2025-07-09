@@ -10,14 +10,14 @@ const resources = [
     icon: ExternalLink,
   },
   {
-    title: 'wYLDS Documentation',
+    title: 'YIELD Documentation',
     description: 'Technical documentation and integration guides for developers.',
     href: '#',
     icon: BookOpen,
   },
   {
-    title: 'wYLDS Whitepaper',
-    description: 'Read the full technical details and vision for wYLDS.',
+    title: 'YIELD Whitepaper',
+    description: 'Read the full technical details and vision for YIELD.',
     href: '#',
     icon: File,
   },
