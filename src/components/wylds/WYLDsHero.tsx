@@ -13,37 +13,39 @@ const WYLDsHero = () => {
 
   return (
     <section className="relative py-20 md:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-blue-900/10 to-purple-900/10 backdrop-blur-sm"></div>
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMTAsIDIwLCA0MCwwLjA1KSI+PGQgcGF0aD0iTTAtMSAwIDEgTS0xIDAgMSAwIj48L2Q+PC9zdmc+')] opacity-60"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMTAsIDIwLCA0MCwwLjA1KSI+PGQgcGF0aD0iTTAtMSAwIDEgTS0xIDAgMSAwIj48L2Q+PC9zdmc+')] opacity-40"></div>
+      
       <div className="container relative text-center animate-fade-in">
-        <div className="inline-block bg-gray-700/50 border border-gray-600 rounded-full px-3 py-1 text-sm mb-4 animate-pulse-light">
+        <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-header-glow/20 text-sm font-medium text-foreground/80 animate-glow-pulse mb-6">
+          <span className="mr-2 w-2 h-2 bg-header-glow rounded-full animate-pulse"></span>
           Powered by Provenance Blockchain
         </div>
         
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight">
-          YIELD
+        <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-4">
+          <span className="block text-gradient">YIELD</span>
         </h1>
-        <h2 className="mt-4 text-4xl md:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">
+        <h2 className="text-4xl md:text-6xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
           Earn Yield on Your Stable
         </h2>
-        <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
+        <p className="mt-6 max-w-4xl mx-auto text-xl md:text-2xl text-muted-foreground leading-relaxed">
           A Hastra-Fi Innovation: The world's first SEC-registered yield-bearing stablecoin, now bridged to Solana.
         </p>
 
         <div className="my-8">
             <p className="text-lg text-muted-foreground">Current APY</p>
-            <p className="text-6xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">{currentApy}</p>
+            <p className="text-6xl md:text-7xl font-bold text-gradient">{currentApy}</p>
         </div>
         
         <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button size="lg" className="btn-gradient focus-ring font-bold px-8 py-3 rounded-xl text-base group min-w-[180px]">
+              <Button size="lg" className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-4 text-lg rounded-xl min-w-[200px] group">
                 Start Earning
                 <ChevronDown className="ml-2 h-4 w-4 transition-transform group-data-[state=open]:rotate-180" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56 glass-effect border-border/50" align="center">
+            <DropdownMenuContent className="w-56 glass-effect border-border/50 bg-background/90" align="center">
               <DropdownMenuItem asChild>
                 <a 
                   href="https://app.kamino.finance" 
@@ -84,8 +86,7 @@ const WYLDsHero = () => {
           </DropdownMenu>
           <Button 
             size="lg" 
-            variant="outline" 
-            className="focus-ring font-bold px-8 py-3 rounded-xl text-base glass-effect hover:bg-background/90 border-border/50 hover:border-header-glow/30 min-w-[180px]" 
+            className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-4 text-lg rounded-xl min-w-[200px] group"
             asChild
           >
             <a 

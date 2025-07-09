@@ -57,14 +57,14 @@ const WYLDsAbout = () => {
     <section className="py-20 md:py-24">
       <div className="container">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-2 mb-6">
-            <Building2 className="h-4 w-4 text-blue-400" />
-            <span className="text-sm font-medium text-blue-400">Hastra-Fi Protocol Innovation</span>
+          <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-header-glow/20 text-sm font-medium text-foreground/80 mb-6">
+            <Building2 className="h-4 w-4 text-header-glow mr-2" />
+            <span>Hastra-Fi Protocol Innovation</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            Expanding the Hastra Ecosystem
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+            Expanding the <span className="text-gradient">Hastra Ecosystem</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             YIELD represents Hastra-Fi's commitment to building protocol use cases that expand the Hastra ecosystem. 
             By bridging traditional finance regulations with DeFi innovation, we're creating new opportunities 
             for yield generation across the broader financial landscape.
@@ -73,9 +73,9 @@ const WYLDsAbout = () => {
 
         <div className="grid gap-8 md:grid-cols-3 mb-16">
           {features.map((feature) => (
-            <Card key={feature.title} className="bg-secondary/30 border-border/50">
+            <Card key={feature.title} className="card-gradient card-hover">
               <CardContent className="p-6 text-center">
-                <feature.icon className="h-12 w-12 mx-auto mb-4 text-blue-400" />
+                <feature.icon className="h-12 w-12 mx-auto mb-4 text-header-glow" />
                 <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
                 <p className="text-muted-foreground">{feature.description}</p>
               </CardContent>
@@ -88,8 +88,8 @@ const WYLDsAbout = () => {
             <h3 className="text-2xl font-bold mb-8 text-center lg:text-left">Key Benefits</h3>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
               {benefits.map((benefit) => (
-                <div key={benefit} className="flex items-center gap-3 p-3 rounded-lg bg-secondary/20">
-                  <CheckCircle className="h-5 w-5 text-green-400 flex-shrink-0" />
+                <div key={benefit} className="flex items-center gap-3 p-3 rounded-lg card-gradient">
+                  <CheckCircle className="h-5 w-5 text-crypto-accent flex-shrink-0" />
                   <span className="text-foreground/90">{benefit}</span>
                 </div>
               ))}
@@ -100,8 +100,8 @@ const WYLDsAbout = () => {
             <h3 className="text-2xl font-bold mb-8 text-center lg:text-left">How It Works</h3>
             <div className="space-y-6">
               {howItWorks.map((item) => (
-                <div key={item.step} className="flex items-start gap-4 p-4 rounded-lg bg-secondary/20">
-                  <div className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold flex-shrink-0">
+                <div key={item.step} className="flex items-start gap-4 p-4 rounded-lg card-gradient">
+                  <div className="bg-header-glow/20 text-header-glow border border-header-glow/30 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold flex-shrink-0">
                     {item.step}
                   </div>
                   <div>
@@ -115,8 +115,8 @@ const WYLDsAbout = () => {
         </div>
 
         <div className="text-center">
-          <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-lg p-8">
-            <h3 className="text-xl font-semibold mb-4">Building the Future of Finance</h3>
+          <div className="card-gradient rounded-xl p-8 card-hover">
+            <h3 className="text-xl font-semibold mb-4 text-gradient">Building the Future of Finance</h3>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               As part of Hastra-Fi's mission to expand protocol capabilities, YIELD serves as a foundational 
               building block for creating new financial primitives that bridge traditional and decentralized finance.

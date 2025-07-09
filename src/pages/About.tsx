@@ -148,7 +148,7 @@ const About = () => {
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button 
                 size="lg" 
-                className="btn-gradient focus-ring font-bold px-8 py-4 text-lg rounded-xl group"
+                className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-4 text-lg rounded-xl min-w-[200px] group"
                 asChild
               >
                 <Link to="/yield">
@@ -158,12 +158,12 @@ const About = () => {
               </Button>
               <Button 
                 size="lg" 
-                variant="outline" 
-                className="focus-ring font-bold px-8 py-4 text-lg rounded-xl glass-effect hover:bg-background/90 border-border/50 hover:border-header-glow/30"
+                className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-4 text-lg rounded-xl min-w-[200px] group"
                 asChild
               >
                 <Link to="/homes">
                   Explore Real Estate
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
             </div>
