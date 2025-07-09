@@ -6,7 +6,7 @@
 @layer base {
   :root {
     /* Sophisticated neutral color scheme */
-    --background: 41 15% 96%;
+    --background: 41 18% 93%;
     --foreground: 215 25% 15%;
     --card: 0 0% 100%;
     --card-foreground: 215 25% 15%;
@@ -29,10 +29,10 @@
     
     /* Sophisticated accent colors */
     --header-bg: 0 0% 100%;
-    --header-glow: 142 60% 25%;
-    --crypto-accent: 142 60% 25%;
-    --gradient-primary: hsl(142 60% 25% / 0.08);
-    --shadow-glow: 0 0 20px hsl(142 60% 25% / 0.15);
+    --header-glow: 142 70% 20%;
+    --crypto-accent: 142 70% 20%;
+    --gradient-primary: hsl(142 70% 20% / 0.12);
+    --shadow-glow: 0 0 20px hsl(142 70% 20% / 0.2);
   }
 
   .dark {
@@ -123,12 +123,12 @@
   }
 
   .section-accent-light {
-    background: hsl(142 60% 25% / 0.08);
+    background: hsl(142 70% 20% / 0.12);
   }
 
   .section-accent-subtle {
-    background: hsl(142 60% 25% / 0.06);
-    border-top: 1px solid hsl(142 60% 25% / 0.15);
+    background: hsl(142 70% 20% / 0.08);
+    border-top: 1px solid hsl(142 70% 20% / 0.2);
   }
 
   .section-alternate {
