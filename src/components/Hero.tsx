@@ -25,7 +25,7 @@ const Hero = () => {
       <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 pointer-events-none z-0">
         <div className="coin-pile-base">
           {/* Base scattered coins - spread across full hero width */}
-          {[...Array(150)].map((_, i) => (
+          {[...Array(120)].map((_, i) => (
             <div 
               key={`base-${i}`}
               className="base-coin"
@@ -33,31 +33,56 @@ const Hero = () => {
                 '--pile-x': `${(Math.random() - 0.5) * 1200}px`,
                 '--pile-y': `${Math.random() * 35}px`,
                 '--pile-rotation': `${Math.random() * 360}deg`,
-                '--pile-scale': `${0.6 + Math.random() * 0.5}`,
+                '--pile-scale': `${0.9 + Math.random() * 0.2}`,
                 '--pile-layer': Math.floor(Math.random() * 4)
               } as React.CSSProperties}
             >
               <div className="coin-outer-ring" />
               <div className="coin-inner-ring" />
               <div className="coin-center" />
-              <div className="coin-text" />
             </div>
           ))}
           
-          {/* Vertical tower coins - positioned to match falling coin landing zones */}
-          {[...Array(42)].map((_, i) => {
-            const towerIndex = Math.floor(i / 6); // 6 coins per tower
-            const coinInTower = i % 6;
-            const towerOffset = (towerIndex - 3.5) * 45; // 7 towers spread across center
+          {/* Vertical tower coins - varying heights distributed across hero */}
+          {[...Array(60)].map((_, i) => {
+            // Create 12 towers of varying heights (3-8 coins each)
+            const towers = [
+              { coins: 6, x: -500 },
+              { coins: 4, x: -350 },
+              { coins: 8, x: -200 },
+              { coins: 5, x: -80 },
+              { coins: 7, x: 20 },
+              { coins: 3, x: 120 },
+              { coins: 6, x: 220 },
+              { coins: 5, x: 320 },
+              { coins: 4, x: 420 },
+              { coins: 7, x: 520 },
+              { coins: 3, x: 350 },
+              { coins: 5, x: 450 }
+            ];
+            
+            let towerIndex = 0;
+            let coinInTower = i;
+            
+            // Find which tower this coin belongs to
+            for (let t = 0; t < towers.length; t++) {
+              if (coinInTower < towers[t].coins) {
+                towerIndex = t;
+                break;
+              }
+              coinInTower -= towers[t].coins;
+            }
+            
+            if (towerIndex >= towers.length) return null;
             
             return (
               <div 
                 key={`tower-${i}`}
                 className="tower-coin"
                 style={{ 
-                  '--tower-x': `${towerOffset}px`,
-                  '--tower-y': `${-coinInTower * 2.5}px`, // Very tight stacking like real coins
-                  '--tower-rotation': `${(Math.random() - 0.5) * 8}deg`,
+                  '--tower-x': `${towers[towerIndex].x}px`,
+                  '--tower-y': `${-coinInTower * 2.8}px`,
+                  '--tower-rotation': `${(Math.random() - 0.5) * 6}deg`,
                   '--tower-scale': `${0.98 + Math.random() * 0.04}`,
                   '--tower-layer': coinInTower + 20
                 } as React.CSSProperties}
@@ -65,40 +90,35 @@ const Hero = () => {
                 <div className="coin-outer-ring" />
                 <div className="coin-inner-ring" />
                 <div className="coin-center" />
-                <div className="coin-text" />
               </div>
             );
           })}
         </div>
       </div>
       
-      {/* Falling coins animation - landing on tower positions */}
+      {/* Falling coins animation - smooth natural physics */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="falling-coins-container">
-          {[...Array(10)].map((_, i) => {
-            // Calculate which tower this coin will land on
-            const targetTower = i % 7; // 7 towers (0-6)
-            const towerOffset = (targetTower - 3.5) * 45; // Same spacing as towers
-            const startRandomness = (Math.random() - 0.5) * 200; // Random start position
+          {[...Array(8)].map((_, i) => {
+            const startX = 10 + Math.random() * 80; // Random start across hero width
+            const endX = 45 + (Math.random() - 0.5) * 20; // Land in center area with variation
             
             return (
               <div 
                 key={`falling-${i}`}
                 className="falling-coin"
                 style={{ 
-                  animationDelay: `${i * 0.6 + Math.random() * 1.2}s`, // More random timing
-                  '--fall-start-x': `calc(50% + ${startRandomness}px)`, // Random start across width
-                  '--fall-end-x': `calc(50% + ${towerOffset}px)`, // Land exactly on tower
-                  '--rotation-speed': `${1 + Math.random() * 2}`, // Varied rotation
-                  '--spin-speed': `${1.5 + Math.random() * 2.5}`, // Varied spin
-                  '--drift-amount': `${(Math.random() - 0.5) * 100}px`, // Random horizontal drift
-                  '--fall-duration': `${7 + Math.random() * 2}s`, // Varied fall speed
+                  animationDelay: `${i * 1.5 + Math.random() * 2}s`,
+                  '--fall-start-x': `${startX}%`,
+                  '--fall-end-x': `${endX}%`,
+                  '--rotation-speed': `${0.8 + Math.random() * 0.6}`,
+                  '--spin-speed': `${1.2 + Math.random() * 0.8}`,
+                  '--fall-duration': `${4 + Math.random() * 2}s`,
                 } as React.CSSProperties}
               >
                 <div className="coin-outer-ring" />
                 <div className="coin-inner-ring" />
                 <div className="coin-center" />
-                <div className="coin-text" />
               </div>
             );
           })}
