@@ -44,7 +44,7 @@ const Hero = () => {
             </div>
           ))}
           
-          {/* Vertical tower coins - much tighter stacking like real coins */}
+          {/* Vertical tower coins - positioned to match falling coin landing zones */}
           {[...Array(42)].map((_, i) => {
             const towerIndex = Math.floor(i / 6); // 6 coins per tower
             const coinInTower = i % 6;
@@ -72,27 +72,36 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Falling coins animation */}
+      {/* Falling coins animation - landing on tower positions */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="falling-coins-container">
-          {[...Array(10)].map((_, i) => (
-            <div 
-              key={`falling-${i}`}
-              className="falling-coin"
-              style={{ 
-                animationDelay: `${i * 0.8}s`,
-                '--fall-start-x': `${5 + (i * 9)}%`,
-                '--fall-end-x': `${40 + Math.random() * 20}%`,
-                '--rotation-speed': `${1.5 + Math.random() * 1.5}`,
-                '--spin-speed': `${2 + Math.random() * 2}`,
-              } as React.CSSProperties}
-            >
-              <div className="coin-outer-ring" />
-              <div className="coin-inner-ring" />
-              <div className="coin-center" />
-              <div className="coin-text" />
-            </div>
-          ))}
+          {[...Array(10)].map((_, i) => {
+            // Calculate which tower this coin will land on
+            const targetTower = i % 7; // 7 towers (0-6)
+            const towerOffset = (targetTower - 3.5) * 45; // Same spacing as towers
+            const startRandomness = (Math.random() - 0.5) * 200; // Random start position
+            
+            return (
+              <div 
+                key={`falling-${i}`}
+                className="falling-coin"
+                style={{ 
+                  animationDelay: `${i * 0.6 + Math.random() * 1.2}s`, // More random timing
+                  '--fall-start-x': `calc(50% + ${startRandomness}px)`, // Random start across width
+                  '--fall-end-x': `calc(50% + ${towerOffset}px)`, // Land exactly on tower
+                  '--rotation-speed': `${1 + Math.random() * 2}`, // Varied rotation
+                  '--spin-speed': `${1.5 + Math.random() * 2.5}`, // Varied spin
+                  '--drift-amount': `${(Math.random() - 0.5) * 100}px`, // Random horizontal drift
+                  '--fall-duration': `${7 + Math.random() * 2}s`, // Varied fall speed
+                } as React.CSSProperties}
+              >
+                <div className="coin-outer-ring" />
+                <div className="coin-inner-ring" />
+                <div className="coin-center" />
+                <div className="coin-text" />
+              </div>
+            );
+          })}
         </div>
       </div>
       
