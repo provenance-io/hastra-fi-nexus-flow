@@ -42,15 +42,15 @@ const HOMESHero = () => {
             size="lg" 
             className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-4 text-lg rounded-xl min-w-[200px] group"
           >
-            Start Earning
-            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            Learn More
+            <TrendingUp className="ml-2 h-4 w-4" />
           </Button>
           <Button 
             size="lg" 
             className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-4 text-lg rounded-xl min-w-[200px] group"
           >
-            Learn More
-            <TrendingUp className="ml-2 h-4 w-4" />
+            Manage HOMES
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Button>
         </div>
       </div>
