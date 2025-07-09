@@ -32,7 +32,7 @@ const Header = () => {
           </Link>
           <nav className="hidden md:flex items-center space-x-6">
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center text-sm font-medium text-foreground/70 hover:text-foreground transition-colors relative group">
+              <DropdownMenuTrigger className="flex items-center text-base font-medium text-foreground/70 hover:text-foreground transition-colors relative group">
                 Products
                 <ChevronDown className="ml-1 h-4 w-4" />
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-header-glow transition-all duration-300 group-hover:w-full" />
@@ -71,7 +71,7 @@ const Header = () => {
                 {item.isAnchor ? (
                   <button
                     onClick={() => handleNavClick(item.href, true)}
-                    className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors relative group"
+                    className="text-base font-medium text-foreground/70 hover:text-foreground transition-colors relative group"
                   >
                     {item.label}
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-header-glow transition-all duration-300 group-hover:w-full" />
@@ -79,7 +79,7 @@ const Header = () => {
                 ) : (
                   <Link
                     to={item.href}
-                    className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors relative group"
+                    className="text-base font-medium text-foreground/70 hover:text-foreground transition-colors relative group"
                   >
                     {item.label}
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-header-glow transition-all duration-300 group-hover:w-full" />
@@ -89,7 +89,7 @@ const Header = () => {
             ))}
             <Link
               to="/start-earning"
-              className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors relative group"
+              className="text-base font-medium text-foreground/70 hover:text-foreground transition-colors relative group"
             >
               Start Earning
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-header-glow transition-all duration-300 group-hover:w-full" />
@@ -101,7 +101,7 @@ const Header = () => {
           <Button 
             asChild 
             size="sm" 
-            className="hidden md:flex btn-gradient text-sm px-4 py-2"
+            className="hidden md:flex btn-gradient text-base px-4 py-2"
           >
             <Link to="/yield">Launch YIELD</Link>
           </Button>
