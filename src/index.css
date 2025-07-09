@@ -134,4 +134,14 @@
   .section-alternate {
     @apply bg-secondary/30;
   }
+
+  .section-dark-green {
+    background: hsl(142 85% 18% / 0.95);
+    color: hsl(0 0% 98%);
+  }
+
+  .section-antique {
+    background: hsl(41 22% 90%);
+    color: hsl(215 25% 15%);
+  }
 }
