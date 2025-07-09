@@ -55,7 +55,7 @@ const riskColors = {
 
 const BuyEarnSection = () => {
   return (
-    <section className="py-24 md:py-32 bg-gradient-to-br from-header-glow/5 via-background to-crypto-accent/5">
+    <section className="py-24 md:py-32 bg-gradient-to-br from-header-glow/5 via-background to-crypto-accent/5" data-section="buy-earn">
       <div className="container">
         {/* Section Header */}
         <div className="text-center mb-20">

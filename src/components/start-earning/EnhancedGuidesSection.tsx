@@ -519,7 +519,7 @@ const EnhancedGuidesSection = () => {
   };
 
   return (
-    <section className="py-24 md:py-32 bg-gradient-to-br from-header-glow/5 via-background to-crypto-accent/5" data-section="enhanced-learning">
+    <section className="py-24 md:py-32 bg-gradient-to-br from-header-glow/5 via-background to-crypto-accent/5" data-section="guides">
       <div className="container">
         {/* Enhanced Section Header */}
         <div className="text-center mb-20">

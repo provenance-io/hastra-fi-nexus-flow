@@ -14,7 +14,8 @@ import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import WYLDsPage from "./pages/wYLDs";
 import HOMESPage from "./pages/HOMES";
-import StartEarning from "./pages/StartEarning";
+import Learn from "./pages/Learn";
+import Earn from "./pages/Earn";
 
 const queryClient = new QueryClient();
 
@@ -32,7 +33,8 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />
-              <Route path="/start-earning" element={<StartEarning />} />
+              <Route path="/learn" element={<Learn />} />
+              <Route path="/earn" element={<Earn />} />
               <Route path="/yield" element={<WYLDsPage />} />
               <Route path="/wYLDs" element={<WYLDsPage />} />
               <Route path="/homes" element={<HOMESPage />} />

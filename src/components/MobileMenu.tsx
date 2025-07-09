@@ -14,9 +14,10 @@ const MobileMenu = () => {
   const [open, setOpen] = useState(false);
 
   const navItems = [
+    { label: 'About', href: '/about' },
     { label: 'Products', href: '/yield' },
-    { label: 'Innovation', href: '#innovation-focus', isAnchor: true },
-    { label: 'Approach', href: '#innovation-approach', isAnchor: true },
+    { label: '(L)earn', href: '/learn' },
+    { label: 'Earn', href: '/earn' },
   ];
 
   const handleNavClick = (href: string, isAnchor?: boolean) => {
@@ -44,22 +45,13 @@ const MobileMenu = () => {
         <nav className="mt-8 space-y-4">
           {navItems.map((item) => (
             <div key={item.label}>
-              {item.isAnchor ? (
-                <button
-                  onClick={() => handleNavClick(item.href, true)}
-                  className="block w-full text-left px-4 py-3 text-lg font-medium text-foreground hover:text-header-glow transition-colors border-b border-border/30 hover:border-header-glow/50"
-                >
-                  {item.label}
-                </button>
-              ) : (
-                <Link
-                  to={item.href}
-                  onClick={() => setOpen(false)}
-                  className="block px-4 py-3 text-lg font-medium text-foreground hover:text-header-glow transition-colors border-b border-border/30 hover:border-header-glow/50"
-                >
-                  {item.label}
-                </Link>
-              )}
+              <Link
+                to={item.href}
+                onClick={() => setOpen(false)}
+                className="block px-4 py-3 text-lg font-medium text-foreground hover:text-header-glow transition-colors border-b border-border/30 hover:border-header-glow/50"
+              >
+                {item.label}
+              </Link>
             </div>
           ))}
           <div className="pt-6 space-y-3">

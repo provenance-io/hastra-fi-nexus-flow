@@ -1,19 +1,17 @@
-import SimplifiedStartEarningHero from '@/components/start-earning/SimplifiedStartEarningHero';
+import LearnHero from '@/components/start-earning/LearnHero';
 import EnhancedGuidesSection from '@/components/start-earning/EnhancedGuidesSection';
-import BuyEarnSection from '@/components/start-earning/BuyEarnSection';
 
-const StartEarning = () => {
+const Learn = () => {
   return (
     <div className="relative">
       {/* Extended gradient background to match homepage */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
       <div className="relative z-10">
-        <SimplifiedStartEarningHero />
+        <LearnHero />
         <EnhancedGuidesSection />
-        <BuyEarnSection />
       </div>
     </div>
   );
 };
 
-export default StartEarning;
+export default Learn;
