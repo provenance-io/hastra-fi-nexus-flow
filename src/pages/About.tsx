@@ -5,7 +5,11 @@ import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
-    <main className="flex-grow">
+    <div className="relative">
+      {/* Extended gradient background to match homepage */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
+      <div className="relative z-10">
+        <main className="flex-grow">
         {/* Enhanced Hero Section */}
         <section className="relative py-20 md:py-32 overflow-hidden">
           {/* Premium background with multiple layers */}
@@ -255,7 +259,9 @@ const About = () => {
             </div>
           </div>
         </section>
-    </main>
+        </main>
+      </div>
+    </div>
   );
 };
 
