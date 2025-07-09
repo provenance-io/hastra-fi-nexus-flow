@@ -140,7 +140,7 @@
     inset 0 -3px 8px hsl(var(--mint-green-dark) / 0.5),
     0 0 0 1px hsl(var(--mint-green) / 0.4),
     0 0 15px hsl(var(--mint-green) / 0.3);
-  animation: coin-fall-smooth var(--fall-duration, 8s) infinite cubic-bezier(0.25, 0.1, 0.25, 1);
+  animation: coin-fall-smooth var(--fall-duration, 8s) infinite ease-in-out;
   opacity: 0;
   left: var(--fall-start-x);
   top: -80px;
@@ -188,52 +188,64 @@
     transform: translateY(-120px) translateX(0) 
                rotateY(0deg) rotateX(var(--coin-tilt)) scale(0.7);
   }
-  8% {
+  5% {
+    opacity: 0.4;
+    transform: translateY(-80px) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.02)) 
+               rotateY(calc(45deg * var(--spin-speed))) 
+               rotateX(var(--coin-tilt)) scale(0.8);
+  }
+  10% {
     opacity: 0.6;
-    transform: translateY(-60px) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.03)) 
-               rotateY(calc(120deg * var(--spin-speed))) 
+    transform: translateY(-40px) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.05)) 
+               rotateY(calc(90deg * var(--spin-speed))) 
                rotateX(var(--coin-tilt)) scale(0.9);
   }
-  15% {
+  20% {
     opacity: 0.8;
-    transform: translateY(-20px) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.08)) 
-               rotateY(calc(270deg * var(--spin-speed))) 
+    transform: translateY(5vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.12)) 
+               rotateY(calc(180deg * var(--spin-speed))) 
                rotateX(var(--coin-tilt)) scale(1);
   }
-  25% {
+  30% {
     opacity: 0.9;
-    transform: translateY(15vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.18)) 
-               rotateY(calc(450deg * var(--spin-speed))) 
+    transform: translateY(20vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.22)) 
+               rotateY(calc(270deg * var(--spin-speed))) 
                rotateX(var(--coin-tilt)) scale(1);
   }
   40% {
     opacity: 1;
     transform: translateY(35vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.35)) 
-               rotateY(calc(720deg * var(--spin-speed))) 
+               rotateY(calc(360deg * var(--spin-speed))) 
                rotateX(var(--coin-tilt)) scale(1);
   }
-  60% {
+  50% {
     opacity: 1;
-    transform: translateY(60vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.6)) 
-               rotateY(calc(1080deg * var(--spin-speed))) 
+    transform: translateY(50vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.5)) 
+               rotateY(calc(450deg * var(--spin-speed))) 
+               rotateX(var(--coin-tilt)) scale(1);
+  }
+  65% {
+    opacity: 1;
+    transform: translateY(68vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.68)) 
+               rotateY(calc(540deg * var(--spin-speed))) 
                rotateX(var(--coin-tilt)) scale(1);
   }
   80% {
     opacity: 1;
     transform: translateY(85vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.85)) 
-               rotateY(calc(1440deg * var(--spin-speed))) 
+               rotateY(calc(630deg * var(--spin-speed))) 
                rotateX(var(--coin-tilt)) scale(1);
   }
   95% {
     opacity: 1;
     transform: translateY(calc(100vh - 40px)) translateX(calc(var(--fall-end-x) - var(--fall-start-x))) 
-               rotateY(calc(1710deg * var(--spin-speed))) 
+               rotateY(calc(720deg * var(--spin-speed))) 
                rotateX(var(--coin-tilt)) scale(1.05);
   }
   100% {
     opacity: 0;
     transform: translateY(calc(100vh - 20px)) translateX(calc(var(--fall-end-x) - var(--fall-start-x))) 
-               rotateY(calc(1800deg * var(--spin-speed))) 
+               rotateY(calc(720deg * var(--spin-speed))) 
                rotateX(var(--coin-tilt)) scale(0.85);
   }
 }
