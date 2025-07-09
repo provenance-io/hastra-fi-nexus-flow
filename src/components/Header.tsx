@@ -88,6 +88,13 @@ const Header = () => {
               </div>
             ))}
             <Link
+              to="/about"
+              className="text-lg font-medium text-foreground/70 hover:text-foreground transition-colors relative group"
+            >
+              About
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-header-glow transition-all duration-300 group-hover:w-full" />
+            </Link>
+            <Link
               to="/start-earning"
               className="text-lg font-medium text-foreground/70 hover:text-foreground transition-colors relative group"
             >
