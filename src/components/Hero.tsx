@@ -30,20 +30,23 @@ const Hero = () => {
               key={`base-${i}`}
               className="base-coin"
               style={{ 
-                '--pile-x': `${(Math.random() - 0.5) * 280}px`,
-                '--pile-y': `${Math.random() * 25}px`,
+                '--pile-x': `${(Math.random() - 0.5) * 600}px`,
+                '--pile-y': `${Math.random() * 30}px`,
                 '--pile-rotation': `${Math.random() * 360}deg`,
                 '--pile-scale': `${0.7 + Math.random() * 0.4}`,
                 '--pile-layer': Math.floor(Math.random() * 3)
               } as React.CSSProperties}
-            />
+            >
+              <div className="coin-inner-ring" />
+              <div className="coin-center" />
+            </div>
           ))}
           
           {/* Vertical tower coins */}
-          {[...Array(30)].map((_, i) => {
-            const towerIndex = Math.floor(i / 6); // 6 coins per tower
-            const coinInTower = i % 6;
-            const towerOffset = (towerIndex - 2.5) * 40; // 5 towers spread across center
+          {[...Array(35)].map((_, i) => {
+            const towerIndex = Math.floor(i / 7); // 7 coins per tower
+            const coinInTower = i % 7;
+            const towerOffset = (towerIndex - 2) * 60; // 5 towers spread across center
             
             return (
               <div 
@@ -51,12 +54,15 @@ const Hero = () => {
                 className="tower-coin"
                 style={{ 
                   '--tower-x': `${towerOffset}px`,
-                  '--tower-y': `${-coinInTower * 22}px`,
-                  '--tower-rotation': `${(Math.random() - 0.5) * 20}deg`,
-                  '--tower-scale': `${0.9 + Math.random() * 0.2}`,
-                  '--tower-layer': coinInTower + 10
+                  '--tower-y': `${-coinInTower * 6}px`, // Much smaller gap for natural stacking
+                  '--tower-rotation': `${(Math.random() - 0.5) * 15}deg`,
+                  '--tower-scale': `${0.95 + Math.random() * 0.1}`,
+                  '--tower-layer': coinInTower + 15
                 } as React.CSSProperties}
-              />
+              >
+                <div className="coin-inner-ring" />
+                <div className="coin-center" />
+              </div>
             );
           })}
         </div>
@@ -75,7 +81,10 @@ const Hero = () => {
                 '--fall-end-x': `${40 + Math.random() * 20}%`,
                 '--rotation-speed': `${1.5 + Math.random() * 1.5}`,
               } as React.CSSProperties}
-            />
+            >
+              <div className="coin-inner-ring" />
+              <div className="coin-center" />
+            </div>
           ))}
         </div>
       </div>
