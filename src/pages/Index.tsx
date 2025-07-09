@@ -22,6 +22,11 @@ const Index = () => {
           <Products />
           <InnovationApproach />
         </main>
+        <div className="relative z-10 py-8 text-center">
+          <p className="text-sm text-muted-foreground">
+            Powered by Provenance Blockchain
+          </p>
+        </div>
         <Footer />
       </div>
     </div>

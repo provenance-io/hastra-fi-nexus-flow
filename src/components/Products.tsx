@@ -39,7 +39,7 @@ const Products = () => {
                   {products.live.name}
                 </h3>
                 <p className="text-xl md:text-2xl font-semibold text-gradient">
-                  {products.live.tagline}
+                  TradFi Yields, Defi Velocity
                 </p>
                 <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 font-medium animate-pulse-light">
                   <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
@@ -47,16 +47,29 @@ const Products = () => {
                 </div>
               </div>
               
-              <Button 
-                asChild 
-                size="lg" 
-                className="btn-gradient focus-ring group min-w-[160px]"
-              >
-                <Link to="/yield">
-                  {products.live.cta}
-                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
+              <div className="flex flex-col sm:flex-row items-center gap-4">
+                <Button 
+                  asChild 
+                  size="lg" 
+                  className="btn-gradient focus-ring group min-w-[160px]"
+                >
+                  <Link to="/yield">
+                    Connect Your Wallet
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </Button>
+                <Button 
+                  asChild 
+                  size="lg" 
+                  variant="outline"
+                  className="focus-ring font-bold px-8 py-4 text-lg rounded-xl min-w-[160px] glass-effect hover:bg-background/90 border-border/50 hover:border-header-glow/30 transition-all duration-300 group"
+                >
+                  <Link to="/yield">
+                    Learn More
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </Button>
+              </div>
             </div>
 
             {/* Product description */}
@@ -112,19 +125,20 @@ const Products = () => {
                 <p className="text-xl md:text-2xl font-semibold text-gradient">
                   {products.homes.tagline}
                 </p>
-                <div className="inline-flex items-center px-4 py-2 rounded-full bg-orange-900/20 border border-orange-800/30 text-orange-300 font-medium animate-pulse-light">
-                  <div className="w-2 h-2 bg-orange-300 rounded-full mr-2 animate-pulse"></div>
-                  {products.homes.status}
+                <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 font-medium animate-pulse-light">
+                  <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
+                  Live on Solana
                 </div>
               </div>
               
               <Button 
                 asChild 
                 size="lg" 
-                className="btn-gradient focus-ring group min-w-[160px]"
+                variant="outline"
+                className="focus-ring font-bold px-8 py-4 text-lg rounded-xl min-w-[160px] glass-effect hover:bg-background/90 border-border/50 hover:border-header-glow/30 transition-all duration-300 group"
               >
                 <Link to="/homes">
-                  {products.homes.cta}
+                  Learn More
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
