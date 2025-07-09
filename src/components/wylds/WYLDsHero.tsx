@@ -29,7 +29,7 @@ const WYLDsHero = () => {
           Earn Yield on Your Stable
         </h2>
         <p className="mt-6 max-w-4xl mx-auto text-xl md:text-2xl text-muted-foreground leading-relaxed">
-          A Hastra-Fi Innovation: The world's first SEC-registered yield-bearing stablecoin, now bridged to Solana.
+          Choose Stable Yields backed by securitized assets or Enhanced Rewards with Dual-Token Flexibility.
         </p>
 
         <div className="my-8">
