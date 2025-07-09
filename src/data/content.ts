@@ -41,15 +41,15 @@ export const products = {
   },
   homes: {
     name: 'HOMES',
-    tagline: 'Tokenized Real Estate',
-    description: "Access premium real estate investments through blockchain technology. Own fractions of high-value properties with complete transparency and liquidity.",
-    innovation: 'Traditional real estate meets modern DeFi capabilities.',
-    status: 'Live on Provenance',
-    cta: 'Explore Properties',
+    tagline: 'RWA Yield Pools',
+    description: "Access competitive yields through Real World Asset pools on Solana. Earn attractive returns with both yield tokens and enhanced HASH token rewards.",
+    innovation: 'Professional-grade DeFi product with rigorous risk management and transparent operations.',
+    status: 'Live on Solana',
+    cta: 'Learn More',
     stats: [
-      { label: 'Total Value Locked', value: '$2.4M' },
-      { label: 'Properties', value: '8' },
-      { label: 'Avg. Yield', value: '6.2%' },
+      { label: 'Target APY', value: '10%' },
+      { label: 'Pool Size', value: '$5M-$100M' },
+      { label: 'First Mover', value: 'Solana RWA' },
     ],
   }
 };

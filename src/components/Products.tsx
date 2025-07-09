@@ -12,6 +12,9 @@ const Products = () => {
     'Total Value Locked': Building,
     'Properties': Home,
     'Avg. Yield': TrendingUp,
+    'Target APY': TrendingUp,
+    'Pool Size': DollarSign,
+    'First Mover': ExternalLink,
   };
 
   return (
@@ -126,7 +129,7 @@ const Products = () => {
                 </p>
                 <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 font-medium animate-pulse-light">
                   <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
-                  Live on Solana
+                  {products.homes.status}
                 </div>
               </div>
               
