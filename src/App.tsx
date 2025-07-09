@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import WYLDsPage from "./pages/wYLDs";
 import HOMESPage from "./pages/HOMES";
+import StartEarning from "./pages/StartEarning";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/start-earning" element={<StartEarning />} />
           <Route path="/yield" element={<WYLDsPage />} />
           <Route path="/wYLDs" element={<WYLDsPage />} />
           <Route path="/homes" element={<HOMESPage />} />

@@ -17,7 +17,7 @@ const HOMESHero = () => {
       
       <div className="container relative text-center animate-fade-in">
         <div className="inline-block bg-amber-700/50 border border-amber-600 rounded-full px-3 py-1 text-sm mb-4 animate-pulse-light">
-          Powered by Hastra-Fi Innovation
+          Powered by Provenance Blockchain
         </div>
         
         <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight">

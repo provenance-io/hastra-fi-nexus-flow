@@ -4,6 +4,7 @@ import HOMESHero from '@/components/homes/HOMESHero';
 import HOMESAbout from '@/components/homes/HOMESAbout';
 import HOMESPortfolio from '@/components/homes/HOMESPortfolio';
 import HOMESFeatures from '@/components/homes/HOMESFeatures';
+import HOMESFAQ from '@/components/homes/HOMESFAQ';
 import AccessibilityFeatures from '@/components/AccessibilityFeatures';
 import PerformanceOptimizer from '@/components/PerformanceOptimizer';
 
@@ -18,6 +19,7 @@ const HOMESPage = () => {
         <HOMESAbout />
         <HOMESPortfolio />
         <HOMESFeatures />
+        <HOMESFAQ />
       </main>
       <Footer />
     </div>
