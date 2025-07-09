@@ -1,19 +1,11 @@
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import InnovationFocus from '@/components/InnovationFocus';
-import AccessibilityFeatures from '@/components/AccessibilityFeatures';
-import PerformanceOptimizer from '@/components/PerformanceOptimizer';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Target, Eye, Coins } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-background">
-      <AccessibilityFeatures />
-      <PerformanceOptimizer />
-      <Header />
-      <main id="main-content" className="flex-grow" role="main">
+    <main className="flex-grow">
         {/* Hero Section */}
         <section className="relative py-20 md:py-32 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
@@ -169,9 +161,7 @@ const About = () => {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
-    </div>
+    </main>
   );
 };
 

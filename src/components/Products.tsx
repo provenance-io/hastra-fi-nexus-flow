@@ -36,36 +36,37 @@ const Products = () => {
           {/* YIELD Product */}
           <div className="floating-card card-gradient card-hover rounded-3xl p-8 md:p-12 space-y-8 animate-fade-in-up">
             {/* Product header */}
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
-              <div className="space-y-3">
-                <div className="flex items-center gap-4">
-                  {/* YIELD Token Icon Placeholder */}
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-header-glow/20 to-header-glow/10 border-2 border-header-glow/30 flex items-center justify-center shadow-lg shadow-header-glow/20">
-                    <span className="text-2xl font-bold text-header-glow">Y</span>
-                  </div>
-                  <h3 className="text-3xl md:text-4xl font-bold text-foreground group-hover:text-header-glow transition-colors">
-                    {products.live.name}
-                  </h3>
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                {/* YIELD Token Icon */}
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-header-glow/20 to-header-glow/10 border-2 border-header-glow/30 flex items-center justify-center shadow-lg shadow-header-glow/20">
+                  <span className="text-2xl font-bold text-header-glow">Y</span>
                 </div>
-                <p className="text-xl md:text-2xl font-semibold text-gradient">
-                  TradFi Yields, Defi Velocity
-                </p>
-                <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 font-medium animate-pulse-light">
-                  <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
-                  {products.live.status}
+                <div className="flex-1">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <h3 className="text-3xl md:text-4xl font-bold text-foreground group-hover:text-header-glow transition-colors">
+                      {products.live.name}
+                    </h3>
+                    <Button 
+                      asChild 
+                      size="lg" 
+                      className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-6 py-3 text-base rounded-xl transition-all duration-300 group sm:ml-4"
+                    >
+                      <Link to="/yield">
+                        Learn More
+                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
               </div>
-              
-              <Button 
-                asChild 
-                size="lg" 
-                className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-4 text-lg rounded-xl min-w-[160px] transition-all duration-300 group"
-              >
-                <Link to="/yield">
-                  Learn More
-                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
+              <p className="text-xl md:text-2xl font-semibold text-gradient">
+                TradFi Yields, Defi Velocity
+              </p>
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 font-medium animate-pulse-light">
+                <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
+                {products.live.status}
+              </div>
             </div>
 
             {/* Product description */}
@@ -113,36 +114,37 @@ const Products = () => {
           {/* HOMES Product */}
           <div className="floating-card card-gradient card-hover rounded-3xl p-8 md:p-12 space-y-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             {/* Product header */}
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
-              <div className="space-y-3">
-                <div className="flex items-center gap-4">
-                  {/* HOMES Token Icon Placeholder */}
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-crypto-accent/20 to-crypto-accent/10 border-2 border-crypto-accent/30 flex items-center justify-center shadow-lg shadow-crypto-accent/20">
-                    <span className="text-2xl font-bold text-crypto-accent">H</span>
-                  </div>
-                  <h3 className="text-3xl md:text-4xl font-bold text-foreground group-hover:text-header-glow transition-colors">
-                    {products.homes.name}
-                  </h3>
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                {/* HOMES Token Icon */}
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-crypto-accent/20 to-crypto-accent/10 border-2 border-crypto-accent/30 flex items-center justify-center shadow-lg shadow-crypto-accent/20">
+                  <span className="text-2xl font-bold text-crypto-accent">H</span>
                 </div>
-                <p className="text-xl md:text-2xl font-semibold text-gradient">
-                  {products.homes.tagline}
-                </p>
-                <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 font-medium animate-pulse-light">
-                  <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
-                  {products.homes.status}
+                <div className="flex-1">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <h3 className="text-3xl md:text-4xl font-bold text-foreground group-hover:text-header-glow transition-colors">
+                      {products.homes.name}
+                    </h3>
+                    <Button 
+                      asChild 
+                      size="lg" 
+                      className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-6 py-3 text-base rounded-xl transition-all duration-300 group sm:ml-4"
+                    >
+                      <Link to="/homes">
+                        Learn More
+                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
               </div>
-              
-              <Button 
-                asChild 
-                size="lg" 
-                className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-4 text-lg rounded-xl min-w-[160px] transition-all duration-300 group"
-              >
-                <Link to="/homes">
-                  Learn More
-                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
+              <p className="text-xl md:text-2xl font-semibold text-gradient">
+                {products.homes.tagline}
+              </p>
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 font-medium animate-pulse-light">
+                <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
+                {products.homes.status}
+              </div>
             </div>
 
             {/* Product description */}
