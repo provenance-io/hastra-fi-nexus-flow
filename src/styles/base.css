@@ -34,11 +34,11 @@
     --mint-green-light: 152 68% 70%;
     --mint-green-dark: 152 68% 40%;
     
-    /* Auburn brand colors - dark brown/bronze */
-    --auburn-primary: 18 45% 35%;
-    --auburn-light: 18 50% 45%;
-    --auburn-dark: 18 40% 25%;
-    --auburn-glow: 18 55% 40%;
+    /* Auburn brand colors - orange scheme to match homepage */
+    --auburn-primary: 24 95% 53%;   /* orange-500 */
+    --auburn-light: 34 100% 84%;    /* orange-300 */
+    --auburn-dark: 15 86% 30%;      /* orange-900 */
+    --auburn-glow: 24 95% 63%;
     
     --gradient-primary: linear-gradient(135deg, hsl(180 100% 50% / 0.05), hsl(120 70% 45% / 0.05));
     --gradient-auburn: linear-gradient(135deg, hsl(var(--auburn-primary)), hsl(var(--auburn-light)));
