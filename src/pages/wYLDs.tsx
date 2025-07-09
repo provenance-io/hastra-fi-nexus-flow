@@ -1,6 +1,6 @@
 
 import Footer from '@/components/Footer';
-import WYLDsHeader from '@/components/wylds/WYLDsHeader';
+import Header from '@/components/Header';
 import WYLDsHero from '@/components/wylds/WYLDsHero';
 import WYLDsAbout from '@/components/wylds/WYLDsAbout';
 import WYLDsStatsDashboard from '@/components/wylds/WYLDsStatsDashboard';
@@ -13,7 +13,7 @@ const WYLDsPage = () => {
     <div className="flex flex-col min-h-screen bg-background">
       <AccessibilityFeatures />
       <PerformanceOptimizer />
-      <WYLDsHeader />
+      <Header />
       <main id="main-content" className="flex-grow" role="main">
         <WYLDsHero />
         <WYLDsAbout />
