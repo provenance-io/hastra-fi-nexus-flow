@@ -111,7 +111,7 @@ const HOMESFeatures = () => {
 
         <div className="mt-16 bg-gradient-to-r from-amber-500/10 to-orange-500/10 rounded-2xl p-8 md:p-12 text-center">
           <h3 className="text-2xl md:text-3xl font-bold mb-4">
-            Ready to Start Earning?
+            Ready to Start (L)earning?
           </h3>
           <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
             Join yield-seeking capital providers who are already earning competitive returns through our RWA pools. Be part of the Solana DeFi revolution.

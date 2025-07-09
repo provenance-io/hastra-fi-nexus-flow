@@ -100,7 +100,7 @@ const StartEarning = () => {
             </div>
             
             <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-6">
-              <span className="block text-gradient">Start Earning</span>
+              <span className="block text-gradient">Start (L)earning</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               Access premium DeFi opportunities with YIELD and sHASH. Buy tokens, provide liquidity, and earn consistent returns through our integrated ecosystem.
