@@ -121,8 +121,7 @@ const Products = () => {
               <Button 
                 asChild 
                 size="lg" 
-                variant="outline"
-                className="focus-ring font-bold px-8 py-4 text-lg rounded-xl min-w-[160px] glass-effect hover:bg-background/90 border-border/50 hover:border-header-glow/30 transition-all duration-300 group"
+                className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-4 text-lg rounded-xl min-w-[160px] transition-all duration-300 group"
               >
                 <Link to="/homes">
                   Learn More
