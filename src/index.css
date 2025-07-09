@@ -6,7 +6,7 @@
 @layer base {
   :root {
     /* Sophisticated neutral color scheme */
-    --background: 0 0% 96%;
+    --background: 41 15% 96%;
     --foreground: 215 25% 15%;
     --card: 0 0% 100%;
     --card-foreground: 215 25% 15%;
@@ -29,10 +29,10 @@
     
     /* Sophisticated accent colors */
     --header-bg: 0 0% 100%;
-    --header-glow: 142 35% 35%;
-    --crypto-accent: 220 50% 45%;
-    --gradient-primary: linear-gradient(135deg, hsl(142 35% 35% / 0.08), hsl(220 50% 45% / 0.08));
-    --shadow-glow: 0 0 20px hsl(142 35% 35% / 0.15);
+    --header-glow: 142 60% 25%;
+    --crypto-accent: 142 60% 25%;
+    --gradient-primary: hsl(142 60% 25% / 0.08);
+    --shadow-glow: 0 0 20px hsl(142 60% 25% / 0.15);
   }
 
   .dark {
@@ -74,7 +74,7 @@
 
 @layer components {
   .btn-gradient {
-    @apply bg-gradient-to-r from-header-glow to-crypto-accent text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95;
+    @apply bg-header-glow text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95;
   }
   
   .header-enhanced {
@@ -94,7 +94,7 @@
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-header-glow to-crypto-accent;
+    @apply text-header-glow;
   }
 
   .glass-effect {
@@ -123,12 +123,12 @@
   }
 
   .section-accent-light {
-    background: linear-gradient(135deg, hsl(142 35% 35% / 0.05), hsl(220 50% 45% / 0.05));
+    background: hsl(142 60% 25% / 0.08);
   }
 
   .section-accent-subtle {
-    background: linear-gradient(135deg, hsl(142 35% 35% / 0.03), hsl(220 50% 45% / 0.03));
-    border-top: 1px solid hsl(142 35% 35% / 0.1);
+    background: hsl(142 60% 25% / 0.06);
+    border-top: 1px solid hsl(142 60% 25% / 0.15);
   }
 
   .section-alternate {
