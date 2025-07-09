@@ -29,13 +29,13 @@ export const products = {
   live: {
     name: 'YIELD',
     tagline: 'Earn Yield on Your Stable',
-    description: "The world's first SEC-registered yield-bearing stablecoin, now available on Solana.",
-    innovation: 'Regulatory compliance meets DeFi yield generation.',
+    description: "TradFi yields, DeFi velocity",
+    innovation: 'Instant transfers, minimal fees, full DeFi composability - all backed by real world assets',
     status: 'Live on Solana',
     cta: 'Learn More',
     stats: [
       { label: 'Current APY', value: '4.75%' },
-      { label: 'Total Supply', value: '$150.3M' },
+      { label: 'Total Supply', value: '$5M' },
       { label: 'Active Users', value: '12,403' },
     ],
   },
