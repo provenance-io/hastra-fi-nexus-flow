@@ -34,16 +34,41 @@
     --mint-green-light: 152 68% 70%;
     --mint-green-dark: 152 68% 40%;
     
-    /* Auburn brand colors - orange scheme to match homepage */
+    /* Enhanced Auburn brand colors - sophisticated orange/amber scheme */
     --auburn-primary: 24 95% 53%;   /* orange-500 */
     --auburn-light: 34 100% 84%;    /* orange-300 */
     --auburn-dark: 15 86% 30%;      /* orange-900 */
     --auburn-glow: 24 95% 63%;
+    --amber-warm: 45 93% 58%;       /* warm amber */
+    --amber-glow: 43 96% 75%;       /* light amber glow */
     
-    --gradient-primary: linear-gradient(135deg, hsl(180 100% 50% / 0.05), hsl(120 70% 45% / 0.05));
+    /* Premium color palette for sophisticated design */
+    --platinum: 0 0% 85%;
+    --charcoal: 240 8% 12%;
+    --deep-navy: 220 39% 11%;
+    --electric-blue: 217 91% 60%;
+    --neon-cyan: 180 100% 50%;
+    --premium-gold: 48 100% 67%;
+    --rose-gold: 15 100% 75%;
+    
+    /* Glass morphism and effects */
+    --glass-bg: 240 10% 15% / 0.8;
+    --glass-border: 0 0% 100% / 0.1;
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    
+    /* Advanced gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(180 100% 50% / 0.1), hsl(120 70% 45% / 0.05));
     --gradient-auburn: linear-gradient(135deg, hsl(var(--auburn-primary)), hsl(var(--auburn-light)));
+    --gradient-premium: linear-gradient(135deg, hsl(var(--electric-blue) / 0.1), hsl(var(--neon-cyan) / 0.05));
+    --gradient-glass: linear-gradient(145deg, hsl(var(--glass-bg)), hsl(240 10% 20% / 0.6));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--charcoal)) 50%, hsl(var(--deep-navy)) 100%);
+    
+    /* Enhanced shadows */
     --shadow-glow: 0 0 20px hsl(120 70% 45% / 0.3);
     --shadow-auburn: 0 0 20px hsl(var(--auburn-primary) / 0.3);
+    --shadow-premium: 0 20px 40px -12px hsl(var(--electric-blue) / 0.25);
+    --shadow-elegant: 0 25px 50px -12px hsl(240 8% 12% / 0.25);
+    --shadow-glass: var(--glass-shadow);
   }
 
   .dark {

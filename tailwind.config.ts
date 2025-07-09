@@ -63,10 +63,25 @@ export default {
 				'auburn-light': 'hsl(var(--auburn-light))',
 				'auburn-dark': 'hsl(var(--auburn-dark))',
 				'auburn-glow': 'hsl(var(--auburn-glow))',
+				'amber-warm': 'hsl(var(--amber-warm))',
+				'amber-glow': 'hsl(var(--amber-glow))',
+				'platinum': 'hsl(var(--platinum))',
+				'charcoal': 'hsl(var(--charcoal))',
+				'deep-navy': 'hsl(var(--deep-navy))',
+				'electric-blue': 'hsl(var(--electric-blue))',
+				'neon-cyan': 'hsl(var(--neon-cyan))',
+				'premium-gold': 'hsl(var(--premium-gold))',
+				'rose-gold': 'hsl(var(--rose-gold))',
 			},
 			boxShadow: {
 				'auburn': '0 0 20px hsl(var(--auburn-primary) / 0.3)',
 				'auburn-lg': '0 0 30px hsl(var(--auburn-primary) / 0.4)',
+				'premium': '0 20px 40px -12px hsl(var(--electric-blue) / 0.25)',
+				'premium-lg': '0 25px 50px -12px hsl(var(--electric-blue) / 0.35)',
+				'elegant': '0 25px 50px -12px hsl(240 8% 12% / 0.25)',
+				'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+				'glow': '0 0 30px hsl(var(--header-glow) / 0.4)',
+				'neon': '0 0 20px hsl(var(--neon-cyan) / 0.5)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -118,6 +133,20 @@ export default {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-6px)' },
         },
+        'shimmer': {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+        'pulse-glow-premium': {
+          '0%, 100%': { boxShadow: '0 0 20px hsl(var(--electric-blue) / 0.3)' },
+          '50%': { boxShadow: '0 0 40px hsl(var(--electric-blue) / 0.6)' },
+        },
+        'morph': {
+          '0%, 100%': { borderRadius: '20px' },
+          '25%': { borderRadius: '25px 15px' },
+          '50%': { borderRadius: '15px 25px' },
+          '75%': { borderRadius: '25px 20px' },
+        },
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -129,6 +158,9 @@ export default {
         'pulse-light': 'pulse-light 2s ease-in-out infinite',
         'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
         'float': 'float 3s ease-in-out infinite',
+        'shimmer': 'shimmer 2s ease-in-out infinite',
+        'pulse-glow-premium': 'pulse-glow-premium 3s ease-in-out infinite',
+        'morph': 'morph 8s ease-in-out infinite',
 			}
 		}
 	},

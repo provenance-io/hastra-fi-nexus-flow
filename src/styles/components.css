@@ -11,6 +11,20 @@
   .btn-auburn-outline {
     @apply border border-auburn-primary/30 bg-auburn-primary/10 text-auburn-primary hover:bg-auburn-primary/20 hover:border-auburn-primary/50 font-bold shadow-lg hover:shadow-auburn transition-all duration-300 hover:scale-105 active:scale-95;
   }
+
+  .btn-premium {
+    background: linear-gradient(135deg, hsl(var(--electric-blue)), hsl(var(--neon-cyan)));
+    box-shadow: var(--shadow-premium);
+    @apply text-white font-bold transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-2xl;
+  }
+
+  .btn-glass {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: var(--shadow-glass);
+    @apply text-foreground font-medium transition-all duration-300 hover:scale-105 hover:bg-opacity-90;
+  }
   
   .header-enhanced {
     background: linear-gradient(135deg, hsl(var(--header-bg)) 0%, hsl(var(--header-bg)) 80%, hsl(var(--header-glow) / 0.05) 100%);
@@ -24,16 +38,40 @@
     @apply bg-gradient-to-br from-secondary/40 to-secondary/20 border border-border/50 backdrop-blur-sm;
   }
 
+  .card-premium {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: var(--shadow-elegant);
+    @apply transition-all duration-500 hover:scale-[1.02];
+  }
+
   .card-hover {
     @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-header-glow/10 hover:border-header-glow/30;
+  }
+
+  .card-premium-hover {
+    @apply transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl;
   }
 
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-header-glow to-crypto-accent;
   }
 
+  .text-premium-gradient {
+    background: linear-gradient(135deg, hsl(var(--electric-blue)), hsl(var(--neon-cyan)), hsl(var(--premium-gold)));
+    @apply bg-clip-text text-transparent;
+  }
+
   .glass-effect {
     @apply bg-background/80 backdrop-blur-md border border-border/50;
+  }
+
+  .glass-premium {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: var(--shadow-glass);
   }
 
   .floating-card {
@@ -50,6 +88,31 @@
 
   .focus-ring {
     @apply focus:outline-none focus:ring-2 focus:ring-header-glow focus:ring-offset-2 focus:ring-offset-background;
+  }
+
+  /* Enhanced premium animations */
+  .parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .morphing-card {
+    @apply transition-all duration-700 ease-out;
+    transform-style: preserve-3d;
+  }
+
+  .morphing-card:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+  }
+
+  .floating-element {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .pulse-glow-premium {
+    animation: pulse-glow-premium 3s ease-in-out infinite;
   }
 
   /* Stable Hero animations - prevent glitches */

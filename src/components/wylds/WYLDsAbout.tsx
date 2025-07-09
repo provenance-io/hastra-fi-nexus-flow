@@ -1,6 +1,7 @@
 
-import { Shield, TrendingUp, Globe, CheckCircle, Building2 } from 'lucide-react';
+import { Shield, TrendingUp, Globe, CheckCircle, Building2, ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 const features = [
   {
@@ -54,30 +55,40 @@ const howItWorks = [
 
 const WYLDsAbout = () => {
   return (
-    <section className="py-20 md:py-24">
-      <div className="container">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-header-glow/20 text-sm font-medium text-foreground/80 mb-6">
-            <Building2 className="h-4 w-4 text-header-glow mr-2" />
-            <span>Hastra-Fi Protocol Innovation</span>
+    <section className="py-24 md:py-32 relative">
+      {/* Premium background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-deep-navy/50 via-transparent to-charcoal/50"></div>
+      
+      <div className="container relative">
+        <div className="text-center mb-20">
+          <div className="glass-premium rounded-full px-6 py-3 text-sm font-medium mb-8 inline-block">
+            <Building2 className="h-5 w-5 text-electric-blue mr-3 inline" />
+            <span className="text-premium-gradient font-semibold">Hastra-Fi Protocol Innovation</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-            Expanding the <span className="text-gradient">Hastra Ecosystem</span>
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-8">
+            Expanding the <span className="text-premium-gradient">Hastra Ecosystem</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-platinum/90 max-w-5xl mx-auto leading-relaxed">
             YIELD represents Hastra-Fi's commitment to building protocol use cases that expand the Hastra ecosystem. 
-            By bridging traditional finance regulations with DeFi innovation, we're creating new opportunities 
+            By bridging <span className="text-electric-blue font-semibold">traditional finance regulations</span> with 
+            <span className="text-neon-cyan font-semibold"> DeFi innovation</span>, we're creating new opportunities 
             for yield generation across the broader financial landscape.
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-3 mb-16">
-          {features.map((feature) => (
-            <Card key={feature.title} className="card-gradient card-hover">
-              <CardContent className="p-6 text-center">
-                <feature.icon className="h-12 w-12 mx-auto mb-4 text-header-glow" />
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-muted-foreground">{feature.description}</p>
+        <div className="grid gap-10 md:grid-cols-3 mb-20">
+          {features.map((feature, index) => (
+            <Card 
+              key={feature.title} 
+              className="card-premium card-premium-hover morphing-card"
+              style={{ animationDelay: `${index * 0.15}s` }}
+            >
+              <CardContent className="p-8 text-center">
+                <div className="w-20 h-20 glass-premium rounded-2xl mx-auto mb-6 flex items-center justify-center pulse-glow-premium">
+                  <feature.icon className="h-10 w-10 text-electric-blue" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-premium-gradient">{feature.title}</h3>
+                <p className="text-platinum/80 leading-relaxed">{feature.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -115,12 +126,23 @@ const WYLDsAbout = () => {
         </div>
 
         <div className="text-center">
-          <div className="card-gradient rounded-xl p-8 card-hover">
-            <h3 className="text-xl font-semibold mb-4 text-gradient">Building the Future of Finance</h3>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+          <div className="card-premium rounded-3xl p-12 max-w-4xl mx-auto">
+            <h3 className="text-3xl md:text-4xl font-bold mb-6 text-premium-gradient">
+              Building the Future of Finance
+            </h3>
+            <p className="text-xl text-platinum/90 max-w-3xl mx-auto leading-relaxed">
               As part of Hastra-Fi's mission to expand protocol capabilities, YIELD serves as a foundational 
-              building block for creating new financial primitives that bridge traditional and decentralized finance.
+              building block for creating new <span className="text-electric-blue font-semibold">financial primitives</span> that bridge 
+              <span className="text-neon-cyan font-semibold">traditional and decentralized finance</span>.
             </p>
+            
+            {/* Call to action */}
+            <div className="mt-10">
+              <Button className="btn-premium px-10 py-4 text-lg rounded-xl">
+                Explore YIELD Features
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </div>
           </div>
         </div>
       </div>
