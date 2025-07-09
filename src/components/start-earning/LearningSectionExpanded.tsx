@@ -3,7 +3,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { ArrowRight, Play, BookOpen, Clock, CheckCircle, Lightbulb, Users, TrendingUp, Target } from 'lucide-react';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { ArrowRight, Play, BookOpen, Clock, CheckCircle, Lightbulb, Users, TrendingUp, Target, X } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const quickStarters = [
@@ -179,6 +180,8 @@ const LearningSectionExpanded = () => {
   const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("quick");
   const [expandedGuide, setExpandedGuide] = useState<number | null>(null);
+  const [selectedGuide, setSelectedGuide] = useState<typeof quickStarters[0] | null>(null);
+  const [isGuideDialogOpen, setIsGuideDialogOpen] = useState(false);
 
   const showQuickTip = (tip: typeof quickTips[0]) => {
     toast({
@@ -197,28 +200,13 @@ const LearningSectionExpanded = () => {
   };
 
   const startReading = (starter: typeof quickStarters[0]) => {
-    // Create rich toast with guide content
-    toast({
-      title: `📖 ${starter.title}`,
-      description: (
-        <div className="space-y-3 mt-2">
-          <p className="text-sm leading-relaxed">{starter.content.intro}</p>
-          <div className="space-y-2">
-            <p className="font-medium text-xs">Key Points:</p>
-            {starter.content.keyPoints.slice(0, 3).map((point, i) => (
-              <div key={i} className="flex items-start gap-2 text-xs">
-                <div className="w-1 h-1 bg-current rounded-full mt-2 flex-shrink-0"></div>
-                <span>{point}</span>
-              </div>
-            ))}
-            {starter.content.keyPoints.length > 3 && (
-              <p className="text-xs text-muted-foreground">...and {starter.content.keyPoints.length - 3} more points</p>
-            )}
-          </div>
-        </div>
-      ) as any,
-      duration: 8000,
-    });
+    setSelectedGuide(starter);
+    setIsGuideDialogOpen(true);
+  };
+
+  const closeGuideDialog = () => {
+    setIsGuideDialogOpen(false);
+    setSelectedGuide(null);
   };
 
   return (
@@ -420,6 +408,125 @@ const LearningSectionExpanded = () => {
 
         </div>
       </div>
+
+      {/* Guide Modal Dialog */}
+      <Dialog open={isGuideDialogOpen} onOpenChange={setIsGuideDialogOpen}>
+        <DialogContent className="glass-effect max-w-4xl max-h-[90vh] overflow-y-auto">
+          {selectedGuide && (
+            <>
+              <DialogHeader className="space-y-6">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-header-glow/20 flex items-center justify-center">
+                      <selectedGuide.icon className="w-6 h-6 text-header-glow" />
+                    </div>
+                    <div>
+                      <DialogTitle className="text-2xl font-bold text-left">
+                        {selectedGuide.title}
+                      </DialogTitle>
+                      <div className="flex items-center gap-3 mt-2">
+                        <Badge className={difficultyColors[selectedGuide.difficulty as keyof typeof difficultyColors]}>
+                          {selectedGuide.difficulty}
+                        </Badge>
+                        <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                          <Clock className="w-4 h-4" />
+                          {selectedGuide.duration}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <DialogDescription className="text-left text-lg leading-relaxed">
+                  {selectedGuide.description}
+                </DialogDescription>
+              </DialogHeader>
+
+              <div className="space-y-8 mt-8">
+                {/* Hero Image */}
+                <div className="relative h-64 rounded-lg overflow-hidden">
+                  <img 
+                    src={selectedGuide.image} 
+                    alt={selectedGuide.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+                </div>
+
+                {/* Guide Introduction */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold flex items-center gap-2">
+                    <BookOpen className="w-5 h-5 text-header-glow" />
+                    Introduction
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed text-base">
+                    {selectedGuide.content.intro}
+                  </p>
+                </div>
+
+                {/* Key Points */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold flex items-center gap-2">
+                    <CheckCircle className="w-5 h-5 text-header-glow" />
+                    Key Points
+                  </h3>
+                  <div className="space-y-4">
+                    {selectedGuide.content.keyPoints.map((point, i) => (
+                      <div key={i} className="flex items-start gap-3 p-4 rounded-lg bg-muted/30 border border-border/50">
+                        <div className="w-6 h-6 rounded-full bg-header-glow/20 flex items-center justify-center text-sm font-medium text-header-glow mt-0.5 flex-shrink-0">
+                          {i + 1}
+                        </div>
+                        <span className="text-foreground leading-relaxed">{point}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Topics Covered */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold flex items-center gap-2">
+                    <Target className="w-5 h-5 text-header-glow" />
+                    Topics Covered
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {selectedGuide.topics.map((topic, i) => (
+                      <div key={i} className="flex items-center gap-3 p-3 rounded-lg bg-muted/20 border border-border/30">
+                        <div className="w-2 h-2 bg-header-glow rounded-full flex-shrink-0"></div>
+                        <span className="text-foreground">{topic}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex gap-4 pt-6 border-t border-border/50">
+                  <Button 
+                    variant="outline" 
+                    onClick={closeGuideDialog}
+                    className="flex-1"
+                  >
+                    Close Guide
+                  </Button>
+                  <Button 
+                    className="flex-1 btn-gradient"
+                    onClick={() => {
+                      toast({
+                        title: "Guide Bookmarked",
+                        description: `${selectedGuide.title} has been saved to your reading list`,
+                        duration: 3000,
+                      });
+                    }}
+                  >
+                    <CheckCircle className="mr-2 h-4 w-4" />
+                    Bookmark Guide
+                  </Button>
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
+
     </section>
   );
 };
