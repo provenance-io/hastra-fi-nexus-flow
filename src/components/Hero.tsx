@@ -34,7 +34,7 @@ const Hero = () => {
           {/* Badge */}
           <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-header-glow/20 text-sm font-medium text-foreground/80 animate-glow-pulse">
             <span className="mr-2 w-2 h-2 bg-header-glow rounded-full animate-pulse"></span>
-            earn up to 8% APY
+            Now Live: Earn Up to 8% APY
           </div>
 
           {/* Main heading with enhanced typography */}
