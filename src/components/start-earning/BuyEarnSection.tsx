@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ExternalLink, Coins, TrendingUp, Shield, Clock, ChevronRight, Info } from 'lucide-react';
+import { ExternalLink, Coins, TrendingUp, Shield, Info } from 'lucide-react';
 
 const platforms = [
   {
@@ -55,14 +55,14 @@ const riskColors = {
 
 const BuyEarnSection = () => {
   return (
-    <section className="py-24 md:py-32 bg-gradient-to-br from-auburn-primary/5 via-background to-auburn-light/5">
+    <section className="py-24 md:py-32 bg-gradient-to-br from-header-glow/5 via-background to-crypto-accent/5">
       <div className="container">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <Badge className="mb-6 bg-auburn-primary/20 border-auburn-primary/30 text-auburn-primary hover:bg-auburn-primary/30">
+          <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-header-glow/20 text-sm font-medium text-foreground/80 mb-6">
             <Coins className="w-4 h-4 mr-2" />
             Buy & Earn
-          </Badge>
+          </div>
           
           <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-8">
             <span className="text-gradient">Start Earning</span>
@@ -80,14 +80,14 @@ const BuyEarnSection = () => {
           <h3 className="text-2xl md:text-3xl font-bold text-center mb-12">Available Tokens</h3>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {tokens.map((token, index) => (
-              <Card key={index} className="glass-effect border-border/50 hover:border-auburn-primary/30 transition-all duration-300">
+              <Card key={index} className="glass-effect border-border/50 hover:border-header-glow/30 transition-all duration-300">
                 <CardHeader>
                   <div className="flex items-center justify-between mb-3">
                     <Badge className={riskColors[token.risk as keyof typeof riskColors]}>
                       <Shield className="w-3 h-3 mr-1" />
                       {token.risk} Risk
                     </Badge>
-                    <Badge variant="outline" className="text-auburn-primary border-auburn-primary/30">
+                    <Badge variant="outline" className="text-header-glow border-header-glow/30">
                       {token.apy} APY
                     </Badge>
                   </div>
@@ -106,7 +106,7 @@ const BuyEarnSection = () => {
                   <div className="space-y-3 mb-6">
                     {token.features.map((feature, i) => (
                       <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <div className="w-2 h-2 bg-auburn-primary rounded-full"></div>
+                        <div className="w-2 h-2 bg-header-glow rounded-full"></div>
                         <span>{feature}</span>
                       </div>
                     ))}
@@ -136,10 +136,10 @@ const BuyEarnSection = () => {
           <h3 className="text-2xl md:text-3xl font-bold text-center mb-12">Trading Platforms</h3>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {platforms.map((platform, index) => (
-              <Card key={index} className="glass-effect border-border/50 hover:border-auburn-primary/30 transition-all duration-300 group">
+              <Card key={index} className="glass-effect border-border/50 hover:border-header-glow/30 transition-all duration-300 group">
                 <CardHeader>
                   <div className="flex items-center justify-between mb-4">
-                    <Badge variant="outline" className="text-auburn-primary border-auburn-primary/30">
+                    <Badge variant="outline" className="text-header-glow border-header-glow/30">
                       {platform.type}
                     </Badge>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -164,7 +164,7 @@ const BuyEarnSection = () => {
                   <div className="space-y-3 mb-6">
                     {platform.features.map((feature, i) => (
                       <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <div className="w-2 h-2 bg-auburn-primary rounded-full"></div>
+                        <div className="w-2 h-2 bg-header-glow rounded-full"></div>
                         <span>{feature}</span>
                       </div>
                     ))}
@@ -181,7 +181,7 @@ const BuyEarnSection = () => {
                     Platform Guide
                     <Info className="ml-2 h-4 w-4" />
                   </Button>
-                    <Button asChild variant="auburn" className="flex-1 group-hover:shadow-lg transition-shadow">
+                    <Button asChild className="flex-1 bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-4 text-lg rounded-xl group-hover:shadow-lg transition-all duration-200">
                       <a href={platform.link} target="_blank" rel="noopener noreferrer">
                         Start Trading
                         <ExternalLink className="ml-2 h-4 w-4" />
