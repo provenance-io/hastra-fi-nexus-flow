@@ -24,29 +24,31 @@ const Hero = () => {
       {/* Permanent coin pile at bottom */}
       <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 pointer-events-none z-0">
         <div className="coin-pile-base">
-          {/* Base scattered coins */}
-          {[...Array(100)].map((_, i) => (
+          {/* Base scattered coins - spread across full hero width */}
+          {[...Array(150)].map((_, i) => (
             <div 
               key={`base-${i}`}
               className="base-coin"
               style={{ 
-                '--pile-x': `${(Math.random() - 0.5) * 600}px`,
-                '--pile-y': `${Math.random() * 30}px`,
+                '--pile-x': `${(Math.random() - 0.5) * 1200}px`,
+                '--pile-y': `${Math.random() * 35}px`,
                 '--pile-rotation': `${Math.random() * 360}deg`,
-                '--pile-scale': `${0.7 + Math.random() * 0.4}`,
-                '--pile-layer': Math.floor(Math.random() * 3)
+                '--pile-scale': `${0.6 + Math.random() * 0.5}`,
+                '--pile-layer': Math.floor(Math.random() * 4)
               } as React.CSSProperties}
             >
+              <div className="coin-outer-ring" />
               <div className="coin-inner-ring" />
               <div className="coin-center" />
+              <div className="coin-text" />
             </div>
           ))}
           
-          {/* Vertical tower coins */}
-          {[...Array(35)].map((_, i) => {
-            const towerIndex = Math.floor(i / 7); // 7 coins per tower
-            const coinInTower = i % 7;
-            const towerOffset = (towerIndex - 2) * 60; // 5 towers spread across center
+          {/* Vertical tower coins - much tighter stacking like real coins */}
+          {[...Array(42)].map((_, i) => {
+            const towerIndex = Math.floor(i / 6); // 6 coins per tower
+            const coinInTower = i % 6;
+            const towerOffset = (towerIndex - 3.5) * 45; // 7 towers spread across center
             
             return (
               <div 
@@ -54,14 +56,16 @@ const Hero = () => {
                 className="tower-coin"
                 style={{ 
                   '--tower-x': `${towerOffset}px`,
-                  '--tower-y': `${-coinInTower * 6}px`, // Much smaller gap for natural stacking
-                  '--tower-rotation': `${(Math.random() - 0.5) * 15}deg`,
-                  '--tower-scale': `${0.95 + Math.random() * 0.1}`,
-                  '--tower-layer': coinInTower + 15
+                  '--tower-y': `${-coinInTower * 2.5}px`, // Very tight stacking like real coins
+                  '--tower-rotation': `${(Math.random() - 0.5) * 8}deg`,
+                  '--tower-scale': `${0.98 + Math.random() * 0.04}`,
+                  '--tower-layer': coinInTower + 20
                 } as React.CSSProperties}
               >
+                <div className="coin-outer-ring" />
                 <div className="coin-inner-ring" />
                 <div className="coin-center" />
+                <div className="coin-text" />
               </div>
             );
           })}
@@ -80,10 +84,13 @@ const Hero = () => {
                 '--fall-start-x': `${5 + (i * 9)}%`,
                 '--fall-end-x': `${40 + Math.random() * 20}%`,
                 '--rotation-speed': `${1.5 + Math.random() * 1.5}`,
+                '--spin-speed': `${2 + Math.random() * 2}`,
               } as React.CSSProperties}
             >
+              <div className="coin-outer-ring" />
               <div className="coin-inner-ring" />
               <div className="coin-center" />
+              <div className="coin-text" />
             </div>
           ))}
         </div>
