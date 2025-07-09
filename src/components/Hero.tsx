@@ -22,12 +22,13 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/80"></div>
       
       
-      {/* Falling coins animation - smooth natural physics */}
+      {/* Falling coins animation - realistic physics */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="falling-coins-container">
           {[...Array(12)].map((_, i) => {
             const startX = 5 + Math.random() * 90; // Random start across full hero width
             const endX = 20 + Math.random() * 60; // Land across wider area
+            const drift = (Math.random() - 0.5) * 40; // Side-to-side drift from air resistance
             
             return (
               <div 
@@ -37,10 +38,15 @@ const Hero = () => {
                   animationDelay: `${i * 2 + Math.random() * 3}s`,
                   '--fall-start-x': `${startX}%`,
                   '--fall-end-x': `${endX}%`,
-                  '--rotation-speed': `${0.5 + Math.random() * 0.4}`,
-                  '--spin-speed': `${0.8 + Math.random() * 0.6}`,
-                  '--fall-duration': `${5 + Math.random() * 3}s`,
-                  '--coin-tilt': `${(Math.random() - 0.5) * 10}deg`
+                  '--drift-amount': `${drift}px`,
+                  '--tumble-x-speed': `${0.3 + Math.random() * 0.8}`,
+                  '--tumble-y-speed': `${0.5 + Math.random() * 1.2}`,
+                  '--tumble-z-speed': `${0.2 + Math.random() * 0.6}`,
+                  '--wobble-amount': `${(Math.random() - 0.5) * 20}px`,
+                  '--fall-duration': `${4 + Math.random() * 2}s`,
+                  '--initial-rotation-x': `${Math.random() * 360}deg`,
+                  '--initial-rotation-y': `${Math.random() * 360}deg`,
+                  '--initial-rotation-z': `${Math.random() * 360}deg`
                 } as React.CSSProperties}
               >
                 <div className="coin-face" />

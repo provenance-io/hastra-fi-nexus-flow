@@ -140,7 +140,7 @@
     inset 0 -3px 8px hsl(var(--mint-green-dark) / 0.5),
     0 0 0 1px hsl(var(--mint-green) / 0.4),
     0 0 15px hsl(var(--mint-green) / 0.3);
-  animation: coin-fall-smooth var(--fall-duration, 8s) infinite ease-in-out;
+  animation: coin-fall-realistic var(--fall-duration, 6s) infinite ease-in;
   opacity: 0;
   left: var(--fall-start-x);
   top: -80px;
@@ -182,71 +182,87 @@
 }
 
 
-@keyframes coin-fall-smooth {
+@keyframes coin-fall-realistic {
   0% {
     opacity: 0;
-    transform: translateY(-120px) translateX(0) 
-               rotateY(0deg) rotateX(var(--coin-tilt)) scale(0.7);
+    transform: translateY(-150px) 
+               translateX(0) 
+               rotateX(calc(var(--initial-rotation-x))) 
+               rotateY(calc(var(--initial-rotation-y))) 
+               rotateZ(calc(var(--initial-rotation-z))) 
+               scale(0.6);
   }
   5% {
-    opacity: 0.4;
-    transform: translateY(-80px) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.02)) 
-               rotateY(calc(45deg * var(--spin-speed))) 
-               rotateX(var(--coin-tilt)) scale(0.8);
+    opacity: 0.3;
+    transform: translateY(-120px) 
+               translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.02 + var(--wobble-amount) * 0.1)) 
+               rotateX(calc(var(--initial-rotation-x) + 60deg * var(--tumble-x-speed))) 
+               rotateY(calc(var(--initial-rotation-y) + 90deg * var(--tumble-y-speed))) 
+               rotateZ(calc(var(--initial-rotation-z) + 30deg * var(--tumble-z-speed))) 
+               scale(0.8);
   }
-  10% {
-    opacity: 0.6;
-    transform: translateY(-40px) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.05)) 
-               rotateY(calc(90deg * var(--spin-speed))) 
-               rotateX(var(--coin-tilt)) scale(0.9);
+  15% {
+    opacity: 0.7;
+    transform: translateY(-60px) 
+               translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.08 + var(--wobble-amount) * 0.3)) 
+               rotateX(calc(var(--initial-rotation-x) + 240deg * var(--tumble-x-speed))) 
+               rotateY(calc(var(--initial-rotation-y) + 360deg * var(--tumble-y-speed))) 
+               rotateZ(calc(var(--initial-rotation-z) + 150deg * var(--tumble-z-speed))) 
+               scale(0.9);
   }
-  20% {
-    opacity: 0.8;
-    transform: translateY(5vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.12)) 
-               rotateY(calc(180deg * var(--spin-speed))) 
-               rotateX(var(--coin-tilt)) scale(1);
-  }
-  30% {
-    opacity: 0.9;
-    transform: translateY(20vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.22)) 
-               rotateY(calc(270deg * var(--spin-speed))) 
-               rotateX(var(--coin-tilt)) scale(1);
+  25% {
+    opacity: 0.85;
+    transform: translateY(5vh) 
+               translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.15 + var(--wobble-amount) * 0.5)) 
+               rotateX(calc(var(--initial-rotation-x) + 420deg * var(--tumble-x-speed))) 
+               rotateY(calc(var(--initial-rotation-y) + 630deg * var(--tumble-y-speed))) 
+               rotateZ(calc(var(--initial-rotation-z) + 240deg * var(--tumble-z-speed))) 
+               scale(1);
   }
   40% {
     opacity: 1;
-    transform: translateY(35vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.35)) 
-               rotateY(calc(360deg * var(--spin-speed))) 
-               rotateX(var(--coin-tilt)) scale(1);
+    transform: translateY(20vh) 
+               translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.32 + var(--wobble-amount) * 0.7)) 
+               rotateX(calc(var(--initial-rotation-x) + 720deg * var(--tumble-x-speed))) 
+               rotateY(calc(var(--initial-rotation-y) + 1080deg * var(--tumble-y-speed))) 
+               rotateZ(calc(var(--initial-rotation-z) + 420deg * var(--tumble-z-speed))) 
+               scale(1);
   }
-  50% {
+  60% {
     opacity: 1;
-    transform: translateY(50vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.5)) 
-               rotateY(calc(450deg * var(--spin-speed))) 
-               rotateX(var(--coin-tilt)) scale(1);
-  }
-  65% {
-    opacity: 1;
-    transform: translateY(68vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.68)) 
-               rotateY(calc(540deg * var(--spin-speed))) 
-               rotateX(var(--coin-tilt)) scale(1);
+    transform: translateY(50vh) 
+               translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.55 + var(--wobble-amount) * 0.8)) 
+               rotateX(calc(var(--initial-rotation-x) + 1200deg * var(--tumble-x-speed))) 
+               rotateY(calc(var(--initial-rotation-y) + 1800deg * var(--tumble-y-speed))) 
+               rotateZ(calc(var(--initial-rotation-z) + 720deg * var(--tumble-z-speed))) 
+               scale(1);
   }
   80% {
     opacity: 1;
-    transform: translateY(85vh) translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.85)) 
-               rotateY(calc(630deg * var(--spin-speed))) 
-               rotateX(var(--coin-tilt)) scale(1);
+    transform: translateY(85vh) 
+               translateX(calc((var(--fall-end-x) - var(--fall-start-x)) * 0.85 + var(--wobble-amount) * 0.9)) 
+               rotateX(calc(var(--initial-rotation-x) + 1800deg * var(--tumble-x-speed))) 
+               rotateY(calc(var(--initial-rotation-y) + 2700deg * var(--tumble-y-speed))) 
+               rotateZ(calc(var(--initial-rotation-z) + 1080deg * var(--tumble-z-speed))) 
+               scale(1);
   }
   95% {
     opacity: 1;
-    transform: translateY(calc(100vh - 40px)) translateX(calc(var(--fall-end-x) - var(--fall-start-x))) 
-               rotateY(calc(720deg * var(--spin-speed))) 
-               rotateX(var(--coin-tilt)) scale(1.05);
+    transform: translateY(calc(100vh - 40px)) 
+               translateX(calc((var(--fall-end-x) - var(--fall-start-x)) + var(--wobble-amount))) 
+               rotateX(calc(var(--initial-rotation-x) + 2160deg * var(--tumble-x-speed))) 
+               rotateY(calc(var(--initial-rotation-y) + 3240deg * var(--tumble-y-speed))) 
+               rotateZ(calc(var(--initial-rotation-z) + 1260deg * var(--tumble-z-speed))) 
+               scale(1.1);
   }
   100% {
     opacity: 0;
-    transform: translateY(calc(100vh - 20px)) translateX(calc(var(--fall-end-x) - var(--fall-start-x))) 
-               rotateY(calc(720deg * var(--spin-speed))) 
-               rotateX(var(--coin-tilt)) scale(0.85);
+    transform: translateY(calc(100vh - 10px)) 
+               translateX(calc((var(--fall-end-x) - var(--fall-start-x)) + var(--wobble-amount))) 
+               rotateX(calc(var(--initial-rotation-x) + 2340deg * var(--tumble-x-speed))) 
+               rotateY(calc(var(--initial-rotation-y) + 3510deg * var(--tumble-y-speed))) 
+               rotateZ(calc(var(--initial-rotation-z) + 1350deg * var(--tumble-z-speed))) 
+               scale(0.8);
   }
 }
 
