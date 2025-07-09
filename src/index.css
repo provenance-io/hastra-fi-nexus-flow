@@ -6,7 +6,7 @@
 @layer base {
   :root {
     /* Sophisticated neutral color scheme */
-    --background: 0 0% 98%;
+    --background: 0 0% 96%;
     --foreground: 215 25% 15%;
     --card: 0 0% 100%;
     --card-foreground: 215 25% 15%;
@@ -115,5 +115,22 @@
 
   .focus-ring {
     @apply focus:outline-none focus:ring-2 focus:ring-header-glow focus:ring-offset-2 focus:ring-offset-background;
+  }
+
+  /* Color blocking sections */
+  .section-white {
+    @apply bg-white;
+  }
+
+  .section-accent-light {
+    @apply bg-gradient-to-br from-header-glow/5 to-crypto-accent/5;
+  }
+
+  .section-accent-subtle {
+    @apply bg-gradient-to-br from-header-glow/3 to-crypto-accent/3 border-t border-header-glow/10;
+  }
+
+  .section-alternate {
+    @apply bg-secondary/30;
   }
 }

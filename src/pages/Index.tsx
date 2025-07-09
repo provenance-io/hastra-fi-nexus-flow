@@ -15,10 +15,18 @@ const Index = () => {
       <PerformanceOptimizer />
       <Header />
       <main id="main-content" className="flex-grow" role="main">
-        <Hero />
-        <InnovationFocus />
-        <Products />
-        <InnovationApproach />
+        <div className="section-white">
+          <Hero />
+        </div>
+        <div className="section-accent-light">
+          <InnovationFocus />
+        </div>
+        <div className="section-white">
+          <Products />
+        </div>
+        <div className="section-accent-subtle">
+          <InnovationApproach />
+        </div>
       </main>
       <Footer />
     </div>
