@@ -5,7 +5,7 @@ import HastraLogo from './HastraLogo';
 
 const Footer = () => {
   return (
-    <footer className="border-t border-header-glow/20 bg-header-bg/95 backdrop-blur supports-[backdrop-filter]:bg-header-bg/80 shadow-[0_0_20px_hsl(var(--header-glow)/0.1)] py-12">
+    <footer className="border-t border-header-glow/20 bg-header-bg/70 backdrop-blur supports-[backdrop-filter]:bg-header-bg/60 shadow-[0_0_20px_hsl(var(--header-glow)/0.1)] py-12">
       <div className="container">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           <div className="col-span-2">
