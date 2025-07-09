@@ -29,10 +29,10 @@
     
     /* Sophisticated accent colors */
     --header-bg: 0 0% 100%;
-    --header-glow: 215 25% 25%;
-    --crypto-accent: 25 80% 55%;
-    --gradient-primary: linear-gradient(135deg, hsl(215 25% 25% / 0.05), hsl(25 80% 55% / 0.05));
-    --shadow-glow: 0 0 20px hsl(215 25% 25% / 0.1);
+    --header-glow: 142 76% 36%;
+    --crypto-accent: 14 83% 65%;
+    --gradient-primary: linear-gradient(135deg, hsl(142 76% 36% / 0.05), hsl(14 83% 65% / 0.05));
+    --shadow-glow: 0 0 20px hsl(142 76% 36% / 0.1);
   }
 
   .dark {
