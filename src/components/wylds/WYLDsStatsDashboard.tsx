@@ -27,8 +27,8 @@ const stats = [
 const WYLDsStatsDashboard = () => {
   return (
     <section className="py-24 md:py-32 relative">
-      {/* Premium background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-electric-blue/5 via-transparent to-neon-cyan/5"></div>
+      {/* Premium background - matching homepage */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
       
       <div className="container relative">
         <div className="text-center mb-16">

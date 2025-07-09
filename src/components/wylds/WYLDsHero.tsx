@@ -13,9 +13,8 @@ const WYLDsHero = () => {
 
   return (
     <section className="relative py-20 md:py-32 overflow-hidden">
-      {/* Premium layered background */}
-      <div className="absolute inset-0" style={{ background: 'var(--gradient-hero)' }}></div>
-      <div className="absolute inset-0 bg-gradient-to-br from-electric-blue/8 via-transparent to-neon-cyan/8"></div>
+      {/* Premium layered background - matching homepage */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMTAsIDIwLCA0MCwwLjA1KSI+PGQgcGF0aD0iTTAtMSAwIDEgTS0xIDAgMSAwIj48L2Q+PC9zdmc+')] opacity-30"></div>
       
       {/* Floating geometric elements */}
