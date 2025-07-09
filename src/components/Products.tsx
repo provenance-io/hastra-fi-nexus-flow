@@ -99,37 +99,6 @@ const Products = () => {
               })}
             </div>
 
-            {/* Additional CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-border/30">
-              <Button 
-                asChild 
-                variant="outline" 
-                size="lg"
-                className="focus-ring glass-effect hover:bg-background/90 border-border/50 hover:border-header-glow/30 group flex-1"
-              >
-                <a 
-                  href="https://ylds.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center"
-                >
-                  Learn About YLDS
-                  <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </a>
-              </Button>
-              
-              <Button 
-                asChild 
-                variant="outline" 
-                size="lg"
-                className="focus-ring glass-effect hover:bg-background/90 border-border/50 hover:border-crypto-accent/30 group flex-1"
-              >
-                <Link to="/yield" className="flex items-center justify-center">
-                  View Live Dashboard
-                  <TrendingUp className="ml-2 h-4 w-4 transition-transform group-hover:scale-110" />
-                </Link>
-              </Button>
-            </div>
           </div>
 
           {/* HOMES Product */}
@@ -143,8 +112,8 @@ const Products = () => {
                 <p className="text-xl md:text-2xl font-semibold text-gradient">
                   {products.homes.tagline}
                 </p>
-                <div className="inline-flex items-center px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 font-medium animate-pulse-light">
-                  <div className="w-2 h-2 bg-amber-400 rounded-full mr-2 animate-pulse"></div>
+                <div className="inline-flex items-center px-4 py-2 rounded-full bg-orange-900/20 border border-orange-800/30 text-orange-300 font-medium animate-pulse-light">
+                  <div className="w-2 h-2 bg-orange-300 rounded-full mr-2 animate-pulse"></div>
                   {products.homes.status}
                 </div>
               </div>
@@ -167,10 +136,10 @@ const Products = () => {
                 {products.homes.description}
               </p>
               
-              <div className="flex items-start space-x-3 p-4 rounded-xl bg-amber-500/5 border border-amber-500/10">
-                <Home className="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" />
+              <div className="flex items-start space-x-3 p-4 rounded-xl bg-orange-900/10 border border-orange-800/20">
+                <Home className="w-5 h-5 text-orange-300 mt-0.5 flex-shrink-0" />
                 <p className="text-foreground/90">
-                  <span className="font-semibold text-amber-500">Innovation:</span>{' '}
+                  <span className="font-semibold text-orange-300">Innovation:</span>{' '}
                   <span className="text-muted-foreground">{products.homes.innovation}</span>
                 </p>
               </div>
@@ -189,7 +158,7 @@ const Products = () => {
                       animation: 'fade-in-up 0.6s ease-out forwards'
                     }}
                   >
-                    <IconComponent className="w-8 h-8 mx-auto text-amber-500 group-hover:scale-110 transition-transform duration-300" />
+                    <IconComponent className="w-8 h-8 mx-auto text-orange-300 group-hover:scale-110 transition-transform duration-300" />
                     <div className="text-3xl md:text-4xl font-bold text-gradient group-hover:scale-105 transition-transform duration-300">
                       {stat.value}
                     </div>
@@ -201,32 +170,6 @@ const Products = () => {
               })}
             </div>
 
-            {/* Additional CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-border/30">
-              <Button 
-                asChild 
-                variant="outline" 
-                size="lg"
-                className="focus-ring glass-effect hover:bg-background/90 border-border/50 hover:border-amber-500/30 group flex-1"
-              >
-                <Link to="/homes" className="flex items-center justify-center">
-                  View Properties
-                  <Home className="ml-2 h-4 w-4 transition-transform group-hover:scale-110" />
-                </Link>
-              </Button>
-              
-              <Button 
-                asChild 
-                variant="outline" 
-                size="lg"
-                className="focus-ring glass-effect hover:bg-background/90 border-border/50 hover:border-amber-500/30 group flex-1"
-              >
-                <Link to="/start-earning" className="flex items-center justify-center">
-                  Start Investing
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
-            </div>
           </div>
         </div>
       </div>
