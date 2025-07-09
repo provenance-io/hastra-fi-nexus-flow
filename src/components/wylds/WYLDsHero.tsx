@@ -35,31 +35,31 @@ const WYLDsHero = () => {
             <p className="text-6xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">{currentApy}</p>
         </div>
         
-        <div className="mt-8 flex justify-center gap-4">
+        <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button size="lg" className="btn-gradient font-bold px-8 py-3 rounded-lg text-base">
+              <Button size="lg" className="btn-gradient focus-ring font-bold px-8 py-3 rounded-xl text-base group min-w-[180px]">
                 Start Earning
-                <ChevronDown className="ml-2 h-4 w-4" />
+                <ChevronDown className="ml-2 h-4 w-4 transition-transform group-data-[state=open]:rotate-180" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56 bg-background/95 backdrop-blur border-border/50">
+            <DropdownMenuContent className="w-56 glass-effect border-border/50" align="center">
               <DropdownMenuItem asChild>
                 <a 
                   href="https://app.kamino.finance" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center w-full cursor-pointer"
+                  className="flex items-center w-full cursor-pointer p-3 hover:bg-header-glow/10 rounded-lg transition-colors group"
                 >
                   <div className="flex items-center gap-3 flex-1">
                     <img 
                       src="/lovable-uploads/9edb1ae1-8f98-4dcd-90f7-4f7e3135521e.png" 
-                      alt="Kamino" 
-                      className="w-6 h-6 rounded-full"
+                      alt="Kamino Finance"
+                      className="w-6 h-6 rounded-full group-hover:scale-110 transition-transform"
                     />
-                    <span>Earn on Kamino</span>
+                    <span className="font-medium">Earn on Kamino</span>
                   </div>
-                  <ExternalLink className="h-4 w-4" />
+                  <ExternalLink className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </a>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
@@ -67,24 +67,35 @@ const WYLDsHero = () => {
                   href="https://raydium.io" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center w-full cursor-pointer"
+                  className="flex items-center w-full cursor-pointer p-3 hover:bg-crypto-accent/10 rounded-lg transition-colors group"
                 >
                   <div className="flex items-center gap-3 flex-1">
                     <img 
                       src="/lovable-uploads/30e0a19d-182e-4457-b5e0-58c467109e2f.png" 
-                      alt="Raydium" 
-                      className="w-6 h-6 rounded-full"
+                      alt="Raydium"
+                      className="w-6 h-6 rounded-full group-hover:scale-110 transition-transform"
                     />
-                    <span>Earn on Raydium</span>
+                    <span className="font-medium">Earn on Raydium</span>
                   </div>
-                  <ExternalLink className="h-4 w-4" />
+                  <ExternalLink className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </a>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          <Button size="lg" variant="outline" className="font-bold px-8 py-3 rounded-lg text-base bg-background/50 hover:bg-background/80" asChild>
-            <a href="https://ylds.com" target="_blank" rel="noopener noreferrer">
+          <Button 
+            size="lg" 
+            variant="outline" 
+            className="focus-ring font-bold px-8 py-3 rounded-xl text-base glass-effect hover:bg-background/90 border-border/50 hover:border-header-glow/30 min-w-[180px]" 
+            asChild
+          >
+            <a 
+              href="https://ylds.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center justify-center"
+            >
               Learn About YLDS
+              <ExternalLink className="ml-2 h-4 w-4" />
             </a>
           </Button>
         </div>
