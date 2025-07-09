@@ -10,10 +10,6 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           <div className="col-span-2">
             <HastraLogo className="h-8 mb-4" />
-            <p className="mt-2 text-sm text-muted-foreground">Pushing Forward the Future of Finance</p>
-            <p className="mt-2 text-xs text-muted-foreground">
-              Building protocol use cases that expand the financial ecosystem through regulatory-compliant innovation.
-            </p>
           </div>
           {Object.entries(footerLinks).map(([key, links]) => (
             <div key={key}>
