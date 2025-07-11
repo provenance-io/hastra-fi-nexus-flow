@@ -5,7 +5,7 @@ import HastraLogo from './HastraLogo';
 
 const Footer = () => {
   return (
-    <footer className="border-t border-header-glow/20 bg-[hsl(var(--header-footer-bg)/0.6)] backdrop-blur supports-[backdrop-filter]:bg-[hsl(var(--header-footer-bg)/0.5)] shadow-[0_0_20px_hsl(var(--header-glow)/0.1)] py-12">
+    <footer className="border-t border-border/10 bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/80 shadow-[0_0_10px_hsl(var(--border)/0.05)] py-12">
       <div className="container">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           <div className="col-span-2">
@@ -13,16 +13,16 @@ const Footer = () => {
           </div>
           {Object.entries(footerLinks).map(([key, links]) => (
             <div key={key}>
-              <h4 className="font-semibold capitalize">{key}</h4>
+              <h4 className="font-semibold capitalize text-muted-foreground">{key}</h4>
               <ul className="mt-4 space-y-2">
                 {links.map(link => (
                   <li key={link.label}>
                     {link.href.startsWith('/') ? (
-                      <Link to={link.href} className="text-sm text-muted-foreground hover:text-foreground">
+                      <Link to={link.href} className="text-sm text-muted-foreground/80 hover:text-muted-foreground">
                         {link.label}
                       </Link>
                     ) : (
-                      <a href={link.href} className="text-sm text-muted-foreground hover:text-foreground">
+                      <a href={link.href} className="text-sm text-muted-foreground/80 hover:text-muted-foreground">
                         {link.label}
                       </a>
                     )}
@@ -32,7 +32,7 @@ const Footer = () => {
             </div>
           ))}
         </div>
-        <div className="mt-12 border-t pt-8 text-center text-sm text-muted-foreground">
+        <div className="mt-12 border-t border-border/10 pt-8 text-center text-sm text-muted-foreground/70">
           &copy; {new Date().getFullYear()} Hastra Protocol Foundation. All rights reserved.
         </div>
       </div>
