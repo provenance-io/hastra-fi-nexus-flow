@@ -28,7 +28,7 @@ const Products = () => {
             Grow your wealth, <span className="text-gradient">not your workload.</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            We bring revolutionary financial products that bridge traditional finance with DeFi innovation
+            explore new ways your stablecoins can earn APY for you.
           </p>
         </div>
         
