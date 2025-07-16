@@ -53,7 +53,7 @@ const Header = () => {
                       </div>
                       <div>
                         <div className="font-semibold text-gray-900 mb-1">HOMES</div>
-                        <div className="text-sm text-gray-600">Earn Up to 8% APY</div>
+                        <div className="text-sm text-gray-600">COMING SOON</div>
                       </div>
                     </div>
                   </Link>
@@ -66,7 +66,7 @@ const Header = () => {
                       </div>
                       <div>
                         <div className="font-semibold text-gray-900 mb-1">YIELD</div>
-                        <div className="text-sm text-gray-600">Earn Up to 3.5% APY</div>
+                        <div className="text-sm text-gray-600">Earn Up to 4% APY</div>
                       </div>
                     </div>
                   </Link>
