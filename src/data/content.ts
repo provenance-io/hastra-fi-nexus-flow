@@ -29,7 +29,7 @@ export const products = {
   live: {
     name: 'YIELD',
     tagline: 'Earn Yield on Your Stable',
-    description: "TradFi yields, DeFi velocity",
+    description: "TradFi Yields, DeFi velocity",
     innovation: 'Instant transfers, minimal fees, full DeFi composability - all backed by real world assets',
     status: 'Live on Solana',
     cta: 'Learn More',
