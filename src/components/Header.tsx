@@ -46,19 +46,6 @@ const Header = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-72 bg-white/95 backdrop-blur-md border border-gray-200 shadow-2xl" align="start">
                 <DropdownMenuItem asChild>
-                  <Link to="/yield" className="flex items-center w-full cursor-pointer p-3 hover:bg-gray-50 rounded-lg transition-all duration-200 group">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-cyan-100 border border-cyan-200 flex items-center justify-center group-hover:scale-105 transition-transform">
-                        <span className="text-cyan-600 font-bold">Y</span>
-                      </div>
-                      <div>
-                        <div className="font-semibold text-gray-900 mb-1">YIELD</div>
-                        <div className="text-sm text-gray-600">Earn Up to 3.5% APY</div>
-                      </div>
-                    </div>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
                   <Link to="/homes" className="flex items-center w-full cursor-pointer p-3 hover:bg-gray-50 rounded-lg transition-all duration-200 group">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-lg bg-green-100 border border-green-200 flex items-center justify-center group-hover:scale-105 transition-transform">
@@ -67,6 +54,19 @@ const Header = () => {
                       <div>
                         <div className="font-semibold text-gray-900 mb-1">HOMES</div>
                         <div className="text-sm text-gray-600">Earn Up to 8% APY</div>
+                      </div>
+                    </div>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/yield" className="flex items-center w-full cursor-pointer p-3 hover:bg-gray-50 rounded-lg transition-all duration-200 group">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-lg bg-cyan-100 border border-cyan-200 flex items-center justify-center group-hover:scale-105 transition-transform">
+                        <span className="text-cyan-600 font-bold">Y</span>
+                      </div>
+                      <div>
+                        <div className="font-semibold text-gray-900 mb-1">YIELD</div>
+                        <div className="text-sm text-gray-600">Earn Up to 3.5% APY</div>
                       </div>
                     </div>
                   </Link>
