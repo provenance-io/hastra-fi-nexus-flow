@@ -17,7 +17,7 @@ const MobileMenu = () => {
     { label: 'About', href: '/about' },
     { label: 'Products', href: '/yield' },
     { label: '(L)earn', href: '/learn' },
-    { label: 'Earn', href: '/earn' },
+    
   ];
 
   const handleNavClick = (href: string, isAnchor?: boolean) => {
