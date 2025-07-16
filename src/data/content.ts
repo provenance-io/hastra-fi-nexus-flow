@@ -44,7 +44,7 @@ export const products = {
     tagline: 'RWA Yield Pools',
     description: "Access competitive yields through Real World Asset pools on Solana. Earn attractive returns with both yield tokens and enhanced HASH token rewards.",
     innovation: 'Professional-grade DeFi product with rigorous risk management and transparent operations.',
-    status: 'Live on Solana',
+    status: 'Coming Soon',
     cta: 'Learn More',
     stats: [
       { label: 'Target APY', value: '10%' },

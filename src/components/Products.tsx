@@ -112,7 +112,12 @@ const Products = () => {
           </div>
 
           {/* HOMES Product */}
-          <div className="floating-card card-gradient card-hover rounded-3xl p-8 md:p-12 space-y-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+          <div className="floating-card card-gradient card-hover rounded-3xl p-8 md:p-12 space-y-8 animate-fade-in-up relative" style={{ animationDelay: '0.2s' }}>
+            {/* Coming Soon Badge */}
+            <div className="absolute top-6 right-6 bg-gradient-to-r from-orange-500/20 to-yellow-500/20 border border-orange-400/30 rounded-full px-4 py-2">
+              <span className="text-sm font-bold text-orange-300">Coming Soon</span>
+            </div>
+            
             {/* Product header */}
             <div className="space-y-6">
               <div className="flex items-center gap-4">
@@ -122,16 +127,21 @@ const Products = () => {
                 </div>
                 <div className="flex-1">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                    <h3 className="text-3xl md:text-4xl font-bold text-foreground group-hover:text-header-glow transition-colors">
-                      {products.homes.name}
-                    </h3>
+                    <div className="flex items-center gap-3">
+                      <h3 className="text-3xl md:text-4xl font-bold text-foreground group-hover:text-header-glow transition-colors">
+                        {products.homes.name}
+                      </h3>
+                      <span className="text-sm font-medium text-orange-300 bg-orange-500/10 px-2 py-1 rounded-md">
+                        Preview
+                      </span>
+                    </div>
                     <Button 
                       asChild 
                       size="lg" 
                       className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-6 py-3 text-base rounded-xl transition-all duration-300 group sm:ml-4"
                     >
                       <Link to="/homes">
-                        Learn More
+                        Preview
                         <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </Link>
                     </Button>
@@ -141,8 +151,8 @@ const Products = () => {
               <p className="text-xl md:text-2xl font-semibold text-gradient">
                 {products.homes.tagline}
               </p>
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 font-medium animate-pulse-light">
-                <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-300 font-medium animate-pulse-light">
+                <div className="w-2 h-2 bg-orange-400 rounded-full mr-2 animate-pulse"></div>
                 {products.homes.status}
               </div>
             </div>
