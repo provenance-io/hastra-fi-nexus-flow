@@ -113,10 +113,6 @@ const Products = () => {
 
           {/* HOMES Product */}
           <div className="floating-card card-gradient card-hover rounded-3xl p-8 md:p-12 space-y-8 animate-fade-in-up relative" style={{ animationDelay: '0.2s' }}>
-            {/* Coming Soon Badge */}
-            <div className="absolute top-6 right-6 bg-gradient-to-r from-orange-500/20 to-yellow-500/20 border border-orange-400/30 rounded-full px-4 py-2">
-              <span className="text-sm font-bold text-orange-300">Coming Soon</span>
-            </div>
             
             {/* Product header */}
             <div className="space-y-6">
