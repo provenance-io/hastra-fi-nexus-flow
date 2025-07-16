@@ -94,13 +94,13 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({ isOpen, onC
           <div className="bg-secondary/50 rounded-xl p-4 mb-8">
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm font-medium text-foreground">Development Progress</span>
-              <span className="text-xs text-muted-foreground">Phase 1 of 4</span>
+              <span className="text-xs text-muted-foreground">Phase 2 of 4</span>
             </div>
             
             <div className="w-full bg-muted rounded-full h-2 mb-2">
               <div 
                 className="bg-gradient-to-r from-electric-blue to-neon-cyan h-2 rounded-full transition-all duration-1000 ease-out"
-                style={{ width: '25%' }}
+                style={{ width: '50%' }}
               />
             </div>
             
