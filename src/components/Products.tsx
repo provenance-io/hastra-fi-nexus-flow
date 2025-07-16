@@ -25,10 +25,10 @@ const Products = () => {
       <div className="container relative">
         <div className="text-center space-y-4 mb-16">
           <h2 id="products-heading" className="text-4xl md:text-5xl font-bold tracking-tight">
-            Our <span className="text-gradient">Products</span>
+            Grow your wealth, <span className="text-gradient">not your workload.</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Revolutionary financial products that bridge traditional finance with DeFi innovation
+            We bring revolutionary financial products that bridge traditional finance with DeFi innovation
           </p>
         </div>
         
