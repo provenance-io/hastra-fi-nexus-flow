@@ -34,7 +34,7 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({ isOpen, onC
   if (!isOpen) return null;
 
   return (
-    <div className="fixed top-16 left-0 right-0 bottom-0 z-40 flex items-center justify-center p-4">
+    <div className="fixed top-16 left-0 right-0 bottom-0 z-40 flex items-center justify-center p-6">
       {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-black/30 backdrop-blur-sm" 
@@ -42,7 +42,7 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({ isOpen, onC
       />
       
       {/* Modal */}
-      <div className="relative bg-background/95 backdrop-blur-md rounded-2xl shadow-premium max-w-md w-full mx-auto border border-border/20 animate-fade-in">
+      <div className="relative bg-background/95 backdrop-blur-md rounded-2xl shadow-premium max-w-sm w-full mx-auto border border-border/20 animate-fade-in">
         {/* Close Button */}
         <button
           onClick={onClose}
