@@ -42,7 +42,7 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({ isOpen, onC
       />
       
       {/* Modal */}
-      <div className="relative bg-background/95 backdrop-blur-md rounded-2xl shadow-premium max-w-sm w-full mx-auto border border-border/20 animate-fade-in">
+      <div className="relative bg-background/95 backdrop-blur-md rounded-2xl shadow-premium max-w-md w-full mx-auto border border-border/20 animate-fade-in">
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -52,9 +52,9 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({ isOpen, onC
           <X className="h-5 w-5" />
         </button>
 
-        <div className="p-8">
+        <div className="p-6">
           {/* Header Section */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-6">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-electric-blue/20 to-neon-cyan/10 mb-4">
               <DollarSign className="h-8 w-8 text-electric-blue" />
             </div>
@@ -67,7 +67,7 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({ isOpen, onC
           </div>
 
           {/* Feature Preview */}
-          <div className="space-y-4 mb-8">
+          <div className="space-y-3 mb-6">
             <div className="flex items-center gap-3">
               <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-electric-blue/10 flex items-center justify-center">
                 <TrendingUp className="h-4 w-4 text-electric-blue" />
@@ -91,7 +91,7 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({ isOpen, onC
           </div>
 
           {/* Progress Section */}
-          <div className="bg-secondary/50 rounded-xl p-4 mb-8">
+          <div className="bg-secondary/50 rounded-xl p-4 mb-6">
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm font-medium text-foreground">Development Progress</span>
               <span className="text-xs text-muted-foreground">Phase 2 of 4</span>
