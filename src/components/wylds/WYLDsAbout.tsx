@@ -1,26 +1,8 @@
 
-import { Shield, TrendingUp, Globe, CheckCircle, Building2, ArrowRight } from 'lucide-react';
+import { CheckCircle, Building2, ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import SolanaBanner from './SolanaBanner';
-
-const features = [
-  {
-    icon: Shield,
-    title: 'SEC-Registered',
-    description: 'The first yield-bearing stablecoin registered with the Securities and Exchange Commission.',
-  },
-  {
-    icon: TrendingUp,
-    title: 'Automatic Yield',
-    description: 'Earn yield automatically just by holding YIELD in your wallet - no staking required.',
-  },
-  {
-    icon: Globe,
-    title: 'Cross-Chain',
-    description: 'Available on Solana with plans to expand to additional blockchain networks.',
-  },
-];
 
 const benefits = [
   'Regulatory compliance and transparency',
@@ -64,38 +46,6 @@ const WYLDsAbout = () => {
         <SolanaBanner />
         
 
-        <div className="grid gap-10 md:grid-cols-3 mb-20">
-          {features.map((feature, index) => (
-            <div 
-              key={feature.title} 
-              className="group perspective-1000 h-64 cursor-pointer"
-              style={{ animationDelay: `${index * 0.15}s` }}
-            >
-              <div className="relative w-full h-full transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
-                {/* Front of card */}
-                <div className="absolute inset-0 w-full h-full backface-hidden">
-                  <Card className="w-full h-full card-premium pointer-events-none">
-                    <CardContent className="p-8 text-center h-full flex flex-col justify-center">
-                      <div className="w-20 h-20 glass-premium rounded-2xl mx-auto mb-6 flex items-center justify-center pulse-glow-premium">
-                        <feature.icon className="h-10 w-10 text-electric-blue" />
-                      </div>
-                      <h3 className="text-2xl font-bold text-premium-gradient">{feature.title}</h3>
-                    </CardContent>
-                  </Card>
-                </div>
-                
-                {/* Back of card */}
-                <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180">
-                  <Card className="w-full h-full card-premium pointer-events-none">
-                    <CardContent className="p-8 text-center h-full flex flex-col justify-center">
-                      <p className="text-platinum/80 leading-relaxed text-lg">{feature.description}</p>
-                    </CardContent>
-                  </Card>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
 
         <div className="grid gap-16 lg:grid-cols-2 items-start mb-16">
           <div>
