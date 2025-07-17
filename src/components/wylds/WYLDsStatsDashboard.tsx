@@ -20,7 +20,7 @@ interface ProvenanceSupplyResponse {
 }
 
 const fetchCurrentAPY = async (): Promise<number> => {
-  const response = await fetch('https://www.figuremarkets.com/service-funds/public/api/v1/funds/17d885eb-13e9-47a4-ad2f-228c0aa89a91/yield');
+  const response = await fetch('https://api.codetabs.com/v1/proxy?quest=https://www.figuremarkets.com/service-funds/public/api/v1/funds/17d885eb-13e9-47a4-ad2f-228c0aa89a91/yield');
   if (!response.ok) {
     throw new Error('Failed to fetch APY data');
   }
@@ -38,7 +38,7 @@ const fetchActiveHolders = async (): Promise<string> => {
 };
 
 const fetchTotalCirculation = async (): Promise<number> => {
-  const response = await fetch('https://api.provenance.io/cosmos/bank/v1beta1/supply/by_denom?denom=uylds.fcc');
+  const response = await fetch('https://api.codetabs.com/v1/proxy?quest=https://api.provenance.io/cosmos/bank/v1beta1/supply/by_denom?denom=uylds.fcc');
   if (!response.ok) {
     throw new Error('Failed to fetch circulation data');
   }
