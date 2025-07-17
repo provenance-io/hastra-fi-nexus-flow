@@ -1,5 +1,3 @@
-import { Sparkles } from 'lucide-react';
-
 const SolanaBanner = () => {
   return (
     <div className="py-8 relative">
