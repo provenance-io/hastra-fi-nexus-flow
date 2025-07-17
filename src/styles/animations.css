@@ -98,25 +98,38 @@
 @keyframes stable-coin-fall {
   0% {
     opacity: 0;
-    transform: translateY(-100vh) translateX(0) rotateY(var(--rotation-start, 0deg)) rotateX(0deg) scale(0.8);
+    transform: translateY(-100vh) 
+               translateX(0) 
+               rotateY(var(--rotation-start, 0deg))
+               rotateX(0deg)
+               scale(0.8);
   }
+  
   10% {
-    opacity: 1; /* Fully visible as it enters the screen */
-    transform: translateY(-10vh) translateX(calc(var(--drift-early, 0px) * 0.2))
-      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 0.8))
-      rotateX(calc(var(--tilt-speed, 15deg) * 0.4)) scale(0.9);
+    opacity: 0.6;
+    transform: translateY(-10vh) 
+               translateX(calc(var(--drift-early, 0px) * 0.2))
+               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 0.8))
+               rotateX(calc(var(--tilt-speed, 15deg) * 0.4))
+               scale(0.9);
   }
+  
   90% {
-    opacity: 1; /* Fully visible until it's about to leave */
-    transform: translateY(100vh) translateX(var(--drift-end, 0px))
-      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 7.5))
-      rotateX(calc(var(--tilt-speed, 15deg) * 4.6)) scale(0.85);
+    opacity: 1;
+    transform: translateY(100vh) 
+               translateX(var(--drift-end, 0px))
+               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 7.5))
+               rotateX(calc(var(--tilt-speed, 15deg) * 4.6))
+               scale(0.85);
   }
+  
   100% {
-    opacity: 0; /* Fully invisible as it leaves the screen */
-    transform: translateY(150vh) translateX(var(--drift-end, 0px))
-      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 8))
-      rotateX(calc(var(--tilt-speed, 15deg) * 5)) scale(0.8);
+    opacity: 0;
+    transform: translateY(150vh) 
+               translateX(var(--drift-end, 0px))
+               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 8))
+               rotateX(calc(var(--tilt-speed, 15deg) * 5))
+               scale(0.8);
   }
 }
 
