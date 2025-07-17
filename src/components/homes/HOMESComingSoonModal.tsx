@@ -109,8 +109,8 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({ isOpen, onC
               </p>
             </div>
 
-            {/* Beehiiv Embed Form - Compact */}
-            <div className="w-full flex justify-center mb-4">
+            {/* Beehiiv Embed Form - Compact with reduced bottom spacing */}
+            <div className="w-full flex justify-center mb-2">
               <iframe 
                 src="https://subscribe-forms.beehiiv.com/30217469-2e22-46f3-a339-7c531ae92535" 
                 className="beehiiv-embed w-full rounded-lg border border-border/20" 
@@ -128,7 +128,7 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({ isOpen, onC
             </div>
 
             {/* Footer Disclaimer */}
-            <div className="mt-4 pt-3 border-t border-border/50">
+            <div className="pt-3 border-t border-border/50">
               <p className="text-xs text-muted-foreground text-center leading-relaxed">
                 Investment involves risk. Yields are targets and not guaranteed. Timeline and features subject to change.
               </p>
