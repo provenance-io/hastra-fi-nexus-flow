@@ -25,7 +25,7 @@ const WYLDsFAQ = () => {
     },
     {
       question: "Where can I see the yield I've earned?",
-      answer: "You can view your **accruing yield** on the [Hastra protocol page](https://test.hastra.io/protocol). You can track your **distributed yield** directly in your Solana wallet balance. The yield is distributed as additional YIELD tokens, so your wallet balance will reflect both your original holdings and any earned yield up through the previous month. Additionally, you can monitor distributions through supported DeFi platforms."
+      answer: "You can view your accruing yield on the Hastra Protocol Page. You can track your distributed yield directly in your Solana wallet balance. The yield is distributed as additional YIELD tokens, so your wallet balance will reflect both your original holdings and any earned yield up through the previous month. Additionally, you can monitor distributions through supported DeFi platforms."
     },
     {
       question: "When do I receive my yield?",
@@ -65,9 +65,24 @@ const WYLDsFAQ = () => {
                   </span>
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-4">
-                  <p className="text-platinum/80 leading-relaxed">
-                    {faq.answer}
-                  </p>
+                  <div className="text-platinum/80 leading-relaxed">
+                    {faq.answer.includes("Hastra Protocol Page") ? (
+                      <span>
+                        You can view your <strong>accruing yield</strong> on the{" "}
+                        <a 
+                          href="https://test.hastra.io/protocol" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-electric-blue hover:text-neon-cyan transition-colors duration-300 underline"
+                        >
+                          Hastra Protocol Page
+                        </a>
+                        . You can track your <strong>distributed yield</strong> directly in your Solana wallet balance. The yield is distributed as additional YIELD tokens, so your wallet balance will reflect both your original holdings and any earned yield up through the previous month. Additionally, you can monitor distributions through supported DeFi platforms.
+                      </span>
+                    ) : (
+                      faq.answer
+                    )}
+                  </div>
                 </AccordionContent>
               </AccordionItem>
             ))}
