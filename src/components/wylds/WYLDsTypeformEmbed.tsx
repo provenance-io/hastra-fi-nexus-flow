@@ -15,7 +15,7 @@ const WYLDsTypeformEmbed = () => {
         </div>
         
         <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
-          <Widget id="HetEUZ6j" style={{ width: '100%', height: '500px' }} />
+          <Widget id="HetEUZ6j" style={{ width: '100%', height: '800px' }} />
         </div>
       </div>
     </section>
