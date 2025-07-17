@@ -48,26 +48,6 @@ const WYLDsAbout = () => {
 
 
 
-        <div className="text-center">
-          <div className="card-premium rounded-3xl p-12 max-w-4xl mx-auto">
-            <h3 className="text-3xl md:text-4xl font-bold mb-6 text-premium-gradient">
-              Building the Future of Finance
-            </h3>
-            <p className="text-xl text-platinum/90 max-w-3xl mx-auto leading-relaxed">
-              As part of Hastra-Fi's mission to expand protocol capabilities, YIELD serves as a foundational 
-              building block for creating new <span className="text-electric-blue font-semibold">financial primitives</span> that bridge 
-              <span className="text-neon-cyan font-semibold">traditional and decentralized finance</span>.
-            </p>
-            
-            {/* Call to action */}
-            <div className="mt-10">
-              <Button className="btn-premium px-10 py-4 text-lg rounded-xl">
-                Explore YIELD Features
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
