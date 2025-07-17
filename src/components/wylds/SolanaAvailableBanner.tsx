@@ -12,7 +12,7 @@ const SolanaAvailableBanner = () => {
       
       {/* Content */}
       <div className="relative z-10 flex items-center justify-center gap-8 px-8">
-        <div className="flex items-center gap-8 bg-white/5 backdrop-blur-sm rounded-3xl p-12 pulse-glow-premium">
+        <div className="flex items-center gap-8 p-12 pulse-glow-premium">
           <span className="text-4xl md:text-5xl font-bold text-electric-blue">
             Now Available on
           </span>
