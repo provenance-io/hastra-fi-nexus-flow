@@ -47,36 +47,6 @@ const WYLDsAbout = () => {
         
 
 
-        <div className="grid gap-16 lg:grid-cols-2 items-start mb-16">
-          <div>
-            <h3 className="text-2xl font-bold mb-8 text-center lg:text-left">Key Benefits</h3>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-              {benefits.map((benefit) => (
-                <div key={benefit} className="flex items-center gap-3 p-3 rounded-lg card-gradient">
-                  <CheckCircle className="h-5 w-5 text-crypto-accent flex-shrink-0" />
-                  <span className="text-foreground/90">{benefit}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <div>
-            <h3 className="text-2xl font-bold mb-8 text-center lg:text-left">How It Works</h3>
-            <div className="space-y-6">
-              {howItWorks.map((item) => (
-                <div key={item.step} className="flex items-start gap-4 p-4 rounded-lg card-gradient">
-                  <div className="bg-header-glow/20 text-header-glow border border-header-glow/30 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold flex-shrink-0">
-                    {item.step}
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-lg mb-1">{item.title}</h4>
-                    <p className="text-muted-foreground">{item.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
 
         <div className="text-center">
           <div className="card-premium rounded-3xl p-12 max-w-4xl mx-auto">
