@@ -1,10 +1,91 @@
 
 import { products } from '@/data/content';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, TrendingUp, Users, DollarSign, ExternalLink, Home, Building } from 'lucide-react';
+import { ArrowRight, TrendingUp, Users, DollarSign, ExternalLink, Home, Building, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+
+interface FigureYieldResponse {
+  rate: number;
+}
+
+interface ProvenanceDenomOwnersResponse {
+  pagination: {
+    total: string;
+  };
+}
+
+interface ProvenanceSupplyResponse {
+  amount: {
+    amount: string;
+  };
+}
+
+const fetchCurrentAPY = async (): Promise<number> => {
+  const response = await fetch('https://api.codetabs.com/v1/proxy?quest=https://www.figuremarkets.com/service-funds/public/api/v1/funds/17d885eb-13e9-47a4-ad2f-228c0aa89a91/yield');
+  if (!response.ok) {
+    throw new Error('Failed to fetch APY data');
+  }
+  const data: FigureYieldResponse = await response.json()
+  return data.rate;
+};
+
+const fetchActiveHolders = async (): Promise<string> => {
+  const response = await fetch('https://api.codetabs.com/v1/proxy?quest=https://api.provenance.io/cosmos/bank/v1beta1/denom_owners/uylds.fcc');
+  if (!response.ok) {
+    throw new Error('Failed to fetch active holders data');
+  }
+  const data: ProvenanceDenomOwnersResponse = await response.json();
+  return data.pagination.total;
+};
+
+const fetchTotalCirculation = async (): Promise<number> => {
+  const response = await fetch('https://api.codetabs.com/v1/proxy?quest=https://api.provenance.io/cosmos/bank/v1beta1/supply/by_denom?denom=uylds.fcc');
+  if (!response.ok) {
+    throw new Error('Failed to fetch circulation data');
+  }
+  const data: ProvenanceSupplyResponse = await response.json();
+  return parseInt(data.amount.amount) / 1e6;
+};
+
+const formatNumber = (num: number): string => {
+  if (num >= 1e9) {
+    return `$${(num / 1e9).toFixed(1)}B`;
+  } else if (num >= 1e6) {
+    return `$${(num / 1e6).toFixed(1)}M`;
+  } else if (num >= 1e3) {
+    return `$${(num / 1e3).toFixed(1)}K`;
+  }
+  return `$${num.toFixed(2)}`;
+};
+
+const formatHolders = (holders: string): string => {
+  const num = parseInt(holders);
+  if (num >= 1000) {
+    return `${(num / 1000).toFixed(1)}k+`;
+  }
+  return holders;
+};
 
 const Products = () => {
+  const { data: apy, isLoading: apyLoading, error: apyError } = useQuery({
+    queryKey: ['yield-apy'],
+    queryFn: fetchCurrentAPY,
+    refetchInterval: 5 * 60 * 1000, // Refetch every 5 minutes
+  });
+
+  const { data: holders, isLoading: holdersLoading, error: holdersError } = useQuery({
+    queryKey: ['active-holders'],
+    queryFn: fetchActiveHolders,
+    refetchInterval: 5 * 60 * 1000, // Refetch every 5 minutes
+  });
+
+  const { data: circulation, isLoading: circulationLoading, error: circulationError } = useQuery({
+    queryKey: ['total-circulation'],
+    queryFn: fetchTotalCirculation,
+    refetchInterval: 5 * 60 * 1000, // Refetch every 5 minutes
+  });
+
   const statIcons = {
     'Current APY': TrendingUp,
     'Total Supply': DollarSign,
@@ -16,6 +97,28 @@ const Products = () => {
     'Pool Size': DollarSign,
     'First Mover': ExternalLink,
   };
+
+  // Create dynamic stats for YIELD product
+  const yieldStats = [
+    {
+      label: 'Current APY',
+      value: apyLoading ? 'Loading...' : apyError ? 'Error' : `${(apy || 0)}%`,
+      isLoading: apyLoading,
+      hasError: !!apyError,
+    },
+    {
+      label: 'Total Supply',
+      value: circulationLoading ? 'Loading...' : circulationError ? 'Error' : formatNumber(circulation || 0),
+      isLoading: circulationLoading,
+      hasError: !!circulationError,
+    },
+    {
+      label: 'Active Users',
+      value: holdersLoading ? 'Loading...' : holdersError ? 'Error' : formatHolders(holders || '0'),
+      isLoading: holdersLoading,
+      hasError: !!holdersError,
+    },
+  ];
 
   return (
     <section id="products" className="py-24 md:py-32 relative" role="region" aria-labelledby="products-heading">
@@ -86,7 +189,7 @@ const Products = () => {
 
             {/* Stats grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {products.live.stats.map((stat, index) => {
+              {yieldStats.map((stat, index) => {
                 const IconComponent = statIcons[stat.label as keyof typeof statIcons] || TrendingUp;
                 return (
                   <div 
@@ -98,8 +201,11 @@ const Products = () => {
                     }}
                   >
                     <IconComponent className="w-8 h-8 mx-auto text-header-glow group-hover:scale-110 transition-transform duration-300" />
-                    <div className="text-3xl md:text-4xl font-bold text-gradient group-hover:scale-105 transition-transform duration-300">
-                      {stat.value}
+                    <div className="text-3xl md:text-4xl font-bold group-hover:scale-105 transition-transform duration-300 flex items-center justify-center gap-2">
+                      {stat.isLoading && <Loader2 className="w-6 h-6 animate-spin" />}
+                      <span className={stat.isLoading ? 'opacity-50' : stat.hasError ? 'text-red-400' : 'text-gradient'}>
+                        {stat.value}
+                      </span>
                     </div>
                     <div className="text-sm font-medium text-muted-foreground">
                       {stat.label}
