@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useQuery } from '@tanstack/react-query';
 import { Loader2 } from 'lucide-react';
@@ -141,27 +140,26 @@ const WYLDsStatsDashboard = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardHeader className="pb-4">
-                <CardTitle className="text-sm font-medium text-platinum/70">{stat.title}</CardTitle>
+                <CardTitle className="text-sm font-medium text-foreground/70">{stat.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-3xl md:text-4xl font-bold text-premium-gradient mb-3 flex items-center gap-2">
+                <div className="text-3xl md:text-4xl font-bold text-foreground mb-3 flex items-center gap-2">
                   {stat.isLoading && <Loader2 className="h-6 w-6 animate-spin" />}
-                  <span className={stat.isLoading ? 'opacity-50' : stat.hasError ? 'text-red-400' : 'animate-pulse-light'}>
+                  <span className={stat.isLoading ? 'opacity-50' : stat.hasError ? 'text-red-400' : 'text-foreground'}>
                     {stat.value}
                   </span>
                 </div>
-                <p className="text-sm text-platinum/60 leading-relaxed">{stat.description}</p>
+                <p className="text-sm text-foreground/60 leading-relaxed">{stat.description}</p>
                 
                 {/* Live indicator */}
                 <div className="flex items-center gap-2 mt-4">
                   <div className={`w-2 h-2 rounded-full ${stat.hasError ? 'bg-red-400' : 'bg-electric-blue animate-pulse'}`}></div>
-                  <span className="text-xs text-platinum/50">{stat.hasError ? 'Error' : 'Live'}</span>
+                  <span className="text-xs text-foreground/50">{stat.hasError ? 'Error' : 'Live'}</span>
                 </div>
               </CardContent>
             </Card>
           ))}
         </div>
-
       </div>
     </section>
   );
