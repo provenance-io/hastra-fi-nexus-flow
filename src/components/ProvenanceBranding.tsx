@@ -12,8 +12,13 @@ const ProvenanceBranding = () => {
     >
       <div className="container">
         <div className="flex items-center justify-center gap-3">
-          <span className="text-base text-muted-foreground font-medium">
-            Built on Provenance Blockchain
+          <span className="text-base text-muted-foreground font-medium flex items-center gap-2">
+            Built on
+            <img 
+              src="/lovable-uploads/e80568de-0fba-4199-a928-a9d5b3fa9b76.png" 
+              alt="Provenance Blockchain" 
+              className="h-5 w-auto"
+            />
           </span>
         </div>
       </div>
