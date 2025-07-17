@@ -33,12 +33,11 @@ const WYLDsHero = () => {
         </h1>
         
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-8 text-platinum/90">
-          Earn Yield on Your Stable
+          TRADE IT. LEND IT. SPEND IT. SEND IT.
         </h2>
         
         <p className="max-w-4xl mx-auto text-xl md:text-2xl text-platinum/80 leading-relaxed mb-12">
-          Choose <span className="text-electric-blue font-semibold">Stable Yields</span> backed by securitized assets or 
-          <span className="text-neon-cyan font-semibold"> Enhanced Rewards</span> with Dual-Token Flexibility.
+          Earn yield on autopilot and spend whenever you want - backed by real world assets.
         </p>
 
         {/* Enhanced APY Display */}
