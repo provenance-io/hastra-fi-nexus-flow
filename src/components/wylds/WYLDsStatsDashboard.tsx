@@ -18,9 +18,9 @@ const stats = [
     description: 'Cumulative yield distributed to all YIELD holders.',
   },
   {
-    title: '24h Volume',
-    value: '$5.6M',
-    description: 'The total trading volume of YIELD in the last 24 hours.',
+    title: 'Active Holders',
+    value: '12.4k+',
+    description: 'Total number of wallets currently holding YIELD tokens.',
   },
 ];
 
@@ -67,26 +67,6 @@ const WYLDsStatsDashboard = () => {
           ))}
         </div>
 
-        {/* Additional metrics */}
-        <div className="mt-16 text-center">
-          <div className="glass-premium rounded-2xl p-8 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-premium-gradient mb-6">Additional Metrics</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div>
-                <div className="text-2xl font-bold text-electric-blue mb-2">12.4k+</div>
-                <div className="text-platinum/70">Active Holders</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-neon-cyan mb-2">95.8%</div>
-                <div className="text-platinum/70">Success Rate</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-premium-gold mb-2">$1.2M</div>
-                <div className="text-platinum/70">Total Yield Distributed</div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
