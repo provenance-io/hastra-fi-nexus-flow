@@ -17,7 +17,7 @@ const ProvenanceBranding = () => {
             <img 
               src="/lovable-uploads/e80568de-0fba-4199-a928-a9d5b3fa9b76.png" 
               alt="Provenance Blockchain" 
-              className="h-8 md:h-10 w-auto"
+              className="h-10 md:h-12 w-auto"
             />
           </span>
         </div>
