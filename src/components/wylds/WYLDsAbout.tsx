@@ -2,7 +2,7 @@
 import { CheckCircle, Building2, ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import SolanaBanner from './SolanaBanner';
+
 
 const benefits = [
   'Regulatory compliance and transparency',
@@ -43,7 +43,6 @@ const WYLDsAbout = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
       
       <div className="container relative">
-        <SolanaBanner />
         
 
 
