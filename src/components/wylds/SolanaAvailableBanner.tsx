@@ -1,3 +1,5 @@
+import solanaLogo from '@/assets/solana-logo.svg';
+
 const SolanaAvailableBanner = () => {
   return (
     <section className="w-full py-16 relative overflow-hidden bg-background">
@@ -10,11 +12,11 @@ const SolanaAvailableBanner = () => {
           
           {/* Solana Logo */}
           <div className="flex items-center gap-3">
-            <div className="flex flex-col gap-1">
-              <div className="w-8 h-2 bg-gradient-to-r from-purple-400 to-purple-600 rounded-full"></div>
-              <div className="w-8 h-2 bg-gradient-to-r from-neon-cyan to-green-400 rounded-full"></div>
-              <div className="w-8 h-2 bg-gradient-to-r from-green-400 to-green-600 rounded-full"></div>
-            </div>
+            <img 
+              src={solanaLogo} 
+              alt="Solana" 
+              className="w-8 h-8"
+            />
             
             <span className="text-2xl md:text-3xl font-bold text-white tracking-wider">
               SOLANA
