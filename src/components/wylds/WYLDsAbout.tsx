@@ -2,6 +2,7 @@
 import { Shield, TrendingUp, Globe, CheckCircle, Building2, ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import SolanaBanner from './SolanaBanner';
 
 const features = [
   {
@@ -60,6 +61,8 @@ const WYLDsAbout = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
       
       <div className="container relative">
+        <SolanaBanner />
+        
         <div className="text-center mb-20">
           <div className="glass-premium rounded-full px-6 py-3 text-sm font-medium mb-8 inline-block">
             <Building2 className="h-5 w-5 text-electric-blue mr-3 inline" />
