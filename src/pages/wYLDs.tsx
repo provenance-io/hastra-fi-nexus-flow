@@ -4,6 +4,7 @@ import WYLDsYieldExplanation from '@/components/wylds/WYLDsYieldExplanation';
 import WYLDsAbout from '@/components/wylds/WYLDsAbout';
 import WYLDsStatsDashboard from '@/components/wylds/WYLDsStatsDashboard';
 import WYLDsResources from '@/components/wylds/WYLDsResources';
+import WYLDsFAQ from '@/components/wylds/WYLDsFAQ';
 
 const WYLDsPage = () => {
   return (
@@ -15,6 +16,7 @@ const WYLDsPage = () => {
         <WYLDsYieldExplanation />
         <WYLDsAbout />
         <WYLDsStatsDashboard />
+        <WYLDsFAQ />
         <WYLDsResources />
       </div>
     </div>
