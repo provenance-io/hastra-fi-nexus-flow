@@ -128,7 +128,7 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({ isOpen, onC
                 disabled={isLoading || !email.includes('@')}
                 className="w-full bg-gradient-to-r from-electric-blue to-neon-cyan hover:from-electric-blue/90 hover:to-neon-cyan/90 text-white font-medium py-3 rounded-lg transition-all duration-200 disabled:opacity-50"
               >
-                {isLoading ? 'Joining...' : 'Join the Revolution'}
+                {isLoading ? 'Processing...' : 'Notify Me When Available'}
               </Button>
             </form>
           ) : (
