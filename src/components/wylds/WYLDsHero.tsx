@@ -40,7 +40,7 @@ const WYLDsHero = () => {
         </h2>
         
         <p className="max-w-4xl mx-auto text-xl md:text-2xl text-platinum/80 leading-relaxed mb-12">
-          Earn yield on autopilot and spend whenever you want - backed by real world assets.
+          Earn yield on-the-go and spend whenever you want - backed by real world assets.
         </p>
 
         {/* Enhanced APY Display */}
