@@ -18,8 +18,8 @@ const WYLDsPage = () => {
         <SolanaAvailableBanner />
         
         <WYLDsYieldExplanation />
-        <WYLDsAbout />
         <WYLDsStatsDashboard />
+        <WYLDsAbout />
         <WYLDsFAQ />
         <WYLDsResources />
       </div>
