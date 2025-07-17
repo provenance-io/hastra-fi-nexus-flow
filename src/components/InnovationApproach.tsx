@@ -3,7 +3,7 @@ import { innovationApproach } from '@/data/content';
 
 const InnovationApproach = () => {
     return (
-        <section className="py-12 sm:py-16">
+        <section className="py-6 sm:py-8">
             <div className="container">
                 <h2 className="text-3xl font-bold tracking-tight text-center">Our Innovation Approach</h2>
                 <div className="mt-12 grid gap-8 md:grid-cols-3">
