@@ -37,11 +37,6 @@ const WYLDsHero = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMTAsIDIwLCA0MCwwLjA1KSI+PGQgcGF0aD0iTTAtMSAwIDEgTS0xIDAgMSAwIj48L2Q+PC9zdmc+')] opacity-30"></div>
       
-      {/* Floating geometric elements */}
-      <div className="absolute top-16 left-16 w-24 h-24 border border-neon-cyan/20 rounded-full animate-float opacity-60"></div>
-      <div className="absolute top-32 right-16 w-16 h-16 border border-electric-blue/20 rotate-45 animate-float opacity-50" style={{ animationDelay: '1s' }}></div>
-      
-      
       <div className="container relative text-center">
         <div className="glass-premium rounded-full px-6 py-3 text-sm font-medium mb-8 animate-glow-pulse inline-block">
           <span className="mr-2 w-2 h-2 bg-electric-blue rounded-full animate-pulse"></span>
