@@ -66,7 +66,7 @@ const WYLDsYieldExplanation = () => {
           {/* Desktop: Scrollable Horizontal Layout */}
           <div className="hidden lg:block max-w-7xl mx-auto">
             <div className="overflow-x-auto pb-4 scrollbar-hide">
-              <div className="flex items-center gap-8 min-w-max px-4">
+              <div className="flex items-center gap-8 min-w-max px-4 py-4">
                 {steps.map((step, index) => {
                   const IconComponent = step.icon;
                   return (
