@@ -17,7 +17,8 @@ const Hero = () => {
     driftMid: (Math.random() - 0.5) * 40,
     driftLate: (Math.random() - 0.5) * 50,
     driftEnd: (Math.random() - 0.5) * 60,
-    duration: 4 + (i * 0.3), // Staggered but consistent
+    duration: 10,
+    // duration: 4 + (i * 0.3), // Staggered but consistent
     delay: i * 1.2, // Fixed delays for consistency
     rotationStart: i * 60, // Evenly distributed rotation starts
     spinSpeed: 90 + (i * 15),
