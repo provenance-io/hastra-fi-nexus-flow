@@ -5,6 +5,7 @@ import WYLDsAbout from '@/components/wylds/WYLDsAbout';
 import WYLDsStatsDashboard from '@/components/wylds/WYLDsStatsDashboard';
 import WYLDsResources from '@/components/wylds/WYLDsResources';
 import WYLDsFAQ from '@/components/wylds/WYLDsFAQ';
+import WYLDsTypeformEmbed from '@/components/wylds/WYLDsTypeformEmbed';
 import SolanaAvailableBanner from '@/components/wylds/SolanaAvailableBanner';
 
 
@@ -21,6 +22,7 @@ const WYLDsPage = () => {
         <WYLDsStatsDashboard />
         <WYLDsAbout />
         <WYLDsFAQ />
+        <WYLDsTypeformEmbed />
         <WYLDsResources />
       </div>
     </div>
