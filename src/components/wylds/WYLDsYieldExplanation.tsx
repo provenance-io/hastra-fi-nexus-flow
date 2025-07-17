@@ -53,69 +53,61 @@ const WYLDsYieldExplanation = () => {
           </p>
         </div>
 
-        {/* How It Works - Infographic Style */}
+        {/* How It Works - Clean Infographic Style */}
         <div className="mb-20">
-          {/* Section Header with Visual Enhancement */}
-          <div className="text-center mb-16 relative">
-            <div className="inline-block relative">
-              <h3 className="text-3xl md:text-4xl font-bold text-transparent bg-gradient-to-r from-electric-blue via-neon-cyan to-premium-gold bg-clip-text relative z-10">
-                How It Works
-              </h3>
-              <div className="absolute inset-0 bg-gradient-to-r from-electric-blue/20 via-neon-cyan/20 to-premium-gold/20 blur-xl"></div>
-            </div>
-            <div className="w-24 h-1 bg-gradient-to-r from-electric-blue to-neon-cyan mx-auto mt-4 rounded-full"></div>
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <h3 className="text-3xl md:text-4xl font-bold text-transparent bg-gradient-to-r from-electric-blue via-neon-cyan to-premium-gold bg-clip-text mb-4">
+              How It Works
+            </h3>
+            <div className="w-24 h-1 bg-gradient-to-r from-electric-blue to-neon-cyan mx-auto rounded-full"></div>
           </div>
           
-          {/* Desktop: Enhanced Horizontal Infographic */}
-          <div className="hidden lg:block">
-            {/* Progress Line */}
-            <div className="relative max-w-6xl mx-auto mb-8">
-              <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-electric-blue via-neon-cyan via-premium-gold to-electric-blue rounded-full opacity-30"></div>
-              <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-electric-blue via-neon-cyan via-premium-gold to-electric-blue rounded-full animate-pulse"></div>
-            </div>
-            
-            <div className="flex items-start justify-between max-w-6xl mx-auto relative">
+          {/* Desktop: Clean Horizontal Layout */}
+          <div className="hidden lg:block max-w-7xl mx-auto">
+            <div className="flex items-center justify-center gap-8">
               {steps.map((step, index) => {
                 const IconComponent = step.icon;
                 return (
-                  <div key={step.number} className="flex flex-col items-center relative group">
-                    {/* Step Card */}
-                    <div className={`${step.bgPattern} backdrop-blur-sm border-2 border-transparent bg-gradient-to-br from-card/80 to-card/60 rounded-2xl p-8 max-w-xs text-center hover:scale-105 transition-all duration-500 group-hover:shadow-2xl relative overflow-hidden`}>
-                      {/* Animated Background */}
-                      <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl`}></div>
-                      
-                      {/* Floating Icon */}
-                      <div className="relative z-10 mb-6">
-                        <div className={`w-20 h-20 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center mx-auto group-hover:rotate-6 transition-transform duration-500 shadow-lg`}>
-                          <IconComponent className="w-10 h-10 text-black" />
-                        </div>
-                        
-                        {/* Step Number Badge */}
-                        <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-r from-premium-gold to-electric-blue rounded-full flex items-center justify-center text-black font-bold text-sm shadow-lg">
-                          {step.number}
-                        </div>
+                  <div key={step.number} className="flex items-center">
+                    {/* Step Card - Fixed Size */}
+                    <div className="relative group">
+                      {/* Number Badge */}
+                      <div className="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-r from-premium-gold to-electric-blue rounded-full flex items-center justify-center text-black font-bold text-sm shadow-lg z-10">
+                        {step.number}
                       </div>
                       
-                      {/* Content */}
-                      <h4 className="font-bold text-xl mb-4 text-electric-blue group-hover:text-neon-cyan transition-colors duration-300">
-                        {step.title}
-                      </h4>
-                      <p className="text-platinum/80 text-sm leading-relaxed relative z-10">
-                        {step.description}
-                      </p>
-                      
-                      {/* Decorative Elements */}
-                      <div className="absolute top-4 right-4 w-2 h-2 bg-neon-cyan rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <div className="absolute bottom-4 left-4 w-1 h-1 bg-premium-gold rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      {/* Card Container - Fixed Dimensions */}
+                      <div className="w-72 h-80 bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-sm border border-electric-blue/20 rounded-2xl p-6 text-center hover:border-electric-blue/40 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-electric-blue/10 relative overflow-hidden">
+                        {/* Hover Overlay */}
+                        <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl`}></div>
+                        
+                        {/* Icon Container */}
+                        <div className="relative z-10 mb-6 flex justify-center">
+                          <div className={`w-16 h-16 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                            <IconComponent className="w-8 h-8 text-black" />
+                          </div>
+                        </div>
+                        
+                        {/* Content */}
+                        <div className="relative z-10 h-44 flex flex-col justify-between">
+                          <h4 className="font-bold text-xl text-electric-blue group-hover:text-neon-cyan transition-colors duration-300 mb-4">
+                            {step.title}
+                          </h4>
+                          <p className="text-platinum/80 text-sm leading-relaxed flex-1 flex items-center justify-center">
+                            {step.description}
+                          </p>
+                        </div>
+                      </div>
                     </div>
                     
-                    {/* Enhanced Arrow Connectors */}
+                    {/* Arrow Connector */}
                     {index < steps.length - 1 && (
-                      <div className="absolute top-20 -right-16 z-20">
+                      <div className="mx-6 flex items-center">
                         <div className="flex items-center">
-                          <div className="w-8 h-0.5 bg-gradient-to-r from-electric-blue to-neon-cyan"></div>
-                          <ArrowRight className="w-6 h-6 text-neon-cyan ml-1 animate-pulse" />
-                          <div className="w-8 h-0.5 bg-gradient-to-r from-neon-cyan to-premium-gold ml-1"></div>
+                          <div className="w-8 h-0.5 bg-gradient-to-r from-electric-blue to-neon-cyan rounded-full"></div>
+                          <ArrowRight className="w-6 h-6 text-neon-cyan mx-2" />
+                          <div className="w-8 h-0.5 bg-gradient-to-r from-neon-cyan to-premium-gold rounded-full"></div>
                         </div>
                       </div>
                     )}
@@ -125,51 +117,48 @@ const WYLDsYieldExplanation = () => {
             </div>
           </div>
 
-          {/* Mobile/Tablet: Enhanced Vertical Infographic */}
-          <div className="lg:hidden max-w-sm mx-auto">
+          {/* Mobile/Tablet: Clean Vertical Layout */}
+          <div className="lg:hidden max-w-sm mx-auto space-y-6">
             {steps.map((step, index) => {
               const IconComponent = step.icon;
               return (
                 <div key={step.number} className="relative">
-                  {/* Vertical Progress Line */}
-                  {index < steps.length - 1 && (
-                    <div className="absolute left-1/2 top-32 bottom-0 w-1 bg-gradient-to-b from-electric-blue via-neon-cyan to-premium-gold opacity-30 transform -translate-x-1/2 z-0"></div>
-                  )}
-                  
-                  {/* Step Card */}
-                  <div className={`${step.bgPattern} backdrop-blur-sm border-2 border-transparent bg-gradient-to-br from-card/80 to-card/60 rounded-2xl p-6 text-center hover:scale-105 transition-all duration-500 relative overflow-hidden mb-8 group`}>
-                    {/* Animated Background */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl`}></div>
-                    
-                    {/* Floating Icon */}
-                    <div className="relative z-10 mb-6">
-                      <div className={`w-16 h-16 bg-gradient-to-br ${step.color} rounded-xl flex items-center justify-center mx-auto group-hover:rotate-6 transition-transform duration-500 shadow-lg`}>
-                        <IconComponent className="w-8 h-8 text-black" />
-                      </div>
-                      
-                      {/* Step Number Badge */}
-                      <div className="absolute -top-2 -right-6 w-6 h-6 bg-gradient-to-r from-premium-gold to-electric-blue rounded-full flex items-center justify-center text-black font-bold text-xs shadow-lg">
-                        {step.number}
-                      </div>
+                  {/* Step Card - Consistent Mobile Size */}
+                  <div className="relative group">
+                    {/* Number Badge */}
+                    <div className="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-r from-premium-gold to-electric-blue rounded-full flex items-center justify-center text-black font-bold text-sm shadow-lg z-10">
+                      {step.number}
                     </div>
                     
-                    {/* Content */}
-                    <h4 className="font-bold text-lg mb-3 text-electric-blue group-hover:text-neon-cyan transition-colors duration-300">
-                      {step.title}
-                    </h4>
-                    <p className="text-platinum/80 text-sm leading-relaxed relative z-10">
-                      {step.description}
-                    </p>
-                    
-                    {/* Decorative Elements */}
-                    <div className="absolute top-4 right-4 w-2 h-2 bg-neon-cyan rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    {/* Card Container - Fixed Mobile Dimensions */}
+                    <div className="w-full h-64 bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-sm border border-electric-blue/20 rounded-2xl p-6 text-center hover:border-electric-blue/40 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-electric-blue/10 relative overflow-hidden">
+                      {/* Hover Overlay */}
+                      <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl`}></div>
+                      
+                      {/* Icon Container */}
+                      <div className="relative z-10 mb-4 flex justify-center">
+                        <div className={`w-14 h-14 bg-gradient-to-br ${step.color} rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                          <IconComponent className="w-7 h-7 text-black" />
+                        </div>
+                      </div>
+                      
+                      {/* Content */}
+                      <div className="relative z-10 h-36 flex flex-col justify-between">
+                        <h4 className="font-bold text-lg text-electric-blue group-hover:text-neon-cyan transition-colors duration-300 mb-3">
+                          {step.title}
+                        </h4>
+                        <p className="text-platinum/80 text-sm leading-relaxed flex-1 flex items-center justify-center">
+                          {step.description}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                   
                   {/* Down Arrow Connector */}
                   {index < steps.length - 1 && (
-                    <div className="flex justify-center -mt-4 mb-4 relative z-10">
+                    <div className="flex justify-center my-6">
                       <div className="bg-gradient-to-b from-electric-blue to-neon-cyan rounded-full p-2">
-                        <ChevronDown className="w-4 h-4 text-black animate-bounce" />
+                        <ChevronDown className="w-4 h-4 text-black" />
                       </div>
                     </div>
                   )}
