@@ -5,9 +5,26 @@ const WYLDsTypeformEmbed = () => {
     // Load Typeform embed script if not already loaded
     if (!document.querySelector('script[src*="embed.typeform.com"]')) {
       const script = document.createElement('script');
-      script.src = '//embed.typeform.com/next/embed.js';
+      script.src = 'https://embed.typeform.com/next/embed.js';
       script.async = true;
+      script.onload = () => {
+        // Initialize Typeform embed after script loads
+        if ((window as any).tf) {
+          (window as any).tf.createWidget('01K0CBFN7M5M8WT3473RN1878R', {
+            container: document.querySelector('[data-tf-widget="01K0CBFN7M5M8WT3473RN1878R"]')
+          });
+        }
+      };
       document.head.appendChild(script);
+    } else {
+      // Script already loaded, try to initialize
+      setTimeout(() => {
+        if ((window as any).tf) {
+          (window as any).tf.createWidget('01K0CBFN7M5M8WT3473RN1878R', {
+            container: document.querySelector('[data-tf-widget="01K0CBFN7M5M8WT3473RN1878R"]')
+          });
+        }
+      }, 100);
     }
   }, []);
 
@@ -24,7 +41,7 @@ const WYLDsTypeformEmbed = () => {
         </div>
         
         <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
-          <div data-tf-live="01K0CBFN7M5M8WT3473RN1878R"></div>
+          <div data-tf-widget="01K0CBFN7M5M8WT3473RN1878R" style={{width: '100%', height: '500px'}}></div>
         </div>
       </div>
     </section>
