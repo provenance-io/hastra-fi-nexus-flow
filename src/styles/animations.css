@@ -7,7 +7,7 @@
   animation: stable-coin-fall var(--fall-duration, 4s) infinite cubic-bezier(0.25, 0.46, 0.45, 0.94) var(--animation-delay, 0s);
   opacity: 0;
   left: var(--fall-start-x);
-  top: -80px;
+  // top: -80px;
   transform-style: preserve-3d;
   perspective: 800px;
   will-change: transform, opacity;
@@ -98,65 +98,25 @@
 @keyframes stable-coin-fall {
   0% {
     opacity: 0;
-    transform: translateY(-80px) 
-               translateX(0) 
-               rotateY(var(--rotation-start, 0deg))
-               rotateX(0deg)
-               scale(0.8);
+    transform: translateY(-100vh) translateX(0) rotateY(var(--rotation-start, 0deg)) rotateX(0deg) scale(0.8);
   }
-  
-  8% {
-    opacity: 0.6;
-    transform: translateY(8vh) 
-               translateX(calc(var(--drift-early, 0px) * 0.2))
-               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 0.8))
-               rotateX(calc(var(--tilt-speed, 15deg) * 0.4))
-               scale(0.9);
+  10% {
+    opacity: 1; /* Fully visible as it enters the screen */
+    transform: translateY(-10vh) translateX(calc(var(--drift-early, 0px) * 0.2))
+      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 0.8))
+      rotateX(calc(var(--tilt-speed, 15deg) * 0.4)) scale(0.9);
   }
-  
-  25% {
-    opacity: 1;
-    transform: translateY(25vh) 
-               translateX(calc(var(--drift-mid, 0px) * 0.6))
-               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 2))
-               rotateX(calc(var(--tilt-speed, 15deg) * 1.2))
-               scale(1);
+  90% {
+    opacity: 1; /* Fully visible until it's about to leave */
+    transform: translateY(100vh) translateX(var(--drift-end, 0px))
+      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 7.5))
+      rotateX(calc(var(--tilt-speed, 15deg) * 4.6)) scale(0.85);
   }
-  
-  50% {
-    opacity: 1;
-    transform: translateY(50vh) 
-               translateX(var(--drift-mid, 0px))
-               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 4))
-               rotateX(calc(var(--tilt-speed, 15deg) * 2.5))
-               scale(1);
-  }
-  
-  75% {
-    opacity: 1;
-    transform: translateY(75vh) 
-               translateX(calc(var(--drift-late, 0px) * 0.9))
-               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 6))
-               rotateX(calc(var(--tilt-speed, 15deg) * 3.8))
-               scale(0.95);
-  }
-  
-  92% {
-    opacity: 0.4;
-    transform: translateY(92vh) 
-               translateX(var(--drift-end, 0px))
-               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 7.5))
-               rotateX(calc(var(--tilt-speed, 15deg) * 4.6))
-               scale(0.85);
-  }
-  
   100% {
-    opacity: 0;
-    transform: translateY(105vh) 
-               translateX(var(--drift-end, 0px))
-               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 8))
-               rotateX(calc(var(--tilt-speed, 15deg) * 5))
-               scale(0.8);
+    opacity: 0; /* Fully invisible as it leaves the screen */
+    transform: translateY(150vh) translateX(var(--drift-end, 0px))
+      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 8))
+      rotateX(calc(var(--tilt-speed, 15deg) * 5)) scale(0.8);
   }
 }
 
