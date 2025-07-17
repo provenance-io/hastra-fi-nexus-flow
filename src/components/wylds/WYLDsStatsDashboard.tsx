@@ -25,6 +25,7 @@ const fetchCurrentAPY = async (): Promise<number> => {
     throw new Error('Failed to fetch APY data');
   }
   const data: FigureYieldResponse = await response.json()
+  console.log('my data here', data)
   return data.rate;
 };
 
