@@ -105,21 +105,21 @@
                scale(0.8);
   }
   
-  10% {
-    opacity: 0.4;
-    transform: translateY(10vh) 
-               translateX(calc(var(--drift-early, 0px) * 0.3))
-               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 1))
-               rotateX(calc(var(--tilt-speed, 15deg) * 0.5))
+  8% {
+    opacity: 0.6;
+    transform: translateY(8vh) 
+               translateX(calc(var(--drift-early, 0px) * 0.2))
+               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 0.8))
+               rotateX(calc(var(--tilt-speed, 15deg) * 0.4))
                scale(0.9);
   }
   
-  30% {
-    opacity: 0.8;
-    transform: translateY(30vh) 
-               translateX(calc(var(--drift-mid, 0px) * 0.7))
-               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 2.5))
-               rotateX(calc(var(--tilt-speed, 15deg) * 1.5))
+  25% {
+    opacity: 1;
+    transform: translateY(25vh) 
+               translateX(calc(var(--drift-mid, 0px) * 0.6))
+               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 2))
+               rotateX(calc(var(--tilt-speed, 15deg) * 1.2))
                scale(1);
   }
   
@@ -132,22 +132,22 @@
                scale(1);
   }
   
-  70% {
+  75% {
     opacity: 1;
-    transform: translateY(70vh) 
-               translateX(calc(var(--drift-late, 0px) * 0.8))
-               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 5.5))
-               rotateX(calc(var(--tilt-speed, 15deg) * 3.5))
+    transform: translateY(75vh) 
+               translateX(calc(var(--drift-late, 0px) * 0.9))
+               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 6))
+               rotateX(calc(var(--tilt-speed, 15deg) * 3.8))
                scale(0.95);
   }
   
-  90% {
-    opacity: 0.6;
-    transform: translateY(90vh) 
+  92% {
+    opacity: 0.4;
+    transform: translateY(92vh) 
                translateX(var(--drift-end, 0px))
-               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 7))
-               rotateX(calc(var(--tilt-speed, 15deg) * 4.5))
-               scale(0.9);
+               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 7.5))
+               rotateX(calc(var(--tilt-speed, 15deg) * 4.6))
+               scale(0.85);
   }
   
   100% {
@@ -171,16 +171,16 @@
   }
   
   5% {
-    opacity: 0.3;
+    opacity: 0.4;
     transform: translateY(5vh) 
                translateX(calc(var(--drift-early, 0px) * 0.2))
-               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 0.5))
-               rotateX(calc(var(--tilt-start, 0deg) + var(--tilt-speed, 15deg) * 0.3))
+               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 0.4))
+               rotateX(calc(var(--tilt-start, 0deg) + var(--tilt-speed, 15deg) * 0.2))
                scale(0.8);
   }
   
   15% {
-    opacity: 0.7;
+    opacity: 0.8;
     transform: translateY(15vh) 
                translateX(calc(var(--drift-early, 0px) * 0.6))
                rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 1.2))
@@ -207,7 +207,7 @@
   }
   
   80% {
-    opacity: 0.9;
+    opacity: 1;
     transform: translateY(80vh) 
                translateX(var(--drift-late, 0px))
                rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 5.5))
@@ -216,12 +216,12 @@
   }
   
   95% {
-    opacity: 0.4;
+    opacity: 0.3;
     transform: translateY(95vh) 
                translateX(var(--drift-end, 0px))
-               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 6.5))
+               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 6.8))
                rotateX(calc(var(--tilt-start, 0deg) + var(--tilt-speed, 15deg) * 5.5))
-               scale(0.9);
+               scale(0.85);
   }
   
   100% {
