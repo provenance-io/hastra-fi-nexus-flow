@@ -23,7 +23,7 @@ const WYLDsYieldExplanation = () => {
       number: 3,
       icon: Calendar,
       title: "Monthly Distributions",
-      description: "YIELD is distributed on a monthly basis",
+      description: "Yield is distributed to your Solana wallet on a monthly basis in YIELD tokens",
       color: "from-premium-gold to-electric-blue",
       bgPattern: "bg-premium-gold/10"
     },
