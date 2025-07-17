@@ -60,73 +60,20 @@ const WYLDsHero = () => {
           </div>
         </div>
         
-        {/* Enhanced Action Buttons */}
-        <div className="flex flex-col sm:flex-row justify-center gap-6 mb-16">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button size="lg" className="btn-premium px-12 py-6 text-lg rounded-2xl min-w-[240px] group shadow-premium">
-                Start (L)earning
-                <ChevronDown className="ml-3 h-4 w-4 transition-transform group-data-[state=open]:rotate-180" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-64 glass-premium border-electric-blue/20" align="center">
-              <DropdownMenuItem asChild>
-                <a 
-                  href="https://app.kamino.finance" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center w-full cursor-pointer p-4 hover:bg-electric-blue/10 rounded-lg transition-all duration-300 group"
-                >
-                  <div className="flex items-center gap-4 flex-1">
-                    <img 
-                      src="/lovable-uploads/9edb1ae1-8f98-4dcd-90f7-4f7e3135521e.png" 
-                      alt="Kamino Finance"
-                      className="w-8 h-8 rounded-full group-hover:scale-110 transition-transform shadow-lg"
-                    />
-                    <div>
-                      <span className="font-semibold text-foreground">Earn on Kamino</span>
-                      <div className="text-xs text-muted-foreground">Yield farming & lending</div>
-                    </div>
-                  </div>
-                  <ExternalLink className="h-5 w-5 group-hover:translate-x-1 transition-transform text-electric-blue" />
-                </a>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <a 
-                  href="https://raydium.io" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center w-full cursor-pointer p-4 hover:bg-neon-cyan/10 rounded-lg transition-all duration-300 group"
-                >
-                  <div className="flex items-center gap-4 flex-1">
-                    <img 
-                      src="/lovable-uploads/30e0a19d-182e-4457-b5e0-58c467109e2f.png" 
-                      alt="Raydium"
-                      className="w-8 h-8 rounded-full group-hover:scale-110 transition-transform shadow-lg"
-                    />
-                    <div>
-                      <span className="font-semibold text-foreground">Earn on Raydium</span>
-                      <div className="text-xs text-muted-foreground">DEX & liquidity pools</div>
-                    </div>
-                  </div>
-                  <ExternalLink className="h-5 w-5 group-hover:translate-x-1 transition-transform text-neon-cyan" />
-                </a>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-          
+        {/* Single CTA Button */}
+        <div className="flex justify-center mb-16">
           <Button 
             size="lg" 
-            className="btn-glass px-12 py-6 text-lg rounded-2xl min-w-[240px] group"
+            className="btn-premium px-12 py-6 text-lg rounded-2xl min-w-[240px] group shadow-premium"
             asChild
           >
             <a 
-              href="https://ylds.com" 
+              href="https://test.hastra.io/protocol" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center justify-center"
             >
-              Learn About YLDS
+              Get YIELD
               <ExternalLink className="ml-3 h-4 w-4" />
             </a>
           </Button>
