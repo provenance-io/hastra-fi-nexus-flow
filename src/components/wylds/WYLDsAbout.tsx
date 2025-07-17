@@ -83,26 +83,30 @@ const WYLDsAbout = () => {
           {features.map((feature, index) => (
             <div 
               key={feature.title} 
-              className="group perspective-1000 h-64"
+              className="group perspective-1000 h-64 cursor-pointer"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
               <div className="relative w-full h-full transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
                 {/* Front of card */}
-                <Card className="absolute inset-0 w-full h-full card-premium backface-hidden">
-                  <CardContent className="p-8 text-center h-full flex flex-col justify-center">
-                    <div className="w-20 h-20 glass-premium rounded-2xl mx-auto mb-6 flex items-center justify-center pulse-glow-premium">
-                      <feature.icon className="h-10 w-10 text-electric-blue" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-premium-gradient">{feature.title}</h3>
-                  </CardContent>
-                </Card>
+                <div className="absolute inset-0 w-full h-full backface-hidden">
+                  <Card className="w-full h-full card-premium pointer-events-none">
+                    <CardContent className="p-8 text-center h-full flex flex-col justify-center">
+                      <div className="w-20 h-20 glass-premium rounded-2xl mx-auto mb-6 flex items-center justify-center pulse-glow-premium">
+                        <feature.icon className="h-10 w-10 text-electric-blue" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-premium-gradient">{feature.title}</h3>
+                    </CardContent>
+                  </Card>
+                </div>
                 
                 {/* Back of card */}
-                <Card className="absolute inset-0 w-full h-full card-premium backface-hidden rotate-y-180">
-                  <CardContent className="p-8 text-center h-full flex flex-col justify-center">
-                    <p className="text-platinum/80 leading-relaxed text-lg">{feature.description}</p>
-                  </CardContent>
-                </Card>
+                <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180">
+                  <Card className="w-full h-full card-premium pointer-events-none">
+                    <CardContent className="p-8 text-center h-full flex flex-col justify-center">
+                      <p className="text-platinum/80 leading-relaxed text-lg">{feature.description}</p>
+                    </CardContent>
+                  </Card>
+                </div>
               </div>
             </div>
           ))}
