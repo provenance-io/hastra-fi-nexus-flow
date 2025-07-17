@@ -12,7 +12,7 @@ const ProvenanceBranding = () => {
     >
       <div className="container">
         <div className="flex items-center justify-center gap-3">
-          <span className="text-xl md:text-2xl text-muted-foreground font-medium flex items-center gap-3">
+          <span className="text-xl md:text-2xl text-foreground/80 font-medium flex items-center gap-3">
             Built on
             <img 
               src="/lovable-uploads/e80568de-0fba-4199-a928-a9d5b3fa9b76.png" 
