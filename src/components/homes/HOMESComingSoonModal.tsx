@@ -107,15 +107,15 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({ isOpen, onC
           </div>
 
           {/* Beehiiv Embed Form */}
-          <div className="w-full flex justify-center mb-6">
+          <div className="w-full flex justify-center mb-4">
             <iframe 
               src="https://subscribe-forms.beehiiv.com/30217469-2e22-46f3-a339-7c531ae92535" 
-              className="beehiiv-embed w-full max-w-full rounded-lg border border-border/20" 
+              className="beehiiv-embed w-full max-w-lg rounded-lg border border-border/20" 
               data-test-id="beehiiv-embed" 
               frameBorder="0" 
               scrolling="no" 
               style={{ 
-                height: '391px', 
+                height: '280px', 
                 margin: 0, 
                 backgroundColor: 'transparent', 
                 boxShadow: '0 0 #0000'
@@ -124,7 +124,7 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({ isOpen, onC
           </div>
 
           {/* Footer Disclaimer */}
-          <div className="mt-6 pt-4 border-t border-border/50">
+          <div className="mt-4 pt-4 border-t border-border/50">
             <p className="text-xs text-muted-foreground text-center leading-relaxed">
               Investment involves risk. Yields are targets and not guaranteed. Timeline and features subject to change.
             </p>
