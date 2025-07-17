@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { X, DollarSign, TrendingUp, Shield, Bell } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 interface HOMESComingSoonModalProps {
   isOpen: boolean;
@@ -8,28 +8,25 @@ interface HOMESComingSoonModalProps {
 }
 
 const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({ isOpen, onClose }) => {
-  const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email.includes('@')) return;
+  useEffect(() => {
+    if (isOpen) {
+      // Load the Beehiiv script when modal opens
+      const script = document.createElement('script');
+      script.src = 'https://subscribe-forms.beehiiv.com/embed.js';
+      script.async = true;
+      document.head.appendChild(script);
 
-    setIsLoading(true);
-    
-    // Simulate API call - replace with actual email service integration
-    setTimeout(() => {
-      console.log('Waitlist signup:', email);
-      setIsSubmitted(true);
-      setIsLoading(false);
-      
-      // Auto-close modal after 3 seconds
-      setTimeout(() => {
-        onClose();
-      }, 3000);
-    }, 1000);
-  };
+      return () => {
+        // Clean up script when component unmounts
+        const existingScript = document.querySelector('script[src="https://subscribe-forms.beehiiv.com/embed.js"]');
+        if (existingScript) {
+          document.head.removeChild(existingScript);
+        }
+      };
+    }
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -42,7 +39,7 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({ isOpen, onC
       />
       
       {/* Modal */}
-      <div className="relative bg-background/95 backdrop-blur-md rounded-2xl shadow-premium max-w-md w-full mx-auto border border-border/20 animate-fade-in">
+      <div className="relative bg-background/95 backdrop-blur-md rounded-2xl shadow-premium max-w-2xl w-full mx-auto border border-border/20 animate-fade-in">
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -109,41 +106,22 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({ isOpen, onC
             </p>
           </div>
 
-          {/* Email Capture or Success State */}
-          {!isSubmitted ? (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-electric-blue/50 transition-all"
-                  required
-                />
-              </div>
-              
-              <Button
-                type="submit"
-                disabled={isLoading || !email.includes('@')}
-                className="w-full bg-gradient-to-r from-electric-blue to-neon-cyan hover:from-electric-blue/90 hover:to-neon-cyan/90 text-white font-medium py-3 rounded-lg transition-all duration-200 disabled:opacity-50"
-              >
-                {isLoading ? 'Processing...' : 'Notify Me When Available'}
-              </Button>
-            </form>
-          ) : (
-            <div className="text-center space-y-4">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-electric-blue/10">
-                <Bell className="h-6 w-6 text-electric-blue" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-foreground mb-1">You're on the waitlist!</h3>
-                <p className="text-sm text-muted-foreground">
-                  We'll notify you when HOMES launches.
-                </p>
-              </div>
-            </div>
-          )}
+          {/* Beehiiv Embed Form */}
+          <div className="w-full flex justify-center mb-6">
+            <iframe 
+              src="https://subscribe-forms.beehiiv.com/30217469-2e22-46f3-a339-7c531ae92535" 
+              className="beehiiv-embed w-full max-w-full rounded-lg border border-border/20" 
+              data-test-id="beehiiv-embed" 
+              frameBorder="0" 
+              scrolling="no" 
+              style={{ 
+                height: '391px', 
+                margin: 0, 
+                backgroundColor: 'transparent', 
+                boxShadow: '0 0 #0000'
+              }}
+            />
+          </div>
 
           {/* Footer Disclaimer */}
           <div className="mt-6 pt-4 border-t border-border/50">
