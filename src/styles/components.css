@@ -161,4 +161,14 @@
   .rotate-y-180 {
     transform: rotateY(180deg);
   }
+
+  /* Hide scrollbar while preserving functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }

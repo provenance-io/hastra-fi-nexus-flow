@@ -63,57 +63,59 @@ const WYLDsYieldExplanation = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-electric-blue to-neon-cyan mx-auto rounded-full"></div>
           </div>
           
-          {/* Desktop: Clean Horizontal Layout */}
+          {/* Desktop: Scrollable Horizontal Layout */}
           <div className="hidden lg:block max-w-7xl mx-auto">
-            <div className="flex items-center justify-center gap-8">
-              {steps.map((step, index) => {
-                const IconComponent = step.icon;
-                return (
-                  <div key={step.number} className="flex items-center">
-                    {/* Step Card - Fixed Size */}
-                    <div className="relative group">
-                      {/* Number Badge */}
-                      <div className="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-r from-premium-gold to-electric-blue rounded-full flex items-center justify-center text-black font-bold text-sm shadow-lg z-10">
-                        {step.number}
-                      </div>
-                      
-                      {/* Card Container - Fixed Dimensions */}
-                      <div className="w-72 h-80 bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-sm border border-electric-blue/20 rounded-2xl p-6 text-center hover:border-electric-blue/40 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-electric-blue/10 relative overflow-hidden">
-                        {/* Hover Overlay */}
-                        <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl`}></div>
+            <div className="overflow-x-auto pb-4 scrollbar-hide">
+              <div className="flex items-center gap-8 min-w-max px-4">
+                {steps.map((step, index) => {
+                  const IconComponent = step.icon;
+                  return (
+                    <div key={step.number} className="flex items-center flex-shrink-0">
+                      {/* Step Card - Fixed Size */}
+                      <div className="relative group">
+                        {/* Number Badge */}
+                        <div className="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-r from-premium-gold to-electric-blue rounded-full flex items-center justify-center text-black font-bold text-sm shadow-lg z-10">
+                          {step.number}
+                        </div>
                         
-                        {/* Icon Container */}
-                        <div className="relative z-10 mb-6 flex justify-center">
-                          <div className={`w-16 h-16 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                            <IconComponent className="w-8 h-8 text-black" />
+                        {/* Card Container - Fixed Dimensions */}
+                        <div className="w-72 h-80 bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-sm border border-electric-blue/20 rounded-2xl p-6 text-center hover:border-electric-blue/40 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-electric-blue/10 relative overflow-hidden">
+                          {/* Hover Overlay */}
+                          <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl`}></div>
+                          
+                          {/* Icon Container */}
+                          <div className="relative z-10 mb-6 flex justify-center">
+                            <div className={`w-16 h-16 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                              <IconComponent className="w-8 h-8 text-black" />
+                            </div>
+                          </div>
+                          
+                          {/* Content */}
+                          <div className="relative z-10 h-44 flex flex-col justify-between">
+                            <h4 className="font-bold text-xl text-electric-blue group-hover:text-neon-cyan transition-colors duration-300 mb-4">
+                              {step.title}
+                            </h4>
+                            <p className="text-platinum/80 text-sm leading-relaxed flex-1 flex items-center justify-center">
+                              {step.description}
+                            </p>
                           </div>
                         </div>
-                        
-                        {/* Content */}
-                        <div className="relative z-10 h-44 flex flex-col justify-between">
-                          <h4 className="font-bold text-xl text-electric-blue group-hover:text-neon-cyan transition-colors duration-300 mb-4">
-                            {step.title}
-                          </h4>
-                          <p className="text-platinum/80 text-sm leading-relaxed flex-1 flex items-center justify-center">
-                            {step.description}
-                          </p>
-                        </div>
                       </div>
+                      
+                      {/* Arrow Connector */}
+                      {index < steps.length - 1 && (
+                        <div className="mx-6 flex items-center">
+                          <div className="flex items-center">
+                            <div className="w-8 h-0.5 bg-gradient-to-r from-electric-blue to-neon-cyan rounded-full"></div>
+                            <ArrowRight className="w-6 h-6 text-neon-cyan mx-2" />
+                            <div className="w-8 h-0.5 bg-gradient-to-r from-neon-cyan to-premium-gold rounded-full"></div>
+                          </div>
+                        </div>
+                      )}
                     </div>
-                    
-                    {/* Arrow Connector */}
-                    {index < steps.length - 1 && (
-                      <div className="mx-6 flex items-center">
-                        <div className="flex items-center">
-                          <div className="w-8 h-0.5 bg-gradient-to-r from-electric-blue to-neon-cyan rounded-full"></div>
-                          <ArrowRight className="w-6 h-6 text-neon-cyan mx-2" />
-                          <div className="w-8 h-0.5 bg-gradient-to-r from-neon-cyan to-premium-gold rounded-full"></div>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
 
