@@ -63,21 +63,6 @@ const WYLDsAbout = () => {
       <div className="container relative">
         <SolanaBanner />
         
-        <div className="text-center mb-20">
-          <div className="glass-premium rounded-full px-6 py-3 text-sm font-medium mb-8 inline-block">
-            <Building2 className="h-5 w-5 text-electric-blue mr-3 inline" />
-            <span className="text-premium-gradient font-semibold">Hastra-Fi Protocol Innovation</span>
-          </div>
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-8">
-            Expanding the <span className="text-premium-gradient">Hastra Ecosystem</span>
-          </h2>
-          <p className="text-xl md:text-2xl text-platinum/90 max-w-5xl mx-auto leading-relaxed">
-            YIELD represents Hastra-Fi's commitment to building protocol use cases that expand the Hastra ecosystem. 
-            By bridging <span className="text-electric-blue font-semibold">traditional finance regulations</span> with 
-            <span className="text-neon-cyan font-semibold"> DeFi innovation</span>, we're creating new opportunities 
-            for yield generation across the broader financial landscape.
-          </p>
-        </div>
 
         <div className="grid gap-10 md:grid-cols-3 mb-20">
           {features.map((feature, index) => (
