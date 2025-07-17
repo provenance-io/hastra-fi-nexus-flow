@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useQuery } from '@tanstack/react-query';
 import { Loader2 } from 'lucide-react';
@@ -144,9 +143,9 @@ const WYLDsStatsDashboard = () => {
                 <CardTitle className="text-sm font-medium text-foreground/70">{stat.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-3xl md:text-4xl font-bold text-premium-gradient mb-3 flex items-center gap-2">
+                <div className="text-3xl md:text-4xl font-bold mb-3 flex items-center gap-2">
                   {stat.isLoading && <Loader2 className="h-6 w-6 animate-spin" />}
-                  <span className={stat.isLoading ? 'opacity-50' : stat.hasError ? 'text-red-400' : 'animate-pulse-light'}>
+                  <span className={stat.isLoading ? 'opacity-50' : stat.hasError ? 'text-red-400' : 'bg-gradient-to-r from-electric-blue to-neon-cyan bg-clip-text text-transparent animate-pulse-light'}>
                     {stat.value}
                   </span>
                 </div>
