@@ -25,7 +25,7 @@ const WYLDsFAQ = () => {
     },
     {
       question: "Where can I see the yield I've earned?",
-      answer: "You can track your earned yield directly in your Solana wallet balance. The yield is distributed as additional YIELD tokens, so your wallet balance will reflect both your original holdings and any earned yield. Additionally, you can monitor distributions through supported DeFi platforms."
+      answer: "You can view your **accruing yield** on the [Hastra protocol page](https://test.hastra.io/protocol). You can track your **distributed yield** directly in your Solana wallet balance. The yield is distributed as additional YIELD tokens, so your wallet balance will reflect both your original holdings and any earned yield up through the previous month. Additionally, you can monitor distributions through supported DeFi platforms."
     },
     {
       question: "When do I receive my yield?",
