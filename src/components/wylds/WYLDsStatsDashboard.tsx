@@ -25,7 +25,6 @@ const fetchCurrentAPY = async (): Promise<number> => {
     throw new Error('Failed to fetch APY data');
   }
   const data: FigureYieldResponse = await response.json()
-  console.log('my data here', data)
   return data.rate;
 };
 
@@ -72,6 +71,7 @@ const WYLDsStatsDashboard = () => {
     queryFn: fetchCurrentAPY,
     refetchInterval: 5 * 60 * 1000, // Refetch every 5 minutes
   });
+  console.log("MY apy", apy)
 
   const { data: holders, isLoading: holdersLoading, error: holdersError } = useQuery({
     queryKey: ['active-holders'],
