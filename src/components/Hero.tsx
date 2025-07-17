@@ -1,13 +1,32 @@
-
 import { Button } from '@/components/ui/button';
-import { ArrowRight, TrendingUp, Shield } from 'lucide-react';
+import { ArrowRight, TrendingUp, Shield, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+
+interface FigureYieldResponse {
+  rate: number;
+}
+
+const fetchCurrentAPY = async (): Promise<number> => {
+  const response = await fetch('https://api.codetabs.com/v1/proxy?quest=https://www.figuremarkets.com/service-funds/public/api/v1/funds/17d885eb-13e9-47a4-ad2f-228c0aa89a91/yield');
+  if (!response.ok) {
+    throw new Error('Failed to fetch APY data');
+  }
+  const data: FigureYieldResponse = await response.json()
+  return data.rate;
+};
 
 const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
   const coinsRef = useRef<HTMLDivElement>(null);
+
+  const { data: apy, isLoading: apyLoading, error: apyError } = useQuery({
+    queryKey: ['yield-apy'],
+    queryFn: fetchCurrentAPY,
+    refetchInterval: 5 * 60 * 1000, // Refetch every 5 minutes
+  });
 
   // Stable coin configuration to prevent animation glitches
   const coinConfigs = useRef([...Array(6)].map((_, i) => ({
@@ -84,7 +103,17 @@ const Hero = () => {
           {/* Badge */}
           <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-header-glow/20 text-sm font-medium text-foreground/80 hero-badge">
             <span className="mr-2 w-2 h-2 bg-header-glow rounded-full animate-pulse"></span>
-            Now Live: Earn Up to 4% APY
+            <span className="flex items-center gap-1">
+              Now Live: Earn Up to{' '}
+              {apyLoading ? (
+                <Loader2 className="w-3 h-3 animate-spin" />
+              ) : apyError ? (
+                '4%'
+              ) : (
+                `${apy}%`
+              )}{' '}
+              APY
+            </span>
           </div>
 
           {/* Main heading with stable animations */}
