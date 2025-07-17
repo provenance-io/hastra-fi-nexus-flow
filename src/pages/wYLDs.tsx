@@ -5,7 +5,7 @@ import WYLDsAbout from '@/components/wylds/WYLDsAbout';
 import WYLDsStatsDashboard from '@/components/wylds/WYLDsStatsDashboard';
 import WYLDsResources from '@/components/wylds/WYLDsResources';
 import WYLDsFAQ from '@/components/wylds/WYLDsFAQ';
-import SolanaAvailableBanner from '@/components/wylds/SolanaAvailableBanner';
+
 
 const WYLDsPage = () => {
   return (
@@ -14,7 +14,7 @@ const WYLDsPage = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
       <div className="relative z-10">
         <WYLDsHero />
-        <SolanaAvailableBanner />
+        
         <WYLDsYieldExplanation />
         <WYLDsAbout />
         <WYLDsStatsDashboard />
