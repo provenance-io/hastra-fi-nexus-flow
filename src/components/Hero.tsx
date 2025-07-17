@@ -84,7 +84,7 @@ const Hero = () => {
           {/* Badge */}
           <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-header-glow/20 text-sm font-medium text-foreground/80 hero-badge">
             <span className="mr-2 w-2 h-2 bg-header-glow rounded-full animate-pulse"></span>
-            Now Live: Earn Up to 8% APY
+            Now Live: Earn Up to 4% APY
           </div>
 
           {/* Main heading with stable animations */}
