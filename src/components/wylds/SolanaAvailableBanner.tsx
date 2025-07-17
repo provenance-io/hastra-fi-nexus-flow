@@ -1,11 +1,6 @@
 const SolanaAvailableBanner = () => {
   return (
-    <section className="w-full py-8 relative overflow-hidden">
-      {/* Gradient border effect */}
-      <div className="absolute inset-0 bg-gradient-to-r from-electric-blue via-neon-cyan to-green-500 p-[2px]">
-        <div className="w-full h-full bg-background rounded-lg"></div>
-      </div>
-      
+    <section className="w-full py-16 relative overflow-hidden bg-background">
       {/* Content */}
       <div className="relative z-10 flex items-center justify-center gap-6 px-8">
         <div className="flex items-center gap-4">
