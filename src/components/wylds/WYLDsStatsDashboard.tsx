@@ -71,7 +71,6 @@ const WYLDsStatsDashboard = () => {
     queryFn: fetchCurrentAPY,
     refetchInterval: 5 * 60 * 1000, // Refetch every 5 minutes
   });
-  console.log("MY apy", apy)
 
   const { data: holders, isLoading: holdersLoading, error: holdersError } = useQuery({
     queryKey: ['active-holders'],
@@ -95,7 +94,7 @@ const WYLDsStatsDashboard = () => {
     },
     {
       title: 'Current APY',
-      value: apyLoading ? 'Loading...' : apyError ? 'Error' : `${((apy || 0) * 100).toFixed(2)}%`,
+      value: apyLoading ? 'Loading...' : apyError ? 'Error' : `${(apy || 0)}%`,
       description: 'The current annual percentage yield for holding YIELD.',
       isLoading: apyLoading,
       hasError: !!apyError,
@@ -115,6 +114,8 @@ const WYLDsStatsDashboard = () => {
       hasError: !!holdersError,
     },
   ];
+
+  console.log('my stats', stats)
 
   return (
     <section className="py-24 md:py-32 relative">
