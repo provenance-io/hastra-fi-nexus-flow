@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -5,10 +6,30 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { ChevronDown, ExternalLink } from 'lucide-react';
+import { ChevronDown, ExternalLink, Loader2 } from 'lucide-react';
+import { useQuery } from '@tanstack/react-query';
+
+interface FigureYieldResponse {
+  rate: number;
+}
+
+const fetchCurrentAPY = async (): Promise<number> => {
+  const response = await fetch('https://api.codetabs.com/v1/proxy?quest=https://www.figuremarkets.com/service-funds/public/api/v1/funds/17d885eb-13e9-47a4-ad2f-228c0aa89a91/yield');
+  if (!response.ok) {
+    throw new Error('Failed to fetch APY data');
+  }
+  const data: FigureYieldResponse = await response.json()
+  return data.rate;
+};
 
 const WYLDsHero = () => {
-  const currentApy = '4.75%'; // Placeholder
+  const { data: apy, isLoading: apyLoading, error: apyError } = useQuery({
+    queryKey: ['yield-apy'],
+    queryFn: fetchCurrentAPY,
+    refetchInterval: 5 * 60 * 1000, // Refetch every 5 minutes
+  });
+
+  const displayApy = apyLoading ? 'Loading...' : apyError ? 'Error' : `${apy || 0}%`;
 
   return (
     <section className="relative py-12 md:py-20 overflow-hidden">
@@ -48,14 +69,19 @@ const WYLDsHero = () => {
           <div className="card-premium rounded-2xl p-8 max-w-md mx-auto pulse-glow-premium">
             <p className="text-lg text-platinum/70 mb-2">Current APY</p>
             <div className="relative">
-              <p className="text-6xl md:text-7xl font-bold text-premium-gradient relative z-10">{currentApy}</p>
+              <div className="text-6xl md:text-7xl font-bold relative z-10 flex items-center justify-center gap-2">
+                {apyLoading && <Loader2 className="h-8 w-8 animate-spin" />}
+                <span className={apyLoading ? 'opacity-50' : apyError ? 'text-red-400' : 'text-premium-gradient'}>
+                  {displayApy}
+                </span>
+              </div>
               <div className="absolute inset-0 text-premium-gradient opacity-30 blur-sm">
-                {currentApy}
+                {displayApy}
               </div>
             </div>
             <div className="flex justify-center items-center gap-2 mt-4">
-              <div className="w-2 h-2 bg-electric-blue rounded-full animate-pulse"></div>
-              <span className="text-sm text-platinum/60">Live Rate</span>
+              <div className={`w-2 h-2 rounded-full ${apyError ? 'bg-red-400' : 'bg-electric-blue animate-pulse'}`}></div>
+              <span className="text-sm text-platinum/60">{apyError ? 'Error' : 'Live Rate'}</span>
             </div>
           </div>
         </div>
