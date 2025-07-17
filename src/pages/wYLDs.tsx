@@ -20,7 +20,6 @@ const WYLDsPage = () => {
         
         <WYLDsYieldExplanation />
         <WYLDsStatsDashboard />
-        <WYLDsAbout />
         <WYLDsFAQ />
         <WYLDsTypeformEmbed />
         <WYLDsResources />
