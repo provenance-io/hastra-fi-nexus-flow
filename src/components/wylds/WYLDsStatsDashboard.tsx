@@ -114,8 +114,6 @@ const WYLDsStatsDashboard = () => {
     },
   ];
 
-  console.log('my stats', stats)
-
   return (
     <section className="py-24 md:py-32 relative">
       {/* Premium background - matching homepage */}
