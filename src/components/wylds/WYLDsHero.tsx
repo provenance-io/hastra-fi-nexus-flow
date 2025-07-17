@@ -33,7 +33,10 @@ const WYLDsHero = () => {
         </h1>
         
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-8 text-platinum/90">
-          TRADE IT. LEND IT. SPEND IT. SEND IT.
+          <span className="text-electric-blue">TRADE IT.</span>{" "}
+          <span className="text-neon-cyan">LEND IT.</span>{" "}
+          <span className="text-premium-gold">SPEND IT.</span>{" "}
+          <span className="text-premium-gradient">SEND IT.</span>
         </h2>
         
         <p className="max-w-4xl mx-auto text-xl md:text-2xl text-platinum/80 leading-relaxed mb-12">
