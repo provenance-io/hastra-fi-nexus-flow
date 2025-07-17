@@ -9,9 +9,29 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Loader2 } from 'lucide-react';
+import { useQuery } from '@tanstack/react-query';
+
+interface FigureYieldResponse {
+  rate: number;
+}
+
+const fetchCurrentAPY = async (): Promise<number> => {
+  const response = await fetch('https://api.codetabs.com/v1/proxy?quest=https://www.figuremarkets.com/service-funds/public/api/v1/funds/17d885eb-13e9-47a4-ad2f-228c0aa89a91/yield');
+  if (!response.ok) {
+    throw new Error('Failed to fetch APY data');
+  }
+  const data: FigureYieldResponse = await response.json()
+  return data.rate;
+};
 
 const Header = () => {
+  const { data: apy, isLoading: apyLoading, error: apyError } = useQuery({
+    queryKey: ['yield-apy'],
+    queryFn: fetchCurrentAPY,
+    refetchInterval: 5 * 60 * 1000, // Refetch every 5 minutes
+  });
+
   const navItems = [
     // Removed innovation and approach items
   ];
@@ -22,6 +42,8 @@ const Header = () => {
       element?.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const displayApy = apyLoading ? 'Loading...' : apyError ? 'Error' : `Earn Up to ${apy || 0}% APY`;
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-200/30 bg-gradient-to-r from-white via-gray-50/80 to-white backdrop-blur supports-[backdrop-filter]:bg-gradient-to-r supports-[backdrop-filter]:from-white/95 supports-[backdrop-filter]:via-gray-50/60 supports-[backdrop-filter]:to-white/95 shadow-lg shadow-header-glow/10">
@@ -66,7 +88,12 @@ const Header = () => {
                       </div>
                       <div>
                         <div className="font-semibold text-gray-900 mb-1">YIELD</div>
-                        <div className="text-sm text-gray-600">Earn Up to 4% APY</div>
+                        <div className="text-sm text-gray-600 flex items-center gap-1">
+                          {apyLoading && <Loader2 className="h-3 w-3 animate-spin" />}
+                          <span className={apyError ? 'text-red-500' : ''}>
+                            {displayApy}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </Link>
