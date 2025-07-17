@@ -29,7 +29,7 @@ const fetchCurrentAPY = async (): Promise<number> => {
 };
 
 const fetchActiveHolders = async (): Promise<string> => {
-  const response = await fetch('https://api.provenance.io/cosmos/bank/v1beta1/denom_owners/uylds.fcc');
+  const response = await fetch('https://api.codetabs.com/v1/proxy?quest=https://api.provenance.io/cosmos/bank/v1beta1/denom_owners/uylds.fcc');
   if (!response.ok) {
     throw new Error('Failed to fetch active holders data');
   }
