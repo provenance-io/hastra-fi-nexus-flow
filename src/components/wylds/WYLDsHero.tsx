@@ -131,22 +131,6 @@ const WYLDsHero = () => {
             </a>
           </Button>
         </div>
-
-        {/* Trust indicators */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
-          <div className="text-center">
-            <div className="text-2xl font-bold text-electric-blue mb-1">150M+</div>
-            <div className="text-sm text-platinum/60">YIELD in Circulation</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-neon-cyan mb-1">99.9%</div>
-            <div className="text-sm text-platinum/60">Uptime</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-premium-gold mb-1">SEC</div>
-            <div className="text-sm text-platinum/60">Registered</div>
-          </div>
-        </div>
       </div>
     </section>
   );
