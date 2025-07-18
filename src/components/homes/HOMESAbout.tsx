@@ -11,7 +11,7 @@ const HOMESAbout = () => {
     {
       icon: TrendingUp,
       title: "Competitive Yields",
-      description: "Target 10% APY through strategic Real World Asset backing and yield optimization."
+      description: "Target 7.5% APY through strategic Real World Asset backing and yield optimization."
     },
     {
       icon: Coins,
@@ -60,7 +60,7 @@ const HOMESAbout = () => {
           </p>
           <div className="grid md:grid-cols-3 gap-8 mt-8">
             <div>
-              <div className="text-3xl font-bold text-header-glow mb-2">10%</div>
+              <div className="text-3xl font-bold text-header-glow mb-2">7.5%</div>
               <div className="text-sm text-muted-foreground">Target APY</div>
             </div>
             <div>

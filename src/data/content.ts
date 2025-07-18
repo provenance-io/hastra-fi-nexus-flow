@@ -47,7 +47,7 @@ export const products = {
     status: 'Coming Soon',
     cta: 'Learn More',
     stats: [
-      { label: 'Target APY', value: '10%' },
+      { label: 'Target APY', value: '7.5%' },
       { label: 'Pool Size', value: '$5M-$100M' },
       { label: 'First Mover', value: 'Solana RWA' },
     ],

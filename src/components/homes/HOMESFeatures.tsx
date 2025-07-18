@@ -118,7 +118,7 @@ const HOMESFeatures = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Card className="glass-effect border-border/50 p-4 min-w-[200px]">
-              <div className="text-2xl font-bold text-header-glow mb-1">10%</div>
+              <div className="text-2xl font-bold text-header-glow mb-1">7.5%</div>
               <div className="text-sm text-muted-foreground">Target APY</div>
             </Card>
             <Card className="glass-effect border-border/50 p-4 min-w-[200px]">
