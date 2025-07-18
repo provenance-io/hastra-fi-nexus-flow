@@ -14,7 +14,7 @@ const Earn = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
       <div className="relative z-10">
         {!isConnected && <EarnHero />}
-        <section className="py-24 md:py-32" data-section="wallet-dashboard">
+        <section className={`${isConnected ? 'py-12 md:py-16' : 'py-24 md:py-32'}`} data-section="wallet-dashboard">
           <div className="container">
             <EnhancedWalletConnection />
           </div>
