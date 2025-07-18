@@ -55,8 +55,8 @@ const WYLDsYieldExplanation = () => {
           {[
             {
               icon: Shield,
-              title: 'SEC-Registered',
-              description: 'The first yield-bearing stablecoin registered with the Securities and Exchange Commission.',
+              title: 'Backed by RWAs',
+              description: 'YIELD token is backed by reserves of YLDS - the first SEC-registered, yield-bearing stablecoin backed by real world assets.',
             },
             {
               icon: TrendingUp,
