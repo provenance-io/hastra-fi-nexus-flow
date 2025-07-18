@@ -3,22 +3,23 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Coins, Shield, Info, Wallet } from 'lucide-react';
 import { useWallet } from '@/contexts/WalletContext';
+import hashIcon from '@/assets/hash-icon.png';
 
 const tokens = [
   {
     symbol: "YIELD",
     name: "Yield Token",
     description: "Yield-bearing stablecoin offering consistent returns",
-    apy: "Up to 8%",
+    apy: "Up to 4%",
     risk: "Low",
     features: ["Stable value", "Consistent yields", "Low volatility"],
     color: "green"
   },
   {
-    symbol: "sHASH",
+    symbol: "HASH",
     name: "Solana HASH",
     description: "Bridged HASH token for Solana DeFi participation",
-    apy: "Variable",
+    apy: "No",
     risk: "Medium",
     features: ["DeFi utility", "Cross-chain", "Growth potential"],
     color: "purple"
@@ -49,7 +50,7 @@ const BuyEarnSection = () => {
           </h2>
           
           <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            Get YIELD and sHASH tokens on trusted platforms. Start earning from day one with proven strategies.
+            Get YIELD and HASH tokens on trusted platforms. Start earning from day one with proven strategies.
           </p>
         </div>
 
@@ -60,16 +61,7 @@ const BuyEarnSection = () => {
             {tokens.map((token, index) => (
               <Card key={index} className="glass-effect border-border/50 hover:border-header-glow/30 transition-all duration-300">
                 <CardHeader>
-                  <div className="flex items-center justify-between mb-3">
-                    <Badge className={riskColors[token.risk as keyof typeof riskColors]}>
-                      <Shield className="w-3 h-3 mr-1" />
-                      {token.risk} Risk
-                    </Badge>
-                    <Badge variant="outline" className="text-header-glow border-header-glow/30">
-                      {token.apy} APY
-                    </Badge>
-                  </div>
-                  <CardTitle className="text-2xl flex items-center gap-3">
+                  <CardTitle className="text-2xl flex items-center gap-3 mb-4">
                     {token.symbol === 'YIELD' ? (
                       <img 
                         src="/lovable-uploads/08452a7b-6782-4b0a-900e-0f0c99a4fc4e.png" 
@@ -77,22 +69,35 @@ const BuyEarnSection = () => {
                         className="w-12 h-12 rounded-lg"
                       />
                     ) : (
-                      <div className={`w-12 h-12 rounded-lg ${token.color === 'green' ? 'bg-green-500/20' : 'bg-purple-500/20'} flex items-center justify-center`}>
-                        <Coins className={`w-6 h-6 ${token.color === 'green' ? 'text-green-400' : 'text-purple-400'}`} />
-                      </div>
+                       <img 
+                         src={hashIcon}
+                        alt="HASH Token"
+                        className="w-12 h-12 rounded-lg"
+                      />
                     )}
                     <div>
                       <div className="text-xl font-bold">{token.symbol}</div>
                       <div className="text-sm text-muted-foreground font-normal">{token.name}</div>
                     </div>
                   </CardTitle>
+                  
+                  {/* Risk and APY info under token name in orange */}
+                  <div className="flex gap-4 mb-4">
+                    <span className="text-orange-300 font-medium text-sm">
+                      {token.risk} Risk
+                    </span>
+                    <span className="text-orange-300 font-medium text-sm">
+                      {token.apy} APY
+                    </span>
+                  </div>
+                  
                   <CardDescription className="text-base">{token.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-3 mb-6">
                     {token.features.map((feature, i) => (
                       <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <div className="w-2 h-2 bg-header-glow rounded-full"></div>
+                        <div className="w-2 h-2 bg-orange-300 rounded-full"></div>
                         <span>{feature}</span>
                       </div>
                     ))}
