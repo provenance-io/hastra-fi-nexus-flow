@@ -37,9 +37,17 @@ const BuyTokensSection = () => {
             <Card key={index} className="glass-effect border-border/50 hover:border-header-glow/30 transition-all duration-300">
               <CardHeader>
                 <CardTitle className="flex items-center gap-3">
-                  <div className={`w-10 h-10 rounded-lg ${option.color === 'blue' ? 'bg-blue-500/20' : 'bg-purple-500/20'} flex items-center justify-center`}>
-                    <Coins className={`w-5 h-5 ${option.color === 'blue' ? 'text-blue-400' : 'text-purple-400'}`} />
-                  </div>
+                  {option.token === 'YIELD' ? (
+                    <img 
+                      src="/lovable-uploads/08452a7b-6782-4b0a-900e-0f0c99a4fc4e.png" 
+                      alt="YIELD Token"
+                      className="w-10 h-10 rounded-lg"
+                    />
+                  ) : (
+                    <div className={`w-10 h-10 rounded-lg ${option.color === 'blue' ? 'bg-blue-500/20' : 'bg-purple-500/20'} flex items-center justify-center`}>
+                      <Coins className={`w-5 h-5 ${option.color === 'blue' ? 'text-blue-400' : 'text-purple-400'}`} />
+                    </div>
+                  )}
                   {option.token}
                 </CardTitle>
                 <CardDescription>{option.description}</CardDescription>

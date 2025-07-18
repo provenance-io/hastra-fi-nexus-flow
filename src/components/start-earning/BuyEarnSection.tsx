@@ -92,9 +92,17 @@ const BuyEarnSection = () => {
                     </Badge>
                   </div>
                   <CardTitle className="text-2xl flex items-center gap-3">
-                    <div className={`w-12 h-12 rounded-lg ${token.color === 'green' ? 'bg-green-500/20' : 'bg-purple-500/20'} flex items-center justify-center`}>
-                      <Coins className={`w-6 h-6 ${token.color === 'green' ? 'text-green-400' : 'text-purple-400'}`} />
-                    </div>
+                    {token.symbol === 'YIELD' ? (
+                      <img 
+                        src="/lovable-uploads/08452a7b-6782-4b0a-900e-0f0c99a4fc4e.png" 
+                        alt="YIELD Token"
+                        className="w-12 h-12 rounded-lg"
+                      />
+                    ) : (
+                      <div className={`w-12 h-12 rounded-lg ${token.color === 'green' ? 'bg-green-500/20' : 'bg-purple-500/20'} flex items-center justify-center`}>
+                        <Coins className={`w-6 h-6 ${token.color === 'green' ? 'text-green-400' : 'text-purple-400'}`} />
+                      </div>
+                    )}
                     <div>
                       <div className="text-xl font-bold">{token.symbol}</div>
                       <div className="text-sm text-muted-foreground font-normal">{token.name}</div>

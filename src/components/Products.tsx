@@ -142,9 +142,11 @@ const Products = () => {
             <div className="space-y-6">
               <div className="flex items-center gap-4">
                 {/* YIELD Token Icon */}
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-header-glow/20 to-header-glow/10 border-2 border-header-glow/30 flex items-center justify-center shadow-lg shadow-header-glow/20">
-                  <span className="text-2xl font-bold text-header-glow">Y</span>
-                </div>
+                <img 
+                  src="/lovable-uploads/08452a7b-6782-4b0a-900e-0f0c99a4fc4e.png" 
+                  alt="YIELD Token"
+                  className="w-16 h-16 rounded-full shadow-lg shadow-header-glow/20"
+                />
                 <div className="flex-1">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <h3 className="text-3xl md:text-4xl font-bold text-foreground group-hover:text-header-glow transition-colors">
