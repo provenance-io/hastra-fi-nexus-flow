@@ -71,7 +71,7 @@ const WYLDsYieldExplanation = () => {
           ].map((feature, index) => (
             <div 
               key={feature.title} 
-              className="group perspective-1000 h-64 cursor-pointer"
+              className="group perspective-1000 h-56 cursor-pointer"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
               <div className="relative w-full h-full transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
