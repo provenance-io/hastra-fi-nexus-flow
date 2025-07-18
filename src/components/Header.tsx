@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import HastraLogo from './HastraLogo';
 import MobileMenu from './MobileMenu';
 import { Button } from '@/components/ui/button';
@@ -8,8 +8,9 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { ChevronDown, Loader2 } from 'lucide-react';
+import { ChevronDown, Loader2, Wallet } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
+import { useWallet } from '@/contexts/WalletContext';
 
 interface FigureYieldResponse {
   rate: number;
@@ -25,6 +26,9 @@ const fetchCurrentAPY = async (): Promise<number> => {
 };
 
 const Header = () => {
+  const location = useLocation();
+  const { isConnected, connectWallet } = useWallet();
+  
   const { data: apy, isLoading: apyLoading, error: apyError } = useQuery({
     queryKey: ['yield-apy'],
     queryFn: fetchCurrentAPY,
@@ -43,6 +47,19 @@ const Header = () => {
   };
 
   const displayApy = apyLoading ? 'Loading...' : apyError ? 'Error' : `Earn Up to ${apy || 0}% APY`;
+  const isEarnPage = location.pathname === '/earn';
+
+  const handleConnectWallet = async () => {
+    if (!isConnected) {
+      await connectWallet();
+    } else {
+      // Scroll to dashboard section if already connected
+      const dashboardSection = document.querySelector('[data-section="wallet-dashboard"]');
+      if (dashboardSection) {
+        dashboardSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-200/30 bg-gradient-to-r from-white via-gray-50/80 to-white backdrop-blur supports-[backdrop-filter]:bg-gradient-to-r supports-[backdrop-filter]:from-white/95 supports-[backdrop-filter]:via-gray-50/60 supports-[backdrop-filter]:to-white/95 shadow-lg shadow-header-glow/10">
@@ -140,13 +157,24 @@ const Header = () => {
         </div>
         
         <div className="flex items-center space-x-4">
-          <Button 
-            asChild 
-            size="sm" 
-            className="hidden md:flex btn-gradient text-base px-4 py-2"
-          >
-            <a href="https://test.hastra.io/protocol" target="_blank" rel="noopener noreferrer">Launch Protocol</a>
-          </Button>
+          {isEarnPage ? (
+            <Button 
+              onClick={handleConnectWallet}
+              size="sm" 
+              className="hidden md:flex btn-gradient text-base px-4 py-2"
+            >
+              {isConnected ? 'View Dashboard' : 'Connect Wallet'}
+              <Wallet className="ml-2 h-4 w-4" />
+            </Button>
+          ) : (
+            <Button 
+              asChild 
+              size="sm" 
+              className="hidden md:flex btn-gradient text-base px-4 py-2"
+            >
+              <Link to="/earn">Launch Protocol</Link>
+            </Button>
+          )}
           <MobileMenu />
         </div>
       </div>
