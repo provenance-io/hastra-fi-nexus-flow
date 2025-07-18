@@ -62,10 +62,10 @@ const TokenLineItem = ({
             <img 
               src={icon} 
               alt={`${token} Token`}
-              className="w-12 h-12 rounded-lg"
+              className="w-16 h-16 rounded-lg"
             />
           ) : (
-            <div className="w-12 h-12 rounded-lg bg-hastra-teal/10 flex items-center justify-center">
+            <div className="w-16 h-16 rounded-lg bg-hastra-teal/10 flex items-center justify-center">
               <span className="text-hastra-teal font-bold text-xl">{icon}</span>
             </div>
           )}
