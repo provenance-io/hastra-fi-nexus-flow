@@ -8,7 +8,6 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { ChevronDown, ExternalLink, Loader2 } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
-import YieldToken3DContainer from './YieldToken3DContainer';
 
 interface FigureYieldResponse {
   rate: number;
@@ -45,7 +44,11 @@ const WYLDsHero = () => {
         </div>
         
         <div className="mb-6 flex justify-center">
-          <YieldToken3DContainer />
+          <img 
+            src="/lovable-uploads/cb96356b-822d-4dc0-963a-96ef43bfedbd.png" 
+            alt="YIELD Token" 
+            className="w-32 h-32 md:w-40 md:h-40 drop-shadow-2xl"
+          />
         </div>
         
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-8 text-platinum/90">
