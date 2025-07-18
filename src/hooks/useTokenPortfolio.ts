@@ -22,13 +22,13 @@ const initialTokens: TokenData[] = [
     icon: '/lovable-uploads/08452a7b-6782-4b0a-900e-0f0c99a4fc4e.png'
   },
   {
-    token: 'sHASH',
+    token: 'HASH (Sol)',
     amount: 127.43,
     value: 400.20,
     apy: 12.5,
     totalInterestEarned: 50.03,
     unclaimedInterest: 8.67,
-    icon: 'sH'
+    icon: '/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png'
   }
 ];
 

@@ -30,7 +30,7 @@ const WalletDashboard = () => {
     monthlyReturn: 8.2,
     positions: [
       { token: 'YIELD', amount: 850.25, value: 850.25, apy: 8.0 },
-      { token: 'sHASH', amount: 127.43, value: 400.20, apy: 12.5 },
+      { token: 'HASH (Sol)', amount: 127.43, value: 400.20, apy: 12.5 },
     ]
   };
 
@@ -118,7 +118,11 @@ const WalletDashboard = () => {
                         className="w-8 h-8 rounded"
                       />
                     ) : (
-                      <span className="text-header-glow font-bold text-sm">{position.token[0]}</span>
+                      <img 
+                        src="/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png" 
+                        alt="HASH Token"
+                        className="w-8 h-8 rounded"
+                      />
                     )}
                   </div>
                   <div>
