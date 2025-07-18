@@ -120,7 +120,7 @@ const WYLDsYieldExplanation = () => {
           {/* Desktop: Scrollable Horizontal Layout */}
           <div className="hidden lg:block max-w-7xl mx-auto">
             <div className="overflow-x-auto pb-4 scrollbar-hide">
-              <div className="flex items-center gap-8 min-w-max px-4 py-4">
+              <div className="flex items-center gap-4 min-w-max px-4 py-4">
                 {steps.map((step, index) => {
                   const IconComponent = step.icon;
                   return (
@@ -158,11 +158,11 @@ const WYLDsYieldExplanation = () => {
                       
                       {/* Arrow Connector */}
                       {index < steps.length - 1 && (
-                        <div className="mx-6 flex items-center">
+                        <div className="mx-4 flex items-center justify-center h-80">
                           <div className="flex items-center">
-                            <div className="w-8 h-0.5 bg-gradient-to-r from-electric-blue to-neon-cyan rounded-full"></div>
+                            <div className="w-6 h-0.5 bg-gradient-to-r from-electric-blue to-neon-cyan rounded-full"></div>
                             <ArrowRight className="w-6 h-6 text-neon-cyan mx-2" />
-                            <div className="w-8 h-0.5 bg-gradient-to-r from-neon-cyan to-premium-gold rounded-full"></div>
+                            <div className="w-6 h-0.5 bg-gradient-to-r from-neon-cyan to-premium-gold rounded-full"></div>
                           </div>
                         </div>
                       )}
