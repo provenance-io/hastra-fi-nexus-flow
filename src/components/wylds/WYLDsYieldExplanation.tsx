@@ -228,9 +228,12 @@ const WYLDsYieldExplanation = () => {
         <div className="text-center">
           <Button 
             size="lg" 
-            className="bg-gradient-to-r from-electric-blue to-neon-cyan hover:from-electric-blue/80 hover:to-neon-cyan/80 text-black font-semibold px-8 py-3 text-lg shadow-lg hover:shadow-electric-blue/20 transition-all duration-300"
+            className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-3 text-lg rounded-xl transition-all duration-200"
+            asChild
           >
-            Learn more about YLDS
+            <a href="https://www.ylds.com/" target="_blank" rel="noopener noreferrer">
+              Learn more about YLDS
+            </a>
           </Button>
         </div>
       </div>

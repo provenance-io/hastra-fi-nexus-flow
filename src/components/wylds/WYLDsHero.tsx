@@ -85,7 +85,7 @@ const WYLDsHero = () => {
         <div className="flex justify-center mb-16">
           <Button 
             size="lg" 
-            className="btn-premium px-12 py-6 text-lg rounded-2xl min-w-[240px] group shadow-premium"
+            className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-12 py-6 text-lg rounded-2xl min-w-[240px] group transition-all duration-200"
             asChild
           >
             <a 
