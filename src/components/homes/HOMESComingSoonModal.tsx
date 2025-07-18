@@ -59,7 +59,7 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({ isOpen, onC
                 <img 
                   src="/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png" 
                   alt="HOMES Token"
-                  className="h-6 w-6 rounded-full object-cover"
+                  className="h-12 w-12 rounded-full object-cover"
                 />
               </div>
               <h2 className="text-xl font-bold text-foreground mb-2">
