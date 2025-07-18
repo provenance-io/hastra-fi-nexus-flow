@@ -85,7 +85,7 @@ const WalletConnectionSection = () => {
                 <Button
                   onClick={handleConnectWallet}
                   disabled={isConnecting}
-                  className="w-full bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold py-4 text-lg rounded-xl group transition-all duration-200"
+                  className="w-full bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 transition-all duration-200 group-hover:scale-[1.02]"
                   size="lg"
                 >
                   {isConnecting ? (
@@ -112,7 +112,7 @@ const WalletConnectionSection = () => {
             <div className="text-center">
               <Button 
                 size="lg" 
-                className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-4 text-lg rounded-xl min-w-[200px] group transition-all duration-200"
+                className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 transition-all duration-200 group-hover:scale-[1.02]"
                 onClick={handleConnectWallet}
               >
                 View Dashboard
