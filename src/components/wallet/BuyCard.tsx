@@ -82,7 +82,7 @@ const BuyCard = () => {
   const receiveAmount = calculateReceiveAmount();
 
   return (
-    <Card className="w-full glass-effect border-border/50">
+    <Card className="w-full glass-effect border-none">
       <CardHeader className="pb-4">
         <CardTitle className="flex items-center gap-2 text-xl font-bold">
           <ArrowUpDown className="w-5 h-5 text-header-glow" />
