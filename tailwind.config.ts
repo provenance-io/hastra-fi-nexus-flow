@@ -164,8 +164,10 @@ export default {
           '100%': { transform: 'rotate(360deg)' },
         },
         'flash': {
-          '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0.4' },
+          '0%': { opacity: '1' },
+          '30%': { opacity: '0.4' },
+          '70%': { opacity: '0.4' },
+          '100%': { opacity: '1' },
         },
 			},
 			animation: {
