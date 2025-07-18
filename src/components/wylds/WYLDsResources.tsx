@@ -25,7 +25,7 @@ const resources = [
 
 const WYLDsResources = () => {
   return (
-    <section className="py-20 md:py-24 border-t border-border/40">
+    <section className="py-20 border-t border-border/40">
       <div className="container">
         <h2 className="text-3xl font-bold tracking-tight text-center mb-12">Documentation & Resources</h2>
         <div className="max-w-3xl mx-auto space-y-4">
