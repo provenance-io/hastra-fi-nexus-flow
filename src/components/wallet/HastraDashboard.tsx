@@ -1,8 +1,6 @@
 
 import { useWallet } from '@/contexts/WalletContext';
-import { Skeleton } from '@/components/ui/skeleton';
 import WalletOverview from './WalletOverview';
-import TokenBalanceCard from './TokenBalanceCard';
 import ActionCard from './ActionCard';
 import { 
   PlusCircle, 
@@ -12,7 +10,7 @@ import {
 } from 'lucide-react';
 
 const HastraDashboard = () => {
-  const { balance, isConnected } = useWallet();
+  const { isConnected } = useWallet();
 
   if (!isConnected) {
     return null;
@@ -31,38 +29,13 @@ const HastraDashboard = () => {
           </p>
         </div>
 
-        {/* Portfolio Summary Section */}
+        {/* Portfolio Overview Section */}
         <div className="mb-8">
           <h2 className="text-xl font-semibold mb-4 text-foreground">
-            Portfolio Summary
+            Portfolio Overview
           </h2>
           
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Wallet Overview */}
-            <div className="lg:col-span-2">
-              <WalletOverview />
-            </div>
-            
-            {/* Token Balance Cards */}
-            <div className="space-y-4">
-              <TokenBalanceCard 
-                token="YIELD"
-                amount={850.25}
-                value={850.25}
-                apy={8.0}
-                change={5.2}
-                icon="/lovable-uploads/08452a7b-6782-4b0a-900e-0f0c99a4fc4e.png"
-              />
-              <TokenBalanceCard 
-                token="sHASH"
-                amount={127.43}
-                value={400.20}
-                apy={12.5}
-                change={-2.1}
-                icon="sH"
-              />
-            </div>
-          </div>
+          <WalletOverview />
         </div>
 
         {/* Action Cards Section */}
