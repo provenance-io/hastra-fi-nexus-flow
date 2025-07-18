@@ -51,16 +51,16 @@ const WYLDsFAQ = () => {
         </div>
 
         {/* FAQ Accordion */}
-        <div className="bg-card/50 backdrop-blur-sm border border-electric-blue/20 rounded-2xl p-8 hover:border-electric-blue/30 transition-all duration-300">
+        <div className="bg-card/50 backdrop-blur-sm border border-border/20 rounded-2xl p-8 hover:border-border/30 transition-all duration-300">
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="border border-electric-blue/10 rounded-xl bg-card/30 hover:bg-card/50 transition-all duration-300"
+                className="border border-border/10 rounded-xl bg-card/30 hover:bg-card/50 transition-all duration-300"
               >
                 <AccordionTrigger className="px-6 py-4 text-left hover:no-underline group">
-                  <span className="text-lg font-semibold text-electric-blue group-hover:text-neon-cyan transition-colors duration-300">
+                  <span className="text-lg font-semibold text-foreground group-hover:text-foreground/80 transition-colors duration-300">
                     {faq.question}
                   </span>
                 </AccordionTrigger>
@@ -73,7 +73,7 @@ const WYLDsFAQ = () => {
                           href="https://test.hastra.io/protocol" 
                           target="_blank" 
                           rel="noopener noreferrer"
-                          className="text-electric-blue hover:text-neon-cyan transition-colors duration-300 underline"
+                          className="text-foreground hover:text-foreground/80 transition-colors duration-300 underline"
                         >
                           Hastra Protocol Page
                         </a>
