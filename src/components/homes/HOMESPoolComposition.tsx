@@ -23,7 +23,7 @@ const HOMESPoolComposition = () => {
   };
 
   return (
-    <section className="py-20 md:py-32 bg-gradient-to-br from-header-glow/5 via-background to-background" id="pool-composition">
+    <section className="py-20 md:py-32" id="pool-composition">
       <div className="container">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">

@@ -17,8 +17,7 @@ const InnovationFocus = () => {
 
   return (
     <section id="innovation-focus" className="py-24 md:py-32 relative" role="region" aria-labelledby="innovation-heading">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-header-glow/2 to-transparent"></div>
+      {/* Unified seamless background - removed conflicting gradient */}
       
       <div className="container relative">
         <div className="text-center space-y-4 mb-16">

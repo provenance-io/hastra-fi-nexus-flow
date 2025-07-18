@@ -64,10 +64,7 @@ const Hero = () => {
 
   return (
     <section ref={heroRef} className="relative py-24 md:py-40 overflow-hidden" role="banner">
-      {/* Enhanced background with multiple layers */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMTAsIDIwLCA0MCwwLjA1KSI+PGQgcGF0aD0iTTAtMSAwIDEgTS0xIDAgMSAwIj48L2Q+PC9zdmc+')] opacity-40"></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/80"></div>
+      {/* Unified seamless background - removed conflicting gradients */}
       
       {/* Optimized falling coins animation */}
       {isLoaded && (
