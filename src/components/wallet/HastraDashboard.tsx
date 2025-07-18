@@ -33,11 +33,11 @@ const HastraDashboard = () => {
   return (
     <div className="w-full">
       {/* Polished dashboard container with rounded corners and subtle background */}
-      <div className="glass-premium rounded-2xl border border-border/20 overflow-hidden">
+      <div className="card-gradient rounded-2xl border border-border/20 overflow-hidden">
         <div className="container mx-auto px-6 py-8 max-w-7xl">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-hastra-gradient mb-2">
+            <h1 className="text-3xl font-bold text-gradient mb-2">
               Earnings Dashboard
             </h1>
             <p className="text-muted-foreground">
