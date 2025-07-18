@@ -35,7 +35,7 @@ const TradingPlatformsSection = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {tradingPlatforms.map((platform, index) => (
-          <Card key={index} className="glass-effect border-border/50 transition-all duration-300 group">
+          <Card key={index} className="bg-background/80 backdrop-blur-md border-border/50 transition-all duration-300 group">
             <CardHeader className="pb-3">
               <div className="flex items-center justify-between mb-2">
                 <CardTitle className="text-lg">{platform.name}</CardTitle>
