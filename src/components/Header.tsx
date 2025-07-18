@@ -84,13 +84,15 @@ const Header = () => {
                 <ChevronDown className="ml-1 h-4 w-4" />
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent transition-all duration-300 group-hover:w-full" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-72 bg-white/95 backdrop-blur-md border border-gray-200 shadow-2xl" align="start">
+              <DropdownMenuContent className="w-72 bg-white/95 backdrop-blur-md border border-gray-200 shadow-2xl mt-2 z-50" align="start">
                 <DropdownMenuItem asChild>
                   <Link to="/homes" className="flex items-center w-full cursor-pointer p-3 hover:bg-gray-50 rounded-lg transition-all duration-200 group">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-green-100 border border-green-200 flex items-center justify-center group-hover:scale-105 transition-transform">
-                        <span className="text-green-600 font-bold">H</span>
-                      </div>
+                     <div className="flex items-center gap-3">
+                       <img 
+                         src="/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png" 
+                         alt="HOMES Token"
+                         className="w-10 h-10 rounded-lg object-cover group-hover:scale-105 transition-transform"
+                       />
                       <div>
                         <div className="font-semibold text-gray-900 mb-1">HOMES</div>
                         <div className="text-sm text-gray-600">COMING SOON</div>
