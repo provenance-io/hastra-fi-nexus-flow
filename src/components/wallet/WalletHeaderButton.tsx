@@ -65,7 +65,7 @@ const WalletHeaderButton = () => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent 
-        className="w-64 bg-white/95 border-2 border-orange-800/30 shadow-2xl z-50" 
+        className="w-64 bg-white/95 border-2 border-orange-800/30 shadow-2xl mt-4 z-50" 
         align="end"
       >
         <div className="p-3 border-b border-orange-800/20">
