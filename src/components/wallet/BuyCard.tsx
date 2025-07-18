@@ -130,7 +130,7 @@ const BuyCard = () => {
               </SelectItem>
               <SelectItem value="HASH">
                 <div className="flex items-center gap-2">
-                  <img src={hashIcon} alt="HASH" className="w-6 h-6 rounded-full" />
+                  <img src={hashIcon} alt="HASH" className="w-6 h-6 rounded-full object-cover" />
                   HASH Token
                 </div>
               </SelectItem>

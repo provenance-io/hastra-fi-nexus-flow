@@ -121,7 +121,7 @@ const WalletDashboard = () => {
                       <img 
                         src="/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png" 
                         alt="HASH Token"
-                        className="w-8 h-8 rounded"
+                        className="w-8 h-8 rounded-full object-cover"
                       />
                     )}
                   </div>
