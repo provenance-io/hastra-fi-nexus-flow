@@ -95,7 +95,7 @@ const SendCard = () => {
   const equivalent = calculateEquivalent();
 
   return (
-    <Card className="w-full glass-effect border-border/50 hover:border-header-glow/30 transition-all duration-300 group">
+    <Card className="w-full glass-effect border-border/50 hover:border-orange-800/40 transition-all duration-300 group">
       <CardHeader className="pb-4">
         <CardTitle className="flex items-center gap-2 text-xl font-bold">
           <Send className="w-5 h-5 text-header-glow" />

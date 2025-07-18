@@ -26,6 +26,7 @@ const ActionCard = ({
   return (
     <Card className={`
       ${isPrimary ? 'glass-hastra' : 'glass-premium'} 
+      border border-border/20 hover:border-orange-800/40
       hover:scale-105 transition-all duration-300 cursor-pointer group
       ${isPrimary ? 'hover:shadow-hastra-lg' : 'hover:shadow-premium-lg'}
     `}>
