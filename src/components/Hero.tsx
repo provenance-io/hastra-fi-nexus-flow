@@ -98,7 +98,7 @@ const Hero = () => {
       <div className="container relative z-20">
         <div className={`text-center space-y-8 transition-opacity duration-500 ${isLoaded ? 'hero-content-loaded' : 'opacity-0'}`}>
           {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-header-glow/20 text-sm font-medium text-foreground/80 hero-badge">
+          <div className="inline-flex items-center text-sm font-medium text-foreground/80 hero-badge">
             <span className="mr-2 w-2 h-2 bg-header-glow rounded-full animate-pulse"></span>
             <span className="flex items-center gap-1">
               Now Live: Earn Up to{' '}
