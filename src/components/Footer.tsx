@@ -46,10 +46,10 @@ const Footer = () => {
             {/* Brand Section */}
             <div className="lg:col-span-4">
               <div className="max-w-sm">
-                <FooterLogo className="h-16 mb-2 -mt-6 opacity-80" />
+                <FooterLogo className="h-16 mb-8 -mt-6 opacity-80" />
                 
                 {/* Email Subscription */}
-                <div>
+                <div className="pl-4">
                   <h4 className="font-semibold text-foreground mb-3 text-sm uppercase tracking-wide">Stay Updated</h4>
                   <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                     Get the latest news and updates.
