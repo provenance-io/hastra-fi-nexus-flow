@@ -59,7 +59,6 @@ const WalletOverview = () => {
               <Wallet className="w-6 h-6 text-hastra-teal" />
             </div>
             <div>
-              <CardTitle className="text-xl text-foreground">Portfolio Overview</CardTitle>
               <p className="text-sm text-muted-foreground font-mono">
                 {address ? formatAddress(address) : 'Loading...'}
               </p>
@@ -110,16 +109,13 @@ const WalletOverview = () => {
                   maximumFractionDigits: 2 
                 })}
               </p>
-              <div className="flex items-center gap-2">
+               <div className="flex items-center gap-2">
                 <ArrowUpRight className="w-3 h-3 text-green-400" />
                 <span className="text-sm text-green-400 font-medium">
                   +${totalInterestEarned.toLocaleString('en-US', { 
                     minimumFractionDigits: 2 
                   })}
                 </span>
-                <Badge className="bg-green-500/20 border-green-500/30 text-green-300 text-xs">
-                  +{profitPercentage.toFixed(1)}%
-                </Badge>
               </div>
             </div>
           </div>
@@ -138,11 +134,6 @@ const WalletOverview = () => {
                   maximumFractionDigits: 4 
                 })}
               </p>
-              <div className="flex items-center gap-2">
-                <Badge className="bg-green-500/20 border-green-500/30 text-green-300 text-xs">
-                  All Time
-                </Badge>
-              </div>
             </div>
           </div>
 
@@ -160,11 +151,6 @@ const WalletOverview = () => {
                   maximumFractionDigits: 4 
                 })}
               </p>
-              <div className="flex items-center gap-2">
-                <Badge className="bg-hastra-teal/20 border-hastra-teal/30 text-hastra-teal text-xs">
-                  Ready to Claim
-                </Badge>
-              </div>
             </div>
           </div>
         </div>
