@@ -4,29 +4,6 @@ import { Badge } from '@/components/ui/badge';
 import { Coins, Shield, Info, Wallet } from 'lucide-react';
 import { useWallet } from '@/contexts/WalletContext';
 
-const platforms = [
-  {
-    name: "Kamino Finance",
-    description: "Automated lending strategies with optimized yields",
-    logo: "/lovable-uploads/9edb1ae1-8f98-4dcd-90f7-4f7e3135521e.png",
-    link: "https://app.kamino.finance",
-    apy: "Up to 8%",
-    features: ["Automated strategies", "Lending & borrowing", "Risk management"],
-    color: "blue",
-    type: "Lending Platform"
-  },
-  {
-    name: "Raydium",
-    description: "Leading AMM for liquidity provision and trading",
-    logo: "/lovable-uploads/30e0a19d-182e-4457-b5e0-58c467109e2f.png", 
-    link: "https://raydium.io",
-    apy: "Variable",
-    features: ["Concentrated liquidity", "Low fees", "High volume"],
-    color: "purple",
-    type: "DEX & Liquidity"
-  }
-];
-
 const tokens = [
   {
     symbol: "YIELD",
@@ -139,7 +116,7 @@ const BuyEarnSection = () => {
           </div>
         </div>
 
-        {/* Wallet Connection Section */}
+        {/* Connect Your Wallet Section */}
         <WalletConnectionSection />
       </div>
     </section>
@@ -162,7 +139,7 @@ const WalletConnectionSection = () => {
   };
 
   return (
-    <div className="text-center mb-20">
+    <div className="text-center py-20 border-t border-border/20">
       <h3 className="text-2xl md:text-3xl font-bold mb-8">Connect Your Wallet</h3>
       <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
         {isConnected ? 'Wallet connected! View your dashboard below to start trading.' : 'Connect your wallet to start earning with YIELD and sHASH tokens.'}
