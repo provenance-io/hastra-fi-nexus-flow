@@ -52,7 +52,7 @@ const Footer = () => {
                 </p>
                 
                 {/* Social Media */}
-                <div className="mb-8">
+                <div className="mb-6">
                   <h4 className="font-semibold text-foreground mb-3 text-sm uppercase tracking-wide">Follow Us</h4>
                   <div className="flex gap-3">
                     <a 
@@ -70,12 +70,12 @@ const Footer = () => {
                 <div>
                   <h4 className="font-semibold text-foreground mb-3 text-sm uppercase tracking-wide">Stay Updated</h4>
                   <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                    Get the latest news and product updates delivered to your inbox.
+                    Get the latest news and updates.
                   </p>
                   <form onSubmit={handleEmailSubmit} className="space-y-3">
                     <Input
                       type="email"
-                      placeholder="Enter your email address"
+                      placeholder="Enter your email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="w-full bg-background/50 border-border/30 text-sm focus:border-header-glow/50"
@@ -96,10 +96,10 @@ const Footer = () => {
 
             {/* Navigation Links */}
             <div className="lg:col-span-8">
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-8 h-fit">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
                 {Object.entries(footerLinks).map(([key, links]) => (
                   <div key={key} className="space-y-4">
-                    <h4 className="font-semibold capitalize text-foreground text-sm uppercase tracking-wide border-b border-border/20 pb-2">
+                    <h4 className="font-semibold capitalize text-foreground text-sm uppercase tracking-wide">
                       {key}
                     </h4>
                     <ul className="space-y-3">
@@ -108,20 +108,18 @@ const Footer = () => {
                           {link.href.startsWith('/') ? (
                             <Link 
                               to={link.href} 
-                              className="text-sm text-muted-foreground hover:text-header-glow transition-colors duration-200 inline-flex items-center group"
+                              className="text-sm text-muted-foreground hover:text-header-glow transition-colors duration-200"
                             >
                               {link.label}
-                              <span className="ml-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">→</span>
                             </Link>
                           ) : (
                             <a 
                               href={link.href} 
-                              className="text-sm text-muted-foreground hover:text-header-glow transition-colors duration-200 inline-flex items-center group"
+                              className="text-sm text-muted-foreground hover:text-header-glow transition-colors duration-200"
                               target={link.href.startsWith('http') ? '_blank' : undefined}
                               rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                             >
                               {link.label}
-                              <span className="ml-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">↗</span>
                             </a>
                           )}
                         </li>
