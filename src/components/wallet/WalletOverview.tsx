@@ -18,6 +18,7 @@ import {
 import { useState } from 'react';
 
 const WalletOverview = () => {
+  // Force component refresh after refactoring
   const { refreshBalance, address } = useWallet();
   const { 
     tokens, 
