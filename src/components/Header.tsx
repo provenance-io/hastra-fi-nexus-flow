@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import HastraLogo from './HastraLogo';
 import MobileMenu from './MobileMenu';
@@ -121,6 +120,13 @@ const Header = () => {
                 )}
               </div>
             ))}
+            <Link
+              to="/earn"
+              className="text-lg font-medium text-gray-700 hover:text-gray-900 transition-colors relative group"
+            >
+              Earn
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent transition-all duration-300 group-hover:w-full" />
+            </Link>
             <Link
               to="/learn"
               className="text-lg font-medium text-gray-700 hover:text-gray-900 transition-colors relative group"
