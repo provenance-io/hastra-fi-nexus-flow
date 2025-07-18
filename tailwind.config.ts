@@ -159,6 +159,10 @@ export default {
           '50%': { borderRadius: '15px 25px' },
           '75%': { borderRadius: '25px 20px' },
         },
+        'spin-slow': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -174,6 +178,7 @@ export default {
         'pulse-glow-premium': 'pulse-glow-premium 3s ease-in-out infinite',
         'pulse-glow-hastra': 'pulse-glow-hastra 3s ease-in-out infinite',
         'morph': 'morph 8s ease-in-out infinite',
+        'spin-slow': 'spin-slow 4s linear infinite',
 			}
 		}
 	},

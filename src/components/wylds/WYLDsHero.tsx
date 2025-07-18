@@ -8,6 +8,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { ChevronDown, ExternalLink, Loader2 } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
+import yieldIcon from '@/assets/yield-icon.png';
 
 interface FigureYieldResponse {
   rate: number;
@@ -43,10 +44,13 @@ const WYLDsHero = () => {
           <span className="text-premium-gradient font-semibold">Built on Provenance Blockchain</span>
         </div>
         
-        <h1 className="text-6xl md:text-8xl font-black tracking-tight mb-6 relative">
-          <span className="block text-premium-gradient relative z-10">YIELD</span>
-          <div className="absolute inset-0 text-premium-gradient opacity-20 blur-sm animate-pulse">YIELD</div>
-        </h1>
+        <div className="mb-6 flex justify-center">
+          <img 
+            src={yieldIcon} 
+            alt="YIELD Token" 
+            className="w-32 h-32 md:w-40 md:h-40 animate-spin-slow drop-shadow-2xl"
+          />
+        </div>
         
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-8 text-platinum/90">
           <span className="text-electric-blue">TRADE IT.</span>{" "}
