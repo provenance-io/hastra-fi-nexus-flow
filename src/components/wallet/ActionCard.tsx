@@ -27,7 +27,6 @@ const ActionCard = ({
     <Card className={`
       ${isPrimary ? 'glass-hastra' : 'glass-premium'} 
       transition-all duration-300 cursor-pointer group
-      ${isPrimary ? 'hover:shadow-hastra-lg' : 'hover:shadow-premium-lg'}
     `}>
       <CardHeader className="pb-3">
         <div className="flex items-center justify-between">
