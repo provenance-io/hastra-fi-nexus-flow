@@ -56,7 +56,11 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({ isOpen, onC
             {/* Header Section */}
             <div className="text-center mb-6">
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-electric-blue/20 to-neon-cyan/10 mb-3">
-                <DollarSign className="h-6 w-6 text-electric-blue" />
+                <img 
+                  src="/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png" 
+                  alt="HOMES Token"
+                  className="h-6 w-6 rounded-full object-cover"
+                />
               </div>
               <h2 className="text-xl font-bold text-foreground mb-2">
                 Earn 7-14% APY

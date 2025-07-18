@@ -86,21 +86,6 @@ const Header = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-72 bg-white/95 backdrop-blur-md border border-gray-200 shadow-2xl mt-4 z-50" align="start">
                 <DropdownMenuItem asChild>
-                  <Link to="/homes" className="flex items-center w-full cursor-pointer p-3 hover:bg-gray-50 rounded-lg transition-all duration-200 group">
-                     <div className="flex items-center gap-3">
-                       <img 
-                         src="/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png" 
-                         alt="HOMES Token"
-                         className="w-10 h-10 rounded-lg object-cover group-hover:scale-105 transition-transform"
-                       />
-                      <div>
-                        <div className="font-semibold text-gray-900 mb-1">HOMES</div>
-                        <div className="text-sm text-gray-600">COMING SOON</div>
-                      </div>
-                    </div>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
                   <Link to="/yield" className="flex items-center w-full cursor-pointer p-3 hover:bg-gray-50 rounded-lg transition-all duration-200 group">
                     <div className="flex items-center gap-3">
                       <img 
@@ -116,6 +101,21 @@ const Header = () => {
                             {displayApy}
                           </span>
                         </div>
+                      </div>
+                    </div>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/homes" className="flex items-center w-full cursor-pointer p-3 hover:bg-gray-50 rounded-lg transition-all duration-200 group">
+                    <div className="flex items-center gap-3">
+                      <img 
+                        src="/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png" 
+                        alt="HOMES Token"
+                        className="w-10 h-10 rounded-lg object-cover group-hover:scale-105 transition-transform"
+                      />
+                      <div>
+                        <div className="font-semibold text-gray-900 mb-1">HOMES</div>
+                        <div className="text-sm text-gray-600">COMING SOON</div>
                       </div>
                     </div>
                   </Link>
