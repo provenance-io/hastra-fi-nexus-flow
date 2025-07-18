@@ -50,8 +50,9 @@ const ActionCard = ({
         <Button
           onClick={action}
           disabled={isLoading}
-          className="w-full bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 transition-all duration-200 font-medium"
+          variant="auburn"
           size="sm"
+          className="w-full"
         >
           {isLoading ? (
             <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
