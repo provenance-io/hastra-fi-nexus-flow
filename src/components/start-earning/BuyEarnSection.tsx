@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Coins, Shield, Info, Wallet } from 'lucide-react';
 import { useWallet } from '@/contexts/WalletContext';
-import hashIcon from '@/assets/hash-icon.png';
+
 
 const tokens = [
   {
@@ -70,7 +70,7 @@ const BuyEarnSection = () => {
                       />
                     ) : (
                        <img 
-                         src={hashIcon}
+                         src="/lovable-uploads/bf8624e5-73f0-4058-89bf-eae815967f7e.png"
                         alt="HASH Token"
                         className="w-12 h-12 rounded-lg"
                       />
@@ -81,12 +81,15 @@ const BuyEarnSection = () => {
                     </div>
                   </CardTitle>
                   
-                  {/* Risk and APY info under token name in orange */}
-                  <div className="flex gap-4 mb-4">
-                    <span className="text-orange-300 font-medium text-sm">
+                  {/* Risk and APY info under token name in orange with visual markers */}
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-orange-300 font-medium text-sm flex items-center gap-1">
+                      <div className="w-1.5 h-1.5 bg-orange-300 rounded-full"></div>
                       {token.risk} Risk
                     </span>
-                    <span className="text-orange-300 font-medium text-sm">
+                    <div className="w-1 h-1 bg-orange-300/50 rounded-full"></div>
+                    <span className="text-orange-300 font-medium text-sm flex items-center gap-1">
+                      <div className="w-1.5 h-1.5 bg-orange-300 rounded-full"></div>
                       {token.apy} APY
                     </span>
                   </div>
