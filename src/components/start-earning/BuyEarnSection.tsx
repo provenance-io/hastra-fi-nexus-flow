@@ -120,8 +120,7 @@ const BuyEarnSection = () => {
                     ))}
                   </div>
                   <Button 
-                    variant="auburn-outline"
-                    className="w-full"
+                    className="w-full bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-4 text-lg rounded-xl transition-all duration-200"
                     onClick={() => {
                       // Navigate to quick start guides
                       const learningSection = document.querySelector('[data-section="learning"]');
@@ -179,8 +178,7 @@ const BuyEarnSection = () => {
                   </div>
                   <div className="flex gap-3">
                   <Button 
-                    variant="outline" 
-                    className="flex-1"
+                    className="flex-1 bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-4 text-lg rounded-xl transition-all duration-200"
                     onClick={() => {
                       // Navigate to comprehensive guides section
                       document.querySelector('[data-tab="comprehensive"]')?.scrollIntoView({ behavior: 'smooth' });
@@ -189,7 +187,7 @@ const BuyEarnSection = () => {
                     Platform Guide
                     <Info className="ml-2 h-4 w-4" />
                   </Button>
-                    <Button asChild className="flex-1 bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-4 text-lg rounded-xl group-hover:shadow-lg transition-all duration-200">
+                    <Button asChild className="flex-1 bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-4 text-lg rounded-xl transition-all duration-200">
                       <a href={platform.link} target="_blank" rel="noopener noreferrer">
                         Start Trading
                         <ExternalLink className="ml-2 h-4 w-4" />
