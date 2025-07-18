@@ -195,7 +195,7 @@ const SendCard = () => {
         <Button 
           onClick={handleSend} 
           size="lg"
-          className="w-full bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring px-8 py-4 text-lg font-medium rounded-xl min-w-[200px] group transition-all duration-200"
+          className="w-full bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring px-8 py-4 text-sm font-medium rounded-xl min-w-[200px] group transition-all duration-200"
           disabled={!amount || !recipientAddress}
         >
           Send {selectedToken}
