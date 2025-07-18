@@ -6,6 +6,10 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { ArrowUpDown, DollarSign } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import usdcIcon from '@/assets/usdc-icon.png';
+import solanaIcon from '@/assets/solana-icon.png';
+import yieldIcon from '@/assets/yield-icon.png';
+import hashIcon from '@/assets/hash-icon.png';
 
 const BuyCard = () => {
   const [sellAsset, setSellAsset] = useState<'USDC' | 'SOL'>('USDC');
@@ -94,8 +98,18 @@ const BuyCard = () => {
               <SelectValue />
             </SelectTrigger>
             <SelectContent className="bg-card border-hastra-teal/20">
-              <SelectItem value="USDC">USDC (Balance: {mockBalances.USDC})</SelectItem>
-              <SelectItem value="SOL">Solana (Balance: {mockBalances.SOL})</SelectItem>
+              <SelectItem value="USDC">
+                <div className="flex items-center gap-2">
+                  <img src={usdcIcon} alt="USDC" className="w-5 h-5 rounded-full" />
+                  USDC (Balance: {mockBalances.USDC})
+                </div>
+              </SelectItem>
+              <SelectItem value="SOL">
+                <div className="flex items-center gap-2">
+                  <img src={solanaIcon} alt="Solana" className="w-5 h-5 rounded-full" />
+                  Solana (Balance: {mockBalances.SOL})
+                </div>
+              </SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -108,8 +122,18 @@ const BuyCard = () => {
               <SelectValue />
             </SelectTrigger>
             <SelectContent className="bg-card border-hastra-teal/20">
-              <SelectItem value="YIELD">YIELD Token</SelectItem>
-              <SelectItem value="HASH">HASH Token</SelectItem>
+              <SelectItem value="YIELD">
+                <div className="flex items-center gap-2">
+                  <img src={yieldIcon} alt="YIELD" className="w-5 h-5 rounded-full" />
+                  YIELD Token
+                </div>
+              </SelectItem>
+              <SelectItem value="HASH">
+                <div className="flex items-center gap-2">
+                  <img src={hashIcon} alt="HASH" className="w-5 h-5 rounded-full" />
+                  HASH Token
+                </div>
+              </SelectItem>
             </SelectContent>
           </Select>
         </div>

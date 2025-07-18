@@ -6,6 +6,8 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Send, DollarSign } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import yieldIcon from '@/assets/yield-icon.png';
+import hashIcon from '@/assets/hash-icon.png';
 
 const SendCard = () => {
   const [selectedToken, setSelectedToken] = useState<'YIELD' | 'HASH'>('YIELD');
@@ -109,8 +111,18 @@ const SendCard = () => {
               <SelectValue />
             </SelectTrigger>
             <SelectContent className="bg-card border-hastra-teal/20">
-              <SelectItem value="YIELD">YIELD (Balance: {tokenBalances.YIELD})</SelectItem>
-              <SelectItem value="HASH">HASH (Balance: {tokenBalances.HASH})</SelectItem>
+              <SelectItem value="YIELD">
+                <div className="flex items-center gap-2">
+                  <img src={yieldIcon} alt="YIELD" className="w-5 h-5 rounded-full" />
+                  YIELD (Balance: {tokenBalances.YIELD})
+                </div>
+              </SelectItem>
+              <SelectItem value="HASH">
+                <div className="flex items-center gap-2">
+                  <img src={hashIcon} alt="HASH" className="w-5 h-5 rounded-full" />
+                  HASH (Balance: {tokenBalances.HASH})
+                </div>
+              </SelectItem>
             </SelectContent>
           </Select>
         </div>
