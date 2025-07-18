@@ -115,15 +115,12 @@ const WYLDsStatsDashboard = () => {
   ];
 
   return (
-    <section className="py-24 md:py-32 relative">
+    <section className="py-16 md:py-20 relative">
       {/* Premium background - matching homepage */}
       {/* Unified seamless background - removed conflicting gradient */}
       
       <div className="container relative">
         <div className="text-center mb-16">
-          <div className="glass-premium rounded-full px-6 py-3 text-sm mb-8 inline-block">
-            <span className="text-gradient font-semibold">Real-Time Analytics</span>
-          </div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gradient mb-6">Live Stats</h2>
           <p className="text-xl text-platinum/80 max-w-2xl mx-auto">
             Track YIELD performance with real-time data and transparent metrics
