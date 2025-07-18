@@ -55,83 +55,89 @@ const TokenLineItem = ({
 
   return (
     <div className="p-4 rounded-xl bg-background/50 border border-border/30 hover:border-hastra-teal/30 transition-all duration-300">
-      <div className="flex items-center justify-between gap-8">
-        <div className="flex items-center gap-3 min-w-0 flex-shrink-0">
+      <div className="grid grid-cols-[auto_1fr_1fr_1fr_1fr_auto] gap-6 items-center">
+        {/* Token Info */}
+        <div className="flex items-center gap-3 min-w-0">
           {isImage ? (
             <img 
               src={icon} 
               alt={`${token} Token`}
-              className="w-8 h-8 rounded"
+              className="w-12 h-12 rounded-lg"
             />
           ) : (
-            <span className="text-hastra-teal font-bold text-lg">{icon}</span>
+            <div className="w-12 h-12 rounded-lg bg-hastra-teal/10 flex items-center justify-center">
+              <span className="text-hastra-teal font-bold text-xl">{icon}</span>
+            </div>
           )}
-          <h4 className="font-semibold text-foreground">{token}</h4>
+          <h4 className="font-semibold text-foreground whitespace-nowrap">{token}</h4>
         </div>
         
-        <div className="flex items-center justify-between flex-1 gap-8 text-sm">
-          <div className="text-center min-w-0">
-            <p className="text-muted-foreground mb-1">Tokens</p>
-            <p className="font-medium text-foreground">
-              {amount.toLocaleString('en-US', { 
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 4 
-              })}
-            </p>
-          </div>
-          
-          <div className="text-center min-w-0">
-            <p className="text-muted-foreground mb-1">Worth</p>
-            <p className="font-medium text-foreground">
-              ${value.toLocaleString('en-US', { 
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2 
-              })}
-            </p>
-          </div>
-          
-          <div className="text-center min-w-0">
-            <p className="text-muted-foreground mb-1">Total Interest Claimed</p>
-            <div className="flex items-center justify-center gap-1">
-              <TrendingUp className="w-3 h-3 text-green-400" />
-              <p className="font-medium text-green-400">
-                ${totalInterestEarnedUSD.toLocaleString('en-US', { 
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 2 
-                })}
-              </p>
-            </div>
-          </div>
-          
-          <div className="text-center min-w-0">
-            <p className="text-muted-foreground mb-1">Unclaimed Interest</p>
-            <p className={`font-medium ${unclaimedInterest > 0 ? 'text-hastra-teal' : 'text-muted-foreground'}`}>
-              ${unclaimedInterestUSD.toLocaleString('en-US', { 
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2 
-              })}
-            </p>
-          </div>
-          
-          <Button
-            onClick={handleClaim}
-            disabled={unclaimedInterest <= 0 || isClaiming}
-            size="sm"
-            className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring px-4 py-2 text-xs font-medium rounded-lg transition-all duration-200 disabled:opacity-50 flex-shrink-0"
-          >
-            {isClaiming ? (
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 border border-hastra-teal border-t-transparent rounded-full animate-spin" />
-                Claiming...
-              </div>
-            ) : (
-              <div className="flex items-center gap-2">
-                <Gift className="w-3 h-3" />
-                Claim APY
-              </div>
-            )}
-          </Button>
+        {/* Tokens Column */}
+        <div className="text-center">
+          <p className="text-muted-foreground mb-1 text-sm">Tokens</p>
+          <p className="font-medium text-foreground">
+            {amount.toLocaleString('en-US', { 
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 4 
+            })}
+          </p>
         </div>
+        
+        {/* Worth Column */}
+        <div className="text-center">
+          <p className="text-muted-foreground mb-1 text-sm">Worth</p>
+          <p className="font-medium text-foreground">
+            ${value.toLocaleString('en-US', { 
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2 
+            })}
+          </p>
+        </div>
+        
+        {/* Total Interest Claimed Column */}
+        <div className="text-center">
+          <p className="text-muted-foreground mb-1 text-sm">Total Interest Claimed</p>
+          <div className="flex items-center justify-center gap-1">
+            <TrendingUp className="w-3 h-3 text-green-400" />
+            <p className="font-medium text-green-400">
+              ${totalInterestEarnedUSD.toLocaleString('en-US', { 
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2 
+              })}
+            </p>
+          </div>
+        </div>
+        
+        {/* Unclaimed Interest Column */}
+        <div className="text-center">
+          <p className="text-muted-foreground mb-1 text-sm">Unclaimed Interest</p>
+          <p className={`font-medium ${unclaimedInterest > 0 ? 'text-hastra-teal' : 'text-muted-foreground'}`}>
+            ${unclaimedInterestUSD.toLocaleString('en-US', { 
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2 
+            })}
+          </p>
+        </div>
+        
+        {/* Claim Button */}
+        <Button
+          onClick={handleClaim}
+          disabled={unclaimedInterest <= 0 || isClaiming}
+          size="sm"
+          className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring px-4 py-2 text-xs font-medium rounded-lg transition-all duration-200 disabled:opacity-50 whitespace-nowrap"
+        >
+          {isClaiming ? (
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 border border-hastra-teal border-t-transparent rounded-full animate-spin" />
+              Claiming...
+            </div>
+          ) : (
+            <div className="flex items-center gap-2">
+              <Gift className="w-3 h-3" />
+              Claim APY
+            </div>
+          )}
+        </Button>
       </div>
     </div>
   );
