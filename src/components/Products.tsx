@@ -2,7 +2,7 @@
 import { products } from '@/data/content';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, TrendingUp, Users, DollarSign, ExternalLink, Home, Building, Loader2 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
 interface FigureYieldResponse {
@@ -68,6 +68,7 @@ const formatHolders = (holders: string): string => {
 };
 
 const Products = () => {
+  const navigate = useNavigate();
   const { data: apy, isLoading: apyLoading, error: apyError } = useQuery({
     queryKey: ['yield-apy'],
     queryFn: fetchCurrentAPY,
@@ -159,15 +160,13 @@ const Products = () => {
                         </span>
                       </div>
                     </div>
-                    <Link to="/yield" className="inline-block">
-                      <Button 
-                        size="lg" 
-                        className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-6 py-3 text-base rounded-xl transition-all duration-300 group sm:ml-4"
-                      >
-                        Learn More
-                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                      </Button>
-                    </Link>
+                    <button 
+                      className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-6 py-3 text-base rounded-xl transition-all duration-300 group sm:ml-4 cursor-pointer flex items-center"
+                      onClick={() => navigate('/yield')}
+                    >
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </button>
                   </div>
                 </div>
               </div>
