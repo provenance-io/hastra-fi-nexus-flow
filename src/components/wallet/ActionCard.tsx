@@ -24,10 +24,7 @@ const ActionCard = ({
   const isPrimary = variant === 'primary';
 
   return (
-    <Card className={`
-      ${isPrimary ? 'glass-hastra' : 'glass-premium'} 
-      transition-all duration-300 cursor-pointer group
-    `}>
+    <Card className="bg-background/80 backdrop-blur-md border-none transition-all duration-300 cursor-pointer group">
       <CardHeader className="pb-3">
         <div className="flex items-center justify-between">
           <div className={`
