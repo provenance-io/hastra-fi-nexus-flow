@@ -11,7 +11,7 @@ const ProvenanceBranding = () => {
       viewport={{ once: true }}
     >
       <div className="container">
-        <div className="flex flex-col items-center justify-center gap-2">
+        <div className="flex flex-col items-center justify-center gap-1">
           <span className="text-xl md:text-2xl text-foreground/80 font-medium">
             Built on
           </span>
