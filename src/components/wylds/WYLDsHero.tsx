@@ -64,10 +64,10 @@ const WYLDsHero = () => {
 
         {/* Enhanced APY Display */}
         <div className="my-12">
-          <div className="card-premium rounded-2xl p-8 max-w-md mx-auto pulse-glow-premium">
+          <div className="card-premium rounded-2xl p-6 max-w-xs mx-auto pulse-glow-premium">
             <p className="text-lg text-platinum/70 mb-2">Current APY</p>
             <div className="relative">
-              <div className="text-6xl md:text-7xl font-bold relative z-10 flex items-center justify-center gap-2">
+              <div className="text-5xl md:text-6xl font-bold relative z-10 flex items-center justify-center gap-2">
                 {apyLoading && <Loader2 className="h-8 w-8 animate-spin" />}
                 <span className={apyLoading ? 'opacity-50' : apyError ? 'text-red-400' : 'text-premium-gradient'}>
                   {displayApy}
