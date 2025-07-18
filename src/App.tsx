@@ -45,7 +45,7 @@ const App = () => (
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
-            
+            <ProvenanceBranding />
             <Footer />
           </div>
         </BrowserRouter>

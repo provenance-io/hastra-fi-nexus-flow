@@ -94,20 +94,6 @@ const HastraDashboard = () => {
           {/* Trading Platforms Section */}
           <div id="trade-lend-section" className="mb-8">
             <TradingPlatformsSection />
-
-          {/* Built on Provenance Blockchain */}
-          <div className="text-center mt-8 pt-8 border-t border-border/20">
-            <div className="flex flex-col items-center justify-center gap-2">
-              <span className="text-xl md:text-2xl text-foreground/80 font-medium">
-                Built on
-              </span>
-              <img 
-                src="/lovable-uploads/e80568de-0fba-4199-a928-a9d5b3fa9b76.png" 
-                alt="Provenance Blockchain" 
-                className="h-16 md:h-20 w-auto"
-              />
-            </div>
-          </div>
           </div>
 
           {/* Additional Info */}
