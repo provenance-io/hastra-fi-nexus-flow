@@ -195,7 +195,7 @@ const BuyCard = () => {
         {/* Swap Button */}
         <Button 
           onClick={handleSwap} 
-          className="w-full btn-hastra h-12 text-base font-semibold"
+          className="w-full bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 transition-all duration-200 group-hover:scale-[1.02] h-12 text-base font-semibold"
           disabled={!amount || receiveAmount.tokens === 0}
         >
           Swap {sellAsset} for {buyAsset}
