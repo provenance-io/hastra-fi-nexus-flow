@@ -154,10 +154,12 @@ const SendCard = () => {
           </div>
           <Input
             type="number"
+            min="0"
+            step="any"
             placeholder={`Enter amount in ${denomination === 'token' ? selectedToken : 'USD'}`}
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            className="bg-muted/50 border-hastra-teal/20 focus:border-hastra-teal focus:ring-hastra-teal/20"
+            className="bg-muted/50 border-hastra-teal/20 focus:border-hastra-teal focus:ring-hastra-teal/20 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&]:[-moz-appearance:textfield]"
           />
           {amount && equivalent > 0 && (
             <div className="text-xs text-muted-foreground">

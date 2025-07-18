@@ -164,10 +164,12 @@ const BuyCard = () => {
           </div>
           <Input
             type="number"
+            min="0"
+            step="any"
             placeholder={`Enter amount in ${denomination === 'usd' ? 'USD' : sellAsset}`}
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            className="bg-muted/50 border-hastra-teal/20 focus:border-hastra-teal focus:ring-hastra-teal/20"
+            className="bg-muted/50 border-hastra-teal/20 focus:border-hastra-teal focus:ring-hastra-teal/20 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&]:[-moz-appearance:textfield]"
           />
         </div>
 
