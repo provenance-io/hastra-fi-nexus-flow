@@ -1,7 +1,6 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowUpRight } from 'lucide-react';
 import { ReactNode } from 'react';
 
 interface ActionCardProps {
@@ -33,10 +32,6 @@ const ActionCard = ({
           `}>
             {icon}
           </div>
-          <ArrowUpRight className={`
-            w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1
-            ${isPrimary ? 'text-hastra-teal' : 'text-electric-blue'}
-          `} />
         </div>
         
         <CardTitle className="text-lg text-foreground">{title}</CardTitle>
