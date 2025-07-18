@@ -6,8 +6,9 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { ChevronDown, ExternalLink, Loader2 } from 'lucide-react';
+import { ChevronDown, ExternalLink, Loader2, ArrowRight } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
+import { Link } from 'react-router-dom';
 
 interface FigureYieldResponse {
   rate: number;
@@ -90,15 +91,13 @@ const WYLDsHero = () => {
             className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-12 py-6 text-lg rounded-2xl min-w-[240px] group transition-all duration-200"
             asChild
           >
-            <a 
-              href="https://test.hastra.io/protocol" 
-              target="_blank" 
-              rel="noopener noreferrer"
+            <Link 
+              to="/earn"
               className="flex items-center justify-center"
             >
               Get YIELD
-              <ExternalLink className="ml-3 h-4 w-4" />
-            </a>
+              <ArrowRight className="ml-3 h-4 w-4" />
+            </Link>
           </Button>
         </div>
       </div>
