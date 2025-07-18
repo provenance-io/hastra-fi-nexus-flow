@@ -8,7 +8,7 @@ import HOMESComingSoonModal from '@/components/homes/HOMESComingSoonModal';
 
 const HOMESPage = () => {
   const [showModal, setShowModal] = useState(false);
-  const [isBlurred, setIsBlurred] = useState(false);
+  const [isBlurred, setIsBlurred] = useState(true);
 
   useEffect(() => {
     // Show modal after a brief delay on page load
