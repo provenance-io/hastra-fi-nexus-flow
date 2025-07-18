@@ -6,9 +6,9 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { ArrowUpDown, DollarSign } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import usdcIcon from '@/assets/usdc-icon.png';
-import solanaIcon from '@/assets/solana-icon.png';
-import yieldIcon from '@/assets/yield-icon.png';
+import usdcIcon from '/lovable-uploads/dce72281-6459-4785-814f-a1e9872bbb8d.png';
+import solanaIcon from '/lovable-uploads/05bbaafe-890c-4692-bac6-96927ee62b7e.png';
+import yieldIcon from '/lovable-uploads/0db58d6a-9142-44d8-8e1d-a2283f6ac976.png';
 import hashIcon from '@/assets/hash-icon.png';
 
 const BuyCard = () => {
