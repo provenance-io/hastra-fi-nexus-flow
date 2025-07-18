@@ -64,7 +64,7 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-200/30 bg-header-bg/70 backdrop-blur supports-[backdrop-filter]:bg-header-bg/70 shadow-lg shadow-header-glow/10">
+    <header className="sticky top-0 z-50 w-full border-b border-gray-200/30 bg-header-bg/85 backdrop-blur supports-[backdrop-filter]:bg-header-bg/85 shadow-lg shadow-header-glow/10">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center space-x-12">
           <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
