@@ -153,11 +153,11 @@ const About = () => {
             <div className="max-w-4xl mx-auto">
               <div className="card-gradient rounded-2xl p-8 md:p-12 card-hover">
                 <div className="flex items-start gap-6">
-                  <div className="w-16 h-16 rounded-xl bg-header-glow/20 flex items-center justify-center flex-shrink-0">
-                    <Coins className="w-8 h-8 text-header-glow" />
+                  <div className="w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <img src="/lovable-uploads/c7496f8a-f155-4106-ab9f-fec1d493871e.png" alt="HASH Token" className="w-16 h-16 rounded-xl" />
                   </div>
                   <div className="space-y-4">
-                    <h3 className="text-2xl md:text-3xl font-bold">HASH Token Buy & Burn Program</h3>
+                    <h3 className="text-2xl md:text-3xl font-bold">HASH Token Buy & Burn Program (Coming Soon!)</h3>
                     <p className="text-lg text-muted-foreground leading-relaxed">
                       A significant portion of revenue generated from our DeFi products is systematically allocated to purchase and permanently burn HASH tokens from the open market. This deflationary mechanism:
                     </p>
