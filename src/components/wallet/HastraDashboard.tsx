@@ -43,7 +43,7 @@ const HastraDashboard = () => {
         {/* Action Cards Section */}
         <div className="mb-8">
           <h2 className="text-xl font-semibold mb-4 text-foreground">
-            Quick Actions
+            Trade & Lend
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -84,7 +84,7 @@ const HastraDashboard = () => {
         {/* Buy and Send Interfaces */}
         <div className="mb-8">
           <h2 className="text-xl font-semibold mb-4 text-foreground">
-            Trading & Transfers
+            Buy & Send
           </h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -96,7 +96,7 @@ const HastraDashboard = () => {
         {/* Additional Info */}
         <div className="text-center text-muted-foreground">
           <p className="text-sm">
-            Powered by Solana blockchain • Always verify transactions before confirming
+            Always verify transactions before confirming
           </p>
         </div>
       </div>
