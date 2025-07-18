@@ -30,7 +30,6 @@ const platforms = [
 const TradingPlatformsSection = () => {
   return (
     <div>
-      <h3 className="text-2xl md:text-3xl font-bold text-center mb-12">Trade & Lend</h3>
       <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         {platforms.map((platform, index) => (
           <Card key={index} className="glass-effect border-border/50 hover:border-header-glow/30 transition-all duration-300 group">
