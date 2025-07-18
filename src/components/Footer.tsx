@@ -6,7 +6,7 @@ import FooterLogo from './FooterLogo';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
-import { Twitter } from 'lucide-react';
+import { X } from 'lucide-react';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -112,7 +112,7 @@ const Footer = () => {
                 
                 {/* Social Media Column */}
                 <div className="space-y-4">
-                  <h4 className="font-semibold text-foreground text-sm uppercase tracking-wide">Follow Us</h4>
+                  <h4 className="font-semibold text-foreground text-sm tracking-wide">Follow Us</h4>
                   <div className="flex gap-3">
                     <a 
                       href="https://x.com/HastraFi" 
@@ -120,7 +120,7 @@ const Footer = () => {
                       rel="noopener noreferrer"
                       className="w-10 h-10 bg-background/50 border border-border/30 rounded-lg flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-header-glow/50 hover:bg-header-glow/10 transition-all duration-200"
                     >
-                      <Twitter className="w-4 h-4" />
+                      <X className="w-4 h-4" />
                     </a>
                   </div>
                 </div>
