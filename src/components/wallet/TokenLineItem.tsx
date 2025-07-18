@@ -116,8 +116,8 @@ const TokenLineItem = ({
           <Button
             onClick={handleClaim}
             disabled={unclaimedInterest <= 0 || isClaiming}
-            size="sm"
-            className="bg-hastra-teal/20 border border-hastra-teal/30 text-hastra-teal hover:bg-hastra-teal/30 hover:border-hastra-teal/50 disabled:opacity-50 flex-shrink-0"
+            size="lg"
+            className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring px-8 py-4 text-lg font-medium rounded-xl transition-all duration-200 disabled:opacity-50 flex-shrink-0"
           >
             {isClaiming ? (
               <div className="flex items-center gap-2">
