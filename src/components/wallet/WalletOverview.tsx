@@ -131,7 +131,7 @@ const WalletOverview = () => {
           <div className="space-y-3">
             <div className="flex items-center gap-2">
               <DollarSign className="w-4 h-4 text-hastra-teal" />
-              <p className="text-sm text-muted-foreground">total value</p>
+              <p className="text-sm text-muted-foreground">Total Value of Hastra Tokens</p>
             </div>
             
             <div className="space-y-1">
@@ -143,11 +143,11 @@ const WalletOverview = () => {
               </p>
                <div className="flex items-center gap-2">
                 <ArrowUpRight className="w-3 h-3 text-green-400" />
-                <span className="text-sm text-green-400 font-medium">
-                  +${totalInterestEarned.toLocaleString('en-US', { 
-                    minimumFractionDigits: 2 
-                  })}
-                </span>
+              <span className="text-sm text-green-400 font-medium">
+                +${totalInterestEarned.toLocaleString('en-US', { 
+                  minimumFractionDigits: 2 
+                })}
+              </span>
               </div>
             </div>
           </div>
@@ -156,14 +156,14 @@ const WalletOverview = () => {
           <div className="space-y-3">
             <div className="flex items-center gap-2">
               <TrendingUp className="w-4 h-4 text-hastra-teal" />
-              <p className="text-sm text-muted-foreground">interest earned</p>
+              <p className="text-sm text-muted-foreground">Total Interest Earned</p>
             </div>
             
             <div className="space-y-1">
               <p className="text-2xl font-bold text-green-400">
-                {totalInterestEarned.toLocaleString('en-US', { 
+                ${totalInterestEarned.toLocaleString('en-US', { 
                   minimumFractionDigits: 2,
-                  maximumFractionDigits: 4 
+                  maximumFractionDigits: 2 
                 })}
               </p>
             </div>
@@ -173,14 +173,14 @@ const WalletOverview = () => {
           <div className="space-y-3">
             <div className="flex items-center gap-2">
               <Gift className="w-4 h-4 text-hastra-teal" />
-              <p className="text-sm text-muted-foreground">unclaimed</p>
+              <p className="text-sm text-muted-foreground">Total Unclaimed Interest</p>
             </div>
             
             <div className="space-y-1">
               <p className="text-2xl font-bold text-hastra-teal">
-                {totalUnclaimedInterest.toLocaleString('en-US', { 
+                ${totalUnclaimedInterest.toLocaleString('en-US', { 
                   minimumFractionDigits: 2,
-                  maximumFractionDigits: 4 
+                  maximumFractionDigits: 2 
                 })}
               </p>
             </div>
