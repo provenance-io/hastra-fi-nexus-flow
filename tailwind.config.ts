@@ -165,8 +165,8 @@ export default {
         },
         'flash': {
           '0%': { opacity: '1' },
-          '40%': { opacity: '0.4' },
-          '80%': { opacity: '0.4' },
+          '30%': { opacity: '0.4' },
+          '60%': { opacity: '0.4' },
           '100%': { opacity: '1' },
         },
 			},
