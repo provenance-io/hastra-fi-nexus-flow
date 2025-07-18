@@ -107,10 +107,10 @@ const SendCard = () => {
         <div className="space-y-2">
           <Label className="text-sm font-medium text-foreground">Select token to send</Label>
           <Select value={selectedToken} onValueChange={(value: 'YIELD' | 'HASH') => setSelectedToken(value)}>
-            <SelectTrigger className="bg-muted/50 border-orange-800/30 focus:border-orange-800/60 focus:ring-orange-800/20">
+            <SelectTrigger className="bg-muted/50">
               <SelectValue />
             </SelectTrigger>
-            <SelectContent className="bg-card border-orange-800/30">
+            <SelectContent className="bg-card">
               <SelectItem value="YIELD">
                 <div className="flex items-center gap-2">
                   <img src={yieldIcon} alt="YIELD" className="w-5 h-5 rounded-full" />
@@ -134,7 +134,7 @@ const SendCard = () => {
             placeholder="Enter Solana wallet address..."
             value={recipientAddress}
             onChange={(e) => setRecipientAddress(e.target.value)}
-            className="font-mono text-sm bg-muted/50 border-orange-800/30 focus:border-orange-800/60 focus:ring-orange-800/20"
+            className="font-mono text-sm bg-muted/50"
           />
         </div>
 
@@ -169,7 +169,7 @@ const SendCard = () => {
             placeholder={`Enter amount in ${denomination === 'token' ? selectedToken : 'USD'}`}
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            className="bg-muted/50 border-orange-800/30 focus:border-orange-800/60 focus:ring-orange-800/20 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&]:[-moz-appearance:textfield]"
+            className="bg-muted/50 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&]:[-moz-appearance:textfield]"
           />
           {amount && equivalent > 0 && (
             <div className="text-xs text-muted-foreground">
