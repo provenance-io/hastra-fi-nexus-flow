@@ -39,14 +39,6 @@ const TradingPlatformsSection = () => {
             <CardHeader className="pb-3">
               <div className="flex items-center justify-between mb-2">
                 <CardTitle className="text-lg">{platform.name}</CardTitle>
-                <Badge 
-                  className={`text-xs ${
-                    platform.color === 'blue' ? 'bg-blue-500/20 border-blue-500/30 text-blue-300' :
-                    'bg-green-500/20 border-green-500/30 text-green-300'
-                  }`}
-                >
-                  {platform.type}
-                </Badge>
               </div>
               <CardDescription className="text-sm">{platform.description}</CardDescription>
             </CardHeader>
