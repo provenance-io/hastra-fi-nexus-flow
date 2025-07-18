@@ -20,14 +20,6 @@ const tradingPlatforms = [
     features: ["Lending pools", "Automated strategies", "Leveraged farming", "Risk management"],
     link: "https://app.kamino.finance",
     color: "green"
-  },
-  {
-    name: "Jupiter",
-    description: "Best price routing for token swaps across Solana",
-    type: "Token Swaps",
-    features: ["Best price routing", "Multiple DEX access", "Low slippage", "Fast execution"],
-    link: "https://jup.ag",
-    color: "purple"
   }
 ];
 
@@ -41,7 +33,7 @@ const TradingPlatformsSection = () => {
         Access leading DeFi platforms for trading, lending, and yield generation
       </p>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {tradingPlatforms.map((platform, index) => (
           <Card key={index} className="glass-effect border-border/50 hover:border-header-glow/30 transition-all duration-300 group">
             <CardHeader className="pb-3">
@@ -50,8 +42,7 @@ const TradingPlatformsSection = () => {
                 <Badge 
                   className={`text-xs ${
                     platform.color === 'blue' ? 'bg-blue-500/20 border-blue-500/30 text-blue-300' :
-                    platform.color === 'green' ? 'bg-green-500/20 border-green-500/30 text-green-300' :
-                    'bg-purple-500/20 border-purple-500/30 text-purple-300'
+                    'bg-green-500/20 border-green-500/30 text-green-300'
                   }`}
                 >
                   {platform.type}

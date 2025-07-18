@@ -1,7 +1,6 @@
 
 import { useWallet } from '@/contexts/WalletContext';
 import HastraDashboard from './HastraDashboard';
-import TradingPlatformsSection from '../start-earning/TradingPlatformsSection';
 
 const EnhancedWalletConnection = () => {
   const { isConnected } = useWallet();
@@ -10,7 +9,6 @@ const EnhancedWalletConnection = () => {
     return (
       <div className="space-y-8">
         <HastraDashboard />
-        <TradingPlatformsSection />
       </div>
     );
   }
