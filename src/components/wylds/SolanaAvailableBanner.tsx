@@ -2,7 +2,7 @@ import solanaLogo from '@/assets/solana-logo.svg';
 
 const SolanaAvailableBanner = () => {
   return (
-    <section className="w-full py-32 relative overflow-hidden bg-gradient-to-r from-background via-electric-blue/5 to-neon-cyan/5">
+    <section className="w-full py-32 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMTAsIDIwLCA0MCwwLjAzKSI+PGQgcGF0aD0iTTAtMSAwIDEgTS0xIDAgMSAwIj48L2Q+PC9zdmc+')] opacity-50"></div>
       

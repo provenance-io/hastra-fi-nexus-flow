@@ -40,7 +40,7 @@ const WYLDsYieldExplanation = () => {
   return (
     <section className="py-20 px-4 relative overflow-hidden">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
+      {/* Unified seamless background - removed conflicting gradient */}
       
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}

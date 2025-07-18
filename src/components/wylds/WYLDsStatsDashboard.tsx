@@ -117,7 +117,7 @@ const WYLDsStatsDashboard = () => {
   return (
     <section className="py-24 md:py-32 relative">
       {/* Premium background - matching homepage */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
+      {/* Unified seamless background - removed conflicting gradient */}
       
       <div className="container relative">
         <div className="text-center mb-16">
