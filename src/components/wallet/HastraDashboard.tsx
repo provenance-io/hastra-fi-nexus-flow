@@ -16,9 +16,12 @@ const HastraDashboard = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
+      const elementPosition = element.offsetTop;
+      const offsetPosition = elementPosition - 100; // Offset to keep title visible
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
       });
     }
   };
