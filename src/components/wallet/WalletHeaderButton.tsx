@@ -9,14 +9,16 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Badge } from '@/components/ui/badge';
 import { useWallet } from '@/contexts/WalletContext';
-import { Wallet, Copy, LogOut, ChevronDown, Check } from 'lucide-react';
+import { Wallet, Copy, LogOut, ChevronDown, Check, TrendingUp } from 'lucide-react';
 import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
+import { useNavigate } from 'react-router-dom';
 
 const WalletHeaderButton = () => {
   const { isConnected, address, disconnectWallet } = useWallet();
   const [addressCopied, setAddressCopied] = useState(false);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const formatAddress = (addr: string) => {
     return `${addr.slice(0, 6)}...${addr.slice(-4)}`;
@@ -81,6 +83,11 @@ const WalletHeaderButton = () => {
           </div>
         </div>
         
+        <DropdownMenuItem onClick={() => navigate('/earn')} className="cursor-pointer p-3 hover:bg-orange-50">
+          <TrendingUp className="w-4 h-4 mr-3 text-gray-600" />
+          <span className="text-gray-900">View My Earnings</span>
+        </DropdownMenuItem>
+
         <DropdownMenuItem onClick={copyAddress} className="cursor-pointer p-3 hover:bg-orange-50">
           <div className="flex items-center w-full">
             {addressCopied ? (
