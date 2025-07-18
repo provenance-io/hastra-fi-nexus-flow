@@ -133,20 +133,20 @@ const WYLDsYieldExplanation = () => {
                         </div>
                         
                         {/* Card Container - Fixed Dimensions */}
-                        <div className="w-72 h-80 bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-sm border border-electric-blue/20 rounded-2xl p-6 text-center hover:border-electric-blue/40 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-electric-blue/10 relative overflow-hidden">
+                        <div className="w-64 h-72 bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-sm border border-electric-blue/20 rounded-2xl p-5 text-center hover:border-electric-blue/40 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-electric-blue/10 relative overflow-hidden">
                           {/* Hover Overlay */}
                           <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl`}></div>
                           
                           {/* Icon Container */}
-                          <div className="relative z-10 mb-6 flex justify-center">
-                            <div className={`w-16 h-16 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                              <IconComponent className="w-8 h-8 text-black" />
+                          <div className="relative z-10 mb-4 flex justify-center">
+                            <div className={`w-14 h-14 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                              <IconComponent className="w-7 h-7 text-black" />
                             </div>
                           </div>
                           
                           {/* Content */}
-                          <div className="relative z-10 h-44 flex flex-col justify-between">
-                            <h4 className="font-bold text-xl text-electric-blue group-hover:text-neon-cyan transition-colors duration-300 mb-4">
+                          <div className="relative z-10 h-36 flex flex-col justify-between">
+                            <h4 className="font-bold text-lg text-electric-blue group-hover:text-neon-cyan transition-colors duration-300 mb-3">
                               {step.title}
                             </h4>
                             <p className="text-platinum/80 text-sm leading-relaxed flex-1 flex items-center justify-center">
@@ -158,7 +158,7 @@ const WYLDsYieldExplanation = () => {
                       
                       {/* Arrow Connector */}
                       {index < steps.length - 1 && (
-                        <div className="mx-4 flex items-center justify-center h-80">
+                        <div className="mx-4 flex items-center justify-center h-72">
                           <div className="flex items-center">
                             <div className="w-6 h-0.5 bg-gradient-to-r from-electric-blue to-neon-cyan rounded-full"></div>
                             <ArrowRight className="w-6 h-6 text-neon-cyan mx-2" />
@@ -187,7 +187,7 @@ const WYLDsYieldExplanation = () => {
                     </div>
                     
                     {/* Card Container - Fixed Mobile Dimensions */}
-                    <div className="w-full h-64 bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-sm border border-electric-blue/20 rounded-2xl p-6 text-center hover:border-electric-blue/40 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-electric-blue/10 relative overflow-hidden">
+                    <div className="w-full h-56 bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-sm border border-electric-blue/20 rounded-2xl p-5 text-center hover:border-electric-blue/40 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-electric-blue/10 relative overflow-hidden">
                       {/* Hover Overlay */}
                       <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl`}></div>
                       
@@ -199,7 +199,7 @@ const WYLDsYieldExplanation = () => {
                       </div>
                       
                       {/* Content */}
-                      <div className="relative z-10 h-36 flex flex-col justify-between">
+                      <div className="relative z-10 h-28 flex flex-col justify-between">
                         <h4 className="font-bold text-lg text-electric-blue group-hover:text-neon-cyan transition-colors duration-300 mb-3">
                           {step.title}
                         </h4>
