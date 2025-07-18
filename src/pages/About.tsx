@@ -15,16 +15,7 @@ const About = () => {
           {/* Unified seamless background - removed conflicting gradient */}
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMTAsIDIwLCA0MCwwLjA1KSI+PGQgcGF0aD0iTTAtMSAwIDEgTS0xIDAgMSAwIj48L2Q+PC9zdmc+')] opacity-30"></div>
           
-          {/* Floating geometric elements */}
-          <div className="absolute top-20 left-10 w-20 h-20 border border-electric-blue/20 rounded-full animate-float opacity-50"></div>
-          <div className="absolute top-40 right-20 w-16 h-16 border border-neon-cyan/20 rotate-45 animate-float opacity-40" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute bottom-20 left-1/4 w-12 h-12 border border-premium-gold/20 rounded-xl animate-float opacity-30" style={{ animationDelay: '2s' }}></div>
-          
           <div className="container relative text-center">
-            <div className="glass-premium rounded-full px-6 py-3 text-sm mb-8 animate-glow-pulse inline-block">
-              <span className="mr-2 w-2 h-2 bg-electric-blue rounded-full animate-pulse inline-block"></span>
-              <span className="text-premium-gradient font-semibold">About Hastra-Fi</span>
-            </div>
             
             <h1 className="text-5xl md:text-8xl font-black tracking-tight mb-8 relative">
               <span className="block text-premium-gradient animate-slide-in-left relative z-10">
@@ -193,11 +184,6 @@ const About = () => {
         {/* Enhanced CTA Section */}
         <section className="py-32 relative overflow-hidden">
           {/* Unified seamless background - removed conflicting gradient */}
-          
-          {/* Animated background elements */}
-          <div className="absolute top-10 left-10 w-32 h-32 border border-electric-blue/10 rounded-full animate-pulse"></div>
-          <div className="absolute bottom-10 right-10 w-24 h-24 border border-neon-cyan/10 rotate-45 animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 border border-premium-gold/5 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
           
           <div className="container relative text-center">
             <div className="max-w-4xl mx-auto">
