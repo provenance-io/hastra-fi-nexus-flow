@@ -229,7 +229,7 @@ const Products = () => {
                 <img 
                   src="/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png" 
                   alt="HOMES Token"
-                  className="w-16 h-16 rounded-full shadow-lg shadow-crypto-accent/20"
+                  className="w-16 h-16 rounded-full object-cover shadow-md"
                 />
                 <div className="flex-1">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
