@@ -67,7 +67,7 @@ const Footer = () => {
                       type="submit" 
                       size="sm"
                       disabled={isSubmitting || !email}
-                      className="w-full bg-gradient-to-r from-header-glow to-crypto-accent text-white hover:opacity-90 transition-all duration-200"
+                      className="w-full bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold rounded-xl transition-all duration-200"
                     >
                       {isSubmitting ? 'Subscribing...' : 'Subscribe'}
                     </Button>
