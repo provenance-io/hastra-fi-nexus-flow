@@ -1,7 +1,7 @@
 
 import { footerLinks } from '@/data/content';
 import { Link } from 'react-router-dom';
-import HastraLogo from './HastraLogo';
+import FooterLogo from './FooterLogo';
 
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="container">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           <div className="col-span-2">
-            <HastraLogo className="h-8 mb-4 opacity-80" />
+            <FooterLogo className="h-16 mb-4 opacity-80" />
           </div>
           {Object.entries(footerLinks).map(([key, links]) => (
             <div key={key}>
