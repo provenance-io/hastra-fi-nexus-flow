@@ -8,13 +8,14 @@ import HOMESComingSoonModal from '@/components/homes/HOMESComingSoonModal';
 
 const HOMESPage = () => {
   const [showModal, setShowModal] = useState(false);
-  const [isBlurred, setIsBlurred] = useState(true);
+  
+  // Use a more obscure naming convention and always keep blur active
+  const [pageAccessible, setPageAccessible] = useState(false);
 
   useEffect(() => {
     // Show modal after a brief delay on page load
     const timer = setTimeout(() => {
       setShowModal(true);
-      setIsBlurred(true); // Activate blur when modal shows
     }, 500);
 
     return () => clearTimeout(timer);
@@ -29,7 +30,7 @@ const HOMESPage = () => {
           isOpen={showModal} 
           onClose={() => setShowModal(false)} 
         />
-        <div className={`transition-all duration-300 ${isBlurred ? 'blur-sm' : ''}`}>
+        <div className={`${!pageAccessible ? 'content-protection' : 'content-accessible'}`}>
           <HOMESHero />
           <HOMESAbout />
           <HOMESPortfolio />
