@@ -117,10 +117,6 @@ const About = () => {
           
           <div className="container relative">
             <div className="text-center mb-16 animate-fade-in">
-              <div className="inline-block bg-header-glow/20 border border-header-glow/30 rounded-full px-4 py-2 text-sm mb-6">
-                <span className="mr-2 w-2 h-2 bg-header-glow rounded-full animate-pulse inline-block"></span>
-                Ecosystem Support
-              </div>
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Supporting the <span className="text-gradient">Provenance Blockchain</span> Ecosystem
               </h2>
