@@ -163,6 +163,10 @@ export default {
           '0%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(360deg)' },
         },
+        'flash': {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.4' },
+        },
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -179,6 +183,7 @@ export default {
         'pulse-glow-hastra': 'pulse-glow-hastra 3s ease-in-out infinite',
         'morph': 'morph 8s ease-in-out infinite',
         'spin-slow': 'spin-slow 4s linear infinite',
+        'flash': 'flash 1s ease-in-out',
 			}
 		}
 	},

@@ -30,8 +30,8 @@ const FlashingText = ({ phrases, className = "" }: FlashingTextProps) => {
           className={`
             transition-colors duration-300 ease-in-out
             ${activeIndex === index 
-              ? 'text-orange-400 animate-pulse' 
-              : index === 0 ? 'text-header-glow' 
+              ? 'text-orange-400 animate-[flash_1s_ease-in-out]' 
+              : index === 0 ? 'text-header-glow'
               : index === 1 ? 'text-crypto-accent'
               : index === 2 ? 'text-header-glow'
               : 'text-gradient'
