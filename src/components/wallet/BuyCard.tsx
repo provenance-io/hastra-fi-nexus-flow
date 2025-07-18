@@ -185,9 +185,9 @@ const BuyCard = () => {
 
         {/* Receive Amount Display */}
         {amount && receiveAmount.tokens > 0 && (
-          <div className="glass-hastra rounded-lg p-4 border border-hastra-teal/20">
+          <div className="bg-orange-900/20 border border-orange-800/30 rounded-lg p-4">
             <div className="text-sm text-muted-foreground mb-1">You'll receive</div>
-            <div className="font-semibold text-lg text-hastra-teal">{receiveAmount.tokens.toFixed(6)} {buyAsset}</div>
+            <div className="font-semibold text-lg text-orange-300">{receiveAmount.tokens.toFixed(6)} {buyAsset}</div>
             <div className="text-xs text-muted-foreground">${receiveAmount.usd.toFixed(2)} USD</div>
           </div>
         )}
