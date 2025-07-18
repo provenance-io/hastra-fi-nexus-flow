@@ -142,15 +142,25 @@ const SendCard = () => {
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label className="text-sm font-medium text-foreground">Amount to send</Label>
-            <Button 
-              variant="outline" 
-              size="sm"
-              onClick={() => setDenomination(denomination === 'token' ? 'usd' : 'token')}
-              className="btn-hastra-outline h-8 text-xs"
-            >
-              <DollarSign className="w-3 h-3 mr-1" />
-              {denomination === 'token' ? selectedToken : 'USD'}
-            </Button>
+            <div className="flex items-center bg-muted/30 rounded-md p-1">
+              <Button 
+                variant={denomination === 'token' ? 'default' : 'ghost'}
+                size="sm"
+                onClick={() => setDenomination('token')}
+                className={`h-7 text-xs px-2 ${denomination === 'token' ? 'btn-hastra' : 'text-muted-foreground hover:text-foreground'}`}
+              >
+                {selectedToken}
+              </Button>
+              <Button 
+                variant={denomination === 'usd' ? 'default' : 'ghost'}
+                size="sm"
+                onClick={() => setDenomination('usd')}
+                className={`h-7 text-xs px-2 ${denomination === 'usd' ? 'btn-hastra' : 'text-muted-foreground hover:text-foreground'}`}
+              >
+                <DollarSign className="w-3 h-3 mr-1" />
+                USD
+              </Button>
+            </div>
           </div>
           <Input
             type="number"
