@@ -32,7 +32,7 @@ const WYLDsHero = () => {
   const displayApy = apyLoading ? 'Loading...' : apyError ? 'Error' : `${apy || 0}%`;
 
   return (
-    <section className="relative py-12 md:py-20 overflow-hidden">
+    <section className="relative py-12 md:py-16 overflow-hidden">
       {/* Premium layered background - matching homepage */}
       {/* Unified seamless background - removed conflicting gradient */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMTAsIDIwLCA0MCwwLjA1KSI+PGQgcGF0aD0iTTAtMSAwIDEgTS0xIDAgMSAwIj48L2Q+PC9zdmc+')] opacity-30"></div>
@@ -84,8 +84,7 @@ const WYLDsHero = () => {
           </div>
         </div>
         
-        {/* Single CTA Button */}
-        <div className="flex justify-center mb-16">
+        <div className="flex justify-center mb-8">
           <Button 
             size="lg" 
             className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-12 py-6 text-lg rounded-2xl min-w-[240px] group transition-all duration-200"
