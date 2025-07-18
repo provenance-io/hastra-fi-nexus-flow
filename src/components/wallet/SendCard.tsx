@@ -93,22 +93,22 @@ const SendCard = () => {
   const equivalent = calculateEquivalent();
 
   return (
-    <Card className="w-full">
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Send className="w-5 h-5" />
+    <Card className="w-full card-hastra hover:shadow-hastra-lg transition-all duration-500">
+      <CardHeader className="pb-4">
+        <CardTitle className="flex items-center gap-2 text-hastra-gradient">
+          <Send className="w-5 h-5 text-hastra-teal" />
           Send Tokens
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         {/* Token Selection */}
         <div className="space-y-2">
-          <Label>Select token to send</Label>
+          <Label className="text-sm font-medium text-foreground">Select token to send</Label>
           <Select value={selectedToken} onValueChange={(value: 'YIELD' | 'HASH') => setSelectedToken(value)}>
-            <SelectTrigger>
+            <SelectTrigger className="bg-muted/50 border-hastra-teal/20 focus:border-hastra-teal focus:ring-hastra-teal/20">
               <SelectValue />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="bg-card border-hastra-teal/20">
               <SelectItem value="YIELD">YIELD (Balance: {tokenBalances.YIELD})</SelectItem>
               <SelectItem value="HASH">HASH (Balance: {tokenBalances.HASH})</SelectItem>
             </SelectContent>
@@ -117,23 +117,24 @@ const SendCard = () => {
 
         {/* Recipient Address */}
         <div className="space-y-2">
-          <Label>Recipient wallet address</Label>
+          <Label className="text-sm font-medium text-foreground">Recipient wallet address</Label>
           <Input
             placeholder="Enter Solana wallet address..."
             value={recipientAddress}
             onChange={(e) => setRecipientAddress(e.target.value)}
-            className="font-mono text-sm"
+            className="font-mono text-sm bg-muted/50 border-hastra-teal/20 focus:border-hastra-teal focus:ring-hastra-teal/20"
           />
         </div>
 
         {/* Amount Input */}
         <div className="space-y-2">
           <div className="flex items-center justify-between">
-            <Label>Amount to send</Label>
+            <Label className="text-sm font-medium text-foreground">Amount to send</Label>
             <Button 
               variant="outline" 
               size="sm"
               onClick={() => setDenomination(denomination === 'token' ? 'usd' : 'token')}
+              className="btn-hastra-outline h-8 text-xs"
             >
               <DollarSign className="w-3 h-3 mr-1" />
               {denomination === 'token' ? selectedToken : 'USD'}
@@ -144,6 +145,7 @@ const SendCard = () => {
             placeholder={`Enter amount in ${denomination === 'token' ? selectedToken : 'USD'}`}
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
+            className="bg-muted/50 border-hastra-teal/20 focus:border-hastra-teal focus:ring-hastra-teal/20"
           />
           {amount && equivalent > 0 && (
             <div className="text-xs text-muted-foreground">
@@ -154,12 +156,12 @@ const SendCard = () => {
 
         {/* Transaction Summary */}
         {amount && recipientAddress && (
-          <div className="bg-muted/50 p-3 rounded-lg">
-            <div className="text-sm text-muted-foreground">Transaction Summary</div>
-            <div className="font-semibold">
+          <div className="glass-hastra rounded-lg p-4 border border-hastra-teal/20">
+            <div className="text-sm text-muted-foreground mb-1">Transaction Summary</div>
+            <div className="font-semibold text-lg text-hastra-teal">
               Send {denomination === 'token' ? amount : equivalent.toFixed(6)} {selectedToken}
             </div>
-            <div className="text-xs text-muted-foreground">
+            <div className="text-xs text-muted-foreground font-mono">
               To: {recipientAddress.slice(0, 8)}...{recipientAddress.slice(-8)}
             </div>
           </div>
@@ -168,7 +170,7 @@ const SendCard = () => {
         {/* Send Button */}
         <Button 
           onClick={handleSend} 
-          className="w-full"
+          className="w-full btn-hastra h-12 text-base font-semibold"
           disabled={!amount || !recipientAddress}
         >
           Send {selectedToken}
