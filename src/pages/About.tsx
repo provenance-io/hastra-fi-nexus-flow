@@ -17,24 +17,19 @@ const About = () => {
           
           <div className="container relative text-center">
             
-            <h1 className="text-5xl md:text-8xl font-black tracking-tight mb-8 relative">
-              <span className="block text-premium-gradient animate-slide-in-left relative z-10">
-                Our Mission
-              </span>
-              <div className="absolute inset-0 text-premium-gradient opacity-20 blur-sm animate-pulse">
-                Our Mission
-              </div>
+            <h1 className="text-5xl md:text-8xl font-black tracking-tight mb-8">
+              <span className="block text-gradient">Our Mission</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-platinum/90 max-w-4xl mx-auto leading-relaxed mb-12 animate-fade-in-up">
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-12">
               Bringing Top-Tier Financial Opportunities to Everyone Through 
-              <span className="text-premium-gradient font-semibold"> Revolutionary DeFi Solutions</span>
+              <span className="text-gradient font-semibold"> Revolutionary DeFi Solutions</span>
             </p>
 
             {/* Animated scroll indicator */}
             <div className="animate-bounce mt-16">
-              <div className="w-6 h-10 border-2 border-electric-blue/50 rounded-full flex justify-center">
-                <div className="w-1 h-3 bg-electric-blue rounded-full mt-2 animate-pulse"></div>
+              <div className="w-6 h-10 border-2 border-header-glow/50 rounded-full flex justify-center">
+                <div className="w-1 h-3 bg-header-glow rounded-full mt-2 animate-pulse"></div>
               </div>
             </div>
           </div>
@@ -48,34 +43,34 @@ const About = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
               {/* Mission */}
               <div className="space-y-8 animate-fade-in">
-                <div className="card-premium rounded-3xl p-8 morphing-card">
+                <div className="card-gradient rounded-3xl p-8 card-hover">
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 rounded-2xl glass-premium flex items-center justify-center pulse-glow-premium">
-                      <Target className="w-8 h-8 text-electric-blue" />
+                    <div className="w-16 h-16 rounded-2xl glass-effect flex items-center justify-center">
+                      <Target className="w-8 h-8 text-header-glow" />
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-premium-gradient">Our Mission</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-gradient">Our Mission</h2>
                   </div>
                   
                   <div className="space-y-6">
-                    <p className="text-lg text-platinum/90 leading-relaxed">
+                    <p className="text-lg text-muted-foreground leading-relaxed">
                       To bridge the gap between traditional finance and decentralized technology by creating 
-                      <span className="text-electric-blue font-semibold"> institutional-grade DeFi products</span> that are accessible, transparent, and backed by real-world assets.
+                      <span className="text-header-glow font-semibold"> institutional-grade DeFi products</span> that are accessible, transparent, and backed by real-world assets.
                     </p>
-                    <p className="text-lg text-platinum/90 leading-relaxed">
+                    <p className="text-lg text-muted-foreground leading-relaxed">
                       We believe that everyone should have access to the same 
-                      <span className="text-neon-cyan font-semibold">high-yield investment opportunities</span> that were previously reserved for institutions and high-net-worth individuals.
+                      <span className="text-crypto-accent font-semibold">high-yield investment opportunities</span> that were previously reserved for institutions and high-net-worth individuals.
                     </p>
                   </div>
 
                   {/* Mission metrics */}
-                  <div className="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-electric-blue/20">
+                  <div className="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-header-glow/20">
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-electric-blue">24/7</div>
-                      <div className="text-sm text-platinum/70">Market Access</div>
+                      <div className="text-2xl font-bold text-header-glow">24/7</div>
+                      <div className="text-sm text-muted-foreground">Market Access</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-neon-cyan">Global</div>
-                      <div className="text-sm text-platinum/70">Reach</div>
+                      <div className="text-2xl font-bold text-crypto-accent">Global</div>
+                      <div className="text-sm text-muted-foreground">Reach</div>
                     </div>
                   </div>
                 </div>
@@ -83,34 +78,34 @@ const About = () => {
 
               {/* Vision */}
               <div className="space-y-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                <div className="card-premium rounded-3xl p-8 morphing-card">
+                <div className="card-gradient rounded-3xl p-8 card-hover">
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 rounded-2xl glass-premium flex items-center justify-center pulse-glow-premium" style={{ animationDelay: '1s' }}>
-                      <Eye className="w-8 h-8 text-neon-cyan" />
+                    <div className="w-16 h-16 rounded-2xl glass-effect flex items-center justify-center">
+                      <Eye className="w-8 h-8 text-crypto-accent" />
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-premium-gradient">Our Vision</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-gradient">Our Vision</h2>
                   </div>
                   
                   <div className="space-y-6">
-                    <p className="text-lg text-platinum/90 leading-relaxed">
+                    <p className="text-lg text-muted-foreground leading-relaxed">
                       A future where financial services are truly 
-                      <span className="text-neon-cyan font-semibold">decentralized, transparent, and globally accessible</span>, while maintaining the security and compliance standards that institutional investors demand.
+                      <span className="text-crypto-accent font-semibold">decentralized, transparent, and globally accessible</span>, while maintaining the security and compliance standards that institutional investors demand.
                     </p>
-                    <p className="text-lg text-platinum/90 leading-relaxed">
+                    <p className="text-lg text-muted-foreground leading-relaxed">
                       We envision a world where blockchain technology enables 
-                      <span className="text-premium-gold font-semibold">financial inclusion</span> and creates new opportunities for wealth creation across all economic segments.
+                      <span className="text-header-glow font-semibold">financial inclusion</span> and creates new opportunities for wealth creation across all economic segments.
                     </p>
                   </div>
 
                   {/* Vision metrics */}
-                  <div className="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-neon-cyan/20">
+                  <div className="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-crypto-accent/20">
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-neon-cyan">100%</div>
-                      <div className="text-sm text-platinum/70">Transparent</div>
+                      <div className="text-2xl font-bold text-crypto-accent">100%</div>
+                      <div className="text-sm text-muted-foreground">Transparent</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-premium-gold">∞</div>
-                      <div className="text-sm text-platinum/70">Possibilities</div>
+                      <div className="text-2xl font-bold text-header-glow">∞</div>
+                      <div className="text-sm text-muted-foreground">Possibilities</div>
                     </div>
                   </div>
                 </div>
@@ -187,23 +182,24 @@ const About = () => {
           
           <div className="container relative text-center">
             <div className="max-w-4xl mx-auto">
-              <div className="glass-premium rounded-full px-6 py-3 text-sm mb-8 inline-block">
-                <span className="text-premium-gradient font-semibold">Ready to Transform Your Financial Future?</span>
+              <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-header-glow/20 text-sm font-medium text-foreground/80 mb-8">
+                <span className="mr-2 w-2 h-2 bg-header-glow rounded-full animate-pulse"></span>
+                Ready to Transform Your Financial Future?
               </div>
               
-              <h2 className="text-4xl md:text-6xl font-bold mb-8 text-premium-gradient">
+              <h2 className="text-4xl md:text-6xl font-bold mb-8 text-gradient">
                 Join Our Mission
               </h2>
               
-              <p className="text-xl md:text-2xl text-platinum/90 mb-12 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
                 Start earning with our innovative DeFi products and become part of the 
-                <span className="text-electric-blue font-semibold"> future of finance</span>
+                <span className="text-header-glow font-semibold"> future of finance</span>
               </p>
               
               <div className="flex flex-col sm:flex-row justify-center gap-6 mb-16">
                 <Button 
                   size="lg" 
-                  className="btn-premium px-12 py-6 text-lg rounded-2xl min-w-[220px] group shadow-premium"
+                  className="bg-gradient-to-r from-header-glow to-crypto-accent text-white hover:opacity-90 transition-all duration-300 px-12 py-6 text-lg rounded-2xl min-w-[220px] group"
                   asChild
                 >
                   <Link to="/yield">
@@ -213,7 +209,8 @@ const About = () => {
                 </Button>
                 <Button 
                   size="lg" 
-                  className="btn-glass px-12 py-6 text-lg rounded-2xl min-w-[220px] group"
+                  variant="outline"
+                  className="border-header-glow/30 text-foreground hover:bg-header-glow/10 px-12 py-6 text-lg rounded-2xl min-w-[220px] group"
                   asChild
                 >
                   <Link to="/homes">
@@ -226,16 +223,16 @@ const About = () => {
               {/* Trust indicators */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-electric-blue mb-2">$150M+</div>
-                  <div className="text-platinum/70">Total Value Locked</div>
+                  <div className="text-3xl font-bold text-header-glow mb-2">$150M+</div>
+                  <div className="text-muted-foreground">Total Value Locked</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-neon-cyan mb-2">25k+</div>
-                  <div className="text-platinum/70">Active Users</div>
+                  <div className="text-3xl font-bold text-crypto-accent mb-2">25k+</div>
+                  <div className="text-muted-foreground">Active Users</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-premium-gold mb-2">99.9%</div>
-                  <div className="text-platinum/70">Uptime</div>
+                  <div className="text-3xl font-bold text-header-glow mb-2">99.9%</div>
+                  <div className="text-muted-foreground">Uptime</div>
                 </div>
               </div>
             </div>
