@@ -107,6 +107,19 @@ const WYLDsYieldExplanation = () => {
           </p>
         </div>
 
+        {/* CTA Button */}
+        <div className="text-center mb-20">
+          <Button 
+            size="lg" 
+            className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-3 text-lg rounded-xl transition-all duration-200"
+            asChild
+          >
+            <a href="https://www.ylds.com/" target="_blank" rel="noopener noreferrer">
+              Learn more about YLDS
+            </a>
+          </Button>
+        </div>
+
         {/* How It Works - Clean Infographic Style */}
         <div className="mb-20">
           {/* Section Header */}
@@ -222,19 +235,6 @@ const WYLDsYieldExplanation = () => {
               );
             })}
           </div>
-        </div>
-
-        {/* CTA Button */}
-        <div className="text-center">
-          <Button 
-            size="lg" 
-            className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-3 text-lg rounded-xl transition-all duration-200"
-            asChild
-          >
-            <a href="https://www.ylds.com/" target="_blank" rel="noopener noreferrer">
-              Learn more about YLDS
-            </a>
-          </Button>
         </div>
       </div>
     </section>
