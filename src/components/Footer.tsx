@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="container">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           <div className="col-span-2">
-            <FooterLogo className="h-16 mb-4 opacity-80" />
+            <FooterLogo className="h-24 mb-4 opacity-80" />
           </div>
           {Object.entries(footerLinks).map(([key, links]) => (
             <div key={key}>
