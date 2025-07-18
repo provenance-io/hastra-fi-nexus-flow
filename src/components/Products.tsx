@@ -148,9 +148,17 @@ const Products = () => {
                 />
                 <div className="flex-1">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                    <h3 className="text-3xl md:text-4xl font-bold text-foreground group-hover:text-header-glow transition-colors">
-                      {products.live.name}
-                    </h3>
+                    <div className="flex flex-col">
+                      <h3 className="text-3xl md:text-4xl font-bold text-foreground group-hover:text-header-glow transition-colors">
+                        {products.live.name}
+                      </h3>
+                      <div className="flex items-center mt-1">
+                        <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
+                        <span className="text-sm font-medium text-green-400 animate-pulse-light">
+                          {products.live.status}
+                        </span>
+                      </div>
+                    </div>
                     <Button 
                       asChild 
                       size="lg" 
@@ -164,16 +172,12 @@ const Products = () => {
                   </div>
                 </div>
               </div>
-              <p className="text-xl md:text-2xl font-semibold text-gradient">
-                Liquid Yield. No staking. Just Earning.
-              </p>
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 font-medium animate-pulse-light">
-                <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
-                {products.live.status}
-              </div>
-            </div>
+               <p className="text-xl md:text-2xl font-semibold text-gradient">
+                 Liquid Yield. No staking. Just Earning.
+               </p>
+             </div>
 
-            {/* Product description */}
+             {/* Product description */}
             <div className="space-y-4">
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
                 {products.live.description}
