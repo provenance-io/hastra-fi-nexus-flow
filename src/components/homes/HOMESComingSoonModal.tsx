@@ -55,7 +55,7 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({ isOpen, onC
           <div className="p-6 pt-12">
             {/* Header Section */}
             <div className="text-center mb-6">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-electric-blue/20 to-neon-cyan/10 mb-3">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-header-glow/20 to-crypto-accent/10 mb-3">
                 <img 
                   src="/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png" 
                   alt="HOMES Token"
@@ -73,22 +73,22 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({ isOpen, onC
             {/* Feature Preview */}
             <div className="space-y-3 mb-6">
               <div className="flex items-center gap-3">
-                <div className="flex-shrink-0 w-6 h-6 rounded-lg bg-electric-blue/10 flex items-center justify-center">
-                  <TrendingUp className="h-3 w-3 text-electric-blue" />
+                <div className="flex-shrink-0 w-6 h-6 rounded-lg bg-header-glow/10 flex items-center justify-center">
+                  <TrendingUp className="h-3 w-3 text-header-glow" />
                 </div>
                 <span className="text-xs text-foreground">Target yields of 7-14% annually</span>
               </div>
               
               <div className="flex items-center gap-3">
-                <div className="flex-shrink-0 w-6 h-6 rounded-lg bg-electric-blue/10 flex items-center justify-center">
-                  <Shield className="h-3 w-3 text-electric-blue" />
+                <div className="flex-shrink-0 w-6 h-6 rounded-lg bg-header-glow/10 flex items-center justify-center">
+                  <Shield className="h-3 w-3 text-header-glow" />
                 </div>
                 <span className="text-xs text-foreground">Backed by real assets, not speculation</span>
               </div>
               
               <div className="flex items-center gap-3">
-                <div className="flex-shrink-0 w-6 h-6 rounded-lg bg-electric-blue/10 flex items-center justify-center">
-                  <Bell className="h-3 w-3 text-electric-blue" />
+                <div className="flex-shrink-0 w-6 h-6 rounded-lg bg-header-glow/10 flex items-center justify-center">
+                  <Bell className="h-3 w-3 text-header-glow" />
                 </div>
                 <span className="text-xs text-foreground">Join the waitlist for early access</span>
               </div>
@@ -103,7 +103,7 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({ isOpen, onC
               
               <div className="w-full bg-muted rounded-full h-2 mb-2">
                 <div 
-                  className="bg-gradient-to-r from-electric-blue to-neon-cyan h-2 rounded-full transition-all duration-1000 ease-out"
+                  className="bg-gradient-to-r from-header-glow to-crypto-accent h-2 rounded-full transition-all duration-1000 ease-out"
                   style={{ width: '50%' }}
                 />
               </div>
