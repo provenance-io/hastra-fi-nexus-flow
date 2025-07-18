@@ -12,8 +12,7 @@ const About = () => {
         <main className="flex-grow">
         {/* Enhanced Hero Section */}
         <section className="relative py-20 md:py-32 overflow-hidden">
-          {/* Premium background with multiple layers - matching homepage */}
-          <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
+          {/* Unified seamless background - removed conflicting gradient */}
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMTAsIDIwLCA0MCwwLjA1KSI+PGQgcGF0aD0iTTAtMSAwIDEgTS0xIDAgMSAwIj48L2Q+PC9zdmc+')] opacity-30"></div>
           
           {/* Floating geometric elements */}
@@ -52,7 +51,7 @@ const About = () => {
 
         {/* Enhanced Mission & Vision Section */}
         <section className="py-24 relative">
-          <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
+          {/* Unified seamless background - removed conflicting gradient */}
           
           <div className="container relative">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
@@ -134,7 +133,7 @@ const About = () => {
 
         {/* Provenance Blockchain Ecosystem Support */}
         <section className="py-20 relative">
-          <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
+          {/* Unified seamless background - removed conflicting gradient */}
           
           <div className="container relative">
             <div className="text-center mb-16 animate-fade-in">
@@ -193,8 +192,7 @@ const About = () => {
 
         {/* Enhanced CTA Section */}
         <section className="py-32 relative overflow-hidden">
-          {/* Premium background - matching homepage */}
-          <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
+          {/* Unified seamless background - removed conflicting gradient */}
           
           {/* Animated background elements */}
           <div className="absolute top-10 left-10 w-32 h-32 border border-electric-blue/10 rounded-full animate-pulse"></div>
