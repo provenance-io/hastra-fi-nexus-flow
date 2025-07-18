@@ -54,30 +54,6 @@ const HastraDashboard = () => {
             <WalletOverview />
           </div>
 
-          {/* Quick Start Section */}
-          <div className="mb-8">
-            <h2 className="text-xl font-semibold mb-4 text-foreground">
-              Quick Start
-            </h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <ActionCard
-                title="Buy & Send"
-                description="Purchase tokens and transfer to other wallets"
-                icon={<PlusCircle className="w-6 h-6" />}
-                action={() => scrollToSection('buy-send-section')}
-                variant="primary"
-              />
-              
-              <ActionCard
-                title="Trade & Lend"
-                description="Access trading platforms and lending opportunities"
-                icon={<ArrowLeftRight className="w-6 h-6" />}
-                action={() => scrollToSection('trade-lend-section')}
-                variant="secondary"
-              />
-            </div>
-          </div>
 
           {/* Buy and Send Interfaces */}
           <div id="buy-send-section" className="mb-8">
