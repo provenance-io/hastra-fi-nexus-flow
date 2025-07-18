@@ -226,9 +226,11 @@ const Products = () => {
             <div className="space-y-6">
               <div className="flex items-center gap-4">
                 {/* HOMES Token Icon */}
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-crypto-accent/20 to-crypto-accent/10 border-2 border-crypto-accent/30 flex items-center justify-center shadow-lg shadow-crypto-accent/20">
-                  <span className="text-2xl font-bold text-crypto-accent">H</span>
-                </div>
+                <img 
+                  src="/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png" 
+                  alt="HOMES Token"
+                  className="w-16 h-16 rounded-full shadow-lg shadow-crypto-accent/20"
+                />
                 <div className="flex-1">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div className="flex items-center gap-3">
