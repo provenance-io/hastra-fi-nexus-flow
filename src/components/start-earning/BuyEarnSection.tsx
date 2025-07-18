@@ -34,15 +34,10 @@ const riskColors = {
 
 const BuyEarnSection = () => {
   return (
-    <section className="py-24 md:py-32 bg-gradient-to-br from-header-glow/5 via-background to-crypto-accent/5" data-section="buy-earn">
+    <section className="py-8 md:py-12 bg-gradient-to-br from-header-glow/5 via-background to-crypto-accent/5" data-section="buy-earn">
       <div className="container">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-header-glow/20 text-sm font-medium text-foreground/80 mb-6">
-            <Coins className="w-4 h-4 mr-2" />
-            Buy & Earn
-          </div>
-          
           <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-8">
             <span className="text-gradient">Start Earning</span>
             <br />
