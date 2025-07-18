@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Wallet, AlertCircle, CheckCircle } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useWallet } from '@/contexts/WalletContext';
+import { getWalletIcon } from '@/utils/walletIcons';
 
 const Web3ConnectionStatus = () => {
   const { 
@@ -11,8 +12,11 @@ const Web3ConnectionStatus = () => {
     address, 
     networkError, 
     connectWallet, 
-    disconnectWallet 
+    disconnectWallet,
+    walletType 
   } = useWallet();
+  
+  const WalletIcon = getWalletIcon(walletType);
 
   const formatAddress = (addr: string) => {
     return `${addr.slice(0, 6)}...${addr.slice(-4)}`;
@@ -60,7 +64,10 @@ const Web3ConnectionStatus = () => {
     <div className="space-y-4">
       <div className="flex items-center justify-between p-4 rounded-xl glass-effect border border-green-500/20">
         <div className="flex items-center space-x-3">
-          <CheckCircle className="w-5 h-5 text-green-400" />
+          <div className="flex items-center space-x-2">
+            <WalletIcon className="w-5 h-5 text-green-400" />
+            <CheckCircle className="w-5 h-5 text-green-400" />
+          </div>
           <div>
             <p className="font-medium text-foreground">Wallet Connected</p>
             <p className="text-sm text-muted-foreground">{address ? formatAddress(address) : 'Unknown'}</p>

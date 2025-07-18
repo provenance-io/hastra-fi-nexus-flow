@@ -9,13 +9,15 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Badge } from '@/components/ui/badge';
 import { useWallet } from '@/contexts/WalletContext';
-import { Wallet, Copy, LogOut, ChevronDown, Check, TrendingUp } from 'lucide-react';
+import { Copy, LogOut, ChevronDown, Check, TrendingUp } from 'lucide-react';
 import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { useNavigate } from 'react-router-dom';
+import { getWalletIcon } from '@/utils/walletIcons';
 
 const WalletHeaderButton = () => {
-  const { isConnected, address, disconnectWallet } = useWallet();
+  const { isConnected, address, disconnectWallet, walletType } = useWallet();
+  const WalletIcon = getWalletIcon(walletType);
   const [addressCopied, setAddressCopied] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
@@ -69,16 +71,11 @@ const WalletHeaderButton = () => {
         <div className="p-3 border-b border-orange-800/20">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-full bg-orange-900/30 flex items-center justify-center">
-              <Wallet className="w-4 h-4 text-orange-600" />
+              <WalletIcon className="w-4 h-4 text-orange-600" />
             </div>
             <div>
               <p className="font-medium text-gray-900">Connected Wallet</p>
-              <div className="flex items-center gap-2">
-                <p className="text-sm text-gray-700 font-mono">{formatAddress(address)}</p>
-                <Badge className="bg-orange-900/20 border-orange-800/30 text-orange-700 text-xs">
-                  MetaMask
-                </Badge>
-              </div>
+              <p className="text-sm text-gray-700 font-mono">{formatAddress(address)}</p>
             </div>
           </div>
         </div>
