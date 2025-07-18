@@ -154,7 +154,7 @@ const About = () => {
               <div className="card-gradient rounded-2xl p-8 md:p-12 card-hover">
                 <div className="flex items-start gap-6">
                   <div className="w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
-                    <img src="/lovable-uploads/c7496f8a-f155-4106-ab9f-fec1d493871e.png" alt="HASH Token" className="w-16 h-16 object-cover" />
+                    <img src="/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png" alt="HASH Token" className="w-16 h-16 object-cover" />
                   </div>
                   <div className="space-y-4">
                     <h3 className="text-2xl md:text-3xl font-bold">HASH Token Buy & Burn Program (Coming Soon!)</h3>
