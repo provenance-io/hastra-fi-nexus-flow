@@ -149,7 +149,7 @@ const Hero = () => {
             >
               <Link to="/yield">
                 Get YIELD
-                <TrendingUp className="ml-2 h-5 w-5 transition-transform group-hover:scale-110" />
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
           </div>

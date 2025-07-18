@@ -125,7 +125,7 @@ const Products = () => {
       {/* Unified seamless background - removed conflicting gradient */}
       
       <div className="container relative">
-        <div className="text-center space-y-4 mb-16">
+        <div className="text-center space-y-4 mb-8">
           <h2 id="products-heading" className="text-4xl md:text-5xl font-bold tracking-tight">
             Grow your wealth, <span className="text-gradient">not your workload.</span>
           </h2>
