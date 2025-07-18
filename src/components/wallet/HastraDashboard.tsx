@@ -2,6 +2,8 @@
 import { useWallet } from '@/contexts/WalletContext';
 import WalletOverview from './WalletOverview';
 import ActionCard from './ActionCard';
+import BuyCard from './BuyCard';
+import SendCard from './SendCard';
 import { 
   PlusCircle, 
   ArrowLeftRight, 
@@ -76,6 +78,18 @@ const HastraDashboard = () => {
               action={() => console.log('Send action')}
               variant="secondary"
             />
+          </div>
+        </div>
+
+        {/* Buy and Send Interfaces */}
+        <div className="mb-8">
+          <h2 className="text-xl font-semibold mb-4 text-foreground">
+            Trading & Transfers
+          </h2>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <BuyCard />
+            <SendCard />
           </div>
         </div>
 
