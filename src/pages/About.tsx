@@ -121,7 +121,7 @@ const About = () => {
                 Supporting the <span className="text-gradient">Provenance Blockchain</span> Ecosystem
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Our commitment extends beyond just building products—we're actively strengthening the entire Provenance ecosystem.
+                Hastra is proudly built on and in close collaboration with Provenance Blockchain. Our commitment extends beyond just building products—we're actively strengthening the entire Provenance ecosystem.
               </p>
             </div>
 
