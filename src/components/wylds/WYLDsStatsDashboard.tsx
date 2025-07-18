@@ -115,7 +115,7 @@ const WYLDsStatsDashboard = () => {
   ];
 
   return (
-    <section className="py-20 relative">
+    <section className="pt-12 pb-20 relative">
       {/* Premium background - matching homepage */}
       {/* Unified seamless background - removed conflicting gradient */}
       
