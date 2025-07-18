@@ -82,9 +82,11 @@ const Header = () => {
                 <DropdownMenuItem asChild>
                   <Link to="/yield" className="flex items-center w-full cursor-pointer p-3 hover:bg-gray-50 rounded-lg transition-all duration-200 group">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-cyan-100 border border-cyan-200 flex items-center justify-center group-hover:scale-105 transition-transform">
-                        <span className="text-cyan-600 font-bold">Y</span>
-                      </div>
+                      <img 
+                        src="/lovable-uploads/08452a7b-6782-4b0a-900e-0f0c99a4fc4e.png" 
+                        alt="YIELD Token"
+                        className="w-10 h-10 rounded-lg group-hover:scale-105 transition-transform"
+                      />
                       <div>
                         <div className="font-semibold text-gray-900 mb-1">YIELD</div>
                         <div className="text-sm text-gray-600 flex items-center gap-1">
