@@ -185,7 +185,7 @@ export default {
         'pulse-glow-hastra': 'pulse-glow-hastra 3s ease-in-out infinite',
         'morph': 'morph 8s ease-in-out infinite',
         'spin-slow': 'spin-slow 4s linear infinite',
-        'flash': 'flash 5s ease-in-out',
+        'flash': 'flash 8s ease-in-out',
 			}
 		}
 	},
