@@ -11,11 +11,6 @@ const LearnHero = () => {
       <div className="container relative">
         {/* Hero Content */}
         <div className="text-center mb-16 animate-fade-in">
-          <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-header-glow/20 text-sm font-medium text-foreground/80 mb-6">
-            <span className="mr-2 w-2 h-2 bg-header-glow rounded-full animate-pulse"></span>
-            Master DeFi Fundamentals
-          </div>
-          
           <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-6">
             <span className="block text-gradient">(L)earn</span>
           </h1>
