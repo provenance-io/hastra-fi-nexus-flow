@@ -26,7 +26,7 @@ const ActionCard = ({
   return (
     <Card className={`
       ${isPrimary ? 'glass-hastra' : 'glass-premium'} 
-      hover:scale-105 transition-all duration-300 cursor-pointer group
+      transition-all duration-300 cursor-pointer group
       ${isPrimary ? 'hover:shadow-hastra-lg' : 'hover:shadow-premium-lg'}
     `}>
       <CardHeader className="pb-3">
@@ -54,13 +54,7 @@ const ActionCard = ({
         <Button
           onClick={action}
           disabled={isLoading}
-          className={`
-            w-full font-medium transition-all duration-300
-            ${isPrimary 
-              ? 'btn-hastra focus:ring-hastra-teal' 
-              : 'btn-premium focus:ring-electric-blue'
-            }
-          `}
+          className="w-full bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 transition-all duration-200 font-medium"
           size="sm"
         >
           {isLoading ? (
