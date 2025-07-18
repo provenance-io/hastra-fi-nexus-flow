@@ -46,7 +46,7 @@ const Footer = () => {
             {/* Brand Section */}
             <div className="lg:col-span-4">
               <div className="max-w-sm">
-                <FooterLogo className="h-16 mb-8 -mt-6 opacity-80" />
+                <FooterLogo className="h-16 mb-8 -mt-8 opacity-80" />
                 
                 {/* Email Subscription */}
                 <div className="pl-8">
