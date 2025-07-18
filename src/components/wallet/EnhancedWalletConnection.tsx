@@ -5,6 +5,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useWallet } from '@/contexts/WalletContext';
 import { Wallet, AlertCircle, CheckCircle, Loader2 } from 'lucide-react';
 import WalletDashboard from './WalletDashboard';
+import TradingPlatformsSection from '../start-earning/TradingPlatformsSection';
 
 const EnhancedWalletConnection = () => {
   const { 
@@ -32,6 +33,7 @@ const EnhancedWalletConnection = () => {
           </Button>
         </div>
         <WalletDashboard />
+        <TradingPlatformsSection />
       </div>
     );
   }
