@@ -1,6 +1,7 @@
 
 import EarnHero from '@/components/start-earning/EarnHero';
 import BuyEarnSection from '@/components/start-earning/BuyEarnSection';
+import WalletConnectionSection from '@/components/start-earning/WalletConnectionSection';
 import EnhancedWalletConnection from '@/components/wallet/EnhancedWalletConnection';
 
 const Earn = () => {
@@ -16,6 +17,7 @@ const Earn = () => {
           </div>
         </section>
         <BuyEarnSection />
+        <WalletConnectionSection />
       </div>
     </div>
   );
