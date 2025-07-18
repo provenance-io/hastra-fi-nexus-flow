@@ -38,6 +38,7 @@ const HOMESPage = () => {
         </div>
       </div>
     </div>
+  );
 };
 
 export default HOMESPage;
