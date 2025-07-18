@@ -159,18 +159,18 @@ const Products = () => {
                         </span>
                       </div>
                     </div>
-                    <Link 
-                      to="/yield"
-                      onClick={() => console.log('Learn More button clicked - navigating to /yield')}
+                    <Button 
+                      size="lg" 
+                      className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-6 py-3 text-base rounded-xl transition-all duration-300 group sm:ml-4"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        console.log('Button clicked - navigating to /yield');
+                        window.location.href = '/yield';
+                      }}
                     >
-                      <Button 
-                        size="lg" 
-                        className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-6 py-3 text-base rounded-xl transition-all duration-300 group sm:ml-4"
-                      >
-                        Learn More
-                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                      </Button>
-                    </Link>
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Button>
                   </div>
                 </div>
               </div>
