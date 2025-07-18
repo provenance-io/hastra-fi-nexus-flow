@@ -26,12 +26,6 @@ const About = () => {
               <span className="text-gradient font-semibold"> Revolutionary DeFi Solutions</span>
             </p>
 
-            {/* Animated scroll indicator */}
-            <div className="animate-bounce mt-16">
-              <div className="w-6 h-10 border-2 border-header-glow/50 rounded-full flex justify-center">
-                <div className="w-1 h-3 bg-header-glow rounded-full mt-2 animate-pulse"></div>
-              </div>
-            </div>
           </div>
         </section>
 
