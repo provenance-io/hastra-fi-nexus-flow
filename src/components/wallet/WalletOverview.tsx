@@ -11,8 +11,8 @@ import {
   TrendingUp, 
   DollarSign,
   ArrowUpRight,
-  Eye,
-  EyeOff,
+  ChevronDown,
+  ChevronUp,
   Gift
 } from 'lucide-react';
 import { useState } from 'react';
@@ -28,7 +28,7 @@ const WalletOverview = () => {
   } = useTokenPortfolio();
   
   const [isRefreshing, setIsRefreshing] = useState(false);
-  const [showBalance, setShowBalance] = useState(true);
+  const [showTokenHoldings, setShowTokenHoldings] = useState(true);
 
   const handleRefreshBalance = async () => {
     setIsRefreshing(true);
@@ -69,13 +69,13 @@ const WalletOverview = () => {
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => setShowBalance(!showBalance)}
+              onClick={() => setShowTokenHoldings(!showTokenHoldings)}
               className="text-muted-foreground hover:text-foreground"
             >
-              {showBalance ? (
-                <Eye className="w-4 h-4" />
+              {showTokenHoldings ? (
+                <ChevronUp className="w-4 h-4" />
               ) : (
-                <EyeOff className="w-4 h-4" />
+                <ChevronDown className="w-4 h-4" />
               )}
             </Button>
             
@@ -102,34 +102,25 @@ const WalletOverview = () => {
               <p className="text-sm text-muted-foreground">Total Value</p>
             </div>
             
-            {showBalance ? (
-              <div className="space-y-1">
-                <p className="text-2xl font-bold text-foreground">
-                  ${totalPortfolioValue.toLocaleString('en-US', { 
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2 
+            <div className="space-y-1">
+              <p className="text-2xl font-bold text-foreground">
+                ${totalPortfolioValue.toLocaleString('en-US', { 
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2 
+                })}
+              </p>
+              <div className="flex items-center gap-2">
+                <ArrowUpRight className="w-3 h-3 text-green-400" />
+                <span className="text-sm text-green-400 font-medium">
+                  +${totalInterestEarned.toLocaleString('en-US', { 
+                    minimumFractionDigits: 2 
                   })}
-                </p>
-                <div className="flex items-center gap-2">
-                  <ArrowUpRight className="w-3 h-3 text-green-400" />
-                  <span className="text-sm text-green-400 font-medium">
-                    +${totalInterestEarned.toLocaleString('en-US', { 
-                      minimumFractionDigits: 2 
-                    })}
-                  </span>
-                  <Badge className="bg-green-500/20 border-green-500/30 text-green-300 text-xs">
-                    +{profitPercentage.toFixed(1)}%
-                  </Badge>
-                </div>
+                </span>
+                <Badge className="bg-green-500/20 border-green-500/30 text-green-300 text-xs">
+                  +{profitPercentage.toFixed(1)}%
+                </Badge>
               </div>
-            ) : (
-              <div className="space-y-1">
-                <p className="text-2xl font-bold text-foreground">••••••</p>
-                <div className="flex items-center gap-2">
-                  <span className="text-sm text-muted-foreground">Hidden</span>
-                </div>
-              </div>
-            )}
+            </div>
           </div>
           
           {/* Total Interest Earned */}
@@ -139,28 +130,19 @@ const WalletOverview = () => {
               <p className="text-sm text-muted-foreground">Interest Earned</p>
             </div>
             
-            {showBalance ? (
-              <div className="space-y-1">
-                <p className="text-2xl font-bold text-green-400">
-                  {totalInterestEarned.toLocaleString('en-US', { 
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 4 
-                  })}
-                </p>
-                <div className="flex items-center gap-2">
-                  <Badge className="bg-green-500/20 border-green-500/30 text-green-300 text-xs">
-                    All Time
-                  </Badge>
-                </div>
+            <div className="space-y-1">
+              <p className="text-2xl font-bold text-green-400">
+                {totalInterestEarned.toLocaleString('en-US', { 
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 4 
+                })}
+              </p>
+              <div className="flex items-center gap-2">
+                <Badge className="bg-green-500/20 border-green-500/30 text-green-300 text-xs">
+                  All Time
+                </Badge>
               </div>
-            ) : (
-              <div className="space-y-1">
-                <p className="text-2xl font-bold text-green-400">••••••</p>
-                <div className="flex items-center gap-2">
-                  <span className="text-sm text-muted-foreground">Hidden</span>
-                </div>
-              </div>
-            )}
+            </div>
           </div>
 
           {/* Unclaimed Interest */}
@@ -170,33 +152,24 @@ const WalletOverview = () => {
               <p className="text-sm text-muted-foreground">Unclaimed</p>
             </div>
             
-            {showBalance ? (
-              <div className="space-y-1">
-                <p className="text-2xl font-bold text-hastra-teal">
-                  {totalUnclaimedInterest.toLocaleString('en-US', { 
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 4 
-                  })}
-                </p>
-                <div className="flex items-center gap-2">
-                  <Badge className="bg-hastra-teal/20 border-hastra-teal/30 text-hastra-teal text-xs">
-                    Ready to Claim
-                  </Badge>
-                </div>
+            <div className="space-y-1">
+              <p className="text-2xl font-bold text-hastra-teal">
+                {totalUnclaimedInterest.toLocaleString('en-US', { 
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 4 
+                })}
+              </p>
+              <div className="flex items-center gap-2">
+                <Badge className="bg-hastra-teal/20 border-hastra-teal/30 text-hastra-teal text-xs">
+                  Ready to Claim
+                </Badge>
               </div>
-            ) : (
-              <div className="space-y-1">
-                <p className="text-2xl font-bold text-hastra-teal">••••••</p>
-                <div className="flex items-center gap-2">
-                  <span className="text-sm text-muted-foreground">Hidden</span>
-                </div>
-              </div>
-            )}
+            </div>
           </div>
         </div>
 
         {/* Token Holdings */}
-        {showBalance && (
+        {showTokenHoldings && (
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-foreground mb-3">Token Holdings</h3>
             <div className="space-y-3">
