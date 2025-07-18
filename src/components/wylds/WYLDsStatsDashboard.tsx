@@ -122,9 +122,9 @@ const WYLDsStatsDashboard = () => {
       <div className="container relative">
         <div className="text-center mb-16">
           <div className="glass-premium rounded-full px-6 py-3 text-sm mb-8 inline-block">
-            <span className="text-premium-gradient font-semibold">Real-Time Analytics</span>
+            <span className="text-gradient font-semibold">Real-Time Analytics</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-premium-gradient mb-6">Live Stats</h2>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gradient mb-6">Live Stats</h2>
           <p className="text-xl text-platinum/80 max-w-2xl mx-auto">
             Track YIELD performance with real-time data and transparent metrics
           </p>
@@ -143,7 +143,7 @@ const WYLDsStatsDashboard = () => {
               <CardContent>
                 <div className="text-3xl md:text-4xl font-bold mb-3 flex items-center gap-2">
                   {stat.isLoading && <Loader2 className="h-6 w-6 animate-spin" />}
-                  <span className={stat.isLoading ? 'opacity-50' : stat.hasError ? 'text-red-400' : 'bg-gradient-to-r from-electric-blue to-neon-cyan bg-clip-text text-transparent animate-pulse-light'}>
+                  <span className={stat.isLoading ? 'opacity-50' : stat.hasError ? 'text-red-400' : 'bg-gradient-to-r from-header-glow to-crypto-accent bg-clip-text text-transparent animate-pulse-light'}>
                     {stat.value}
                   </span>
                 </div>
@@ -151,7 +151,7 @@ const WYLDsStatsDashboard = () => {
                 
                 {/* Live indicator */}
                 <div className="flex items-center gap-2 mt-4">
-                  <div className={`w-2 h-2 rounded-full ${stat.hasError ? 'bg-red-400' : 'bg-electric-blue animate-pulse'}`}></div>
+                  <div className={`w-2 h-2 rounded-full ${stat.hasError ? 'bg-red-400' : 'bg-header-glow animate-pulse'}`}></div>
                   <span className="text-xs text-foreground/50">{stat.hasError ? 'Error' : 'Live'}</span>
                 </div>
               </CardContent>

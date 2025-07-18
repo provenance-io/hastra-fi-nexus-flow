@@ -39,8 +39,8 @@ const WYLDsHero = () => {
       
       <div className="container relative text-center">
         <div className="text-sm font-medium mb-8 animate-pulse inline-block">
-          <span className="mr-2 w-2 h-2 bg-electric-blue rounded-full animate-pulse"></span>
-          <span className="text-premium-gradient font-semibold">Now available on Solana</span>
+          <span className="mr-2 w-2 h-2 bg-header-glow rounded-full animate-pulse"></span>
+          <span className="text-gradient font-semibold">Now available on Solana</span>
         </div>
         
         <div className="mb-6 flex justify-center">
@@ -52,10 +52,10 @@ const WYLDsHero = () => {
         </div>
         
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-8 text-platinum/90">
-          <span className="text-electric-blue">TRADE IT.</span>{" "}
-          <span className="text-neon-cyan">LEND IT.</span>{" "}
-          <span className="text-premium-gold">SPEND IT.</span>{" "}
-          <span className="text-premium-gradient">SEND IT.</span>
+          <span className="text-header-glow">TRADE IT.</span>{" "}
+          <span className="text-crypto-accent">LEND IT.</span>{" "}
+          <span className="text-header-glow">SPEND IT.</span>{" "}
+          <span className="text-gradient">SEND IT.</span>
         </h2>
         
         <p className="max-w-4xl mx-auto text-xl md:text-2xl text-platinum/80 leading-relaxed mb-12">
@@ -69,16 +69,16 @@ const WYLDsHero = () => {
             <div className="relative">
               <div className="text-5xl md:text-6xl font-bold relative z-10 flex items-center justify-center gap-2">
                 {apyLoading && <Loader2 className="h-8 w-8 animate-spin" />}
-                <span className={apyLoading ? 'opacity-50' : apyError ? 'text-red-400' : 'text-premium-gradient'}>
+                <span className={apyLoading ? 'opacity-50' : apyError ? 'text-red-400' : 'text-gradient'}>
                   {displayApy}
                 </span>
               </div>
-              <div className="absolute inset-0 text-premium-gradient opacity-30 blur-sm">
+              <div className="absolute inset-0 text-gradient opacity-30 blur-sm">
                 {displayApy}
               </div>
             </div>
             <div className="flex justify-center items-center gap-2 mt-4">
-              <div className={`w-2 h-2 rounded-full ${apyError ? 'bg-red-400' : 'bg-electric-blue animate-pulse'}`}></div>
+              <div className={`w-2 h-2 rounded-full ${apyError ? 'bg-red-400' : 'bg-header-glow animate-pulse'}`}></div>
               <span className="text-sm text-platinum/60">{apyError ? 'Error' : 'Live Rate'}</span>
             </div>
           </div>

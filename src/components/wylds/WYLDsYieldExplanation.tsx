@@ -8,32 +8,32 @@ const WYLDsYieldExplanation = () => {
       icon: Wallet,
       title: "Hold YIELD tokens",
       description: "Simply hold YIELD tokens in any compatible Solana wallet",
-      color: "from-electric-blue to-neon-cyan",
-      bgPattern: "bg-electric-blue/10"
+      color: "from-header-glow to-crypto-accent",
+      bgPattern: "bg-header-glow/10"
     },
     {
       number: 2,
       icon: TrendingUp,
       title: "Watch your balance grow",
       description: "Watch your balance grow without any additional action. Yield is automatically calculated.",
-      color: "from-neon-cyan to-premium-gold",
-      bgPattern: "bg-neon-cyan/10"
+      color: "from-crypto-accent to-header-glow",
+      bgPattern: "bg-crypto-accent/10"
     },
     {
       number: 3,
       icon: Calendar,
       title: "Monthly Distributions",
       description: "Claim your yield on hastra.io on a monthly basis in YIELD tokens",
-      color: "from-premium-gold to-electric-blue",
-      bgPattern: "bg-premium-gold/10"
+      color: "from-header-glow to-crypto-accent",
+      bgPattern: "bg-header-glow/10"
     },
     {
       number: 4,
       icon: Repeat,
       title: "Use daily, or redeem for USDC",
       description: "Easily redeem your YIELD through Raydium and Kamino protocols",
-      color: "from-electric-blue to-neon-cyan",
-      bgPattern: "bg-electric-blue/10"
+      color: "from-crypto-accent to-header-glow",
+      bgPattern: "bg-crypto-accent/10"
     }
   ];
 
@@ -45,7 +45,7 @@ const WYLDsYieldExplanation = () => {
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient bg-gradient-to-r from-electric-blue via-neon-cyan to-premium-gold bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient bg-gradient-to-r from-header-glow to-crypto-accent bg-clip-text text-transparent">
             What is YIELD?
           </h2>
         </div>
@@ -77,19 +77,19 @@ const WYLDsYieldExplanation = () => {
               <div className="relative w-full h-full transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
                 {/* Front of card */}
                 <div className="absolute inset-0 w-full h-full backface-hidden">
-                  <div className="w-full h-full card-premium pointer-events-none border border-electric-blue/20 rounded-2xl">
+                  <div className="w-full h-full card-premium pointer-events-none border border-header-glow/20 rounded-2xl">
                     <div className="p-8 text-center h-full flex flex-col justify-center">
                       <div className="w-20 h-20 glass-premium rounded-2xl mx-auto mb-6 flex items-center justify-center pulse-glow-premium">
-                        <feature.icon className="h-10 w-10 text-electric-blue" />
+                        <feature.icon className="h-10 w-10 text-header-glow" />
                       </div>
-                      <h3 className="text-2xl font-bold text-premium-gradient">{feature.title}</h3>
+                      <h3 className="text-2xl font-bold text-gradient">{feature.title}</h3>
                     </div>
                   </div>
                 </div>
                 
                 {/* Back of card */}
                 <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180">
-                  <div className="w-full h-full card-premium pointer-events-none border border-electric-blue/20 rounded-2xl">
+                  <div className="w-full h-full card-premium pointer-events-none border border-header-glow/20 rounded-2xl">
                     <div className="p-8 text-center h-full flex flex-col justify-center">
                       <p className="text-platinum/80 leading-relaxed text-lg">{feature.description}</p>
                     </div>
@@ -124,10 +124,10 @@ const WYLDsYieldExplanation = () => {
         <div className="mb-20">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <h3 className="text-3xl md:text-4xl font-bold text-transparent bg-gradient-to-r from-electric-blue via-neon-cyan to-premium-gold bg-clip-text mb-4">
+            <h3 className="text-3xl md:text-4xl font-bold text-transparent bg-gradient-to-r from-header-glow to-crypto-accent bg-clip-text mb-4">
               How It Works
             </h3>
-            <div className="w-24 h-1 bg-gradient-to-r from-electric-blue to-neon-cyan mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-header-glow to-crypto-accent mx-auto rounded-full"></div>
           </div>
           
           {/* Desktop: Scrollable Horizontal Layout */}
@@ -141,12 +141,12 @@ const WYLDsYieldExplanation = () => {
                       {/* Step Card - Fixed Size */}
                       <div className="relative group">
                         {/* Number Badge */}
-                        <div className="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-r from-premium-gold to-electric-blue rounded-full flex items-center justify-center text-black font-bold text-sm shadow-lg z-10">
+                        <div className="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-r from-header-glow to-crypto-accent rounded-full flex items-center justify-center text-black font-bold text-sm shadow-lg z-10">
                           {step.number}
                         </div>
                         
                         {/* Card Container - Fixed Dimensions */}
-                        <div className="w-64 h-72 bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-sm border border-electric-blue/20 rounded-2xl p-5 text-center hover:border-electric-blue/40 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-electric-blue/10 relative overflow-hidden">
+                        <div className="w-64 h-72 bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-sm border border-header-glow/20 rounded-2xl p-5 text-center hover:border-header-glow/40 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-header-glow/10 relative overflow-hidden">
                           {/* Hover Overlay */}
                           <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl`}></div>
                           
@@ -159,7 +159,7 @@ const WYLDsYieldExplanation = () => {
                           
                           {/* Content */}
                           <div className="relative z-10 h-36 flex flex-col justify-between">
-                            <h4 className="font-bold text-lg text-electric-blue group-hover:text-neon-cyan transition-colors duration-300 mb-3">
+                            <h4 className="font-bold text-lg text-header-glow group-hover:text-crypto-accent transition-colors duration-300 mb-3">
                               {step.title}
                             </h4>
                             <p className="text-platinum/80 text-sm leading-relaxed flex-1 flex items-center justify-center">
@@ -173,9 +173,9 @@ const WYLDsYieldExplanation = () => {
                       {index < steps.length - 1 && (
                         <div className="mx-4 flex items-center justify-center h-72">
                           <div className="flex items-center">
-                            <div className="w-6 h-0.5 bg-gradient-to-r from-electric-blue to-neon-cyan rounded-full"></div>
-                            <ArrowRight className="w-6 h-6 text-neon-cyan mx-2" />
-                            <div className="w-6 h-0.5 bg-gradient-to-r from-neon-cyan to-premium-gold rounded-full"></div>
+                            <div className="w-6 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent rounded-full"></div>
+                            <ArrowRight className="w-6 h-6 text-crypto-accent mx-2" />
+                            <div className="w-6 h-0.5 bg-gradient-to-r from-crypto-accent to-header-glow rounded-full"></div>
                           </div>
                         </div>
                       )}
@@ -195,12 +195,12 @@ const WYLDsYieldExplanation = () => {
                   {/* Step Card - Consistent Mobile Size */}
                   <div className="relative group">
                     {/* Number Badge */}
-                    <div className="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-r from-premium-gold to-electric-blue rounded-full flex items-center justify-center text-black font-bold text-sm shadow-lg z-10">
+                    <div className="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-r from-header-glow to-crypto-accent rounded-full flex items-center justify-center text-black font-bold text-sm shadow-lg z-10">
                       {step.number}
                     </div>
                     
                     {/* Card Container - Fixed Mobile Dimensions */}
-                    <div className="w-full h-56 bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-sm border border-electric-blue/20 rounded-2xl p-5 text-center hover:border-electric-blue/40 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-electric-blue/10 relative overflow-hidden">
+                    <div className="w-full h-56 bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-sm border border-header-glow/20 rounded-2xl p-5 text-center hover:border-header-glow/40 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-header-glow/10 relative overflow-hidden">
                       {/* Hover Overlay */}
                       <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl`}></div>
                       
@@ -213,7 +213,7 @@ const WYLDsYieldExplanation = () => {
                       
                       {/* Content */}
                       <div className="relative z-10 h-28 flex flex-col justify-between">
-                        <h4 className="font-bold text-lg text-electric-blue group-hover:text-neon-cyan transition-colors duration-300 mb-3">
+                        <h4 className="font-bold text-lg text-header-glow group-hover:text-crypto-accent transition-colors duration-300 mb-3">
                           {step.title}
                         </h4>
                         <p className="text-platinum/80 text-sm leading-relaxed flex-1 flex items-center justify-center">
@@ -226,7 +226,7 @@ const WYLDsYieldExplanation = () => {
                   {/* Down Arrow Connector */}
                   {index < steps.length - 1 && (
                     <div className="flex justify-center my-6">
-                      <div className="bg-gradient-to-b from-electric-blue to-neon-cyan rounded-full p-2">
+                      <div className="bg-gradient-to-b from-header-glow to-crypto-accent rounded-full p-2">
                         <ChevronDown className="w-4 h-4 text-black" />
                       </div>
                     </div>
