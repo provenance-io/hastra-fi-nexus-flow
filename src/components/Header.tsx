@@ -1,6 +1,8 @@
+
 import { Link, useLocation } from 'react-router-dom';
 import HastraLogo from './HastraLogo';
 import MobileMenu from './MobileMenu';
+import WalletHeaderButton from './wallet/WalletHeaderButton';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -157,13 +159,15 @@ const Header = () => {
         </div>
         
         <div className="flex items-center space-x-4">
-          {isEarnPage ? (
+          {isConnected ? (
+            <WalletHeaderButton />
+          ) : isEarnPage ? (
             <Button 
               onClick={handleConnectWallet}
               size="sm" 
               className="hidden md:flex btn-gradient text-base px-4 py-2"
             >
-              {isConnected ? 'View Dashboard' : 'Connect Wallet'}
+              Connect Wallet
               <Wallet className="ml-2 h-4 w-4" />
             </Button>
           ) : (

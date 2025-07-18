@@ -4,45 +4,23 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useWallet } from '@/contexts/WalletContext';
 import { 
-  Wallet, 
   TrendingUp, 
   RefreshCw, 
   ExternalLink, 
   DollarSign,
   PieChart,
-  ArrowUpRight,
-  Copy,
-  Check
+  ArrowUpRight
 } from 'lucide-react';
 import { useState } from 'react';
-import { useToast } from '@/hooks/use-toast';
 
 const WalletDashboard = () => {
-  const { address, balance, refreshBalance } = useWallet();
+  const { balance, refreshBalance } = useWallet();
   const [isRefreshing, setIsRefreshing] = useState(false);
-  const [addressCopied, setAddressCopied] = useState(false);
-  const { toast } = useToast();
 
   const handleRefreshBalance = async () => {
     setIsRefreshing(true);
     await refreshBalance();
     setIsRefreshing(false);
-  };
-
-  const copyAddress = async () => {
-    if (address) {
-      await navigator.clipboard.writeText(address);
-      setAddressCopied(true);
-      setTimeout(() => setAddressCopied(false), 2000);
-      toast({
-        title: "Address Copied",
-        description: "Wallet address copied to clipboard",
-      });
-    }
-  };
-
-  const formatAddress = (addr: string) => {
-    return `${addr.slice(0, 6)}...${addr.slice(-4)}`;
   };
 
   // Mock portfolio data
@@ -113,44 +91,6 @@ const WalletDashboard = () => {
           </CardContent>
         </Card>
       </div>
-
-      {/* Wallet Info */}
-      <Card className="glass-effect border-border/50">
-        <CardHeader>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <Wallet className="h-5 w-5 text-header-glow" />
-              <div>
-                <CardTitle className="text-lg">Connected Wallet</CardTitle>
-                <CardDescription>Your active wallet address</CardDescription>
-              </div>
-            </div>
-            <Badge className="bg-green-500/20 border-green-500/30 text-green-300">
-              Connected
-            </Badge>
-          </div>
-        </CardHeader>
-        <CardContent>
-          <div className="flex items-center justify-between p-4 rounded-xl glass-effect border border-border/30">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-header-glow/20 flex items-center justify-center">
-                <Wallet className="w-5 h-5 text-header-glow" />
-              </div>
-              <div>
-                <p className="font-medium">{address ? formatAddress(address) : 'Not connected'}</p>
-                <p className="text-sm text-muted-foreground">MetaMask</p>
-              </div>
-            </div>
-            <Button variant="outline" size="sm" onClick={copyAddress}>
-              {addressCopied ? (
-                <Check className="w-4 h-4" />
-              ) : (
-                <Copy className="w-4 h-4" />
-              )}
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
 
       {/* Portfolio Positions */}
       <Card className="glass-effect border-border/50">
