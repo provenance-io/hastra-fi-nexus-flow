@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { ShoppingCart, ExternalLink, TrendingUp } from 'lucide-react';
+import { Wallet } from 'lucide-react';
 
 const EarnHero = () => {
   return (
@@ -46,32 +46,17 @@ const EarnHero = () => {
         {/* CTA Section */}
         <div className="text-center">
           <p className="text-lg text-muted-foreground mb-6">Ready to start earning?</p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button 
-              size="lg" 
-              className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-4 text-lg rounded-xl min-w-[200px] group transition-all duration-200"
-              onClick={() => {
-                const buySection = document.querySelector('[data-section="buy-earn"]');
-                if (buySection) {
-                  buySection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-            >
-              Buy Tokens
-              <ShoppingCart className="ml-2 h-5 w-5" />
-            </Button>
-            <Button 
-              variant="outline"
-              size="lg" 
-              className="px-8 py-4 text-lg rounded-xl min-w-[200px] group transition-all duration-200"
-              asChild
-            >
-              <a href="/learn">
-                Learn First
-                <TrendingUp className="ml-2 h-5 w-5" />
-              </a>
-            </Button>
-          </div>
+          <Button 
+            size="lg" 
+            className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-4 text-lg rounded-xl min-w-[200px] group transition-all duration-200"
+            onClick={() => {
+              // Add wallet connection logic here
+              console.log('Connect wallet clicked');
+            }}
+          >
+            Connect Wallet
+            <Wallet className="ml-2 h-5 w-5" />
+          </Button>
         </div>
       </div>
     </section>
