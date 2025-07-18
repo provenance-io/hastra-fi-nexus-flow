@@ -23,7 +23,7 @@ const WYLDsYieldExplanation = () => {
       number: 3,
       icon: Calendar,
       title: "Monthly Distributions",
-      description: "Yield is distributed to your Solana wallet on a monthly basis in YIELD tokens",
+      description: "Claim your yield on hastra.io on a monthly basis in YIELD tokens",
       color: "from-premium-gold to-electric-blue",
       bgPattern: "bg-premium-gold/10"
     },
