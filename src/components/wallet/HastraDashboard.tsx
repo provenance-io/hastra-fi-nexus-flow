@@ -30,7 +30,7 @@ const HastraDashboard = () => {
   return (
     <div className="w-full">
       {/* Polished dashboard container with rounded corners and subtle background */}
-      <div className="glass-premium rounded-2xl border border-border/20 hover:border-orange-800/40 transition-all duration-200 overflow-hidden">
+      <div className="glass-premium rounded-2xl border border-border/20 overflow-hidden">
         <div className="container mx-auto px-6 py-8 max-w-7xl">
           {/* Header */}
           <div className="mb-8">

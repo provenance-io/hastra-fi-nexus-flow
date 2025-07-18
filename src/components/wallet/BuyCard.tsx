@@ -82,7 +82,7 @@ const BuyCard = () => {
   const receiveAmount = calculateReceiveAmount();
 
   return (
-    <Card className="w-full glass-effect border-border/50 hover:border-orange-800/40 transition-all duration-300 group">
+    <Card className="w-full glass-effect border-border/50">
       <CardHeader className="pb-4">
         <CardTitle className="flex items-center gap-2 text-xl font-bold">
           <ArrowUpDown className="w-5 h-5 text-header-glow" />
@@ -94,10 +94,10 @@ const BuyCard = () => {
         <div className="space-y-2">
           <Label className="text-sm font-medium text-foreground">You're selling</Label>
           <Select value={sellAsset} onValueChange={(value: 'USDC' | 'SOL') => setSellAsset(value)}>
-            <SelectTrigger className="bg-muted/50 border-hastra-teal/20 focus:border-hastra-teal focus:ring-hastra-teal/20">
+            <SelectTrigger className="bg-muted/50 border-orange-800/30 focus:border-orange-800/60 focus:ring-orange-800/20">
               <SelectValue />
             </SelectTrigger>
-            <SelectContent className="bg-card border-hastra-teal/20">
+            <SelectContent className="bg-card border-orange-800/30">
               <SelectItem value="USDC">
                 <div className="flex items-center gap-2">
                   <img src={usdcIcon} alt="USDC" className="w-5 h-5 rounded-full" />
@@ -118,10 +118,10 @@ const BuyCard = () => {
         <div className="space-y-2">
           <Label className="text-sm font-medium text-foreground">You're buying</Label>
           <Select value={buyAsset} onValueChange={(value: 'YIELD' | 'HASH') => setBuyAsset(value)}>
-            <SelectTrigger className="bg-muted/50 border-hastra-teal/20 focus:border-hastra-teal focus:ring-hastra-teal/20">
+            <SelectTrigger className="bg-muted/50 border-orange-800/30 focus:border-orange-800/60 focus:ring-orange-800/20">
               <SelectValue />
             </SelectTrigger>
-            <SelectContent className="bg-card border-hastra-teal/20">
+            <SelectContent className="bg-card border-orange-800/30">
               <SelectItem value="YIELD">
                 <div className="flex items-center gap-2">
                   <img src={yieldIcon} alt="YIELD" className="w-5 h-5 rounded-full" />
@@ -179,7 +179,7 @@ const BuyCard = () => {
             placeholder={`Enter amount in ${denomination === 'usd' ? 'USD' : sellAsset}`}
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            className="bg-muted/50 border-hastra-teal/20 focus:border-hastra-teal focus:ring-hastra-teal/20 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&]:[-moz-appearance:textfield]"
+            className="bg-muted/50 border-orange-800/30 focus:border-orange-800/60 focus:ring-orange-800/20 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&]:[-moz-appearance:textfield]"
           />
         </div>
 
