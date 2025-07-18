@@ -51,29 +51,29 @@ const WalletHeaderButton = () => {
       <DropdownMenuTrigger asChild>
         <Button 
           variant="outline" 
-          className="gap-2 border-green-500/30 bg-green-500/10 text-green-300 hover:bg-green-500/20 hover:border-green-500/40"
+          className="gap-2 bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-4 py-2 rounded-xl transition-all duration-200"
         >
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+            <div className="w-2 h-2 rounded-full bg-orange-400 animate-pulse" />
             <span className="font-mono text-sm">{formatAddress(address)}</span>
             <ChevronDown className="h-3 w-3" />
           </div>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent 
-        className="w-64 bg-white/95 backdrop-blur-md border border-gray-200 shadow-2xl" 
+        className="w-64 glass-effect border border-orange-800/20 shadow-2xl backdrop-blur-md" 
         align="end"
       >
-        <div className="p-3 border-b border-gray-200">
+        <div className="p-3 border-b border-orange-800/20">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
-              <Wallet className="w-4 h-4 text-green-500" />
+            <div className="w-8 h-8 rounded-full bg-orange-900/20 flex items-center justify-center">
+              <Wallet className="w-4 h-4 text-orange-400" />
             </div>
             <div>
-              <p className="font-medium text-gray-900">Connected Wallet</p>
+              <p className="font-medium text-foreground">Connected Wallet</p>
               <div className="flex items-center gap-2">
-                <p className="text-sm text-gray-600 font-mono">{formatAddress(address)}</p>
-                <Badge className="bg-green-500/20 border-green-500/30 text-green-600 text-xs">
+                <p className="text-sm text-muted-foreground font-mono">{formatAddress(address)}</p>
+                <Badge className="bg-orange-900/20 border-orange-800/30 text-orange-300 text-xs">
                   MetaMask
                 </Badge>
               </div>
@@ -81,14 +81,14 @@ const WalletHeaderButton = () => {
           </div>
         </div>
         
-        <DropdownMenuItem onClick={copyAddress} className="cursor-pointer p-3">
+        <DropdownMenuItem onClick={copyAddress} className="cursor-pointer p-3 hover:bg-orange-900/10">
           <div className="flex items-center w-full">
             {addressCopied ? (
-              <Check className="w-4 h-4 mr-3 text-green-500" />
+              <Check className="w-4 h-4 mr-3 text-orange-400" />
             ) : (
-              <Copy className="w-4 h-4 mr-3" />
+              <Copy className="w-4 h-4 mr-3 text-muted-foreground" />
             )}
-            <span>{addressCopied ? 'Address Copied!' : 'Copy Address'}</span>
+            <span className="text-foreground">{addressCopied ? 'Address Copied!' : 'Copy Address'}</span>
           </div>
         </DropdownMenuItem>
         
@@ -96,7 +96,7 @@ const WalletHeaderButton = () => {
         
         <DropdownMenuItem 
           onClick={handleDisconnect} 
-          className="cursor-pointer p-3 text-red-600 hover:bg-red-50"
+          className="cursor-pointer p-3 text-red-400 hover:bg-red-900/10"
         >
           <LogOut className="w-4 h-4 mr-3" />
           <span>Disconnect Wallet</span>
