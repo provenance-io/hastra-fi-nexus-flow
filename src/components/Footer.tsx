@@ -46,7 +46,7 @@ const Footer = () => {
             {/* Brand Section */}
             <div className="lg:col-span-4">
               <div className="max-w-sm">
-                <FooterLogo className="h-16 mb-2 -mt-4 opacity-80" />
+                <FooterLogo className="h-16 mb-2 -mt-6 opacity-80" />
                 <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
                   Building the future of decentralized finance with institutional-grade products and regulatory compliance.
                 </p>
