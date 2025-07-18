@@ -1,62 +1,21 @@
-import { useState, useEffect } from 'react';
+
 import { Button } from '@/components/ui/button';
 import { Wallet, AlertCircle, CheckCircle } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
+import { useWallet } from '@/contexts/WalletContext';
 
-// Mock Web3 connection component for DeFi UX patterns
 const Web3ConnectionStatus = () => {
-  const [isConnected, setIsConnected] = useState(false);
-  const [isConnecting, setIsConnecting] = useState(false);
-  const [walletAddress, setWalletAddress] = useState<string>('');
-  const [networkError, setNetworkError] = useState<string>('');
+  const { 
+    isConnected, 
+    isConnecting, 
+    address, 
+    networkError, 
+    connectWallet, 
+    disconnectWallet 
+  } = useWallet();
 
-  // Simulate wallet connection status check
-  useEffect(() => {
-    const checkWalletConnection = () => {
-      // In a real app, this would check for actual wallet connection
-      const mockConnected = localStorage.getItem('mock-wallet-connected') === 'true';
-      if (mockConnected) {
-        setIsConnected(true);
-        setWalletAddress('0x742d...35A4'); // Mock address
-      }
-    };
-
-    checkWalletConnection();
-  }, []);
-
-  const handleConnect = async () => {
-    setIsConnecting(true);
-    setNetworkError('');
-
-    try {
-      // Simulate connection delay
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      // Mock successful connection
-      setIsConnected(true);
-      setWalletAddress('0x742d...35A4');
-      localStorage.setItem('mock-wallet-connected', 'true');
-      
-      // Show success notification
-      const event = new CustomEvent('wallet-connected', {
-        detail: { address: '0x742d...35A4' }
-      });
-      window.dispatchEvent(event);
-      
-    } catch (error) {
-      setNetworkError('Failed to connect wallet. Please try again.');
-    } finally {
-      setIsConnecting(false);
-    }
-  };
-
-  const handleDisconnect = () => {
-    setIsConnected(false);
-    setWalletAddress('');
-    localStorage.removeItem('mock-wallet-connected');
-    
-    const event = new CustomEvent('wallet-disconnected');
-    window.dispatchEvent(event);
+  const formatAddress = (addr: string) => {
+    return `${addr.slice(0, 6)}...${addr.slice(-4)}`;
   };
 
   if (!isConnected) {
@@ -72,7 +31,7 @@ const Web3ConnectionStatus = () => {
         )}
         
         <Button
-          onClick={handleConnect}
+          onClick={connectWallet}
           disabled={isConnecting}
           className="w-full btn-gradient focus-ring group"
           size="lg"
@@ -104,12 +63,12 @@ const Web3ConnectionStatus = () => {
           <CheckCircle className="w-5 h-5 text-green-400" />
           <div>
             <p className="font-medium text-foreground">Wallet Connected</p>
-            <p className="text-sm text-muted-foreground">{walletAddress}</p>
+            <p className="text-sm text-muted-foreground">{address ? formatAddress(address) : 'Unknown'}</p>
           </div>
         </div>
         
         <Button
-          onClick={handleDisconnect}
+          onClick={disconnectWallet}
           variant="outline"
           size="sm"
           className="focus-ring hover:border-destructive/50 hover:text-destructive"

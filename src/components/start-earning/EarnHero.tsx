@@ -1,7 +1,23 @@
+
 import { Button } from '@/components/ui/button';
 import { Wallet } from 'lucide-react';
+import { useWallet } from '@/contexts/WalletContext';
 
 const EarnHero = () => {
+  const { isConnected, connectWallet } = useWallet();
+
+  const handleConnectWallet = async () => {
+    if (!isConnected) {
+      await connectWallet();
+    } else {
+      // Scroll to dashboard section if already connected
+      const dashboardSection = document.querySelector('[data-section="wallet-dashboard"]');
+      if (dashboardSection) {
+        dashboardSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <section className="relative py-20 md:py-32 overflow-hidden">
       {/* Background Effects */}
@@ -45,16 +61,15 @@ const EarnHero = () => {
 
         {/* CTA Section */}
         <div className="text-center">
-          <p className="text-lg text-muted-foreground mb-6">Ready to start earning?</p>
+          <p className="text-lg text-muted-foreground mb-6">
+            {isConnected ? 'Wallet connected! View your dashboard below.' : 'Ready to start earning?'}
+          </p>
           <Button 
             size="lg" 
             className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-4 text-lg rounded-xl min-w-[200px] group transition-all duration-200"
-            onClick={() => {
-              // Add wallet connection logic here
-              console.log('Connect wallet clicked');
-            }}
+            onClick={handleConnectWallet}
           >
-            Connect Wallet
+            {isConnected ? 'View Dashboard' : 'Connect Wallet'}
             <Wallet className="ml-2 h-5 w-5" />
           </Button>
         </div>
