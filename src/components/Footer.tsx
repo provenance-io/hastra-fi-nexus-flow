@@ -48,21 +48,6 @@ const Footer = () => {
               <div className="max-w-sm">
                 <FooterLogo className="h-16 mb-2 -mt-6 opacity-80" />
                 
-                {/* Social Media */}
-                <div className="mb-6">
-                  <h4 className="font-semibold text-foreground mb-3 text-sm uppercase tracking-wide">Follow Us</h4>
-                  <div className="flex gap-3">
-                    <a 
-                      href="https://x.com/HastraFi" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 bg-background/50 border border-border/30 rounded-lg flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-header-glow/50 hover:bg-header-glow/10 transition-all duration-200"
-                    >
-                      <Twitter className="w-4 h-4" />
-                    </a>
-                  </div>
-                </div>
-
                 {/* Email Subscription */}
                 <div>
                   <h4 className="font-semibold text-foreground mb-3 text-sm uppercase tracking-wide">Stay Updated</h4>
@@ -93,7 +78,7 @@ const Footer = () => {
 
             {/* Navigation Links */}
             <div className="lg:col-span-8">
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                 {Object.entries(footerLinks).map(([key, links]) => (
                   <div key={key} className="space-y-4">
                     <h4 className="font-semibold capitalize text-foreground text-sm uppercase tracking-wide">
@@ -124,6 +109,21 @@ const Footer = () => {
                     </ul>
                   </div>
                 ))}
+                
+                {/* Social Media Column */}
+                <div className="space-y-4">
+                  <h4 className="font-semibold text-foreground text-sm uppercase tracking-wide">Follow Us</h4>
+                  <div className="flex gap-3">
+                    <a 
+                      href="https://x.com/HastraFi" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 bg-background/50 border border-border/30 rounded-lg flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-header-glow/50 hover:bg-header-glow/10 transition-all duration-200"
+                    >
+                      <Twitter className="w-4 h-4" />
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
