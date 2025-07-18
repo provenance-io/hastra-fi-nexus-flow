@@ -4,15 +4,24 @@ import WalletOverview from './WalletOverview';
 import ActionCard from './ActionCard';
 import BuyCard from './BuyCard';
 import SendCard from './SendCard';
+import TradingPlatformsSection from '../start-earning/TradingPlatformsSection';
 import { 
   PlusCircle, 
-  ArrowLeftRight, 
-  TrendingUp, 
-  Send 
+  ArrowLeftRight
 } from 'lucide-react';
 
 const HastraDashboard = () => {
   const { isConnected } = useWallet();
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
 
   if (!isConnected) {
     return null;
@@ -24,7 +33,7 @@ const HastraDashboard = () => {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-hastra-gradient mb-2">
-            HASTRA Dashboard
+            Earnings Dashboard
           </h1>
           <p className="text-muted-foreground">
             Your decentralized finance command center
@@ -40,49 +49,33 @@ const HastraDashboard = () => {
           <WalletOverview />
         </div>
 
-        {/* Action Cards Section */}
+        {/* Quick Start Section */}
         <div className="mb-8">
           <h2 className="text-xl font-semibold mb-4 text-foreground">
-            Trade & Lend
+            Quick Start
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <ActionCard
-              title="Buy YIELD"
-              description="Purchase YIELD tokens to start earning yield"
+              title="Buy & Send"
+              description="Purchase tokens and transfer to other wallets"
               icon={<PlusCircle className="w-6 h-6" />}
-              action={() => window.open('https://app.kamino.finance', '_blank')}
+              action={() => scrollToSection('buy-send-section')}
               variant="primary"
             />
             
             <ActionCard
-              title="Trade"
-              description="Swap tokens and optimize your portfolio"
+              title="Trade & Lend"
+              description="Access trading platforms and lending opportunities"
               icon={<ArrowLeftRight className="w-6 h-6" />}
-              action={() => window.open('https://raydium.io', '_blank')}
-              variant="secondary"
-            />
-            
-            <ActionCard
-              title="Lend"
-              description="Earn interest by lending your crypto assets"
-              icon={<TrendingUp className="w-6 h-6" />}
-              action={() => window.open('https://app.kamino.finance', '_blank')}
-              variant="secondary"
-            />
-            
-            <ActionCard
-              title="Send"
-              description="Transfer tokens to other wallets"
-              icon={<Send className="w-6 h-6" />}
-              action={() => console.log('Send action')}
+              action={() => scrollToSection('trade-lend-section')}
               variant="secondary"
             />
           </div>
         </div>
 
         {/* Buy and Send Interfaces */}
-        <div className="mb-8">
+        <div id="buy-send-section" className="mb-8">
           <h2 className="text-xl font-semibold mb-4 text-foreground">
             Buy & Send
           </h2>
@@ -91,6 +84,11 @@ const HastraDashboard = () => {
             <BuyCard />
             <SendCard />
           </div>
+        </div>
+
+        {/* Trading Platforms Section */}
+        <div id="trade-lend-section" className="mb-8">
+          <TradingPlatformsSection />
         </div>
 
         {/* Additional Info */}

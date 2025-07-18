@@ -100,7 +100,7 @@ const WalletOverview = () => {
           <div className="space-y-3">
             <div className="flex items-center gap-2">
               <DollarSign className="w-4 h-4 text-hastra-teal" />
-              <p className="text-sm text-muted-foreground">Total Value</p>
+              <p className="text-sm text-muted-foreground">total value</p>
             </div>
             
             <div className="space-y-1">
@@ -128,7 +128,7 @@ const WalletOverview = () => {
           <div className="space-y-3">
             <div className="flex items-center gap-2">
               <TrendingUp className="w-4 h-4 text-hastra-teal" />
-              <p className="text-sm text-muted-foreground">Interest Earned</p>
+              <p className="text-sm text-muted-foreground">interest earned</p>
             </div>
             
             <div className="space-y-1">
@@ -150,7 +150,7 @@ const WalletOverview = () => {
           <div className="space-y-3">
             <div className="flex items-center gap-2">
               <Gift className="w-4 h-4 text-hastra-teal" />
-              <p className="text-sm text-muted-foreground">Unclaimed</p>
+              <p className="text-sm text-muted-foreground">unclaimed</p>
             </div>
             
             <div className="space-y-1">
