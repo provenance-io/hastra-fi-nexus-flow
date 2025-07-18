@@ -9,7 +9,7 @@ import { useToast } from '@/hooks/use-toast';
 import usdcIcon from '/lovable-uploads/dce72281-6459-4785-814f-a1e9872bbb8d.png';
 import solanaIcon from '/lovable-uploads/05bbaafe-890c-4692-bac6-96927ee62b7e.png';
 import yieldIcon from '/lovable-uploads/0db58d6a-9142-44d8-8e1d-a2283f6ac976.png';
-import hashIcon from '@/assets/hash-icon.png';
+import hashIcon from '/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png';
 
 const BuyCard = () => {
   const [sellAsset, setSellAsset] = useState<'USDC' | 'SOL'>('USDC');

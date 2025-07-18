@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Send, DollarSign } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import yieldIcon from '/lovable-uploads/0db58d6a-9142-44d8-8e1d-a2283f6ac976.png';
-import hashIcon from '@/assets/hash-icon.png';
+import hashIcon from '/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png';
 
 const SendCard = () => {
   const [selectedToken, setSelectedToken] = useState<'YIELD' | 'HASH'>('YIELD');
