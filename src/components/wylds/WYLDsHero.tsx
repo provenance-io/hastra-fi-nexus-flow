@@ -43,7 +43,14 @@ const WYLDsHero = () => {
       <div className="container relative text-center">
         <div className="text-sm font-medium mb-8 animate-pulse inline-block">
           <span className="mr-2 w-2 h-2 bg-header-glow rounded-full animate-pulse"></span>
-          <span className="text-gradient font-semibold">Now available on Solana</span>
+          <span className="text-platinum/90 font-semibold flex items-center gap-2">
+            Now available on 
+            <img 
+              src="/src/assets/solana-logo.svg" 
+              alt="Solana" 
+              className="h-4 w-auto inline"
+            />
+          </span>
         </div>
         
         <div className="mb-6 flex justify-center">
