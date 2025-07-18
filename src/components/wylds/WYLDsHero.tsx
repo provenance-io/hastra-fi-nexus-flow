@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -9,6 +8,7 @@ import {
 import { ChevronDown, ExternalLink, Loader2, ArrowRight } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
+import FlashingText from './FlashingText';
 
 interface FigureYieldResponse {
   rate: number;
@@ -32,6 +32,8 @@ const WYLDsHero = () => {
 
   const displayApy = apyLoading ? 'Loading...' : apyError ? 'Error' : `${apy || 0}%`;
 
+  const flashingPhrases = ["TRADE IT.", " LEND IT.", " SPEND IT.", " SEND IT."];
+
   return (
     <section className="relative py-8 md:py-12 overflow-hidden">
       {/* Premium layered background - matching homepage */}
@@ -53,10 +55,10 @@ const WYLDsHero = () => {
         </div>
         
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-8 text-platinum/90">
-          <span className="text-header-glow">TRADE IT.</span>{" "}
-          <span className="text-crypto-accent">LEND IT.</span>{" "}
-          <span className="text-header-glow">SPEND IT.</span>{" "}
-          <span className="text-gradient">SEND IT.</span>
+          <FlashingText 
+            phrases={flashingPhrases}
+            className="block"
+          />
         </h2>
         
         <p className="max-w-4xl mx-auto text-xl md:text-2xl text-platinum/80 leading-relaxed mb-12">
