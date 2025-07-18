@@ -88,22 +88,6 @@ const WYLDsFAQ = () => {
             ))}
           </Accordion>
         </div>
-
-        {/* Contact Support */}
-        <div className="text-center mt-12">
-          <p className="text-platinum/60 mb-4">
-            Still have questions?
-          </p>
-          <a 
-            href="mailto:support@hastra.fi" 
-            className="inline-flex items-center text-electric-blue hover:text-neon-cyan transition-colors duration-300 font-medium"
-          >
-            Contact our support team
-            <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </a>
-        </div>
       </div>
     </section>
   );
