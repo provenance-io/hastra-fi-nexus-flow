@@ -119,7 +119,7 @@ const SendCard = () => {
               </SelectItem>
               <SelectItem value="HASH">
                 <div className="flex items-center gap-2">
-                  <img src={hashIcon} alt="HASH" className="w-5 h-5 rounded-full" />
+                  <img src={hashIcon} alt="HASH" className="w-6 h-6 rounded-full" />
                   HASH (Balance: {tokenBalances.HASH})
                 </div>
               </SelectItem>
