@@ -12,21 +12,19 @@ const Spinning3DYieldToken = ({ texture }: Spinning3DYieldTokenProps) => {
 
   useFrame((state, delta) => {
     if (meshRef.current) {
-      meshRef.current.rotation.x += delta * 0.5
-      meshRef.current.rotation.y += delta * 0.7
-      meshRef.current.rotation.z += delta * 0.3
+      meshRef.current.rotation.x += delta * 1.2
     }
   })
 
   return (
-    <mesh ref={meshRef} scale={[1.5, 1.5, 0.3]}>
-      <cylinderGeometry args={[1, 1, 0.2, 32]} />
+    <mesh ref={meshRef} scale={[1.8, 1.8, 0.15]}>
+      <cylinderGeometry args={[1, 1, 1, 64]} />
       <meshStandardMaterial 
         map={texture} 
-        metalness={0.3}
-        roughness={0.4}
-        emissive={new THREE.Color(0x001122)}
-        emissiveIntensity={0.1}
+        metalness={0.6}
+        roughness={0.2}
+        emissive={new THREE.Color(0x001133)}
+        emissiveIntensity={0.05}
       />
     </mesh>
   )
