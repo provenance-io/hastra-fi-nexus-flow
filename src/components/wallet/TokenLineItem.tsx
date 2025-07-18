@@ -55,8 +55,8 @@ const TokenLineItem = ({
 
   return (
     <div className="p-4 rounded-xl bg-background/50 border border-border/30 hover:border-hastra-teal/30 transition-all duration-300">
-      <div className="flex items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
+      <div className="flex items-center justify-between gap-8">
+        <div className="flex items-center gap-3 min-w-0 flex-shrink-0">
           {isImage ? (
             <img 
               src={icon} 
@@ -69,8 +69,8 @@ const TokenLineItem = ({
           <h4 className="font-semibold text-foreground">{token}</h4>
         </div>
         
-        <div className="flex items-center gap-6 text-sm">
-          <div>
+        <div className="flex items-center justify-between flex-1 gap-8 text-sm">
+          <div className="text-center min-w-0">
             <p className="text-muted-foreground mb-1">Tokens</p>
             <p className="font-medium text-foreground">
               {amount.toLocaleString('en-US', { 
@@ -80,7 +80,7 @@ const TokenLineItem = ({
             </p>
           </div>
           
-          <div>
+          <div className="text-center min-w-0">
             <p className="text-muted-foreground mb-1">Worth</p>
             <p className="font-medium text-foreground">
               ${value.toLocaleString('en-US', { 
@@ -90,9 +90,9 @@ const TokenLineItem = ({
             </p>
           </div>
           
-          <div>
-            <p className="text-muted-foreground mb-1">Total Interest</p>
-            <div className="flex items-center gap-1">
+          <div className="text-center min-w-0">
+            <p className="text-muted-foreground mb-1">Total Interest Claimed</p>
+            <div className="flex items-center justify-center gap-1">
               <TrendingUp className="w-3 h-3 text-green-400" />
               <p className="font-medium text-green-400">
                 ${totalInterestEarnedUSD.toLocaleString('en-US', { 
@@ -103,8 +103,8 @@ const TokenLineItem = ({
             </div>
           </div>
           
-          <div>
-            <p className="text-muted-foreground mb-1">Unclaimed</p>
+          <div className="text-center min-w-0">
+            <p className="text-muted-foreground mb-1">Unclaimed Interest</p>
             <p className={`font-medium ${unclaimedInterest > 0 ? 'text-hastra-teal' : 'text-muted-foreground'}`}>
               ${unclaimedInterestUSD.toLocaleString('en-US', { 
                 minimumFractionDigits: 2,
@@ -117,7 +117,7 @@ const TokenLineItem = ({
             onClick={handleClaim}
             disabled={unclaimedInterest <= 0 || isClaiming}
             size="sm"
-            className="bg-hastra-teal/20 border border-hastra-teal/30 text-hastra-teal hover:bg-hastra-teal/30 hover:border-hastra-teal/50 disabled:opacity-50"
+            className="bg-hastra-teal/20 border border-hastra-teal/30 text-hastra-teal hover:bg-hastra-teal/30 hover:border-hastra-teal/50 disabled:opacity-50 flex-shrink-0"
           >
             {isClaiming ? (
               <div className="flex items-center gap-2">
