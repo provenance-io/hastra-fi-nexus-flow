@@ -26,6 +26,19 @@
     --ring: 240 4.9% 83.9%;
     --radius: 0.5rem;
     
+    /* HASTRA Brand Colors */
+    --hastra-teal: 180 100% 50%;
+    --hastra-teal-dark: 180 100% 30%;
+    --hastra-teal-light: 180 100% 70%;
+    --hastra-slate: 215 25% 27%;
+    --hastra-slate-light: 215 25% 35%;
+    --hastra-slate-dark: 215 25% 20%;
+    
+    /* Glass Morphism */
+    --glass-bg: 255 255 255 / 0.05;
+    --glass-border: 255 255 255 / 0.1;
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    
     /* Enhanced crypto-native colors */
     --header-bg: 0 0% 100%;
     --header-footer-bg: 0 0% 100%;
@@ -52,11 +65,6 @@
     --premium-gold: 48 100% 67%;
     --rose-gold: 15 100% 75%;
     
-    /* Glass morphism and effects */
-    --glass-bg: 240 10% 15% / 0.8;
-    --glass-border: 0 0% 100% / 0.1;
-    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    
     /* Advanced gradients */
     --gradient-primary: linear-gradient(135deg, hsl(180 100% 50% / 0.1), hsl(120 70% 45% / 0.05));
     --gradient-auburn: linear-gradient(135deg, hsl(var(--auburn-primary)), hsl(var(--auburn-light)));
@@ -70,6 +78,7 @@
     --shadow-premium: 0 20px 40px -12px hsl(var(--electric-blue) / 0.25);
     --shadow-elegant: 0 25px 50px -12px hsl(240 8% 12% / 0.25);
     --shadow-glass: var(--glass-shadow);
+    --shadow-hastra: 0 0 20px hsl(var(--hastra-teal) / 0.3);
   }
 
   .dark {
@@ -104,7 +113,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Space Grotesk', sans-serif;
-    letter-spacing: 0.025em;
+    font-family: 'Inter', 'Space Grotesk', sans-serif;
+    letter-spacing: 0.01em;
   }
 }

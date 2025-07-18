@@ -1,6 +1,6 @@
 
 import { useWallet } from '@/contexts/WalletContext';
-import WalletDashboard from './WalletDashboard';
+import HastraDashboard from './HastraDashboard';
 import TradingPlatformsSection from '../start-earning/TradingPlatformsSection';
 
 const EnhancedWalletConnection = () => {
@@ -9,11 +9,7 @@ const EnhancedWalletConnection = () => {
   if (isConnected) {
     return (
       <div className="space-y-8">
-        <div>
-          <h2 className="text-3xl font-bold text-gradient">Your Dashboard</h2>
-          <p className="text-muted-foreground mt-2">Manage your DeFi positions and track earnings</p>
-        </div>
-        <WalletDashboard />
+        <HastraDashboard />
         <TradingPlatformsSection />
       </div>
     );

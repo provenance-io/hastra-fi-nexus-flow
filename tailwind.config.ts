@@ -20,7 +20,7 @@ export default {
 		},
 		extend: {
       fontFamily: {
-        sans: ['Space Grotesk', 'sans-serif'],
+        sans: ['Inter', 'Space Grotesk', 'sans-serif'],
       },
 			colors: {
 				border: 'hsl(var(--border))',
@@ -72,6 +72,12 @@ export default {
 				'neon-cyan': 'hsl(var(--neon-cyan))',
 				'premium-gold': 'hsl(var(--premium-gold))',
 				'rose-gold': 'hsl(var(--rose-gold))',
+				'hastra-teal': 'hsl(var(--hastra-teal))',
+				'hastra-teal-dark': 'hsl(var(--hastra-teal-dark))',
+				'hastra-teal-light': 'hsl(var(--hastra-teal-light))',
+				'hastra-slate': 'hsl(var(--hastra-slate))',
+				'hastra-slate-light': 'hsl(var(--hastra-slate-light))',
+				'hastra-slate-dark': 'hsl(var(--hastra-slate-dark))',
 			},
 			boxShadow: {
 				'auburn': '0 0 20px hsl(var(--auburn-primary) / 0.3)',
@@ -82,6 +88,8 @@ export default {
 				'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
 				'glow': '0 0 30px hsl(var(--header-glow) / 0.4)',
 				'neon': '0 0 20px hsl(var(--neon-cyan) / 0.5)',
+				'hastra': '0 0 20px hsl(var(--hastra-teal) / 0.3)',
+				'hastra-lg': '0 0 30px hsl(var(--hastra-teal) / 0.4)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -141,6 +149,10 @@ export default {
           '0%, 100%': { boxShadow: '0 0 20px hsl(var(--electric-blue) / 0.3)' },
           '50%': { boxShadow: '0 0 40px hsl(var(--electric-blue) / 0.6)' },
         },
+        'pulse-glow-hastra': {
+          '0%, 100%': { boxShadow: '0 0 20px hsl(var(--hastra-teal) / 0.3)' },
+          '50%': { boxShadow: '0 0 40px hsl(var(--hastra-teal) / 0.6)' },
+        },
         'morph': {
           '0%, 100%': { borderRadius: '20px' },
           '25%': { borderRadius: '25px 15px' },
@@ -160,6 +172,7 @@ export default {
         'float': 'float 3s ease-in-out infinite',
         'shimmer': 'shimmer 2s ease-in-out infinite',
         'pulse-glow-premium': 'pulse-glow-premium 3s ease-in-out infinite',
+        'pulse-glow-hastra': 'pulse-glow-hastra 3s ease-in-out infinite',
         'morph': 'morph 8s ease-in-out infinite',
 			}
 		}
