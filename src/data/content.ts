@@ -75,7 +75,8 @@ export const innovationApproach = [
 export const footerLinks = {
     company: [
         { label: 'About', href: '/about' },
-        { label: 'Start (L)earning', href: '/start-earning' },
+        { label: 'Earn', href: '/earn' },
+        { label: '(L)earn', href: '/learn' },
     ],
     products: [
         { label: 'YIELD', href: '/yield' },
