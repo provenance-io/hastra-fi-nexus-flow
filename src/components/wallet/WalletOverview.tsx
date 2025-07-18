@@ -19,7 +19,7 @@ import { useState } from 'react';
 
 const WalletOverview = () => {
   // Force component refresh after refactoring
-  const { refreshBalance, address } = useWallet();
+  const { refreshBalance, address, walletType } = useWallet();
   const { 
     tokens, 
     claimInterest, 
@@ -41,6 +41,38 @@ const WalletOverview = () => {
     return `${addr.slice(0, 6)}...${addr.slice(-4)}`;
   };
 
+  const getWalletIcon = (type: string | null) => {
+    // For now, we'll use MetaMask as default, but this can be expanded
+    // to support different wallet icons based on the wallet type
+    switch (type) {
+      case 'MetaMask':
+        return <Wallet className="w-6 h-6 text-orange-400" />;
+      case 'Phantom':
+        return <Wallet className="w-6 h-6 text-purple-400" />;
+      case 'Solflare':
+        return <Wallet className="w-6 h-6 text-yellow-400" />;
+      case 'Coinbase':
+        return <Wallet className="w-6 h-6 text-blue-400" />;
+      default:
+        return <Wallet className="w-6 h-6 text-hastra-teal" />;
+    }
+  };
+
+  const getWalletBrandColor = (type: string | null) => {
+    switch (type) {
+      case 'MetaMask':
+        return 'bg-orange-900/20';
+      case 'Phantom':
+        return 'bg-purple-900/20';
+      case 'Solflare':
+        return 'bg-yellow-900/20';
+      case 'Coinbase':
+        return 'bg-blue-900/20';
+      default:
+        return 'bg-hastra-teal/20';
+    }
+  };
+
   const handleTokenClaim = (tokenSymbol: string) => (claimedAmount: number) => {
     claimInterest(tokenSymbol, claimedAmount);
   };
@@ -55,8 +87,8 @@ const WalletOverview = () => {
       <CardHeader>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-hastra-teal/20 flex items-center justify-center">
-              <Wallet className="w-6 h-6 text-hastra-teal" />
+            <div className={`w-12 h-12 rounded-xl ${getWalletBrandColor(walletType)} flex items-center justify-center`}>
+              {getWalletIcon(walletType)}
             </div>
             <div>
               <p className="text-sm text-muted-foreground font-mono">

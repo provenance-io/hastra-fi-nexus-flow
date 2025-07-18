@@ -8,6 +8,7 @@ export interface WalletState {
   address: string | null;
   balance: number;
   networkError: string | null;
+  walletType: string | null;
 }
 
 export interface WalletContextType extends WalletState {
@@ -37,6 +38,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     address: null,
     balance: 0,
     networkError: null,
+    walletType: null,
   });
 
   const { toast } = useToast();
@@ -47,6 +49,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       const mockConnected = localStorage.getItem('mock-wallet-connected') === 'true';
       const savedAddress = localStorage.getItem('mock-wallet-address');
       const savedBalance = localStorage.getItem('mock-wallet-balance');
+      const savedWalletType = localStorage.getItem('mock-wallet-type');
       
       if (mockConnected && savedAddress) {
         setWalletState(prev => ({
@@ -54,6 +57,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
           isConnected: true,
           address: savedAddress,
           balance: savedBalance ? parseFloat(savedBalance) : 1250.45,
+          walletType: savedWalletType || 'MetaMask',
         }));
       }
     };
@@ -71,6 +75,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       // Mock successful connection
       const mockAddress = '0x742d35Cc6734Cf532A954B07C03bfcBb1316d35A4';
       const mockBalance = 1250.45;
+      const walletType = 'MetaMask'; // Could be dynamically determined
       
       setWalletState(prev => ({
         ...prev,
@@ -78,16 +83,18 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         address: mockAddress,
         balance: mockBalance,
         isConnecting: false,
+        walletType: walletType,
       }));
       
       // Persist wallet connection
       localStorage.setItem('mock-wallet-connected', 'true');
       localStorage.setItem('mock-wallet-address', mockAddress);
       localStorage.setItem('mock-wallet-balance', mockBalance.toString());
+      localStorage.setItem('mock-wallet-type', walletType);
       
       toast({
         title: "Wallet Connected",
-        description: "Successfully connected to MetaMask",
+        description: `Successfully connected to ${walletType}`,
       });
       
     } catch (error) {
@@ -112,12 +119,14 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       address: null,
       balance: 0,
       networkError: null,
+      walletType: null,
     });
     
     // Clear persisted data
     localStorage.removeItem('mock-wallet-connected');
     localStorage.removeItem('mock-wallet-address');
     localStorage.removeItem('mock-wallet-balance');
+    localStorage.removeItem('mock-wallet-type');
     
     toast({
       title: "Wallet Disconnected",
