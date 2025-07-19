@@ -75,7 +75,7 @@ const WYLDsHero = () => {
         
         <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed mb-6 md:mb-8" 
            style={{ 
-             textShadow: '0 0 10px rgba(0, 255, 150, 0.6), 0 0 20px rgba(0, 200, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.2)' 
+             textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' 
            }}>
           Earn yield on-the-go and spend whenever you want - backed by real world assets.
         </p>
