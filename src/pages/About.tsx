@@ -168,8 +168,15 @@ const About = () => {
             </div>
 
             <div className="max-w-5xl mx-auto mt-20">
-              <div className="card-gradient rounded-2xl p-8 md:p-12 card-hover">
-                <div className="space-y-6">
+              <div className="card-gradient rounded-3xl p-8 md:p-12 card-hover border-2 transition-all duration-500"
+                   style={{
+                     borderColor: 'rgba(229, 218, 194, 0.2)',
+                     boxShadow: '0 0 15px rgba(229, 218, 194, 0.15), 0 0 30px rgba(229, 218, 194, 0.08)',
+                   }}>
+                <div className="absolute inset-0 rounded-3xl pointer-events-none" 
+                     style={{ background: 'linear-gradient(to bottom right, rgba(229, 218, 194, 0.04), rgba(229, 218, 194, 0.02))' }} />
+                
+                <div className="relative z-10 space-y-6">
                   <h3 className="text-2xl md:text-3xl font-bold">Coming Soon: HASH Token Buy & Burn Program</h3>
                   <p className="text-lg text-foreground/90 leading-relaxed">
                     A significant portion of revenue from our institutional-grade DeFi products will be used to <span className="text-crypto-accent font-semibold">systematically purchase and permanently burn HASH tokens from the open market</span>.
@@ -208,10 +215,19 @@ const About = () => {
               </div>
               
               {/* Additional commitment section */}
-              <div className="card-gradient rounded-2xl p-8 md:p-12 card-hover mt-16">
-                <p className="text-lg text-foreground/90 leading-relaxed">
-                  This isn't about short-term price movements. It's about building sustainable value for the community that makes decentralized finance possible. <span className="text-orange-400 font-semibold">Every token we burn represents our commitment to the ecosystem that enables financial freedom for everyone.</span>
-                </p>
+              <div className="card-gradient rounded-3xl p-8 md:p-12 card-hover mt-16 border-2 transition-all duration-500"
+                   style={{
+                     borderColor: 'rgba(229, 218, 194, 0.2)',
+                     boxShadow: '0 0 15px rgba(229, 218, 194, 0.15), 0 0 30px rgba(229, 218, 194, 0.08)',
+                   }}>
+                <div className="absolute inset-0 rounded-3xl pointer-events-none" 
+                     style={{ background: 'linear-gradient(to bottom right, rgba(229, 218, 194, 0.04), rgba(229, 218, 194, 0.02))' }} />
+                
+                <div className="relative z-10">
+                  <p className="text-lg text-foreground/90 leading-relaxed">
+                    This isn't about short-term price movements. It's about building sustainable value for the community that makes decentralized finance possible. <span className="text-orange-400 font-semibold">Every token we burn represents our commitment to the ecosystem that enables financial freedom for everyone.</span>
+                  </p>
+                </div>
               </div>
               
               {/* Glowy conclusion text */}
