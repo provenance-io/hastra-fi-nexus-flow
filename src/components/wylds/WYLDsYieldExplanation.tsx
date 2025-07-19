@@ -48,19 +48,18 @@ const WYLDsYieldExplanation = () => {
       {/* Unified seamless background - removed conflicting gradient */}
       
       <div className="relative z-10 max-w-5xl mx-auto">
-        {/* Section Header - Outside the box */}
-        <div className="mb-12">
-          <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed mb-6 md:mb-8" 
-             style={{ 
-               textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' 
-             }}>
-            What is YIELD?
-          </p>
-        </div>
-
         {/* Dashboard Box - Matching About page styling */}
         <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
           <div className="relative z-10">
+            {/* Section Header - Inside the box */}
+            <div className="mb-12">
+              <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed mb-6 md:mb-8" 
+                 style={{ 
+                   textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' 
+                 }}>
+                What is YIELD?
+              </p>
+            </div>
             {/* Feature Cards */}
             <div className="grid gap-10 md:grid-cols-3">
               {[
@@ -135,19 +134,18 @@ const WYLDsYieldExplanation = () => {
           </div>
         </div>
 
-        {/* How It Works Section Header */}
-        <div className="text-center mb-12">
-          <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed mb-6 md:mb-8" 
-             style={{ 
-               textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' 
-             }}>
-            How It Works
-          </p>
-        </div>
-
         {/* How It Works Dashboard Box */}
         <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
           <div className="relative z-10">
+            {/* How It Works Section Header - Inside the box */}
+            <div className="text-center mb-12">
+              <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed mb-6 md:mb-8" 
+                 style={{ 
+                   textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' 
+                 }}>
+                How It Works
+              </p>
+            </div>
           
           {/* Desktop: Scrollable Horizontal Layout */}
           <div className="hidden lg:block max-w-7xl mx-auto">
