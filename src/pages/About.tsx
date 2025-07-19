@@ -51,10 +51,10 @@ const About = () => {
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">Our Mission</h2>
                 </div>
                 <p className="text-lg text-foreground/90 leading-relaxed">
-                  To obliterate the artificial walls between Wall Street's inner circle and everyone else via DeFi technology.
+                  To <span className="text-header-glow font-semibold">obliterate the artificial walls</span> between <span className="text-crypto-accent font-semibold">Wall Street's inner circle</span> and everyone else via <span className="text-header-glow font-semibold">DeFi technology</span>.
                 </p>
                 <p className="text-lg text-foreground/90 leading-relaxed">
-                  We aim to shatter every boundary that keeps you dependent on their system. Because being your own bank isn't a privilege—it's your fundamental right.
+                  We aim to <span className="text-crypto-accent font-semibold">shatter every boundary</span> that keeps you dependent on their system. Because <span className="text-header-glow font-semibold">being your own bank</span> isn't a privilege—it's your <span className="text-crypto-accent font-semibold">fundamental right</span>.
                 </p>
               </div>
 
