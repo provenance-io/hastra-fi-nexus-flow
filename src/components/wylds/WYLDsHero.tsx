@@ -69,8 +69,8 @@ const WYLDsHero = () => {
         </p>
 
         <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 my-6 md:my-8">
-          {/* APY Box - smaller and aligned */}
-          <div className="group card-gradient rounded-xl p-4 text-center space-y-2 hover:bg-background/60 transition-all duration-300 order-2 lg:order-1">
+          {/* APY Box - same width as button */}
+          <div className="group card-gradient rounded-xl p-4 text-center space-y-2 hover:bg-background/60 transition-all duration-300 order-2 lg:order-1 w-full max-w-[200px]">
             <div className="text-2xl md:text-3xl font-bold group-hover:scale-105 transition-transform duration-300 flex items-center justify-center gap-2">
               {apyLoading && <Loader2 className="w-5 h-5 animate-spin" />}
               <span className={apyLoading ? 'opacity-50' : apyError ? 'text-red-400' : 'text-foreground/90'}>
@@ -87,7 +87,7 @@ const WYLDsHero = () => {
           </div>
           
           {/* GET YIELD Button - aligned */}
-          <div className="order-1 lg:order-2">
+          <div className="order-1 lg:order-2 w-full max-w-[200px]">
             <Button 
               size="default" 
               className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-3 text-base rounded-xl group transition-all duration-200"
@@ -103,8 +103,8 @@ const WYLDsHero = () => {
             </Button>
             
             {/* Now available on Solana - directly below button */}
-            <div className="text-sm font-medium mt-3 animate-pulse">
-              <span className="mr-2 w-2 h-2 bg-header-glow rounded-full animate-pulse"></span>
+            <div className="text-sm font-medium mt-3">
+              <span className="mr-2 w-2 h-2 bg-header-glow rounded-full"></span>
               <span className="text-platinum/90 font-semibold flex items-center justify-center gap-2">
                 Now available on 
                 <img 
