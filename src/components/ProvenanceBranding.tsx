@@ -4,13 +4,15 @@ import { motion } from 'framer-motion';
 const ProvenanceBranding = () => {
   return (
     <motion.div 
-      className="py-8 text-center"
+      className="py-8 text-center relative"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       viewport={{ once: true }}
     >
-      <div className="container">
+      {/* Extended gradient background to match other pages */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
+      <div className="container relative z-10">
         <div className="flex flex-col items-center justify-center gap-1">
           <span className="text-xl md:text-2xl text-foreground/80 font-medium">
             Built on
