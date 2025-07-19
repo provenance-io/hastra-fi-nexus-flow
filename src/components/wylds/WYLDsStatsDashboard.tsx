@@ -121,7 +121,7 @@ const WYLDsStatsDashboard = () => {
       
       <div className="container relative">
         <div className="max-w-5xl mx-auto">
-          <div className="card-gradient rounded-3xl p-8">
+          <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
             <div className="text-center mb-8">
               <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed mb-6 md:mb-8" 
                  style={{ 
