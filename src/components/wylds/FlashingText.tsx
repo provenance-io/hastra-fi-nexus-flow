@@ -76,8 +76,8 @@ const FlashingText = ({ phrases, className = "" }: FlashingTextProps) => {
           style={{
             textShadow: activeIndex === index ? 
               (index === phrases.length - 1 && !isSlowFading ? 
-                '0 0 20px hsl(var(--hastra-teal)), 0 0 40px hsl(var(--hastra-teal)), 0 0 60px hsl(var(--hastra-teal))' :
-                '0 0 20px rgb(251 146 60), 0 0 40px rgb(251 146 60), 0 0 60px rgb(251 146 60)'
+                '0 0 8px hsl(var(--hastra-teal) / 0.5), 0 0 16px hsl(var(--hastra-teal) / 0.2)' :
+                '0 0 8px rgb(251 146 60 / 0.5), 0 0 16px rgb(251 146 60 / 0.2)'
               ) : 
               'none'
           }}
