@@ -146,7 +146,7 @@ const WYLDsYieldExplanation = () => {
                       {/* Step Card - Fixed Size */}
                       <div className="relative group">
                         {/* Number Badge */}
-                        <div className="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-r from-header-glow to-crypto-accent rounded-full flex items-center justify-center text-black font-bold text-sm shadow-lg z-10">
+                        <div className="absolute -top-3 -right-3 w-8 h-8 bg-orange-900/20 border border-orange-800/30 text-orange-300 rounded-full flex items-center justify-center font-bold text-sm shadow-lg z-10">
                           {step.number}
                         </div>
                         
@@ -204,7 +204,7 @@ const WYLDsYieldExplanation = () => {
                   {/* Step Card - Consistent Mobile Size */}
                   <div className="relative group">
                     {/* Number Badge */}
-                    <div className="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-r from-header-glow to-crypto-accent rounded-full flex items-center justify-center text-black font-bold text-sm shadow-lg z-10">
+                    <div className="absolute -top-3 -right-3 w-8 h-8 bg-orange-900/20 border border-orange-800/30 text-orange-300 rounded-full flex items-center justify-center font-bold text-sm shadow-lg z-10">
                       {step.number}
                     </div>
                     
