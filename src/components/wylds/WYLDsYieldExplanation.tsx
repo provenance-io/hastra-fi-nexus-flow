@@ -1,11 +1,16 @@
 import { Button } from '@/components/ui/button';
-import { ArrowRight, ChevronDown, Wallet, TrendingUp, Calendar, Repeat, Shield, Globe } from 'lucide-react';
+import { ArrowRight, ChevronDown, TrendingUp, Calendar, Repeat, Shield, Globe } from 'lucide-react';
+import yieldIcon from '@/assets/yield-icon.png';
+
+const YieldTokenIcon = ({ className }: { className?: string }) => (
+  <img src={yieldIcon} alt="YIELD Token" className={className} />
+);
 
 const WYLDsYieldExplanation = () => {
   const steps = [
     {
       number: 1,
-      icon: Wallet,
+      icon: YieldTokenIcon,
       title: "Hold YIELD tokens",
       description: "Simply hold YIELD tokens in any compatible Solana wallet",
       color: "from-header-glow to-crypto-accent",
