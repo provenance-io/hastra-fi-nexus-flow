@@ -33,21 +33,21 @@ const HastraDashboard = () => {
   return (
     <div className="w-full">
       {/* Polished dashboard container with rounded corners and subtle background */}
-      <div className="card-gradient rounded-2xl border border-border/20 overflow-hidden">
-        <div className="container mx-auto px-6 py-8 max-w-7xl">
+      <div className="card-gradient rounded-2xl border border-border/20 overflow-hidden mx-2 md:mx-0">
+        <div className="container mx-auto px-4 md:px-6 py-6 md:py-8 max-w-7xl">
           {/* Header */}
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gradient mb-2">
+          <div className="mb-6 md:mb-8">
+            <h1 className="text-2xl md:text-3xl font-bold text-gradient mb-2">
               Earnings Dashboard
             </h1>
-            <p className="text-muted-foreground">
+            <p className="text-sm md:text-base text-muted-foreground">
               Your decentralized finance command center
             </p>
           </div>
 
           {/* Portfolio Overview Section */}
-          <div className="mb-8">
-            <h2 className="text-xl font-semibold mb-4 text-foreground">
+          <div className="mb-6 md:mb-8">
+            <h2 className="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-foreground">
               Portfolio Overview
             </h2>
             
@@ -56,8 +56,8 @@ const HastraDashboard = () => {
 
 
           {/* Buy and Send Interfaces */}
-          <div id="buy-send-section" className="mb-8">
-            <h2 className="text-xl font-semibold mb-4 text-foreground">
+          <div id="buy-send-section" className="mb-6 md:mb-8">
+            <h2 className="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-foreground">
               Buy & Send
             </h2>
             
@@ -68,7 +68,7 @@ const HastraDashboard = () => {
           </div>
 
           {/* Trading Platforms Section */}
-          <div id="trade-lend-section" className="mb-8">
+          <div id="trade-lend-section" className="mb-6 md:mb-8">
             <TradingPlatformsSection />
           </div>
 

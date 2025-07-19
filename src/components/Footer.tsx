@@ -131,17 +131,10 @@ const Footer = () => {
         
         {/* Bottom Section */}
         <div className="py-6 border-t border-border/20">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-muted-foreground">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4">
+            <p className="text-sm text-muted-foreground text-center">
               &copy; {new Date().getFullYear()} Hastra Protocol Foundation. All rights reserved.
             </p>
-            <div className="flex items-center gap-6 text-xs text-muted-foreground">
-              <span>Built on Solana</span>
-              <span>•</span>
-              <span>Regulated by SEC</span>
-              <span>•</span>
-              <span>Powered by Provenance</span>
-            </div>
           </div>
         </div>
       </div>

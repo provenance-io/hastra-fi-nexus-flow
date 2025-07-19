@@ -15,9 +15,10 @@ const MobileMenu = () => {
 
   const navItems = [
     { label: 'About', href: '/about' },
-    { label: 'Products', href: '/yield' },
+    { label: 'YIELD', href: '/yield' },
+    { label: 'HOMES', href: '/homes' },
+    { label: 'Earn', href: '/earn' },
     { label: '(L)earn', href: '/learn' },
-    
   ];
 
   const handleNavClick = (href: string, isAnchor?: boolean) => {
@@ -55,7 +56,7 @@ const MobileMenu = () => {
             </div>
           ))}
           <div className="pt-6 space-y-3">
-            <Button asChild size="lg" className="w-full btn-gradient">
+            <Button asChild size="lg" className="w-full btn-gradient text-sm md:text-base">
               <Link to="/yield">
                 Explore YIELD
                 <ExternalLink className="ml-2 h-4 w-4" />
