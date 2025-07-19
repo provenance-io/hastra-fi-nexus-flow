@@ -123,46 +123,63 @@
 
 .trace-outline {
   position: absolute;
-  top: -8px;
-  left: -8px;
-  right: -8px;
-  bottom: -8px;
+  top: -12px;
+  left: -12px;
+  right: -12px;
+  bottom: -12px;
   border-radius: 50%;
   background: conic-gradient(
     from 0deg,
     transparent 0%,
-    rgba(0, 255, 150, 0.8) 10%,
-    rgba(0, 200, 255, 0.8) 20%,
-    transparent 30%,
+    rgba(0, 255, 150, 1) 5%,
+    rgba(0, 200, 255, 1) 15%,
+    rgba(100, 255, 200, 1) 25%,
+    transparent 35%,
     transparent 100%
   );
-  animation: trace-rotate 3s linear infinite;
+  animation: trace-rotate 2s linear infinite;
   z-index: 1;
+  filter: blur(1px);
 }
 
 .trace-outline::before {
   content: '';
   position: absolute;
-  top: 4px;
-  left: 4px;
-  right: 4px;
-  bottom: 4px;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
   border-radius: 50%;
   background: hsl(var(--background));
   z-index: -1;
 }
 
+.trace-outline::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(0, 255, 150, 0.3) 8%,
+    rgba(0, 200, 255, 0.3) 18%,
+    transparent 28%,
+    transparent 100%
+  );
+  animation: trace-rotate 2s linear infinite reverse;
+  filter: blur(2px);
+}
+
 @keyframes trace-rotate {
   0% {
     transform: rotate(0deg);
-    filter: blur(0px);
-  }
-  50% {
-    filter: blur(1px);
   }
   100% {
     transform: rotate(360deg);
-    filter: blur(0px);
   }
 }
   
