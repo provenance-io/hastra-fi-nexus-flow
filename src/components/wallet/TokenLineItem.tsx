@@ -55,7 +55,8 @@ const TokenLineItem = ({
 
   return (
     <div className="p-4 rounded-xl bg-background/50 border border-border/30 hover:border-hastra-teal/30 transition-all duration-300">
-      <div className="grid grid-cols-[auto_1fr_1fr_1fr_1fr_auto] gap-6 items-center">
+      {/* Desktop Layout */}
+      <div className="hidden lg:grid grid-cols-[auto_1fr_1fr_1fr_1fr_auto] gap-6 items-center">
         {/* Token Info */}
         <div className="flex items-center gap-3 min-w-0">
           {isImage ? (
@@ -135,6 +136,86 @@ const TokenLineItem = ({
             <div className="flex items-center gap-2">
               <Gift className="w-3 h-3" />
               Claim APY
+            </div>
+          )}
+        </Button>
+      </div>
+
+      {/* Mobile/Tablet Layout */}
+      <div className="lg:hidden space-y-4">
+        {/* Token Header */}
+        <div className="flex items-center gap-3">
+          {isImage ? (
+            <img 
+              src={icon} 
+              alt={`${token} Token`}
+              className="w-12 h-12 rounded-lg"
+            />
+          ) : (
+            <div className="w-12 h-12 rounded-lg bg-hastra-teal/10 flex items-center justify-center">
+              <span className="text-hastra-teal font-bold text-lg">{icon}</span>
+            </div>
+          )}
+          <div className="flex-1">
+            <h4 className="font-semibold text-foreground">{token}</h4>
+            <p className="text-sm text-muted-foreground">
+              {amount.toLocaleString('en-US', { 
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 4 
+              })} tokens
+            </p>
+          </div>
+          <div className="text-right">
+            <p className="font-medium text-foreground">
+              ${value.toLocaleString('en-US', { 
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2 
+              })}
+            </p>
+          </div>
+        </div>
+
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 gap-4">
+          <div className="bg-background/30 rounded-lg p-3">
+            <div className="flex items-center gap-1 mb-1">
+              <TrendingUp className="w-3 h-3 text-green-400" />
+              <p className="text-xs text-muted-foreground">Total Claimed</p>
+            </div>
+            <p className="font-medium text-green-400 text-sm">
+              ${totalInterestEarnedUSD.toLocaleString('en-US', { 
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2 
+              })}
+            </p>
+          </div>
+          
+          <div className="bg-background/30 rounded-lg p-3">
+            <p className="text-xs text-muted-foreground mb-1">Unclaimed</p>
+            <p className={`font-medium text-sm ${unclaimedInterest > 0 ? 'text-hastra-teal' : 'text-muted-foreground'}`}>
+              ${unclaimedInterestUSD.toLocaleString('en-US', { 
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2 
+              })}
+            </p>
+          </div>
+        </div>
+
+        {/* Claim Button */}
+        <Button
+          onClick={handleClaim}
+          disabled={unclaimedInterest <= 0 || isClaiming}
+          className="w-full bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring py-3 text-sm font-medium rounded-lg transition-all duration-200 disabled:opacity-50"
+        >
+          {isClaiming ? (
+            <div className="flex items-center justify-center gap-2">
+              <div className="w-4 h-4 border border-hastra-teal border-t-transparent rounded-full animate-spin" />
+              Claiming Interest...
+            </div>
+          ) : (
+            <div className="flex items-center justify-center gap-2">
+              <Gift className="w-4 h-4" />
+              Claim ${unclaimedInterestUSD.toFixed(2)} APY
             </div>
           )}
         </Button>
