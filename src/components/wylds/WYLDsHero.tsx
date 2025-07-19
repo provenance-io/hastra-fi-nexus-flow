@@ -41,6 +41,12 @@ const WYLDsHero = () => {
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMTAsIDIwLCA0MCwwLjA1KSI+PGQgcGF0aD0iTTAtMSAwIDEgTS0xIDAgMSAwIj48L2Q+PC9zdmc+')] opacity-30"></div>
       
       <div className="container relative text-center">
+        <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4 md:mb-6 text-platinum/90">
+          <FlashingText 
+            phrases={flashingPhrases}
+            className="block"
+          />
+        </h2>
         
         <div className="mb-4 md:mb-6 flex justify-center">
           <img 
@@ -54,13 +60,6 @@ const WYLDsHero = () => {
             }}
           />
         </div>
-        
-        <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4 md:mb-6 text-platinum/90">
-          <FlashingText 
-            phrases={flashingPhrases}
-            className="block"
-          />
-        </h2>
         
         <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed mb-6 md:mb-8" 
            style={{ 
@@ -88,32 +87,34 @@ const WYLDsHero = () => {
           </div>
           
           {/* GET YIELD Button - aligned */}
-          <Button 
-            size="lg" 
-            className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-12 py-6 text-lg rounded-2xl min-w-[240px] group transition-all duration-200 order-1 lg:order-2"
-            asChild
-          >
-            <Link 
-              to="/earn"
-              className="flex items-center justify-center"
+          <div className="order-1 lg:order-2">
+            <Button 
+              size="lg" 
+              className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-12 py-6 text-lg rounded-2xl min-w-[240px] group transition-all duration-200"
+              asChild
             >
-              Get YIELD
-              <ArrowRight className="ml-3 h-4 w-4" />
-            </Link>
-          </Button>
-        </div>
-        
-        {/* Now available on Solana - moved below for better alignment */}
-        <div className="text-sm font-medium mt-4 animate-pulse inline-block">
-          <span className="mr-2 w-2 h-2 bg-header-glow rounded-full animate-pulse"></span>
-          <span className="text-platinum/90 font-semibold flex items-center gap-2">
-            Now available on 
-            <img 
-              src="/src/assets/solana-logo.svg" 
-              alt="Solana" 
-              className="h-4 w-auto inline"
-            />
-          </span>
+              <Link 
+                to="/earn"
+                className="flex items-center justify-center"
+              >
+                Get YIELD
+                <ArrowRight className="ml-3 h-4 w-4" />
+              </Link>
+            </Button>
+            
+            {/* Now available on Solana - directly below button */}
+            <div className="text-sm font-medium mt-3 animate-pulse">
+              <span className="mr-2 w-2 h-2 bg-header-glow rounded-full animate-pulse"></span>
+              <span className="text-platinum/90 font-semibold flex items-center justify-center gap-2">
+                Now available on 
+                <img 
+                  src="/src/assets/solana-logo.svg" 
+                  alt="Solana" 
+                  className="h-4 w-auto inline"
+                />
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
