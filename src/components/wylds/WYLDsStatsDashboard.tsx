@@ -134,7 +134,7 @@ const WYLDsStatsDashboard = () => {
             {stats.map((stat, index) => (
               <div 
                 key={stat.title} 
-                className="text-center space-y-3"
+                className="card-gradient rounded-2xl p-6 text-center space-y-3 hover:bg-background/60 transition-all duration-300"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="pb-4">
