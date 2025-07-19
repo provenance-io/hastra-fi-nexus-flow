@@ -17,37 +17,25 @@ const About = () => {
           
           <div className="container relative text-center">
             
-            {/* Animated Logo with Subtle Trace Effect */}
+            {/* Animated Logo with Subtle Edge Glow */}
             <div className="flex justify-center mb-12">
               <div className="relative w-32 h-32 md:w-48 md:h-48">
+                {/* Multiple copies of the logo for glow effect */}
+                <img 
+                  src="/lovable-uploads/e7187c63-0dae-455c-971c-a6de70ce2afc.png" 
+                  alt="Mission Logo Background" 
+                  className="absolute inset-0 w-full h-full logo-glow-base"
+                />
+                <img 
+                  src="/lovable-uploads/e7187c63-0dae-455c-971c-a6de70ce2afc.png" 
+                  alt="Mission Logo Glow" 
+                  className="absolute inset-0 w-full h-full logo-glow-animated"
+                />
                 <img 
                   src="/lovable-uploads/e7187c63-0dae-455c-971c-a6de70ce2afc.png" 
                   alt="Mission Logo" 
-                  className="w-32 h-32 md:w-48 md:h-48 relative z-10"
+                  className="relative z-10 w-full h-full"
                 />
-                {/* SVG overlay that traces the logo shape */}
-                <svg 
-                  className="absolute inset-0 w-full h-full pointer-events-none z-20" 
-                  viewBox="0 0 200 200"
-                  fill="none"
-                >
-                  {/* This path approximates your logo's curved organic shape */}
-                  <path
-                    d="M50 100 C50 50, 80 30, 120 40 C160 50, 180 80, 170 120 C160 160, 130 180, 90 170 C50 160, 40 130, 50 100 Z"
-                    stroke="url(#traceGradient)"
-                    strokeWidth="2"
-                    fill="none"
-                    strokeDasharray="8 4"
-                    className="logo-trace-path"
-                  />
-                  <defs>
-                    <linearGradient id="traceGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="rgba(0, 255, 150, 0.8)" />
-                      <stop offset="50%" stopColor="rgba(0, 200, 255, 0.8)" />
-                      <stop offset="100%" stopColor="rgba(100, 255, 200, 0.8)" />
-                    </linearGradient>
-                  </defs>
-                </svg>
               </div>
             </div>
             

@@ -108,26 +108,48 @@
     transform: translateY(0vh) translateX(calc(var(--drift-early, 0px) * 0.3)) rotate(calc(var(--rotation-start, 0deg) + 90deg)) scale(0.95);
 }
 
-/* Subtle Logo Trace Animation */
-.logo-trace-path {
-  stroke-dasharray: 8 4;
-  stroke-dashoffset: 0;
-  animation: trace-dash 3s ease-in-out infinite;
-  filter: drop-shadow(0 0 4px rgba(0, 255, 150, 0.6));
+/* Logo Edge Glow Effect - Follows Actual Logo Shape */
+.logo-glow-base {
+  filter: 
+    brightness(0) 
+    sepia(1) 
+    hue-rotate(120deg) 
+    saturate(3) 
+    blur(2px);
+  opacity: 0.4;
+  z-index: 1;
 }
 
-@keyframes trace-dash {
-  0% {
-    stroke-dashoffset: 0;
+.logo-glow-animated {
+  filter: 
+    brightness(0) 
+    sepia(1) 
+    hue-rotate(180deg) 
+    saturate(4) 
+    blur(3px);
+  opacity: 0.6;
+  z-index: 2;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
     opacity: 0.3;
+    filter: 
+      brightness(0) 
+      sepia(1) 
+      hue-rotate(120deg) 
+      saturate(3) 
+      blur(2px);
   }
   50% {
-    stroke-dashoffset: -20;
     opacity: 0.8;
-  }
-  100% {
-    stroke-dashoffset: -40;
-    opacity: 0.3;
+    filter: 
+      brightness(0) 
+      sepia(1) 
+      hue-rotate(180deg) 
+      saturate(5) 
+      blur(4px);
   }
 }
   
