@@ -34,53 +34,51 @@ const HastraDashboard = () => {
     <div className="w-full">
       {/* Polished dashboard container with rounded corners and subtle background */}
       <div className="card-gradient rounded-xl md:rounded-2xl border border-border/20 overflow-hidden mx-0 md:mx-0">
-        <div className="max-w-5xl mx-auto px-2 md:px-4 py-4 md:py-6">
-          {/* Header */}
-          <div className="mb-6 md:mb-8">
-            <h1 className="text-2xl md:text-3xl font-bold text-gradient mb-2">
-              Earnings Dashboard
-            </h1>
-            <p className="text-sm md:text-base text-muted-foreground">
-              Your decentralized finance command center
-            </p>
-          </div>
+        {/* Header */}
+        <div className="mb-6 md:mb-8">
+          <h1 className="text-2xl md:text-3xl font-bold text-gradient mb-2">
+            Earnings Dashboard
+          </h1>
+          <p className="text-sm md:text-base text-muted-foreground">
+            Your decentralized finance command center
+          </p>
+        </div>
 
-          {/* Portfolio Overview Section */}
-          <div className="mb-6 md:mb-8 relative">
-            <WalletOverview />
-            <h2 className="absolute top-4 left-6 text-lg md:text-xl font-semibold text-foreground z-10">
-              Portfolio Overview
+        {/* Portfolio Overview Section */}
+        <div className="mb-6 md:mb-8 relative">
+          <WalletOverview />
+          <h2 className="absolute top-4 left-6 text-lg md:text-xl font-semibold text-foreground z-10">
+            Portfolio Overview
+          </h2>
+        </div>
+
+
+        {/* Buy and Send Interfaces */}
+        <div id="buy-send-section" className="mb-6 md:mb-8">
+          <div className="bg-background/20 rounded-3xl p-6 mb-4">
+            <h2 className="text-lg md:text-xl font-semibold text-foreground">
+              Buy & Send
             </h2>
           </div>
-
-
-          {/* Buy and Send Interfaces */}
-          <div id="buy-send-section" className="mb-6 md:mb-8">
-            <div className="bg-background/20 rounded-3xl p-6 mb-4">
-              <h2 className="text-lg md:text-xl font-semibold text-foreground">
-                Buy & Send
-              </h2>
-            </div>
-            
-            <div className="bg-background/20 rounded-3xl p-6">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <BuyCard />
-                <SendCard />
-              </div>
+          
+          <div className="bg-background/20 rounded-3xl p-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <BuyCard />
+              <SendCard />
             </div>
           </div>
+        </div>
 
-          {/* Trading Platforms Section */}
-          <div id="trade-lend-section" className="mb-6 md:mb-8">
-            <TradingPlatformsSection />
-          </div>
+        {/* Trading Platforms Section */}
+        <div id="trade-lend-section" className="mb-6 md:mb-8">
+          <TradingPlatformsSection />
+        </div>
 
-          {/* Additional Info */}
-          <div className="text-center text-muted-foreground">
-            <p className="text-sm">
-              Always verify transactions before confirming
-            </p>
-          </div>
+        {/* Additional Info */}
+        <div className="text-center text-muted-foreground">
+          <p className="text-sm">
+            Always verify transactions before confirming
+          </p>
         </div>
       </div>
     </div>
