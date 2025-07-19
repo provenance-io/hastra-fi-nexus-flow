@@ -17,17 +17,13 @@ const About = () => {
           
           <div className="container relative text-center">
             
-            {/* Test with inline styles */}
+            {/* Subtle Logo Trace Effect */}
             <div className="flex justify-center mb-12">
               <div className="relative">
                 <img 
                   src="/lovable-uploads/e7187c63-0dae-455c-971c-a6de70ce2afc.png" 
                   alt="Mission Logo" 
-                  className="w-32 h-32 md:w-48 md:h-48"
-                  style={{
-                    filter: 'drop-shadow(0 0 20px #00ff96)',
-                    boxShadow: '0 0 30px #00ff96'
-                  }}
+                  className="w-32 h-32 md:w-48 md:h-48 logo-subtle-glow"
                 />
               </div>
             </div>

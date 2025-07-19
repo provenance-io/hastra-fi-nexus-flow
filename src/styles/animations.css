@@ -108,26 +108,26 @@
     transform: translateY(0vh) translateX(calc(var(--drift-early, 0px) * 0.3)) rotate(calc(var(--rotation-start, 0deg) + 90deg)) scale(0.95);
 }
 
-/* Test - Very Visible Drop Shadow */
-.logo-subtle-trace {
+/* Subtle Logo Glow - Following Logo Shape */
+.logo-subtle-glow {
   filter: 
-    drop-shadow(0 0 10px #00ff96)
-    drop-shadow(0 0 20px #00ff96)
-    drop-shadow(0 0 30px #00c8ff);
-  animation: obvious-pulse 2s ease-in-out infinite;
+    drop-shadow(0 0 4px rgba(0, 255, 150, 0.5))
+    drop-shadow(0 0 8px rgba(0, 255, 150, 0.3))
+    drop-shadow(0 0 12px rgba(0, 200, 255, 0.2));
+  animation: gentle-breathe 4s ease-in-out infinite;
 }
 
-@keyframes obvious-pulse {
+@keyframes gentle-breathe {
   0%, 100% {
     filter: 
-      drop-shadow(0 0 5px #00ff96)
-      drop-shadow(0 0 10px #00ff96);
+      drop-shadow(0 0 3px rgba(0, 255, 150, 0.4))
+      drop-shadow(0 0 6px rgba(0, 255, 150, 0.2));
   }
   50% {
     filter: 
-      drop-shadow(0 0 15px #00ff96)
-      drop-shadow(0 0 25px #00ff96)
-      drop-shadow(0 0 35px #00c8ff);
+      drop-shadow(0 0 6px rgba(0, 255, 150, 0.7))
+      drop-shadow(0 0 12px rgba(0, 255, 150, 0.4))
+      drop-shadow(0 0 18px rgba(0, 200, 255, 0.3));
   }
 }
   
