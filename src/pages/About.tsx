@@ -95,9 +95,11 @@ const About = () => {
               <p className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed mb-12" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
                 Hastra is built on Provenance Blockchain—and we're committed to making the entire ecosystem stronger.
               </p>
-              <p className="text-xl text-foreground/90 max-w-3xl mx-auto">
-                Hastra is built on Provenance Blockchain—and we're committed to making the entire ecosystem stronger. Most DeFi protocols create their own tokens to capture value for themselves. We're taking a different approach. Instead of launching another token, we're channeling our success directly back to the HASH holders who power and secure the Provenance network.
-              </p>
+              <div className="card-gradient rounded-2xl p-6 md:p-8 card-hover max-w-4xl mx-auto mb-12">
+                <p className="text-lg text-foreground/90 leading-relaxed">
+                  Most DeFi protocols create their own tokens to capture value for themselves. We're taking a different approach. Instead of launching another token, we're channeling our success directly back to the HASH holders who power and secure the Provenance network.
+                </p>
+              </div>
             </div>
 
             <div className="max-w-4xl mx-auto">
