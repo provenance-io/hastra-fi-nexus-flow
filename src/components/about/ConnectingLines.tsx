@@ -37,8 +37,8 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
         }`}
         style={{
           left: '80%', // Far right
-          top: '780px', // End of Belief card
-          height: '80px', // Distance to Vision card
+          top: '590px', // Moved up by same amount (190px)
+          height: '32px', // Same length as first line
           width: '3px',
           background: 'linear-gradient(to bottom, hsl(var(--header-glow) / 0.8), hsl(var(--header-glow) / 0.4))',
           transformOrigin: 'top',
