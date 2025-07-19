@@ -29,17 +29,26 @@ export const useScrollBasedAnimation = () => {
       const documentHeight = document.documentElement.scrollHeight;
       const scrollProgress = scrollY / (documentHeight - windowHeight);
 
+      // Debug logging
+      console.log('Scroll Debug:', {
+        scrollY,
+        windowHeight,
+        documentHeight,
+        scrollProgress: scrollProgress.toFixed(2)
+      });
+
       // Progressive animation triggers based on scroll position
       const newState: ScrollAnimationState = {
-        missionVisible: scrollProgress > 0.2,
-        beliefVisible: scrollProgress > 0.35,
-        visionVisible: scrollProgress > 0.5,
-        missionToBeliefLine: scrollProgress > 0.4,
-        beliefToVisionLine: scrollProgress > 0.55,
-        visionToHashLine: scrollProgress > 0.7,
-        hashGlow: scrollProgress > 0.8,
+        missionVisible: scrollProgress > 0.1,
+        beliefVisible: scrollProgress > 0.2,
+        visionVisible: scrollProgress > 0.3,
+        missionToBeliefLine: scrollProgress > 0.15,
+        beliefToVisionLine: scrollProgress > 0.25,
+        visionToHashLine: scrollProgress > 0.35,
+        hashGlow: scrollProgress > 0.4,
       };
 
+      console.log('Animation States:', newState);
       setState(newState);
     };
 
