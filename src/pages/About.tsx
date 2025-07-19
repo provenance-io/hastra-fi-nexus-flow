@@ -127,25 +127,40 @@ const About = () => {
 
             <div className="max-w-4xl mx-auto">
               <div className="card-gradient rounded-2xl p-8 md:p-12 card-hover">
-                <div className="flex items-start gap-6">
-                  <div className="w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
-                    <img src="/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png" alt="HASH Token" className="w-16 h-16 object-cover" />
-                  </div>
+                <div className="space-y-6">
+                  <h3 className="text-2xl md:text-3xl font-bold">Coming Soon: HASH Token Buy & Burn Program</h3>
+                  <p className="text-lg text-foreground/90 leading-relaxed">
+                    A significant portion of revenue from our institutional-grade DeFi products will be used to systematically purchase and permanently burn HASH tokens from the open market.
+                  </p>
+                  
                   <div className="space-y-4">
-                    <h3 className="text-2xl md:text-3xl font-bold">HASH Token Buy & Burn Program (Coming Soon!)</h3>
-                    <p className="text-lg text-foreground/90 leading-relaxed">
-                      A significant portion of revenue generated from our DeFi products is systematically allocated to purchase and permanently burn HASH tokens from the open market. We believe this will:
-                    </p>
-                    <ul className="space-y-3 text-foreground/90">
-                      <li className="flex items-start gap-3">
+                    <h4 className="text-xl font-semibold text-foreground/90">Why This Approach:</h4>
+                    
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3">
                         <div className="w-2 h-2 rounded-full bg-header-glow mt-2 flex-shrink-0"></div>
-                        <span>Strengthen the economic security of the Provenance Blockchain</span>
-                      </li>
-                      <li className="flex items-start gap-3">
+                        <div>
+                          <span className="font-medium text-foreground/90">Strengthens network economics</span>
+                          <span className="text-foreground/80"> - Reducing HASH supply while demand grows from ecosystem activity</span>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start gap-3">
                         <div className="w-2 h-2 rounded-full bg-header-glow mt-2 flex-shrink-0"></div>
-                        <span>Aligns our success with the long-term health of the ecosystem</span>
-                      </li>
-                    </ul>
+                        <div>
+                          <span className="font-medium text-foreground/90">Aligns incentives</span>
+                          <span className="text-foreground/80"> - Our protocol's success directly benefits every HASH holder, not just our team</span>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-header-glow mt-2 flex-shrink-0"></div>
+                        <div>
+                          <span className="font-medium text-foreground/90">Supports decentralization</span>
+                          <span className="text-foreground/80"> - We're not just using Provenance infrastructure—we're actively investing in its long-term economic health</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
