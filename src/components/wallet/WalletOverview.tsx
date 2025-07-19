@@ -83,7 +83,7 @@ const WalletOverview = () => {
   const profitPercentage = totalPortfolioValue > 0 ? (totalInterestEarned / totalPortfolioValue) * 100 : 0;
 
   return (
-    <Card className="!bg-transparent card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
+    <Card className="!bg-transparent rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
       <CardHeader className="bg-background/20 rounded-t-3xl">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -126,7 +126,7 @@ const WalletOverview = () => {
       
       <CardContent className="bg-background/20">
         {/* Portfolio Summary */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
+        <div className="card-gradient rounded-2xl p-6 md:p-8 grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
           {/* Total Portfolio Value */}
           <div className="space-y-3">
             <div className="flex items-center gap-2">
