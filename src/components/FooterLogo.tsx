@@ -1,10 +1,10 @@
 const FooterLogo = ({ className = "h-8 w-auto" }: { className?: string }) => {
   return (
-    <div className={`flex items-center ${className}`}>
+    <div className="flex items-center">
       <img 
         src="/lovable-uploads/4a374512-469e-4932-9bfc-215e5dd3591d.png" 
         alt="Hastra" 
-        className="w-auto brightness-110 contrast-110"
+        className={`brightness-110 contrast-110 ${className}`}
         loading="eager"
         decoding="async"
         onError={(e) => {
