@@ -80,38 +80,36 @@ const Hero = () => {
       {/* Unified seamless background - removed conflicting gradients */}
       
       {/* Enhanced 3D perspective falling coins animation */}
-      {isLoaded && (
-        <div ref={coinsRef} className="absolute inset-0 pointer-events-none z-0">
-          <div className="falling-coins-3d-container">
-            {coinConfigs.current.map((config) => (
-              <div 
-                key={`perspective-coin-${config.id}`}
-                className="falling-coin-3d"
-                style={{ 
-                  '--fall-start-x': `${config.startX}%`,
-                  '--drift-early': `${config.driftEarly}px`,
-                  '--drift-mid': `${config.driftMid}px`,
-                  '--drift-late': `${config.driftLate}px`,
-                  '--drift-end': `${config.driftEnd}px`,
-                  '--fall-duration': `${config.duration}s`,
-                  '--animation-delay': `${config.delay}s`,
-                  '--rotation-start': `${config.rotationStart}deg`,
-                  '--spin-speed': `${config.spinSpeed}deg`,
-                  '--tilt-speed': `${config.tiltSpeed}deg`,
-                  '--z-depth': config.zDepth,
-                  '--base-scale': config.baseScale,
-                  '--layer': config.layer,
-                  '--blur-amount': `${config.blur}px`,
-                  '--layer-opacity': config.opacity,
-                } as React.CSSProperties}
-              >
-                <div className="coin-face-3d" />
-                <div className="coin-edge-3d" />
-              </div>
-            ))}
-          </div>
+      <div ref={coinsRef} className="absolute inset-0 pointer-events-none z-0">
+        <div className="falling-coins-3d-container">
+          {coinConfigs.current.map((config) => (
+            <div 
+              key={`perspective-coin-${config.id}`}
+              className="falling-coin-3d"
+              style={{ 
+                '--fall-start-x': `${config.startX}%`,
+                '--drift-early': `${config.driftEarly}px`,
+                '--drift-mid': `${config.driftMid}px`,
+                '--drift-late': `${config.driftLate}px`,
+                '--drift-end': `${config.driftEnd}px`,
+                '--fall-duration': `${config.duration}s`,
+                '--animation-delay': `${config.delay}s`,
+                '--rotation-start': `${config.rotationStart}deg`,
+                '--spin-speed': `${config.spinSpeed}deg`,
+                '--tilt-speed': `${config.tiltSpeed}deg`,
+                '--z-depth': config.zDepth,
+                '--base-scale': config.baseScale,
+                '--layer': config.layer,
+                '--blur-amount': `${config.blur}px`,
+                '--layer-opacity': config.opacity,
+              } as React.CSSProperties}
+            >
+              <div className="coin-face-3d" />
+              <div className="coin-edge-3d" />
+            </div>
+          ))}
         </div>
-      )}
+      </div>
       
       <div className="container relative z-20">
         <div className={`text-center space-y-8 transition-opacity duration-500 ${isLoaded ? 'hero-content-loaded' : 'opacity-0'}`}>

@@ -11,16 +11,16 @@
 
 .falling-coin-3d {
   position: absolute;
-  width: calc(36px * var(--base-scale));
-  height: calc(36px * var(--base-scale));
+  width: calc(36px * var(--base-scale, 1));
+  height: calc(36px * var(--base-scale, 1));
   animation: coin-fall-3d var(--fall-duration, 4s) infinite linear var(--animation-delay, 0s);
-  opacity: 1; /* Made visible for debugging */
-  left: var(--fall-start-x);
+  opacity: calc(var(--layer-opacity, 1) * 0.9); /* Start slightly visible */
+  left: var(--fall-start-x, 50%);
   top: -80px;
   will-change: transform, opacity;
   transform: translateZ(0);
   backface-visibility: hidden;
-  filter: blur(var(--blur-amount, 0px)) drop-shadow(0 2px 8px hsl(var(--mint-green) / calc(0.2 * var(--layer-opacity))));
+  filter: blur(var(--blur-amount, 0px)) drop-shadow(0 2px 8px hsl(var(--mint-green) / calc(0.2 * var(--layer-opacity, 1))));
 }
 
 /* Enhanced 3D Coin Structure with perspective scaling */
