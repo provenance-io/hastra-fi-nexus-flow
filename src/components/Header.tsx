@@ -83,7 +83,17 @@ const Header = () => {
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center text-xl md:text-2xl font-medium text-foreground/90 hover:text-foreground transition-colors relative group tracking-widest" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
                 Products
-                <ChevronDown className="ml-1 h-5 w-5" />
+                <svg 
+                  className="ml-1 w-5 h-5" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent transition-all duration-300 group-hover:w-full" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-72 bg-white/95 backdrop-blur-md border border-gray-200 shadow-2xl mt-4 z-50" align="start">
