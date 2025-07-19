@@ -33,11 +33,11 @@ const About = () => {
             </div>
             
             <h1 className="text-5xl md:text-8xl font-black tracking-tight mb-8">
-              <span className="block text-gradient">Our Mission</span>
+              <span className="block text-gradient">About Hastra</span>
             </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-12">
-              Accessing good investments shouldn't require a trust fund
+              Accessing good investments shouldn't require a trust fund.
             </p>
 
           </div>
