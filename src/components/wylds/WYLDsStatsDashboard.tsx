@@ -120,16 +120,17 @@ const WYLDsStatsDashboard = () => {
       {/* Unified seamless background - removed conflicting gradient */}
       
       <div className="container relative">
-        <div className="text-center mb-16">
-          <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed mb-6 md:mb-8" 
-             style={{ 
-               textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' 
-             }}>
-            Track YIELD performance with real-time data and transparent metrics
-          </p>
-        </div>
-        
-        <div className="card-gradient rounded-3xl p-8">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed mb-6 md:mb-8" 
+               style={{ 
+                 textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' 
+               }}>
+              Track YIELD performance with real-time data and transparent metrics
+            </p>
+          </div>
+          
+          <div className="card-gradient rounded-3xl p-8">
           <div className="grid gap-8 grid-cols-1 md:grid-cols-2">
             {stats.map((stat, index) => (
               <div 
@@ -152,6 +153,7 @@ const WYLDsStatsDashboard = () => {
                 </div>
               </div>
             ))}
+           </div>
           </div>
         </div>
       </div>
