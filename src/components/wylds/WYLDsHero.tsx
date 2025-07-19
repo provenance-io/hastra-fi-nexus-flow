@@ -35,7 +35,7 @@ const WYLDsHero = () => {
   const flashingPhrases = ["TRADE IT.", " LEND IT.", " SPEND IT.", " SEND IT."];
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden py-8 md:py-12 -mt-10">
+    <section className="relative min-h-screen flex items-center overflow-hidden py-8 md:py-12 pt-8 md:pt-12" style={{ marginTop: '20px' }}>
       {/* Premium layered background - matching homepage */}
       {/* Unified seamless background - removed conflicting gradient */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMTAsIDIwLCA0MCwwLjA1KSI+PGQgcGF0aD0iTTAtMSAwIDEgTS0xIDAgMSAwIj48L2Q+PC9zdmc+')] opacity-30"></div>
@@ -52,7 +52,7 @@ const WYLDsHero = () => {
           <img 
             src="/lovable-uploads/cb96356b-822d-4dc0-963a-96ef43bfedbd.png" 
             alt="YIELD Token" 
-            className="w-40 h-40 md:w-56 md:h-56 lg:w-64 lg:h-64 animate-pulse"
+            className="w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 animate-pulse"
             style={{
               filter: 'drop-shadow(0 0 20px rgba(0, 255, 150, 0.6)) drop-shadow(0 0 40px rgba(0, 200, 255, 0.4)) drop-shadow(0 0 60px rgba(255, 255, 255, 0.2))',
               transform: 'perspective(1000px) rotateX(5deg) rotateY(5deg)',
