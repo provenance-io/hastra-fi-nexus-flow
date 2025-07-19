@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight, ChevronDown, TrendingUp, Calendar, Repeat, Shield, Globe } from 'lucide-react';
 import yieldIcon from '/lovable-uploads/1d678c0f-09c8-4451-a9a6-3e635e0fef72.png';
 
@@ -48,82 +49,86 @@ const WYLDsYieldExplanation = () => {
       {/* Unified seamless background - removed conflicting gradient */}
       
       <div className="relative z-10 max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground/90 mb-6">
-            What is YIELD?
-          </h2>
-        </div>
-
-        {/* Feature Cards */}
-        <div className="grid gap-10 md:grid-cols-3 mb-20">
-          {[
-            {
-              icon: Shield,
-              title: 'Backed by RWAs',
-              description: 'YIELD token is backed by reserves of YLDS - the first SEC-registered, yield-bearing stablecoin backed by real world assets.',
-            },
-            {
-              icon: TrendingUp,
-              title: 'Automatic Yield',
-              description: 'Earn yield automatically just by holding YIELD in your wallet - no staking required.',
-            },
-            {
-              icon: Globe,
-              title: 'Cross-Chain',
-              description: 'Available on Solana with plans to expand to additional blockchain networks.',
-            },
-          ].map((feature, index) => (
-            <div 
-              key={feature.title} 
-              className="group perspective-1000 h-56 cursor-pointer"
-              style={{ animationDelay: `${index * 0.15}s` }}
-            >
-              <div className="relative w-full h-full transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
-                {/* Front of card */}
-                <div className="absolute inset-0 w-full h-full backface-hidden">
-                  <div className="w-full h-full card-gradient rounded-2xl p-6 text-center space-y-3 hover:bg-background/60 transition-all duration-300">
-                    <div className="h-full flex flex-col justify-center">
-                      <div className="w-20 h-20 glass-premium rounded-2xl mx-auto mb-6 flex items-center justify-center pulse-glow-premium">
-                        <feature.icon className="h-10 w-10 text-header-glow" />
+        {/* What is YIELD Dashboard Box */}
+        <Card className="mb-20 bg-background/40 backdrop-blur-sm border-border/50">
+          <CardHeader className="text-center pb-8">
+            <CardTitle className="text-2xl md:text-3xl font-bold text-foreground/90">
+              What is YIELD?
+            </CardTitle>
+          </CardHeader>
+          
+          <CardContent className="space-y-16">
+            {/* Feature Cards */}
+            <div className="grid gap-10 md:grid-cols-3">
+              {[
+                {
+                  icon: Shield,
+                  title: 'Backed by RWAs',
+                  description: 'YIELD token is backed by reserves of YLDS - the first SEC-registered, yield-bearing stablecoin backed by real world assets.',
+                },
+                {
+                  icon: TrendingUp,
+                  title: 'Automatic Yield',
+                  description: 'Earn yield automatically just by holding YIELD in your wallet - no staking required.',
+                },
+                {
+                  icon: Globe,
+                  title: 'Cross-Chain',
+                  description: 'Available on Solana with plans to expand to additional blockchain networks.',
+                },
+              ].map((feature, index) => (
+                <div 
+                  key={feature.title} 
+                  className="group perspective-1000 h-56 cursor-pointer"
+                  style={{ animationDelay: `${index * 0.15}s` }}
+                >
+                  <div className="relative w-full h-full transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
+                    {/* Front of card */}
+                    <div className="absolute inset-0 w-full h-full backface-hidden">
+                      <div className="w-full h-full card-gradient rounded-2xl p-6 text-center space-y-3 hover:bg-background/60 transition-all duration-300">
+                        <div className="h-full flex flex-col justify-center">
+                          <div className="w-20 h-20 glass-premium rounded-2xl mx-auto mb-6 flex items-center justify-center pulse-glow-premium">
+                            <feature.icon className="h-10 w-10 text-header-glow" />
+                          </div>
+                          <h3 className="text-2xl font-bold text-gradient">{feature.title}</h3>
+                        </div>
                       </div>
-                      <h3 className="text-2xl font-bold text-gradient">{feature.title}</h3>
+                    </div>
+                    
+                    {/* Back of card */}
+                    <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180">
+                      <div className="w-full h-full card-gradient rounded-2xl p-6 text-center space-y-3 hover:bg-background/60 transition-all duration-300">
+                        <div className="h-full flex flex-col justify-center">
+                          <p className="text-platinum/80 leading-relaxed text-lg">{feature.description}</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-                
-                {/* Back of card */}
-                <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180">
-                  <div className="w-full h-full card-gradient rounded-2xl p-6 text-center space-y-3 hover:bg-background/60 transition-all duration-300">
-                    <div className="h-full flex flex-col justify-center">
-                      <p className="text-platinum/80 leading-relaxed text-lg">{feature.description}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
 
-        {/* Description */}
-        <div className="text-center mb-20">
-          <p className="text-lg md:text-xl text-platinum/80 max-w-4xl mx-auto leading-relaxed">
-            YIELD is a token representing a vault of the YLDS token - the first SEC-registered, yield-bearing stablecoin combining the liquidity of traditional stablecoins with the earning power of a money market fund. As users deposit USDC, Hastra purchases and holds YLDS, and distributes interest in YIELD to token holders.
-          </p>
-        </div>
+            {/* Description */}
+            <div className="text-center">
+              <p className="text-lg md:text-xl text-platinum/80 max-w-4xl mx-auto leading-relaxed">
+                YIELD is a token representing a vault of the YLDS token - the first SEC-registered, yield-bearing stablecoin combining the liquidity of traditional stablecoins with the earning power of a money market fund. As users deposit USDC, Hastra purchases and holds YLDS, and distributes interest in YIELD to token holders.
+              </p>
+            </div>
 
-        {/* CTA Button */}
-        <div className="text-center mb-32">
-          <Button 
-            size="lg" 
-            className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-3 text-lg rounded-xl transition-all duration-200"
-            asChild
-          >
-            <a href="https://www.ylds.com/" target="_blank" rel="noopener noreferrer">
-              Learn more about YLDS
-            </a>
-          </Button>
-        </div>
+            {/* CTA Button */}
+            <div className="text-center">
+              <Button 
+                size="lg" 
+                className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-3 text-lg rounded-xl transition-all duration-200"
+                asChild
+              >
+                <a href="https://www.ylds.com/" target="_blank" rel="noopener noreferrer">
+                  Learn more about YLDS
+                </a>
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
 
         {/* How It Works - Clean Infographic Style */}
         <div className="mb-20">
