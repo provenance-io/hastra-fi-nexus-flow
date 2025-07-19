@@ -101,9 +101,6 @@ const WalletConnectionSection = () => {
                   )}
                 </Button>
 
-                <p className="text-center text-sm text-muted-foreground">
-                  Don't have MetaMask? <a href="https://metamask.io" target="_blank" rel="noopener noreferrer" className="text-header-glow hover:underline">Download here</a>
-                </p>
               </CardContent>
             </Card>
           )}
