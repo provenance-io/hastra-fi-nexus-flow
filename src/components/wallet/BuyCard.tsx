@@ -130,7 +130,7 @@ const BuyCard = () => {
                 <div className="flex items-center gap-3 py-1">
                   <img src={yieldIcon} alt="YIELD" className="w-6 h-6 rounded-full flex-shrink-0" />
                   <div className="flex flex-col min-w-0 flex-1">
-                    <span className="text-sm font-medium">YIELD Token</span>
+                    <span className="text-sm font-medium">YIELD</span>
                   </div>
                 </div>
               </SelectItem>
@@ -138,7 +138,7 @@ const BuyCard = () => {
                 <div className="flex items-center gap-3 py-1">
                   <img src={hashIcon} alt="HASH" className="w-6 h-6 rounded-full object-cover flex-shrink-0" />
                   <div className="flex flex-col min-w-0 flex-1">
-                    <span className="text-sm font-medium">HASH Token</span>
+                    <span className="text-sm font-medium">HASH</span>
                   </div>
                 </div>
               </SelectItem>
