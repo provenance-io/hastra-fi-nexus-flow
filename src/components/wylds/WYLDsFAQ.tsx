@@ -41,11 +41,10 @@ const WYLDsFAQ = () => {
       <div className="relative z-10 max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground/90 mb-4">
-            Frequently Asked Questions
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-header-glow to-crypto-accent mx-auto rounded-full"></div>
-          <p className="text-lg text-platinum/80 mt-6 max-w-2xl mx-auto">
+          <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed mb-6 md:mb-8" 
+             style={{ 
+               textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' 
+             }}>
             Get answers to common questions about YIELD tokens and how they work
           </p>
         </div>
