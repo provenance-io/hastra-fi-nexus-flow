@@ -13,10 +13,10 @@ const PortfolioSummary = ({
   totalUnclaimedInterest
 }: PortfolioSummaryProps) => {
   return (
-    <div className="px-8 py-6 space-y-6">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div className="px-8 py-4 space-y-4">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Total Portfolio Value */}
-        <div className="bg-background/30 rounded-2xl p-6 space-y-4 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300">
+        <div className="bg-background/30 rounded-2xl p-4 space-y-3 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-hastra-teal/10 flex items-center justify-center">
               <DollarSign className="w-5 h-5 text-hastra-teal" />
@@ -43,7 +43,7 @@ const PortfolioSummary = ({
         </div>
         
         {/* Total Interest Earned */}
-        <div className="bg-background/30 rounded-2xl p-6 space-y-4 border border-border/20 hover:border-green-400/20 transition-all duration-300">
+        <div className="bg-background/30 rounded-2xl p-4 space-y-3 border border-border/20 hover:border-green-400/20 transition-all duration-300">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-green-400/10 flex items-center justify-center">
               <TrendingUp className="w-5 h-5 text-green-400" />
@@ -65,7 +65,7 @@ const PortfolioSummary = ({
         </div>
 
         {/* Unclaimed Interest */}
-        <div className="bg-background/30 rounded-2xl p-6 space-y-4 border border-border/20 hover:border-orange-400/20 transition-all duration-300">
+        <div className="bg-background/30 rounded-2xl p-4 space-y-3 border border-border/20 hover:border-orange-400/20 transition-all duration-300">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-orange-400/10 flex items-center justify-center">
               <Gift className="w-5 h-5 text-orange-400" />

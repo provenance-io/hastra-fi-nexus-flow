@@ -54,7 +54,7 @@ const WalletOverview = () => {
 
         {/* Token Holdings */}
         {showTokenHoldings && (
-          <div className="px-8 pb-8 space-y-6">
+          <div className="px-8 pb-6 space-y-4">
             <div className="flex items-center justify-between">
               <h3 className="text-xl font-semibold text-foreground">Token Holdings</h3>
               <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent flex-1 ml-6"></div>
