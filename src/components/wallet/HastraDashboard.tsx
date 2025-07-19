@@ -37,7 +37,7 @@ const HastraDashboard = () => {
         <h1 className="text-2xl md:text-3xl font-bold text-gradient mb-2">
           Earnings Dashboard
         </h1>
-        <p className="text-sm md:text-base text-muted-foreground">
+        <p className="text-xl md:text-2xl text-foreground/90 max-w-4xl leading-relaxed" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
           Your decentralized finance command center
         </p>
       </div>
