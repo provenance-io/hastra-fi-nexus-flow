@@ -160,13 +160,17 @@ const About = () => {
                 </div>
               </div>
               
-              <div className="card-gradient rounded-3xl p-6 md:p-8 card-hover max-w-5xl mx-auto mb-12 border-2 transition-all duration-500"
+              <div className={`card-gradient rounded-3xl p-6 md:p-8 card-hover max-w-5xl mx-auto mb-12 transition-all duration-500 ${
+                animationState.hashTokenCardGlow ? 'border-2' : 'border border-transparent'
+              }`}
                    style={{
-                     borderColor: 'rgba(229, 218, 194, 0.2)',
-                     boxShadow: '0 0 15px rgba(229, 218, 194, 0.15), 0 0 30px rgba(229, 218, 194, 0.08)',
+                     borderColor: animationState.hashTokenCardGlow ? 'rgba(229, 218, 194, 0.2)' : 'transparent',
+                     boxShadow: animationState.hashTokenCardGlow ? '0 0 15px rgba(229, 218, 194, 0.15), 0 0 30px rgba(229, 218, 194, 0.08)' : undefined,
                    }}>
-                <div className="absolute inset-0 rounded-3xl pointer-events-none" 
-                     style={{ background: 'linear-gradient(to bottom right, rgba(229, 218, 194, 0.04), rgba(229, 218, 194, 0.02))' }} />
+                {animationState.hashTokenCardGlow && (
+                  <div className="absolute inset-0 rounded-3xl pointer-events-none" 
+                       style={{ background: 'linear-gradient(to bottom right, rgba(229, 218, 194, 0.04), rgba(229, 218, 194, 0.02))' }} />
+                )}
                 
                 <div className="relative z-10">
                   <p className="text-lg text-foreground/90 leading-relaxed">
@@ -177,13 +181,17 @@ const About = () => {
             </div>
 
             <div className="max-w-5xl mx-auto mt-20">
-              <div className="card-gradient rounded-3xl p-8 md:p-12 card-hover border-2 transition-all duration-500"
+              <div className={`card-gradient rounded-3xl p-8 md:p-12 card-hover transition-all duration-500 ${
+                animationState.hashTokenCardGlow ? 'border-2' : 'border border-transparent'
+              }`}
                    style={{
-                     borderColor: 'rgba(229, 218, 194, 0.2)',
-                     boxShadow: '0 0 15px rgba(229, 218, 194, 0.15), 0 0 30px rgba(229, 218, 194, 0.08)',
+                     borderColor: animationState.hashTokenCardGlow ? 'rgba(229, 218, 194, 0.2)' : 'transparent',
+                     boxShadow: animationState.hashTokenCardGlow ? '0 0 15px rgba(229, 218, 194, 0.15), 0 0 30px rgba(229, 218, 194, 0.08)' : undefined,
                    }}>
-                <div className="absolute inset-0 rounded-3xl pointer-events-none" 
-                     style={{ background: 'linear-gradient(to bottom right, rgba(229, 218, 194, 0.04), rgba(229, 218, 194, 0.02))' }} />
+                {animationState.hashTokenCardGlow && (
+                  <div className="absolute inset-0 rounded-3xl pointer-events-none" 
+                       style={{ background: 'linear-gradient(to bottom right, rgba(229, 218, 194, 0.04), rgba(229, 218, 194, 0.02))' }} />
+                )}
                 
                 <div className="relative z-10 space-y-6">
                   <h3 className="text-2xl md:text-3xl font-bold">Coming Soon: HASH Token Buy & Burn Program</h3>
@@ -224,13 +232,17 @@ const About = () => {
               </div>
               
               {/* Additional commitment section */}
-              <div className="card-gradient rounded-3xl p-8 md:p-12 card-hover mt-16 border-2 transition-all duration-500"
+              <div className={`card-gradient rounded-3xl p-8 md:p-12 card-hover mt-16 transition-all duration-500 ${
+                animationState.commitmentCardGlow ? 'border-2' : 'border border-transparent'
+              }`}
                    style={{
-                     borderColor: 'rgba(229, 218, 194, 0.2)',
-                     boxShadow: '0 0 15px rgba(229, 218, 194, 0.15), 0 0 30px rgba(229, 218, 194, 0.08)',
+                     borderColor: animationState.commitmentCardGlow ? 'rgba(229, 218, 194, 0.2)' : 'transparent',
+                     boxShadow: animationState.commitmentCardGlow ? '0 0 15px rgba(229, 218, 194, 0.15), 0 0 30px rgba(229, 218, 194, 0.08)' : undefined,
                    }}>
-                <div className="absolute inset-0 rounded-3xl pointer-events-none" 
-                     style={{ background: 'linear-gradient(to bottom right, rgba(229, 218, 194, 0.04), rgba(229, 218, 194, 0.02))' }} />
+                {animationState.commitmentCardGlow && (
+                  <div className="absolute inset-0 rounded-3xl pointer-events-none" 
+                       style={{ background: 'linear-gradient(to bottom right, rgba(229, 218, 194, 0.04), rgba(229, 218, 194, 0.02))' }} />
+                )}
                 
                 <div className="relative z-10">
                   <p className="text-lg text-foreground/90 leading-relaxed">
