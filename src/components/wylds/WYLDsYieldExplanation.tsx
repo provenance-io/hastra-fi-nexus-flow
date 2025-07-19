@@ -47,7 +47,7 @@ const WYLDsYieldExplanation = () => {
       {/* Background gradient */}
       {/* Unified seamless background - removed conflicting gradient */}
       
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10 max-w-5xl mx-auto">
         {/* Section Header - Outside the box */}
         <div className="mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">
