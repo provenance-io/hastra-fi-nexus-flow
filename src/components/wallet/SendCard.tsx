@@ -112,20 +112,20 @@ const SendCard = () => {
             </SelectTrigger>
             <SelectContent className="bg-card">
               <SelectItem value="YIELD">
-                <div className="flex items-center gap-2">
-                  <img src={yieldIcon} alt="YIELD" className="w-5 h-5 rounded-full" />
-                  <div className="flex flex-col">
-                    <span>YIELD</span>
-                    <span className="text-xs text-muted-foreground">{tokenBalances.YIELD}</span>
+                <div className="flex items-center gap-3 py-1">
+                  <img src={yieldIcon} alt="YIELD" className="w-6 h-6 rounded-full flex-shrink-0" />
+                  <div className="flex flex-col min-w-0 flex-1">
+                    <span className="text-sm font-medium">YIELD</span>
+                    <span className="text-xs text-muted-foreground truncate">{tokenBalances.YIELD}</span>
                   </div>
                 </div>
               </SelectItem>
               <SelectItem value="HASH">
-                <div className="flex items-center gap-2">
-                  <img src={hashIcon} alt="HASH" className="w-6 h-6 rounded-full object-cover" />
-                  <div className="flex flex-col">
-                    <span>HASH</span>
-                    <span className="text-xs text-muted-foreground">{tokenBalances.HASH}</span>
+                <div className="flex items-center gap-3 py-1">
+                  <img src={hashIcon} alt="HASH" className="w-6 h-6 rounded-full object-cover flex-shrink-0" />
+                  <div className="flex flex-col min-w-0 flex-1">
+                    <span className="text-sm font-medium">HASH</span>
+                    <span className="text-xs text-muted-foreground truncate">{tokenBalances.HASH}</span>
                   </div>
                 </div>
               </SelectItem>

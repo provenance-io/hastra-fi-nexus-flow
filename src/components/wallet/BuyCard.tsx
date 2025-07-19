@@ -99,20 +99,20 @@ const BuyCard = () => {
             </SelectTrigger>
             <SelectContent className="bg-card">
               <SelectItem value="USDC">
-                <div className="flex items-center gap-2">
-                  <img src={usdcIcon} alt="USDC" className="w-5 h-5 rounded-full" />
-                  <div className="flex flex-col">
-                    <span>USDC</span>
-                    <span className="text-xs text-muted-foreground">{mockBalances.USDC}</span>
+                <div className="flex items-center gap-3 py-1">
+                  <img src={usdcIcon} alt="USDC" className="w-6 h-6 rounded-full flex-shrink-0" />
+                  <div className="flex flex-col min-w-0 flex-1">
+                    <span className="text-sm font-medium">USDC</span>
+                    <span className="text-xs text-muted-foreground truncate">{mockBalances.USDC}</span>
                   </div>
                 </div>
               </SelectItem>
               <SelectItem value="SOL">
-                <div className="flex items-center gap-2">
-                  <img src={solanaIcon} alt="Solana" className="w-5 h-5 rounded-full" />
-                  <div className="flex flex-col">
-                    <span>Solana</span>
-                    <span className="text-xs text-muted-foreground">{mockBalances.SOL}</span>
+                <div className="flex items-center gap-3 py-1">
+                  <img src={solanaIcon} alt="Solana" className="w-6 h-6 rounded-full flex-shrink-0" />
+                  <div className="flex flex-col min-w-0 flex-1">
+                    <span className="text-sm font-medium">Solana</span>
+                    <span className="text-xs text-muted-foreground truncate">{mockBalances.SOL}</span>
                   </div>
                 </div>
               </SelectItem>
@@ -129,15 +129,19 @@ const BuyCard = () => {
             </SelectTrigger>
             <SelectContent className="bg-card">
               <SelectItem value="YIELD">
-                <div className="flex items-center gap-2">
-                  <img src={yieldIcon} alt="YIELD" className="w-5 h-5 rounded-full" />
-                  YIELD Token
+                <div className="flex items-center gap-3 py-1">
+                  <img src={yieldIcon} alt="YIELD" className="w-6 h-6 rounded-full flex-shrink-0" />
+                  <div className="flex flex-col min-w-0 flex-1">
+                    <span className="text-sm font-medium">YIELD Token</span>
+                  </div>
                 </div>
               </SelectItem>
               <SelectItem value="HASH">
-                <div className="flex items-center gap-2">
-                  <img src={hashIcon} alt="HASH" className="w-6 h-6 rounded-full object-cover" />
-                  HASH Token
+                <div className="flex items-center gap-3 py-1">
+                  <img src={hashIcon} alt="HASH" className="w-6 h-6 rounded-full object-cover flex-shrink-0" />
+                  <div className="flex flex-col min-w-0 flex-1">
+                    <span className="text-sm font-medium">HASH Token</span>
+                  </div>
                 </div>
               </SelectItem>
             </SelectContent>
