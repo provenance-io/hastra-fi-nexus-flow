@@ -10,7 +10,6 @@ const FlashingText = ({ phrases, className = "" }: FlashingTextProps) => {
   const [activeIndex, setActiveIndex] = useState(-1);
   const [isLastPhraseExtended, setIsLastPhraseExtended] = useState(false);
   const [isSlowFading, setIsSlowFading] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -68,15 +67,13 @@ const FlashingText = ({ phrases, className = "" }: FlashingTextProps) => {
           key={index}
           className={`
             transition-colors duration-3000 ease-out
-            ${isPaused
-              ? 'text-transparent'
-              : activeIndex === index && index === phrases.length - 1 && (isLastPhraseExtended || isSlowFading)
-                ? isSlowFading ? 'text-transparent' : 'text-[hsl(var(--hastra-teal))]'
-              : activeIndex === index && index !== phrases.length - 1
-                ? 'text-orange-400'
-              : activeIndex === index && index === phrases.length - 1
-                ? 'text-[hsl(var(--hastra-teal))]'
-                : 'text-transparent'
+            ${activeIndex === index && index === phrases.length - 1 && (isLastPhraseExtended || isSlowFading)
+              ? isSlowFading ? 'text-transparent' : 'text-[hsl(var(--hastra-teal))]'
+            : activeIndex === index && index !== phrases.length - 1
+              ? 'text-orange-400'
+            : activeIndex === index && index === phrases.length - 1
+              ? 'text-[hsl(var(--hastra-teal))]'
+            : 'text-transparent'
             }
           `}
         >
