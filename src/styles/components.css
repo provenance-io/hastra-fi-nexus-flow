@@ -71,7 +71,8 @@
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-header-glow to-crypto-accent;
+    @apply bg-clip-text text-transparent;
+    background: linear-gradient(to right, #4DD4A8, #4DD4A8);
   }
 
   .text-hastra-gradient {
