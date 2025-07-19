@@ -66,6 +66,17 @@
     @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-header-glow/10 hover:border-header-glow/30;
   }
 
+  /* New bottom card classes with golden beige glow - more subtle than top cards */
+  .card-bottom-glow {
+    @apply transition-all duration-500;
+    border-color: rgba(229, 218, 194, 0.15);
+    box-shadow: 0 0 8px rgba(229, 218, 194, 0.08), 0 0 16px rgba(229, 218, 194, 0.04);
+  }
+
+  .card-bottom-static {
+    @apply transition-all duration-300;
+  }
+
   .card-premium-hover {
     @apply transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl;
   }

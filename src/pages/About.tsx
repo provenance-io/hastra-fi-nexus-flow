@@ -160,16 +160,12 @@ const About = () => {
                 </div>
               </div>
               
-              <div className={`card-gradient rounded-3xl p-6 md:p-8 card-hover max-w-5xl mx-auto mb-12 transition-all duration-500 ${
-                animationState.hashTokenCardGlow ? 'border-2' : 'border border-transparent'
-              }`}
-                   style={{
-                     borderColor: animationState.hashTokenCardGlow ? 'rgba(229, 218, 194, 0.2)' : 'transparent',
-                     boxShadow: animationState.hashTokenCardGlow ? '0 0 15px rgba(229, 218, 194, 0.15), 0 0 30px rgba(229, 218, 194, 0.08)' : undefined,
-                   }}>
+              <div className={`card-gradient rounded-3xl p-6 md:p-8 card-bottom-static max-w-5xl mx-auto mb-12 transition-all duration-500 ${
+                animationState.hashTokenCardGlow ? 'card-bottom-glow border-2' : 'border border-transparent'
+              }`}>
                 {animationState.hashTokenCardGlow && (
                   <div className="absolute inset-0 rounded-3xl pointer-events-none" 
-                       style={{ background: 'linear-gradient(to bottom right, rgba(229, 218, 194, 0.04), rgba(229, 218, 194, 0.02))' }} />
+                       style={{ background: 'linear-gradient(to bottom right, rgba(229, 218, 194, 0.02), rgba(229, 218, 194, 0.01))' }} />
                 )}
                 
                 <div className="relative z-10">
@@ -181,16 +177,12 @@ const About = () => {
             </div>
 
             <div className="max-w-5xl mx-auto mt-20">
-              <div className={`card-gradient rounded-3xl p-8 md:p-12 card-hover transition-all duration-500 ${
-                animationState.hashTokenCardGlow ? 'border-2' : 'border border-transparent'
-              }`}
-                   style={{
-                     borderColor: animationState.hashTokenCardGlow ? 'rgba(229, 218, 194, 0.2)' : 'transparent',
-                     boxShadow: animationState.hashTokenCardGlow ? '0 0 15px rgba(229, 218, 194, 0.15), 0 0 30px rgba(229, 218, 194, 0.08)' : undefined,
-                   }}>
+              <div className={`card-gradient rounded-3xl p-8 md:p-12 card-bottom-static transition-all duration-500 ${
+                animationState.hashTokenCardGlow ? 'card-bottom-glow border-2' : 'border border-transparent'
+              }`}>
                 {animationState.hashTokenCardGlow && (
                   <div className="absolute inset-0 rounded-3xl pointer-events-none" 
-                       style={{ background: 'linear-gradient(to bottom right, rgba(229, 218, 194, 0.04), rgba(229, 218, 194, 0.02))' }} />
+                       style={{ background: 'linear-gradient(to bottom right, rgba(229, 218, 194, 0.02), rgba(229, 218, 194, 0.01))' }} />
                 )}
                 
                 <div className="relative z-10 space-y-6">
@@ -232,16 +224,12 @@ const About = () => {
               </div>
               
               {/* Additional commitment section */}
-              <div className={`card-gradient rounded-3xl p-8 md:p-12 card-hover mt-16 transition-all duration-500 ${
-                animationState.commitmentCardGlow ? 'border-2' : 'border border-transparent'
-              }`}
-                   style={{
-                     borderColor: animationState.commitmentCardGlow ? 'rgba(229, 218, 194, 0.2)' : 'transparent',
-                     boxShadow: animationState.commitmentCardGlow ? '0 0 15px rgba(229, 218, 194, 0.15), 0 0 30px rgba(229, 218, 194, 0.08)' : undefined,
-                   }}>
+              <div className={`card-gradient rounded-3xl p-8 md:p-12 card-bottom-static mt-16 transition-all duration-500 ${
+                animationState.commitmentCardGlow ? 'card-bottom-glow border-2' : 'border border-transparent'
+              }`}>
                 {animationState.commitmentCardGlow && (
                   <div className="absolute inset-0 rounded-3xl pointer-events-none" 
-                       style={{ background: 'linear-gradient(to bottom right, rgba(229, 218, 194, 0.04), rgba(229, 218, 194, 0.02))' }} />
+                       style={{ background: 'linear-gradient(to bottom right, rgba(229, 218, 194, 0.02), rgba(229, 218, 194, 0.01))' }} />
                 )}
                 
                 <div className="relative z-10">
