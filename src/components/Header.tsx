@@ -69,7 +69,7 @@ const Header = () => {
         {/* Mobile: Center the logo with more space, Desktop: Left aligned */}
         <div className="flex items-center space-x-6 md:space-x-12 md:flex-1 w-full md:w-auto">
           <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity md:flex-initial flex-1 justify-center md:justify-start">
-            <FooterLogo className="h-32 md:h-12 lg:h-16 xl:h-24 w-auto -mt-8" />
+            <FooterLogo className="h-8 md:h-10 lg:h-12 w-auto" />
           </Link>
           <nav className="hidden md:flex items-center space-x-8 lg:space-x-12">
             <Link
