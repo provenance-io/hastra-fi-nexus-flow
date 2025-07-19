@@ -123,16 +123,19 @@ const About = () => {
               <div className="flex justify-center my-24">
                 <div className="animate-pulse">
                   <svg 
-                    className="w-6 h-6 text-header-glow" 
+                    className="w-8 h-8" 
                     style={{
-                      filter: 'drop-shadow(0 0 8px rgba(229, 218, 194, 0.6)) drop-shadow(0 0 16px rgba(229, 218, 194, 0.4))',
+                      filter: 'drop-shadow(0 0 12px rgba(229, 218, 194, 0.8)) drop-shadow(0 0 24px rgba(229, 218, 194, 0.4))',
                       animation: 'pulse 2s ease-in-out infinite'
                     }}
                     fill="none" 
-                    stroke="currentColor" 
+                    stroke="rgba(229, 218, 194, 1)" 
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     viewBox="0 0 24 24"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    <path d="M6 9l6 6 6-6" />
                   </svg>
                 </div>
               </div>
