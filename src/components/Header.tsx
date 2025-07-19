@@ -65,11 +65,11 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-200/30 bg-header-bg/85 backdrop-blur supports-[backdrop-filter]:bg-header-bg/85 shadow-lg shadow-header-glow/10">
-      <div className="container flex h-16 md:h-16 items-center justify-between px-4 md:px-6">
+      <div className="container flex h-20 md:h-16 items-center justify-between px-4 md:px-6">
         {/* Mobile: Center the logo with more space, Desktop: Left aligned */}
         <div className="flex items-center space-x-6 md:space-x-12 md:flex-1 w-full md:w-auto">
           <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity md:flex-initial flex-1 justify-center md:justify-start">
-            <HastraLogo className="h-20 md:h-12 lg:h-16 xl:h-24 w-auto" />
+            <HastraLogo className="h-24 md:h-12 lg:h-16 xl:h-24 w-auto" />
           </Link>
           <nav className="hidden md:flex items-center space-x-6">
             <Link
