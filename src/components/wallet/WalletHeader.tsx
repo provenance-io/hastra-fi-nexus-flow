@@ -56,7 +56,7 @@ const WalletHeader = ({
   return (
     <div className="bg-background/20 rounded-t-3xl px-8 py-6">
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-4 mt-5">
+        <div className="flex items-center gap-4 mt-16">
           <div className={`w-14 h-14 rounded-xl ${getWalletBrandColor(walletType)} flex items-center justify-center shadow-sm`}>
             {getWalletIcon(walletType)}
           </div>
