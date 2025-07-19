@@ -134,7 +134,7 @@ const Hero = () => {
           {/* Subtitle with stable timing */}
           <div className="hero-subtitle">
             <p className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
-              Remember this: Elite DeFi products should be available to everyone, not locked away for the wealthy.
+              Elite DeFi Products for the <span className="text-header-glow font-semibold">Crypto Savvy</span>, Backed by Real-World Assets.
             </p>
           </div>
 

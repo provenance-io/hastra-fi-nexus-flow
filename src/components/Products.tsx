@@ -131,7 +131,7 @@ const Products = () => {
             Grow your wealth, <span className="text-gradient">not your workload.</span>
           </h2>
           <p className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
-            Know this: Your tokens should work harder than you do.
+            Explore new ways our tokens can earn APY for you.
           </p>
         </div>
         
