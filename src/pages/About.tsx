@@ -88,8 +88,11 @@ const About = () => {
                 cardId="mission-card"
                 shouldGlow={animationState.missionGlow}
               >
-                <p className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
-                  Never ask permission: You deserve the same 8% yields that make the wealthy wealthier.
+                <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                  To obliterate the artificial walls between Wall Street's inner circle and everyone else via DeFi technology.
+                </p>
+                <p className="text-lg text-foreground/90 leading-relaxed">
+                  We aim to shatter every boundary that keeps you dependent on their system. Because <span className="text-header-glow font-semibold">being your own bank isn't a privilege—it's your fundamental right</span>.
                 </p>
               </AnimatedCard>
 
@@ -100,8 +103,8 @@ const About = () => {
                 cardId="belief-card"
                 shouldGlow={animationState.beliefGlow}
               >
-                <p className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
-                  Remember this: Every high-yield opportunity they hoard is wealth stolen from people who actually need those returns.
+                <p className="text-lg text-foreground/90 leading-relaxed">
+                  The same 8% yields that make the rich richer should be in your wallet, not locked behind some arbitrary "accredited investor" gate. Every high-yield opportunity hoarded by institutions is a theft from the people who actually need those returns. We're not just redistributing wealth—<span className="text-crypto-accent font-semibold">we're putting the power to create it directly into your hands</span>.
                 </p>
               </AnimatedCard>
 
@@ -112,9 +115,14 @@ const About = () => {
                 cardId="vision-card"
                 shouldGlow={animationState.visionGlow}
               >
-                <p className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
-                  Stop asking permission: You were born with the right to be your own financial institution.
-                </p>
+                <div className="space-y-6">
+                  <p className="text-lg text-foreground/90 leading-relaxed">
+                    A financial system where you don't need their permission, their minimums, or their approval. True decentralization means every person on Earth becomes their own financial institution—no middlemen skimming profits, no gatekeepers deciding your worth.
+                  </p>
+                  <p className="text-lg text-foreground/90 leading-relaxed">
+                    We're building the world where blockchain doesn't just enable financial inclusion—it demolishes financial apartheid and hands you the keys to institutional-grade wealth creation. Every product we ship pushes further past the boundaries they thought were permanent. Every innovation transfers more power from their vaults to your wallet. <span className="text-orange-400 font-semibold">The revolution isn't coming. You're holding it.</span>
+                  </p>
+                </div>
               </AnimatedCard>
 
             </div>
