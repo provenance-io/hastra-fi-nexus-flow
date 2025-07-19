@@ -33,7 +33,7 @@ const About = () => {
             </div>
             
             
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-12">
+            <p className="text-xl md:text-2xl text-header-glow max-w-4xl mx-auto leading-relaxed mb-12">
               Repeat after Us: Accessing good investments shouldn't require a trust fund.
             </p>
 
