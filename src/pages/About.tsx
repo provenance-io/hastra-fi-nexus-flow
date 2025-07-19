@@ -51,9 +51,7 @@ const About = () => {
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">Our Mission</h2>
                 </div>
                 <p className="text-lg text-foreground/90 leading-relaxed">
-                  To obliterate the artificial walls between Wall Street's inner circle and everyone else by weaponizing cutting-edge DeFi technology. We're not just building institutional-grade financial products—we're 
-                  <span className="text-header-glow font-semibold"> shattering every boundary</span> that keeps you dependent on their system. Because being your own bank isn't a privilege—it's your 
-                  <span className="text-crypto-accent font-semibold">fundamental right</span>.
+                  To obliterate the artificial walls between Wall Street's inner circle and everyone else via DeFi technology.
                 </p>
               </div>
 
