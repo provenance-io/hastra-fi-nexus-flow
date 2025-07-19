@@ -154,13 +154,14 @@ const About = () => {
                         <span>Aligns our success with the long-term health of the ecosystem</span>
                       </li>
                     </ul>
-                    <div className="pt-4">
-                      <p className="text-lg font-medium text-foreground mb-4">
-                        This commitment demonstrates our dedication to being a valuable participant in the Provenance ecosystem, ensuring that our growth directly benefits all HASH token holders and network validators.
-                      </p>
-                    </div>
                   </div>
                 </div>
+              </div>
+              
+              <div className="mt-8 text-center">
+                <p className="text-lg font-medium text-foreground max-w-3xl mx-auto">
+                  This commitment demonstrates our dedication to being a valuable participant in the Provenance ecosystem, ensuring that our growth directly benefits all HASH token holders and network validators.
+                </p>
               </div>
             </div>
           </div>
