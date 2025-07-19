@@ -226,12 +226,13 @@ const Products = () => {
             {/* Product header */}
             <div className="space-y-6">
               <div className="flex items-center gap-4">
-                {/* HOMES Token Icon */}
-                <img 
-                  src="/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png" 
-                  alt="HOMES Token"
-                  className="w-16 h-16 rounded-full object-cover shadow-md"
-                />
+                <div className="relative">
+                  <img 
+                    src="/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png" 
+                    alt="HOMES Token"
+                    className="w-16 h-16 rounded-full object-cover shadow-xl coin-glow-effect"
+                  />
+                </div>
                 <div className="flex-1">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div className="flex flex-col">

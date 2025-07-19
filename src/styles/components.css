@@ -216,4 +216,52 @@
     pointer-events: auto;
     user-select: auto;
   }
+
+  /* Coin glow effect similar to the uploaded reference image */
+  .coin-glow-effect {
+    position: relative;
+    transform: translateZ(0);
+    transition: all 0.3s ease;
+  }
+
+  .coin-glow-effect::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    background: radial-gradient(circle at center, 
+      hsl(var(--mint-green) / 0.4) 0%,
+      hsl(var(--mint-green) / 0.2) 40%,
+      hsl(var(--mint-green) / 0.1) 70%,
+      transparent 100%);
+    border-radius: 50%;
+    z-index: -1;
+    animation: coin-pulse 2s ease-in-out infinite;
+  }
+
+  .coin-glow-effect::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background: radial-gradient(circle at center,
+      hsl(var(--mint-green) / 0.6) 0%,
+      hsl(var(--mint-green) / 0.3) 50%,
+      transparent 80%);
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(2px);
+  }
+
+  .coin-glow-effect:hover {
+    transform: scale(1.05) translateZ(0);
+  }
+
+  .coin-glow-effect:hover::before {
+    animation-duration: 1s;
+  }
 }
