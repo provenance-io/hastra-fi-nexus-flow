@@ -118,7 +118,26 @@ const About = () => {
               <p className="text-xl md:text-2xl text-foreground/90 max-w-5xl mx-auto leading-relaxed mb-12" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
                 Hastra is built on <a href="https://provenance.io" target="_blank" rel="noopener noreferrer" className="text-foreground/90 transition-colors hover:text-[#60C4A8]">Provenance Blockchain</a>—and we're committed to making the entire ecosystem stronger.
               </p>
-              <div className="card-gradient rounded-2xl p-6 md:p-8 card-hover max-w-5xl mx-auto mb-12 mt-48">
+              
+              {/* Flashing downward arrow indicator */}
+              <div className="flex justify-center my-24">
+                <div className="animate-pulse">
+                  <svg 
+                    className="w-6 h-6 text-header-glow" 
+                    style={{
+                      filter: 'drop-shadow(0 0 8px rgba(229, 218, 194, 0.6)) drop-shadow(0 0 16px rgba(229, 218, 194, 0.4))',
+                      animation: 'pulse 2s ease-in-out infinite'
+                    }}
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                  </svg>
+                </div>
+              </div>
+              
+              <div className="card-gradient rounded-2xl p-6 md:p-8 card-hover max-w-5xl mx-auto mb-12">
                 <p className="text-lg text-foreground/90 leading-relaxed">
                   Most DeFi protocols create their own tokens to capture value for themselves. We're taking a different approach. <span className="text-header-glow font-semibold">Instead of launching another token, we're channeling our success directly back to the HASH holders who power and secure the <a href="https://provenance.io" target="_blank" rel="noopener noreferrer" className="text-header-glow hover:text-header-glow/80 transition-colors">Provenance network</a>.</span>
                 </p>
