@@ -217,25 +217,26 @@
     user-select: auto;
   }
 
-  /* Coin glow effect similar to the uploaded reference image */
+  /* Strong coin glow effect similar to the uploaded reference image */
   .coin-glow-effect {
     position: relative;
     transform: translateZ(0);
     transition: all 0.3s ease;
+    filter: drop-shadow(0 0 20px hsl(var(--mint-green) / 0.6));
   }
 
   .coin-glow-effect::before {
     content: '';
     position: absolute;
-    top: -8px;
-    left: -8px;
-    right: -8px;
-    bottom: -8px;
+    top: -12px;
+    left: -12px;
+    right: -12px;
+    bottom: -12px;
     background: radial-gradient(circle at center, 
-      hsl(var(--mint-green) / 0.4) 0%,
-      hsl(var(--mint-green) / 0.2) 40%,
-      hsl(var(--mint-green) / 0.1) 70%,
-      transparent 100%);
+      hsl(var(--mint-green) / 0.8) 0%,
+      hsl(var(--mint-green) / 0.4) 30%,
+      hsl(var(--mint-green) / 0.2) 50%,
+      transparent 70%);
     border-radius: 50%;
     z-index: -1;
     animation: coin-pulse 2s ease-in-out infinite;
@@ -244,24 +245,30 @@
   .coin-glow-effect::after {
     content: '';
     position: absolute;
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
     background: radial-gradient(circle at center,
-      hsl(var(--mint-green) / 0.6) 0%,
-      hsl(var(--mint-green) / 0.3) 50%,
-      transparent 80%);
+      hsl(var(--mint-green)) 0%,
+      hsl(var(--mint-green) / 0.6) 40%,
+      transparent 70%);
     border-radius: 50%;
     z-index: -1;
-    filter: blur(2px);
+    filter: blur(3px);
   }
 
   .coin-glow-effect:hover {
-    transform: scale(1.05) translateZ(0);
+    transform: scale(1.1) translateZ(0);
+    filter: drop-shadow(0 0 30px hsl(var(--mint-green) / 0.8));
   }
 
   .coin-glow-effect:hover::before {
     animation-duration: 1s;
+    background: radial-gradient(circle at center, 
+      hsl(var(--mint-green)) 0%,
+      hsl(var(--mint-green) / 0.6) 30%,
+      hsl(var(--mint-green) / 0.3) 50%,
+      transparent 70%);
   }
 }
