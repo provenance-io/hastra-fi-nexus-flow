@@ -84,7 +84,7 @@ const WalletOverview = () => {
 
   return (
     <Card className="!bg-transparent card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
-      <CardHeader>
+      <CardHeader className="bg-background/20 rounded-t-3xl">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className={`w-12 h-12 rounded-xl ${getWalletBrandColor(walletType)} flex items-center justify-center`}>
