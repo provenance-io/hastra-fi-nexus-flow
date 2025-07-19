@@ -363,6 +363,16 @@
   }
 }
 
+/* About page scroll-based animations */
+@keyframes logoGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px rgba(0, 255, 150, 0.4)) drop-shadow(0 0 12px rgba(0, 200, 255, 0.2));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(0, 255, 150, 0.6)) drop-shadow(0 0 24px rgba(0, 200, 255, 0.4));
+  }
+}
+
 /* Performance-optimized legacy animations for backwards compatibility */
 .falling-coin-stable {
   position: absolute;
