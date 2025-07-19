@@ -13,7 +13,7 @@ const PortfolioSummary = ({
   totalUnclaimedInterest
 }: PortfolioSummaryProps) => {
   return (
-    <div className="card-gradient rounded-2xl p-8 grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+    <div className="card-gradient rounded-2xl p-8 grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
       {/* Total Portfolio Value */}
       <div className="space-y-4">
         <div className="flex items-center gap-2">
