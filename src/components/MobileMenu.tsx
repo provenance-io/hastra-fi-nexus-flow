@@ -138,20 +138,13 @@ const MobileMenu = () => {
         </div>
         
         <div className="flex-shrink-0 pt-3 border-t border-border/20">
-          {!isConnected ? (
+          {!isConnected && (
             <Button 
               onClick={handleConnectWallet}
               size="sm" 
               className="w-full btn-gradient text-sm"
             >
               Connect Wallet
-            </Button>
-          ) : (
-            <Button asChild size="sm" className="w-full btn-gradient text-sm">
-              <Link to="/yield">
-                Explore YIELD
-                <ExternalLink className="ml-2 h-3 w-3" />
-              </Link>
             </Button>
           )}
         </div>
