@@ -34,7 +34,7 @@ const WalletOverview = () => {
   const totalUnclaimedInterest = getTotalUnclaimedInterest();
 
   return (
-    <div className="card-gradient rounded-2xl mb-8">
+    <div className="card-gradient rounded-3xl border border-border/30 shadow-lg">
       <WalletHeader
         address={address}
         walletType={walletType}
@@ -44,7 +44,7 @@ const WalletOverview = () => {
         onToggleHoldings={() => setShowTokenHoldings(!showTokenHoldings)}
       />
       
-      <div className="bg-background/20 rounded-b-3xl p-8">
+      <div className="bg-background/20 rounded-b-3xl">
         {/* Portfolio Summary */}
         <PortfolioSummary
           totalPortfolioValue={totalPortfolioValue}
@@ -54,8 +54,11 @@ const WalletOverview = () => {
 
         {/* Token Holdings */}
         {showTokenHoldings && (
-          <div className="space-y-6">
-            <h3 className="text-xl font-semibold text-foreground">Token Holdings</h3>
+          <div className="px-8 pb-8 space-y-6">
+            <div className="flex items-center justify-between">
+              <h3 className="text-xl font-semibold text-foreground">Token Holdings</h3>
+              <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent flex-1 ml-6"></div>
+            </div>
             <div className="space-y-4">
               {tokens.map((token) => (
                 <TokenLineItem

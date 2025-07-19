@@ -54,25 +54,28 @@ const WalletHeader = ({
   };
 
   return (
-    <div className="bg-background/20 rounded-t-3xl p-8">
+    <div className="bg-background/20 rounded-t-3xl px-8 py-6">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <div className={`w-12 h-12 rounded-xl ${getWalletBrandColor(walletType)} flex items-center justify-center`}>
+          <div className={`w-14 h-14 rounded-xl ${getWalletBrandColor(walletType)} flex items-center justify-center shadow-sm`}>
             {getWalletIcon(walletType)}
           </div>
-          <div>
-            <p className="text-sm text-muted-foreground font-mono">
+          <div className="space-y-1">
+            <p className="text-xs text-muted-foreground/80 uppercase tracking-wider font-medium">
+              Connected Wallet
+            </p>
+            <p className="text-sm text-foreground font-mono font-medium">
               {address ? formatAddress(address) : 'Loading...'}
             </p>
           </div>
         </div>
         
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <Button
             variant="ghost"
             size="sm"
             onClick={onToggleHoldings}
-            className="text-muted-foreground hover:text-foreground p-2"
+            className="text-muted-foreground hover:text-foreground p-3 rounded-xl hover:bg-background/30 transition-all duration-200"
           >
             {showTokenHoldings ? (
               <ChevronUp className="w-4 h-4" />
@@ -86,7 +89,7 @@ const WalletHeader = ({
             size="sm"
             onClick={onRefresh}
             disabled={isRefreshing}
-            className="text-muted-foreground hover:text-foreground p-2"
+            className="text-muted-foreground hover:text-foreground p-3 rounded-xl hover:bg-background/30 transition-all duration-200 disabled:opacity-50"
           >
             <RefreshCw className={`w-4 h-4 ${isRefreshing ? 'animate-spin' : ''}`} />
           </Button>
