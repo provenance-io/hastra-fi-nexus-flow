@@ -270,7 +270,7 @@ const Products = () => {
 
             {/* Product description */}
             <div className="space-y-4">
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+              <p className="text-lg md:text-xl text-foreground/90 leading-relaxed">
                 {products.homes.description}
               </p>
               
@@ -278,7 +278,7 @@ const Products = () => {
                 <Home className="w-5 h-5 text-orange-300 mt-0.5 flex-shrink-0" />
                 <p className="text-foreground/90">
                   <span className="font-semibold text-orange-300">Innovation:</span>{' '}
-                  <span className="text-muted-foreground">{products.homes.innovation}</span>
+                  <span className="text-foreground/90">{products.homes.innovation}</span>
                 </p>
               </div>
             </div>
@@ -297,10 +297,10 @@ const Products = () => {
                     }}
                   >
                     <IconComponent className="w-8 h-8 mx-auto text-orange-300 group-hover:scale-110 transition-transform duration-300" />
-                    <div className="text-3xl md:text-4xl font-bold text-gradient group-hover:scale-105 transition-transform duration-300">
+                    <div className="text-3xl md:text-4xl font-bold text-foreground/90 group-hover:scale-105 transition-transform duration-300">
                       {stat.value}
                     </div>
-                    <div className="text-sm font-medium text-muted-foreground">
+                    <div className="text-sm font-medium text-orange-300">
                       {stat.label}
                     </div>
                   </div>
