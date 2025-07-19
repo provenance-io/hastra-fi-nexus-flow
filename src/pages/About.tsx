@@ -37,8 +37,7 @@ const About = () => {
             </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-12">
-              Bringing Top-Tier Financial Opportunities to Everyone Through 
-              <span className="text-gradient font-semibold"> Revolutionary DeFi Solutions</span>
+              Accessing good investments shouldn't require a trust fund
             </p>
 
           </div>
