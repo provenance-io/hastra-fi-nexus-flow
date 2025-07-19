@@ -43,7 +43,7 @@ export const useScrollBasedAnimation = () => {
         missionToBeliefLine: scrollProgress > 0.15,
         beliefToVisionLine: scrollProgress > 0.25,
         visionToHashLine: scrollProgress > 0.35,
-        hashGlow: scrollProgress > 0.4,
+        hashGlow: scrollProgress > 0.35, // HASH glows when line reaches it
         // Card glow timing - each card glows during its reading window
         missionGlow: scrollProgress > 0.12 && scrollProgress < 0.25,
         beliefGlow: scrollProgress > 0.22 && scrollProgress < 0.35,
