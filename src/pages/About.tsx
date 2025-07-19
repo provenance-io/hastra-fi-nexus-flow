@@ -120,7 +120,7 @@ const About = () => {
               </p>
               <div className="card-gradient rounded-2xl p-6 md:p-8 card-hover max-w-4xl mx-auto mb-12">
                 <p className="text-lg text-foreground/90 leading-relaxed">
-                  Most DeFi protocols create their own tokens to capture value for themselves. We're taking a different approach. Instead of launching another token, we're channeling our success directly back to the HASH holders who power and secure the Provenance network.
+                  Most DeFi protocols create their own tokens to capture value for themselves. We're taking a different approach. <span className="text-crypto-accent font-semibold">Instead of launching another token, we're channeling our success directly back to the HASH holders who power and secure the Provenance network.</span>
                 </p>
               </div>
             </div>
