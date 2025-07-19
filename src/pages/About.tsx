@@ -56,7 +56,7 @@ const About = () => {
           />
           
           <div className="container relative">
-            <div className="max-w-4xl mx-auto space-y-8">
+            <div className="max-w-5xl mx-auto space-y-8">
               
               {/* Mission Segment */}
               <AnimatedCard 
@@ -115,17 +115,17 @@ const About = () => {
               {/* Enhanced HASH Logo with scroll-based glow */}
               <EnhancedHashLogo shouldGlow={animationState.hashGlow} />
               
-              <p className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed mb-12" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
+              <p className="text-xl md:text-2xl text-foreground/90 max-w-5xl mx-auto leading-relaxed mb-12" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
                 Hastra is built on Provenance Blockchain—and we're committed to making the entire ecosystem stronger.
               </p>
-              <div className="card-gradient rounded-2xl p-6 md:p-8 card-hover max-w-4xl mx-auto mb-12">
+              <div className="card-gradient rounded-2xl p-6 md:p-8 card-hover max-w-5xl mx-auto mb-12">
                 <p className="text-lg text-foreground/90 leading-relaxed">
                   Most DeFi protocols create their own tokens to capture value for themselves. We're taking a different approach. <span className="text-header-glow font-semibold">Instead of launching another token, we're channeling our success directly back to the HASH holders who power and secure the Provenance network.</span>
                 </p>
               </div>
             </div>
 
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-5xl mx-auto">
               <div className="card-gradient rounded-2xl p-8 md:p-12 card-hover">
                 <div className="space-y-6">
                   <h3 className="text-2xl md:text-3xl font-bold">Coming Soon: HASH Token Buy & Burn Program</h3>
@@ -174,7 +174,7 @@ const About = () => {
               
               {/* Glowy conclusion text */}
               <div className="mt-16 text-center">
-                <p className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
+                <p className="text-xl md:text-2xl text-foreground/90 max-w-5xl mx-auto leading-relaxed" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
                   When we succeed, HASH holders succeed.
                 </p>
               </div>
@@ -187,7 +187,7 @@ const About = () => {
           {/* Unified seamless background - removed conflicting gradient */}
           
           <div className="container relative text-center">
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-5xl mx-auto">
               <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-header-glow/20 text-sm font-medium text-foreground/90 mb-8">
                 <span className="mr-2 w-2 h-2 bg-header-glow rounded-full animate-pulse"></span>
                 Ready to Transform Your Financial Future?
