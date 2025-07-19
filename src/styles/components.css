@@ -72,7 +72,7 @@
 
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background: linear-gradient(to right, #4DD4A8, #4DD4A8);
+    background: linear-gradient(to right, #4DD4A8, #3BC494);
   }
 
   .text-hastra-gradient {
