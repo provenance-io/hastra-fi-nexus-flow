@@ -137,14 +137,14 @@ const WYLDsStatsDashboard = () => {
                 className="card-gradient rounded-xl p-4 text-center space-y-2 hover:bg-background/60 transition-all duration-300"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
+                <div className="text-xs font-medium text-orange-300">
+                  {stat.title}
+                </div>
                 <div className="text-2xl md:text-3xl font-bold flex items-center justify-center gap-2">
                   {stat.isLoading && <Loader2 className="h-6 w-6 animate-spin" />}
                   <span className={stat.isLoading ? 'opacity-50' : stat.hasError ? 'text-red-400' : 'text-foreground/90'}>
                     {stat.value}
                   </span>
-                </div>
-                <div className="text-xs font-medium text-orange-300">
-                  {stat.title}
                 </div>
                 <div className="flex justify-center items-center gap-2">
                   <div className={`w-1.5 h-1.5 rounded-full ${stat.hasError ? 'bg-red-400' : 'bg-header-glow animate-pulse'}`}></div>

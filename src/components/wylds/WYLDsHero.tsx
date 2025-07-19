@@ -71,14 +71,14 @@ const WYLDsHero = () => {
         <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 my-6 md:my-8">
           {/* APY Box - same width as button */}
           <div className="group card-gradient rounded-xl p-4 text-center space-y-2 hover:bg-background/60 transition-all duration-300 order-2 lg:order-1 w-full max-w-[200px]">
+            <div className="text-xs font-medium text-orange-300">
+              Current APY
+            </div>
             <div className="text-2xl md:text-3xl font-bold group-hover:scale-105 transition-transform duration-300 flex items-center justify-center gap-2">
               {apyLoading && <Loader2 className="w-5 h-5 animate-spin" />}
               <span className={apyLoading ? 'opacity-50' : apyError ? 'text-red-400' : 'text-foreground/90'}>
                 {displayApy}
               </span>
-            </div>
-            <div className="text-xs font-medium text-orange-300">
-              Current APY
             </div>
             <div className="flex justify-center items-center gap-2">
               <div className={`w-1.5 h-1.5 rounded-full ${apyError ? 'bg-red-400' : 'bg-header-glow animate-pulse'}`}></div>
