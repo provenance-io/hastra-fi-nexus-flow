@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface ConnectingLinesProps {
   missionToBeliefLine: boolean;
@@ -12,6 +12,14 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
   beliefToVisionLine,
   visionToHashLine,
 }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   return (
     <>
       {/* Mission to Belief Line - Far left aligned, connecting card edges */}
@@ -20,9 +28,9 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
           missionToBeliefLine ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
         }`}
         style={{
-          left: '20%', // Far left
-          top: '304px', // Down by 1px
-          height: '32px', // Just a tad smaller
+          left: isMobile ? '15%' : '20%',
+          top: isMobile ? '280px' : '304px',
+          height: isMobile ? '28px' : '32px',
           width: '2px',
           background: 'rgba(229, 218, 194, 0.8)',
           transformOrigin: 'top',
@@ -36,9 +44,9 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
           beliefToVisionLine ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
         }`}
         style={{
-          left: '80%', // Far right
-          top: '593px', // Up by 25px
-          height: '32px', // Same length as first line
+          left: isMobile ? '85%' : '80%',
+          top: isMobile ? '550px' : '591px',
+          height: isMobile ? '28px' : '32px',
           width: '2px',
           background: 'rgba(229, 218, 194, 0.8)',
           transformOrigin: 'top',
@@ -52,8 +60,8 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
           visionToHashLine ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
         }`}
         style={{
-          top: '1019px', // Up by 25px
-          height: '192px', // Reduced by 1px
+          top: isMobile ? '900px' : '1018px',
+          height: isMobile ? '150px' : '192px',
           width: '2px',
           background: 'rgba(229, 218, 194, 0.8)',
           transformOrigin: 'top',
