@@ -118,7 +118,7 @@ const About = () => {
               <p className="text-xl md:text-2xl text-foreground/90 max-w-5xl mx-auto leading-relaxed mb-12" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
                 Hastra is built on <a href="https://provenance.io" target="_blank" rel="noopener noreferrer" className="text-foreground/90 transition-colors hover:text-[#60C4A8]">Provenance Blockchain</a>—and we're committed to making the entire ecosystem stronger.
               </p>
-              <div className="card-gradient rounded-2xl p-6 md:p-8 card-hover max-w-5xl mx-auto mb-12">
+              <div className="card-gradient rounded-2xl p-6 md:p-8 card-hover max-w-5xl mx-auto mb-12 mt-16">
                 <p className="text-lg text-foreground/90 leading-relaxed">
                   Most DeFi protocols create their own tokens to capture value for themselves. We're taking a different approach. <span className="text-header-glow font-semibold">Instead of launching another token, we're channeling our success directly back to the HASH holders who power and secure the <a href="https://provenance.io" target="_blank" rel="noopener noreferrer" className="text-header-glow hover:text-header-glow/80 transition-colors">Provenance network</a>.</span>
                 </p>
