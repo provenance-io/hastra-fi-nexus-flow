@@ -53,6 +53,9 @@ const About = () => {
                 <p className="text-lg text-foreground/90 leading-relaxed">
                   To obliterate the artificial walls between Wall Street's inner circle and everyone else via DeFi technology.
                 </p>
+                <p className="text-lg text-foreground/90 leading-relaxed">
+                  We aim to shatter every boundary that keeps you dependent on their system. Because being your own bank isn't a privilege—it's your fundamental right.
+                </p>
               </div>
 
               {/* Belief Segment */}
