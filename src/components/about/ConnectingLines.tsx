@@ -37,7 +37,7 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
         }`}
         style={{
           left: '80%', // Far right
-          top: '630px', // Moved down a little
+          top: '650px', // Moved down to 650px
           height: '32px', // Same length as first line
           width: '3px',
           background: 'linear-gradient(to bottom, hsl(var(--header-glow) / 0.8), hsl(var(--header-glow) / 0.4))',
