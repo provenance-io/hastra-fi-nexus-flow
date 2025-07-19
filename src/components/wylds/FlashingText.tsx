@@ -18,31 +18,28 @@ const FlashingText = ({ phrases, className = "" }: FlashingTextProps) => {
       setActiveIndex((prevIndex) => {
         const nextIndex = prevIndex + 1;
         
-        // If we've reached the end, restart the cycle
+        // If we've reached the end, this shouldn't happen anymore
         if (nextIndex >= phrases.length) {
-          setIsLastPhraseExtended(false);
-          setIsSlowFading(false);
-          // Pause before restarting
-          timeout = setTimeout(() => {
-            setActiveIndex(0); // Start with first phrase
-            timeout = setTimeout(showNextPhrase, 1000);
-          }, 1500);
-          return -1;
+          return prevIndex; // Stay at current index
         }
         
         // If this is the last phrase, handle extended timing
         if (nextIndex === phrases.length - 1) {
           setIsLastPhraseExtended(true);
-          // Extended time for last phrase (3 seconds) + slow fade
+          // Shorter display time for last phrase (2 seconds) + slow fade
           timeout = setTimeout(() => {
             setIsSlowFading(true);
             timeout = setTimeout(() => {
+              // Reset states and move to next cycle
               setIsLastPhraseExtended(false);
               setIsSlowFading(false);
-              // Move to next cycle after fade completes
-              timeout = setTimeout(showNextPhrase, 100);
-            }, 3000); // 3 second slow fade
-          }, 3000); // Stay visible for 3 seconds
+              setActiveIndex(-1); // Clear before restart
+              timeout = setTimeout(() => {
+                setActiveIndex(0);
+                timeout = setTimeout(showNextPhrase, 1000);
+              }, 1500); // Pause between cycles
+            }, 2000); // 2 second slow fade
+          }, 2000); // Stay visible for 2 seconds
         } else {
           // Regular phrases: 1 second display time
           timeout = setTimeout(showNextPhrase, 1000);
