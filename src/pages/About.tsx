@@ -165,6 +165,20 @@ const About = () => {
                 </div>
               </div>
               
+              {/* Additional commitment section */}
+              <div className="card-gradient rounded-2xl p-8 md:p-12 card-hover mt-8">
+                <p className="text-lg text-foreground/90 leading-relaxed">
+                  This isn't about short-term price movements. It's about building sustainable value for the community that makes decentralized finance possible. Every token we burn represents our commitment to the ecosystem that enables financial freedom for everyone.
+                </p>
+              </div>
+              
+              {/* Glowy conclusion text */}
+              <div className="mt-16 text-center">
+                <p className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
+                  When we succeed, HASH holders succeed.
+                </p>
+              </div>
+              
               <div className="mt-8 text-center">
                 <p className="text-lg font-medium text-foreground/90 max-w-3xl mx-auto">
                   This commitment demonstrates our dedication to being a valuable participant in the Provenance ecosystem, ensuring that our growth directly benefits all HASH token holders and network validators.
