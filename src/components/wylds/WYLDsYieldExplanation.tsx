@@ -43,20 +43,20 @@ const WYLDsYieldExplanation = () => {
   ];
 
   return (
-    <section className="py-20 px-4 relative overflow-hidden">
+    <section className="py-16 px-4 relative overflow-hidden">
       {/* Background gradient */}
       {/* Unified seamless background - removed conflicting gradient */}
       
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Section Header - Outside the box */}
-        <div className="mb-16">
+        <div className="mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">
             What is YIELD?
           </h2>
         </div>
 
         {/* Dashboard Box - Matching About page styling */}
-        <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-20 relative">
+        <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
           <div className="relative z-10">
             {/* Feature Cards */}
             <div className="grid gap-10 md:grid-cols-3">
@@ -109,7 +109,7 @@ const WYLDsYieldExplanation = () => {
             </div>
 
             {/* Description */}
-            <div className="text-center mb-20 mt-16">
+            <div className="text-center mb-16 mt-12">
               <p className="text-lg md:text-xl text-platinum/80 max-w-4xl mx-auto leading-relaxed px-6">
                 YIELD is a token representing a vault of the YLDS token - the first SEC-registered, yield-bearing stablecoin combining the liquidity of traditional stablecoins with the earning power of a money market fund. As users deposit USDC, Hastra purchases and holds YLDS, and distributes interest in YIELD to token holders.
               </p>
@@ -131,9 +131,9 @@ const WYLDsYieldExplanation = () => {
         </div>
 
         {/* How It Works - Clean Infographic Style */}
-        <div className="mb-20">
+        <div className="mb-16">
           {/* Section Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h3 className="text-2xl md:text-3xl font-bold text-foreground/90 mb-4">
               How It Works
             </h3>
