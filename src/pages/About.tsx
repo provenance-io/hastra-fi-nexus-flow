@@ -17,27 +17,37 @@ const About = () => {
           
           <div className="container relative text-center">
             
-            {/* Animated Logo with Trace Effect - Simple Test Version */}
+            {/* Animated Logo with Subtle Trace Effect */}
             <div className="flex justify-center mb-12">
-              <div className="relative">
-                <div className="w-32 h-32 md:w-48 md:h-48 relative">
-                  {/* Simple visible border test */}
-                  <div 
-                    className="absolute -inset-4 border-4 border-green-400 rounded-full animate-spin"
-                    style={{
-                      animation: 'spin 2s linear infinite',
-                      borderImage: 'conic-gradient(from 0deg, #00ff96, #00c8ff, #64ffc8, #00ff96) 1'
-                    }}
-                  ></div>
-                  <img 
-                    src="/lovable-uploads/e7187c63-0dae-455c-971c-a6de70ce2afc.png" 
-                    alt="Mission Logo" 
-                    className="w-32 h-32 md:w-48 md:h-48 relative z-10 rounded-full"
-                    style={{
-                      filter: 'drop-shadow(0 0 20px rgba(0, 255, 150, 0.5))'
-                    }}
+              <div className="relative w-32 h-32 md:w-48 md:h-48">
+                <img 
+                  src="/lovable-uploads/e7187c63-0dae-455c-971c-a6de70ce2afc.png" 
+                  alt="Mission Logo" 
+                  className="w-32 h-32 md:w-48 md:h-48 relative z-10"
+                />
+                {/* SVG overlay that traces the logo shape */}
+                <svg 
+                  className="absolute inset-0 w-full h-full pointer-events-none z-20" 
+                  viewBox="0 0 200 200"
+                  fill="none"
+                >
+                  {/* This path approximates your logo's curved organic shape */}
+                  <path
+                    d="M50 100 C50 50, 80 30, 120 40 C160 50, 180 80, 170 120 C160 160, 130 180, 90 170 C50 160, 40 130, 50 100 Z"
+                    stroke="url(#traceGradient)"
+                    strokeWidth="2"
+                    fill="none"
+                    strokeDasharray="8 4"
+                    className="logo-trace-path"
                   />
-                </div>
+                  <defs>
+                    <linearGradient id="traceGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="rgba(0, 255, 150, 0.8)" />
+                      <stop offset="50%" stopColor="rgba(0, 200, 255, 0.8)" />
+                      <stop offset="100%" stopColor="rgba(100, 255, 200, 0.8)" />
+                    </linearGradient>
+                  </defs>
+                </svg>
               </div>
             </div>
             

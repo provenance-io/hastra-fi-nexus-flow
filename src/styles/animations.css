@@ -108,71 +108,27 @@
     transform: translateY(0vh) translateX(calc(var(--drift-early, 0px) * 0.3)) rotate(calc(var(--rotation-start, 0deg) + 90deg)) scale(0.95);
 }
 
-/* Simplified Logo Trace Animation - Maximum Visibility */
-.logo-trace-container {
-  position: relative;
-  display: inline-block;
-  padding: 30px;
+/* Subtle Logo Trace Animation */
+.logo-trace-path {
+  stroke-dasharray: 8 4;
+  stroke-dashoffset: 0;
+  animation: trace-dash 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 4px rgba(0, 255, 150, 0.6));
 }
 
-.logo-with-trace {
-  border-radius: 50%;
-  filter: drop-shadow(0 0 30px rgba(0, 255, 150, 0.7));
-}
-
-/* First trace ring - bright green with fallback */
-.trace-ring-1 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 50%;
-  
-  /* Fallback for browsers that don't support mask */
-  border: 4px solid #00ff96;
-  
-  /* Advanced gradient border for modern browsers */
-  background: conic-gradient(from 0deg, #00ff96, #00c8ff, #64ffc8, #00ff96);
-  animation: spin-clockwise 2s linear infinite;
-  z-index: 1;
-}
-
-/* Mask support enhancement */
-@supports (mask: linear-gradient(#fff 0 0)) {
-  .trace-ring-1 {
-    border: 4px solid transparent;
-    background: conic-gradient(from 0deg, #00ff96, #00c8ff, #64ffc8, #00ff96) border-box;
-    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-    mask-composite: xor;
+@keyframes trace-dash {
+  0% {
+    stroke-dashoffset: 0;
+    opacity: 0.3;
   }
-}
-
-/* Second trace ring - cyan with fallback */
-.trace-ring-2 {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  right: 8px;
-  bottom: 8px;
-  border-radius: 50%;
-  
-  /* Fallback */
-  border: 2px solid #00c8ff;
-  
-  animation: spin-counter 3s linear infinite;
-  z-index: 2;
-  opacity: 0.7;
-}
-
-@keyframes spin-clockwise {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes spin-counter {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(-360deg); }
+  50% {
+    stroke-dashoffset: -20;
+    opacity: 0.8;
+  }
+  100% {
+    stroke-dashoffset: -40;
+    opacity: 0.3;
+  }
 }
   
   85% {
