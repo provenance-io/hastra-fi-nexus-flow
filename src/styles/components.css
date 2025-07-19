@@ -217,58 +217,58 @@
     user-select: auto;
   }
 
-  /* Strong coin glow effect similar to the uploaded reference image */
+  /* Subtle coin glow effect using HOMES token purple background color */
   .coin-glow-effect {
     position: relative;
     transform: translateZ(0);
     transition: all 0.3s ease;
-    filter: drop-shadow(0 0 20px hsl(var(--mint-green) / 0.6));
+    filter: drop-shadow(0 0 8px hsl(270 50% 50% / 0.3));
   }
 
   .coin-glow-effect::before {
     content: '';
     position: absolute;
-    top: -12px;
-    left: -12px;
-    right: -12px;
-    bottom: -12px;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
     background: radial-gradient(circle at center, 
-      hsl(var(--mint-green) / 0.8) 0%,
-      hsl(var(--mint-green) / 0.4) 30%,
-      hsl(var(--mint-green) / 0.2) 50%,
-      transparent 70%);
+      hsl(270 50% 60% / 0.4) 0%,
+      hsl(270 50% 55% / 0.2) 40%,
+      hsl(270 50% 50% / 0.1) 60%,
+      transparent 80%);
     border-radius: 50%;
     z-index: -1;
-    animation: coin-pulse 2s ease-in-out infinite;
+    animation: coin-pulse 3s ease-in-out infinite;
   }
 
   .coin-glow-effect::after {
     content: '';
     position: absolute;
-    top: -6px;
-    left: -6px;
-    right: -6px;
-    bottom: -6px;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
     background: radial-gradient(circle at center,
-      hsl(var(--mint-green)) 0%,
-      hsl(var(--mint-green) / 0.6) 40%,
+      hsl(270 50% 65% / 0.3) 0%,
+      hsl(270 50% 60% / 0.15) 50%,
       transparent 70%);
     border-radius: 50%;
     z-index: -1;
-    filter: blur(3px);
+    filter: blur(2px);
   }
 
   .coin-glow-effect:hover {
-    transform: scale(1.1) translateZ(0);
-    filter: drop-shadow(0 0 30px hsl(var(--mint-green) / 0.8));
+    transform: scale(1.05) translateZ(0);
+    filter: drop-shadow(0 0 12px hsl(270 50% 50% / 0.5));
   }
 
   .coin-glow-effect:hover::before {
-    animation-duration: 1s;
+    animation-duration: 2s;
     background: radial-gradient(circle at center, 
-      hsl(var(--mint-green)) 0%,
-      hsl(var(--mint-green) / 0.6) 30%,
-      hsl(var(--mint-green) / 0.3) 50%,
-      transparent 70%);
+      hsl(270 50% 60% / 0.5) 0%,
+      hsl(270 50% 55% / 0.3) 40%,
+      hsl(270 50% 50% / 0.15) 60%,
+      transparent 80%);
   }
 }
