@@ -55,44 +55,54 @@ const WalletHeaderButton = () => {
       <DropdownMenuTrigger asChild>
         <Button 
           variant="outline" 
-          className="gap-2 bg-orange-900/40 border-2 border-orange-800/50 text-orange-100 hover:bg-orange-900/50 hover:border-orange-700/60 shadow-lg hover:shadow-orange-900/20 font-bold px-4 py-2 rounded-xl transition-all duration-200"
+          className="gap-2 bg-background/20 border border-hastra-teal/30 text-platinum/90 hover:bg-hastra-teal/10 hover:border-hastra-teal/50 hover:text-hastra-teal shadow-lg font-medium px-4 py-2 rounded-xl transition-all duration-300"
+          style={{ 
+            textShadow: '0 0 8px rgba(255, 255, 255, 0.2)',
+            transition: 'all 0.3s ease'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.textShadow = '0 0 12px rgba(103, 232, 249, 0.6), 0 0 24px rgba(103, 232, 249, 0.3)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.textShadow = '0 0 8px rgba(255, 255, 255, 0.2)';
+          }}
         >
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-orange-400" />
-            <span className="font-mono text-sm">{formatAddress(address)}</span>
+            <div className="w-2 h-2 rounded-full bg-hastra-teal animate-pulse" />
+            <span className="font-mono text-sm tracking-wider">{formatAddress(address)}</span>
             <ChevronDown className="h-3 w-3" />
           </div>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent 
-        className="w-64 bg-white/95 border-2 border-orange-800/30 shadow-2xl mt-4 z-50" 
+        className="w-64 bg-background/95 backdrop-blur-md border border-hastra-teal/30 shadow-2xl mt-4 z-50" 
         align="end"
       >
-        <div className="p-3 border-b border-orange-800/20">
+        <div className="p-3 border-b border-hastra-teal/20">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-orange-900/30 flex items-center justify-center">
-              <WalletIcon className="w-4 h-4 text-orange-600" />
+            <div className="w-8 h-8 rounded-full bg-hastra-teal/20 flex items-center justify-center">
+              <WalletIcon className="w-4 h-4 text-hastra-teal" />
             </div>
             <div>
-              <p className="font-medium text-gray-900">Connected Wallet</p>
-              <p className="text-sm text-gray-700 font-mono">{formatAddress(address)}</p>
+              <p className="font-medium text-platinum/90">Connected Wallet</p>
+              <p className="text-sm text-platinum/70 font-mono">{formatAddress(address)}</p>
             </div>
           </div>
         </div>
         
-        <DropdownMenuItem onClick={() => navigate('/earn')} className="cursor-pointer p-3 hover:bg-orange-50">
-          <TrendingUp className="w-4 h-4 mr-3 text-gray-600" />
-          <span className="text-gray-900">View My Earnings</span>
+        <DropdownMenuItem onClick={() => navigate('/earn')} className="cursor-pointer p-3 hover:bg-hastra-teal/10 hover:text-hastra-teal transition-colors">
+          <TrendingUp className="w-4 h-4 mr-3 text-platinum/60" />
+          <span className="text-platinum/90">View My Earnings</span>
         </DropdownMenuItem>
 
-        <DropdownMenuItem onClick={copyAddress} className="cursor-pointer p-3 hover:bg-orange-50">
+        <DropdownMenuItem onClick={copyAddress} className="cursor-pointer p-3 hover:bg-hastra-teal/10 hover:text-hastra-teal transition-colors">
           <div className="flex items-center w-full">
             {addressCopied ? (
-              <Check className="w-4 h-4 mr-3 text-orange-600" />
+              <Check className="w-4 h-4 mr-3 text-hastra-teal" />
             ) : (
-              <Copy className="w-4 h-4 mr-3 text-gray-600" />
+              <Copy className="w-4 h-4 mr-3 text-platinum/60" />
             )}
-            <span className="text-gray-900">{addressCopied ? 'Address Copied!' : 'Copy Address'}</span>
+            <span className="text-platinum/90">{addressCopied ? 'Address Copied!' : 'Copy Address'}</span>
           </div>
         </DropdownMenuItem>
         
@@ -100,7 +110,7 @@ const WalletHeaderButton = () => {
         
         <DropdownMenuItem 
           onClick={handleDisconnect} 
-          className="cursor-pointer p-3 text-red-600 hover:bg-red-50"
+          className="cursor-pointer p-3 text-red-400 hover:bg-red-900/20 hover:text-red-300 transition-colors"
         >
           <LogOut className="w-4 h-4 mr-3" />
           <span>Disconnect Wallet</span>
