@@ -114,9 +114,9 @@ const Header = () => {
                   <path d="M6 9l6 6 6-6" />
                 </svg>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-72 bg-white/95 backdrop-blur-md border border-gray-200 shadow-2xl mt-4 z-50" align="start">
+              <DropdownMenuContent className="w-72 bg-background/95 backdrop-blur-md border border-hastra-teal/30 shadow-2xl mt-4 z-50" align="start">
                 <DropdownMenuItem asChild>
-                  <Link to="/yield" className="flex items-center w-full cursor-pointer p-3 hover:bg-gray-50 rounded-lg transition-all duration-200 group">
+                  <Link to="/yield" className="flex items-center w-full cursor-pointer p-3 hover:bg-hastra-teal/10 hover:text-hastra-teal rounded-lg transition-all duration-200 group">
                     <div className="flex items-center gap-3">
                       <img 
                         src="/lovable-uploads/08452a7b-6782-4b0a-900e-0f0c99a4fc4e.png" 
@@ -124,10 +124,10 @@ const Header = () => {
                         className="w-10 h-10 rounded-lg group-hover:scale-105 transition-transform"
                       />
                       <div>
-                        <div className="font-semibold text-gray-900 mb-1">YIELD</div>
-                        <div className="text-sm text-gray-600 flex items-center gap-1">
+                        <div className="font-semibold text-platinum/90 mb-1">YIELD</div>
+                        <div className="text-sm text-platinum/70 flex items-center gap-1">
                           {apyLoading && <Loader2 className="h-3 w-3 animate-spin" />}
-                          <span className={apyError ? 'text-red-500' : ''}>
+                          <span className={apyError ? 'text-red-400' : ''}>
                             {displayApy}
                           </span>
                         </div>
@@ -136,7 +136,7 @@ const Header = () => {
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/homes" className="flex items-center w-full cursor-pointer p-3 hover:bg-gray-50 rounded-lg transition-all duration-200 group">
+                  <Link to="/homes" className="flex items-center w-full cursor-pointer p-3 hover:bg-hastra-teal/10 hover:text-hastra-teal rounded-lg transition-all duration-200 group">
                     <div className="flex items-center gap-3">
                       <img 
                         src="/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png" 
@@ -144,8 +144,8 @@ const Header = () => {
                         className="w-10 h-10 rounded-lg object-cover group-hover:scale-105 transition-transform"
                       />
                       <div>
-                        <div className="font-semibold text-gray-900 mb-1">HOMES</div>
-                        <div className="text-sm text-gray-600">COMING SOON</div>
+                        <div className="font-semibold text-platinum/90 mb-1">HOMES</div>
+                        <div className="text-sm text-platinum/70">COMING SOON</div>
                       </div>
                     </div>
                   </Link>
