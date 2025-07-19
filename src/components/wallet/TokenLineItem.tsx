@@ -77,7 +77,7 @@ const TokenLineItem = ({
         </div>
         
         {/* Tokens Column */}
-        <div className="text-center space-y-1">
+        <div className="text-left space-y-1">
           <p className="text-muted-foreground text-sm font-medium">Balance</p>
           <p className="font-semibold text-foreground text-lg">
             {amount.toLocaleString('en-US', { 
@@ -88,7 +88,7 @@ const TokenLineItem = ({
         </div>
         
         {/* Worth Column */}
-        <div className="text-center space-y-1">
+        <div className="text-left space-y-1">
           <p className="text-muted-foreground text-sm font-medium">Value</p>
           <p className="font-semibold text-foreground text-lg">
             ${value.toLocaleString('en-US', { 
@@ -99,9 +99,9 @@ const TokenLineItem = ({
         </div>
         
         {/* Total Interest Claimed Column */}
-        <div className="text-center space-y-1">
+        <div className="text-left space-y-1">
           <p className="text-muted-foreground text-sm font-medium">Total Claimed</p>
-          <div className="flex items-center justify-center gap-2">
+          <div className="flex items-center gap-2">
             <TrendingUp className="w-4 h-4 text-green-400" />
             <p className="font-semibold text-green-400 text-lg">
               ${totalInterestEarnedUSD.toLocaleString('en-US', { 
@@ -113,7 +113,7 @@ const TokenLineItem = ({
         </div>
         
         {/* Unclaimed Interest Column */}
-        <div className="text-center space-y-1">
+        <div className="text-left space-y-1">
           <p className="text-muted-foreground text-sm font-medium">Available</p>
           <p className={`font-semibold text-lg ${unclaimedInterest > 0 ? 'text-orange-400' : 'text-muted-foreground'}`}>
             ${unclaimedInterestUSD.toLocaleString('en-US', { 
