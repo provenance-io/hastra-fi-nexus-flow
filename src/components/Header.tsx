@@ -64,7 +64,7 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-200/30 bg-header-bg/60 backdrop-blur supports-[backdrop-filter]:bg-header-bg/50 shadow-lg shadow-header-glow/10">
+    <header className="sticky top-0 z-50 w-full border-b border-gray-200/30 bg-header-bg/80 backdrop-blur supports-[backdrop-filter]:bg-header-bg/70 shadow-lg shadow-header-glow/10">
       <div className="container flex h-16 md:h-16 items-center justify-between px-4 md:px-6">
         {/* Mobile: Center the logo with more space, Desktop: Left aligned */}
         <div className="flex items-center space-x-6 md:space-x-12 md:flex-1 w-full md:w-auto">
