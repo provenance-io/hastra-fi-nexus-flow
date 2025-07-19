@@ -68,10 +68,6 @@ const HastraDashboard = () => {
       {/* Trading Platforms Section */}
       <div id="trade-lend-section" className="mb-6 md:mb-8">
         <div className="bg-background/20 rounded-3xl p-6">
-          <h2 className="text-lg md:text-xl font-semibold text-foreground mb-6">
-            Trade & Lend
-          </h2>
-          
           <TradingPlatformsSection />
         </div>
       </div>
