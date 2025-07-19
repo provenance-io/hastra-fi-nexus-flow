@@ -117,15 +117,15 @@ const HOMESFeatures = () => {
             Join yield-seeking capital providers who are already earning competitive returns through our RWA pools. Be part of the Solana DeFi revolution.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Card className="bg-background/30 rounded-2xl border border-border/20 hover:border-hastra-teal/20 transition-all duration-300 p-4 min-w-[200px]">
+            <Card className="bg-background/50 rounded-2xl border border-border/20 hover:border-hastra-teal/20 transition-all duration-300 shadow-sm p-4 min-w-[200px]">
               <div className="text-2xl lg:text-3xl font-bold text-foreground mb-1">7.5%</div>
               <div className="text-sm text-muted-foreground">Target APY</div>
             </Card>
-            <Card className="bg-background/30 rounded-2xl border border-border/20 hover:border-hastra-teal/20 transition-all duration-300 p-4 min-w-[200px]">
+            <Card className="bg-background/50 rounded-2xl border border-border/20 hover:border-hastra-teal/20 transition-all duration-300 shadow-sm p-4 min-w-[200px]">
               <div className="text-2xl lg:text-3xl font-bold text-foreground mb-1">Dual</div>
               <div className="text-sm text-muted-foreground">Token Options</div>
             </Card>
-            <Card className="bg-background/30 rounded-2xl border border-border/20 hover:border-hastra-teal/20 transition-all duration-300 p-4 min-w-[200px]">
+            <Card className="bg-background/50 rounded-2xl border border-border/20 hover:border-hastra-teal/20 transition-all duration-300 shadow-sm p-4 min-w-[200px]">
               <div className="text-2xl lg:text-3xl font-bold text-foreground mb-1">Solana</div>
               <div className="text-sm text-muted-foreground">Fast & Low Cost</div>
             </Card>
