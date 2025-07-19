@@ -17,13 +17,17 @@ const About = () => {
           
           <div className="container relative text-center">
             
-            {/* Subtle Logo Trace Effect */}
+            {/* Subtle inline glow effect */}
             <div className="flex justify-center mb-12">
               <div className="relative">
                 <img 
                   src="/lovable-uploads/e7187c63-0dae-455c-971c-a6de70ce2afc.png" 
                   alt="Mission Logo" 
-                  className="w-32 h-32 md:w-48 md:h-48 logo-subtle-glow"
+                  className="w-32 h-32 md:w-48 md:h-48"
+                  style={{
+                    filter: 'drop-shadow(0 0 6px rgba(0, 255, 150, 0.6)) drop-shadow(0 0 12px rgba(0, 200, 255, 0.3))',
+                    animation: 'logoGlow 3s ease-in-out infinite'
+                  }}
                 />
               </div>
             </div>
