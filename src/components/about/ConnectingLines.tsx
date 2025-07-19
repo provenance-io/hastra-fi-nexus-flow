@@ -21,8 +21,8 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
         }`}
         style={{
           left: '20%', // Far left
-          top: '330px', // Moved up ~2 inches (192px)
-          height: '270px', // Increased height to reach Belief card
+          top: '330px', // Moved up ~2 inches
+          height: '150px', // Truncated to only connect Mission and Belief cards
           width: '3px',
           background: 'linear-gradient(to bottom, hsl(var(--header-glow) / 0.8), hsl(var(--header-glow) / 0.4))',
           transformOrigin: 'top',
