@@ -13,45 +13,56 @@ const FlashingText = ({ phrases, className = "" }: FlashingTextProps) => {
   const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    let timeout: NodeJS.Timeout;
+
+    const showNextPhrase = () => {
       setActiveIndex((prevIndex) => {
         const nextIndex = prevIndex + 1;
         
-        // If we've reached the last phrase
+        // If we've reached the end, pause and restart
         if (nextIndex >= phrases.length) {
           setIsLastPhraseExtended(false);
           setIsSlowFading(false);
           setIsPaused(true);
           // Pause before restarting
-          setTimeout(() => {
+          timeout = setTimeout(() => {
             setIsPaused(false);
-          }, 1500); // 1.5 second pause
-          return -1; // Reset to start the cycle over
+            setActiveIndex(0); // Start with first phrase
+          }, 1500);
+          return -1;
         }
         
-        // If this is the last phrase, handle extended timing (2x duration)
+        // If this is the last phrase, handle extended timing
         if (nextIndex === phrases.length - 1) {
           setIsLastPhraseExtended(true);
-          // Extended time for last phrase (6 seconds) + slow fade
-          setTimeout(() => {
+          // Extended time for last phrase (3 seconds) + slow fade
+          timeout = setTimeout(() => {
             setIsSlowFading(true);
-            setTimeout(() => {
+            timeout = setTimeout(() => {
               setIsLastPhraseExtended(false);
               setIsSlowFading(false);
-            }, 2000); // 2 second slow fade
-          }, 6000); // Stay visible for 6 seconds (2x the original 3 seconds)
+              // Move to next cycle after fade completes
+              timeout = setTimeout(showNextPhrase, 100);
+            }, 3000); // 3 second slow fade
+          }, 3000); // Stay visible for 3 seconds
         } else {
-          setIsLastPhraseExtended(false);
-          setIsSlowFading(false);
-          setIsPaused(false);
+          // Regular phrases: 1 second display time
+          timeout = setTimeout(showNextPhrase, 1000);
         }
         
         return nextIndex;
       });
-    }, 2000); // 2 seconds per phrase (with slow fade for all)
+    };
 
-    return () => clearInterval(interval);
-  }, [phrases.length]);
+    // Start the cycle
+    if (!isPaused) {
+      timeout = setTimeout(showNextPhrase, 1000);
+    }
+
+    return () => {
+      if (timeout) clearTimeout(timeout);
+    };
+  }, [phrases.length, isPaused]);
 
   return (
     <span className={className}>
@@ -59,7 +70,7 @@ const FlashingText = ({ phrases, className = "" }: FlashingTextProps) => {
         <span 
           key={index}
           className={`
-            transition-colors duration-2000 ease-in-out
+            transition-colors duration-3000 ease-out
             ${isPaused
               ? 'text-transparent'
               : activeIndex === index && index === phrases.length - 1 && (isLastPhraseExtended || isSlowFading)
