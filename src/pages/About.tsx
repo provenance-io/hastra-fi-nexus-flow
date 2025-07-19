@@ -238,10 +238,10 @@ const About = () => {
                   href="https://discord.gg/hastra" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="group p-4 rounded-full border border-header-glow/30 hover:border-header-glow/60 transition-all duration-300 hover:shadow-lg hover:shadow-header-glow/20"
+                  className="group p-4 rounded-full border border-crypto-accent/30 hover:border-crypto-accent/60 transition-all duration-300 hover:shadow-lg hover:shadow-crypto-accent/20"
                 >
                   <svg 
-                    className="w-8 h-8 text-header-glow group-hover:scale-110 transition-transform duration-300" 
+                    className="w-8 h-8 text-crypto-accent group-hover:scale-110 transition-transform duration-300" 
                     fill="currentColor" 
                     viewBox="0 0 24 24"
                   >
