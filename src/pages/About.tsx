@@ -107,7 +107,7 @@ const About = () => {
         </section>
 
         {/* Provenance Blockchain Ecosystem Support */}
-        <section className="py-20 relative">
+        <section className="py-40 relative"> {/* Increased from py-20 to py-40 */}
           {/* Unified seamless background - removed conflicting gradient */}
           
           <div className="container relative">
