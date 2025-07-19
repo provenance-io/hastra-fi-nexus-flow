@@ -106,7 +106,7 @@ const Hero = () => {
       <div className="container relative z-20">
         <div className={`text-center space-y-8 transition-opacity duration-500 ${isLoaded ? 'hero-content-loaded' : 'opacity-0'}`}>
           {/* Badge */}
-          <div className="inline-flex items-center text-sm font-medium text-foreground/80 hero-badge">
+          <div className="inline-flex items-center text-sm font-medium text-foreground/90 hero-badge">
             <span className="mr-2 w-2 h-2 bg-header-glow rounded-full animate-pulse"></span>
             <span className="flex items-center gap-1">
               Now Live: Earn Up to{' '}
@@ -133,7 +133,7 @@ const Hero = () => {
 
           {/* Subtitle with stable timing */}
           <div className="hero-subtitle">
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed">
               Elite DeFi Products for the <span className="text-header-glow font-semibold">Crypto Savvy</span>, Backed by Real-World Assets.
             </p>
           </div>

@@ -130,7 +130,7 @@ const Products = () => {
           <h2 id="products-heading" className="text-4xl md:text-5xl font-bold tracking-tight">
             Grow your wealth, <span className="text-gradient">not your workload.</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-foreground/90 max-w-3xl mx-auto">
             Explore new ways our tokens can earn APY for you.
           </p>
         </div>
