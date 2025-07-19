@@ -49,7 +49,7 @@ const WYLDsYieldExplanation = () => {
       
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Section Header - Outside the box */}
-        <div className="text-center mb-16">
+        <div className="mb-16">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">
             What is YIELD?
           </h2>
