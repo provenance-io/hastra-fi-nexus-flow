@@ -1,5 +1,4 @@
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight, ChevronDown, TrendingUp, Calendar, Repeat, Shield, Globe } from 'lucide-react';
 import yieldIcon from '/lovable-uploads/1d678c0f-09c8-4451-a9a6-3e635e0fef72.png';
 
@@ -49,15 +48,14 @@ const WYLDsYieldExplanation = () => {
       {/* Unified seamless background - removed conflicting gradient */}
       
       <div className="relative z-10 max-w-7xl mx-auto">
-        {/* What is YIELD Dashboard Box */}
-        <Card className="mb-20 bg-background/40 backdrop-blur-sm border-border/50">
-          <CardHeader className="text-center pb-8">
-            <CardTitle className="text-2xl md:text-3xl font-bold text-foreground/90">
-              What is YIELD?
-            </CardTitle>
-          </CardHeader>
-          
-          <CardContent className="space-y-16">
+        {/* What is YIELD Dashboard Box - Matching About page styling */}
+        <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-20 relative">
+          <div className="relative z-10">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">
+                What is YIELD?
+              </h2>
+            </div>
             {/* Feature Cards */}
             <div className="grid gap-10 md:grid-cols-3">
               {[
@@ -109,7 +107,7 @@ const WYLDsYieldExplanation = () => {
             </div>
 
             {/* Description */}
-            <div className="text-center">
+            <div className="text-center mb-16">
               <p className="text-lg md:text-xl text-platinum/80 max-w-4xl mx-auto leading-relaxed">
                 YIELD is a token representing a vault of the YLDS token - the first SEC-registered, yield-bearing stablecoin combining the liquidity of traditional stablecoins with the earning power of a money market fund. As users deposit USDC, Hastra purchases and holds YLDS, and distributes interest in YIELD to token holders.
               </p>
@@ -127,8 +125,8 @@ const WYLDsYieldExplanation = () => {
                 </a>
               </Button>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
 
         {/* How It Works - Clean Infographic Style */}
         <div className="mb-20">
