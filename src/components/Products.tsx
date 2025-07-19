@@ -177,7 +177,7 @@ const Products = () => {
 
              {/* Product description */}
             <div className="space-y-4">
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+              <p className="text-lg md:text-xl text-foreground/90 leading-relaxed">
                 {products.live.description}
               </p>
               
@@ -185,7 +185,7 @@ const Products = () => {
                 <TrendingUp className="w-5 h-5 text-orange-300 mt-0.5 flex-shrink-0" />
                 <p className="text-foreground/90">
                   <span className="font-semibold text-orange-300">Innovation:</span>{' '}
-                  <span className="text-muted-foreground">{products.live.innovation}</span>
+                  <span className="text-foreground/90">{products.live.innovation}</span>
                 </p>
               </div>
             </div>
