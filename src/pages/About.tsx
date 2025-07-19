@@ -160,10 +160,19 @@ const About = () => {
                 </div>
               </div>
               
-              <div className="card-gradient rounded-2xl p-6 md:p-8 card-hover max-w-5xl mx-auto mb-12">
-                <p className="text-lg text-foreground/90 leading-relaxed">
-                  Most DeFi protocols create their own tokens to capture value for themselves. We're taking a different approach. <span className="text-header-glow font-semibold">Instead of launching another token, we're channeling our success directly back to the HASH holders who power and secure the <a href="https://provenance.io" target="_blank" rel="noopener noreferrer" className="text-header-glow hover:text-header-glow/80 transition-colors">Provenance network</a>.</span>
-                </p>
+              <div className="card-gradient rounded-3xl p-6 md:p-8 card-hover max-w-5xl mx-auto mb-12 border-2 transition-all duration-500"
+                   style={{
+                     borderColor: 'rgba(229, 218, 194, 0.2)',
+                     boxShadow: '0 0 15px rgba(229, 218, 194, 0.15), 0 0 30px rgba(229, 218, 194, 0.08)',
+                   }}>
+                <div className="absolute inset-0 rounded-3xl pointer-events-none" 
+                     style={{ background: 'linear-gradient(to bottom right, rgba(229, 218, 194, 0.04), rgba(229, 218, 194, 0.02))' }} />
+                
+                <div className="relative z-10">
+                  <p className="text-lg text-foreground/90 leading-relaxed">
+                    Most DeFi protocols create their own tokens to capture value for themselves. We're taking a different approach. <span className="text-header-glow font-semibold">Instead of launching another token, we're channeling our success directly back to the HASH holders who power and secure the <a href="https://provenance.io" target="_blank" rel="noopener noreferrer" className="text-header-glow hover:text-header-glow/80 transition-colors">Provenance network</a>.</span>
+                  </p>
+                </div>
               </div>
             </div>
 
