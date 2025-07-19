@@ -7,6 +7,7 @@ interface ConnectingLinesProps {
   visionToHashLine: boolean;
   provenanceToHashTokenLine: boolean;
   hashTokenToCommitmentLine: boolean;
+  commitmentToSuccessLine: boolean;
 }
 
 const ConnectingLines: React.FC<ConnectingLinesProps> = ({
@@ -15,6 +16,7 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
   visionToHashLine,
   provenanceToHashTokenLine,
   hashTokenToCommitmentLine,
+  commitmentToSuccessLine,
 }) => {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -99,6 +101,21 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
           left: isMobile ? '85%' : '80%',
           top: isMobile ? '2200px' : '2500px',
           height: isMobile ? '40px' : '48px',
+          width: '2px',
+          background: 'rgba(229, 218, 194, 0.8)',
+          transformOrigin: 'top',
+          boxShadow: '0 0 12px rgba(229, 218, 194, 0.6), 0 0 6px rgba(229, 218, 194, 0.4)',
+        }}
+      />
+
+      {/* Commitment to Success Line - Center aligned */}
+      <div 
+        className={`absolute left-1/2 transform -translate-x-1/2 transition-all duration-1000 z-40 ${
+          commitmentToSuccessLine ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
+        }`}
+        style={{
+          top: isMobile ? '2700px' : '3100px',
+          height: isMobile ? '60px' : '80px',
           width: '2px',
           background: 'rgba(229, 218, 194, 0.8)',
           transformOrigin: 'top',
