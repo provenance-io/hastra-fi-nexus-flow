@@ -178,12 +178,6 @@ const About = () => {
                   When we succeed, HASH holders succeed.
                 </p>
               </div>
-              
-              <div className="mt-8 text-center">
-                <p className="text-lg font-medium text-foreground/90 max-w-3xl mx-auto">
-                  This commitment demonstrates our dedication to being a valuable participant in the Provenance ecosystem, ensuring that our growth directly benefits all HASH token holders and network validators.
-                </p>
-              </div>
             </div>
           </div>
         </section>
@@ -232,21 +226,6 @@ const About = () => {
                 </Button>
               </div>
 
-              {/* Trust indicators */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-header-glow mb-2">$150M+</div>
-                  <div className="text-foreground/90">Total Value Locked</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-crypto-accent mb-2">25k+</div>
-                  <div className="text-foreground/90">Active Users</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-header-glow mb-2">99.9%</div>
-                  <div className="text-foreground/90">Uptime</div>
-                </div>
-              </div>
             </div>
           </div>
         </section>
