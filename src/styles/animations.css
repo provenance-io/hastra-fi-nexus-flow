@@ -1,79 +1,134 @@
-/* Enhanced 3D perspective coin animation system */
+
+/* Enhanced 3D perspective coin animation system with advanced realism */
 
 .falling-coins-3d-container {
   position: absolute;
   inset: 0;
-  perspective: 1200px;
+  perspective: 1500px;
   perspective-origin: center top;
   overflow: hidden;
+  /* GPU acceleration for performance */
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .falling-coin-3d {
   position: absolute;
   width: calc(36px * var(--base-scale, 1));
   height: calc(36px * var(--base-scale, 1));
-  animation: coin-fall-3d var(--fall-duration, 4s) infinite linear var(--animation-delay, 0s);
+  animation: coin-fall-3d var(--fall-duration, 4s) infinite ease-out var(--animation-delay, 0s);
   opacity: calc(var(--layer-opacity, 1) * 0.9);
   left: var(--fall-start-x, 50%);
   top: -80px;
-  will-change: transform, opacity;
+  will-change: transform, opacity, filter;
   transform: translateZ(0);
   backface-visibility: hidden;
-  filter: blur(var(--blur-amount, 0px)) drop-shadow(0 2px 8px hsl(var(--mint-green) / calc(0.2 * var(--layer-opacity, 1))));
+  filter: blur(var(--blur-amount, 0px)) 
+          drop-shadow(0 calc(4px * var(--z-depth)) calc(12px * var(--z-depth)) hsl(var(--mint-green) / calc(0.3 * var(--layer-opacity, 1))))
+          drop-shadow(0 calc(2px * var(--z-depth)) calc(6px * var(--z-depth)) hsl(var(--mint-green-light) / calc(0.2 * var(--layer-opacity, 1))))
+          drop-shadow(0 calc(8px * var(--z-depth)) calc(24px * var(--z-depth)) hsl(var(--mint-green-dark) / calc(0.15 * var(--layer-opacity, 1))));
   transform-style: preserve-3d;
+  /* Enhanced physics simulation variables */
+  --wind-resistance: calc(0.02 * var(--z-depth, 1));
+  --gravity-pull: calc(1 + var(--z-depth, 1) * 0.3);
+  --air-friction: calc(0.98 + var(--z-depth, 1) * 0.01);
 }
 
-/* Enhanced 3D Coin Structure with visible thickness */
+/* Advanced 3D Coin Face with realistic material properties */
 .coin-face-3d {
   position: absolute;
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: linear-gradient(135deg, 
-    hsl(var(--mint-green-light)) 0%, 
-    hsl(var(--mint-green)) 30%,
-    hsl(var(--mint-green-dark)) 70%,
-    hsl(var(--mint-green-light)) 100%);
+  background: 
+    /* Outer rim highlight */
+    radial-gradient(circle at 30% 30%, 
+      hsl(var(--mint-green-light) / 0.9) 0%,
+      hsl(var(--mint-green-light) / 0.7) 15%,
+      transparent 25%),
+    /* Main surface gradient */
+    conic-gradient(from 45deg,
+      hsl(var(--mint-green-dark)) 0deg,
+      hsl(var(--mint-green)) 60deg,
+      hsl(var(--mint-green-light)) 120deg,
+      hsl(var(--mint-green)) 180deg,
+      hsl(var(--mint-green-dark)) 240deg,
+      hsl(var(--mint-green)) 300deg,
+      hsl(var(--mint-green-dark)) 360deg),
+    /* Base metallic surface */
+    linear-gradient(135deg, 
+      hsl(var(--mint-green-light) / 0.8) 0%, 
+      hsl(var(--mint-green)) 30%,
+      hsl(var(--mint-green-dark)) 70%,
+      hsl(var(--mint-green-light) / 0.9) 100%);
   border: calc(2px * var(--base-scale)) solid hsl(var(--mint-green-dark));
   box-shadow: 
-    0 calc(4px * var(--z-depth)) calc(12px * var(--z-depth)) hsl(var(--mint-green) / calc(0.4 * var(--layer-opacity))),
-    inset 0 calc(2px * var(--base-scale)) calc(4px * var(--base-scale)) hsl(var(--mint-green-light) / 0.7),
-    inset 0 calc(-2px * var(--base-scale)) calc(4px * var(--base-scale)) hsl(var(--mint-green-dark) / 0.4),
-    inset 0 0 calc(8px * var(--base-scale)) hsl(var(--mint-green) / 0.3);
+    /* Primary coin shadow */
+    0 calc(6px * var(--z-depth)) calc(18px * var(--z-depth)) hsl(var(--mint-green-dark) / calc(0.4 * var(--layer-opacity))),
+    /* Ambient glow */
+    0 0 calc(12px * var(--base-scale)) hsl(var(--mint-green) / calc(0.3 * var(--layer-opacity))),
+    /* Inner highlights */
+    inset 0 calc(3px * var(--base-scale)) calc(6px * var(--base-scale)) hsl(var(--mint-green-light) / 0.8),
+    inset 0 calc(-2px * var(--base-scale)) calc(4px * var(--base-scale)) hsl(var(--mint-green-dark) / 0.6),
+    inset 0 0 calc(10px * var(--base-scale)) hsl(var(--mint-green) / 0.4),
+    /* Outer edge definition */
+    inset 0 0 0 calc(1px * var(--base-scale)) hsl(var(--mint-green-light) / 0.6);
   position: relative;
-  z-index: 3;
+  z-index: 4;
   opacity: var(--layer-opacity);
-  transform: translateZ(calc(4px * var(--base-scale)));
+  transform: translateZ(calc(6px * var(--base-scale)));
+  /* Realistic surface properties */
+  backdrop-filter: blur(0.5px);
 }
 
+/* Enhanced coin letter with 3D embossed effect */
 .coin-face-3d::before {
   content: 'Y';
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: calc(16px * var(--base-scale));
-  font-weight: bold;
+  font-size: calc(18px * var(--base-scale));
+  font-weight: 900;
+  font-family: 'Arial Black', Arial, sans-serif;
   color: hsl(var(--mint-green-dark));
-  text-shadow: 0 1px 2px hsl(var(--mint-green-light) / 0.8);
+  text-shadow: 
+    /* Embossed effect */
+    0 calc(1px * var(--base-scale)) calc(2px * var(--base-scale)) hsl(var(--mint-green-light) / 0.9),
+    0 calc(-1px * var(--base-scale)) calc(1px * var(--base-scale)) hsl(var(--mint-green-dark) / 0.8),
+    /* Depth shadow */
+    0 calc(2px * var(--base-scale)) calc(4px * var(--base-scale)) hsl(var(--mint-green-dark) / 0.5),
+    /* Outer glow */
+    0 0 calc(4px * var(--base-scale)) hsl(var(--mint-green-light) / 0.6);
+  z-index: 1;
 }
 
+/* Enhanced surface reflection with dynamic light interaction */
 .coin-face-3d::after {
   content: '';
   position: absolute;
-  top: 15%;
-  left: 15%;
-  width: 70%;
-  height: 70%;
+  top: 12%;
+  left: 12%;
+  width: 76%;
+  height: 76%;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, 
-    hsl(var(--mint-green-light) / 0.8) 0%,
-    hsl(var(--mint-green-light) / 0.3) 40%,
-    transparent 70%);
+  background: 
+    /* Primary reflection */
+    radial-gradient(ellipse at 35% 25%, 
+      hsl(var(--mint-green-light) / 0.9) 0%,
+      hsl(var(--mint-green-light) / 0.6) 25%,
+      hsl(var(--mint-green-light) / 0.3) 45%,
+      transparent 65%),
+    /* Secondary highlight */
+    radial-gradient(ellipse at 65% 75%, 
+      hsl(var(--mint-green-light) / 0.4) 0%,
+      hsl(var(--mint-green-light) / 0.2) 30%,
+      transparent 50%);
   pointer-events: none;
+  animation: surface-shimmer calc(var(--fall-duration, 4s) * 2) infinite linear var(--animation-delay, 0s);
 }
 
-/* Visible coin edge/rim with enhanced thickness */
+/* Multi-layered realistic coin edge with enhanced thickness */
 .coin-edge-3d {
   position: absolute;
   top: 0;
@@ -81,161 +136,217 @@
   right: 0;
   bottom: 0;
   border-radius: 50%;
-  background: linear-gradient(180deg, 
-    hsl(var(--mint-green-dark)) 0%,
-    hsl(var(--mint-green)) 20%,
-    hsl(var(--mint-green-light)) 40%,
-    hsl(var(--mint-green)) 60%,
-    hsl(var(--mint-green-dark)) 80%,
-    hsl(var(--mint-green-dark)) 100%);
-  transform: translateZ(calc(-8px * var(--base-scale)));
+  background: 
+    /* Edge gradient for realism */
+    conic-gradient(from 90deg,
+      hsl(var(--mint-green-dark)) 0deg,
+      hsl(var(--mint-green)) 45deg,
+      hsl(var(--mint-green-light)) 90deg,
+      hsl(var(--mint-green)) 135deg,
+      hsl(var(--mint-green-dark)) 180deg,
+      hsl(var(--mint-green)) 225deg,
+      hsl(var(--mint-green-light)) 270deg,
+      hsl(var(--mint-green)) 315deg,
+      hsl(var(--mint-green-dark)) 360deg);
+  transform: translateZ(calc(-10px * var(--base-scale)));
   z-index: 0;
   opacity: var(--layer-opacity);
   box-shadow: 
-    0 0 calc(6px * var(--base-scale)) hsl(var(--mint-green-dark) / 0.8),
-    inset 0 calc(2px * var(--base-scale)) calc(4px * var(--base-scale)) hsl(var(--mint-green-dark) / 0.6);
+    /* Primary edge shadow */
+    0 0 calc(8px * var(--base-scale)) hsl(var(--mint-green-dark) / 0.9),
+    /* Inner edge definition */
+    inset 0 calc(3px * var(--base-scale)) calc(6px * var(--base-scale)) hsl(var(--mint-green-dark) / 0.7),
+    inset 0 calc(-3px * var(--base-scale)) calc(6px * var(--base-scale)) hsl(var(--mint-green-light) / 0.4);
 }
 
-/* Create side rim for 3D thickness */
+/* Primary rim layer with enhanced 3D depth */
 .coin-edge-3d::before {
   content: '';
   position: absolute;
-  top: calc(-4px * var(--base-scale));
-  left: calc(-4px * var(--base-scale));
-  right: calc(-4px * var(--base-scale));
-  bottom: calc(-4px * var(--base-scale));
+  top: calc(-5px * var(--base-scale));
+  left: calc(-5px * var(--base-scale));
+  right: calc(-5px * var(--base-scale));
+  bottom: calc(-5px * var(--base-scale));
   border-radius: 50%;
-  background: linear-gradient(135deg, 
-    hsl(var(--mint-green-dark)) 0%,
-    hsl(var(--mint-green)) 25%,
-    hsl(var(--mint-green-light)) 50%,
-    hsl(var(--mint-green)) 75%,
-    hsl(var(--mint-green-dark)) 100%);
-  transform: translateZ(calc(-4px * var(--base-scale)));
+  background: 
+    /* Rim surface with realistic lighting */
+    linear-gradient(145deg, 
+      hsl(var(--mint-green-dark)) 0%,
+      hsl(var(--mint-green)) 20%,
+      hsl(var(--mint-green-light)) 40%,
+      hsl(var(--mint-green)) 60%,
+      hsl(var(--mint-green-dark)) 80%,
+      hsl(var(--mint-green-dark)) 100%);
+  transform: translateZ(calc(-5px * var(--base-scale)));
   box-shadow: 
-    0 0 calc(8px * var(--base-scale)) hsl(var(--mint-green-dark) / 0.4),
-    inset 0 calc(1px * var(--base-scale)) calc(2px * var(--base-scale)) hsl(var(--mint-green-light) / 0.3);
+    /* Ambient rim shadow */
+    0 0 calc(10px * var(--base-scale)) hsl(var(--mint-green-dark) / 0.5),
+    /* Surface detail */
+    inset 0 calc(2px * var(--base-scale)) calc(4px * var(--base-scale)) hsl(var(--mint-green-light) / 0.4),
+    inset 0 calc(-1px * var(--base-scale)) calc(2px * var(--base-scale)) hsl(var(--mint-green-dark) / 0.6);
 }
 
-/* Inner rim for enhanced depth */
+/* Secondary rim layer for ultra-realistic thickness */
 .coin-edge-3d::after {
   content: '';
   position: absolute;
-  top: calc(-2px * var(--base-scale));
-  left: calc(-2px * var(--base-scale));
-  right: calc(-2px * var(--base-scale));
-  bottom: calc(-2px * var(--base-scale));
+  top: calc(-3px * var(--base-scale));
+  left: calc(-3px * var(--base-scale));
+  right: calc(-3px * var(--base-scale));
+  bottom: calc(-3px * var(--base-scale));
   border-radius: 50%;
-  background: linear-gradient(270deg, 
-    hsl(var(--mint-green-dark)) 0%,
-    hsl(var(--mint-green)) 30%,
-    hsl(var(--mint-green-light)) 60%,
-    hsl(var(--mint-green-dark)) 100%);
-  transform: translateZ(calc(-6px * var(--base-scale)));
+  background: 
+    /* Inner rim with metallic finish */
+    radial-gradient(circle,
+      hsl(var(--mint-green)) 30%,
+      hsl(var(--mint-green-dark)) 60%,
+      hsl(var(--mint-green-light)) 80%,
+      hsl(var(--mint-green-dark)) 100%);
+  transform: translateZ(calc(-7px * var(--base-scale)));
   box-shadow: 
-    0 0 calc(4px * var(--base-scale)) hsl(var(--mint-green) / 0.6),
-    inset 0 0 calc(3px * var(--base-scale)) hsl(var(--mint-green-dark) / 0.7);
+    /* Subtle inner glow */
+    0 0 calc(6px * var(--base-scale)) hsl(var(--mint-green) / 0.7),
+    /* Inner rim definition */
+    inset 0 0 calc(4px * var(--base-scale)) hsl(var(--mint-green-dark) / 0.8),
+    inset 0 calc(1px * var(--base-scale)) calc(2px * var(--base-scale)) hsl(var(--mint-green-light) / 0.3);
 }
 
+/* Advanced physics-based falling animation with realistic motion */
 @keyframes coin-fall-3d {
   0% {
     opacity: 0;
     transform: 
-      translateY(-100vh) 
+      translateY(-120vh) 
       translateX(0) 
-      translateZ(calc(var(--z-depth) * -200px))
+      translateZ(calc(var(--z-depth) * -250px))
       rotateY(var(--rotation-start, 0deg))
       rotateX(0deg)
       rotateZ(0deg)
-      scale(calc(var(--base-scale) * 0.6));
+      scale(calc(var(--base-scale) * 0.5));
+    filter: blur(calc(var(--blur-amount, 0px) + 2px)) 
+            drop-shadow(0 0 0 transparent);
   }
   
-  5% {
-    opacity: calc(var(--layer-opacity) * 0.4);
+  8% {
+    opacity: calc(var(--layer-opacity) * 0.3);
     transform: 
-      translateY(5vh) 
-      translateX(calc(var(--drift-early, 0px) * 0.2))
-      translateZ(calc(var(--z-depth) * -150px))
-      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 0.4))
-      rotateX(calc(var(--tilt-speed, 15deg) * 0.2))
-      rotateZ(calc(var(--spin-speed, 90deg) * 0.1))
-      scale(calc(var(--base-scale) * 0.7));
+      translateY(-5vh) 
+      translateX(calc(var(--drift-early, 0px) * 0.15 * var(--wind-resistance, 1)))
+      translateZ(calc(var(--z-depth) * -180px))
+      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 0.3))
+      rotateX(calc(var(--tilt-speed, 15deg) * 0.15))
+      rotateZ(calc(var(--spin-speed, 90deg) * 0.08))
+      scale(calc(var(--base-scale) * 0.65));
+    filter: blur(calc(var(--blur-amount, 0px) + 1px)) 
+            drop-shadow(0 calc(2px * var(--z-depth)) calc(6px * var(--z-depth)) hsl(var(--mint-green) / 0.2));
   }
   
-  15% {
-    opacity: calc(var(--layer-opacity) * 0.8);
+  20% {
+    opacity: calc(var(--layer-opacity) * 0.7);
     transform: 
       translateY(15vh) 
-      translateX(calc(var(--drift-early, 0px) * 0.6))
-      translateZ(calc(var(--z-depth) * -100px))
-      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 1.2))
-      rotateX(calc(var(--tilt-speed, 15deg) * 0.8))
-      rotateZ(calc(var(--spin-speed, 90deg) * 0.3))
-      scale(calc(var(--base-scale) * 0.85));
+      translateX(calc(var(--drift-early, 0px) * 0.5 * var(--wind-resistance, 1)))
+      translateZ(calc(var(--z-depth) * -120px))
+      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 1.0))
+      rotateX(calc(var(--tilt-speed, 15deg) * 0.6))
+      rotateZ(calc(var(--spin-speed, 90deg) * 0.25))
+      scale(calc(var(--base-scale) * 0.8));
+    filter: blur(var(--blur-amount, 0px)) 
+            drop-shadow(0 calc(3px * var(--z-depth)) calc(9px * var(--z-depth)) hsl(var(--mint-green) / 0.25));
   }
   
-  35% {
+  40% {
     opacity: var(--layer-opacity);
     transform: 
       translateY(35vh) 
-      translateX(var(--drift-mid, 0px))
-      translateZ(calc(var(--z-depth) * -50px))
-      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 2.5))
-      rotateX(calc(var(--tilt-speed, 15deg) * 2))
-      rotateZ(calc(var(--spin-speed, 90deg) * 0.8))
-      scale(var(--base-scale));
+      translateX(calc(var(--drift-mid, 0px) * 0.8 * var(--air-friction, 1)))
+      translateZ(calc(var(--z-depth) * -60px))
+      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 2.2))
+      rotateX(calc(var(--tilt-speed, 15deg) * 1.8))
+      rotateZ(calc(var(--spin-speed, 90deg) * 0.7))
+      scale(calc(var(--base-scale) * 0.95));
+    filter: blur(var(--blur-amount, 0px)) 
+            drop-shadow(0 calc(4px * var(--z-depth)) calc(12px * var(--z-depth)) hsl(var(--mint-green) / 0.3));
   }
   
   60% {
     opacity: var(--layer-opacity);
     transform: 
       translateY(60vh) 
-      translateX(calc(var(--drift-late, 0px) * 0.8))
-      translateZ(0px)
-      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 4))
-      rotateX(calc(var(--tilt-speed, 15deg) * 3.5))
-      rotateZ(calc(var(--spin-speed, 90deg) * 1.5))
-      scale(calc(var(--base-scale) * 1.1));
+      translateX(calc(var(--drift-late, 0px) * 0.9 * var(--air-friction, 1)))
+      translateZ(calc(var(--z-depth) * 10px))
+      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 3.8))
+      rotateX(calc(var(--tilt-speed, 15deg) * 3.2))
+      rotateZ(calc(var(--spin-speed, 90deg) * 1.4))
+      scale(calc(var(--base-scale) * 1.05));
+    filter: blur(var(--blur-amount, 0px)) 
+            drop-shadow(0 calc(5px * var(--z-depth)) calc(15px * var(--z-depth)) hsl(var(--mint-green) / 0.35));
   }
   
   80% {
-    opacity: var(--layer-opacity);
+    opacity: calc(var(--layer-opacity) * 0.95);
     transform: 
       translateY(80vh) 
-      translateX(var(--drift-late, 0px))
-      translateZ(calc(var(--z-depth) * 50px))
-      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 5.5))
-      rotateX(calc(var(--tilt-speed, 15deg) * 4.5))
-      rotateZ(calc(var(--spin-speed, 90deg) * 2.2))
-      scale(calc(var(--base-scale) * 1.2));
+      translateX(calc(var(--drift-late, 0px) * var(--air-friction, 1)))
+      translateZ(calc(var(--z-depth) * 80px))
+      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 5.2))
+      rotateX(calc(var(--tilt-speed, 15deg) * 4.1))
+      rotateZ(calc(var(--spin-speed, 90deg) * 2.0))
+      scale(calc(var(--base-scale) * 1.15));
+    filter: blur(var(--blur-amount, 0px)) 
+            drop-shadow(0 calc(6px * var(--z-depth)) calc(18px * var(--z-depth)) hsl(var(--mint-green) / 0.4));
   }
   
   95% {
-    opacity: calc(var(--layer-opacity) * 0.3);
+    opacity: calc(var(--layer-opacity) * 0.4);
     transform: 
       translateY(95vh) 
-      translateX(var(--drift-end, 0px))
-      translateZ(calc(var(--z-depth) * 100px))
-      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 6.8))
-      rotateX(calc(var(--tilt-speed, 15deg) * 5.5))
-      rotateZ(calc(var(--spin-speed, 90deg) * 2.8))
-      scale(calc(var(--base-scale) * 1.05));
+      translateX(calc(var(--drift-end, 0px) * var(--air-friction, 1)))
+      translateZ(calc(var(--z-depth) * 150px))
+      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 6.5))
+      rotateX(calc(var(--tilt-speed, 15deg) * 5.0))
+      rotateZ(calc(var(--spin-speed, 90deg) * 2.6))
+      scale(calc(var(--base-scale) * 1.0));
+    filter: blur(calc(var(--blur-amount, 0px) + 1px)) 
+            drop-shadow(0 calc(4px * var(--z-depth)) calc(12px * var(--z-depth)) hsl(var(--mint-green) / 0.2));
   }
   
   100% {
     opacity: 0;
     transform: 
-      translateY(105vh) 
-      translateX(var(--drift-end, 0px))
-      translateZ(calc(var(--z-depth) * 150px))
-      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 7))
-      rotateX(calc(var(--tilt-speed, 15deg) * 6))
-      rotateZ(calc(var(--spin-speed, 90deg) * 3))
-      scale(calc(var(--base-scale) * 0.9));
+      translateY(110vh) 
+      translateX(calc(var(--drift-end, 0px) * var(--air-friction, 1)))
+      translateZ(calc(var(--z-depth) * 200px))
+      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 7.0))
+      rotateX(calc(var(--tilt-speed, 15deg) * 5.5))
+      rotateZ(calc(var(--spin-speed, 90deg) * 3.0))
+      scale(calc(var(--base-scale) * 0.8));
+    filter: blur(calc(var(--blur-amount, 0px) + 3px)) 
+            drop-shadow(0 0 0 transparent);
   }
 }
 
-/* Legacy stable coin animation for backwards compatibility */
+/* Dynamic surface shimmer animation for realistic light interaction */
+@keyframes surface-shimmer {
+  0%, 100% {
+    opacity: 0.4;
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    opacity: 0.8;
+    transform: rotate(90deg) scale(1.1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: rotate(180deg) scale(0.9);
+  }
+  75% {
+    opacity: 0.9;
+    transform: rotate(270deg) scale(1.05);
+  }
+}
+
+/* Performance-optimized legacy animations for backwards compatibility */
 .falling-coin-stable {
   position: absolute;
   width: 36px;
@@ -250,7 +361,6 @@
   backface-visibility: hidden;
 }
 
-/* Legacy falling coin for backwards compatibility */
 .falling-coin {
   position: absolute;
   width: 36px;
@@ -265,7 +375,6 @@
   filter: drop-shadow(0 4px 8px hsl(var(--mint-green) / 0.2));
 }
 
-/* Legacy coin structures */
 .coin-face {
   position: absolute;
   width: 100%;
