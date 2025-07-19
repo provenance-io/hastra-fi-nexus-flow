@@ -181,10 +181,10 @@ const Products = () => {
                 {products.live.description}
               </p>
               
-              <div className="flex items-start space-x-3 p-4 rounded-xl bg-header-glow/5 border border-header-glow/10">
-                <TrendingUp className="w-5 h-5 text-header-glow mt-0.5 flex-shrink-0" />
+              <div className="flex items-start space-x-3 p-4 rounded-xl bg-orange-900/10 border border-orange-800/20">
+                <TrendingUp className="w-5 h-5 text-orange-300 mt-0.5 flex-shrink-0" />
                 <p className="text-foreground/90">
-                  <span className="font-semibold text-header-glow">Innovation:</span>{' '}
+                  <span className="font-semibold text-orange-300">Innovation:</span>{' '}
                   <span className="text-muted-foreground">{products.live.innovation}</span>
                 </p>
               </div>
