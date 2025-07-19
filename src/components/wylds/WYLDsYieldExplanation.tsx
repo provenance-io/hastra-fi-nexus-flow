@@ -48,14 +48,16 @@ const WYLDsYieldExplanation = () => {
       {/* Unified seamless background - removed conflicting gradient */}
       
       <div className="relative z-10 max-w-7xl mx-auto">
-        {/* What is YIELD Dashboard Box - Matching About page styling */}
+        {/* Section Header - Outside the box */}
+        <div className="text-center mb-16">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">
+            What is YIELD?
+          </h2>
+        </div>
+
+        {/* Dashboard Box - Matching About page styling */}
         <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-20 relative">
           <div className="relative z-10">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">
-                What is YIELD?
-              </h2>
-            </div>
             {/* Feature Cards */}
             <div className="grid gap-10 md:grid-cols-3">
               {[
