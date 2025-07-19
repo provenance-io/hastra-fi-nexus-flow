@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, ChevronDown, TrendingUp, Calendar, Repeat, Shield, Globe } from 'lucide-react';
-import yieldIcon from '@/assets/yield-icon.png';
+import yieldIcon from '/lovable-uploads/1d678c0f-09c8-4451-a9a6-3e635e0fef72.png';
 
 const YieldTokenIcon = ({ className }: { className?: string }) => (
   <img src={yieldIcon} alt="YIELD Token" className={className} />
