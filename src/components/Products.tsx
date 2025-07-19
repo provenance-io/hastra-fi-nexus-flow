@@ -170,7 +170,7 @@ const Products = () => {
                   </div>
                 </div>
               </div>
-               <p className="text-xl md:text-2xl font-semibold text-gradient">
+               <p className="text-xl md:text-2xl font-semibold" style={{ color: 'hsl(var(--hastra-teal))' }}>
                  Liquid Yield. No staking. Just Earning.
                </p>
              </div>
