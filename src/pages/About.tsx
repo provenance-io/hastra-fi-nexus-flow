@@ -23,7 +23,7 @@ const About = () => {
                 <img 
                   src="/lovable-uploads/e7187c63-0dae-455c-971c-a6de70ce2afc.png" 
                   alt="Mission Logo" 
-                  className="w-32 h-32 md:w-48 md:h-48"
+                  className="w-48 h-48 md:w-64 md:h-64"
                   style={{
                     filter: 'drop-shadow(0 0 6px rgba(0, 255, 150, 0.4)) drop-shadow(0 0 12px rgba(0, 200, 255, 0.2))',
                     animation: 'logoGlow 4s ease-in-out infinite'
@@ -34,7 +34,7 @@ const About = () => {
             
             
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-12">
-              Accessing good investments shouldn't require a trust fund.
+              Repeat after Us: Accessing good investments shouldn't require a trust fund.
             </p>
 
           </div>
