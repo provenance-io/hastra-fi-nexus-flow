@@ -49,7 +49,7 @@ const FlashingText = ({ phrases, className = "" }: FlashingTextProps) => {
         <span 
           key={index}
           className={`
-            transition-colors duration-2000 ease-in-out
+            ${isSlowFading ? 'transition-colors duration-2000 ease-in-out' : 'transition-colors duration-300 ease-in-out'}
             ${showAllBlue && !isSlowFading
               ? 'text-[hsl(var(--hastra-teal))]'
               : showAllBlue && isSlowFading
