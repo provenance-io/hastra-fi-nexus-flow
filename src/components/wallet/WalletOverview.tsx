@@ -83,8 +83,8 @@ const WalletOverview = () => {
   const profitPercentage = totalPortfolioValue > 0 ? (totalInterestEarned / totalPortfolioValue) * 100 : 0;
 
   return (
-    <Card className="!bg-transparent rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
-      <CardHeader className="bg-background/20 rounded-t-3xl">
+    <div className="card-gradient rounded-2xl p-6 md:p-8 mb-6">
+      <div className="bg-background/20 rounded-t-3xl p-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className={`w-12 h-12 rounded-xl ${getWalletBrandColor(walletType)} flex items-center justify-center`}>
@@ -122,9 +122,9 @@ const WalletOverview = () => {
             </Button>
           </div>
         </div>
-      </CardHeader>
+      </div>
       
-      <CardContent className="bg-background/20">
+      <div className="bg-background/20 rounded-b-3xl p-6">
         {/* Portfolio Summary */}
         <div className="card-gradient rounded-2xl p-6 md:p-8 grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
           {/* Total Portfolio Value */}
@@ -208,8 +208,8 @@ const WalletOverview = () => {
             </div>
           </div>
         )}
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 };
 
