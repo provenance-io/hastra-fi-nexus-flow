@@ -53,7 +53,7 @@
 }
 
 .coin-face::before {
-  content: '$';
+  content: 'Y';
   position: absolute;
   top: 50%;
   left: 50%;
