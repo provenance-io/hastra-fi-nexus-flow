@@ -29,8 +29,8 @@ const Hero = () => {
     refetchInterval: 5 * 60 * 1000, // Refetch every 5 minutes
   });
 
-  // Enhanced 3D perspective coin configuration with z-depth layers
-  const coinConfigs = useRef([...Array(12)].map((_, i) => {
+  // Optimized coin configuration for smooth performance
+  const coinConfigs = useRef([...Array(8)].map((_, i) => {
     // Distribute coins across 3 depth layers
     const layer = i % 3; // 0 = far, 1 = mid, 2 = near
     const zDepth = layer === 0 ? 0.3 : layer === 1 ? 0.6 : 1.0; // Depth multiplier

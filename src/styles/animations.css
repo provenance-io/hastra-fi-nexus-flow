@@ -16,7 +16,7 @@
   position: absolute;
   width: calc(36px * var(--base-scale, 1));
   height: calc(36px * var(--base-scale, 1));
-  animation: coin-fall-3d var(--fall-duration, 4s) infinite ease-out var(--animation-delay, 0s);
+  animation: coin-fall-3d var(--fall-duration, 4s) infinite cubic-bezier(0.25, 0.46, 0.45, 0.94) var(--animation-delay, 0s);
   opacity: calc(var(--layer-opacity, 1) * 0.9);
   left: var(--fall-start-x, 50%);
   top: -80px;
@@ -211,118 +211,56 @@
     inset 0 calc(1px * var(--base-scale)) calc(2px * var(--base-scale)) hsl(var(--mint-green-light) / 0.3);
 }
 
-/* Advanced physics-based falling animation with realistic motion */
+/* Optimized smooth falling animation with reduced complexity */
 @keyframes coin-fall-3d {
   0% {
     opacity: 0;
     transform: 
-      translateY(-120vh) 
+      translateY(-100px) 
       translateX(0) 
-      translateZ(calc(var(--z-depth) * -250px))
+      translateZ(calc(var(--z-depth) * -200px))
       rotateY(var(--rotation-start, 0deg))
-      rotateX(0deg)
-      rotateZ(0deg)
-      scale(calc(var(--base-scale) * 0.5));
-    filter: blur(calc(var(--blur-amount, 0px) + 2px)) 
-            drop-shadow(0 0 0 transparent);
-  }
-  
-  8% {
-    opacity: calc(var(--layer-opacity) * 0.3);
-    transform: 
-      translateY(-5vh) 
-      translateX(calc(var(--drift-early, 0px) * 0.15 * var(--wind-resistance, 1)))
-      translateZ(calc(var(--z-depth) * -180px))
-      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 0.3))
-      rotateX(calc(var(--tilt-speed, 15deg) * 0.15))
-      rotateZ(calc(var(--spin-speed, 90deg) * 0.08))
-      scale(calc(var(--base-scale) * 0.65));
-    filter: blur(calc(var(--blur-amount, 0px) + 1px)) 
-            drop-shadow(0 calc(2px * var(--z-depth)) calc(6px * var(--z-depth)) hsl(var(--mint-green) / 0.2));
-  }
-  
-  20% {
-    opacity: calc(var(--layer-opacity) * 0.7);
-    transform: 
-      translateY(15vh) 
-      translateX(calc(var(--drift-early, 0px) * 0.5 * var(--wind-resistance, 1)))
-      translateZ(calc(var(--z-depth) * -120px))
-      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 1.0))
-      rotateX(calc(var(--tilt-speed, 15deg) * 0.6))
-      rotateZ(calc(var(--spin-speed, 90deg) * 0.25))
       scale(calc(var(--base-scale) * 0.8));
-    filter: blur(var(--blur-amount, 0px)) 
-            drop-shadow(0 calc(3px * var(--z-depth)) calc(9px * var(--z-depth)) hsl(var(--mint-green) / 0.25));
   }
   
-  40% {
+  10% {
+    opacity: calc(var(--layer-opacity) * 0.8);
+    transform: 
+      translateY(20vh) 
+      translateX(calc(var(--drift-early, 0px) * 0.3))
+      translateZ(calc(var(--z-depth) * -100px))
+      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 1))
+      scale(var(--base-scale));
+  }
+  
+  50% {
     opacity: var(--layer-opacity);
     transform: 
-      translateY(35vh) 
-      translateX(calc(var(--drift-mid, 0px) * 0.8 * var(--air-friction, 1)))
-      translateZ(calc(var(--z-depth) * -60px))
-      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 2.2))
-      rotateX(calc(var(--tilt-speed, 15deg) * 1.8))
-      rotateZ(calc(var(--spin-speed, 90deg) * 0.7))
-      scale(calc(var(--base-scale) * 0.95));
-    filter: blur(var(--blur-amount, 0px)) 
-            drop-shadow(0 calc(4px * var(--z-depth)) calc(12px * var(--z-depth)) hsl(var(--mint-green) / 0.3));
+      translateY(50vh) 
+      translateX(calc(var(--drift-mid, 0px) * 0.7))
+      translateZ(0px)
+      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 3))
+      scale(calc(var(--base-scale) * 1.1));
   }
   
-  60% {
-    opacity: var(--layer-opacity);
+  90% {
+    opacity: calc(var(--layer-opacity) * 0.6);
     transform: 
-      translateY(60vh) 
-      translateX(calc(var(--drift-late, 0px) * 0.9 * var(--air-friction, 1)))
-      translateZ(calc(var(--z-depth) * 10px))
-      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 3.8))
-      rotateX(calc(var(--tilt-speed, 15deg) * 3.2))
-      rotateZ(calc(var(--spin-speed, 90deg) * 1.4))
-      scale(calc(var(--base-scale) * 1.05));
-    filter: blur(var(--blur-amount, 0px)) 
-            drop-shadow(0 calc(5px * var(--z-depth)) calc(15px * var(--z-depth)) hsl(var(--mint-green) / 0.35));
-  }
-  
-  80% {
-    opacity: calc(var(--layer-opacity) * 0.95);
-    transform: 
-      translateY(80vh) 
-      translateX(calc(var(--drift-late, 0px) * var(--air-friction, 1)))
-      translateZ(calc(var(--z-depth) * 80px))
-      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 5.2))
-      rotateX(calc(var(--tilt-speed, 15deg) * 4.1))
-      rotateZ(calc(var(--spin-speed, 90deg) * 2.0))
-      scale(calc(var(--base-scale) * 1.15));
-    filter: blur(var(--blur-amount, 0px)) 
-            drop-shadow(0 calc(6px * var(--z-depth)) calc(18px * var(--z-depth)) hsl(var(--mint-green) / 0.4));
-  }
-  
-  95% {
-    opacity: calc(var(--layer-opacity) * 0.4);
-    transform: 
-      translateY(95vh) 
-      translateX(calc(var(--drift-end, 0px) * var(--air-friction, 1)))
-      translateZ(calc(var(--z-depth) * 150px))
-      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 6.5))
-      rotateX(calc(var(--tilt-speed, 15deg) * 5.0))
-      rotateZ(calc(var(--spin-speed, 90deg) * 2.6))
-      scale(calc(var(--base-scale) * 1.0));
-    filter: blur(calc(var(--blur-amount, 0px) + 1px)) 
-            drop-shadow(0 calc(4px * var(--z-depth)) calc(12px * var(--z-depth)) hsl(var(--mint-green) / 0.2));
+      translateY(90vh) 
+      translateX(calc(var(--drift-late, 0px)))
+      translateZ(calc(var(--z-depth) * 100px))
+      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 5))
+      scale(var(--base-scale));
   }
   
   100% {
     opacity: 0;
     transform: 
-      translateY(110vh) 
-      translateX(calc(var(--drift-end, 0px) * var(--air-friction, 1)))
-      translateZ(calc(var(--z-depth) * 200px))
-      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 7.0))
-      rotateX(calc(var(--tilt-speed, 15deg) * 5.5))
-      rotateZ(calc(var(--spin-speed, 90deg) * 3.0))
-      scale(calc(var(--base-scale) * 0.8));
-    filter: blur(calc(var(--blur-amount, 0px) + 3px)) 
-            drop-shadow(0 0 0 transparent);
+      translateY(120vh) 
+      translateX(calc(var(--drift-end, 0px)))
+      translateZ(calc(var(--z-depth) * 150px))
+      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 6))
+      scale(calc(var(--base-scale) * 0.6));
   }
 }
 
