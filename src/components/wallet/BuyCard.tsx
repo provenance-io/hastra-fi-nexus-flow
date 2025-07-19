@@ -101,13 +101,19 @@ const BuyCard = () => {
               <SelectItem value="USDC">
                 <div className="flex items-center gap-2">
                   <img src={usdcIcon} alt="USDC" className="w-5 h-5 rounded-full" />
-                  USDC (Balance: {mockBalances.USDC})
+                  <div className="flex flex-col">
+                    <span>USDC</span>
+                    <span className="text-xs text-muted-foreground">{mockBalances.USDC}</span>
+                  </div>
                 </div>
               </SelectItem>
               <SelectItem value="SOL">
                 <div className="flex items-center gap-2">
                   <img src={solanaIcon} alt="Solana" className="w-5 h-5 rounded-full" />
-                  Solana (Balance: {mockBalances.SOL})
+                  <div className="flex flex-col">
+                    <span>Solana</span>
+                    <span className="text-xs text-muted-foreground">{mockBalances.SOL}</span>
+                  </div>
                 </div>
               </SelectItem>
             </SelectContent>
