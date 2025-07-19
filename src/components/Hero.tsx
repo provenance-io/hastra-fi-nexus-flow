@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { ArrowRight, TrendingUp, Shield, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -28,20 +29,32 @@ const Hero = () => {
     refetchInterval: 5 * 60 * 1000, // Refetch every 5 minutes
   });
 
-  // Stable coin configuration to prevent animation glitches
-  const coinConfigs = useRef([...Array(6)].map((_, i) => ({
-    id: i,
-    startX: 15 + (i * 14) + Math.random() * 8, // More evenly distributed
-    driftEarly: (Math.random() - 0.5) * 30,
-    driftMid: (Math.random() - 0.5) * 40,
-    driftLate: (Math.random() - 0.5) * 50,
-    driftEnd: (Math.random() - 0.5) * 60,
-    duration: 4 + (i * 0.3), // Staggered but consistent
-    delay: i * 1.2, // Fixed delays for consistency
-    rotationStart: i * 60, // Evenly distributed rotation starts
-    spinSpeed: 90 + (i * 15),
-    tiltSpeed: 15 + (i * 5)
-  })));
+  // Enhanced 3D perspective coin configuration with z-depth layers
+  const coinConfigs = useRef([...Array(12)].map((_, i) => {
+    // Distribute coins across 3 depth layers
+    const layer = i % 3; // 0 = far, 1 = mid, 2 = near
+    const zDepth = layer === 0 ? 0.3 : layer === 1 ? 0.6 : 1.0; // Depth multiplier
+    const baseScale = layer === 0 ? 0.4 : layer === 1 ? 0.7 : 1.0; // Base scale by layer
+    
+    return {
+      id: i,
+      layer,
+      zDepth,
+      baseScale,
+      startX: 10 + (i * 7) + Math.random() * 6, // More distributed
+      driftEarly: (Math.random() - 0.5) * (30 * zDepth), // Depth affects drift
+      driftMid: (Math.random() - 0.5) * (40 * zDepth),
+      driftLate: (Math.random() - 0.5) * (50 * zDepth),
+      driftEnd: (Math.random() - 0.5) * (60 * zDepth),
+      duration: 3 + (i * 0.2) + (layer * 0.5), // Layer affects speed
+      delay: i * 0.8, // Staggered timing
+      rotationStart: i * 45,
+      spinSpeed: 80 + (i * 10) + (layer * 20),
+      tiltSpeed: 12 + (i * 3) + (layer * 5),
+      blur: layer === 0 ? 1 : layer === 1 ? 0.5 : 0, // Far coins are blurred
+      opacity: layer === 0 ? 0.6 : layer === 1 ? 0.8 : 1.0, // Far coins are more transparent
+    }
+  }));
 
   useEffect(() => {
     // Preload and initialize animations
@@ -66,14 +79,14 @@ const Hero = () => {
     <section ref={heroRef} className="relative py-24 md:py-40 overflow-hidden" role="banner">
       {/* Unified seamless background - removed conflicting gradients */}
       
-      {/* Optimized falling coins animation */}
+      {/* Enhanced 3D perspective falling coins animation */}
       {isLoaded && (
         <div ref={coinsRef} className="absolute inset-0 pointer-events-none z-0">
-          <div className="falling-coins-container">
+          <div className="falling-coins-3d-container">
             {coinConfigs.current.map((config) => (
               <div 
-                key={`stable-coin-${config.id}`}
-                className="falling-coin-stable"
+                key={`perspective-coin-${config.id}`}
+                className="falling-coin-3d"
                 style={{ 
                   '--fall-start-x': `${config.startX}%`,
                   '--drift-early': `${config.driftEarly}px`,
@@ -84,11 +97,16 @@ const Hero = () => {
                   '--animation-delay': `${config.delay}s`,
                   '--rotation-start': `${config.rotationStart}deg`,
                   '--spin-speed': `${config.spinSpeed}deg`,
-                  '--tilt-speed': `${config.tiltSpeed}deg`
+                  '--tilt-speed': `${config.tiltSpeed}deg`,
+                  '--z-depth': config.zDepth,
+                  '--base-scale': config.baseScale,
+                  '--layer': config.layer,
+                  '--blur-amount': `${config.blur}px`,
+                  '--layer-opacity': config.opacity,
                 } as React.CSSProperties}
               >
-                <div className="coin-face" />
-                <div className="coin-edge" />
+                <div className="coin-face-3d" />
+                <div className="coin-edge-3d" />
               </div>
             ))}
           </div>

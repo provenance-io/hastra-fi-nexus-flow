@@ -1,5 +1,187 @@
-/* Enhanced stable coin animation - Optimized for performance */
 
+/* Enhanced 3D perspective coin animation system */
+
+.falling-coins-3d-container {
+  position: absolute;
+  inset: 0;
+  perspective: 1200px;
+  perspective-origin: center top;
+  overflow: hidden;
+}
+
+.falling-coin-3d {
+  position: absolute;
+  width: calc(36px * var(--base-scale));
+  height: calc(36px * var(--base-scale));
+  animation: coin-fall-3d var(--fall-duration, 4s) infinite linear var(--animation-delay, 0s);
+  opacity: 0;
+  left: var(--fall-start-x);
+  top: -80px;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  filter: blur(var(--blur-amount, 0px)) drop-shadow(0 2px 8px hsl(var(--mint-green) / calc(0.2 * var(--layer-opacity))));
+}
+
+/* Enhanced 3D Coin Structure with perspective scaling */
+.coin-face-3d {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, 
+    hsl(var(--mint-green-light)) 0%, 
+    hsl(var(--mint-green)) 30%,
+    hsl(var(--mint-green-dark)) 70%,
+    hsl(var(--mint-green-light)) 100%);
+  border: calc(2px * var(--base-scale)) solid hsl(var(--mint-green-dark));
+  box-shadow: 
+    0 calc(4px * var(--z-depth)) calc(12px * var(--z-depth)) hsl(var(--mint-green) / calc(0.4 * var(--layer-opacity))),
+    inset 0 calc(2px * var(--base-scale)) calc(4px * var(--base-scale)) hsl(var(--mint-green-light) / 0.7),
+    inset 0 calc(-2px * var(--base-scale)) calc(4px * var(--base-scale)) hsl(var(--mint-green-dark) / 0.4),
+    inset 0 0 calc(8px * var(--base-scale)) hsl(var(--mint-green) / 0.3);
+  position: relative;
+  z-index: 2;
+  opacity: var(--layer-opacity);
+}
+
+.coin-face-3d::before {
+  content: 'Y';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: calc(16px * var(--base-scale));
+  font-weight: bold;
+  color: hsl(var(--mint-green-dark));
+  text-shadow: 0 1px 2px hsl(var(--mint-green-light) / 0.8);
+}
+
+.coin-face-3d::after {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, 
+    hsl(var(--mint-green-light) / 0.8) 0%,
+    hsl(var(--mint-green-light) / 0.3) 40%,
+    transparent 70%);
+  pointer-events: none;
+}
+
+.coin-edge-3d {
+  position: absolute;
+  top: calc(2px * var(--base-scale));
+  left: calc(2px * var(--base-scale));
+  right: calc(2px * var(--base-scale));
+  bottom: calc(2px * var(--base-scale));
+  border-radius: 50%;
+  background: linear-gradient(90deg, 
+    hsl(var(--mint-green-dark)) 0%,
+    hsl(var(--mint-green)) 25%,
+    hsl(var(--mint-green-light)) 50%,
+    hsl(var(--mint-green)) 75%,
+    hsl(var(--mint-green-dark)) 100%);
+  transform: translateZ(calc(-4px * var(--z-depth))) scale(0.95);
+  box-shadow: inset 0 0 calc(4px * var(--base-scale)) hsl(var(--mint-green-dark) / 0.5);
+  z-index: 1;
+  opacity: var(--layer-opacity);
+}
+
+@keyframes coin-fall-3d {
+  0% {
+    opacity: 0;
+    transform: 
+      translateY(-100vh) 
+      translateX(0) 
+      translateZ(calc(var(--z-depth) * -200px))
+      rotateY(var(--rotation-start, 0deg))
+      rotateX(0deg)
+      scale(calc(var(--base-scale) * 0.6));
+  }
+  
+  5% {
+    opacity: calc(var(--layer-opacity) * 0.4);
+    transform: 
+      translateY(5vh) 
+      translateX(calc(var(--drift-early, 0px) * 0.2))
+      translateZ(calc(var(--z-depth) * -150px))
+      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 0.4))
+      rotateX(calc(var(--tilt-speed, 15deg) * 0.2))
+      scale(calc(var(--base-scale) * 0.7));
+  }
+  
+  15% {
+    opacity: calc(var(--layer-opacity) * 0.8);
+    transform: 
+      translateY(15vh) 
+      translateX(calc(var(--drift-early, 0px) * 0.6))
+      translateZ(calc(var(--z-depth) * -100px))
+      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 1.2))
+      rotateX(calc(var(--tilt-speed, 15deg) * 0.8))
+      scale(calc(var(--base-scale) * 0.85));
+  }
+  
+  35% {
+    opacity: var(--layer-opacity);
+    transform: 
+      translateY(35vh) 
+      translateX(var(--drift-mid, 0px))
+      translateZ(calc(var(--z-depth) * -50px))
+      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 2.5))
+      rotateX(calc(var(--tilt-speed, 15deg) * 2))
+      scale(var(--base-scale));
+  }
+  
+  60% {
+    opacity: var(--layer-opacity);
+    transform: 
+      translateY(60vh) 
+      translateX(calc(var(--drift-late, 0px) * 0.8))
+      translateZ(0px)
+      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 4))
+      rotateX(calc(var(--tilt-speed, 15deg) * 3.5))
+      scale(calc(var(--base-scale) * 1.1));
+  }
+  
+  80% {
+    opacity: var(--layer-opacity);
+    transform: 
+      translateY(80vh) 
+      translateX(var(--drift-late, 0px))
+      translateZ(calc(var(--z-depth) * 50px))
+      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 5.5))
+      rotateX(calc(var(--tilt-speed, 15deg) * 4.5))
+      scale(calc(var(--base-scale) * 1.2));
+  }
+  
+  95% {
+    opacity: calc(var(--layer-opacity) * 0.3);
+    transform: 
+      translateY(95vh) 
+      translateX(var(--drift-end, 0px))
+      translateZ(calc(var(--z-depth) * 100px))
+      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 6.8))
+      rotateX(calc(var(--tilt-speed, 15deg) * 5.5))
+      scale(calc(var(--base-scale) * 1.05));
+  }
+  
+  100% {
+    opacity: 0;
+    transform: 
+      translateY(105vh) 
+      translateX(var(--drift-end, 0px))
+      translateZ(calc(var(--z-depth) * 150px))
+      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 7))
+      rotateX(calc(var(--tilt-speed, 15deg) * 6))
+      scale(calc(var(--base-scale) * 0.9));
+  }
+}
+
+/* Legacy stable coin animation for backwards compatibility */
 .falling-coin-stable {
   position: absolute;
   width: 36px;
@@ -9,9 +191,7 @@
   left: var(--fall-start-x);
   top: -80px;
   will-change: transform, opacity;
-  /* Simplified shadow for mobile performance */
   filter: drop-shadow(0 2px 4px hsl(var(--mint-green) / 0.15));
-  /* Use GPU acceleration but reduce 3D complexity */
   transform: translateZ(0);
   backface-visibility: hidden;
 }
@@ -31,7 +211,7 @@
   filter: drop-shadow(0 4px 8px hsl(var(--mint-green) / 0.2));
 }
 
-/* Enhanced 3D Coin Structure */
+/* Legacy coin structures */
 .coin-face {
   position: absolute;
   width: 100%;
@@ -106,17 +286,7 @@
   15% {
     opacity: 0.8;
     transform: translateY(0vh) translateX(calc(var(--drift-early, 0px) * 0.3)) rotate(calc(var(--rotation-start, 0deg) + 90deg)) scale(0.95);
-}
-
-/* Subtle Logo Glow Keyframes */
-@keyframes logoGlow {
-  0%, 100% {
-    filter: drop-shadow(0 0 4px rgba(0, 255, 150, 0.3)) drop-shadow(0 0 8px rgba(0, 200, 255, 0.15));
   }
-  50% {
-    filter: drop-shadow(0 0 8px rgba(0, 255, 150, 0.6)) drop-shadow(0 0 16px rgba(0, 200, 255, 0.3));
-  }
-}
   
   85% {
     opacity: 1;
@@ -200,6 +370,16 @@
                rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 7))
                rotateX(calc(var(--tilt-start, 0deg) + var(--tilt-speed, 15deg) * 6))
                scale(0.8);
+  }
+}
+
+/* Subtle Logo Glow Keyframes */
+@keyframes logoGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 4px rgba(0, 255, 150, 0.3)) drop-shadow(0 0 8px rgba(0, 200, 255, 0.15));
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(0, 255, 150, 0.6)) drop-shadow(0 0 16px rgba(0, 200, 255, 0.3));
   }
 }
 
