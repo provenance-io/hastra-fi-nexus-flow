@@ -14,48 +14,59 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
 }) => {
   return (
     <>
+      {/* Debug: Always visible test line */}
+      <div 
+        className="absolute left-1/2 transform -translate-x-1/2 z-50"
+        style={{
+          top: '200px',
+          height: '100px',
+          width: '4px',
+          background: 'red',
+        }}
+      />
+
       {/* Mission to Belief Line */}
       <div 
-        className={`absolute left-1/2 transform -translate-x-1/2 transition-all duration-1000 ${
+        className={`absolute left-1/2 transform -translate-x-1/2 transition-all duration-1000 z-40 ${
           missionToBeliefLine ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
         }`}
         style={{
-          top: '25%',
-          height: '12%',
-          width: '2px',
-          background: 'linear-gradient(to bottom, hsl(var(--header-glow) / 0.6), hsl(var(--header-glow) / 0.3))',
+          top: '400px',
+          height: '120px',
+          width: '3px',
+          background: 'linear-gradient(to bottom, hsl(var(--header-glow) / 0.8), hsl(var(--header-glow) / 0.4))',
           transformOrigin: 'top',
-          boxShadow: '0 0 8px hsl(var(--header-glow) / 0.4)',
+          boxShadow: '0 0 12px hsl(var(--header-glow) / 0.6)',
         }}
       />
 
       {/* Belief to Vision Line */}
       <div 
-        className={`absolute left-1/2 transform -translate-x-1/2 transition-all duration-1000 ${
+        className={`absolute left-1/2 transform -translate-x-1/2 transition-all duration-1000 z-40 ${
           beliefToVisionLine ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
         }`}
         style={{
-          top: '48%',
-          height: '12%',
-          width: '2px',
-          background: 'linear-gradient(to bottom, hsl(var(--header-glow) / 0.6), hsl(var(--header-glow) / 0.3))',
+          top: '800px',
+          height: '120px',
+          width: '3px',
+          background: 'linear-gradient(to bottom, hsl(var(--header-glow) / 0.8), hsl(var(--header-glow) / 0.4))',
           transformOrigin: 'top',
-          boxShadow: '0 0 8px hsl(var(--header-glow) / 0.4)',
+          boxShadow: '0 0 12px hsl(var(--header-glow) / 0.6)',
         }}
       />
 
       {/* Vision to HASH Line */}
       <div 
-        className={`absolute left-1/2 transform -translate-x-1/2 transition-all duration-1000 ${
+        className={`absolute left-1/2 transform -translate-x-1/2 transition-all duration-1000 z-40 ${
           visionToHashLine ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
         }`}
         style={{
-          top: '71%',
-          height: '15%',
-          width: '2px',
-          background: 'linear-gradient(to bottom, hsl(var(--header-glow) / 0.6), hsl(var(--header-glow) / 0.3))',
+          top: '1200px',
+          height: '150px',
+          width: '3px',
+          background: 'linear-gradient(to bottom, hsl(var(--header-glow) / 0.8), hsl(var(--header-glow) / 0.4))',
           transformOrigin: 'top',
-          boxShadow: '0 0 8px hsl(var(--header-glow) / 0.4)',
+          boxShadow: '0 0 12px hsl(var(--header-glow) / 0.6)',
         }}
       />
     </>
