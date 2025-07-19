@@ -98,9 +98,9 @@ const About = () => {
                   <img 
                     src="/lovable-uploads/9da758ec-2299-4fe7-82e4-e7fb95e9cdb8.png" 
                     alt="HASH Logo" 
-                    className="w-48 h-48 md:w-64 md:h-64"
+                    className="w-48 h-48 md:w-64 md:h-64 rounded-full"
                     style={{
-                      filter: 'drop-shadow(0 0 6px rgba(0, 255, 150, 0.4)) drop-shadow(0 0 12px rgba(0, 200, 255, 0.2))',
+                      filter: 'drop-shadow(0 0 6px rgba(229, 218, 194, 0.6)) drop-shadow(0 0 12px rgba(229, 218, 194, 0.3))',
                       animation: 'logoGlow 4s ease-in-out infinite'
                     }}
                   />
