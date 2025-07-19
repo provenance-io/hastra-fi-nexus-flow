@@ -66,7 +66,7 @@
     --rose-gold: 15 100% 75%;
     
     /* Advanced gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(180 100% 50% / 0.1), hsl(120 70% 45% / 0.05));
+    --gradient-primary: linear-gradient(135deg, hsl(158 64% 56% / 0.1), hsl(158 64% 50% / 0.05));
     --gradient-auburn: linear-gradient(135deg, hsl(var(--auburn-primary)), hsl(var(--auburn-light)));
     --gradient-premium: linear-gradient(135deg, hsl(var(--electric-blue) / 0.1), hsl(var(--neon-cyan) / 0.05));
     --gradient-glass: linear-gradient(145deg, hsl(var(--glass-bg)), hsl(240 10% 20% / 0.6));
