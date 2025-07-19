@@ -1,4 +1,3 @@
-import InnovationFocus from '@/components/InnovationFocus';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -86,9 +85,6 @@ const About = () => {
             </div>
           </div>
         </section>
-
-        {/* Innovation Focus Areas */}
-        <InnovationFocus />
 
         {/* Provenance Blockchain Ecosystem Support */}
         <section className="py-20 relative">
