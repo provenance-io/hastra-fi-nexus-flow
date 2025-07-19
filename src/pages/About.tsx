@@ -17,17 +17,25 @@ const About = () => {
           
           <div className="container relative text-center">
             
-            {/* Animated Logo with Trace Effect */}
+            {/* Animated Logo with Trace Effect - Simple Test Version */}
             <div className="flex justify-center mb-12">
               <div className="relative">
-                <div className="logo-trace-container">
-                  {/* Multiple trace rings for maximum visibility */}
-                  <div className="trace-ring-1"></div>
-                  <div className="trace-ring-2"></div>
+                <div className="w-32 h-32 md:w-48 md:h-48 relative">
+                  {/* Simple visible border test */}
+                  <div 
+                    className="absolute -inset-4 border-4 border-green-400 rounded-full animate-spin"
+                    style={{
+                      animation: 'spin 2s linear infinite',
+                      borderImage: 'conic-gradient(from 0deg, #00ff96, #00c8ff, #64ffc8, #00ff96) 1'
+                    }}
+                  ></div>
                   <img 
                     src="/lovable-uploads/e7187c63-0dae-455c-971c-a6de70ce2afc.png" 
                     alt="Mission Logo" 
-                    className="w-32 h-32 md:w-48 md:h-48 logo-with-trace relative z-10"
+                    className="w-32 h-32 md:w-48 md:h-48 relative z-10 rounded-full"
+                    style={{
+                      filter: 'drop-shadow(0 0 20px rgba(0, 255, 150, 0.5))'
+                    }}
                   />
                 </div>
               </div>
