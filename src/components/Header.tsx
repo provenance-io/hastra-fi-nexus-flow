@@ -74,13 +74,13 @@ const Header = () => {
           <nav className="hidden md:flex items-center space-x-6">
             <Link
               to="/about"
-              className="text-lg font-medium text-gray-700 hover:text-gray-900 transition-colors relative group"
+              className="text-lg font-medium text-black hover:text-gray-700 transition-colors relative group"
             >
               About
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent transition-all duration-300 group-hover:w-full" />
             </Link>
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center text-lg font-medium text-gray-700 hover:text-gray-900 transition-colors relative group">
+              <DropdownMenuTrigger className="flex items-center text-lg font-medium text-black hover:text-gray-700 transition-colors relative group">
                 Products
                 <ChevronDown className="ml-1 h-4 w-4" />
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent transition-all duration-300 group-hover:w-full" />
@@ -128,7 +128,7 @@ const Header = () => {
                 {item.isAnchor ? (
                   <button
                     onClick={() => handleNavClick(item.href, true)}
-                    className="text-base font-medium text-gray-700 hover:text-gray-900 transition-colors relative group"
+                    className="text-base font-medium text-black hover:text-gray-700 transition-colors relative group"
                   >
                     {item.label}
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent transition-all duration-300 group-hover:w-full" />
@@ -136,7 +136,7 @@ const Header = () => {
                 ) : (
                   <Link
                     to={item.href}
-                    className="text-base font-medium text-gray-700 hover:text-gray-900 transition-colors relative group"
+                    className="text-base font-medium text-black hover:text-gray-700 transition-colors relative group"
                   >
                     {item.label}
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent transition-all duration-300 group-hover:w-full" />
@@ -146,14 +146,14 @@ const Header = () => {
             ))}
             <Link
               to="/earn"
-              className="text-lg font-medium text-gray-700 hover:text-gray-900 transition-colors relative group"
+              className="text-lg font-medium text-black hover:text-gray-700 transition-colors relative group"
             >
               Earn
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent transition-all duration-300 group-hover:w-full" />
             </Link>
             <Link
               to="/learn"
-              className="text-lg font-medium text-gray-700 hover:text-gray-900 transition-colors relative group"
+              className="text-lg font-medium text-black hover:text-gray-700 transition-colors relative group"
             >
               (L)earn
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent transition-all duration-300 group-hover:w-full" />
