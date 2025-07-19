@@ -5,12 +5,16 @@ interface ConnectingLinesProps {
   missionToBeliefLine: boolean;
   beliefToVisionLine: boolean;
   visionToHashLine: boolean;
+  provenanceToHashTokenLine: boolean;
+  hashTokenToCommitmentLine: boolean;
 }
 
 const ConnectingLines: React.FC<ConnectingLinesProps> = ({
   missionToBeliefLine,
   beliefToVisionLine,
   visionToHashLine,
+  provenanceToHashTokenLine,
+  hashTokenToCommitmentLine,
 }) => {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -20,6 +24,7 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+  
   return (
     <>
       {/* Mission to Belief Line - Far left aligned, connecting card edges */}
@@ -62,6 +67,38 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
         style={{
           top: isMobile ? '900px' : '1018px',
           height: isMobile ? '150px' : '192px',
+          width: '2px',
+          background: 'rgba(229, 218, 194, 0.8)',
+          transformOrigin: 'top',
+          boxShadow: '0 0 12px rgba(229, 218, 194, 0.6), 0 0 6px rgba(229, 218, 194, 0.4)',
+        }}
+      />
+
+      {/* Provenance to HASH Token Line - Left aligned */}
+      <div 
+        className={`absolute transition-all duration-1000 z-40 ${
+          provenanceToHashTokenLine ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
+        }`}
+        style={{
+          left: isMobile ? '15%' : '20%',
+          top: isMobile ? '1800px' : '2100px',
+          height: isMobile ? '40px' : '48px',
+          width: '2px',
+          background: 'rgba(229, 218, 194, 0.8)',
+          transformOrigin: 'top',
+          boxShadow: '0 0 12px rgba(229, 218, 194, 0.6), 0 0 6px rgba(229, 218, 194, 0.4)',
+        }}
+      />
+
+      {/* HASH Token to Commitment Line - Right aligned */}
+      <div 
+        className={`absolute transition-all duration-1000 z-40 ${
+          hashTokenToCommitmentLine ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
+        }`}
+        style={{
+          left: isMobile ? '85%' : '80%',
+          top: isMobile ? '2200px' : '2500px',
+          height: isMobile ? '40px' : '48px',
           width: '2px',
           background: 'rgba(229, 218, 194, 0.8)',
           transformOrigin: 'top',

@@ -68,11 +68,13 @@ const About = () => {
 
         {/* Three Core Segments Section with Animation */}
         <section className="py-4 md:py-8 relative">
-          {/* Connecting Lines */}
+          {/* Connecting Lines - Updated to include bottom lines */}
           <ConnectingLines 
             missionToBeliefLine={animationState.missionToBeliefLine}
             beliefToVisionLine={animationState.beliefToVisionLine}
             visionToHashLine={animationState.visionToHashLine}
+            provenanceToHashTokenLine={animationState.provenanceToHashTokenLine}
+            hashTokenToCommitmentLine={animationState.hashTokenToCommitmentLine}
           />
           
           <div className="container relative">

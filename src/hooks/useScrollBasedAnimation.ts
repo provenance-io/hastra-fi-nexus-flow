@@ -8,6 +8,8 @@ interface ScrollAnimationState {
   missionToBeliefLine: boolean;
   beliefToVisionLine: boolean;
   visionToHashLine: boolean;
+  provenanceToHashTokenLine: boolean;
+  hashTokenToCommitmentLine: boolean;
   hashGlow: boolean;
   missionGlow: boolean;
   beliefGlow: boolean;
@@ -25,6 +27,8 @@ export const useScrollBasedAnimation = () => {
     missionToBeliefLine: false,
     beliefToVisionLine: false,
     visionToHashLine: false,
+    provenanceToHashTokenLine: false,
+    hashTokenToCommitmentLine: false,
     hashGlow: false,
     missionGlow: false,
     beliefGlow: false,
@@ -49,14 +53,17 @@ export const useScrollBasedAnimation = () => {
         missionToBeliefLine: scrollProgress > 0.15,
         beliefToVisionLine: scrollProgress > 0.25,
         visionToHashLine: scrollProgress > 0.35,
+        // New bottom connecting lines
+        provenanceToHashTokenLine: scrollProgress > 0.45,
+        hashTokenToCommitmentLine: scrollProgress > 0.55,
         hashGlow: scrollProgress > 0.35, // HASH glows when line reaches it
         // Card glow timing - only one card glows at a time
         missionGlow: scrollProgress > 0.12 && scrollProgress < 0.22,
         beliefGlow: scrollProgress > 0.22 && scrollProgress < 0.32,
         visionGlow: scrollProgress > 0.32 && scrollProgress < 0.42,
-        provenanceCardGlow: scrollProgress > 0.5 && scrollProgress < 0.6,
-        hashTokenCardGlow: scrollProgress > 0.6 && scrollProgress < 0.7,
-        commitmentCardGlow: scrollProgress > 0.7 && scrollProgress < 0.8,
+        provenanceCardGlow: scrollProgress > 0.4 && scrollProgress < 0.5,
+        hashTokenCardGlow: scrollProgress > 0.5 && scrollProgress < 0.6,
+        commitmentCardGlow: scrollProgress > 0.6 && scrollProgress < 0.7,
       };
 
       setState(newState);
