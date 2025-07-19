@@ -131,10 +131,13 @@ const WYLDsYieldExplanation = () => {
         </div>
 
         {/* How It Works Section Header */}
-        <div className="mb-12">
-          <h3 className="text-2xl md:text-3xl font-bold text-foreground/90">
+        <div className="text-center mb-12">
+          <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed mb-6 md:mb-8" 
+             style={{ 
+               textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' 
+             }}>
             How It Works
-          </h3>
+          </p>
         </div>
 
         {/* How It Works Dashboard Box */}
