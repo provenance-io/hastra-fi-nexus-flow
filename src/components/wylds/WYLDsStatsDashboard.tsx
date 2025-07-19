@@ -130,7 +130,7 @@ const WYLDsStatsDashboard = () => {
         </div>
         
         <div className="card-gradient rounded-3xl p-8">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 grid-cols-1 md:grid-cols-2">
             {stats.map((stat, index) => (
               <div 
                 key={stat.title} 
