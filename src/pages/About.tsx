@@ -44,7 +44,7 @@ const About = () => {
         </section>
 
         {/* Enhanced Mission & Vision Section */}
-        <section className="py-24 relative">
+        <section className="py-12 md:py-16 relative">
           {/* Unified seamless background - removed conflicting gradient */}
           
           <div className="container relative">
