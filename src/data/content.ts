@@ -29,7 +29,7 @@ export const products = {
   live: {
     name: 'YIELD',
     tagline: 'Earn Yield on Your Stable',
-    description: "TradFi Yields meets DeFi Velocity. Earn up to 4% APY on-the-go and trade whenever you want - all backed by real world assets.",
+    description: "Stop waiting: Start earning up to 4% APY with instant transfers and zero lockups.",
     innovation: 'Instant transfers, minimal fees, full DeFi composability - all backed by real world assets',
     status: 'Live on Solana',
     cta: 'Learn More',
@@ -42,7 +42,7 @@ export const products = {
   homes: {
     name: 'HOMES',
     tagline: 'RWA Yield Pools',
-    description: "Access competitive yields through Real World Asset pools on Solana. Earn attractive returns with both yield tokens and enhanced HASH token rewards.",
+    description: "Claim your share: Professional-grade yields from real estate, now accessible through DeFi.",
     innovation: 'Professional-grade DeFi product with rigorous risk management and transparent operations.',
     status: 'Coming Soon',
     cta: 'Learn More',
@@ -58,17 +58,17 @@ export const innovationApproach = [
     {
         icon: FlaskConical,
         title: 'Research-Driven Development',
-        description: 'Deep market research and technical analysis drives every product decision.',
+        description: 'Understand this: Every product decision starts with deep market research, not trends.',
     },
     {
         icon: Shield,
         title: 'Regulatory-First Innovation',
-        description: 'Building compliant solutions that work within existing financial frameworks.',
+        description: 'Never compromise: Build solutions that work within regulations, not around them.',
     },
     {
         icon: Network,
         title: 'Open Financial Infrastructure',
-        description: 'Creating interoperable solutions that enhance the entire financial ecosystem.',
+        description: 'Think bigger: Create solutions that enhance the entire financial ecosystem, not just our products.',
     }
 ];
 
