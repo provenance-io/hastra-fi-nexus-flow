@@ -150,7 +150,7 @@ const About = () => {
               </div>
               
               <div className="mt-8 text-center">
-                <p className="text-lg font-medium text-foreground max-w-3xl mx-auto">
+                <p className="text-lg font-medium text-muted-foreground max-w-3xl mx-auto">
                   This commitment demonstrates our dedication to being a valuable participant in the Provenance ecosystem, ensuring that our growth directly benefits all HASH token holders and network validators.
                 </p>
               </div>
@@ -164,7 +164,7 @@ const About = () => {
           
           <div className="container relative text-center">
             <div className="max-w-4xl mx-auto">
-              <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-header-glow/20 text-sm font-medium text-foreground/80 mb-8">
+              <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-header-glow/20 text-sm font-medium text-muted-foreground mb-8">
                 <span className="mr-2 w-2 h-2 bg-header-glow rounded-full animate-pulse"></span>
                 Ready to Transform Your Financial Future?
               </div>
