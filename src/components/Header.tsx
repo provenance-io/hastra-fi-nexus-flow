@@ -70,7 +70,7 @@ const Header = () => {
           <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity md:flex-initial flex-1 justify-center md:justify-start">
             <FooterLogo />
           </Link>
-          <nav className="hidden md:flex items-center space-x-8 lg:space-x-12">
+          <nav className="hidden md:flex items-center space-x-7 lg:space-x-11">
             <Link
               to="/about"
               className="text-lg md:text-xl font-medium text-foreground/90 hover:text-foreground transition-colors relative group tracking-widest uppercase"
