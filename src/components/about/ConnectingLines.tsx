@@ -22,7 +22,7 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
         style={{
           left: '20%', // Far left
           top: '330px', // Moved up ~2 inches
-          height: '150px', // Truncated to only connect Mission and Belief cards
+          height: '80px', // Shrunk further to minimal connection
           width: '3px',
           background: 'linear-gradient(to bottom, hsl(var(--header-glow) / 0.8), hsl(var(--header-glow) / 0.4))',
           transformOrigin: 'top',
