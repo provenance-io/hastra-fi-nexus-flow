@@ -108,27 +108,26 @@
     transform: translateY(0vh) translateX(calc(var(--drift-early, 0px) * 0.3)) rotate(calc(var(--rotation-start, 0deg) + 90deg)) scale(0.95);
 }
 
-/* Subtle Logo Trace - Follows Actual Logo Shape */
+/* Test - Very Visible Drop Shadow */
 .logo-subtle-trace {
   filter: 
-    drop-shadow(0 0 3px rgba(0, 255, 150, 0.4))
-    drop-shadow(0 0 6px rgba(0, 255, 150, 0.3))
-    drop-shadow(0 0 9px rgba(0, 200, 255, 0.2));
-  animation: subtle-pulse 3s ease-in-out infinite;
+    drop-shadow(0 0 10px #00ff96)
+    drop-shadow(0 0 20px #00ff96)
+    drop-shadow(0 0 30px #00c8ff);
+  animation: obvious-pulse 2s ease-in-out infinite;
 }
 
-@keyframes subtle-pulse {
+@keyframes obvious-pulse {
   0%, 100% {
     filter: 
-      drop-shadow(0 0 2px rgba(0, 255, 150, 0.3))
-      drop-shadow(0 0 4px rgba(0, 255, 150, 0.2))
-      drop-shadow(0 0 6px rgba(0, 200, 255, 0.1));
+      drop-shadow(0 0 5px #00ff96)
+      drop-shadow(0 0 10px #00ff96);
   }
   50% {
     filter: 
-      drop-shadow(0 0 4px rgba(0, 255, 150, 0.6))
-      drop-shadow(0 0 8px rgba(0, 255, 150, 0.4))
-      drop-shadow(0 0 12px rgba(0, 200, 255, 0.3));
+      drop-shadow(0 0 15px #00ff96)
+      drop-shadow(0 0 25px #00ff96)
+      drop-shadow(0 0 35px #00c8ff);
   }
 }
   
