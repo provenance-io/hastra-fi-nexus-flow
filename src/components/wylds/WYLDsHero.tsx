@@ -52,7 +52,7 @@ const WYLDsHero = () => {
           <img 
             src="/lovable-uploads/cb96356b-822d-4dc0-963a-96ef43bfedbd.png" 
             alt="YIELD Token" 
-            className="w-32 h-32 md:w-48 md:h-48 lg:w-56 lg:h-56 animate-pulse"
+            className="w-40 h-40 md:w-56 md:h-56 lg:w-64 lg:h-64 animate-pulse"
             style={{
               filter: 'drop-shadow(0 0 20px rgba(0, 255, 150, 0.6)) drop-shadow(0 0 40px rgba(0, 200, 255, 0.4)) drop-shadow(0 0 60px rgba(255, 255, 255, 0.2))',
               transform: 'perspective(1000px) rotateX(5deg) rotateY(5deg)',
@@ -89,8 +89,8 @@ const WYLDsHero = () => {
           {/* GET YIELD Button - aligned */}
           <div className="order-1 lg:order-2">
             <Button 
-              size="lg" 
-              className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-12 py-6 text-lg rounded-2xl min-w-[240px] group transition-all duration-200"
+              size="default" 
+              className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-3 text-base rounded-xl group transition-all duration-200"
               asChild
             >
               <Link 
