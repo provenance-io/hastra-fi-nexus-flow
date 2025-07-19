@@ -92,6 +92,21 @@ const About = () => {
           
           <div className="container relative">
             <div className="text-center mb-16 animate-fade-in">
+              {/* HASH Logo with glow effect */}
+              <div className="flex justify-center mb-12">
+                <div className="relative">
+                  <img 
+                    src="/lovable-uploads/9da758ec-2299-4fe7-82e4-e7fb95e9cdb8.png" 
+                    alt="HASH Logo" 
+                    className="w-48 h-48 md:w-64 md:h-64"
+                    style={{
+                      filter: 'drop-shadow(0 0 6px rgba(0, 255, 150, 0.4)) drop-shadow(0 0 12px rgba(0, 200, 255, 0.2))',
+                      animation: 'logoGlow 4s ease-in-out infinite'
+                    }}
+                  />
+                </div>
+              </div>
+              
               <p className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed mb-12" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
                 Hastra is built on Provenance Blockchain—and we're committed to making the entire ecosystem stronger.
               </p>
