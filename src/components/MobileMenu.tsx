@@ -58,14 +58,6 @@ const MobileMenu = () => {
     { label: '(L)earn', href: '/learn' },
   ];
 
-  const handleNavClick = (href: string, isAnchor?: boolean) => {
-    if (isAnchor) {
-      const element = document.querySelector(href);
-      element?.scrollIntoView({ behavior: 'smooth' });
-    }
-    setOpen(false);
-  };
-
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
@@ -74,93 +66,95 @@ const MobileMenu = () => {
           <span className="sr-only">Open menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-80 bg-background/95 backdrop-blur border-border/50">
-        <SheetHeader>
-          <SheetTitle className="text-left text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-header-glow to-crypto-accent">
+      <SheetContent side="right" className="w-80 bg-background/95 backdrop-blur border-border/50 flex flex-col h-full">
+        <SheetHeader className="flex-shrink-0">
+          <SheetTitle className="text-left text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-header-glow to-crypto-accent">
             Navigation
           </SheetTitle>
         </SheetHeader>
         
-        {/* Wallet Section - Show when connected */}
-        {isConnected && address && (
-          <div className="mt-6 p-4 bg-orange-900/20 border border-orange-800/30 rounded-xl">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 rounded-full bg-orange-900/30 flex items-center justify-center">
-                <WalletIcon className="w-4 h-4 text-orange-600" />
+        <div className="flex-1 overflow-y-auto py-3 space-y-3">
+          {/* Wallet Section - Show when connected */}
+          {isConnected && address && (
+            <div className="p-3 bg-orange-900/20 border border-orange-800/30 rounded-lg">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-6 h-6 rounded-full bg-orange-900/30 flex items-center justify-center">
+                  <WalletIcon className="w-3 h-3 text-orange-600" />
+                </div>
+                <div>
+                  <p className="font-medium text-foreground text-xs">Connected</p>
+                  <p className="text-xs text-muted-foreground font-mono">{formatAddress(address)}</p>
+                </div>
               </div>
-              <div>
-                <p className="font-medium text-foreground text-sm">Connected Wallet</p>
-                <p className="text-xs text-muted-foreground font-mono">{formatAddress(address)}</p>
+              
+              <div className="space-y-1">
+                <button
+                  onClick={() => {
+                    setOpen(false);
+                    window.location.href = '/earn';
+                  }}
+                  className="w-full flex items-center gap-2 p-2 text-xs text-foreground hover:bg-orange-900/30 rounded-md transition-colors"
+                >
+                  <TrendingUp className="w-3 h-3 text-orange-600" />
+                  View Earnings
+                </button>
+                
+                <button
+                  onClick={copyAddress}
+                  className="w-full flex items-center gap-2 p-2 text-xs text-foreground hover:bg-orange-900/30 rounded-md transition-colors"
+                >
+                  {addressCopied ? (
+                    <Check className="w-3 h-3 text-orange-600" />
+                  ) : (
+                    <Copy className="w-3 h-3 text-orange-600" />
+                  )}
+                  {addressCopied ? 'Copied!' : 'Copy Address'}
+                </button>
+                
+                <button
+                  onClick={handleDisconnect}
+                  className="w-full flex items-center gap-2 p-2 text-xs text-red-500 hover:bg-red-500/10 rounded-md transition-colors"
+                >
+                  <LogOut className="w-3 h-3" />
+                  Disconnect
+                </button>
               </div>
             </div>
-            
-            <div className="space-y-2">
-              <button
-                onClick={() => {
-                  setOpen(false);
-                  // Navigate to earn page
-                  window.location.href = '/earn';
-                }}
-                className="w-full flex items-center gap-3 p-3 text-sm text-foreground hover:bg-orange-900/30 rounded-lg transition-colors"
-              >
-                <TrendingUp className="w-4 h-4 text-orange-600" />
-                View My Earnings
-              </button>
-              
-              <button
-                onClick={copyAddress}
-                className="w-full flex items-center gap-3 p-3 text-sm text-foreground hover:bg-orange-900/30 rounded-lg transition-colors"
-              >
-                {addressCopied ? (
-                  <Check className="w-4 h-4 text-orange-600" />
-                ) : (
-                  <Copy className="w-4 h-4 text-orange-600" />
-                )}
-                {addressCopied ? 'Address Copied!' : 'Copy Address'}
-              </button>
-              
-              <button
-                onClick={handleDisconnect}
-                className="w-full flex items-center gap-3 p-3 text-sm text-red-500 hover:bg-red-500/10 rounded-lg transition-colors"
-              >
-                <LogOut className="w-4 h-4" />
-                Disconnect Wallet
-              </button>
-            </div>
-          </div>
-        )}
+          )}
 
-        <nav className="mt-8 space-y-4">
-          {navItems.map((item) => (
-            <div key={item.label}>
-              <Link
-                to={item.href}
-                onClick={() => setOpen(false)}
-                className="block px-4 py-3 text-lg font-medium text-foreground hover:text-header-glow transition-colors border-b border-border/30 hover:border-header-glow/50"
-              >
-                {item.label}
-              </Link>
-            </div>
-          ))}
-          <div className="pt-6 space-y-3">
-            {!isConnected ? (
-              <Button 
-                onClick={handleConnectWallet}
-                size="lg" 
-                className="w-full btn-gradient text-sm md:text-base"
-              >
-                Connect Wallet
-              </Button>
-            ) : (
-              <Button asChild size="lg" className="w-full btn-gradient text-sm md:text-base">
-                <Link to="/yield">
-                  Explore YIELD
-                  <ExternalLink className="ml-2 h-4 w-4" />
+          <nav className="space-y-1">
+            {navItems.map((item) => (
+              <div key={item.label}>
+                <Link
+                  to={item.href}
+                  onClick={() => setOpen(false)}
+                  className="block px-3 py-2 text-base font-medium text-foreground hover:text-header-glow transition-colors border-b border-border/20 hover:border-header-glow/50"
+                >
+                  {item.label}
                 </Link>
-              </Button>
-            )}
-          </div>
-        </nav>
+              </div>
+            ))}
+          </nav>
+        </div>
+        
+        <div className="flex-shrink-0 pt-3 border-t border-border/20">
+          {!isConnected ? (
+            <Button 
+              onClick={handleConnectWallet}
+              size="sm" 
+              className="w-full btn-gradient text-sm"
+            >
+              Connect Wallet
+            </Button>
+          ) : (
+            <Button asChild size="sm" className="w-full btn-gradient text-sm">
+              <Link to="/yield">
+                Explore YIELD
+                <ExternalLink className="ml-2 h-3 w-3" />
+              </Link>
+            </Button>
+          )}
+        </div>
       </SheetContent>
     </Sheet>
   );
