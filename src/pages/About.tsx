@@ -39,11 +39,31 @@ const About = () => {
             </div>
             
             
-            <p className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed mb-12" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
-              Repeat after Us: Accessing good investments shouldn't require a trust fund.
-            </p>
+              <p className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed mb-12" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
+                Repeat after Us: Accessing good investments shouldn't require a trust fund.
+              </p>
 
-          </div>
+              {/* Flashing downward arrow indicator */}
+              <div className="flex justify-center my-12">
+                <div className="animate-pulse">
+                  <svg 
+                    className="w-8 h-8" 
+                    style={{
+                      filter: 'drop-shadow(0 0 12px rgba(229, 218, 194, 0.8)) drop-shadow(0 0 24px rgba(229, 218, 194, 0.4))',
+                      animation: 'pulse 2s ease-in-out infinite'
+                    }}
+                    fill="none" 
+                    stroke="rgba(229, 218, 194, 1)" 
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </div>
+              </div>
+            </div>
         </section>
 
         {/* Three Core Segments Section with Animation */}
