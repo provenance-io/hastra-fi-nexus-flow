@@ -52,8 +52,8 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
           visionToHashLine ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
         }`}
         style={{
-          top: '1074px', // Dropped by 4px
-          height: '125px', // Made 25% longer (100px * 1.25)
+          top: '1072px', // Shifted up by 2px
+          height: '112px', // Shortened by 10% (125px * 0.9)
           width: '3px',
           background: 'linear-gradient(to bottom, hsl(var(--header-glow) / 0.8), hsl(var(--header-glow) / 0.4))',
           transformOrigin: 'top',
