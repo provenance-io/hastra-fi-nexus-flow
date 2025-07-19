@@ -51,7 +51,7 @@ const WYLDsFAQ = () => {
         </div>
 
         {/* FAQ Accordion */}
-        <div className="bg-card/50 backdrop-blur-sm border border-border/20 rounded-2xl p-8 hover:border-border/30 transition-all duration-300">
+        <div className="card-gradient rounded-2xl p-8 hover:bg-background/60 transition-all duration-300">
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem 

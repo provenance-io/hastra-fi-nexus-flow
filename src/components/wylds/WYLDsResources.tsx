@@ -31,7 +31,7 @@ const WYLDsResources = () => {
               rel="noopener noreferrer"
               className="block group"
             >
-              <Card className="bg-secondary/30 border-border/50 group-hover:bg-secondary/50 transition-colors">
+              <div className="card-gradient rounded-2xl hover:bg-background/60 transition-all duration-300">
                 <div className="flex items-center p-6">
                   <resource.icon className="h-8 w-8 mr-6 text-blue-400 flex-shrink-0" />
                   <div>
@@ -39,7 +39,7 @@ const WYLDsResources = () => {
                     <p className="text-sm text-muted-foreground mt-1">{resource.description}</p>
                   </div>
                 </div>
-              </Card>
+              </div>
             </a>
           ))}
         </div>

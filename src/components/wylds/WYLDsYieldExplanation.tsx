@@ -82,8 +82,8 @@ const WYLDsYieldExplanation = () => {
               <div className="relative w-full h-full transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
                 {/* Front of card */}
                 <div className="absolute inset-0 w-full h-full backface-hidden">
-                  <div className="w-full h-full bg-background/80 backdrop-blur-md border-none rounded-2xl">
-                    <div className="p-8 text-center h-full flex flex-col justify-center">
+                  <div className="w-full h-full card-gradient rounded-2xl p-6 text-center space-y-3 hover:bg-background/60 transition-all duration-300">
+                    <div className="h-full flex flex-col justify-center">
                       <div className="w-20 h-20 glass-premium rounded-2xl mx-auto mb-6 flex items-center justify-center pulse-glow-premium">
                         <feature.icon className="h-10 w-10 text-header-glow" />
                       </div>
@@ -94,8 +94,8 @@ const WYLDsYieldExplanation = () => {
                 
                 {/* Back of card */}
                 <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180">
-                  <div className="w-full h-full bg-background/80 backdrop-blur-md border-none rounded-2xl">
-                    <div className="p-8 text-center h-full flex flex-col justify-center">
+                  <div className="w-full h-full card-gradient rounded-2xl p-6 text-center space-y-3 hover:bg-background/60 transition-all duration-300">
+                    <div className="h-full flex flex-col justify-center">
                       <p className="text-platinum/80 leading-relaxed text-lg">{feature.description}</p>
                     </div>
                   </div>
@@ -151,7 +151,7 @@ const WYLDsYieldExplanation = () => {
                         </div>
                         
                         {/* Card Container - Fixed Dimensions */}
-                        <div className="w-64 h-72 bg-background/80 backdrop-blur-md border-none rounded-2xl p-5 text-center hover:border-header-glow/40 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-header-glow/10 relative overflow-hidden">
+                        <div className="w-64 h-72 card-gradient rounded-2xl p-6 text-center space-y-3 hover:bg-background/60 transition-all duration-300 relative overflow-hidden">
                           {/* Hover Overlay */}
                           <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl`}></div>
                           
@@ -209,7 +209,7 @@ const WYLDsYieldExplanation = () => {
                     </div>
                     
                     {/* Card Container - Fixed Mobile Dimensions */}
-                    <div className="w-full h-56 bg-background/80 backdrop-blur-md border-none rounded-2xl p-5 text-center hover:border-header-glow/40 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-header-glow/10 relative overflow-hidden">
+                    <div className="w-full h-56 card-gradient rounded-2xl p-6 text-center space-y-3 hover:bg-background/60 transition-all duration-300 relative overflow-hidden">
                       {/* Hover Overlay */}
                       <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl`}></div>
                       
