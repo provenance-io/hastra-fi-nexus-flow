@@ -29,14 +29,6 @@ export const useScrollBasedAnimation = () => {
       const documentHeight = document.documentElement.scrollHeight;
       const scrollProgress = scrollY / (documentHeight - windowHeight);
 
-      // Debug logging
-      console.log('Scroll Debug:', {
-        scrollY,
-        windowHeight,
-        documentHeight,
-        scrollProgress: scrollProgress.toFixed(2)
-      });
-
       // Progressive animation triggers based on scroll position
       const newState: ScrollAnimationState = {
         missionVisible: scrollProgress > 0.1,
@@ -48,7 +40,6 @@ export const useScrollBasedAnimation = () => {
         hashGlow: scrollProgress > 0.4,
       };
 
-      console.log('Animation States:', newState);
       setState(newState);
     };
 

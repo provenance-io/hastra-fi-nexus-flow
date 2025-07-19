@@ -14,17 +14,6 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
 }) => {
   return (
     <>
-      {/* Debug: Always visible test line */}
-      <div 
-        className="absolute left-1/2 transform -translate-x-1/2 z-50"
-        style={{
-          top: '200px',
-          height: '100px',
-          width: '4px',
-          background: 'red',
-        }}
-      />
-
       {/* Mission to Belief Line */}
       <div 
         className={`absolute left-1/2 transform -translate-x-1/2 transition-all duration-1000 z-40 ${
