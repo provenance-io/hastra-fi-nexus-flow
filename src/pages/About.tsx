@@ -17,6 +17,20 @@ const About = () => {
           
           <div className="container relative text-center">
             
+            {/* Animated Logo with Trace Effect */}
+            <div className="flex justify-center mb-12">
+              <div className="relative">
+                <div className="logo-trace-container">
+                  <img 
+                    src="/lovable-uploads/e7187c63-0dae-455c-971c-a6de70ce2afc.png" 
+                    alt="Mission Logo" 
+                    className="w-32 h-32 md:w-48 md:h-48 logo-with-trace"
+                  />
+                  <div className="trace-outline"></div>
+                </div>
+              </div>
+            </div>
+            
             <h1 className="text-5xl md:text-8xl font-black tracking-tight mb-8">
               <span className="block text-gradient">Our Mission</span>
             </h1>
