@@ -109,8 +109,8 @@ const WYLDsYieldExplanation = () => {
             </div>
 
             {/* Description */}
-            <div className="text-center mb-16">
-              <p className="text-lg md:text-xl text-platinum/80 max-w-4xl mx-auto leading-relaxed">
+            <div className="text-center mb-20 mt-16">
+              <p className="text-lg md:text-xl text-platinum/80 max-w-4xl mx-auto leading-relaxed px-6">
                 YIELD is a token representing a vault of the YLDS token - the first SEC-registered, yield-bearing stablecoin combining the liquidity of traditional stablecoins with the earning power of a money market fund. As users deposit USDC, Hastra purchases and holds YLDS, and distributes interest in YIELD to token holders.
               </p>
             </div>
