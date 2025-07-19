@@ -48,77 +48,81 @@ const About = () => {
           {/* Unified seamless background - removed conflicting gradient */}
           
           <div className="container relative">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
-              {/* Mission */}
-              <div className="space-y-8 animate-fade-in">
-                <div className="card-gradient rounded-3xl p-8 card-hover">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 rounded-2xl glass-effect flex items-center justify-center">
-                      <Target className="w-8 h-8 text-header-glow" />
-                    </div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-gradient">Our Mission</h2>
-                  </div>
+            {/* Combined Mission & Vision Card */}
+            <div className="max-w-6xl mx-auto mb-16">
+              <div className="card-gradient rounded-3xl p-8 md:p-12 card-hover animate-fade-in">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                   
+                  {/* Mission Segment */}
                   <div className="space-y-6">
-                    <p className="text-lg text-muted-foreground leading-relaxed">
-                      To bridge the gap between traditional finance and decentralized technology by creating 
-                      <span className="text-header-glow font-semibold"> institutional-grade DeFi products</span> that are accessible, transparent, and backed by real-world assets.
-                    </p>
-                    <p className="text-lg text-muted-foreground leading-relaxed">
-                      We believe that everyone should have access to the same 
-                      <span className="text-crypto-accent font-semibold">high-yield investment opportunities</span> that were previously reserved for institutions and high-net-worth individuals.
-                    </p>
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-12 h-12 rounded-xl glass-effect flex items-center justify-center">
+                        <Target className="w-6 h-6 text-header-glow" />
+                      </div>
+                      <h2 className="text-2xl md:text-3xl font-bold text-gradient">Our Mission</h2>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      <p className="text-lg text-muted-foreground leading-relaxed">
+                        To bridge the gap between traditional finance and decentralized technology by creating 
+                        <span className="text-header-glow font-semibold"> institutional-grade DeFi products</span> that are accessible, transparent, and backed by real-world assets.
+                      </p>
+                      <p className="text-lg text-muted-foreground leading-relaxed">
+                        We believe that everyone should have access to the same 
+                        <span className="text-crypto-accent font-semibold">high-yield investment opportunities</span> that were previously reserved for institutions and high-net-worth individuals.
+                      </p>
+                    </div>
                   </div>
 
-                  {/* Mission metrics */}
-                  <div className="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-header-glow/20">
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-header-glow">24/7</div>
-                      <div className="text-sm text-muted-foreground">Market Access</div>
+                  {/* Vision Segment */}
+                  <div className="space-y-6">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-12 h-12 rounded-xl glass-effect flex items-center justify-center">
+                        <Eye className="w-6 h-6 text-crypto-accent" />
+                      </div>
+                      <h2 className="text-2xl md:text-3xl font-bold text-gradient">Our Vision</h2>
                     </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-crypto-accent">Global</div>
-                      <div className="text-sm text-muted-foreground">Reach</div>
+                    
+                    <div className="space-y-4">
+                      <p className="text-lg text-muted-foreground leading-relaxed">
+                        A future where financial services are truly 
+                        <span className="text-crypto-accent font-semibold">decentralized, transparent, and globally accessible</span>, while maintaining the security and compliance standards that institutional investors demand.
+                      </p>
+                      <p className="text-lg text-muted-foreground leading-relaxed">
+                        We envision a world where blockchain technology enables 
+                        <span className="text-header-glow font-semibold">financial inclusion</span> and creates new opportunities for wealth creation across all economic segments.
+                      </p>
                     </div>
                   </div>
+
                 </div>
               </div>
+            </div>
 
-              {/* Vision */}
-              <div className="space-y-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                <div className="card-gradient rounded-3xl p-8 card-hover">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 rounded-2xl glass-effect flex items-center justify-center">
-                      <Eye className="w-8 h-8 text-crypto-accent" />
-                    </div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-gradient">Our Vision</h2>
+            {/* Metrics Banner */}
+            <div className="relative">
+              <div className="glass-effect rounded-2xl p-8 border border-header-glow/20">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                  <div className="space-y-2">
+                    <div className="text-3xl md:text-4xl font-bold text-header-glow">24/7</div>
+                    <div className="text-sm font-medium text-muted-foreground">Market Access</div>
                   </div>
-                  
-                  <div className="space-y-6">
-                    <p className="text-lg text-muted-foreground leading-relaxed">
-                      A future where financial services are truly 
-                      <span className="text-crypto-accent font-semibold">decentralized, transparent, and globally accessible</span>, while maintaining the security and compliance standards that institutional investors demand.
-                    </p>
-                    <p className="text-lg text-muted-foreground leading-relaxed">
-                      We envision a world where blockchain technology enables 
-                      <span className="text-header-glow font-semibold">financial inclusion</span> and creates new opportunities for wealth creation across all economic segments.
-                    </p>
+                  <div className="space-y-2">
+                    <div className="text-3xl md:text-4xl font-bold text-crypto-accent">Global</div>
+                    <div className="text-sm font-medium text-muted-foreground">Reach</div>
                   </div>
-
-                  {/* Vision metrics */}
-                  <div className="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-crypto-accent/20">
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-crypto-accent">100%</div>
-                      <div className="text-sm text-muted-foreground">Transparent</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-header-glow">∞</div>
-                      <div className="text-sm text-muted-foreground">Possibilities</div>
-                    </div>
+                  <div className="space-y-2">
+                    <div className="text-3xl md:text-4xl font-bold text-crypto-accent">100%</div>
+                    <div className="text-sm font-medium text-muted-foreground">Transparent</div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="text-3xl md:text-4xl font-bold text-header-glow">∞</div>
+                    <div className="text-sm font-medium text-muted-foreground">Possibilities</div>
                   </div>
                 </div>
               </div>
             </div>
+
           </div>
         </section>
 
