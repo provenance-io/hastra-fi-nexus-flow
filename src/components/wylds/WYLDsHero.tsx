@@ -72,9 +72,8 @@ const WYLDsHero = () => {
           Earn yield on-the-go and spend whenever you want - backed by real world assets.
         </p>
 
-        {/* Enhanced APY Display - Updated to match home page styling */}
         <div className="my-6 md:my-8">
-          <div className="group glass-effect rounded-2xl p-6 text-center space-y-3 hover:bg-background/60 transition-all duration-300 max-w-xs mx-auto">
+          <div className="group card-gradient rounded-2xl p-6 text-center space-y-3 hover:bg-background/60 transition-all duration-300 max-w-xs mx-auto">
             <div className="text-3xl md:text-4xl font-bold group-hover:scale-105 transition-transform duration-300 flex items-center justify-center gap-2">
               {apyLoading && <Loader2 className="w-6 h-6 animate-spin" />}
               <span className={apyLoading ? 'opacity-50' : apyError ? 'text-red-400' : 'text-foreground/90'}>
