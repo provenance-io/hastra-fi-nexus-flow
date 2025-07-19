@@ -33,7 +33,7 @@ const About = () => {
             </div>
             
             
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-12" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
+            <p className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed mb-12" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
               Repeat after Us: Accessing good investments shouldn't require a trust fund.
             </p>
 
@@ -53,7 +53,7 @@ const About = () => {
                   </div>
                   <h2 className="text-2xl md:text-3xl font-bold text-gradient">Our Mission</h2>
                 </div>
-                <p className="text-lg text-muted-foreground leading-relaxed">
+                <p className="text-lg text-foreground/90 leading-relaxed">
                   To obliterate the artificial walls between Wall Street's inner circle and everyone else by weaponizing cutting-edge DeFi technology. We're not just building institutional-grade financial products—we're 
                   <span className="text-header-glow font-semibold"> shattering every boundary</span> that keeps you dependent on their system. Because being your own bank isn't a privilege—it's your 
                   <span className="text-crypto-accent font-semibold">fundamental right</span>.
@@ -68,7 +68,7 @@ const About = () => {
                   </div>
                   <h2 className="text-2xl md:text-3xl font-bold text-gradient">Our Belief</h2>
                 </div>
-                <p className="text-lg text-muted-foreground leading-relaxed">
+                <p className="text-lg text-foreground/90 leading-relaxed">
                   The same <span className="text-crypto-accent font-semibold">8% yields that make the rich richer</span> should be in your wallet, not locked behind some arbitrary "accredited investor" gate. Every high-yield opportunity hoarded by institutions is a theft from the people who actually need those returns. We're not just redistributing wealth—we're putting the 
                   <span className="text-header-glow font-semibold">power to create it directly into your hands</span>.
                 </p>
@@ -83,11 +83,11 @@ const About = () => {
                   <h2 className="text-2xl md:text-3xl font-bold text-gradient">Our Vision</h2>
                 </div>
                 <div className="space-y-6">
-                  <p className="text-lg text-muted-foreground leading-relaxed">
+                  <p className="text-lg text-foreground/90 leading-relaxed">
                     A financial system where you don't need their permission, their minimums, or their approval. True decentralization means every person on Earth becomes their own financial institution—
                     <span className="text-crypto-accent font-semibold">no middlemen skimming profits</span>, no gatekeepers deciding your worth.
                   </p>
-                  <p className="text-lg text-muted-foreground leading-relaxed">
+                  <p className="text-lg text-foreground/90 leading-relaxed">
                     We're building the world where blockchain doesn't just enable financial inclusion—it 
                     <span className="text-header-glow font-semibold">demolishes financial apartheid</span> and hands you the keys to institutional-grade wealth creation. Every product we ship pushes further past the boundaries they thought were permanent. Every innovation transfers more power from their vaults to your wallet. 
                     <span className="text-crypto-accent font-semibold">The revolution isn't coming. You're holding it.</span>
@@ -111,7 +111,7 @@ const About = () => {
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Supporting the <span className="text-gradient">Provenance Blockchain</span> Ecosystem
               </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-xl text-foreground/90 max-w-3xl mx-auto">
                 Hastra is proudly built on and in close collaboration with Provenance Blockchain. Our commitment extends beyond just building products—we're actively strengthening the entire Provenance ecosystem.
               </p>
             </div>
@@ -124,10 +124,10 @@ const About = () => {
                   </div>
                   <div className="space-y-4">
                     <h3 className="text-2xl md:text-3xl font-bold">HASH Token Buy & Burn Program (Coming Soon!)</h3>
-                    <p className="text-lg text-muted-foreground leading-relaxed">
+                    <p className="text-lg text-foreground/90 leading-relaxed">
                       A significant portion of revenue generated from our DeFi products is systematically allocated to purchase and permanently burn HASH tokens from the open market. This deflationary mechanism:
                     </p>
-                    <ul className="space-y-3 text-muted-foreground">
+                    <ul className="space-y-3 text-foreground/90">
                       <li className="flex items-start gap-3">
                         <div className="w-2 h-2 rounded-full bg-header-glow mt-2 flex-shrink-0"></div>
                         <span>Reduces the total supply of HASH tokens over time</span>
@@ -150,7 +150,7 @@ const About = () => {
               </div>
               
               <div className="mt-8 text-center">
-                <p className="text-lg font-medium text-muted-foreground max-w-3xl mx-auto">
+                <p className="text-lg font-medium text-foreground/90 max-w-3xl mx-auto">
                   This commitment demonstrates our dedication to being a valuable participant in the Provenance ecosystem, ensuring that our growth directly benefits all HASH token holders and network validators.
                 </p>
               </div>
@@ -164,7 +164,7 @@ const About = () => {
           
           <div className="container relative text-center">
             <div className="max-w-4xl mx-auto">
-              <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-header-glow/20 text-sm font-medium text-muted-foreground mb-8">
+              <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect border border-header-glow/20 text-sm font-medium text-foreground/90 mb-8">
                 <span className="mr-2 w-2 h-2 bg-header-glow rounded-full animate-pulse"></span>
                 Ready to Transform Your Financial Future?
               </div>
@@ -173,7 +173,7 @@ const About = () => {
                 Join Our Mission
               </h2>
               
-              <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl text-foreground/90 mb-12 max-w-3xl mx-auto leading-relaxed">
                 Start earning with our innovative DeFi products and become part of the 
                 <span className="text-header-glow font-semibold"> future of finance</span>
               </p>
@@ -206,15 +206,15 @@ const About = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-header-glow mb-2">$150M+</div>
-                  <div className="text-muted-foreground">Total Value Locked</div>
+                  <div className="text-foreground/90">Total Value Locked</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-crypto-accent mb-2">25k+</div>
-                  <div className="text-muted-foreground">Active Users</div>
+                  <div className="text-foreground/90">Active Users</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-header-glow mb-2">99.9%</div>
-                  <div className="text-muted-foreground">Uptime</div>
+                  <div className="text-foreground/90">Uptime</div>
                 </div>
               </div>
             </div>
