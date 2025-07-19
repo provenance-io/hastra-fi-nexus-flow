@@ -25,8 +25,8 @@ const About = () => {
                   alt="Mission Logo" 
                   className="w-32 h-32 md:w-48 md:h-48"
                   style={{
-                    filter: 'drop-shadow(0 0 6px rgba(0, 255, 150, 0.6)) drop-shadow(0 0 12px rgba(0, 200, 255, 0.3))',
-                    animation: 'logoGlow 3s ease-in-out infinite'
+                    filter: 'drop-shadow(0 0 4px rgba(0, 255, 150, 0.3)) drop-shadow(0 0 8px rgba(0, 200, 255, 0.15))',
+                    animation: 'logoGlow 4s ease-in-out infinite'
                   }}
                 />
               </div>

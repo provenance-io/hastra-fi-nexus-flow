@@ -108,13 +108,13 @@
     transform: translateY(0vh) translateX(calc(var(--drift-early, 0px) * 0.3)) rotate(calc(var(--rotation-start, 0deg) + 90deg)) scale(0.95);
 }
 
-/* Logo Glow Keyframes */
+/* Subtle Logo Glow Keyframes */
 @keyframes logoGlow {
   0%, 100% {
-    filter: drop-shadow(0 0 4px rgba(0, 255, 150, 0.4)) drop-shadow(0 0 8px rgba(0, 200, 255, 0.2));
+    filter: drop-shadow(0 0 3px rgba(0, 255, 150, 0.2)) drop-shadow(0 0 6px rgba(0, 200, 255, 0.1));
   }
   50% {
-    filter: drop-shadow(0 0 8px rgba(0, 255, 150, 0.7)) drop-shadow(0 0 16px rgba(0, 200, 255, 0.4));
+    filter: drop-shadow(0 0 5px rgba(0, 255, 150, 0.4)) drop-shadow(0 0 10px rgba(0, 200, 255, 0.2));
   }
 }
   
