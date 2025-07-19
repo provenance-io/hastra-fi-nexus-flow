@@ -12,7 +12,7 @@ const SolanaAvailableBanner = () => {
       
       {/* Content */}
       <div className="relative z-10 flex items-center justify-center gap-8 px-8">
-        <div className="flex items-center gap-8 p-12 pulse-glow-premium">
+        <div className="flex items-center gap-8 p-12">
           <span className="text-4xl md:text-5xl font-bold text-electric-blue">
             Now Available on
           </span>
@@ -25,7 +25,7 @@ const SolanaAvailableBanner = () => {
                 alt="Solana" 
                 className="w-16 h-16 relative z-10"
               />
-              <div className="absolute inset-0 w-16 h-16 bg-electric-blue/20 rounded-full blur-sm animate-pulse"></div>
+              <div className="absolute inset-0 w-16 h-16 bg-electric-blue/20 rounded-full blur-sm"></div>
             </div>
             
             <span className="text-4xl md:text-5xl font-bold text-white tracking-wider relative">
