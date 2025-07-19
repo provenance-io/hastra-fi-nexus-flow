@@ -71,19 +71,19 @@ const Header = () => {
           <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity md:flex-initial flex-1 justify-center md:justify-start">
             <FooterLogo className="h-32 md:h-12 lg:h-16 xl:h-24 w-auto -mt-5" />
           </Link>
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav className="hidden md:flex items-center space-x-8 lg:space-x-12">
             <Link
               to="/about"
-              className="text-lg font-medium text-foreground/90 hover:text-foreground transition-colors relative group"
+              className="text-xl md:text-2xl font-medium text-foreground/90 hover:text-foreground transition-colors relative group"
               style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}
             >
               About
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent transition-all duration-300 group-hover:w-full" />
             </Link>
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center text-lg font-medium text-foreground/90 hover:text-foreground transition-colors relative group" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
+              <DropdownMenuTrigger className="flex items-center text-xl md:text-2xl font-medium text-foreground/90 hover:text-foreground transition-colors relative group" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
                 Products
-                <ChevronDown className="ml-1 h-4 w-4" />
+                <ChevronDown className="ml-1 h-5 w-5" />
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent transition-all duration-300 group-hover:w-full" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-72 bg-white/95 backdrop-blur-md border border-gray-200 shadow-2xl mt-4 z-50" align="start">
@@ -129,7 +129,7 @@ const Header = () => {
                 {item.isAnchor ? (
                   <button
                     onClick={() => handleNavClick(item.href, true)}
-                    className="text-base font-medium text-foreground/90 hover:text-foreground transition-colors relative group"
+                    className="text-xl md:text-2xl font-medium text-foreground/90 hover:text-foreground transition-colors relative group"
                     style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}
                   >
                     {item.label}
@@ -138,7 +138,7 @@ const Header = () => {
                 ) : (
                   <Link
                     to={item.href}
-                    className="text-base font-medium text-foreground/90 hover:text-foreground transition-colors relative group"
+                    className="text-xl md:text-2xl font-medium text-foreground/90 hover:text-foreground transition-colors relative group"
                     style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}
                   >
                     {item.label}
@@ -149,7 +149,7 @@ const Header = () => {
             ))}
             <Link
               to="/earn"
-              className="text-lg font-medium text-foreground/90 hover:text-foreground transition-colors relative group"
+              className="text-xl md:text-2xl font-medium text-foreground/90 hover:text-foreground transition-colors relative group"
               style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}
             >
               Earn
@@ -157,7 +157,7 @@ const Header = () => {
             </Link>
             <Link
               to="/learn"
-              className="text-lg font-medium text-foreground/90 hover:text-foreground transition-colors relative group"
+              className="text-xl md:text-2xl font-medium text-foreground/90 hover:text-foreground transition-colors relative group"
               style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}
             >
               (L)earn
