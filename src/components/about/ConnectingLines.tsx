@@ -14,15 +14,15 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
 }) => {
   return (
     <>
-      {/* Mission to Belief Line - Left aligned */}
+      {/* Mission to Belief Line - Far left aligned, connecting card edges */}
       <div 
         className={`absolute transition-all duration-1000 z-40 ${
           missionToBeliefLine ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
         }`}
         style={{
-          left: '35%', // Left-aligned
+          left: '20%', // Far left
           top: '520px', // End of Mission card
-          height: '100px', // Distance to Belief card
+          height: '80px', // Distance to Belief card
           width: '3px',
           background: 'linear-gradient(to bottom, hsl(var(--header-glow) / 0.8), hsl(var(--header-glow) / 0.4))',
           transformOrigin: 'top',
@@ -30,15 +30,15 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
         }}
       />
 
-      {/* Belief to Vision Line - Right aligned */}
+      {/* Belief to Vision Line - Far right aligned, connecting card edges */}
       <div 
         className={`absolute transition-all duration-1000 z-40 ${
           beliefToVisionLine ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
         }`}
         style={{
-          left: '65%', // Right-aligned
+          left: '80%', // Far right
           top: '780px', // End of Belief card
-          height: '100px', // Distance to Vision card
+          height: '80px', // Distance to Vision card
           width: '3px',
           background: 'linear-gradient(to bottom, hsl(var(--header-glow) / 0.8), hsl(var(--header-glow) / 0.4))',
           transformOrigin: 'top',
