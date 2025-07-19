@@ -168,7 +168,7 @@ const About = () => {
               {/* Additional commitment section */}
               <div className="card-gradient rounded-2xl p-8 md:p-12 card-hover mt-8">
                 <p className="text-lg text-foreground/90 leading-relaxed">
-                  This isn't about short-term price movements. It's about building sustainable value for the community that makes decentralized finance possible. Every token we burn represents our commitment to the ecosystem that enables financial freedom for everyone.
+                  This isn't about short-term price movements. It's about building sustainable value for the community that makes decentralized finance possible. <span className="text-orange-400 font-semibold">Every token we burn represents our commitment to the ecosystem that enables financial freedom for everyone.</span>
                 </p>
               </div>
               
