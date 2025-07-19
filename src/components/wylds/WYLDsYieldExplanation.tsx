@@ -88,9 +88,9 @@ const WYLDsYieldExplanation = () => {
                       <div className="w-full h-full card-gradient rounded-2xl p-6 text-center space-y-3 hover:bg-background/60 transition-all duration-300">
                         <div className="h-full flex flex-col justify-center">
                           <div className="w-20 h-20 glass-premium rounded-2xl mx-auto mb-6 flex items-center justify-center pulse-glow-premium">
-                            <feature.icon className="h-10 w-10 text-header-glow" />
+                            <feature.icon className="h-10 w-10 text-hastra-teal" />
                           </div>
-                          <h3 className="text-2xl font-bold text-gradient">{feature.title}</h3>
+                          <h3 className="text-2xl font-bold text-orange-400">{feature.title}</h3>
                         </div>
                       </div>
                     </div>
