@@ -40,7 +40,7 @@
     --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
     
     /* Enhanced crypto-native colors */
-    --header-bg: 0 0% 92%; /* Lighter gray for header background */
+    --header-bg: 0 0% 100%; /* White header background */
     --header-footer-bg: 0 0% 100%;
     --header-glow: 180 100% 50%;
     --crypto-accent: 120 70% 45%;
