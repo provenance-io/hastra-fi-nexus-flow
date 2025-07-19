@@ -1,6 +1,6 @@
 import InnovationFocus from '@/components/InnovationFocus';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Target, Eye, Coins } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const About = () => {
@@ -47,11 +47,8 @@ const About = () => {
               
               {/* Mission Segment */}
               <div className="card-gradient rounded-3xl p-8 md:p-12 card-hover animate-fade-in">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 rounded-xl glass-effect flex items-center justify-center">
-                    <Target className="w-6 h-6 text-header-glow" />
-                  </div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-gradient">Our Mission</h2>
+                <div className="mb-8">
+                  <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">Our Mission</h2>
                 </div>
                 <p className="text-lg text-foreground/90 leading-relaxed">
                   To obliterate the artificial walls between Wall Street's inner circle and everyone else by weaponizing cutting-edge DeFi technology. We're not just building institutional-grade financial products—we're 
@@ -62,11 +59,8 @@ const About = () => {
 
               {/* Belief Segment */}
               <div className="card-gradient rounded-3xl p-8 md:p-12 card-hover animate-fade-in">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 rounded-xl glass-effect flex items-center justify-center">
-                    <Coins className="w-6 h-6 text-crypto-accent" />
-                  </div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-gradient">Our Belief</h2>
+                <div className="mb-8">
+                  <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">Our Belief</h2>
                 </div>
                 <p className="text-lg text-foreground/90 leading-relaxed">
                   The same <span className="text-crypto-accent font-semibold">8% yields that make the rich richer</span> should be in your wallet, not locked behind some arbitrary "accredited investor" gate. Every high-yield opportunity hoarded by institutions is a theft from the people who actually need those returns. We're not just redistributing wealth—we're putting the 
@@ -76,11 +70,8 @@ const About = () => {
 
               {/* Vision Segment */}
               <div className="card-gradient rounded-3xl p-8 md:p-12 card-hover animate-fade-in">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 rounded-xl glass-effect flex items-center justify-center">
-                    <Eye className="w-6 h-6 text-header-glow" />
-                  </div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-gradient">Our Vision</h2>
+                <div className="mb-8">
+                  <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">Our Vision</h2>
                 </div>
                 <div className="space-y-6">
                   <p className="text-lg text-foreground/90 leading-relaxed">
