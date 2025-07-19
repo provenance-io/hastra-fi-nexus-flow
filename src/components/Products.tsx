@@ -263,9 +263,9 @@ const Products = () => {
                    </div>
                  </div>
                </div>
-               <p className="text-xl md:text-2xl font-semibold text-gradient">
-                 {products.homes.tagline}
-               </p>
+                <p className="text-xl md:text-2xl font-semibold" style={{ color: 'hsl(var(--mint-green))' }}>
+                  {products.homes.tagline}
+                </p>
              </div>
 
             {/* Product description */}

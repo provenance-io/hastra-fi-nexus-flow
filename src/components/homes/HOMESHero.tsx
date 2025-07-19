@@ -23,7 +23,7 @@ const HOMESHero = () => {
         <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-4">
           <span className="block text-gradient">HOMES</span>
         </h1>
-        <h2 className="text-4xl md:text-6xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
+        <h2 className="text-4xl md:text-6xl font-black tracking-tight" style={{ color: 'hsl(var(--mint-green))' }}>
           RWA Yield Pools
         </h2>
         <p className="mt-6 max-w-4xl mx-auto text-xl md:text-2xl text-muted-foreground leading-relaxed">
