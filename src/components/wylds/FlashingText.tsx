@@ -19,15 +19,14 @@ const FlashingText = ({ phrases, className = "" }: FlashingTextProps) => {
       setActiveIndex((prevIndex) => {
         const nextIndex = prevIndex + 1;
         
-        // If we've reached the end, pause and restart
+        // If we've reached the end, restart the cycle
         if (nextIndex >= phrases.length) {
           setIsLastPhraseExtended(false);
           setIsSlowFading(false);
-          setIsPaused(true);
           // Pause before restarting
           timeout = setTimeout(() => {
-            setIsPaused(false);
             setActiveIndex(0); // Start with first phrase
+            timeout = setTimeout(showNextPhrase, 1000);
           }, 1500);
           return -1;
         }
@@ -54,15 +53,13 @@ const FlashingText = ({ phrases, className = "" }: FlashingTextProps) => {
       });
     };
 
-    // Start the cycle
-    if (!isPaused) {
-      timeout = setTimeout(showNextPhrase, 1000);
-    }
+    // Start the cycle initially
+    timeout = setTimeout(showNextPhrase, 1000);
 
     return () => {
       if (timeout) clearTimeout(timeout);
     };
-  }, [phrases.length, isPaused]);
+  }, [phrases.length]);
 
   return (
     <span className={className}>
