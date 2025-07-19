@@ -63,7 +63,7 @@ const TokenLineItem = ({
             <img 
               src={icon} 
               alt={`${token} Token`}
-              className="w-16 h-16 rounded-xl shadow-sm"
+              className="w-16 h-16 rounded-full object-cover shadow-sm"
             />
           ) : (
             <div className="w-16 h-16 rounded-xl bg-hastra-teal/10 flex items-center justify-center shadow-sm">
@@ -152,7 +152,7 @@ const TokenLineItem = ({
             <img 
               src={icon} 
               alt={`${token} Token`}
-              className="w-14 h-14 rounded-xl shadow-sm"
+              className="w-14 h-14 rounded-full object-cover shadow-sm"
             />
           ) : (
             <div className="w-14 h-14 rounded-xl bg-hastra-teal/10 flex items-center justify-center shadow-sm">
