@@ -29,30 +29,26 @@ const Hero = () => {
     refetchInterval: 5 * 60 * 1000, // Refetch every 5 minutes
   });
 
-  // Optimized coin configuration for smooth performance
-  const coinConfigs = useRef([...Array(8)].map((_, i) => {
-    // Distribute coins across 3 depth layers
-    const layer = i % 3; // 0 = far, 1 = mid, 2 = near
-    const zDepth = layer === 0 ? 0.3 : layer === 1 ? 0.6 : 1.0; // Depth multiplier
-    const baseScale = layer === 0 ? 0.4 : layer === 1 ? 0.7 : 1.0; // Base scale by layer
+  // Reduced and optimized coin configuration for smooth performance (5 coins instead of 8)
+  const coinConfigs = useRef([...Array(5)].map((_, i) => {
+    // Distribute coins across 2 depth layers for simplicity
+    const layer = i % 2; // 0 = far, 1 = near
+    const zDepth = layer === 0 ? 0.4 : 1.0; // Simplified depth
+    const baseScale = layer === 0 ? 0.6 : 1.0; // Simplified scaling
     
     return {
       id: i,
       layer,
       zDepth,
       baseScale,
-      startX: 10 + (i * 7) + Math.random() * 6, // More distributed
-      driftEarly: (Math.random() - 0.5) * (30 * zDepth), // Depth affects drift
-      driftMid: (Math.random() - 0.5) * (40 * zDepth),
-      driftLate: (Math.random() - 0.5) * (50 * zDepth),
-      driftEnd: (Math.random() - 0.5) * (60 * zDepth),
-      duration: 3 + (i * 0.2) + (layer * 0.5), // Layer affects speed
-      delay: i * 0.8, // Staggered timing
-      rotationStart: i * 45,
-      spinSpeed: 80 + (i * 10) + (layer * 20),
-      tiltSpeed: 12 + (i * 3) + (layer * 5),
-      blur: layer === 0 ? 1 : layer === 1 ? 0.5 : 0, // Far coins are blurred
-      opacity: layer === 0 ? 0.6 : layer === 1 ? 0.8 : 1.0, // Far coins are more transparent
+      startX: 15 + (i * 15) + Math.random() * 8, // Better distribution
+      drift: (Math.random() - 0.5) * (40 * zDepth), // Single drift value
+      duration: 4 + (i * 0.3), // Consistent timing
+      delay: i * 1.2, // More staggered timing
+      rotationStart: i * 72, // Even distribution (360/5)
+      spinSpeed: 360 + (i * 20), // Simplified rotation
+      blur: layer === 0 ? 0.5 : 0, // Simplified blur
+      opacity: layer === 0 ? 0.7 : 1.0, // Simplified opacity
     }
   }));
 
@@ -79,24 +75,20 @@ const Hero = () => {
     <section ref={heroRef} className="relative py-24 md:py-40 overflow-hidden" role="banner">
       {/* Unified seamless background - removed conflicting gradients */}
       
-      {/* Enhanced 3D perspective falling coins animation */}
+      {/* Optimized smooth falling coins animation */}
       <div ref={coinsRef} className="absolute inset-0 pointer-events-none z-0">
-        <div className="falling-coins-3d-container">
+        <div className="falling-coins-smooth-container">
           {coinConfigs.current.map((config) => (
             <div 
-              key={`perspective-coin-${config.id}`}
-              className="falling-coin-3d"
+              key={`smooth-coin-${config.id}`}
+              className="falling-coin-smooth"
               style={{ 
                 '--fall-start-x': `${config.startX}%`,
-                '--drift-early': `${config.driftEarly}px`,
-                '--drift-mid': `${config.driftMid}px`,
-                '--drift-late': `${config.driftLate}px`,
-                '--drift-end': `${config.driftEnd}px`,
+                '--drift-amount': `${config.drift}px`,
                 '--fall-duration': `${config.duration}s`,
                 '--animation-delay': `${config.delay}s`,
                 '--rotation-start': `${config.rotationStart}deg`,
                 '--spin-speed': `${config.spinSpeed}deg`,
-                '--tilt-speed': `${config.tiltSpeed}deg`,
                 '--z-depth': config.zDepth,
                 '--base-scale': config.baseScale,
                 '--layer': config.layer,
@@ -104,8 +96,8 @@ const Hero = () => {
                 '--layer-opacity': config.opacity,
               } as React.CSSProperties}
             >
-              <div className="coin-face-3d" />
-              <div className="coin-edge-3d" />
+              <div className="coin-face-smooth" />
+              <div className="coin-edge-smooth" />
             </div>
           ))}
         </div>

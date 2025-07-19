@@ -1,3 +1,154 @@
+/* Optimized smooth coin animation system with reduced complexity for better performance */
+
+.falling-coins-smooth-container {
+  position: absolute;
+  inset: 0;
+  perspective: 1200px;
+  perspective-origin: center top;
+  overflow: hidden;
+  /* GPU acceleration for performance */
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.falling-coin-smooth {
+  position: absolute;
+  width: calc(32px * var(--base-scale, 1));
+  height: calc(32px * var(--base-scale, 1));
+  animation: coin-fall-smooth var(--fall-duration, 4s) infinite ease-out var(--animation-delay, 0s);
+  opacity: calc(var(--layer-opacity, 1) * 0.9);
+  left: var(--fall-start-x, 50%);
+  top: -60px;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  filter: blur(var(--blur-amount, 0px)) 
+          drop-shadow(0 calc(3px * var(--z-depth)) calc(8px * var(--z-depth)) hsl(var(--mint-green) / calc(0.25 * var(--layer-opacity, 1))));
+  transform-style: preserve-3d;
+}
+
+/* Simplified coin face with optimized styling */
+.coin-face-smooth {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: 
+    /* Main surface gradient */
+    linear-gradient(135deg, 
+      hsl(var(--mint-green-light) / 0.9) 0%, 
+      hsl(var(--mint-green)) 40%,
+      hsl(var(--mint-green-dark)) 80%,
+      hsl(var(--mint-green-light) / 0.8) 100%);
+  border: calc(1.5px * var(--base-scale)) solid hsl(var(--mint-green-dark));
+  box-shadow: 
+    /* Primary coin shadow */
+    0 calc(4px * var(--z-depth)) calc(12px * var(--z-depth)) hsl(var(--mint-green-dark) / calc(0.3 * var(--layer-opacity))),
+    /* Inner highlights */
+    inset 0 calc(2px * var(--base-scale)) calc(4px * var(--base-scale)) hsl(var(--mint-green-light) / 0.7),
+    inset 0 calc(-1px * var(--base-scale)) calc(2px * var(--base-scale)) hsl(var(--mint-green-dark) / 0.5);
+  position: relative;
+  z-index: 2;
+  opacity: var(--layer-opacity);
+  transform: translateZ(calc(4px * var(--base-scale)));
+}
+
+/* Simplified coin letter */
+.coin-face-smooth::before {
+  content: 'Y';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: calc(14px * var(--base-scale));
+  font-weight: 900;
+  font-family: 'Arial Black', Arial, sans-serif;
+  color: hsl(var(--mint-green-dark));
+  text-shadow: 
+    0 calc(1px * var(--base-scale)) calc(1px * var(--base-scale)) hsl(var(--mint-green-light) / 0.8),
+    0 calc(1px * var(--base-scale)) calc(2px * var(--base-scale)) hsl(var(--mint-green-dark) / 0.4);
+  z-index: 1;
+}
+
+/* Simplified surface reflection */
+.coin-face-smooth::after {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  background: 
+    radial-gradient(ellipse at 40% 30%, 
+      hsl(var(--mint-green-light) / 0.7) 0%,
+      hsl(var(--mint-green-light) / 0.3) 40%,
+      transparent 70%);
+  pointer-events: none;
+}
+
+/* Simplified coin edge */
+.coin-edge-smooth {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: 
+    linear-gradient(90deg,
+      hsl(var(--mint-green-dark)) 0%,
+      hsl(var(--mint-green)) 50%,
+      hsl(var(--mint-green-dark)) 100%);
+  transform: translateZ(calc(-6px * var(--base-scale)));
+  z-index: 0;
+  opacity: var(--layer-opacity);
+  box-shadow: 
+    inset 0 0 calc(3px * var(--base-scale)) hsl(var(--mint-green-dark) / 0.6);
+}
+
+/* Optimized smooth falling animation with minimal keyframes */
+@keyframes coin-fall-smooth {
+  0% {
+    opacity: 0;
+    transform: 
+      translateY(-60px) 
+      translateX(0) 
+      translateZ(calc(var(--z-depth) * -100px))
+      rotateY(var(--rotation-start, 0deg))
+      scale(calc(var(--base-scale) * 0.8));
+  }
+  
+  20% {
+    opacity: calc(var(--layer-opacity) * 0.9);
+    transform: 
+      translateY(20vh) 
+      translateX(calc(var(--drift-amount, 0px) * 0.3))
+      translateZ(calc(var(--z-depth) * -50px))
+      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 360deg) * 0.5))
+      scale(var(--base-scale));
+  }
+  
+  80% {
+    opacity: var(--layer-opacity);
+    transform: 
+      translateY(80vh) 
+      translateX(calc(var(--drift-amount, 0px)))
+      translateZ(0px)
+      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 360deg) * 2))
+      scale(calc(var(--base-scale) * 1.05));
+  }
+  
+  100% {
+    opacity: 0;
+    transform: 
+      translateY(110vh) 
+      translateX(calc(var(--drift-amount, 0px) * 1.2))
+      translateZ(calc(var(--z-depth) * 50px))
+      rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 360deg) * 2.5))
+      scale(calc(var(--base-scale) * 0.7));
+  }
+}
 
 /* Enhanced 3D perspective coin animation system with advanced realism */
 
