@@ -96,7 +96,7 @@ const About = () => {
                 Supporting the <span className="text-gradient">Provenance Blockchain</span> Ecosystem
               </h2>
               <p className="text-xl text-foreground/90 max-w-3xl mx-auto">
-                Hastra is proudly built on and in close collaboration with Provenance Blockchain. Our commitment extends beyond just building products—we're actively strengthening the entire Provenance ecosystem.
+                Hastra is built on Provenance Blockchain—and we're committed to making the entire ecosystem stronger. Most DeFi protocols create their own tokens to capture value for themselves. We're taking a different approach. Instead of launching another token, we're channeling our success directly back to the HASH holders who power and secure the Provenance network.
               </p>
             </div>
 
