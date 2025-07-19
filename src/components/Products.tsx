@@ -206,7 +206,7 @@ const Products = () => {
                     <IconComponent className="w-8 h-8 mx-auto text-header-glow group-hover:scale-110 transition-transform duration-300" />
                     <div className="text-3xl md:text-4xl font-bold group-hover:scale-105 transition-transform duration-300 flex items-center justify-center gap-2">
                       {stat.isLoading && <Loader2 className="w-6 h-6 animate-spin" />}
-                      <span className={stat.isLoading ? 'opacity-50' : stat.hasError ? 'text-red-400' : 'text-gradient'}>
+                      <span className={stat.isLoading ? 'opacity-50' : stat.hasError ? 'text-red-400' : 'text-foreground/90'}>
                         {stat.value}
                       </span>
                     </div>
