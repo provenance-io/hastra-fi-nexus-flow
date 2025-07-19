@@ -124,7 +124,7 @@ const WalletOverview = () => {
         </div>
       </CardHeader>
       
-      <CardContent>
+      <CardContent className="bg-background/20">
         {/* Portfolio Summary */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
           {/* Total Portfolio Value */}
