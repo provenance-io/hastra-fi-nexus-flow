@@ -161,9 +161,9 @@ const About = () => {
               </div>
               
               <div className={`card-gradient rounded-3xl p-6 md:p-8 card-bottom-static max-w-5xl mx-auto mb-12 transition-all duration-500 ${
-                animationState.hashTokenCardGlow ? 'card-bottom-glow border-2' : 'border border-transparent'
+                animationState.provenanceCardGlow ? 'card-bottom-glow border-2' : 'border border-transparent'
               }`}>
-                {animationState.hashTokenCardGlow && (
+                {animationState.provenanceCardGlow && (
                   <div className="absolute inset-0 rounded-3xl pointer-events-none" 
                        style={{ background: 'linear-gradient(to bottom right, rgba(229, 218, 194, 0.02), rgba(229, 218, 194, 0.01))' }} />
                 )}
