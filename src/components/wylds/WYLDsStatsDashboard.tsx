@@ -121,7 +121,7 @@ const WYLDsStatsDashboard = () => {
       
       <div className="container relative">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gradient mb-6">Live Stats</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground/90 mb-6">Live Stats</h2>
           <p className="text-xl text-platinum/80 max-w-2xl mx-auto">
             Track YIELD performance with real-time data and transparent metrics
           </p>

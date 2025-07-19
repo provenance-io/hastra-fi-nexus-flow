@@ -41,7 +41,7 @@ const WYLDsFAQ = () => {
       <div className="relative z-10 max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-gradient-to-r from-header-glow to-crypto-accent bg-clip-text mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground/90 mb-4">
             Frequently Asked Questions
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-header-glow to-crypto-accent mx-auto rounded-full"></div>

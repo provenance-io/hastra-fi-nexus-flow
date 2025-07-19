@@ -6,7 +6,7 @@ const WYLDsTypeformEmbed = () => {
     <section className="py-20 px-4">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient bg-gradient-to-r from-header-glow to-crypto-accent bg-clip-text text-transparent">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground/90 mb-4">
             Partner with YIELD
           </h2>
           <p className="text-lg text-platinum/80">
