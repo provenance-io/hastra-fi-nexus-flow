@@ -57,7 +57,7 @@ const WYLDsHero = () => {
           <img 
             src="/lovable-uploads/cb96356b-822d-4dc0-963a-96ef43bfedbd.png" 
             alt="YIELD Token" 
-            className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 animate-pulse"
+            className="w-32 h-32 md:w-48 md:h-48 lg:w-56 lg:h-56 animate-pulse"
             style={{
               filter: 'drop-shadow(0 0 20px rgba(0, 255, 150, 0.6)) drop-shadow(0 0 40px rgba(0, 200, 255, 0.4)) drop-shadow(0 0 60px rgba(255, 255, 255, 0.2))',
               transform: 'perspective(1000px) rotateX(5deg) rotateY(5deg)',
@@ -80,28 +80,28 @@ const WYLDsHero = () => {
           Earn yield on-the-go and spend whenever you want - backed by real world assets.
         </p>
 
-        <div className="my-6 md:my-8">
-          <div className="group card-gradient rounded-2xl p-6 text-center space-y-3 hover:bg-background/60 transition-all duration-300 max-w-xs mx-auto">
-            <div className="text-3xl md:text-4xl font-bold group-hover:scale-105 transition-transform duration-300 flex items-center justify-center gap-2">
-              {apyLoading && <Loader2 className="w-6 h-6 animate-spin" />}
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 my-6 md:my-8">
+          {/* APY Box - smaller and aligned */}
+          <div className="group card-gradient rounded-xl p-4 text-center space-y-2 hover:bg-background/60 transition-all duration-300 order-2 lg:order-1">
+            <div className="text-2xl md:text-3xl font-bold group-hover:scale-105 transition-transform duration-300 flex items-center justify-center gap-2">
+              {apyLoading && <Loader2 className="w-5 h-5 animate-spin" />}
               <span className={apyLoading ? 'opacity-50' : apyError ? 'text-red-400' : 'text-foreground/90'}>
                 {displayApy}
               </span>
             </div>
-            <div className="text-sm font-medium text-orange-300">
+            <div className="text-xs font-medium text-orange-300">
               Current APY
             </div>
             <div className="flex justify-center items-center gap-2">
-              <div className={`w-2 h-2 rounded-full ${apyError ? 'bg-red-400' : 'bg-header-glow animate-pulse'}`}></div>
+              <div className={`w-1.5 h-1.5 rounded-full ${apyError ? 'bg-red-400' : 'bg-header-glow animate-pulse'}`}></div>
               <span className="text-xs text-platinum/60">{apyError ? 'Error' : 'Live Rate'}</span>
             </div>
           </div>
-        </div>
-        
-        <div className="flex justify-center mb-4">
+          
+          {/* GET YIELD Button - aligned */}
           <Button 
             size="lg" 
-            className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-12 py-6 text-lg rounded-2xl min-w-[240px] group transition-all duration-200"
+            className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-12 py-6 text-lg rounded-2xl min-w-[240px] group transition-all duration-200 order-1 lg:order-2"
             asChild
           >
             <Link 
