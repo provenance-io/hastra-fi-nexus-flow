@@ -137,7 +137,7 @@ const Products = () => {
         
         <div className="max-w-6xl mx-auto space-y-8">
           {/* YIELD Product */}
-          <div className="floating-card card-gradient card-hover rounded-3xl p-8 md:p-12 space-y-8 animate-fade-in-up">
+          <div className="card-gradient rounded-3xl p-8 md:p-12 space-y-8 animate-fade-in-up">
             {/* Product header */}
             <div className="space-y-6">
               <div className="flex items-center gap-4">
@@ -145,12 +145,12 @@ const Products = () => {
                 <img 
                   src="/lovable-uploads/08452a7b-6782-4b0a-900e-0f0c99a4fc4e.png" 
                   alt="YIELD Token"
-                  className="w-16 h-16 rounded-full shadow-lg shadow-header-glow/20"
+                  className="w-16 h-16 rounded-full"
                 />
                 <div className="flex-1">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div className="flex flex-col">
-                      <h3 className="text-3xl md:text-4xl font-bold text-foreground group-hover:text-header-glow transition-colors">
+                      <h3 className="text-3xl md:text-4xl font-bold text-foreground transition-colors">
                         {products.live.name}
                       </h3>
                       <div className="flex items-center mt-1">
@@ -221,7 +221,7 @@ const Products = () => {
           </div>
 
           {/* HOMES Product */}
-          <div className="floating-card card-gradient card-hover rounded-3xl p-8 md:p-12 space-y-8 animate-fade-in-up relative" style={{ animationDelay: '0.2s' }}>
+          <div className="card-gradient rounded-3xl p-8 md:p-12 space-y-8 animate-fade-in-up relative" style={{ animationDelay: '0.2s' }}>
             
             {/* Product header */}
             <div className="space-y-6">
@@ -230,13 +230,13 @@ const Products = () => {
                   <img 
                     src="/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png" 
                     alt="HOMES Token"
-                    className="w-16 h-16 rounded-full object-cover shadow-xl coin-glow-effect"
+                    className="w-16 h-16 rounded-full object-cover"
                   />
                 </div>
                 <div className="flex-1">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div className="flex flex-col">
-                      <h3 className="text-3xl md:text-4xl font-bold text-foreground group-hover:text-header-glow transition-colors">
+                      <h3 className="text-3xl md:text-4xl font-bold text-foreground transition-colors">
                         {products.homes.name}
                       </h3>
                       <div className="flex items-center mt-1">
