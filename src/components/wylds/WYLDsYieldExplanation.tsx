@@ -3,7 +3,7 @@ import { ArrowRight, ChevronDown, TrendingUp, Calendar, Repeat, Shield, Globe } 
 import yieldIcon from '/lovable-uploads/1d678c0f-09c8-4451-a9a6-3e635e0fef72.png';
 
 const YieldTokenIcon = ({ className }: { className?: string }) => (
-  <img src={yieldIcon} alt="YIELD Token" className={className} />
+  <img src={yieldIcon} alt="YIELD Token" className={`${className} object-contain`} />
 );
 
 const WYLDsYieldExplanation = () => {
@@ -157,9 +157,13 @@ const WYLDsYieldExplanation = () => {
                           
                           {/* Icon Container */}
                           <div className="relative z-10 mb-4 flex justify-center">
-                            <div className={`w-14 h-14 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                              <IconComponent className="w-7 h-7 text-black" />
-                            </div>
+                            {step.number === 1 ? (
+                              <IconComponent className="w-14 h-14" />
+                            ) : (
+                              <div className={`w-14 h-14 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                                <IconComponent className="w-7 h-7 text-black" />
+                              </div>
+                            )}
                           </div>
                           
                           {/* Content */}
@@ -209,12 +213,16 @@ const WYLDsYieldExplanation = () => {
                       {/* Hover Overlay */}
                       <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl`}></div>
                       
-                      {/* Icon Container */}
-                      <div className="relative z-10 mb-4 flex justify-center">
-                        <div className={`w-14 h-14 bg-gradient-to-br ${step.color} rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                          <IconComponent className="w-7 h-7 text-black" />
-                        </div>
-                      </div>
+                       {/* Icon Container */}
+                       <div className="relative z-10 mb-4 flex justify-center">
+                         {step.number === 1 ? (
+                           <IconComponent className="w-14 h-14" />
+                         ) : (
+                           <div className={`w-14 h-14 bg-gradient-to-br ${step.color} rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                             <IconComponent className="w-7 h-7 text-black" />
+                           </div>
+                         )}
+                       </div>
                       
                       {/* Content */}
                       <div className="relative z-10 h-28 flex flex-col justify-between">
