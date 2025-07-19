@@ -73,14 +73,34 @@ const Header = () => {
           <nav className="hidden md:flex items-center space-x-7 lg:space-x-11">
             <Link
               to="/about"
-              className="text-lg md:text-xl font-medium text-foreground/90 hover:text-foreground transition-colors relative group tracking-widest uppercase"
-              style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}
+              className="text-lg md:text-xl font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase"
+              style={{ 
+                textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)',
+                transition: 'text-shadow 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.textShadow = '0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.4), 0 0 45px rgba(255, 255, 255, 0.2)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.textShadow = '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)';
+              }}
             >
               About
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent transition-all duration-300 group-hover:w-full" />
             </Link>
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center text-lg md:text-xl font-medium text-foreground/90 hover:text-foreground transition-colors relative group tracking-widest uppercase" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
+              <DropdownMenuTrigger 
+                className="flex items-center text-lg md:text-xl font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase" 
+                style={{ 
+                  textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)',
+                  transition: 'text-shadow 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.textShadow = '0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.4), 0 0 45px rgba(255, 255, 255, 0.2)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.textShadow = '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)';
+                }}
+              >
                 Products
                 <svg 
                   className="ml-1 w-5 h-5" 
@@ -93,7 +113,6 @@ const Header = () => {
                 >
                   <path d="M6 9l6 6 6-6" />
                 </svg>
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent transition-all duration-300 group-hover:w-full" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-72 bg-white/95 backdrop-blur-md border border-gray-200 shadow-2xl mt-4 z-50" align="start">
                 <DropdownMenuItem asChild>
@@ -138,39 +157,55 @@ const Header = () => {
                 {item.isAnchor ? (
                   <button
                     onClick={() => handleNavClick(item.href, true)}
-                    className="text-lg md:text-xl font-medium text-foreground/90 hover:text-foreground transition-colors relative group tracking-widest uppercase"
-                    style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}
+                    className="text-lg md:text-xl font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase"
+                    style={{ 
+                      textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)',
+                      transition: 'text-shadow 0.3s ease'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.textShadow = '0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.4), 0 0 45px rgba(255, 255, 255, 0.2)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.textShadow = '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)';
+                    }}
                   >
                     {item.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent transition-all duration-300 group-hover:w-full" />
                   </button>
                 ) : (
                   <Link
                     to={item.href}
-                    className="text-lg md:text-xl font-medium text-foreground/90 hover:text-foreground transition-colors relative group tracking-widest uppercase"
-                    style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}
+                    className="text-lg md:text-xl font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase"
+                    style={{ 
+                      textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)',
+                      transition: 'text-shadow 0.3s ease'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.textShadow = '0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.4), 0 0 45px rgba(255, 255, 255, 0.2)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.textShadow = '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)';
+                    }}
                   >
                     {item.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent transition-all duration-300 group-hover:w-full" />
                   </Link>
                 )}
               </div>
             ))}
             <Link
               to="/earn"
-              className="text-lg md:text-xl font-medium text-foreground/90 hover:text-foreground transition-colors relative group tracking-widest uppercase"
-              style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}
+              className="text-lg md:text-xl font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase"
+              style={{ 
+                textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)',
+                transition: 'text-shadow 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.textShadow = '0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.4), 0 0 45px rgba(255, 255, 255, 0.2)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.textShadow = '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)';
+              }}
             >
               Earn
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent transition-all duration-300 group-hover:w-full" />
-            </Link>
-            <Link
-              to="/learn"
-              className="text-lg md:text-xl font-medium text-foreground/90 hover:text-foreground transition-colors relative group tracking-widest uppercase"
-              style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}
-            >
-              (L)earn
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent transition-all duration-300 group-hover:w-full" />
             </Link>
           </nav>
         </div>
