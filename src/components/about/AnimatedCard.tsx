@@ -26,13 +26,14 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({
         shouldGlow ? 'shadow-2xl border-2' : 'border border-transparent'
       }`}
       style={{
-        borderColor: shouldGlow ? 'hsl(var(--header-glow))' : 'transparent',
-        boxShadow: shouldGlow ? '0 0 30px hsl(var(--header-glow) / 0.4), 0 0 60px hsl(var(--header-glow) / 0.2)' : undefined,
+        borderColor: shouldGlow ? 'rgba(229, 218, 194, 0.4)' : 'transparent',
+        boxShadow: shouldGlow ? '0 0 20px rgba(229, 218, 194, 0.3), 0 0 40px rgba(229, 218, 194, 0.15)' : undefined,
       }}
     >
       {/* Subtle glow overlay when glowing */}
       {shouldGlow && (
-        <div className="absolute inset-0 bg-gradient-to-br from-header-glow/5 to-crypto-accent/5 rounded-3xl pointer-events-none" />
+        <div className="absolute inset-0 rounded-3xl pointer-events-none" 
+             style={{ background: 'linear-gradient(to bottom right, rgba(229, 218, 194, 0.08), rgba(229, 218, 194, 0.03))' }} />
       )}
       
       <div className="relative z-10">
