@@ -72,24 +72,21 @@ const WYLDsHero = () => {
           Earn yield on-the-go and spend whenever you want - backed by real world assets.
         </p>
 
-        {/* Enhanced APY Display */}
+        {/* Enhanced APY Display - Updated to match home page styling */}
         <div className="my-6 md:my-8">
-          <div className="card-premium rounded-2xl p-4 md:p-6 max-w-xs mx-auto pulse-glow-premium">
-            <p className="text-lg text-platinum/70 mb-2">Current APY</p>
-            <div className="relative">
-              <div className="text-4xl md:text-5xl lg:text-6xl font-bold relative z-10 flex items-center justify-center gap-2">
-                {apyLoading && <Loader2 className="h-8 w-8 animate-spin" />}
-                <span className={apyLoading ? 'opacity-50' : apyError ? 'text-red-400' : 'text-gradient'}>
-                  {displayApy}
-                </span>
-              </div>
-              <div className="absolute inset-0 text-gradient opacity-30 blur-sm">
+          <div className="group glass-effect rounded-2xl p-6 text-center space-y-3 hover:bg-background/60 transition-all duration-300 max-w-xs mx-auto">
+            <div className="text-3xl md:text-4xl font-bold group-hover:scale-105 transition-transform duration-300 flex items-center justify-center gap-2">
+              {apyLoading && <Loader2 className="w-6 h-6 animate-spin" />}
+              <span className={apyLoading ? 'opacity-50' : apyError ? 'text-red-400' : 'text-foreground/90'}>
                 {displayApy}
-              </div>
+              </span>
             </div>
-            <div className="flex justify-center items-center gap-2 mt-4">
+            <div className="text-sm font-medium text-orange-300">
+              Current APY
+            </div>
+            <div className="flex justify-center items-center gap-2">
               <div className={`w-2 h-2 rounded-full ${apyError ? 'bg-red-400' : 'bg-header-glow animate-pulse'}`}></div>
-              <span className="text-sm text-platinum/60">{apyError ? 'Error' : 'Live Rate'}</span>
+              <span className="text-xs text-platinum/60">{apyError ? 'Error' : 'Live Rate'}</span>
             </div>
           </div>
         </div>
