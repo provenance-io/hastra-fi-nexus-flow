@@ -51,10 +51,10 @@ const About = () => {
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">Our Mission</h2>
                 </div>
                 <p className="text-lg text-foreground/90 leading-relaxed">
-                  To <span className="text-header-glow font-semibold">obliterate the artificial walls</span> between <span className="text-crypto-accent font-semibold">Wall Street's inner circle</span> and everyone else via <span className="text-header-glow font-semibold">DeFi technology</span>.
+                  To obliterate the artificial walls between Wall Street's inner circle and everyone else via DeFi technology.
                 </p>
                 <p className="text-lg text-foreground/90 leading-relaxed">
-                  We aim to <span className="text-crypto-accent font-semibold">shatter every boundary</span> that keeps you dependent on their system. Because <span className="text-header-glow font-semibold">being your own bank</span> isn't a privilege—it's your <span className="text-crypto-accent font-semibold">fundamental right</span>.
+                  We aim to shatter every boundary that keeps you dependent on their system. Because <span className="text-blue-400 font-semibold">being your own bank isn't a privilege—it's your fundamental right</span>.
                 </p>
               </div>
 
@@ -64,8 +64,7 @@ const About = () => {
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">Our Belief</h2>
                 </div>
                 <p className="text-lg text-foreground/90 leading-relaxed">
-                  The same <span className="text-crypto-accent font-semibold">8% yields that make the rich richer</span> should be in your wallet, not locked behind some arbitrary "accredited investor" gate. Every high-yield opportunity hoarded by institutions is a theft from the people who actually need those returns. We're not just redistributing wealth—we're putting the 
-                  <span className="text-header-glow font-semibold">power to create it directly into your hands</span>.
+                  The same 8% yields that make the rich richer should be in your wallet, not locked behind some arbitrary "accredited investor" gate. Every high-yield opportunity hoarded by institutions is a theft from the people who actually need those returns. We're not just redistributing wealth—<span className="text-green-400 font-semibold">we're putting the power to create it directly into your hands</span>.
                 </p>
               </div>
 
@@ -76,13 +75,10 @@ const About = () => {
                 </div>
                 <div className="space-y-6">
                   <p className="text-lg text-foreground/90 leading-relaxed">
-                    A financial system where you don't need their permission, their minimums, or their approval. True decentralization means every person on Earth becomes their own financial institution—
-                    <span className="text-crypto-accent font-semibold">no middlemen skimming profits</span>, no gatekeepers deciding your worth.
+                    A financial system where you don't need their permission, their minimums, or their approval. True decentralization means every person on Earth becomes their own financial institution—no middlemen skimming profits, no gatekeepers deciding your worth.
                   </p>
                   <p className="text-lg text-foreground/90 leading-relaxed">
-                    We're building the world where blockchain doesn't just enable financial inclusion—it 
-                    <span className="text-header-glow font-semibold">demolishes financial apartheid</span> and hands you the keys to institutional-grade wealth creation. Every product we ship pushes further past the boundaries they thought were permanent. Every innovation transfers more power from their vaults to your wallet. 
-                    <span className="text-crypto-accent font-semibold">The revolution isn't coming. You're holding it.</span>
+                    We're building the world where blockchain doesn't just enable financial inclusion—it demolishes financial apartheid and hands you the keys to institutional-grade wealth creation. Every product we ship pushes further past the boundaries they thought were permanent. Every innovation transfers more power from their vaults to your wallet. <span className="text-orange-400 font-semibold">The revolution isn't coming. You're holding it.</span>
                   </p>
                 </div>
               </div>
