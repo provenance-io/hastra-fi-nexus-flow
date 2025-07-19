@@ -125,7 +125,7 @@ const About = () => {
               </div>
             </div>
 
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-5xl mx-auto mt-20">
               <div className="card-gradient rounded-2xl p-8 md:p-12 card-hover">
                 <div className="space-y-6">
                   <h3 className="text-2xl md:text-3xl font-bold">Coming Soon: HASH Token Buy & Burn Program</h3>
