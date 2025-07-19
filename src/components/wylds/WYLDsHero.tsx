@@ -57,7 +57,12 @@ const WYLDsHero = () => {
           <img 
             src="/lovable-uploads/cb96356b-822d-4dc0-963a-96ef43bfedbd.png" 
             alt="YIELD Token" 
-            className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 drop-shadow-2xl"
+            className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 animate-pulse"
+            style={{
+              filter: 'drop-shadow(0 0 20px rgba(0, 255, 150, 0.6)) drop-shadow(0 0 40px rgba(0, 200, 255, 0.4)) drop-shadow(0 0 60px rgba(255, 255, 255, 0.2))',
+              transform: 'perspective(1000px) rotateX(5deg) rotateY(5deg)',
+              animation: 'logoGlow 3s ease-in-out infinite, float 6s ease-in-out infinite'
+            }}
           />
         </div>
         
@@ -68,7 +73,10 @@ const WYLDsHero = () => {
           />
         </h2>
         
-        <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed mb-6 md:mb-8">
+        <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed mb-6 md:mb-8" 
+           style={{ 
+             textShadow: '0 0 10px rgba(0, 255, 150, 0.6), 0 0 20px rgba(0, 200, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.2)' 
+           }}>
           Earn yield on-the-go and spend whenever you want - backed by real world assets.
         </p>
 
