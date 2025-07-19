@@ -109,20 +109,12 @@ const About = () => {
                   <div className="space-y-4">
                     <h3 className="text-2xl md:text-3xl font-bold">HASH Token Buy & Burn Program (Coming Soon!)</h3>
                     <p className="text-lg text-foreground/90 leading-relaxed">
-                      A significant portion of revenue generated from our DeFi products is systematically allocated to purchase and permanently burn HASH tokens from the open market. This deflationary mechanism:
+                      A significant portion of revenue generated from our DeFi products is systematically allocated to purchase and permanently burn HASH tokens from the open market. We believe this will:
                     </p>
                     <ul className="space-y-3 text-foreground/90">
                       <li className="flex items-start gap-3">
                         <div className="w-2 h-2 rounded-full bg-header-glow mt-2 flex-shrink-0"></div>
-                        <span>Reduces the total supply of HASH tokens over time</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <div className="w-2 h-2 rounded-full bg-header-glow mt-2 flex-shrink-0"></div>
-                        <span>Creates sustainable demand for HASH in the market</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <div className="w-2 h-2 rounded-full bg-header-glow mt-2 flex-shrink-0"></div>
-                        <span>Strengthens the economic security of the Provenance Blockchain</span>
+                        <span>Strengthen the economic security of the Provenance Blockchain</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <div className="w-2 h-2 rounded-full bg-header-glow mt-2 flex-shrink-0"></div>
