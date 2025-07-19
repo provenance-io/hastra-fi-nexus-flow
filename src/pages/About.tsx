@@ -1,12 +1,22 @@
+
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import AnimatedConnectingLines from '@/components/AnimatedConnectingLines';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const About = () => {
+  const scrollProgress = useScrollAnimation();
+  const finalGlowProgress = Math.min(Math.max((scrollProgress - 0.75) * 4, 0), 1);
+
   return (
     <div className="relative">
       {/* Extended gradient background to match homepage */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
+      
+      {/* Animated Connecting Lines */}
+      <AnimatedConnectingLines />
+      
       <div className="relative z-10">
         <main className="flex-grow">
         {/* Enhanced Hero Section */}
@@ -49,7 +59,7 @@ const About = () => {
                 <div className="mb-8">
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">Our Mission</h2>
                 </div>
-                <p className="text-lg text-foreground/90 leading-relaxed">
+                <p className="text-lg text-foreground/90 leading-relaxed mb-4">
                   To obliterate the artificial walls between Wall Street's inner circle and everyone else via DeFi technology.
                 </p>
                 <p className="text-lg text-foreground/90 leading-relaxed">
@@ -92,7 +102,7 @@ const About = () => {
           
           <div className="container relative">
             <div className="text-center mb-16 animate-fade-in">
-              {/* HASH Logo with glow effect */}
+              {/* HASH Logo with enhanced glow effect based on scroll */}
               <div className="flex justify-center mb-12">
                 <div className="relative">
                   <img 
@@ -100,10 +110,24 @@ const About = () => {
                     alt="HASH Logo" 
                     className="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover aspect-square"
                     style={{
-                      filter: 'drop-shadow(0 0 6px rgba(229, 218, 194, 0.2)) drop-shadow(0 0 12px rgba(229, 218, 194, 0.1))',
-                      animation: 'logoGlow 4s ease-in-out infinite'
+                      filter: `drop-shadow(0 0 ${6 + finalGlowProgress * 20}px rgba(229, 218, 194, ${0.2 + finalGlowProgress * 0.6})) drop-shadow(0 0 ${12 + finalGlowProgress * 40}px rgba(229, 218, 194, ${0.1 + finalGlowProgress * 0.4}))`,
+                      animation: 'logoGlow 4s ease-in-out infinite',
+                      transform: `scale(${1 + finalGlowProgress * 0.1})`,
+                      transition: 'transform 0.3s ease-out',
                     }}
                   />
+                  
+                  {/* Enhanced glow ring effect */}
+                  {finalGlowProgress > 0.3 && (
+                    <div 
+                      className="absolute inset-0 rounded-full border-2 pointer-events-none"
+                      style={{
+                        borderColor: `rgba(229, 218, 194, ${finalGlowProgress * 0.4})`,
+                        boxShadow: `0 0 ${20 + finalGlowProgress * 30}px rgba(229, 218, 194, ${finalGlowProgress * 0.3})`,
+                        animation: 'pulse-light 2s ease-in-out infinite',
+                      }}
+                    />
+                  )}
                 </div>
               </div>
               
