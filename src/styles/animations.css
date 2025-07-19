@@ -4,14 +4,16 @@
   position: absolute;
   width: 36px;
   height: 36px;
-  animation: stable-coin-fall var(--fall-duration, 4s) infinite cubic-bezier(0.25, 0.46, 0.45, 0.94) var(--animation-delay, 0s);
+  animation: stable-coin-fall var(--fall-duration, 4s) infinite linear var(--animation-delay, 0s);
   opacity: 0;
   left: var(--fall-start-x);
   top: -80px;
-  transform-style: preserve-3d;
-  perspective: 800px;
   will-change: transform, opacity;
-  filter: drop-shadow(0 4px 8px hsl(var(--mint-green) / 0.2));
+  /* Simplified shadow for mobile performance */
+  filter: drop-shadow(0 2px 4px hsl(var(--mint-green) / 0.15));
+  /* Use GPU acceleration but reduce 3D complexity */
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 /* Legacy falling coin for backwards compatibility */
@@ -98,38 +100,22 @@
 @keyframes stable-coin-fall {
   0% {
     opacity: 0;
-    transform: translateY(-100vh) 
-               translateX(0) 
-               rotateY(var(--rotation-start, 0deg))
-               rotateX(0deg)
-               scale(0.8);
+    transform: translateY(-100vh) translateX(0) rotate(var(--rotation-start, 0deg)) scale(0.8);
   }
   
-  10% {
-    opacity: 0.6;
-    transform: translateY(-10vh) 
-               translateX(calc(var(--drift-early, 0px) * 0.2))
-               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 0.8))
-               rotateX(calc(var(--tilt-speed, 15deg) * 0.4))
-               scale(0.9);
+  15% {
+    opacity: 0.8;
+    transform: translateY(0vh) translateX(calc(var(--drift-early, 0px) * 0.3)) rotate(calc(var(--rotation-start, 0deg) + 90deg)) scale(0.95);
   }
   
-  90% {
+  85% {
     opacity: 1;
-    transform: translateY(100vh) 
-               translateX(var(--drift-end, 0px))
-               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 7.5))
-               rotateX(calc(var(--tilt-speed, 15deg) * 4.6))
-               scale(0.85);
+    transform: translateY(85vh) translateX(var(--drift-end, 0px)) rotate(calc(var(--rotation-start, 0deg) + 450deg)) scale(0.9);
   }
   
   100% {
     opacity: 0;
-    transform: translateY(150vh) 
-               translateX(var(--drift-end, 0px))
-               rotateY(calc(var(--rotation-start, 0deg) + var(--spin-speed, 90deg) * 8))
-               rotateX(calc(var(--tilt-speed, 15deg) * 5))
-               scale(0.8);
+    transform: translateY(120vh) translateX(var(--drift-end, 0px)) rotate(calc(var(--rotation-start, 0deg) + 540deg)) scale(0.8);
   }
 }
 

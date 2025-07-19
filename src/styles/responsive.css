@@ -1,8 +1,23 @@
-/* Responsive coin sizing */
+/* Responsive coin sizing and mobile optimizations */
 @media (max-width: 768px) {
   .falling-coin, .falling-coin-stable {
     width: 32px;
     height: 32px;
+    /* Reduce animation complexity on mobile */
+    animation-timing-function: ease-out;
+    filter: none; /* Remove drop shadow for better performance */
+  }
+  
+  /* Simplify coin visuals on mobile */
+  .coin-face {
+    box-shadow: 
+      0 2px 4px hsl(var(--mint-green) / 0.2),
+      inset 0 1px 2px hsl(var(--mint-green-light) / 0.5);
+  }
+  
+  .coin-edge {
+    transform: none; /* Remove 3D transform */
+    box-shadow: none;
   }
 }
 
@@ -10,5 +25,16 @@
   .falling-coin, .falling-coin-stable {
     width: 28px;
     height: 28px;
+    /* Further reduce animation on smaller screens */
+    animation-duration: 3s !important;
+  }
+  
+  /* Reduce number of visible coins on very small screens */
+  .falling-coin-stable:nth-child(n+4) {
+    display: none;
+  }
+  
+  .coin-face::before {
+    font-size: 12px;
   }
 }
