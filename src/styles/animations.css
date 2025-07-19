@@ -108,79 +108,71 @@
     transform: translateY(0vh) translateX(calc(var(--drift-early, 0px) * 0.3)) rotate(calc(var(--rotation-start, 0deg) + 90deg)) scale(0.95);
 }
 
-/* Logo Trace Animation */
+/* Simplified Logo Trace Animation - Maximum Visibility */
 .logo-trace-container {
   position: relative;
   display: inline-block;
+  padding: 30px;
 }
 
 .logo-with-trace {
-  position: relative;
-  z-index: 2;
-  filter: drop-shadow(0 0 10px rgba(0, 255, 150, 0.3));
-  transition: filter 0.3s ease;
-}
-
-.trace-outline {
-  position: absolute;
-  top: -12px;
-  left: -12px;
-  right: -12px;
-  bottom: -12px;
   border-radius: 50%;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0%,
-    rgba(0, 255, 150, 1) 5%,
-    rgba(0, 200, 255, 1) 15%,
-    rgba(100, 255, 200, 1) 25%,
-    transparent 35%,
-    transparent 100%
-  );
-  animation: trace-rotate 2s linear infinite;
-  z-index: 1;
-  filter: blur(1px);
+  filter: drop-shadow(0 0 30px rgba(0, 255, 150, 0.7));
 }
 
-.trace-outline::before {
-  content: '';
+/* First trace ring - bright green with fallback */
+.trace-ring-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  
+  /* Fallback for browsers that don't support mask */
+  border: 4px solid #00ff96;
+  
+  /* Advanced gradient border for modern browsers */
+  background: conic-gradient(from 0deg, #00ff96, #00c8ff, #64ffc8, #00ff96);
+  animation: spin-clockwise 2s linear infinite;
+  z-index: 1;
+}
+
+/* Mask support enhancement */
+@supports (mask: linear-gradient(#fff 0 0)) {
+  .trace-ring-1 {
+    border: 4px solid transparent;
+    background: conic-gradient(from 0deg, #00ff96, #00c8ff, #64ffc8, #00ff96) border-box;
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+  }
+}
+
+/* Second trace ring - cyan with fallback */
+.trace-ring-2 {
   position: absolute;
   top: 8px;
   left: 8px;
   right: 8px;
   bottom: 8px;
   border-radius: 50%;
-  background: hsl(var(--background));
-  z-index: -1;
+  
+  /* Fallback */
+  border: 2px solid #00c8ff;
+  
+  animation: spin-counter 3s linear infinite;
+  z-index: 2;
+  opacity: 0.7;
 }
 
-.trace-outline::after {
-  content: '';
-  position: absolute;
-  top: -4px;
-  left: -4px;
-  right: -4px;
-  bottom: -4px;
-  border-radius: 50%;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0%,
-    rgba(0, 255, 150, 0.3) 8%,
-    rgba(0, 200, 255, 0.3) 18%,
-    transparent 28%,
-    transparent 100%
-  );
-  animation: trace-rotate 2s linear infinite reverse;
-  filter: blur(2px);
+@keyframes spin-clockwise {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-@keyframes trace-rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+@keyframes spin-counter {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
 }
   
   85% {

@@ -21,12 +21,14 @@ const About = () => {
             <div className="flex justify-center mb-12">
               <div className="relative">
                 <div className="logo-trace-container">
+                  {/* Multiple trace rings for maximum visibility */}
+                  <div className="trace-ring-1"></div>
+                  <div className="trace-ring-2"></div>
                   <img 
                     src="/lovable-uploads/e7187c63-0dae-455c-971c-a6de70ce2afc.png" 
                     alt="Mission Logo" 
-                    className="w-32 h-32 md:w-48 md:h-48 logo-with-trace"
+                    className="w-32 h-32 md:w-48 md:h-48 logo-with-trace relative z-10"
                   />
-                  <div className="trace-outline"></div>
                 </div>
               </div>
             </div>
