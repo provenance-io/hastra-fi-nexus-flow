@@ -17,17 +17,13 @@ const About = () => {
           
           <div className="container relative text-center">
             
-            {/* Simple Test - Basic Colored Outline */}
+            {/* Subtle Logo Trace Effect */}
             <div className="flex justify-center mb-12">
               <div className="relative">
                 <img 
                   src="/lovable-uploads/e7187c63-0dae-455c-971c-a6de70ce2afc.png" 
                   alt="Mission Logo" 
-                  className="w-32 h-32 md:w-48 md:h-48"
-                  style={{
-                    outline: '3px solid #00ff96',
-                    outlineOffset: '4px'
-                  }}
+                  className="w-32 h-32 md:w-48 md:h-48 logo-subtle-trace"
                 />
               </div>
             </div>

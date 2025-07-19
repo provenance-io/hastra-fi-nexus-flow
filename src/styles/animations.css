@@ -108,48 +108,27 @@
     transform: translateY(0vh) translateX(calc(var(--drift-early, 0px) * 0.3)) rotate(calc(var(--rotation-start, 0deg) + 90deg)) scale(0.95);
 }
 
-/* Logo Edge Glow Effect - Follows Actual Logo Shape */
-.logo-glow-base {
+/* Subtle Logo Trace - Follows Actual Logo Shape */
+.logo-subtle-trace {
   filter: 
-    brightness(0) 
-    sepia(1) 
-    hue-rotate(120deg) 
-    saturate(3) 
-    blur(2px);
-  opacity: 0.4;
-  z-index: 1;
+    drop-shadow(0 0 3px rgba(0, 255, 150, 0.4))
+    drop-shadow(0 0 6px rgba(0, 255, 150, 0.3))
+    drop-shadow(0 0 9px rgba(0, 200, 255, 0.2));
+  animation: subtle-pulse 3s ease-in-out infinite;
 }
 
-.logo-glow-animated {
-  filter: 
-    brightness(0) 
-    sepia(1) 
-    hue-rotate(180deg) 
-    saturate(4) 
-    blur(3px);
-  opacity: 0.6;
-  z-index: 2;
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
-@keyframes pulse-glow {
+@keyframes subtle-pulse {
   0%, 100% {
-    opacity: 0.3;
     filter: 
-      brightness(0) 
-      sepia(1) 
-      hue-rotate(120deg) 
-      saturate(3) 
-      blur(2px);
+      drop-shadow(0 0 2px rgba(0, 255, 150, 0.3))
+      drop-shadow(0 0 4px rgba(0, 255, 150, 0.2))
+      drop-shadow(0 0 6px rgba(0, 200, 255, 0.1));
   }
   50% {
-    opacity: 0.8;
     filter: 
-      brightness(0) 
-      sepia(1) 
-      hue-rotate(180deg) 
-      saturate(5) 
-      blur(4px);
+      drop-shadow(0 0 4px rgba(0, 255, 150, 0.6))
+      drop-shadow(0 0 8px rgba(0, 255, 150, 0.4))
+      drop-shadow(0 0 12px rgba(0, 200, 255, 0.3));
   }
 }
   
