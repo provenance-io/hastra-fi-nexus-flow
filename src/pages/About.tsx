@@ -54,7 +54,7 @@ const About = () => {
                   To obliterate the artificial walls between Wall Street's inner circle and everyone else via DeFi technology.
                 </p>
                 <p className="text-lg text-foreground/90 leading-relaxed">
-                  We aim to shatter every boundary that keeps you dependent on their system. Because <span className="text-blue-400 font-semibold">being your own bank isn't a privilege—it's your fundamental right</span>.
+                  We aim to shatter every boundary that keeps you dependent on their system. Because <span className="text-header-glow font-semibold">being your own bank isn't a privilege—it's your fundamental right</span>.
                 </p>
               </div>
 
@@ -64,7 +64,7 @@ const About = () => {
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">Our Belief</h2>
                 </div>
                 <p className="text-lg text-foreground/90 leading-relaxed">
-                  The same 8% yields that make the rich richer should be in your wallet, not locked behind some arbitrary "accredited investor" gate. Every high-yield opportunity hoarded by institutions is a theft from the people who actually need those returns. We're not just redistributing wealth—<span className="text-green-400 font-semibold">we're putting the power to create it directly into your hands</span>.
+                  The same 8% yields that make the rich richer should be in your wallet, not locked behind some arbitrary "accredited investor" gate. Every high-yield opportunity hoarded by institutions is a theft from the people who actually need those returns. We're not just redistributing wealth—<span className="text-crypto-accent font-semibold">we're putting the power to create it directly into your hands</span>.
                 </p>
               </div>
 
