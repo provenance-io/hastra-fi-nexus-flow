@@ -130,7 +130,7 @@ const About = () => {
                 <div className="space-y-6">
                   <h3 className="text-2xl md:text-3xl font-bold">Coming Soon: HASH Token Buy & Burn Program</h3>
                   <p className="text-lg text-foreground/90 leading-relaxed">
-                    A significant portion of revenue from our institutional-grade DeFi products will be used to systematically purchase and permanently burn HASH tokens from the open market.
+                    A significant portion of revenue from our institutional-grade DeFi products will be used to <span className="text-header-glow font-semibold">systematically purchase and permanently burn HASH tokens from the open market</span>.
                   </p>
                   
                   <div className="space-y-4">
