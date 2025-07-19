@@ -22,7 +22,7 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
         style={{
           left: '20%', // Far left
           top: '330px', // Moved up ~2 inches
-          height: '80px', // Shrunk further to minimal connection
+          height: '40px', // Very small connection
           width: '3px',
           background: 'linear-gradient(to bottom, hsl(var(--header-glow) / 0.8), hsl(var(--header-glow) / 0.4))',
           transformOrigin: 'top',
