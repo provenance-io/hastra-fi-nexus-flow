@@ -35,7 +35,7 @@ const WYLDsHero = () => {
   const flashingPhrases = ["TRADE IT.", " LEND IT.", " SPEND IT.", " SEND IT."];
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden py-8 md:py-12 -mt-5">
+    <section className="relative min-h-screen flex items-center overflow-hidden py-8 md:py-12 -mt-10">
       {/* Premium layered background - matching homepage */}
       {/* Unified seamless background - removed conflicting gradient */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMTAsIDIwLCA0MCwwLjA1KSI+PGQgcGF0aD0iTTAtMSAwIDEgTS0xIDAgMSAwIj48L2Q+PC9zdmc+')] opacity-30"></div>
