@@ -118,15 +118,15 @@ const HOMESFeatures = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Card className="glass-effect border-border/50 p-4 min-w-[200px]">
-              <div className="text-2xl font-bold text-header-glow mb-1">7.5%</div>
+              <div className="text-2xl lg:text-3xl font-bold text-foreground mb-1">7.5%</div>
               <div className="text-sm text-muted-foreground">Target APY</div>
             </Card>
             <Card className="glass-effect border-border/50 p-4 min-w-[200px]">
-              <div className="text-2xl font-bold text-header-glow mb-1">Dual</div>
+              <div className="text-2xl lg:text-3xl font-bold text-foreground mb-1">Dual</div>
               <div className="text-sm text-muted-foreground">Token Options</div>
             </Card>
             <Card className="glass-effect border-border/50 p-4 min-w-[200px]">
-              <div className="text-2xl font-bold text-header-glow mb-1">Solana</div>
+              <div className="text-2xl lg:text-3xl font-bold text-foreground mb-1">Solana</div>
               <div className="text-sm text-muted-foreground">Fast & Low Cost</div>
             </Card>
           </div>

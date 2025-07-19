@@ -60,15 +60,15 @@ const HOMESAbout = () => {
           </p>
           <div className="grid md:grid-cols-3 gap-8 mt-8">
             <div>
-              <div className="text-3xl font-bold text-header-glow mb-2">7.5%</div>
+              <div className="text-2xl lg:text-3xl font-bold text-foreground mb-2">7.5%</div>
               <div className="text-sm text-muted-foreground">Target APY</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-header-glow mb-2">$5M-$100M</div>
+              <div className="text-2xl lg:text-3xl font-bold text-foreground mb-2">$5M-$100M</div>
               <div className="text-sm text-muted-foreground">Projected Pool Size</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-header-glow mb-2">First</div>
+              <div className="text-2xl lg:text-3xl font-bold text-foreground mb-2">First</div>
               <div className="text-sm text-muted-foreground">Mover on Solana RWA</div>
             </div>
           </div>
