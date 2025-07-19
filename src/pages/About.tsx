@@ -176,7 +176,7 @@ const About = () => {
               </div>
             </div>
 
-            <div className="max-w-5xl mx-auto mt-20">
+            <div className="max-w-5xl mx-auto mt-32">
               <div className={`card-gradient rounded-3xl p-8 md:p-12 card-bottom-static transition-all duration-500 ${
                 animationState.hashTokenCardGlow ? 'card-bottom-glow border-2' : 'border border-transparent'
               }`}>
@@ -224,7 +224,7 @@ const About = () => {
               </div>
               
               {/* Additional commitment section */}
-              <div className={`card-gradient rounded-3xl p-8 md:p-12 card-bottom-static mt-16 transition-all duration-500 ${
+              <div className={`card-gradient rounded-3xl p-8 md:p-12 card-bottom-static mt-24 transition-all duration-500 ${
                 animationState.commitmentCardGlow ? 'card-bottom-glow border-2' : 'border border-transparent'
               }`}>
                 {animationState.commitmentCardGlow && (
