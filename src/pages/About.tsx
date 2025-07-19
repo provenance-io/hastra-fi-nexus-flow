@@ -17,24 +17,17 @@ const About = () => {
           
           <div className="container relative text-center">
             
-            {/* Animated Logo with Subtle Edge Glow */}
+            {/* Simple Test - Basic Colored Outline */}
             <div className="flex justify-center mb-12">
-              <div className="relative w-32 h-32 md:w-48 md:h-48">
-                {/* Multiple copies of the logo for glow effect */}
-                <img 
-                  src="/lovable-uploads/e7187c63-0dae-455c-971c-a6de70ce2afc.png" 
-                  alt="Mission Logo Background" 
-                  className="absolute inset-0 w-full h-full logo-glow-base"
-                />
-                <img 
-                  src="/lovable-uploads/e7187c63-0dae-455c-971c-a6de70ce2afc.png" 
-                  alt="Mission Logo Glow" 
-                  className="absolute inset-0 w-full h-full logo-glow-animated"
-                />
+              <div className="relative">
                 <img 
                   src="/lovable-uploads/e7187c63-0dae-455c-971c-a6de70ce2afc.png" 
                   alt="Mission Logo" 
-                  className="relative z-10 w-full h-full"
+                  className="w-32 h-32 md:w-48 md:h-48"
+                  style={{
+                    outline: '3px solid #00ff96',
+                    outlineOffset: '4px'
+                  }}
                 />
               </div>
             </div>
