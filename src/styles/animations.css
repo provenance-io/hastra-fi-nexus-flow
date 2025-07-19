@@ -627,3 +627,15 @@
     transform: translateY(0);
   }
 }
+
+/* Enhanced pulse animation for logo glow ring */
+@keyframes pulse-light {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.02);
+  }
+}

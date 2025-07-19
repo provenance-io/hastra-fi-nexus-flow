@@ -1,21 +1,18 @@
-
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import AnimatedConnectingLines from '@/components/AnimatedConnectingLines';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { useScrollBasedAnimation } from '@/hooks/useScrollBasedAnimation';
+import AnimatedCard from '@/components/about/AnimatedCard';
+import ConnectingLines from '@/components/about/ConnectingLines';
+import EnhancedHashLogo from '@/components/about/EnhancedHashLogo';
 
 const About = () => {
-  const scrollProgress = useScrollAnimation();
-  const finalGlowProgress = Math.min(Math.max((scrollProgress - 0.75) * 4, 0), 1);
+  const animationState = useScrollBasedAnimation();
 
   return (
     <div className="relative">
       {/* Extended gradient background to match homepage */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
-      
-      {/* Animated Connecting Lines */}
-      <AnimatedConnectingLines />
       
       <div className="relative z-10">
         <main className="flex-grow">
@@ -49,39 +46,49 @@ const About = () => {
           </div>
         </section>
 
-        {/* Three Core Segments Section */}
+        {/* Three Core Segments Section with Animation */}
         <section className="py-4 md:py-8 relative">
+          {/* Connecting Lines */}
+          <ConnectingLines 
+            missionToBeliefLine={animationState.missionToBeliefLine}
+            beliefToVisionLine={animationState.beliefToVisionLine}
+            visionToHashLine={animationState.visionToHashLine}
+          />
+          
           <div className="container relative">
             <div className="max-w-6xl mx-auto space-y-8">
               
               {/* Mission Segment */}
-              <div className="card-gradient rounded-3xl p-8 md:p-12 card-hover animate-fade-in">
-                <div className="mb-8">
-                  <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">Our Mission</h2>
-                </div>
+              <AnimatedCard 
+                title="Our Mission" 
+                isVisible={animationState.missionVisible}
+                cardId="mission-card"
+              >
                 <p className="text-lg text-foreground/90 leading-relaxed mb-4">
                   To obliterate the artificial walls between Wall Street's inner circle and everyone else via DeFi technology.
                 </p>
                 <p className="text-lg text-foreground/90 leading-relaxed">
                   We aim to shatter every boundary that keeps you dependent on their system. Because <span className="text-header-glow font-semibold">being your own bank isn't a privilege—it's your fundamental right</span>.
                 </p>
-              </div>
+              </AnimatedCard>
 
               {/* Belief Segment */}
-              <div className="card-gradient rounded-3xl p-8 md:p-12 card-hover animate-fade-in">
-                <div className="mb-8">
-                  <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">Our Belief</h2>
-                </div>
+              <AnimatedCard 
+                title="Our Belief" 
+                isVisible={animationState.beliefVisible}
+                cardId="belief-card"
+              >
                 <p className="text-lg text-foreground/90 leading-relaxed">
                   The same 8% yields that make the rich richer should be in your wallet, not locked behind some arbitrary "accredited investor" gate. Every high-yield opportunity hoarded by institutions is a theft from the people who actually need those returns. We're not just redistributing wealth—<span className="text-crypto-accent font-semibold">we're putting the power to create it directly into your hands</span>.
                 </p>
-              </div>
+              </AnimatedCard>
 
               {/* Vision Segment */}
-              <div className="card-gradient rounded-3xl p-8 md:p-12 card-hover animate-fade-in">
-                <div className="mb-8">
-                  <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">Our Vision</h2>
-                </div>
+              <AnimatedCard 
+                title="Our Vision" 
+                isVisible={animationState.visionVisible}
+                cardId="vision-card"
+              >
                 <div className="space-y-6">
                   <p className="text-lg text-foreground/90 leading-relaxed">
                     A financial system where you don't need their permission, their minimums, or their approval. True decentralization means every person on Earth becomes their own financial institution—no middlemen skimming profits, no gatekeepers deciding your worth.
@@ -90,7 +97,7 @@ const About = () => {
                     We're building the world where blockchain doesn't just enable financial inclusion—it demolishes financial apartheid and hands you the keys to institutional-grade wealth creation. Every product we ship pushes further past the boundaries they thought were permanent. Every innovation transfers more power from their vaults to your wallet. <span className="text-orange-400 font-semibold">The revolution isn't coming. You're holding it.</span>
                   </p>
                 </div>
-              </div>
+              </AnimatedCard>
 
             </div>
           </div>
@@ -102,34 +109,8 @@ const About = () => {
           
           <div className="container relative">
             <div className="text-center mb-16 animate-fade-in">
-              {/* HASH Logo with enhanced glow effect based on scroll */}
-              <div className="flex justify-center mb-12">
-                <div className="relative">
-                  <img 
-                    src="/lovable-uploads/9da758ec-2299-4fe7-82e4-e7fb95e9cdb8.png" 
-                    alt="HASH Logo" 
-                    className="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover aspect-square"
-                    style={{
-                      filter: `drop-shadow(0 0 ${6 + finalGlowProgress * 20}px rgba(229, 218, 194, ${0.2 + finalGlowProgress * 0.6})) drop-shadow(0 0 ${12 + finalGlowProgress * 40}px rgba(229, 218, 194, ${0.1 + finalGlowProgress * 0.4}))`,
-                      animation: 'logoGlow 4s ease-in-out infinite',
-                      transform: `scale(${1 + finalGlowProgress * 0.1})`,
-                      transition: 'transform 0.3s ease-out',
-                    }}
-                  />
-                  
-                  {/* Enhanced glow ring effect */}
-                  {finalGlowProgress > 0.3 && (
-                    <div 
-                      className="absolute inset-0 rounded-full border-2 pointer-events-none"
-                      style={{
-                        borderColor: `rgba(229, 218, 194, ${finalGlowProgress * 0.4})`,
-                        boxShadow: `0 0 ${20 + finalGlowProgress * 30}px rgba(229, 218, 194, ${finalGlowProgress * 0.3})`,
-                        animation: 'pulse-light 2s ease-in-out infinite',
-                      }}
-                    />
-                  )}
-                </div>
-              </div>
+              {/* Enhanced HASH Logo with scroll-based glow */}
+              <EnhancedHashLogo shouldGlow={animationState.hashGlow} />
               
               <p className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed mb-12" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
                 Hastra is built on Provenance Blockchain—and we're committed to making the entire ecosystem stronger.
