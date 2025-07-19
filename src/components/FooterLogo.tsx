@@ -1,4 +1,4 @@
-const FooterLogo = ({ className = "h-24 w-auto" }: { className?: string }) => {
+const FooterLogo = ({ className = "h-8 w-auto" }: { className?: string }) => {
   return (
     <div className={`flex items-center ${className}`}>
       <img 
