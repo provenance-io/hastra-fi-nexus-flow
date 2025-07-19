@@ -56,7 +56,7 @@ const HastraDashboard = () => {
 
           {/* Buy and Send Interfaces */}
           <div id="buy-send-section" className="mb-6 md:mb-8">
-            <div className="!bg-transparent rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative card-gradient">
+            <div className="!bg-transparent rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
               <div className="bg-background/20 rounded-t-3xl p-6 mb-4">
                 <h2 className="text-lg md:text-xl font-semibold text-foreground">
                   Buy & Send
