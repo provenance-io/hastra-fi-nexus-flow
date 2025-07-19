@@ -14,7 +14,7 @@
   width: calc(36px * var(--base-scale));
   height: calc(36px * var(--base-scale));
   animation: coin-fall-3d var(--fall-duration, 4s) infinite linear var(--animation-delay, 0s);
-  opacity: 0;
+  opacity: 1; /* Made visible for debugging */
   left: var(--fall-start-x);
   top: -80px;
   will-change: transform, opacity;
