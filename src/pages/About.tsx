@@ -158,9 +158,9 @@ const About = () => {
                   <div className="space-y-4">
                     <h4 className="text-xl font-semibold text-foreground/90">Why This Approach:</h4>
                     
-                    <div className="space-y-3">
+                    <div className="space-y-6">
                       <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 rounded-full bg-header-glow mt-2 flex-shrink-0"></div>
+                        <div className="w-2 h-2 rounded-full bg-foreground/80 mt-2 flex-shrink-0"></div>
                         <div>
                           <span className="font-medium text-foreground/90">Strengthens network economics</span>
                           <span className="text-foreground/80"> - Reducing HASH supply while demand grows from ecosystem activity</span>
@@ -168,7 +168,7 @@ const About = () => {
                       </div>
                       
                       <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 rounded-full bg-header-glow mt-2 flex-shrink-0"></div>
+                        <div className="w-2 h-2 rounded-full bg-foreground/80 mt-2 flex-shrink-0"></div>
                         <div>
                           <span className="font-medium text-foreground/90">Aligns incentives</span>
                           <span className="text-foreground/80"> - Our protocol's success directly benefits every HASH holder, not just our team</span>
@@ -176,7 +176,7 @@ const About = () => {
                       </div>
                       
                       <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 rounded-full bg-header-glow mt-2 flex-shrink-0"></div>
+                        <div className="w-2 h-2 rounded-full bg-foreground/80 mt-2 flex-shrink-0"></div>
                         <div>
                           <span className="font-medium text-foreground/90">Supports decentralization</span>
                           <span className="text-foreground/80"> - We're not just using Provenance infrastructure—we're actively investing in its long-term economic health</span>
@@ -188,7 +188,7 @@ const About = () => {
               </div>
               
               {/* Additional commitment section */}
-              <div className="card-gradient rounded-2xl p-8 md:p-12 card-hover mt-8">
+              <div className="card-gradient rounded-2xl p-8 md:p-12 card-hover mt-16">
                 <p className="text-lg text-foreground/90 leading-relaxed">
                   This isn't about short-term price movements. It's about building sustainable value for the community that makes decentralized finance possible. <span className="text-orange-400 font-semibold">Every token we burn represents our commitment to the ecosystem that enables financial freedom for everyone.</span>
                 </p>
