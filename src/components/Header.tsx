@@ -69,19 +69,19 @@ const Header = () => {
         {/* Mobile: Center the logo with more space, Desktop: Left aligned */}
         <div className="flex items-center space-x-6 md:space-x-12 md:flex-1 w-full md:w-auto">
           <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity md:flex-initial flex-1 justify-center md:justify-start">
-            <FooterLogo className="h-32 md:h-12 lg:h-16 xl:h-24 w-auto -mt-5" />
+            <FooterLogo className="h-32 md:h-12 lg:h-16 xl:h-24 w-auto -mt-8" />
           </Link>
           <nav className="hidden md:flex items-center space-x-8 lg:space-x-12">
             <Link
               to="/about"
-              className="text-xl md:text-2xl font-medium text-foreground/90 hover:text-foreground transition-colors relative group"
+              className="text-xl md:text-2xl font-medium text-foreground/90 hover:text-foreground transition-colors relative group tracking-wide"
               style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}
             >
               About
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent transition-all duration-300 group-hover:w-full" />
             </Link>
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center text-xl md:text-2xl font-medium text-foreground/90 hover:text-foreground transition-colors relative group" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
+              <DropdownMenuTrigger className="flex items-center text-xl md:text-2xl font-medium text-foreground/90 hover:text-foreground transition-colors relative group tracking-wide" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
                 Products
                 <ChevronDown className="ml-1 h-5 w-5" />
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent transition-all duration-300 group-hover:w-full" />
@@ -129,7 +129,7 @@ const Header = () => {
                 {item.isAnchor ? (
                   <button
                     onClick={() => handleNavClick(item.href, true)}
-                    className="text-xl md:text-2xl font-medium text-foreground/90 hover:text-foreground transition-colors relative group"
+                    className="text-xl md:text-2xl font-medium text-foreground/90 hover:text-foreground transition-colors relative group tracking-wide"
                     style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}
                   >
                     {item.label}
@@ -138,7 +138,7 @@ const Header = () => {
                 ) : (
                   <Link
                     to={item.href}
-                    className="text-xl md:text-2xl font-medium text-foreground/90 hover:text-foreground transition-colors relative group"
+                    className="text-xl md:text-2xl font-medium text-foreground/90 hover:text-foreground transition-colors relative group tracking-wide"
                     style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}
                   >
                     {item.label}
@@ -149,7 +149,7 @@ const Header = () => {
             ))}
             <Link
               to="/earn"
-              className="text-xl md:text-2xl font-medium text-foreground/90 hover:text-foreground transition-colors relative group"
+              className="text-xl md:text-2xl font-medium text-foreground/90 hover:text-foreground transition-colors relative group tracking-wide"
               style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}
             >
               Earn
@@ -157,7 +157,7 @@ const Header = () => {
             </Link>
             <Link
               to="/learn"
-              className="text-xl md:text-2xl font-medium text-foreground/90 hover:text-foreground transition-colors relative group"
+              className="text-xl md:text-2xl font-medium text-foreground/90 hover:text-foreground transition-colors relative group tracking-wide"
               style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}
             >
               (L)earn
