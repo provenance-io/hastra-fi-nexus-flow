@@ -33,8 +33,8 @@ const HastraDashboard = () => {
   return (
     <div className="w-full">
       {/* Polished dashboard container with rounded corners and subtle background */}
-      <div className="card-gradient rounded-2xl border border-border/20 overflow-hidden mx-2 md:mx-0">
-        <div className="container mx-auto px-4 md:px-6 py-6 md:py-8 max-w-7xl">
+      <div className="card-gradient rounded-2xl border border-border/20 overflow-hidden mx-1 md:mx-0">
+        <div className="container mx-auto px-2 md:px-6 py-6 md:py-8 max-w-7xl">
           {/* Header */}
           <div className="mb-6 md:mb-8">
             <h1 className="text-2xl md:text-3xl font-bold text-gradient mb-2">
