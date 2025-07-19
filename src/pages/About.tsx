@@ -120,7 +120,7 @@ const About = () => {
               </p>
               <div className="card-gradient rounded-2xl p-6 md:p-8 card-hover max-w-4xl mx-auto mb-12">
                 <p className="text-lg text-foreground/90 leading-relaxed">
-                  Most DeFi protocols create their own tokens to capture value for themselves. We're taking a different approach. <span className="text-crypto-accent font-semibold">Instead of launching another token, we're channeling our success directly back to the HASH holders who power and secure the Provenance network.</span>
+                  Most DeFi protocols create their own tokens to capture value for themselves. We're taking a different approach. <span className="text-header-glow font-semibold">Instead of launching another token, we're channeling our success directly back to the HASH holders who power and secure the Provenance network.</span>
                 </p>
               </div>
             </div>
@@ -130,7 +130,7 @@ const About = () => {
                 <div className="space-y-6">
                   <h3 className="text-2xl md:text-3xl font-bold">Coming Soon: HASH Token Buy & Burn Program</h3>
                   <p className="text-lg text-foreground/90 leading-relaxed">
-                    A significant portion of revenue from our institutional-grade DeFi products will be used to <span className="text-header-glow font-semibold">systematically purchase and permanently burn HASH tokens from the open market</span>.
+                    A significant portion of revenue from our institutional-grade DeFi products will be used to <span className="text-crypto-accent font-semibold">systematically purchase and permanently burn HASH tokens from the open market</span>.
                   </p>
                   
                   <div className="space-y-4">
