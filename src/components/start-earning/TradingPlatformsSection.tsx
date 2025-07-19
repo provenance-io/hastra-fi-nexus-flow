@@ -35,14 +35,14 @@ const TradingPlatformsSection = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {tradingPlatforms.map((platform, index) => (
-          <Card key={index} className="card-gradient rounded-2xl border border-border/30 shadow-lg transition-all duration-300 group">
-            <CardHeader className="pb-3">
+          <div key={index} className="card-gradient rounded-2xl p-6 space-y-4 transition-all duration-300 group">
+            <div className="pb-3">
               <div className="flex items-center justify-between mb-2">
-                <CardTitle className="text-lg">{platform.name}</CardTitle>
+                <h3 className="text-lg font-semibold">{platform.name}</h3>
               </div>
-              <CardDescription className="text-sm">{platform.description}</CardDescription>
-            </CardHeader>
-            <CardContent className="pt-0">
+              <p className="text-sm text-muted-foreground">{platform.description}</p>
+            </div>
+            <div className="pt-0">
               <ul className="space-y-2 mb-4">
                 {platform.features.map((feature, i) => (
                   <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -57,8 +57,8 @@ const TradingPlatformsSection = () => {
                   <ExternalLink className="ml-2 h-4 w-4" />
                 </a>
               </Button>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         ))}
       </div>
     </div>
