@@ -95,14 +95,15 @@ const SendCard = () => {
   const equivalent = calculateEquivalent();
 
   return (
-    <Card className="w-full bg-background/80 backdrop-blur-md border-none">
-      <CardHeader className="pb-4">
+    <Card className="!bg-transparent rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
+      <CardHeader className="bg-background/20 rounded-t-3xl">
         <CardTitle className="flex items-center gap-2 text-xl font-bold">
           <Send className="w-5 h-5 text-header-glow" />
           Send Tokens
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="bg-background/20">
+        <div className="card-gradient rounded-2xl p-6 md:p-8 space-y-4">
         {/* Token Selection */}
         <div className="space-y-2">
           <Label className="text-sm font-medium text-foreground">Select token to send</Label>
@@ -206,6 +207,7 @@ const SendCard = () => {
         >
           Send {selectedToken}
         </Button>
+        </div>
       </CardContent>
     </Card>
   );

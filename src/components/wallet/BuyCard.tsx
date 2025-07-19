@@ -82,14 +82,15 @@ const BuyCard = () => {
   const receiveAmount = calculateReceiveAmount();
 
   return (
-    <Card className="w-full bg-background/80 backdrop-blur-md border-none">
-      <CardHeader className="pb-4">
+    <Card className="!bg-transparent rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
+      <CardHeader className="bg-background/20 rounded-t-3xl">
         <CardTitle className="flex items-center gap-2 text-xl font-bold">
           <ArrowUpDown className="w-5 h-5 text-header-glow" />
           Buy Tokens
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="bg-background/20">
+        <div className="card-gradient rounded-2xl p-6 md:p-8 space-y-4">
         {/* Sell Asset Selection */}
         <div className="space-y-2">
           <Label className="text-sm font-medium text-foreground">You're selling</Label>
@@ -211,6 +212,7 @@ const BuyCard = () => {
         >
           Swap {sellAsset} for {buyAsset}
         </Button>
+        </div>
       </CardContent>
     </Card>
   );
