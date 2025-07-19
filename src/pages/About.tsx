@@ -79,7 +79,7 @@ const About = () => {
           />
           
           <div className="container relative">
-            <div className="max-w-5xl mx-auto space-y-96">
+            <div className="max-w-5xl mx-auto space-y-48">
               
               {/* Mission Segment */}
               <AnimatedCard 
