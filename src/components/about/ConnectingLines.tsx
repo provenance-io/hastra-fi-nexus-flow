@@ -21,7 +21,7 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
         }`}
         style={{
           left: '20%', // Far left
-          top: '332px', // Moved down by 2px
+          top: '312px', // Shifted up by 20px
           height: '32px', // Just a tad smaller
           width: '2px',
           background: 'rgba(229, 218, 194, 0.8)',
@@ -37,7 +37,7 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
         }`}
         style={{
           left: '80%', // Far right
-          top: '647px', // Moved down by 1px
+          top: '627px', // Shifted up by 20px
           height: '32px', // Same length as first line
           width: '2px',
           background: 'rgba(229, 218, 194, 0.8)',
@@ -52,7 +52,7 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
           visionToHashLine ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
         }`}
         style={{
-          top: '1074px', // Dropped by 1px
+          top: '1054px', // Shifted up by 20px
           height: '193px', // Lengthened by 15% (168px * 1.15)
           width: '2px',
           background: 'rgba(229, 218, 194, 0.8)',
