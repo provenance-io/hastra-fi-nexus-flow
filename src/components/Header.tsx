@@ -162,7 +162,9 @@ const Header = () => {
         
         <div className="flex items-center space-x-4">
           {isConnected ? (
-            <WalletHeaderButton />
+            <div className="hidden md:block">
+              <WalletHeaderButton />
+            </div>
           ) : isEarnPage ? (
             <Button 
               onClick={handleConnectWallet}
