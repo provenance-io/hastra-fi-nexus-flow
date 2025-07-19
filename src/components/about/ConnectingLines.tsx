@@ -21,7 +21,7 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
         }`}
         style={{
           left: '20%', // Far left
-          top: '302px', // Shifted up by another 10px
+          top: '303px', // Down by 1px
           height: '32px', // Just a tad smaller
           width: '2px',
           background: 'rgba(229, 218, 194, 0.8)',
@@ -37,7 +37,7 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
         }`}
         style={{
           left: '80%', // Far right
-          top: '617px', // Shifted up by another 10px
+          top: '618px', // Down by 1px
           height: '32px', // Same length as first line
           width: '2px',
           background: 'rgba(229, 218, 194, 0.8)',
@@ -53,7 +53,7 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
         }`}
         style={{
           top: '1044px', // Shifted up by another 10px
-          height: '193px', // Lengthened by 15% (168px * 1.15)
+          height: '192px', // Reduced by 1px
           width: '2px',
           background: 'rgba(229, 218, 194, 0.8)',
           transformOrigin: 'top',
