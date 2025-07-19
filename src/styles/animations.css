@@ -73,7 +73,7 @@
   pointer-events: none;
 }
 
-/* Visible coin edge/rim with proper thickness */
+/* Visible coin edge/rim with enhanced thickness */
 .coin-edge-3d {
   position: absolute;
   top: 0;
@@ -81,54 +81,60 @@
   right: 0;
   bottom: 0;
   border-radius: 50%;
-  transform: translateZ(calc(-4px * var(--base-scale)));
-  z-index: 1;
+  background: linear-gradient(180deg, 
+    hsl(var(--mint-green-dark)) 0%,
+    hsl(var(--mint-green)) 20%,
+    hsl(var(--mint-green-light)) 40%,
+    hsl(var(--mint-green)) 60%,
+    hsl(var(--mint-green-dark)) 80%,
+    hsl(var(--mint-green-dark)) 100%);
+  transform: translateZ(calc(-8px * var(--base-scale)));
+  z-index: 0;
   opacity: var(--layer-opacity);
+  box-shadow: 
+    0 0 calc(6px * var(--base-scale)) hsl(var(--mint-green-dark) / 0.8),
+    inset 0 calc(2px * var(--base-scale)) calc(4px * var(--base-scale)) hsl(var(--mint-green-dark) / 0.6);
 }
 
-/* Create multiple edge segments for realistic rim appearance */
+/* Create side rim for 3D thickness */
 .coin-edge-3d::before {
   content: '';
   position: absolute;
-  top: calc(1px * var(--base-scale));
-  left: calc(1px * var(--base-scale));
-  right: calc(1px * var(--base-scale));
-  bottom: calc(1px * var(--base-scale));
+  top: calc(-4px * var(--base-scale));
+  left: calc(-4px * var(--base-scale));
+  right: calc(-4px * var(--base-scale));
+  bottom: calc(-4px * var(--base-scale));
   border-radius: 50%;
-  background: linear-gradient(90deg, 
-    hsl(var(--mint-green-dark)) 0%,
-    hsl(var(--mint-green)) 15%,
-    hsl(var(--mint-green-light)) 30%,
-    hsl(var(--mint-green)) 45%,
-    hsl(var(--mint-green-dark)) 60%,
-    hsl(var(--mint-green)) 75%,
-    hsl(var(--mint-green-light)) 90%,
-    hsl(var(--mint-green-dark)) 100%);
-  box-shadow: 
-    inset 0 0 calc(4px * var(--base-scale)) hsl(var(--mint-green-dark) / 0.6),
-    0 calc(1px * var(--base-scale)) calc(3px * var(--base-scale)) hsl(var(--mint-green-dark) / 0.4);
-  transform: translateZ(calc(1px * var(--base-scale)));
-}
-
-/* Additional rim segment for more depth */
-.coin-edge-3d::after {
-  content: '';
-  position: absolute;
-  top: calc(2px * var(--base-scale));
-  left: calc(2px * var(--base-scale));
-  right: calc(2px * var(--base-scale));
-  bottom: calc(2px * var(--base-scale));
-  border-radius: 50%;
-  background: linear-gradient(45deg, 
+  background: linear-gradient(135deg, 
     hsl(var(--mint-green-dark)) 0%,
     hsl(var(--mint-green)) 25%,
     hsl(var(--mint-green-light)) 50%,
     hsl(var(--mint-green)) 75%,
     hsl(var(--mint-green-dark)) 100%);
+  transform: translateZ(calc(-4px * var(--base-scale)));
   box-shadow: 
-    inset 0 0 calc(2px * var(--base-scale)) hsl(var(--mint-green-dark) / 0.5),
-    0 calc(0.5px * var(--base-scale)) calc(2px * var(--base-scale)) hsl(var(--mint-green-dark) / 0.3);
-  transform: translateZ(calc(2px * var(--base-scale)));
+    0 0 calc(8px * var(--base-scale)) hsl(var(--mint-green-dark) / 0.4),
+    inset 0 calc(1px * var(--base-scale)) calc(2px * var(--base-scale)) hsl(var(--mint-green-light) / 0.3);
+}
+
+/* Inner rim for enhanced depth */
+.coin-edge-3d::after {
+  content: '';
+  position: absolute;
+  top: calc(-2px * var(--base-scale));
+  left: calc(-2px * var(--base-scale));
+  right: calc(-2px * var(--base-scale));
+  bottom: calc(-2px * var(--base-scale));
+  border-radius: 50%;
+  background: linear-gradient(270deg, 
+    hsl(var(--mint-green-dark)) 0%,
+    hsl(var(--mint-green)) 30%,
+    hsl(var(--mint-green-light)) 60%,
+    hsl(var(--mint-green-dark)) 100%);
+  transform: translateZ(calc(-6px * var(--base-scale)));
+  box-shadow: 
+    0 0 calc(4px * var(--base-scale)) hsl(var(--mint-green) / 0.6),
+    inset 0 0 calc(3px * var(--base-scale)) hsl(var(--mint-green-dark) / 0.7);
 }
 
 @keyframes coin-fall-3d {
