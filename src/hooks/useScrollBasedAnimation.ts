@@ -54,9 +54,9 @@ export const useScrollBasedAnimation = () => {
         missionGlow: scrollProgress > 0.12 && scrollProgress < 0.22,
         beliefGlow: scrollProgress > 0.22 && scrollProgress < 0.32,
         visionGlow: scrollProgress > 0.32 && scrollProgress < 0.42,
-        provenanceCardGlow: scrollProgress > 0.55 && scrollProgress < 0.65,
-        hashTokenCardGlow: scrollProgress > 0.65 && scrollProgress < 0.75,
-        commitmentCardGlow: scrollProgress > 0.85 && scrollProgress < 0.95,
+        provenanceCardGlow: scrollProgress > 0.5 && scrollProgress < 0.6,
+        hashTokenCardGlow: scrollProgress > 0.6 && scrollProgress < 0.7,
+        commitmentCardGlow: scrollProgress > 0.7 && scrollProgress < 0.8,
       };
 
       setState(newState);
