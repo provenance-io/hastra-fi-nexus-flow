@@ -23,10 +23,10 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
           left: '20%', // Far left
           top: '330px', // Moved up ~2 inches
           height: '32px', // Just a tad smaller
-          width: '3px',
-          background: 'linear-gradient(to bottom, hsl(var(--header-glow) / 0.8), hsl(var(--header-glow) / 0.4))',
+          width: '2px',
+          background: 'rgba(229, 218, 194, 0.8)',
           transformOrigin: 'top',
-          boxShadow: '0 0 12px hsl(var(--header-glow) / 0.6)',
+          boxShadow: '0 0 12px rgba(229, 218, 194, 0.6), 0 0 6px rgba(229, 218, 194, 0.4)',
         }}
       />
 
@@ -39,10 +39,10 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
           left: '80%', // Far right
           top: '646px', // Moved up to 646px
           height: '32px', // Same length as first line
-          width: '3px',
-          background: 'linear-gradient(to bottom, hsl(var(--header-glow) / 0.8), hsl(var(--header-glow) / 0.4))',
+          width: '2px',
+          background: 'rgba(229, 218, 194, 0.8)',
           transformOrigin: 'top',
-          boxShadow: '0 0 12px hsl(var(--header-glow) / 0.6)',
+          boxShadow: '0 0 12px rgba(229, 218, 194, 0.6), 0 0 6px rgba(229, 218, 194, 0.4)',
         }}
       />
 
@@ -54,10 +54,10 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
         style={{
           top: '1072px', // Shifted up by 2px
           height: '112px', // Shortened by 10% (125px * 0.9)
-          width: '3px',
-          background: 'linear-gradient(to bottom, hsl(var(--header-glow) / 0.8), hsl(var(--header-glow) / 0.4))',
+          width: '2px',
+          background: 'rgba(229, 218, 194, 0.8)',
           transformOrigin: 'top',
-          boxShadow: '0 0 12px hsl(var(--header-glow) / 0.6)',
+          boxShadow: '0 0 12px rgba(229, 218, 194, 0.6), 0 0 6px rgba(229, 218, 194, 0.4)',
         }}
       />
     </>

@@ -6,15 +6,16 @@ interface AnimatedCardProps {
   children: React.ReactNode;
   isVisible: boolean;
   cardId: string;
+  shouldGlow: boolean;
 }
 
 const AnimatedCard: React.FC<AnimatedCardProps> = ({ 
   title, 
   children, 
   isVisible, 
-  cardId 
+  cardId,
+  shouldGlow 
 }) => {
-  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div 
@@ -22,15 +23,16 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({
       className={`card-gradient rounded-3xl p-8 md:p-12 card-hover animate-fade-in relative transition-all duration-500 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       } ${
-        isHovered ? 'shadow-2xl shadow-header-glow/20 border-header-glow/40' : ''
+        shouldGlow ? 'shadow-2xl border-2' : 'border border-transparent'
       }`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      style={{
+        borderColor: shouldGlow ? 'hsl(var(--header-glow))' : 'transparent',
+        boxShadow: shouldGlow ? '0 0 30px hsl(var(--header-glow) / 0.4), 0 0 60px hsl(var(--header-glow) / 0.2)' : undefined,
+      }}
     >
-      {/* Subtle glow overlay on hover */}
-      {isHovered && (
-        <div className="absolute inset-0 bg-gradient-to-br from-header-glow/5 to-crypto-accent/5 rounded-3xl pointer-events-none opacity-0 animate-fade-in" 
-             style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }} />
+      {/* Subtle glow overlay when glowing */}
+      {shouldGlow && (
+        <div className="absolute inset-0 bg-gradient-to-br from-header-glow/5 to-crypto-accent/5 rounded-3xl pointer-events-none" />
       )}
       
       <div className="relative z-10">

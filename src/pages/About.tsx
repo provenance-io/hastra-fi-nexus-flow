@@ -63,6 +63,7 @@ const About = () => {
                 title="Our Mission" 
                 isVisible={animationState.missionVisible}
                 cardId="mission-card"
+                shouldGlow={animationState.missionGlow}
               >
                 <p className="text-lg text-foreground/90 leading-relaxed mb-4">
                   To obliterate the artificial walls between Wall Street's inner circle and everyone else via DeFi technology.
@@ -77,6 +78,7 @@ const About = () => {
                 title="Our Belief" 
                 isVisible={animationState.beliefVisible}
                 cardId="belief-card"
+                shouldGlow={animationState.beliefGlow}
               >
                 <p className="text-lg text-foreground/90 leading-relaxed">
                   The same 8% yields that make the rich richer should be in your wallet, not locked behind some arbitrary "accredited investor" gate. Every high-yield opportunity hoarded by institutions is a theft from the people who actually need those returns. We're not just redistributing wealth—<span className="text-crypto-accent font-semibold">we're putting the power to create it directly into your hands</span>.
@@ -88,6 +90,7 @@ const About = () => {
                 title="Our Vision" 
                 isVisible={animationState.visionVisible}
                 cardId="vision-card"
+                shouldGlow={animationState.visionGlow}
               >
                 <div className="space-y-6">
                   <p className="text-lg text-foreground/90 leading-relaxed">

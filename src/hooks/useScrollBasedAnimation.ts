@@ -9,6 +9,9 @@ interface ScrollAnimationState {
   beliefToVisionLine: boolean;
   visionToHashLine: boolean;
   hashGlow: boolean;
+  missionGlow: boolean;
+  beliefGlow: boolean;
+  visionGlow: boolean;
 }
 
 export const useScrollBasedAnimation = () => {
@@ -20,6 +23,9 @@ export const useScrollBasedAnimation = () => {
     beliefToVisionLine: false,
     visionToHashLine: false,
     hashGlow: false,
+    missionGlow: false,
+    beliefGlow: false,
+    visionGlow: false,
   });
 
   useEffect(() => {
@@ -38,6 +44,10 @@ export const useScrollBasedAnimation = () => {
         beliefToVisionLine: scrollProgress > 0.25,
         visionToHashLine: scrollProgress > 0.35,
         hashGlow: scrollProgress > 0.4,
+        // Card glow timing - each card glows during its reading window
+        missionGlow: scrollProgress > 0.12 && scrollProgress < 0.25,
+        beliefGlow: scrollProgress > 0.22 && scrollProgress < 0.35,
+        visionGlow: scrollProgress > 0.32 && scrollProgress < 0.45,
       };
 
       setState(newState);
