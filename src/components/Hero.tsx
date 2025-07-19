@@ -145,8 +145,8 @@ const Hero = () => {
               className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-4 text-lg rounded-xl min-w-[200px] group transition-all duration-200"
               asChild
             >
-              <Link to="/homes">
-                Explore HOMES
+              <Link to="/yield">
+                Get YIELD
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
@@ -155,8 +155,8 @@ const Hero = () => {
               className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-4 text-lg rounded-xl min-w-[200px] group transition-all duration-200"
               asChild
             >
-              <Link to="/yield">
-                Get YIELD
+              <Link to="/homes">
+                Explore HOMES
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
