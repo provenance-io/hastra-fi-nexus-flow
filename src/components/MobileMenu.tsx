@@ -113,9 +113,9 @@ const MobileMenu = () => {
                 
                 <button
                   onClick={handleDisconnect}
-                  className="w-full flex items-center gap-2 p-2 text-xs text-red-500 hover:bg-red-500/10 rounded-md transition-colors"
+                  className="w-full flex items-center gap-2 p-2 text-xs text-foreground hover:bg-orange-900/20 rounded-md transition-colors"
                 >
-                  <LogOut className="w-3 h-3" />
+                  <LogOut className="w-3 h-3 text-orange-400" />
                   Disconnect
                 </button>
               </div>
