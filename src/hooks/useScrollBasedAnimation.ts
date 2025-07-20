@@ -69,7 +69,7 @@ export const useScrollBasedAnimation = () => {
         provenanceCardGlow: scrollProgress > 0.4 && scrollProgress < 0.55,
         hashTokenCardGlow: scrollProgress > 0.5 && scrollProgress < 0.65,
         commitmentCardGlow: scrollProgress > 0.6 && scrollProgress < 0.75,
-        joinMissionGlow: scrollProgress > 0.75 && scrollProgress < 0.9,
+        joinMissionGlow: scrollProgress > 0.75 && scrollProgress < 0.85,
       };
 
       setState(newState);
