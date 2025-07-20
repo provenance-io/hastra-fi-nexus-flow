@@ -10,8 +10,7 @@ const ProvenanceBranding = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
       viewport={{ once: true }}
     >
-      {/* Extended gradient background to match other pages */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
+      {/* Removed gradient background to allow parent gradient to show through */}
       <div className="container relative z-10">
         <div className="flex flex-col items-center justify-center gap-1">
           <span className="text-xl md:text-2xl text-foreground/80 font-medium">
