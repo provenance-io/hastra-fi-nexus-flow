@@ -31,14 +31,6 @@ const PortfolioSummary = ({
                 maximumFractionDigits: 2 
               })}
             </p>
-            <div className="flex items-center gap-2">
-              <ArrowUpRight className="w-3 h-3 text-green-400" />
-              <span className="text-sm text-green-400 font-medium">
-                +${totalInterestEarned.toLocaleString('en-US', { 
-                  minimumFractionDigits: 2 
-                })} earned
-              </span>
-            </div>
           </div>
         </div>
         
