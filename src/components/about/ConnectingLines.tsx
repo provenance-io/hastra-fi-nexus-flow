@@ -114,7 +114,7 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
           commitmentToSuccessLine ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
         }`}
         style={{
-          top: isMobile ? '2710px' : '3110px',
+          top: isMobile ? '2680px' : '3080px',
           height: isMobile ? '162px' : '216px',
           width: '2px',
           background: 'rgba(229, 218, 194, 0.8)',

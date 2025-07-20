@@ -260,7 +260,14 @@ const About = () => {
           <div className="container relative">
             <div className="max-w-5xl mx-auto">
               {/* Container with exactly matching background - no animations to prevent flickering */}
-              <div className="card-gradient rounded-3xl p-8 md:p-12 card-bottom-static border border-transparent relative">
+              <div className={`card-gradient rounded-3xl p-8 md:p-12 card-bottom-static transition-all duration-500 ${
+                animationState.joinMissionGlow ? 'card-bottom-glow border-2' : 'border border-transparent'
+              } relative`}>
+                {animationState.joinMissionGlow && (
+                  <div className="absolute inset-0 rounded-3xl pointer-events-none" 
+                       style={{ background: 'linear-gradient(to bottom right, rgba(229, 218, 194, 0.02), rgba(229, 218, 194, 0.01))' }} />
+                )}
+                
                 <div className="relative z-10 text-center">
                   <h2 className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed mb-12" 
                       style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>

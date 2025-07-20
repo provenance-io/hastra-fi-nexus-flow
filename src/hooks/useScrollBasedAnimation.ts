@@ -18,6 +18,7 @@ interface ScrollAnimationState {
   provenanceCardGlow: boolean;
   hashTokenCardGlow: boolean;
   commitmentCardGlow: boolean;
+  joinMissionGlow: boolean;
 }
 
 export const useScrollBasedAnimation = () => {
@@ -38,6 +39,7 @@ export const useScrollBasedAnimation = () => {
     provenanceCardGlow: false,
     hashTokenCardGlow: false,
     commitmentCardGlow: false,
+    joinMissionGlow: false,
   });
 
   useEffect(() => {
@@ -67,6 +69,7 @@ export const useScrollBasedAnimation = () => {
         provenanceCardGlow: scrollProgress > 0.4 && scrollProgress < 0.55,
         hashTokenCardGlow: scrollProgress > 0.5 && scrollProgress < 0.65,
         commitmentCardGlow: scrollProgress > 0.6 && scrollProgress < 0.75,
+        joinMissionGlow: scrollProgress > 0.75 && scrollProgress < 0.9,
       };
 
       setState(newState);
