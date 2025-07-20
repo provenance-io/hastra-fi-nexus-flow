@@ -54,81 +54,80 @@ const WalletConnectionSection = () => {
           )}
 
           {!isConnected && (
-            <div className="card-gradient rounded-3xl p-8 border border-white/10"
-                 style={{
-                   backdropFilter: 'blur(16px)'
-                 }}>
-              <div className="text-center mb-8">
-                <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Get Started</h3>
-                <p className="text-platinum/70">
-                  Connect your Solana wallet to access premium DeFi opportunities
-                </p>
-              </div>
-              <div className="space-y-6 mb-8">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4 p-4 rounded-xl card-gradient border border-white/10">
-                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-                    <div>
-                      <p className="font-medium text-platinum">Secure Connection</p>
-                      <p className="text-sm text-platinum/70">Your wallet stays in your control</p>
+            <div className="max-w-6xl mx-auto">
+              <div className="bg-background/20 rounded-3xl border border-border/20 p-8 md:p-12">
+                <h3 className="text-2xl md:text-3xl font-bold text-center mb-12 text-foreground">Get Started</h3>
+                
+                <div className="max-w-2xl mx-auto">
+                  <p className="text-muted-foreground text-center mb-8 leading-relaxed">
+                    Connect your Solana wallet to access premium DeFi opportunities
+                  </p>
+                  
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-center gap-4 p-4 rounded-xl bg-background/30 border border-border/10">
+                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                      <div>
+                        <p className="font-medium text-foreground">Secure Connection</p>
+                        <p className="text-sm text-muted-foreground">Your wallet stays in your control</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-4 p-4 rounded-xl bg-background/30 border border-border/10">
+                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                      <div>
+                        <p className="font-medium text-foreground">Track Earnings</p>
+                        <p className="text-sm text-muted-foreground">Monitor your yields and positions</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-4 p-4 rounded-xl bg-background/30 border border-border/10">
+                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                      <div>
+                        <p className="font-medium text-foreground">Easy Trading</p>
+                        <p className="text-sm text-muted-foreground">Access integrated DeFi platforms</p>
+                      </div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4 p-4 rounded-xl card-gradient border border-white/10">
-                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-                    <div>
-                      <p className="font-medium text-platinum">Track Earnings</p>
-                      <p className="text-sm text-platinum/70">Monitor your yields and positions</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4 p-4 rounded-xl card-gradient border border-white/10">
-                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-                    <div>
-                      <p className="font-medium text-platinum">Easy Trading</p>
-                      <p className="text-sm text-platinum/70">Access integrated DeFi platforms</p>
-                    </div>
+
+                  <div className="text-center">
+                    <Button
+                      onClick={handleConnectWallet}
+                      disabled={isConnecting}
+                      variant="secondary"
+                      className="group-hover:scale-[1.02] transition-transform duration-300"
+                      size="lg"
+                    >
+                      {isConnecting ? (
+                        <>
+                          <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                          Connecting...
+                        </>
+                      ) : (
+                        <>
+                          <Wallet className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                          Connect Wallet
+                        </>
+                      )}
+                    </Button>
                   </div>
                 </div>
-
-                <Button
-                  onClick={handleConnectWallet}
-                  disabled={isConnecting}
-                  variant="secondary"
-                  className="w-full"
-                  style={{
-                    backdropFilter: 'blur(10px)'
-                  }}
-                  size="lg"
-                >
-                  {isConnecting ? (
-                    <>
-                      <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                      Connecting...
-                    </>
-                  ) : (
-                    <>
-                      <Wallet className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-                      Connect Wallet
-                    </>
-                  )}
-                </Button>
-
               </div>
             </div>
           )}
           
           {isConnected && (
-            <div className="text-center">
-              <Button 
-                size="lg" 
-                variant="secondary"
-                style={{
-                  backdropFilter: 'blur(10px)'
-                }}
-                onClick={handleConnectWallet}
-              >
-                View Dashboard
-                <Wallet className="ml-2 h-5 w-5" />
-              </Button>
+            <div className="max-w-6xl mx-auto">
+              <div className="bg-background/20 rounded-3xl border border-border/20 p-8 md:p-12">
+                <div className="text-center">
+                  <Button 
+                    size="lg" 
+                    variant="secondary"
+                    className="group-hover:scale-[1.02] transition-transform duration-300"
+                    onClick={handleConnectWallet}
+                  >
+                    View Dashboard
+                    <Wallet className="ml-2 h-5 w-5" />
+                  </Button>
+                </div>
+              </div>
             </div>
           )}
         </div>
