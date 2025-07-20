@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { ArrowRight, TrendingUp, Shield, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -29,7 +28,7 @@ const Hero = () => {
     refetchInterval: 5 * 60 * 1000, // Refetch every 5 minutes
   });
 
-  // Enhanced coin configuration for 3D system
+  // Enhanced coin configuration with even distribution across full screen width
   const coinConfigs = useRef([...Array(6)].map((_, i) => {
     // Distribute coins across 2 depth layers for visual depth
     const layer = i % 2; // 0 = far, 1 = near
@@ -49,12 +48,6 @@ const Hero = () => {
     const randomOffset = (Math.random() - 0.5) * 12; // ±6% variation
     const startX = Math.max(2, Math.min(98, sectionCenter + randomOffset)); // Clamp to screen bounds
     
-    // 3D physics variables
-    const driftEarly = (Math.random() - 0.5) * 30;
-    const driftMid = (Math.random() - 0.5) * 50;
-    const driftLate = (Math.random() - 0.5) * 40;
-    const driftEnd = (Math.random() - 0.5) * 35;
-    
     return {
       id: i,
       layer,
@@ -62,10 +55,7 @@ const Hero = () => {
       baseScale,
       coinSize,
       startX,
-      driftEarly,
-      driftMid,
-      driftLate,
-      driftEnd,
+      drift: (Math.random() - 0.5) * (40 * zDepth),
       duration: 4 + (i * 0.3),
       delay: i * 1.0,
       rotationStart: i * 45,
@@ -77,7 +67,7 @@ const Hero = () => {
 
   useEffect(() => {
     // Debug coin configurations
-    console.log('3D Coin configurations:', coinConfigs.current.map(c => ({ 
+    console.log('Coin configurations:', coinConfigs.current.map(c => ({ 
       id: c.id, 
       coinSize: c.coinSize, 
       startX: c.startX.toFixed(1) + '%',
@@ -106,31 +96,29 @@ const Hero = () => {
     <section ref={heroRef} className="relative py-24 md:py-40 overflow-hidden" role="banner">
       {/* Unified seamless background - removed conflicting gradients */}
       
-      {/* Enhanced 3D coin animation system */}
+      {/* Optimized smooth falling coins animation */}
       <div ref={coinsRef} className="absolute inset-0 pointer-events-none z-0">
-        <div className="falling-coins-3d-container">
+        <div className="falling-coins-smooth-container">
           {coinConfigs.current.map((config) => (
             <div 
-              key={`3d-coin-${config.id}`}
-              className="falling-coin-3d"
+              key={`smooth-coin-${config.id}`}
+              className="falling-coin-smooth"
                style={{ 
                 '--fall-start-x': `${config.startX}%`,
-                '--drift-early': `${config.driftEarly}px`,
-                '--drift-mid': `${config.driftMid}px`,
-                '--drift-late': `${config.driftLate}px`,
-                '--drift-end': `${config.driftEnd}px`,
+                '--drift-amount': `${config.drift}px`,
                 '--fall-duration': `${config.duration}s`,
                 '--animation-delay': `${config.delay}s`,
                 '--rotation-start': `${config.rotationStart}deg`,
                 '--spin-speed': `${config.spinSpeed}deg`,
                 '--z-depth': config.zDepth,
                 '--base-scale': config.baseScale,
+                '--coin-size': config.coinSize,
                 '--layer': config.layer,
                 '--blur-amount': `${config.blur}px`,
                 '--layer-opacity': config.opacity,
                } as React.CSSProperties}
             >
-              <div className="coin-face-3d">
+              <div className="coin-face-smooth">
                 <img 
                   src="/lovable-uploads/4906f514-8559-48de-8ba3-342f6a26b5eb.png" 
                   alt="Token logo" 
@@ -138,7 +126,7 @@ const Hero = () => {
                   style={{ filter: 'drop-shadow(0 0 1px hsl(var(--mint-green)))' }}
                 />
               </div>
-              <div className="coin-edge-3d" />
+              <div className="coin-edge-smooth" />
             </div>
           ))}
         </div>
