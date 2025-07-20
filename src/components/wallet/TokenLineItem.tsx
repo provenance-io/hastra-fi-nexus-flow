@@ -58,7 +58,7 @@ const TokenLineItem = ({
       {/* Desktop Layout */}
       <div className="hidden lg:grid grid-cols-[auto_1fr_1fr_1fr_1fr_auto] gap-8 items-center p-6">
         {/* Token Info */}
-        <div className="flex items-center gap-4 min-w-0">
+        <div className="flex flex-col items-center gap-3 min-w-0">
           {isImage ? (
             <img 
               src={icon} 
@@ -70,21 +70,22 @@ const TokenLineItem = ({
               <span className="text-hastra-teal font-bold text-xl">{icon}</span>
             </div>
           )}
-          <div className="space-y-1">
-            <h4 className="font-semibold text-foreground text-lg">{token}</h4>
-            <p className="text-sm text-muted-foreground">Token</p>
+          <div className="text-center space-y-1">
+            <h4 className="font-medium text-foreground text-sm">{token}</h4>
+            <p className="text-xs text-muted-foreground">Token</p>
           </div>
         </div>
         
         {/* Tokens Column */}
         <div className="text-left space-y-1">
           <p className="text-muted-foreground text-sm font-medium">Balance</p>
-          <p className="font-semibold text-foreground text-lg">
+          <p className="font-bold text-orange-400 text-xl">
             {amount.toLocaleString('en-US', { 
               minimumFractionDigits: 2,
               maximumFractionDigits: 4 
             })}
           </p>
+          <p className="text-xs text-muted-foreground">tokens</p>
         </div>
         
         {/* Worth Column */}
@@ -147,26 +148,31 @@ const TokenLineItem = ({
       {/* Mobile/Tablet Layout */}
       <div className="lg:hidden p-6 space-y-6">
         {/* Token Header */}
-        <div className="flex items-center gap-4">
-          {isImage ? (
-            <img 
-              src={icon} 
-              alt={`${token} Token`}
-              className="w-14 h-14 rounded-full object-cover shadow-sm"
-            />
-          ) : (
-            <div className="w-14 h-14 rounded-xl bg-hastra-teal/10 flex items-center justify-center shadow-sm">
-              <span className="text-hastra-teal font-bold text-lg">{icon}</span>
+        <div className="flex items-start gap-4">
+          <div className="flex flex-col items-center gap-2">
+            {isImage ? (
+              <img 
+                src={icon} 
+                alt={`${token} Token`}
+                className="w-14 h-14 rounded-full object-cover shadow-sm"
+              />
+            ) : (
+              <div className="w-14 h-14 rounded-xl bg-hastra-teal/10 flex items-center justify-center shadow-sm">
+                <span className="text-hastra-teal font-bold text-lg">{icon}</span>
+              </div>
+            )}
+            <h4 className="font-medium text-foreground text-sm text-center">{token}</h4>
+          </div>
+          <div className="flex-1 space-y-2">
+            <div className="text-center">
+              <p className="font-bold text-orange-400 text-2xl">
+                {amount.toLocaleString('en-US', { 
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 4 
+                })}
+              </p>
+              <p className="text-sm text-muted-foreground">tokens</p>
             </div>
-          )}
-          <div className="flex-1 space-y-1">
-            <h4 className="font-semibold text-foreground text-lg">{token}</h4>
-            <p className="text-sm text-muted-foreground">
-              {amount.toLocaleString('en-US', { 
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 4 
-              })} tokens
-            </p>
           </div>
           <div className="text-right space-y-1">
             <p className="font-semibold text-foreground text-lg">
