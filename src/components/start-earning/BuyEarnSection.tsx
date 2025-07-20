@@ -37,24 +37,6 @@ const BuyEarnSection = () => {
     <section className="py-20 md:py-32 relative" data-section="buy-earn">
       {/* Removed background effects to allow parent gradient to show through */}
       <div className="container relative">
-        {/* Enhanced Section Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-8">
-            <span style={{ 
-              background: 'linear-gradient(135deg, hsl(var(--platinum)), hsl(var(--muted-foreground)))', 
-              WebkitBackgroundClip: 'text', 
-              WebkitTextFillColor: 'transparent',
-              textShadow: '0 0 30px rgba(229, 218, 194, 0.4)'
-            }}>Start Earning</span>
-            <br />
-            <span className="text-platinum/60">Immediately</span>
-          </h2>
-          
-          <p className="text-xl md:text-2xl text-platinum/80 max-w-4xl mx-auto leading-relaxed" 
-             style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
-            Get YIELD and HASH tokens on trusted platforms. Start earning from day one with proven strategies backed by real-world assets.
-          </p>
-        </div>
 
         {/* Available Tokens Container */}
         <div className="max-w-6xl mx-auto">
