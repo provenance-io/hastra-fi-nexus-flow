@@ -89,8 +89,9 @@ const WYLDsHero = () => {
           {/* GET YIELD Button - aligned */}
           <div className="order-1 lg:order-2 w-full max-w-[200px]">
             <Button 
-              size="default" 
-              className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-3 text-base rounded-xl group transition-all duration-200"
+              size="lg" 
+              variant="secondary"
+              className="min-w-[200px] group"
               asChild
             >
               <Link 
@@ -98,7 +99,7 @@ const WYLDsHero = () => {
                 className="flex items-center justify-center"
               >
                 Get YIELD
-                <ArrowRight className="ml-3 h-4 w-4" />
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
             
