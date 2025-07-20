@@ -25,7 +25,7 @@ const PortfolioSummary = ({
           </div>
           
           <div className="space-y-2">
-            <p className="text-2xl lg:text-3xl font-bold text-foreground">
+            <p className="text-2xl lg:text-3xl font-bold text-white">
               ${totalPortfolioValue.toLocaleString('en-US', { 
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2 
@@ -52,7 +52,7 @@ const PortfolioSummary = ({
           </div>
           
           <div className="space-y-2">
-            <p className="text-2xl lg:text-3xl font-bold text-green-400">
+            <p className="text-2xl lg:text-3xl font-bold text-white">
               ${totalInterestEarned.toLocaleString('en-US', { 
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2 
@@ -74,7 +74,7 @@ const PortfolioSummary = ({
           </div>
           
           <div className="space-y-2">
-            <p className="text-2xl lg:text-3xl font-bold text-orange-300">
+            <p className="text-2xl lg:text-3xl font-bold text-white">
               ${totalUnclaimedInterest.toLocaleString('en-US', { 
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2 
