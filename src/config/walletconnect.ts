@@ -13,9 +13,9 @@ const metadata = {
   icons: ['https://avatars.githubusercontent.com/u/179229932']
 }
 
-// 3. Set up Solana Adapter
+// 3. Set up Solana Adapter with proper wallet configuration
 const solanaWeb3JsAdapter = new SolanaAdapter({
-  wallets: []
+  wallets: [] // Let AppKit auto-detect available wallets
 })
 
 // 4. Create the AppKit instance
