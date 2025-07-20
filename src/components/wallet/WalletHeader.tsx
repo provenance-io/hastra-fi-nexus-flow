@@ -28,7 +28,11 @@ const WalletHeader = ({
       case 'MetaMask':
         return <Wallet className="w-6 h-6 text-[hsl(34_100%_84%)]" />;
       case 'Phantom':
-        return <Wallet className="w-6 h-6 text-[hsl(34_100%_84%)]" />;
+        return (
+          <div className="w-6 h-6 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center">
+            <div className="w-3 h-3 bg-white rounded-full opacity-90"></div>
+          </div>
+        );
       case 'Solflare':
         return <Wallet className="w-6 h-6 text-[hsl(34_100%_84%)]" />;
       case 'Coinbase':
