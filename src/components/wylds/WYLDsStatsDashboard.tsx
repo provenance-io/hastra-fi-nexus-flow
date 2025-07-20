@@ -119,7 +119,7 @@ const WYLDsStatsDashboard = () => {
       {/* Premium background - matching homepage */}
       {/* Unified seamless background - removed conflicting gradient */}
       
-      <div className="container relative">
+      <div className="max-w-5xl mx-auto px-4 relative">
         <div className="max-w-5xl mx-auto">
           <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
             <div className="text-center mb-8">

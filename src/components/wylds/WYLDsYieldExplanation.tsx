@@ -47,7 +47,7 @@ const WYLDsYieldExplanation = () => {
       {/* Background gradient */}
       {/* Unified seamless background - removed conflicting gradient */}
       
-      <div className="relative z-10 max-w-5xl mx-auto">
+      <div className="max-w-5xl mx-auto px-4 relative z-10">
         {/* Dashboard Box - Matching About page styling */}
         <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
           <div className="relative z-10">

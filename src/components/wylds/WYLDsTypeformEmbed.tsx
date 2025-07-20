@@ -4,7 +4,7 @@ import { Widget } from '@typeform/embed-react';
 const WYLDsTypeformEmbed = () => {
   return (
     <section className="py-20 px-4">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl mx-auto px-4">
         <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
           <div className="mb-8">
             <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed text-center" 
