@@ -38,9 +38,9 @@
     --hastra-muted-dark: 215 25% 15%;
     --hastra-muted-slate: 215 20% 25%;
     --hastra-muted-teal: 180 30% 40%;
-    --hastra-gradient-start: 215 25% 12%;
-    --hastra-gradient-mid: 180 20% 35%;
-    --hastra-gradient-end: 240 10% 8%;
+    --hastra-gradient-start: 215 25% 8%;
+    --hastra-gradient-mid: 180 20% 25%;
+    --hastra-gradient-end: 240 10% 5%;
     
     /* Glass Morphism */
     --glass-bg: 255 255 255 / 0.05;
