@@ -128,7 +128,7 @@ const MobileMenu = () => {
                 <Link
                   to={item.href}
                   onClick={() => setOpen(false)}
-                  className="block px-3 py-2 text-base font-medium text-foreground hover:text-header-glow transition-colors border-b border-border/20 hover:border-header-glow/50 uppercase"
+                  className="block px-3 py-2 text-base font-medium text-foreground hover:text-header-glow transition-all duration-300 border-b border-border/20 uppercase hover:shadow-[0_0_10px_hsl(var(--header-glow)/0.5)]"
                 >
                   {item.label}
                 </Link>
