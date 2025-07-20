@@ -98,7 +98,7 @@ const WYLDsYieldExplanation = () => {
                               filter: 'drop-shadow(0 0 2px rgba(0, 255, 150, 0.5))'
                             }} />
                           </div>
-                          <h3 className="text-2xl font-bold text-hastra-teal">{feature.title}</h3>
+                          <h3 className="text-lg md:text-2xl font-bold text-hastra-teal">{feature.title}</h3>
                         </div>
                       </div>
                     </div>
@@ -107,7 +107,7 @@ const WYLDsYieldExplanation = () => {
                     <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180">
                       <div className="w-full h-full card-gradient rounded-2xl p-6 text-center space-y-3 hover:bg-background/60 transition-all duration-300">
                         <div className="h-full flex flex-col justify-center">
-                          <p className="text-platinum/80 leading-relaxed text-lg">{feature.description}</p>
+                          <p className="text-sm md:text-lg text-platinum/80 leading-relaxed">{feature.description}</p>
                         </div>
                       </div>
                     </div>
