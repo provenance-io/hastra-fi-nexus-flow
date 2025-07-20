@@ -263,19 +263,9 @@ const About = () => {
         {/* Enhanced CTA Section with Matching Background */}
         <section className="py-16 relative overflow-hidden">
           <div className="container relative">
-            <div className="max-w-4xl mx-auto">
-              {/* Glowing container with matching background */}
-              <div className="card-gradient rounded-3xl p-12 md:p-16 card-bottom-static border border-transparent relative"
-                   style={{ 
-                     boxShadow: '0 0 30px rgba(255, 255, 255, 0.15), 0 0 60px rgba(255, 255, 255, 0.1), 0 0 90px rgba(255, 255, 255, 0.05)'
-                   }}>
-                {/* Animated border glow effect with white glow */}
-                <div className="absolute inset-0 rounded-3xl pointer-events-none" 
-                     style={{ 
-                       background: 'linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent)',
-                       animation: 'borderGlow 3s ease-in-out infinite'
-                     }} />
-                
+            <div className="max-w-5xl mx-auto">
+              {/* Container with exactly matching background - no animations to prevent flickering */}
+              <div className="card-gradient rounded-3xl p-8 md:p-12 card-bottom-static border border-transparent relative">
                 <div className="relative z-10 text-center">
                   <h2 className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed mb-12" 
                       style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
