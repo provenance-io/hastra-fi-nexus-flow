@@ -66,7 +66,7 @@ const FlashingText = ({ phrases, className = "" }: FlashingTextProps) => {
             transition-colors duration-3000 ease-out
             ${activeIndex === index 
               ? (index === phrases.length - 1 
-                ? (isSlowFading ? 'text-transparent' : 'text-[hsl(var(--hastra-teal))]')
+                ? (isSlowFading ? 'text-[hsl(var(--hastra-teal))]' : 'text-[hsl(var(--hastra-teal))]')
                 : 'text-orange-400'
               )
               : 'text-transparent'
@@ -74,11 +74,13 @@ const FlashingText = ({ phrases, className = "" }: FlashingTextProps) => {
           `}
           style={{
             textShadow: activeIndex === index ? 
-              (index === phrases.length - 1 && !isSlowFading ? 
+              (index === phrases.length - 1 ? 
                 '0 0 8px hsl(var(--hastra-teal) / 0.5), 0 0 16px hsl(var(--hastra-teal) / 0.2)' :
                 '0 0 8px rgb(251 146 60 / 0.5), 0 0 16px rgb(251 146 60 / 0.2)'
               ) : 
-              'none'
+              'none',
+            opacity: activeIndex === index && index === phrases.length - 1 && isSlowFading ? 0 : 1,
+            transition: activeIndex === index && index === phrases.length - 1 && isSlowFading ? 'opacity 2s ease-out' : 'none'
           }}
         >
           {phrase}
