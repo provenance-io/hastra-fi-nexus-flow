@@ -29,31 +29,56 @@ const Hero = () => {
     refetchInterval: 5 * 60 * 1000, // Refetch every 5 minutes
   });
 
-  // Reduced and optimized coin configuration for smooth performance (5 coins instead of 8)
-  const coinConfigs = useRef([...Array(5)].map((_, i) => {
+  // Enhanced coin configuration with more coins and bigger ones on the left (8 coins total)
+  const coinConfigs = useRef([...Array(8)].map((_, i) => {
     // Distribute coins across 2 depth layers for simplicity
     const layer = i % 2; // 0 = far, 1 = near
     const zDepth = layer === 0 ? 0.4 : 1.0; // Simplified depth
     const baseScale = layer === 0 ? 0.6 : 1.0; // Simplified scaling
     
-    // Add size variation - create dramatically different coin sizes for visibility
-    const sizeVariations = [0.5, 1.0, 2.0, 0.8, 2.5]; // Much more dramatic size differences
+    // Size variations - removed very small coins, added more variety
+    const sizeVariations = [1.2, 1.0, 2.0, 1.5, 2.5, 1.8, 2.2, 1.3]; // Better size range
     const coinSize = sizeVariations[i % sizeVariations.length];
     
-    return {
-      id: i,
-      layer,
-      zDepth,
-      baseScale,
-      coinSize, // New size property
-      startX: 15 + (i * 15) + Math.random() * 8, // Better distribution
-      drift: (Math.random() - 0.5) * (40 * zDepth), // Single drift value
-      duration: 4 + (i * 0.3), // Consistent timing
-      delay: i * 1.2, // More staggered timing
-      rotationStart: i * 72, // Even distribution (360/5)
-      spinSpeed: 360 + (i * 20), // Simplified rotation
-      blur: layer === 0 ? 0.5 : 0, // Simplified blur
-      opacity: layer === 0 ? 0.7 : 1.0, // Simplified opacity
+    // Position configuration - more big coins on left side
+    let startX;
+    if (i < 3) {
+      // First 3 coins on left side, make them larger
+      startX = 5 + (i * 8) + Math.random() * 5; // Left side positioning
+      const leftSideSizes = [2.2, 2.5, 2.0]; // Ensure left coins are big
+      return {
+        id: i,
+        layer,
+        zDepth,
+        baseScale,
+        coinSize: leftSideSizes[i], // Force large sizes on left
+        startX,
+        drift: (Math.random() - 0.5) * (40 * zDepth),
+        duration: 4 + (i * 0.3),
+        delay: i * 1.0,
+        rotationStart: i * 45,
+        spinSpeed: 360 + (i * 20),
+        blur: layer === 0 ? 0.5 : 0,
+        opacity: layer === 0 ? 0.7 : 1.0,
+      }
+    } else {
+      // Remaining coins distributed across the rest
+      startX = 30 + ((i - 3) * 12) + Math.random() * 8;
+      return {
+        id: i,
+        layer,
+        zDepth,
+        baseScale,
+        coinSize,
+        startX,
+        drift: (Math.random() - 0.5) * (40 * zDepth),
+        duration: 4 + (i * 0.3),
+        delay: i * 1.0,
+        rotationStart: i * 45,
+        spinSpeed: 360 + (i * 20),
+        blur: layer === 0 ? 0.5 : 0,
+        opacity: layer === 0 ? 0.7 : 1.0,
+      }
     }
   }));
 
