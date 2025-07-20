@@ -89,8 +89,14 @@ const WYLDsYieldExplanation = () => {
                     <div className="absolute inset-0 w-full h-full backface-hidden">
                       <div className="w-full h-full card-gradient rounded-2xl p-6 text-center space-y-3 hover:bg-background/60 transition-all duration-300">
                         <div className="h-full flex flex-col justify-center">
-                          <div className="w-20 h-20 bg-gradient-to-br from-header-glow to-crypto-accent rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg">
-                            <feature.icon className="h-10 w-10 text-black" />
+                          <div className="w-20 h-20 rounded-2xl mx-auto mb-6 flex items-center justify-center">
+                            <feature.icon className="h-10 w-10" style={{
+                              background: 'linear-gradient(135deg, hsl(var(--header-glow)), hsl(var(--crypto-accent)))',
+                              WebkitBackgroundClip: 'text',
+                              WebkitTextFillColor: 'transparent',
+                              backgroundClip: 'text',
+                              filter: 'drop-shadow(0 0 8px rgba(0, 255, 150, 0.3))'
+                            }} />
                           </div>
                           <h3 className="text-2xl font-bold text-hastra-teal">{feature.title}</h3>
                         </div>
