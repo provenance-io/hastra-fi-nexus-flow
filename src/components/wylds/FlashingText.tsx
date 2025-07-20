@@ -64,13 +64,12 @@ const FlashingText = ({ phrases, className = "" }: FlashingTextProps) => {
           key={index}
           className={`
             transition-colors duration-3000 ease-out
-            ${activeIndex === index && index === phrases.length - 1 && (isLastPhraseExtended || isSlowFading)
-              ? isSlowFading ? 'text-transparent' : 'text-[hsl(var(--hastra-teal))]'
-            : activeIndex === index && index !== phrases.length - 1
-              ? 'text-orange-400'
-            : activeIndex === index && index === phrases.length - 1
-              ? 'text-[hsl(var(--hastra-teal))]'
-            : 'text-transparent'
+            ${activeIndex === index 
+              ? (index === phrases.length - 1 
+                ? (isSlowFading ? 'text-transparent' : 'text-[hsl(var(--hastra-teal))]')
+                : 'text-orange-400'
+              )
+              : 'text-transparent'
             }
           `}
           style={{
