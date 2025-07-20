@@ -83,7 +83,7 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
         }`}
         style={{
           left: isMobile ? '15%' : '20%',
-          top: isMobile ? '1800px' : '2100px',
+          top: isMobile ? '1860px' : '2160px',
           height: isMobile ? '40px' : '48px',
           width: '2px',
           background: 'rgba(229, 218, 194, 0.8)',
@@ -99,7 +99,7 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
         }`}
         style={{
           left: isMobile ? '85%' : '80%',
-          top: isMobile ? '2200px' : '2500px',
+          top: isMobile ? '2260px' : '2560px',
           height: isMobile ? '40px' : '48px',
           width: '2px',
           background: 'rgba(229, 218, 194, 0.8)',
