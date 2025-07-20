@@ -1,21 +1,26 @@
 /* Responsive coin sizing and mobile optimizations */
 @media (max-width: 768px) {
   .falling-coin, .falling-coin-stable {
-    width: 32px;
-    height: 32px;
+    width: 16px;
+    height: 16px;
     /* Reduce animation complexity on mobile */
     animation-timing-function: ease-out;
     filter: none; /* Remove drop shadow for better performance */
   }
   
-  /* Simplify coin visuals on mobile */
-  .coin-face {
-    box-shadow: 
-      0 2px 4px hsl(var(--mint-green) / 0.2),
-      inset 0 1px 2px hsl(var(--mint-green-light) / 0.5);
+  .falling-coin-smooth {
+    width: calc(16px * var(--coin-size, 1));
+    height: calc(16px * var(--coin-size, 1));
   }
   
-  .coin-edge {
+  /* Simplify coin visuals on mobile */
+  .coin-face, .coin-face-smooth {
+    box-shadow: 
+      0 1px 2px hsl(var(--mint-green) / 0.2),
+      inset 0 0.5px 1px hsl(var(--mint-green-light) / 0.5);
+  }
+  
+  .coin-edge, .coin-edge-smooth {
     transform: none; /* Remove 3D transform */
     box-shadow: none;
   }
@@ -23,10 +28,15 @@
 
 @media (max-width: 480px) {
   .falling-coin, .falling-coin-stable {
-    width: 28px;
-    height: 28px;
+    width: 12px;
+    height: 12px;
     /* Further reduce animation on smaller screens */
     animation-duration: 3s !important;
+  }
+  
+  .falling-coin-smooth {
+    width: calc(12px * var(--coin-size, 1));
+    height: calc(12px * var(--coin-size, 1));
   }
   
   /* Reduce number of visible coins on very small screens */
@@ -34,7 +44,7 @@
     display: none;
   }
   
-  .coin-face::before {
-    font-size: 12px;
+  .coin-face::before, .coin-face-smooth::before {
+    font-size: 8px;
   }
 }

@@ -13,7 +13,7 @@
   height: calc(28px * var(--coin-size, 1));
   animation: ultra-smooth-fall var(--fall-duration, 4s) infinite linear var(--animation-delay, 0s);
   left: var(--fall-start-x, 50%);
-  top: -40px;
+  top: -120px;
   will-change: transform;
   transform: translateZ(0);
 }
@@ -51,20 +51,20 @@
 @keyframes ultra-smooth-fall {
   0% {
     opacity: 0;
-    transform: translateY(-40px) translateX(0) rotateZ(0deg);
+    transform: translateY(-120px) translateX(var(--fall-start-x, 0)) rotateZ(var(--rotation-start, 0deg)) scale(var(--coin-size, 1));
   }
   
-  5% {
+  10% {
     opacity: 0.8;
   }
   
-  95% {
+  90% {
     opacity: 0.8;
   }
   
   100% {
     opacity: 0;
-    transform: translateY(calc(100vh + 40px)) translateX(var(--drift-amount, 0px)) rotateZ(360deg);
+    transform: translateY(calc(100vh + 120px)) translateX(calc(var(--fall-start-x, 0) + var(--drift-amount, 0px))) rotateZ(calc(var(--rotation-start, 0deg) + var(--spin-speed, 360deg))) scale(var(--coin-size, 1));
   }
 }
 
