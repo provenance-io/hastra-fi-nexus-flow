@@ -64,7 +64,7 @@ const Header = () => {
   };
 
   // Shared navigation link styles
-  const navLinkStyles = "text-base md:text-lg font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase focus:outline-none focus:ring-2 focus:ring-hastra-teal/50 focus:ring-offset-2 focus:ring-offset-background rounded-md px-2 py-1";
+  const navLinkStyles = "text-base md:text-lg font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase focus:outline-none focus:ring-0 rounded-md px-2 py-1";
   
   const navTextShadowStyles = {
     textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)',
@@ -99,7 +99,7 @@ const Header = () => {
             </Link>
             <DropdownMenu>
               <DropdownMenuTrigger 
-                className={`${navLinkStyles} flex items-center outline-none focus:outline-none focus:ring-2 focus:ring-hastra-teal/50 focus:ring-offset-2 focus:ring-offset-background border-none bg-transparent`}
+                className={`${navLinkStyles} flex items-center outline-none focus:outline-none focus:ring-0 border-none bg-transparent`}
                 style={navTextShadowStyles}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -117,9 +117,9 @@ const Header = () => {
                   <path d="M6 9l6 6 6-6" />
                 </svg>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-72 bg-background/95 backdrop-blur-md border border-hastra-teal/30 shadow-2xl mt-4 z-50" align="start">
+              <DropdownMenuContent className="w-72 bg-background/30 backdrop-blur-md border border-border/20 hover:border-hastra-teal/20 shadow-2xl mt-4 z-50" align="start">
                 <DropdownMenuItem asChild>
-                  <Link to="/yield" className="flex items-center w-full cursor-pointer p-3 hover:bg-hastra-teal/10 hover:text-hastra-teal rounded-lg transition-all duration-200 group focus:outline-none focus:ring-2 focus:ring-hastra-teal/50">
+                  <Link to="/yield" className="flex items-center w-full cursor-pointer p-3 hover:bg-hastra-teal/10 hover:text-hastra-teal rounded-lg transition-all duration-200 group focus:outline-none focus:ring-0">
                     <div className="flex items-center gap-3">
                       <img 
                         src="/lovable-uploads/08452a7b-6782-4b0a-900e-0f0c99a4fc4e.png" 
@@ -139,7 +139,7 @@ const Header = () => {
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/homes" className="flex items-center w-full cursor-pointer p-3 hover:bg-hastra-teal/10 hover:text-hastra-teal rounded-lg transition-all duration-200 group focus:outline-none focus:ring-2 focus:ring-hastra-teal/50">
+                  <Link to="/homes" className="flex items-center w-full cursor-pointer p-3 hover:bg-hastra-teal/10 hover:text-hastra-teal rounded-lg transition-all duration-200 group focus:outline-none focus:ring-0">
                     <div className="flex items-center gap-3">
                       <img 
                         src="/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png" 
@@ -209,8 +209,9 @@ const Header = () => {
           ) : isEarnPage ? (
             <Button 
               onClick={handleConnectWallet}
-              size="sm" 
-              className="hidden md:flex btn-gradient text-base px-4 py-2"
+              size="lg" 
+              variant="secondary"
+              className="hidden md:flex tracking-widest"
             >
               Connect Wallet
               <Wallet className="ml-2 h-4 w-4" />
