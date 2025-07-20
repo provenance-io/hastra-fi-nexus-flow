@@ -9,9 +9,13 @@ const Earn = () => {
   const { isConnected } = useWallet();
 
   return (
-    <div className="relative">
-      {/* Extended gradient background to match homepage */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
+    <div className="relative min-h-screen">
+      {/* Consistent gradient background matching other pages */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-background/90"></div>
+      <div className="absolute inset-0 bg-gradient-to-tr from-platinum/5 via-transparent to-platinum/10"></div>
+      <div className="absolute inset-0" style={{
+        background: 'radial-gradient(ellipse at top, rgba(229, 218, 194, 0.15) 0%, transparent 50%), radial-gradient(ellipse at bottom, rgba(229, 218, 194, 0.1) 0%, transparent 50%)'
+      }}></div>
       <div className="relative z-10">
         {!isConnected && <EarnHero />}
         {isConnected && (
