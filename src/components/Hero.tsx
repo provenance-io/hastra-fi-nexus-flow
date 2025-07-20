@@ -36,8 +36,8 @@ const Hero = () => {
     const zDepth = layer === 0 ? 0.4 : 1.0; // Simplified depth
     const baseScale = layer === 0 ? 0.6 : 1.0; // Simplified scaling
     
-    // Add size variation - create different coin sizes
-    const sizeVariations = [0.7, 1.0, 1.3, 0.8, 1.5]; // Different sizes for each coin
+    // Add size variation - create dramatically different coin sizes for visibility
+    const sizeVariations = [0.5, 1.0, 2.0, 0.8, 2.5]; // Much more dramatic size differences
     const coinSize = sizeVariations[i % sizeVariations.length];
     
     return {
