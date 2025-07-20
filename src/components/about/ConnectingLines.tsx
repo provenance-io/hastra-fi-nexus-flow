@@ -78,7 +78,7 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
 
       {/* Provenance to HASH Token Line - Left aligned with enhanced animation */}
       <div 
-        className={`absolute transition-all duration-1500 ease-out z-40 ${
+        className={`absolute transition-all duration-2000 ease-out z-40 ${
           provenanceToHashTokenLine ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
         }`}
         style={{
@@ -94,7 +94,7 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
 
       {/* HASH Token to Commitment Line - Right aligned with enhanced animation */}
       <div 
-        className={`absolute transition-all duration-1500 ease-out z-40 ${
+        className={`absolute transition-all duration-2000 ease-out z-40 ${
           hashTokenToCommitmentLine ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
         }`}
         style={{
@@ -110,7 +110,7 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
 
       {/* Commitment to Success Line - Center aligned with enhanced animation */}
       <div 
-        className={`absolute left-1/2 transform -translate-x-1/2 transition-all duration-1500 ease-out z-40 ${
+        className={`absolute left-1/2 transform -translate-x-1/2 transition-all duration-2000 ease-out z-40 ${
           commitmentToSuccessLine ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
         }`}
         style={{

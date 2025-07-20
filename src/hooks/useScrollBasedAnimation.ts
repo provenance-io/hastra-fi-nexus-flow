@@ -57,10 +57,10 @@ export const useScrollBasedAnimation = () => {
         missionToBeliefLine: scrollProgress > 0.15,
         beliefToVisionLine: scrollProgress > 0.25,
         visionToHashLine: scrollProgress > 0.35,
-        // New bottom connecting lines
-        provenanceToHashTokenLine: scrollProgress > 0.45,
-        hashTokenToCommitmentLine: scrollProgress > 0.55,
-        commitmentToSuccessLine: scrollProgress > 0.65,
+        // New bottom connecting lines with earlier triggers for better visibility
+        provenanceToHashTokenLine: scrollProgress > 0.42,
+        hashTokenToCommitmentLine: scrollProgress > 0.52,
+        commitmentToSuccessLine: scrollProgress > 0.62,
         hashGlow: scrollProgress > 0.35, // HASH glows when line reaches it
         // Card glow timing - only one card glows at a time
         missionGlow: scrollProgress > 0.12 && scrollProgress < 0.22,
@@ -69,7 +69,7 @@ export const useScrollBasedAnimation = () => {
         provenanceCardGlow: scrollProgress > 0.4 && scrollProgress < 0.55,
         hashTokenCardGlow: scrollProgress > 0.5 && scrollProgress < 0.65,
         commitmentCardGlow: scrollProgress > 0.6 && scrollProgress < 0.75,
-        joinMissionGlow: scrollProgress > 0.75 && scrollProgress < 0.85,
+        joinMissionGlow: scrollProgress > 0.75, // Stays glowing once started
       };
 
       setState(newState);
