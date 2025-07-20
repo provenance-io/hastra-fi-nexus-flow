@@ -260,15 +260,14 @@ const About = () => {
           </div>
         </section>
 
-        {/* Enhanced CTA Section with Matching White Glow */}
+        {/* Enhanced CTA Section with Matching Background */}
         <section className="py-16 relative overflow-hidden">
           <div className="container relative">
             <div className="max-w-4xl mx-auto">
-              {/* Glowing container with white glow to match above */}
-              <div className="card-gradient rounded-3xl p-12 md:p-16 border border-foreground/20 relative"
+              {/* Glowing container with matching background */}
+              <div className="card-gradient rounded-3xl p-12 md:p-16 card-bottom-static border border-transparent relative"
                    style={{ 
-                     boxShadow: '0 0 30px rgba(255, 255, 255, 0.15), 0 0 60px rgba(255, 255, 255, 0.1), 0 0 90px rgba(255, 255, 255, 0.05)',
-                     background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01))'
+                     boxShadow: '0 0 30px rgba(255, 255, 255, 0.15), 0 0 60px rgba(255, 255, 255, 0.1), 0 0 90px rgba(255, 255, 255, 0.05)'
                    }}>
                 {/* Animated border glow effect with white glow */}
                 <div className="absolute inset-0 rounded-3xl pointer-events-none" 
