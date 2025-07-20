@@ -163,7 +163,7 @@ const WYLDsYieldExplanation = () => {
                         </div>
                         
                         {/* Card Container - Fixed Dimensions */}
-                        <div className="w-64 h-72 card-gradient rounded-2xl p-6 text-center space-y-3 hover:bg-background/60 transition-all duration-300 relative overflow-hidden">
+                        <div className="w-64 h-80 card-gradient rounded-2xl p-8 text-center space-y-4 hover:bg-background/60 transition-all duration-300 relative overflow-hidden">
                           {/* Hover Overlay */}
                           <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl`}></div>
                           
@@ -179,11 +179,11 @@ const WYLDsYieldExplanation = () => {
                           </div>
                           
                           {/* Content */}
-                          <div className="relative z-10 flex flex-col justify-between h-auto space-y-3">
+                          <div className="relative z-10 flex flex-col justify-between h-auto space-y-4">
                             <h4 className="font-bold text-lg text-header-glow group-hover:text-crypto-accent transition-colors duration-300">
                               {step.title}
                             </h4>
-                            <p className="text-foreground/90 text-sm leading-relaxed">
+                            <p className="text-foreground/90 text-sm leading-relaxed px-2">
                               {step.description}
                             </p>
                           </div>
@@ -192,7 +192,7 @@ const WYLDsYieldExplanation = () => {
                       
                       {/* Arrow Connector */}
                       {index < steps.length - 1 && (
-                        <div className="mx-4 flex items-center justify-center h-72">
+                        <div className="mx-4 flex items-center justify-center h-80">
                           <ArrowRight className="w-8 h-8 text-orange-400" />
                         </div>
                       )}
@@ -217,7 +217,7 @@ const WYLDsYieldExplanation = () => {
                     </div>
                     
                     {/* Card Container - Fixed Mobile Dimensions */}
-                    <div className="w-full h-56 card-gradient rounded-2xl p-6 text-center space-y-3 hover:bg-background/60 transition-all duration-300 relative overflow-hidden">
+                    <div className="w-full h-64 card-gradient rounded-2xl p-8 text-center space-y-4 hover:bg-background/60 transition-all duration-300 relative overflow-hidden">
                       {/* Hover Overlay */}
                       <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl`}></div>
                       
@@ -233,11 +233,11 @@ const WYLDsYieldExplanation = () => {
                        </div>
                       
                       {/* Content */}
-                      <div className="relative z-10 flex flex-col justify-between h-auto space-y-3">
+                      <div className="relative z-10 flex flex-col justify-between h-auto space-y-4">
                         <h4 className="font-bold text-lg text-header-glow group-hover:text-crypto-accent transition-colors duration-300">
                           {step.title}
                         </h4>
-                        <p className="text-foreground/90 text-sm leading-relaxed">
+                        <p className="text-foreground/90 text-sm leading-relaxed px-2">
                           {step.description}
                         </p>
                       </div>
