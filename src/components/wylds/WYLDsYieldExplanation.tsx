@@ -87,7 +87,7 @@ const WYLDsYieldExplanation = () => {
                   <div className="relative w-full h-full transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
                     {/* Front of card */}
                     <div className="absolute inset-0 w-full h-full backface-hidden">
-                      <div className="w-full h-full card-gradient rounded-2xl p-4 md:p-6 text-center space-y-3 hover:bg-background/60 transition-all duration-300">
+                      <div className="w-full h-full card-gradient rounded-2xl p-4 md:p-6 text-center space-y-3 hover:bg-background/80 transition-all duration-300 bg-background/95 backdrop-blur-sm">
                         <div className="h-full flex flex-col justify-center">
                           <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-header-glow to-crypto-accent rounded-xl md:rounded-2xl mx-auto mb-4 md:mb-6 flex items-center justify-center shadow-lg">
                             <feature.icon className="h-8 w-8 md:h-10 md:w-10 text-black" />
@@ -98,8 +98,8 @@ const WYLDsYieldExplanation = () => {
                     </div>
                     
                     {/* Back of card */}
-                    <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180">
-                      <div className="w-full h-full card-gradient rounded-2xl p-4 md:p-6 text-center space-y-3 hover:bg-background/60 transition-all duration-300">
+                    <div className="absolute inset-0 w-full h-full backface-hidden [transform:rotateY(180deg)]">
+                      <div className="w-full h-full card-gradient rounded-2xl p-4 md:p-6 text-center space-y-3 hover:bg-background/80 transition-all duration-300 bg-background/95 backdrop-blur-sm">
                         <div className="h-full flex flex-col justify-center">
                           <p className="text-sm md:text-base lg:text-lg text-platinum/90 leading-relaxed px-2">{feature.description}</p>
                         </div>
