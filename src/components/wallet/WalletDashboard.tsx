@@ -35,8 +35,19 @@ const WalletDashboard = () => {
   };
 
   return (
-    <div className="space-y-8">
-      {/* Wallet Overview */}
+    <div className="w-full">
+      {/* Header */}
+      <div className="mb-6 md:mb-8">
+        <h1 className="text-2xl md:text-3xl font-bold text-gradient mb-2">
+          Earnings Dashboard
+        </h1>
+        <p className="text-xl md:text-2xl text-foreground/90 max-w-4xl leading-relaxed" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
+          Your decentralized finance command center
+        </p>
+      </div>
+
+      <div className="space-y-8">
+        {/* Wallet Overview */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <Card className="glass-effect border-border/50">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -175,6 +186,7 @@ const WalletDashboard = () => {
           </div>
         </CardContent>
       </Card>
+      </div>
     </div>
   );
 };
