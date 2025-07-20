@@ -32,7 +32,7 @@ const EarnHero = () => {
               WebkitTextFillColor: 'transparent',
               textShadow: '0 0 30px rgba(229, 218, 194, 0.4)'
             }}>
-              Earn
+              Start Earning Immediately
             </span>
           </h1>
           
@@ -42,26 +42,6 @@ const EarnHero = () => {
           </p>
         </div>
 
-        {/* Enhanced Quick Stats */}
-        <div className="text-center mb-16">
-          <div className="flex flex-wrap justify-center gap-8 text-sm">
-            <div className="flex items-center gap-3 px-4 py-2 rounded-xl card-gradient border border-white/10">
-              <div className="w-2 h-2 bg-platinum rounded-full animate-pulse" 
-                   style={{ boxShadow: '0 0 8px hsl(var(--platinum))' }}></div>
-              <span className="text-platinum/90 font-medium">Up to 8% APY with YIELD</span>
-            </div>
-            <div className="flex items-center gap-3 px-4 py-2 rounded-xl card-gradient border border-white/10">
-              <div className="w-2 h-2 bg-platinum rounded-full animate-pulse" 
-                   style={{ boxShadow: '0 0 8px hsl(var(--platinum))' }}></div>
-              <span className="text-platinum/90 font-medium">Multiple trusted platforms</span>
-            </div>
-            <div className="flex items-center gap-3 px-4 py-2 rounded-xl card-gradient border border-white/10">
-              <div className="w-2 h-2 bg-platinum rounded-full animate-pulse" 
-                   style={{ boxShadow: '0 0 8px hsl(var(--platinum))' }}></div>
-              <span className="text-platinum/90 font-medium">Instant earning potential</span>
-            </div>
-          </div>
-        </div>
 
         {/* Enhanced CTA Section */}
         <div className="text-center">
