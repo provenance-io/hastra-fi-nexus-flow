@@ -47,43 +47,55 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   // Listen for AppKit state changes
   useEffect(() => {
     const unsubscribe = appkit.subscribeState((state) => {
-      console.log('🔍 Full AppKit State:', JSON.stringify(state, null, 2)); // More detailed debug
-      
-      // Check for actual wallet connection using AppKit's standard properties
-      const isWalletConnected = (state as any).isConnected === true;
-      const walletAddress = (state as any).caipAddress || (state as any).address;
-      const connectorInfo = (state as any).connectorType || (state as any).connectorName;
-      
-      console.log('🔎 Connection Analysis:', {
-        isWalletConnected,
-        hasAddress: !!walletAddress,
-        address: walletAddress,
-        connector: connectorInfo,
-        modalOpen: state.open,
-        loading: state.loading
+      console.log('🔍 AppKit State Update:', {
+        loading: state.loading,
+        open: state.open,
+        selectedNetworkId: state.selectedNetworkId,
+        activeChain: state.activeChain
       });
       
-      // Handle connection state changes
-      if (!state.open && !state.loading) {
-        if (isWalletConnected && walletAddress) {
-          console.log('✅ Valid wallet connection confirmed');
+      // Check all possible connection indicators from AppKit
+      const caipAddress = (state as any).caipAddress;
+      const address = (state as any).address;
+      const account = (state as any).account;
+      const isConnected = (state as any).isConnected;
+      const connectorType = (state as any).connectorType;
+      
+      // Log detailed connection state
+      console.log('🔎 Wallet Connection Details:', {
+        caipAddress,
+        address,
+        account,
+        isConnected,
+        connectorType,
+        hasAnyAddress: !!(caipAddress || address || account)
+      });
+      
+      // Determine if we have a valid wallet connection
+      const hasValidConnection = (isConnected === true) || !!(caipAddress || address || account);
+      const walletAddress = caipAddress || address || account;
+      
+      // Only process state when not loading and modal is closed
+      if (!state.loading && !state.open) {
+        if (hasValidConnection && walletAddress) {
+          console.log('✅ Setting connected state with address:', walletAddress);
           setWalletState(prev => ({
             ...prev,
             isConnected: true,
             address: walletAddress,
             isConnecting: false,
-            walletType: connectorInfo || 'Connected Wallet',
+            walletType: connectorType || 'Solana Wallet',
             balance: 1250.45,
             networkError: null,
           }));
           
           toast({
             title: "🟢 Wallet Connected",
-            description: `Successfully connected to ${connectorInfo || 'wallet'}`,
+            description: `Successfully connected ${connectorType || 'Solana wallet'}`,
             className: "border-l-4 border-l-crypto-accent bg-crypto-accent/10 shadow-glow",
           });
         } else {
-          console.log('❌ No valid wallet connection');
+          console.log('❌ No valid connection - clearing state');
           setWalletState(prev => ({
             ...prev,
             isConnected: false,
@@ -93,6 +105,13 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
             balance: 0,
           }));
         }
+      } else if (state.open) {
+        console.log('📱 Modal is open - setting connecting state');
+        setWalletState(prev => ({
+          ...prev,
+          isConnecting: true,
+          networkError: null,
+        }));
       }
     });
 
@@ -102,25 +121,25 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   }, [toast]);
 
   const connectWallet = async (): Promise<void> => {
-    console.log('🚀 Initiating wallet connection...');
-    setWalletState(prev => ({ ...prev, isConnecting: true, networkError: null }));
-
+    console.log('🚀 Starting wallet connection process...');
+    
     try {
-      console.log('📱 Opening AppKit modal...');
-      // Use AppKit's open method to show wallet selection
-      appkit.open();
+      setWalletState(prev => ({ ...prev, isConnecting: true, networkError: null }));
+      
+      console.log('📱 Opening wallet selection modal...');
+      appkit.open({ view: 'Connect' }); // Explicitly open to Connect view
       
     } catch (error) {
-      console.error('❌ Connection error:', error);
+      console.error('❌ Error opening wallet modal:', error);
       setWalletState(prev => ({
         ...prev,
         isConnecting: false,
-        networkError: 'Failed to open wallet connection modal.',
+        networkError: 'Failed to open wallet selection. Please try again.',
       }));
       
       toast({
-        title: "Connection Failed",
-        description: "Could not open wallet connection. Please try again.",
+        title: "Connection Error",
+        description: "Could not open wallet selection. Please refresh and try again.",
         variant: "destructive",
       });
     }

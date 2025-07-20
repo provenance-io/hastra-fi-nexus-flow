@@ -13,26 +13,21 @@ const metadata = {
   icons: ['https://avatars.githubusercontent.com/u/179229932']
 }
 
-// 3. Set up Solana Adapter with proper configuration
+// 3. Set up Solana Adapter with minimal configuration for better compatibility
 const solanaWeb3JsAdapter = new SolanaAdapter({
-  wallets: [] // Auto-detect wallets
+  wallets: []
 })
 
-// 4. Create the AppKit instance with proper configuration
+// 4. Create the AppKit instance with simplified configuration
 export const appkit = createAppKit({
   adapters: [solanaWeb3JsAdapter],
   metadata: metadata,
-  networks: [solana, solanaTestnet, solanaDevnet],
+  networks: [solana, solanaDevnet], // Reduce to main networks
   projectId,
   features: {
-    analytics: true,
+    analytics: false, // Disable analytics to reduce complexity
     email: false,
-    socials: [],
-    emailShowWallets: true
+    socials: []
   },
-  themeMode: 'dark',
-  enableWalletConnect: true,
-  enableInjected: true,
-  enableEIP6963: true,
-  enableCoinbase: true
+  themeMode: 'dark'
 })
