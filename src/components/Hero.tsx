@@ -134,8 +134,7 @@ const Hero = () => {
                 <img 
                   src="/lovable-uploads/4906f514-8559-48de-8ba3-342f6a26b5eb.png" 
                   alt="Token logo" 
-                  className="w-4/5 h-4/5 object-contain absolute inset-0 m-auto opacity-30 brightness-0 invert"
-                  style={{ filter: 'invert(1) brightness(0.3) drop-shadow(1px 1px 2px rgba(0,0,0,0.3))' }}
+                  className="w-3/4 h-3/4 object-contain absolute inset-0 m-auto opacity-80"
                 />
               </div>
               <div className="coin-edge-smooth" />
