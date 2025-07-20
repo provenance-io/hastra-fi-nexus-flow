@@ -49,7 +49,7 @@ const WalletHeader = ({
       case 'MetaMask':
         return 'bg-orange-900/20';
       case 'Phantom':
-        return 'bg-purple-900/20';
+        return 'bg-transparent';
       case 'Solflare':
         return 'bg-yellow-900/20';
       case 'Coinbase':
