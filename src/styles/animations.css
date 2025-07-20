@@ -23,13 +23,28 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: linear-gradient(135deg, 
-    hsl(var(--mint-green-light)) 0%, 
-    hsl(var(--mint-green)) 50%,
-    hsl(var(--mint-green-dark)) 100%);
-  border: calc(1px * var(--coin-size, 1)) solid hsl(var(--mint-green-dark));
-  /* Debug: Add a subtle border that scales with coin size to verify the variable works */
-  box-shadow: 0 0 calc(2px * var(--coin-size, 1)) rgba(255, 255, 255, 0.3);
+  background: 
+    /* Outer metallic rim */
+    radial-gradient(circle at 30% 30%, 
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0.1) 15%,
+      transparent 25%),
+    /* Main coin gradient - matching the logo colors */
+    radial-gradient(circle at center, 
+      #00ff96 0%,
+      #00d4aa 30%,
+      #00b8bf 60%,
+      #009ccc  100%);
+  border: calc(2px * var(--coin-size, 1)) solid #006b8a;
+  box-shadow: 
+    /* Coin depth shadow */
+    0 calc(4px * var(--coin-size, 1)) calc(12px * var(--coin-size, 1)) rgba(0, 107, 138, 0.4),
+    /* Inner highlight for 3D effect */
+    inset 0 calc(2px * var(--coin-size, 1)) calc(4px * var(--coin-size, 1)) rgba(255, 255, 255, 0.3),
+    /* Inner shadow for depth */
+    inset 0 calc(-2px * var(--coin-size, 1)) calc(4px * var(--coin-size, 1)) rgba(0, 107, 138, 0.5),
+    /* Outer glow */
+    0 0 calc(8px * var(--coin-size, 1)) rgba(0, 255, 150, 0.2);
 }
 
 .coin-face-smooth::before {
@@ -38,9 +53,16 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: calc(12px * var(--coin-size, 1));
-  font-weight: bold;
-  color: hsl(var(--mint-green-dark));
+  font-size: calc(14px * var(--coin-size, 1));
+  font-weight: 900;
+  font-family: 'Arial Black', Arial, sans-serif;
+  color: #1a1a1a;
+  text-shadow: 
+    /* Cyan accent like in the logo */
+    0 0 calc(2px * var(--coin-size, 1)) #00d4ff,
+    /* Embossed effect */
+    0 calc(1px * var(--coin-size, 1)) calc(2px * var(--coin-size, 1)) rgba(255, 255, 255, 0.8),
+    0 calc(-1px * var(--coin-size, 1)) calc(1px * var(--coin-size, 1)) rgba(0, 0, 0, 0.5);
 }
 
 .coin-edge-smooth {
