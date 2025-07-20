@@ -222,7 +222,7 @@ const Header = () => {
               variant="secondary"
               className="hidden md:flex"
             >
-              <Link to="/earn">Launch Protocol</Link>
+              <Link to="/earn">LAUNCH PROTOCOL</Link>
             </Button>
           )}
           <MobileMenu />
