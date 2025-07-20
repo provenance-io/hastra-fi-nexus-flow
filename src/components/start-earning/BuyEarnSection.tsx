@@ -34,87 +34,105 @@ const riskColors = {
 
 const BuyEarnSection = () => {
   return (
-    <section className="py-8 md:py-12 bg-gradient-to-br from-header-glow/5 via-background to-crypto-accent/5" data-section="buy-earn">
-      <div className="container">
-        {/* Section Header */}
+    <section className="py-20 md:py-32 relative" data-section="buy-earn">
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90"></div>
+      <div className="container relative">
+        {/* Enhanced Section Header */}
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-8">
-            <span className="text-gradient">Start Earning</span>
+            <span style={{ 
+              background: 'linear-gradient(135deg, hsl(var(--platinum)), hsl(var(--muted-foreground)))', 
+              WebkitBackgroundClip: 'text', 
+              WebkitTextFillColor: 'transparent',
+              textShadow: '0 0 30px rgba(229, 218, 194, 0.4)'
+            }}>Start Earning</span>
             <br />
-            <span className="text-muted-foreground">Immediately</span>
+            <span className="text-platinum/60">Immediately</span>
           </h2>
           
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            Get YIELD and HASH tokens on trusted platforms. Start earning from day one with proven strategies.
+          <p className="text-xl md:text-2xl text-platinum/80 max-w-4xl mx-auto leading-relaxed" 
+             style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
+            Get YIELD and HASH tokens on trusted platforms. Start earning from day one with proven strategies backed by real-world assets.
           </p>
         </div>
 
-        {/* Tokens Section */}
+        {/* Enhanced Tokens Section */}
         <div className="mb-20">
-          <h3 className="text-2xl md:text-3xl font-bold text-center mb-12">Available Tokens</h3>
+          <h3 className="text-2xl md:text-3xl font-bold text-center mb-12 text-platinum" 
+              style={{ textShadow: '0 0 20px rgba(229, 218, 194, 0.3)' }}>
+            Available Tokens
+          </h3>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {tokens.map((token, index) => (
-              <Card key={index} className="glass-effect border-border/50 hover:border-header-glow/30 transition-all duration-300">
-                <CardHeader>
-                  <CardTitle className="text-2xl flex items-center gap-3 mb-4">
-                    {token.symbol === 'YIELD' ? (
-                      <img 
-                        src="/lovable-uploads/08452a7b-6782-4b0a-900e-0f0c99a4fc4e.png" 
-                        alt="YIELD Token"
-                        className="w-12 h-12 rounded-lg"
-                      />
-                    ) : (
-                       <img 
-                         src="/lovable-uploads/bf8624e5-73f0-4058-89bf-eae815967f7e.png"
-                        alt="HASH Token"
-                        className="w-12 h-12 rounded-lg"
-                      />
-                    )}
-                    <div>
-                      <div className="text-xl font-bold">{token.symbol}</div>
-                      <div className="text-sm text-muted-foreground font-normal">{token.name}</div>
+              <div key={index} className="card-gradient rounded-3xl p-8 border border-white/10 hover:border-white/20 transition-all duration-300 group"
+                   style={{
+                     backdropFilter: 'blur(16px)',
+                     boxShadow: '0 0 20px rgba(229, 218, 194, 0.2), 0 0 40px rgba(229, 218, 194, 0.1)'
+                   }}>
+                <div className="flex items-center gap-4 mb-6">
+                  {token.symbol === 'YIELD' ? (
+                    <img 
+                      src="/lovable-uploads/08452a7b-6782-4b0a-900e-0f0c99a4fc4e.png" 
+                      alt="YIELD Token"
+                      className="w-16 h-16 rounded-xl group-hover:scale-110 transition-transform duration-300"
+                      style={{ filter: 'drop-shadow(0 0 8px rgba(229, 218, 194, 0.4))' }}
+                    />
+                  ) : (
+                     <img 
+                       src="/lovable-uploads/bf8624e5-73f0-4058-89bf-eae815967f7e.png"
+                      alt="HASH Token"
+                      className="w-16 h-16 rounded-xl group-hover:scale-110 transition-transform duration-300"
+                      style={{ filter: 'drop-shadow(0 0 8px rgba(229, 218, 194, 0.4))' }}
+                    />
+                  )}
+                  <div>
+                    <div className="text-2xl font-bold text-platinum">{token.symbol}</div>
+                    <div className="text-sm text-platinum/70 font-medium">{token.name}</div>
+                  </div>
+                </div>
+                  
+                {/* Enhanced Risk and APY info */}
+                <div className="flex items-center gap-4 mb-6">
+                  <span className="text-platinum font-medium text-sm flex items-center gap-2 px-3 py-1 rounded-lg card-gradient border border-white/10">
+                    <div className="w-2 h-2 bg-platinum rounded-full" 
+                         style={{ boxShadow: '0 0 6px hsl(var(--platinum))' }}></div>
+                    {token.risk} Risk
+                  </span>
+                  <span className="text-platinum font-medium text-sm flex items-center gap-2 px-3 py-1 rounded-lg card-gradient border border-white/10">
+                    <div className="w-2 h-2 bg-platinum rounded-full" 
+                         style={{ boxShadow: '0 0 6px hsl(var(--platinum))' }}></div>
+                    {token.apy} APY
+                  </span>
+                </div>
+                
+                <p className="text-platinum/80 text-base mb-6 leading-relaxed">{token.description}</p>
+                <div className="space-y-3 mb-8">
+                  {token.features.map((feature, i) => (
+                    <div key={i} className="flex items-center gap-3 text-sm text-platinum/80">
+                      <div className="w-2 h-2 bg-platinum rounded-full" 
+                           style={{ boxShadow: '0 0 4px hsl(var(--platinum))' }}></div>
+                      <span>{feature}</span>
                     </div>
-                  </CardTitle>
-                  
-                  {/* Risk and APY info under token name in orange with visual markers */}
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-orange-300 font-medium text-sm flex items-center gap-1">
-                      <div className="w-1.5 h-1.5 bg-orange-300 rounded-full"></div>
-                      {token.risk} Risk
-                    </span>
-                    <div className="w-1 h-1 bg-orange-300/50 rounded-full"></div>
-                    <span className="text-orange-300 font-medium text-sm flex items-center gap-1">
-                      <div className="w-1.5 h-1.5 bg-orange-300 rounded-full"></div>
-                      {token.apy} APY
-                    </span>
-                  </div>
-                  
-                  <CardDescription className="text-base">{token.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3 mb-6">
-                    {token.features.map((feature, i) => (
-                      <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <div className="w-2 h-2 bg-orange-300 rounded-full"></div>
-                        <span>{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <Button 
-                    className="w-full bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 transition-all duration-200 group-hover:scale-[1.02]"
-                    onClick={() => {
-                      // Navigate to quick start guides
-                      const learningSection = document.querySelector('[data-section="learning"]');
-                      if (learningSection) {
-                        learningSection.scrollIntoView({ behavior: 'smooth' });
-                      }
-                    }}
-                  >
-                    Learn More
-                    <Info className="ml-2 h-4 w-4" />
-                  </Button>
-                </CardContent>
-              </Card>
+                  ))}
+                </div>
+                <Button 
+                  className="w-full bg-platinum/10 border border-platinum/20 text-platinum hover:bg-platinum/20 hover:border-platinum/30 transition-all duration-300 group-hover:scale-[1.02] font-medium"
+                  style={{
+                    backdropFilter: 'blur(10px)',
+                    boxShadow: '0 0 10px rgba(229, 218, 194, 0.2)'
+                  }}
+                  onClick={() => {
+                    // Navigate to quick start guides
+                    const learningSection = document.querySelector('[data-section="learning"]');
+                    if (learningSection) {
+                      learningSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  Learn More
+                  <Info className="ml-2 h-4 w-4 group-hover:scale-110 transition-transform" />
+                </Button>
+              </div>
             ))}
           </div>
         </div>

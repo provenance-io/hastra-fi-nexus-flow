@@ -25,17 +25,27 @@ const WalletConnectionSection = () => {
   };
 
   return (
-    <section className="py-24 md:py-32 bg-gradient-to-br from-header-glow/5 via-background to-crypto-accent/5">
-      <div className="container">
+    <section className="py-24 md:py-32 relative">
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90"></div>
+      <div className="container relative">
         <div className="max-w-2xl mx-auto space-y-8">
-          <div className="text-center space-y-4">
-            <div className="w-16 h-16 mx-auto rounded-full bg-header-glow/20 flex items-center justify-center">
-              <Wallet className="w-8 h-8 text-header-glow" />
+          <div className="text-center space-y-6">
+            <div className="w-20 h-20 mx-auto rounded-full card-gradient border border-white/20 flex items-center justify-center"
+                 style={{
+                   backdropFilter: 'blur(16px)',
+                   boxShadow: '0 0 20px rgba(229, 218, 194, 0.3), 0 0 40px rgba(229, 218, 194, 0.1)'
+                 }}>
+              <Wallet className="w-10 h-10 text-platinum" />
             </div>
             <div>
-              <h2 className="text-3xl font-bold text-gradient mb-2">Connect Your Wallet</h2>
-              <p className="text-muted-foreground text-lg">
-                {isConnected ? 'Wallet connected! View your dashboard above to start trading.' : 'Connect your wallet to start earning yield with YIELD and sHASH tokens'}
+              <h2 className="text-3xl font-bold mb-3" style={{ 
+                background: 'linear-gradient(135deg, hsl(var(--platinum)), hsl(var(--muted-foreground)))', 
+                WebkitBackgroundClip: 'text', 
+                WebkitTextFillColor: 'transparent',
+                textShadow: '0 0 30px rgba(229, 218, 194, 0.4)'
+              }}>Connect Your Wallet</h2>
+              <p className="text-platinum/80 text-lg leading-relaxed" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.2)' }}>
+                {isConnected ? 'Wallet connected! View your dashboard above to start trading.' : 'Connect your wallet to start earning yield with YIELD and sHASH tokens in a secure, premium DeFi environment'}
               </p>
             </div>
           </div>
@@ -50,34 +60,38 @@ const WalletConnectionSection = () => {
           )}
 
           {!isConnected && (
-            <Card className="glass-effect border-border/50">
-              <CardHeader className="text-center">
-                <CardTitle className="text-xl">Get Started</CardTitle>
-                <CardDescription>
-                  Connect your MetaMask wallet to access DeFi opportunities
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
+            <div className="card-gradient rounded-3xl p-8 border border-white/10"
+                 style={{
+                   backdropFilter: 'blur(16px)',
+                   boxShadow: '0 0 20px rgba(229, 218, 194, 0.2), 0 0 40px rgba(229, 218, 194, 0.1)'
+                 }}>
+              <div className="text-center mb-8">
+                <h3 className="text-xl font-bold text-platinum mb-2">Get Started</h3>
+                <p className="text-platinum/70">
+                  Connect your MetaMask wallet to access premium DeFi opportunities
+                </p>
+              </div>
+              <div className="space-y-6 mb-8">
                 <div className="space-y-4">
-                  <div className="flex items-center gap-3 p-4 rounded-lg bg-muted/30">
-                    <CheckCircle className="w-5 h-5 text-green-400" />
+                  <div className="flex items-center gap-4 p-4 rounded-xl card-gradient border border-white/10">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
                     <div>
-                      <p className="font-medium">Secure Connection</p>
-                      <p className="text-sm text-muted-foreground">Your wallet stays in your control</p>
+                      <p className="font-medium text-platinum">Secure Connection</p>
+                      <p className="text-sm text-platinum/70">Your wallet stays in your control</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3 p-4 rounded-lg bg-muted/30">
-                    <CheckCircle className="w-5 h-5 text-green-400" />
+                  <div className="flex items-center gap-4 p-4 rounded-xl card-gradient border border-white/10">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
                     <div>
-                      <p className="font-medium">Track Earnings</p>
-                      <p className="text-sm text-muted-foreground">Monitor your yields and positions</p>
+                      <p className="font-medium text-platinum">Track Earnings</p>
+                      <p className="text-sm text-platinum/70">Monitor your yields and positions</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3 p-4 rounded-lg bg-muted/30">
-                    <CheckCircle className="w-5 h-5 text-green-400" />
+                  <div className="flex items-center gap-4 p-4 rounded-xl card-gradient border border-white/10">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
                     <div>
-                      <p className="font-medium">Easy Trading</p>
-                      <p className="text-sm text-muted-foreground">Access integrated DeFi platforms</p>
+                      <p className="font-medium text-platinum">Easy Trading</p>
+                      <p className="text-sm text-platinum/70">Access integrated DeFi platforms</p>
                     </div>
                   </div>
                 </div>
@@ -85,7 +99,11 @@ const WalletConnectionSection = () => {
                 <Button
                   onClick={handleConnectWallet}
                   disabled={isConnecting}
-                  className="w-full bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 transition-all duration-200 group-hover:scale-[1.02]"
+                  className="w-full bg-platinum/10 border border-platinum/20 text-platinum hover:bg-platinum/20 hover:border-platinum/30 transition-all duration-300 font-medium"
+                  style={{
+                    backdropFilter: 'blur(10px)',
+                    boxShadow: '0 0 20px rgba(229, 218, 194, 0.3), 0 0 40px rgba(229, 218, 194, 0.1)'
+                  }}
                   size="lg"
                 >
                   {isConnecting ? (
@@ -101,15 +119,19 @@ const WalletConnectionSection = () => {
                   )}
                 </Button>
 
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           )}
           
           {isConnected && (
             <div className="text-center">
               <Button 
                 size="lg" 
-                className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 transition-all duration-200 group-hover:scale-[1.02]"
+                className="bg-platinum/10 border border-platinum/20 text-platinum hover:bg-platinum/20 hover:border-platinum/30 transition-all duration-300 font-medium"
+                style={{
+                  backdropFilter: 'blur(10px)',
+                  boxShadow: '0 0 20px rgba(229, 218, 194, 0.3), 0 0 40px rgba(229, 218, 194, 0.1)'
+                }}
                 onClick={handleConnectWallet}
               >
                 View Dashboard
