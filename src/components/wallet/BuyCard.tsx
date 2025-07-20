@@ -83,45 +83,45 @@ const BuyCard = () => {
   const receiveAmount = calculateReceiveAmount();
 
   return (
-    <div className="space-y-4">
-      <div className="flex items-center gap-2 mb-4">
-        <ArrowUpDown className="w-5 h-5 text-header-glow" />
-        <h3 className="text-xl font-bold">Buy Tokens</h3>
+    <div className="space-y-6">
+      <div className="flex items-center gap-3 mb-6">
+        <ArrowUpDown className="w-6 h-6 md:w-5 md:h-5 text-header-glow" />
+        <h3 className="text-2xl md:text-xl font-bold">Buy Tokens</h3>
       </div>
-      <div className="card-gradient rounded-2xl p-6 md:p-8 space-y-4">
+      <div className="card-gradient rounded-2xl p-6 md:p-8 space-y-6">
         {/* Sell Asset Selection */}
-        <div className="space-y-2">
-          <Label className="text-sm font-medium text-foreground">You're selling</Label>
+        <div className="space-y-3">
+          <Label className="text-base md:text-sm font-medium text-foreground">You're selling</Label>
           <Select value={sellAsset} onValueChange={(value: 'USDC' | 'SOL') => setSellAsset(value)}>
-            <SelectTrigger className="bg-muted/50">
-              <div className="flex items-center gap-3 w-full">
+            <SelectTrigger className="bg-muted/50 h-16 md:h-auto">
+              <div className="flex items-center gap-4 w-full">
                 <img 
                   src={sellAsset === 'USDC' ? usdcIcon : solanaIcon} 
                   alt={sellAsset === 'USDC' ? 'USDC' : 'Solana'} 
-                  className="w-6 h-6 rounded-full flex-shrink-0" 
+                  className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0" 
                 />
                 <div className="flex flex-col min-w-0 flex-1">
-                  <span className="text-sm font-medium">{sellAsset === 'USDC' ? 'USDC' : 'Solana'}</span>
-                  <span className="text-xs text-muted-foreground truncate">{mockBalances[sellAsset]}</span>
+                  <span className="text-base md:text-sm font-medium">{sellAsset === 'USDC' ? 'USDC' : 'Solana'}</span>
+                  <span className="text-sm md:text-xs text-muted-foreground truncate">{mockBalances[sellAsset]}</span>
                 </div>
               </div>
             </SelectTrigger>
             <SelectContent className="bg-card/80 backdrop-blur-sm border border-border/20">
-              <SelectItem value="USDC">
-                <div className="flex items-center gap-3 py-1">
-                  <img src={usdcIcon} alt="USDC" className="w-6 h-6 rounded-full flex-shrink-0" />
+              <SelectItem value="USDC" className="py-3">
+                <div className="flex items-center gap-4 py-2">
+                  <img src={usdcIcon} alt="USDC" className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0" />
                   <div className="flex flex-col min-w-0 flex-1">
-                    <span className="text-sm font-medium">USDC</span>
-                    <span className="text-xs text-muted-foreground truncate">{mockBalances.USDC}</span>
+                    <span className="text-base md:text-sm font-medium">USDC</span>
+                    <span className="text-sm md:text-xs text-muted-foreground truncate">{mockBalances.USDC}</span>
                   </div>
                 </div>
               </SelectItem>
-              <SelectItem value="SOL">
-                <div className="flex items-center gap-3 py-1">
-                  <img src={solanaIcon} alt="Solana" className="w-6 h-6 rounded-full flex-shrink-0" />
+              <SelectItem value="SOL" className="py-3">
+                <div className="flex items-center gap-4 py-2">
+                  <img src={solanaIcon} alt="Solana" className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0" />
                   <div className="flex flex-col min-w-0 flex-1">
-                    <span className="text-sm font-medium">Solana</span>
-                    <span className="text-xs text-muted-foreground truncate">{mockBalances.SOL}</span>
+                    <span className="text-base md:text-sm font-medium">Solana</span>
+                    <span className="text-sm md:text-xs text-muted-foreground truncate">{mockBalances.SOL}</span>
                   </div>
                 </div>
               </SelectItem>
@@ -130,35 +130,35 @@ const BuyCard = () => {
         </div>
 
         {/* Buy Asset Selection */}
-        <div className="space-y-2">
-          <Label className="text-sm font-medium text-foreground">You're buying</Label>
+        <div className="space-y-3">
+          <Label className="text-base md:text-sm font-medium text-foreground">You're buying</Label>
           <Select value={buyAsset} onValueChange={(value: 'YIELD' | 'HASH') => setBuyAsset(value)}>
-            <SelectTrigger className="bg-muted/50">
-              <div className="flex items-center gap-3 w-full">
+            <SelectTrigger className="bg-muted/50 h-16 md:h-auto">
+              <div className="flex items-center gap-4 w-full">
                 <img 
                   src={buyAsset === 'YIELD' ? yieldIcon : hashIcon} 
                   alt={buyAsset} 
-                  className="w-6 h-6 rounded-full flex-shrink-0" 
+                  className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0" 
                 />
                 <div className="flex flex-col min-w-0 flex-1">
-                  <span className="text-sm font-medium">{buyAsset}</span>
+                  <span className="text-base md:text-sm font-medium">{buyAsset}</span>
                 </div>
               </div>
             </SelectTrigger>
             <SelectContent className="bg-card/80 backdrop-blur-sm border border-border/20">
-              <SelectItem value="YIELD">
-                <div className="flex items-center gap-3 py-1">
-                  <img src={yieldIcon} alt="YIELD" className="w-6 h-6 rounded-full flex-shrink-0" />
+              <SelectItem value="YIELD" className="py-3">
+                <div className="flex items-center gap-4 py-2">
+                  <img src={yieldIcon} alt="YIELD" className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0" />
                   <div className="flex flex-col min-w-0 flex-1">
-                    <span className="text-sm font-medium">YIELD</span>
+                    <span className="text-base md:text-sm font-medium">YIELD</span>
                   </div>
                 </div>
               </SelectItem>
-              <SelectItem value="HASH">
-                <div className="flex items-center gap-3 py-1">
-                  <img src={hashIcon} alt="HASH" className="w-6 h-6 rounded-full object-cover flex-shrink-0" />
+              <SelectItem value="HASH" className="py-3">
+                <div className="flex items-center gap-4 py-2">
+                  <img src={hashIcon} alt="HASH" className="w-8 h-8 md:w-6 md:h-6 rounded-full object-cover flex-shrink-0" />
                   <div className="flex flex-col min-w-0 flex-1">
-                    <span className="text-sm font-medium">HASH</span>
+                    <span className="text-base md:text-sm font-medium">HASH</span>
                   </div>
                 </div>
               </SelectItem>
@@ -167,25 +167,25 @@ const BuyCard = () => {
         </div>
 
         {/* Amount Input */}
-        <div className="space-y-2">
+        <div className="space-y-3">
           <div className="flex items-center justify-between">
-            <Label className="text-sm font-medium text-foreground">Amount</Label>
+            <Label className="text-base md:text-sm font-medium text-foreground">Amount</Label>
             <div className="flex items-center gap-2">
               <div className="flex items-center bg-muted/30 rounded-md p-1">
                 <Button 
                   variant={denomination === 'usd' ? 'default' : 'ghost'}
                   size="sm"
                   onClick={() => setDenomination('usd')}
-                  className={`h-7 text-xs px-2 ${denomination === 'usd' ? 'btn-hastra' : 'text-muted-foreground hover:text-foreground'}`}
+                  className={`h-8 md:h-7 text-sm md:text-xs px-3 md:px-2 ${denomination === 'usd' ? 'btn-hastra' : 'text-muted-foreground hover:text-foreground'}`}
                 >
-                  <DollarSign className="w-3 h-3 mr-1" />
+                  <DollarSign className="w-4 h-4 md:w-3 md:h-3 mr-1" />
                   USD
                 </Button>
                 <Button 
                   variant={denomination === 'token' ? 'default' : 'ghost'}
                   size="sm"
                   onClick={() => setDenomination('token')}
-                  className={`h-7 text-xs px-2 ${denomination === 'token' ? 'btn-hastra' : 'text-muted-foreground hover:text-foreground'}`}
+                  className={`h-8 md:h-7 text-sm md:text-xs px-3 md:px-2 ${denomination === 'token' ? 'btn-hastra' : 'text-muted-foreground hover:text-foreground'}`}
                 >
                   {sellAsset}
                 </Button>
@@ -195,7 +195,7 @@ const BuyCard = () => {
                   variant="ghost"
                   size="sm" 
                   onClick={handleMaxClick}
-                  className="h-7 px-2 text-xs font-medium text-orange-300 hover:bg-orange-900/30 hover:text-orange-200 transition-all duration-200"
+                  className="h-8 md:h-7 px-3 md:px-2 text-sm md:text-xs font-medium text-orange-300 hover:bg-orange-900/30 hover:text-orange-200 transition-all duration-200"
                 >
                   Max
                 </Button>
@@ -209,16 +209,16 @@ const BuyCard = () => {
             placeholder={`Enter amount in ${denomination === 'usd' ? 'USD' : sellAsset}`}
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            className="bg-muted/50 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&]:[-moz-appearance:textfield]"
+            className="bg-muted/50 h-14 md:h-auto text-lg md:text-base [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&]:[-moz-appearance:textfield]"
           />
         </div>
 
         {/* Receive Amount Display */}
         {amount && receiveAmount.tokens > 0 && (
-          <div className="bg-muted/50 border border-orange-800/30 rounded-lg p-4">
-            <div className="text-sm text-muted-foreground mb-1">You'll receive</div>
-            <div className="font-semibold text-lg text-orange-300">{receiveAmount.tokens.toFixed(6)} {buyAsset}</div>
-            <div className="text-xs text-muted-foreground">${receiveAmount.usd.toFixed(2)} USD</div>
+          <div className="bg-muted/50 border border-orange-800/30 rounded-lg p-4 md:p-4">
+            <div className="text-base md:text-sm text-muted-foreground mb-2">You'll receive</div>
+            <div className="font-semibold text-xl md:text-lg text-orange-300">{receiveAmount.tokens.toFixed(6)} {buyAsset}</div>
+            <div className="text-sm md:text-xs text-muted-foreground">${receiveAmount.usd.toFixed(2)} USD</div>
           </div>
         )}
 
@@ -226,7 +226,7 @@ const BuyCard = () => {
         <Button 
           onClick={handleSwap} 
           size="lg"
-          className="w-full bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring px-8 py-4 text-sm font-medium rounded-xl min-w-[200px] group transition-all duration-200"
+          className="w-full bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring px-8 py-6 md:py-4 text-lg md:text-sm font-medium rounded-xl min-w-[200px] group transition-all duration-200"
           disabled={!amount || receiveAmount.tokens === 0}
         >
           Swap {sellAsset} for {buyAsset}
