@@ -44,7 +44,7 @@ const LearnHero = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button 
               size="lg" 
-              className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-4 text-lg rounded-xl min-w-[200px] group transition-all duration-200"
+              className="bg-orange-900/20 text-orange-300 hover:bg-orange-900/30 focus-ring font-semibold tracking-tight px-6 py-3 text-lg rounded-lg min-w-[200px] group transition-all duration-300 shadow-sm hover:shadow-md"
               onClick={() => {
                 const guidesSection = document.querySelector('[data-section="guides"]');
                 if (guidesSection) {
@@ -58,7 +58,7 @@ const LearnHero = () => {
             <Button 
               variant="outline"
               size="lg" 
-              className="px-8 py-4 text-lg rounded-xl min-w-[200px] group transition-all duration-200"
+              className="px-6 py-3 text-lg rounded-lg min-w-[200px] group transition-all duration-300 font-semibold tracking-tight shadow-sm hover:shadow-md"
               asChild
             >
               <a href="/earn">

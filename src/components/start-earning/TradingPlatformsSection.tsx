@@ -51,7 +51,7 @@ const TradingPlatformsSection = () => {
                   </li>
                 ))}
               </ul>
-              <Button asChild className="w-full bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 transition-all duration-200 group-hover:scale-[1.02]">
+              <Button asChild className="w-full bg-orange-900/20 text-orange-300 hover:bg-orange-900/30 transition-all duration-300 group-hover:scale-[1.02] font-semibold tracking-tight rounded-lg shadow-sm hover:shadow-md">
                 <a href={platform.link} target="_blank" rel="noopener noreferrer">
                   Access {platform.name}
                   <ExternalLink className="ml-2 h-4 w-4" />
