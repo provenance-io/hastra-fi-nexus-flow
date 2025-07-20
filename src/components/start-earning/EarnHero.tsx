@@ -70,7 +70,7 @@ const EarnHero = () => {
           </p>
           <Button 
             size="lg" 
-            className="bg-platinum/10 text-platinum hover:bg-platinum/20 focus-ring font-semibold tracking-tight px-6 py-3 text-lg rounded-lg min-w-[200px] group transition-all duration-300 shadow-sm hover:shadow-md"
+            variant="secondary"
             style={{
               boxShadow: '0 0 20px rgba(229, 218, 194, 0.3), 0 0 40px rgba(229, 218, 194, 0.1)',
               backdropFilter: 'blur(10px)'

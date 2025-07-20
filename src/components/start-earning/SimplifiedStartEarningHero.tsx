@@ -56,7 +56,7 @@ const SimplifiedStartEarningHero = () => {
                   </div>
                 </div>
                 
-                <Button className="w-full bg-orange-900/20 text-orange-300 hover:bg-orange-900/30 focus-ring font-semibold tracking-tight px-6 py-3 text-lg rounded-lg group-hover:shadow-md transition-all duration-300 shadow-sm">
+                <Button variant="secondary" className="w-full">
                   Start Learning
                   <BookOpen className="ml-2 h-4 w-4" />
                 </Button>
@@ -92,7 +92,7 @@ const SimplifiedStartEarningHero = () => {
                   </div>
                 </div>
                 
-                <Button className="w-full bg-orange-900/20 text-orange-300 hover:bg-orange-900/30 focus-ring font-semibold tracking-tight px-6 py-3 text-lg rounded-lg group-hover:shadow-md transition-all duration-300 shadow-sm">
+                <Button variant="secondary" className="w-full">
                   Buy Tokens
                   <ExternalLink className="ml-2 h-4 w-4" />
                 </Button>
