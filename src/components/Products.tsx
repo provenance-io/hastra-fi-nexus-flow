@@ -294,7 +294,7 @@ const Products = () => {
                 return (
                   <div 
                     key={stat.label} 
-                    className="group bg-muted/30 rounded-2xl p-6 text-center space-y-3 hover:bg-background/60 transition-all duration-300"
+                    className="group bg-background/30 rounded-2xl p-6 text-center space-y-3 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300"
                     style={{
                       animationDelay: `${(index + 3) * 0.1}s`,
                       animation: 'fade-in-up 0.6s ease-out forwards'
