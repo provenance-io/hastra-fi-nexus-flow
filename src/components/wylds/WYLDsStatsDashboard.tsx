@@ -115,19 +115,21 @@ const WYLDsStatsDashboard = () => {
   ];
 
   return (
-    <section className="pt-12 pb-20 relative">
-      {/* Premium background - matching homepage */}
+    <section className="py-16 px-4 relative overflow-hidden">
+      {/* Background gradient */}
       {/* Unified seamless background - removed conflicting gradient */}
       
-      <div className="max-w-5xl mx-auto px-4 relative">
-        <div className="max-w-5xl mx-auto">
-          <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
-            <div className="text-center mb-6">
-              <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed mb-4" 
+      <div className="max-w-5xl mx-auto px-4 relative z-10">
+        {/* Dashboard Box - Matching About page styling */}
+        <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
+          <div className="relative z-10">
+            {/* Section Header - Inside the box */}
+            <div className="text-center mb-12">
+              <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed mb-6 md:mb-8" 
                  style={{ 
                    textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' 
                  }}>
-                Track YIELD performance with real-time data and transparent metrics
+                Track YIELD performance
               </p>
             </div>
             
