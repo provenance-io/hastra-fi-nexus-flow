@@ -9,7 +9,7 @@ const projectId = '02661e769c8e5bedcf941045cf4ec583' // You'll need to replace t
 const metadata = {
   name: 'Hastra',
   description: 'Hastra DeFi Protocol',
-  url: 'https://hastra.com', // origin must match your domain & subdomain
+  url: typeof window !== 'undefined' ? window.location.origin : 'https://hastra.com',
   icons: ['https://avatars.githubusercontent.com/u/179229932']
 }
 
