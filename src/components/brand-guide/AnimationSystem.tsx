@@ -16,7 +16,7 @@ const AnimationSystem = () => {
     <section className="py-20 relative">
       <div className="container relative">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-gradient">Animation System</h2>
+          <h2 className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed mb-8 text-center" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>Animation System</h2>
           <p className="text-xl text-foreground/90 text-center mb-16 max-w-3xl mx-auto">
             Smooth, purposeful animations enhance user experience without being distracting.
           </p>

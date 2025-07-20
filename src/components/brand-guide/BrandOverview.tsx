@@ -5,7 +5,7 @@ const BrandOverview = () => {
       <div className="container relative">
         <div className="max-w-5xl mx-auto">
           <div className="card-gradient rounded-3xl p-8 md:p-12 card-bottom-static border border-transparent">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-gradient">Brand Overview</h2>
+            <h2 className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed mb-12 text-center" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>Brand Overview</h2>
             <div className="grid md:grid-cols-3 gap-12">
               <div className="text-center">
                 <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-hastra-teal/10 flex items-center justify-center">

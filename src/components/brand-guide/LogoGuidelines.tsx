@@ -8,7 +8,7 @@ const LogoGuidelines = () => {
     <section className="py-20 relative">
       <div className="container relative">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-gradient">Logo & Identity</h2>
+          <h2 className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed mb-16 text-center" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>Logo & Identity</h2>
           
           <div className="grid lg:grid-cols-2 gap-12 mb-16">
             <div className="card-gradient rounded-3xl p-8 card-bottom-static border border-transparent">
