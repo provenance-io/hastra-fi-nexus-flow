@@ -8,6 +8,10 @@ export const walletIcons: Record<string, LucideIcon> = {
   'Coinbase': Coins,
   'Phantom': Wallet,
   'Trust Wallet': Shield,
+  'Solflare': Wallet,
+  'Backpack': Wallet,
+  'Slope': Wallet,
+  'Glow': Wallet,
   // Default fallback
   default: Wallet,
 };

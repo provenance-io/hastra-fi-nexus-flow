@@ -69,7 +69,9 @@ const WalletHeaderButton = () => {
         >
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-orange-300 animate-pulse" />
-            <span className="font-mono text-sm tracking-wider">{formatAddress(address)}</span>
+            <span className="font-mono text-sm tracking-wider">
+              {walletType && walletType !== 'Connected' ? walletType.slice(0, 8) : formatAddress(address)}
+            </span>
             <ChevronDown className="h-3 w-3" />
           </div>
         </Button>
@@ -84,7 +86,9 @@ const WalletHeaderButton = () => {
               <WalletIcon className="w-4 h-4 text-orange-300" />
             </div>
             <div>
-              <p className="font-medium text-platinum/90">Connected Wallet</p>
+              <p className="font-medium text-platinum/90">
+                {walletType && walletType !== 'Connected' ? walletType : 'Connected Wallet'}
+              </p>
               <p className="text-sm text-platinum/70 font-mono">{formatAddress(address)}</p>
             </div>
           </div>

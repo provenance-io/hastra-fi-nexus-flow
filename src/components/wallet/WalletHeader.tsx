@@ -39,6 +39,14 @@ const WalletHeader = ({
         return <Wallet className="w-6 h-6 text-[hsl(34_100%_84%)]" />;
       case 'Coinbase':
         return <Wallet className="w-6 h-6 text-blue-400" />;
+      case 'WalletConnect':
+        return <Wallet className="w-6 h-6 text-blue-400" />;
+      case 'Backpack':
+        return <Wallet className="w-6 h-6 text-purple-400" />;
+      case 'Slope':
+        return <Wallet className="w-6 h-6 text-green-400" />;
+      case 'Glow':
+        return <Wallet className="w-6 h-6 text-yellow-400" />;
       default:
         return <Wallet className="w-6 h-6 text-hastra-teal" />;
     }
@@ -54,6 +62,14 @@ const WalletHeader = ({
         return 'bg-yellow-900/20';
       case 'Coinbase':
         return 'bg-blue-900/20';
+      case 'WalletConnect':
+        return 'bg-blue-900/20';
+      case 'Backpack':
+        return 'bg-purple-900/20';
+      case 'Slope':
+        return 'bg-green-900/20';
+      case 'Glow':
+        return 'bg-yellow-900/20';
       default:
         return 'bg-hastra-teal/20';
     }
@@ -69,6 +85,9 @@ const WalletHeader = ({
           <div>
             <p className="text-sm text-foreground font-mono font-medium">
               {address ? formatAddress(address) : 'Loading...'}
+            </p>
+            <p className="text-xs text-muted-foreground">
+              {walletType && walletType !== 'Connected' ? walletType : 'Connected Wallet'}
             </p>
           </div>
         </div>

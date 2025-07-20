@@ -61,6 +61,12 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
                            (state as any).account ||
                            'Connected Wallet';
       
+      // Get the actual wallet provider name from AppKit
+      const connectedWalletName = (state as any).connectorName || 
+                                 (state as any).connectorType ||
+                                 (state as any).walletInfo?.name ||
+                                 'WalletConnect';
+      
       // Only update state when modal is closed to avoid intermediate states
       if (!state.open) {
         if (hasConnection && walletAddress) {
@@ -70,14 +76,14 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
             isConnected: true,
             address: walletAddress,
             isConnecting: false,
-            walletType: 'Connected',
+            walletType: connectedWalletName,
             balance: 1250.45,
           }));
           
           if (walletState.isConnecting) {
             toast({
               title: "🟢 Wallet Connected",
-              description: `Successfully connected wallet`,
+              description: `Successfully connected ${connectedWalletName}`,
               className: "border-l-4 border-l-crypto-accent bg-crypto-accent/10 shadow-glow",
             });
           }
