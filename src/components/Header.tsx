@@ -117,9 +117,9 @@ const Header = () => {
                   <path d="M6 9l6 6 6-6" />
                 </svg>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-72 bg-background/30 backdrop-blur-md border border-border/20 hover:border-auburn-primary/20 shadow-2xl mt-4 z-50" align="start">
+              <DropdownMenuContent className="w-72 bg-background/30 backdrop-blur-md border border-border/20 hover:border-orange-300/20 shadow-2xl mt-4 z-50" align="start">
                 <DropdownMenuItem asChild>
-                  <Link to="/yield" className="flex items-center w-full cursor-pointer p-3 hover:bg-auburn-primary/10 hover:text-auburn-primary rounded-lg transition-all duration-200 group focus:outline-none focus:ring-0">
+                  <Link to="/yield" className="flex items-center w-full cursor-pointer p-3 hover:bg-orange-300/10 hover:text-orange-300 rounded-lg transition-all duration-200 group focus:outline-none focus:ring-0">
                     <div className="flex items-center gap-3">
                       <img 
                         src="/lovable-uploads/08452a7b-6782-4b0a-900e-0f0c99a4fc4e.png" 
@@ -139,7 +139,7 @@ const Header = () => {
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/homes" className="flex items-center w-full cursor-pointer p-3 hover:bg-auburn-primary/10 hover:text-auburn-primary rounded-lg transition-all duration-200 group focus:outline-none focus:ring-0">
+                  <Link to="/homes" className="flex items-center w-full cursor-pointer p-3 hover:bg-orange-300/10 hover:text-orange-300 rounded-lg transition-all duration-200 group focus:outline-none focus:ring-0">
                     <div className="flex items-center gap-3">
                       <img 
                         src="/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png" 
