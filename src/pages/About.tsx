@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -249,11 +250,11 @@ const About = () => {
                   When we succeed, HASH holders succeed.
                 </p>
                 
-                {/* Connecting line */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 top-full h-24 w-0.5 bg-gradient-to-b from-foreground/30 to-transparent"
+                {/* Fixed connecting line with solid white color and proper glow */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 top-full h-32 w-0.5 z-50"
                      style={{ 
-                       filter: 'drop-shadow(0 0 8px rgba(255, 255, 255, 0.4))',
-                       background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.3), transparent)'
+                       background: 'rgba(255, 255, 255, 0.8)',
+                       boxShadow: '0 0 12px rgba(255, 255, 255, 0.6), 0 0 24px rgba(255, 255, 255, 0.4), 0 0 36px rgba(255, 255, 255, 0.2)'
                      }} />
               </div>
             </div>
