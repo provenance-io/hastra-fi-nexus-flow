@@ -34,6 +34,14 @@
     --hastra-slate-light: 215 25% 35%;
     --hastra-slate-dark: 215 25% 20%;
     
+    /* New Muted Hastra Gradient Colors */
+    --hastra-muted-dark: 215 25% 15%;
+    --hastra-muted-slate: 215 20% 25%;
+    --hastra-muted-teal: 180 30% 40%;
+    --hastra-gradient-start: 215 25% 12%;
+    --hastra-gradient-mid: 180 20% 35%;
+    --hastra-gradient-end: 240 10% 8%;
+    
     /* Glass Morphism */
     --glass-bg: 255 255 255 / 0.05;
     --glass-border: 255 255 255 / 0.1;
@@ -71,6 +79,7 @@
     --gradient-premium: linear-gradient(135deg, hsl(var(--electric-blue) / 0.1), hsl(var(--neon-cyan) / 0.05));
     --gradient-glass: linear-gradient(145deg, hsl(var(--glass-bg)), hsl(240 10% 20% / 0.6));
     --gradient-hero: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--charcoal)) 50%, hsl(var(--deep-navy)) 100%);
+    --gradient-hastra-muted: linear-gradient(135deg, hsl(var(--hastra-gradient-start) / 0.8), hsl(var(--hastra-gradient-mid) / 0.3), hsl(var(--hastra-gradient-end) / 0.1));
     
     /* Enhanced shadows */
     --shadow-glow: 0 0 20px hsl(120 70% 45% / 0.3);

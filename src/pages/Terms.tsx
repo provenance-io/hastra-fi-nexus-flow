@@ -1,7 +1,9 @@
+
 const Terms = () => {
   return (
     <div className="relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
+      {/* New muted Hastra gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-hastra-gradient-start/80 via-hastra-gradient-mid/30 to-hastra-gradient-end/10"></div>
       
       <div className="relative z-10">
         <main className="flex-grow">

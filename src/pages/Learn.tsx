@@ -6,8 +6,8 @@ import ProvenanceBranding from '@/components/ProvenanceBranding';
 const Learn = () => {
   return (
     <div className="relative">
-      {/* Extended gradient background to match homepage */}
-      <div className="absolute inset-0 bg-gradient-to-bl from-crypto-accent/5 via-header-glow/5 to-background"></div>
+      {/* New muted Hastra gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-hastra-gradient-start/80 via-hastra-gradient-mid/30 to-hastra-gradient-end/10"></div>
       <div className="relative z-10">
         <LearnHero />
         <EnhancedGuidesSection />
