@@ -220,7 +220,7 @@ const Header = () => {
               asChild 
               size="lg" 
               variant="secondary"
-              className="hidden md:flex"
+              className="hidden md:flex tracking-widest"
             >
               <Link to="/earn">LAUNCH PROTOCOL</Link>
             </Button>
