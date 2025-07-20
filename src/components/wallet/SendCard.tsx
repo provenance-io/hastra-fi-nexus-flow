@@ -105,15 +105,15 @@ const SendCard = () => {
         <div className="space-y-3">
           <Label className="text-base md:text-sm font-medium text-foreground">Select token to send</Label>
           <Select value={selectedToken} onValueChange={(value: 'YIELD' | 'HASH') => setSelectedToken(value)}>
-            <SelectTrigger className="bg-muted/50 h-14 md:h-auto">
+            <SelectTrigger className="bg-muted/50 h-14 md:h-auto font-sans">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center gap-4">
                   <img 
                     src={selectedToken === 'YIELD' ? yieldIcon : hashIcon} 
                     alt={selectedToken} 
-                    className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0" 
+                    className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0 object-cover" 
                   />
-                  <span className="text-base md:text-sm font-medium">{selectedToken}</span>
+                  <span className="text-base md:text-sm font-medium font-sans">{selectedToken}</span>
                 </div>
                 <span className="text-sm md:text-xs text-muted-foreground font-mono">{tokenBalances[selectedToken]}</span>
               </div>
@@ -122,8 +122,8 @@ const SendCard = () => {
               <SelectItem value="YIELD" className="py-4 md:py-2">
                 <div className="flex items-center justify-between w-full py-2 md:py-1">
                   <div className="flex items-center gap-4">
-                    <img src={yieldIcon} alt="YIELD" className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0" />
-                    <span className="text-base md:text-sm font-medium">YIELD</span>
+                    <img src={yieldIcon} alt="YIELD" className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0 object-cover" />
+                    <span className="text-base md:text-sm font-medium font-sans">YIELD</span>
                   </div>
                   <span className="text-sm md:text-xs text-muted-foreground font-mono ml-4">{tokenBalances.YIELD}</span>
                 </div>
@@ -132,7 +132,7 @@ const SendCard = () => {
                 <div className="flex items-center justify-between w-full py-2 md:py-1">
                   <div className="flex items-center gap-4">
                     <img src={hashIcon} alt="HASH" className="w-8 h-8 md:w-6 md:h-6 rounded-full object-cover flex-shrink-0" />
-                    <span className="text-base md:text-sm font-medium">HASH</span>
+                    <span className="text-base md:text-sm font-medium font-sans">HASH</span>
                   </div>
                   <span className="text-sm md:text-xs text-muted-foreground font-mono ml-4">{tokenBalances.HASH}</span>
                 </div>
@@ -143,9 +143,9 @@ const SendCard = () => {
 
         {/* Recipient Address */}
         <div className="space-y-3">
-          <Label className="text-base md:text-sm font-medium text-foreground">Recipient wallet address</Label>
+          <Label className="text-base md:text-sm font-medium text-foreground font-sans">Recipient wallet address</Label>
           <Input
-            placeholder="Enter Solana wallet address..."
+            placeholder="Enter recipient address..."
             value={recipientAddress}
             onChange={(e) => setRecipientAddress(e.target.value)}
             className="font-mono text-base md:text-sm bg-muted/50 h-14 md:h-auto"
@@ -155,13 +155,13 @@ const SendCard = () => {
         {/* Amount Input */}
         <div className="space-y-3">
           <div className="flex items-center justify-between">
-            <Label className="text-base md:text-sm font-medium text-foreground">Amount to send</Label>
+            <Label className="text-base md:text-sm font-medium text-foreground font-sans">Amount to send</Label>
             <div className="flex items-center bg-muted/30 rounded-md p-1">
               <Button 
                 variant={denomination === 'token' ? 'default' : 'ghost'}
                 size="sm"
                 onClick={() => setDenomination('token')}
-                className={`h-8 md:h-7 text-sm md:text-xs px-3 md:px-2 ${denomination === 'token' ? 'btn-hastra' : 'text-muted-foreground hover:text-foreground'}`}
+                className={`h-8 md:h-7 text-sm md:text-xs px-3 md:px-2 font-sans ${denomination === 'token' ? 'btn-hastra' : 'text-muted-foreground hover:text-foreground'}`}
               >
                 {selectedToken}
               </Button>
@@ -169,7 +169,7 @@ const SendCard = () => {
                 variant={denomination === 'usd' ? 'default' : 'ghost'}
                 size="sm"
                 onClick={() => setDenomination('usd')}
-                className={`h-8 md:h-7 text-sm md:text-xs px-3 md:px-2 ${denomination === 'usd' ? 'btn-hastra' : 'text-muted-foreground hover:text-foreground'}`}
+                className={`h-8 md:h-7 text-sm md:text-xs px-3 md:px-2 font-sans ${denomination === 'usd' ? 'btn-hastra' : 'text-muted-foreground hover:text-foreground'}`}
               >
                 <DollarSign className="w-4 h-4 md:w-3 md:h-3 mr-1" />
                 USD
@@ -183,7 +183,7 @@ const SendCard = () => {
             placeholder={`Enter amount in ${denomination === 'token' ? selectedToken : 'USD'}`}
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            className="bg-muted/50 h-14 md:h-auto text-lg md:text-base [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&]:[-moz-appearance:textfield]"
+            className="bg-muted/50 h-14 md:h-auto text-lg md:text-base font-sans [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&]:[-moz-appearance:textfield]"
           />
           {amount && equivalent > 0 && (
             <div className="text-xs text-muted-foreground">
@@ -209,7 +209,7 @@ const SendCard = () => {
         <Button 
           onClick={handleSend} 
           size="lg"
-          className="w-full bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring px-8 py-6 md:py-4 text-lg md:text-sm font-medium rounded-xl min-w-[200px] group transition-all duration-200"
+          className="w-full bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring px-8 py-6 md:py-4 text-lg md:text-sm font-medium font-sans rounded-xl min-w-[200px] group transition-all duration-200"
           disabled={!amount || !recipientAddress}
         >
           Send {selectedToken}

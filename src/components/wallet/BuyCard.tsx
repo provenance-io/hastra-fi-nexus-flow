@@ -93,15 +93,15 @@ const BuyCard = () => {
         <div className="space-y-3">
           <Label className="text-base md:text-sm font-medium text-foreground">You're selling</Label>
           <Select value={sellAsset} onValueChange={(value: 'USDC' | 'SOL') => setSellAsset(value)}>
-            <SelectTrigger className="bg-muted/50 h-14 md:h-auto">
+            <SelectTrigger className="bg-muted/50 h-14 md:h-auto font-sans">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center gap-4">
                   <img 
                     src={sellAsset === 'USDC' ? usdcIcon : solanaIcon} 
                     alt={sellAsset === 'USDC' ? 'USDC' : 'Solana'} 
-                    className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0" 
+                    className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0 object-cover" 
                   />
-                  <span className="text-base md:text-sm font-medium">{sellAsset === 'USDC' ? 'USDC' : 'Solana'}</span>
+                  <span className="text-base md:text-sm font-medium font-sans">{sellAsset === 'USDC' ? 'USDC' : 'Solana'}</span>
                 </div>
                 <span className="text-sm md:text-xs text-muted-foreground font-mono">{mockBalances[sellAsset]}</span>
               </div>
@@ -110,8 +110,8 @@ const BuyCard = () => {
               <SelectItem value="USDC" className="py-4 md:py-2">
                 <div className="flex items-center justify-between w-full py-2 md:py-1">
                   <div className="flex items-center gap-4">
-                    <img src={usdcIcon} alt="USDC" className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0" />
-                    <span className="text-base md:text-sm font-medium">USDC</span>
+                    <img src={usdcIcon} alt="USDC" className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0 object-cover" />
+                    <span className="text-base md:text-sm font-medium font-sans">USDC</span>
                   </div>
                   <span className="text-sm md:text-xs text-muted-foreground font-mono ml-4">{mockBalances.USDC}</span>
                 </div>
@@ -119,8 +119,8 @@ const BuyCard = () => {
               <SelectItem value="SOL" className="py-4 md:py-2">
                 <div className="flex items-center justify-between w-full py-2 md:py-1">
                   <div className="flex items-center gap-4">
-                    <img src={solanaIcon} alt="Solana" className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0" />
-                    <span className="text-base md:text-sm font-medium">Solana</span>
+                    <img src={solanaIcon} alt="Solana" className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0 object-cover" />
+                    <span className="text-base md:text-sm font-medium font-sans">Solana</span>
                   </div>
                   <span className="text-sm md:text-xs text-muted-foreground font-mono ml-4">{mockBalances.SOL}</span>
                 </div>
@@ -133,27 +133,27 @@ const BuyCard = () => {
         <div className="space-y-3">
           <Label className="text-base md:text-sm font-medium text-foreground">You're buying</Label>
           <Select value={buyAsset} onValueChange={(value: 'YIELD' | 'HASH') => setBuyAsset(value)}>
-            <SelectTrigger className="bg-muted/50 h-14 md:h-auto">
+            <SelectTrigger className="bg-muted/50 h-14 md:h-auto font-sans">
               <div className="flex items-center gap-4 w-full">
                 <img 
                   src={buyAsset === 'YIELD' ? yieldIcon : hashIcon} 
                   alt={buyAsset} 
-                  className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0" 
+                  className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0 object-cover" 
                 />
-                <span className="text-base md:text-sm font-medium">{buyAsset}</span>
+                <span className="text-base md:text-sm font-medium font-sans">{buyAsset}</span>
               </div>
             </SelectTrigger>
             <SelectContent className="bg-card/90 backdrop-blur-sm border border-border/20 z-50">
               <SelectItem value="YIELD" className="py-4 md:py-2">
                 <div className="flex items-center gap-4 py-2 md:py-1">
-                  <img src={yieldIcon} alt="YIELD" className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0" />
-                  <span className="text-base md:text-sm font-medium">YIELD</span>
+                  <img src={yieldIcon} alt="YIELD" className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0 object-cover" />
+                  <span className="text-base md:text-sm font-medium font-sans">YIELD</span>
                 </div>
               </SelectItem>
               <SelectItem value="HASH" className="py-4 md:py-2">
                 <div className="flex items-center gap-4 py-2 md:py-1">
                   <img src={hashIcon} alt="HASH" className="w-8 h-8 md:w-6 md:h-6 rounded-full object-cover flex-shrink-0" />
-                  <span className="text-base md:text-sm font-medium">HASH</span>
+                  <span className="text-base md:text-sm font-medium font-sans">HASH</span>
                 </div>
               </SelectItem>
             </SelectContent>
