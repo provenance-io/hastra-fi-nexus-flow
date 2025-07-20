@@ -39,7 +39,7 @@ const About = () => {
             </div>
             
             
-              <p className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed mb-12" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
+              <p className="text-4xl md:text-6xl text-foreground/90 max-w-4xl mx-auto leading-relaxed mb-12 mt-12" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
                 Repeat after Us: Accessing good investments shouldn't require a trust fund.
               </p>
 
