@@ -1,13 +1,46 @@
 import { Button } from '@/components/ui/button';
-import { Building2, Zap, Link2 } from 'lucide-react';
+import { ArrowRight, ChevronDown, ChevronRight, TrendingUp, Calendar, Repeat, Building2, Zap, Link2 } from 'lucide-react';
 import yieldIcon from '/lovable-uploads/1d678c0f-09c8-4451-a9a6-3e635e0fef72.png';
-import AccordionHowItWorks from '@/components/wylds/AccordionHowItWorks';
 
 const YieldTokenIcon = ({ className }: { className?: string }) => (
   <img src={yieldIcon} alt="YIELD Token" className={`${className} object-contain`} />
 );
 
 const WYLDsYieldExplanation = () => {
+  const steps = [
+    {
+      number: 1,
+      icon: YieldTokenIcon,
+      title: "Hold YIELD tokens",
+      description: "Simply hold YIELD tokens in any compatible Solana wallet",
+      color: "from-header-glow to-crypto-accent",
+      bgPattern: "bg-header-glow/10"
+    },
+    {
+      number: 2,
+      icon: TrendingUp,
+      title: "Watch your balance grow",
+      description: "Watch your balance grow on hastra.io - Yield is automatically calculated.",
+      color: "from-crypto-accent to-header-glow",
+      bgPattern: "bg-crypto-accent/10"
+    },
+    {
+      number: 3,
+      icon: Calendar,
+      title: "Monthly Distributions",
+      description: "Claim your yield on hastra.io on a monthly basis in YIELD tokens",
+      color: "from-header-glow to-crypto-accent",
+      bgPattern: "bg-header-glow/10"
+    },
+    {
+      number: 4,
+      icon: Repeat,
+      title: "Use daily, or redeem for USDC",
+      description: "Easily redeem your YIELD through Raydium and Kamino protocols",
+      color: "from-crypto-accent to-header-glow",
+      bgPattern: "bg-crypto-accent/10"
+    }
+  ];
 
   return (
     <section className="py-16 px-4 relative overflow-hidden">
@@ -114,8 +147,113 @@ const WYLDsYieldExplanation = () => {
               </p>
             </div>
           
-            {/* Accordion Component for Mobile and Desktop */}
-            <AccordionHowItWorks />
+          {/* Desktop: Scrollable Horizontal Layout */}
+          <div className="hidden lg:block max-w-7xl mx-auto">
+            <div className="overflow-x-auto pb-4 scrollbar-hide">
+              <div className="flex items-center gap-8 min-w-max px-4 py-4">
+                {steps.map((step, index) => {
+                  const IconComponent = step.icon;
+                  return (
+                    <div key={step.number} className="flex items-center flex-shrink-0">
+                      {/* Step Card - Fixed Size */}
+                      <div className="relative group">
+                        {/* Number Badge */}
+                        <div className="absolute -top-3 -right-3 w-8 h-8 bg-orange-900/20 border border-orange-800/30 text-orange-300 rounded-full flex items-center justify-center font-bold text-sm shadow-lg z-10">
+                          {step.number}
+                        </div>
+                        
+                        {/* Card Container - Fixed Dimensions */}
+                        <div className="w-64 h-80 card-gradient rounded-2xl p-8 text-center space-y-4 hover:bg-background/60 transition-all duration-300 relative overflow-hidden">
+                          
+                          {/* Icon Container */}
+                          <div className="relative z-10 mb-4 flex justify-center">
+                            {step.number === 1 ? (
+                              <IconComponent className="w-14 h-14" />
+                            ) : (
+                              <div className={`w-14 h-14 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                                <IconComponent className="w-7 h-7 text-black" />
+                              </div>
+                            )}
+                          </div>
+                          
+                          {/* Content */}
+                          <div className="relative z-10 flex flex-col justify-between h-auto space-y-4">
+                            <h4 className={`font-bold text-lg transition-colors duration-300 ${
+                              step.number <= 2 ? 'text-header-glow' : 'text-header-glow group-hover:text-crypto-accent'
+                            }`}>
+                              {step.title}
+                            </h4>
+                            <p className="text-foreground/90 text-sm leading-relaxed px-2">
+                              {step.description}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Arrow Connector */}
+                      {index < steps.length - 1 && (
+                        <div className="mx-6 flex items-center justify-center h-80">
+                          <ChevronRight className="w-8 h-8 text-orange-300" />
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile/Tablet: Clean Vertical Layout */}
+          <div className="lg:hidden max-w-sm mx-auto space-y-8">
+            {steps.map((step, index) => {
+              const IconComponent = step.icon;
+              return (
+                <div key={step.number} className="relative">
+                  {/* Step Card - Consistent Mobile Size */}
+                  <div className="relative group">
+                    {/* Number Badge */}
+                    <div className="absolute -top-3 -right-3 w-8 h-8 bg-orange-900/20 border border-orange-800/30 text-orange-300 rounded-full flex items-center justify-center font-bold text-sm shadow-lg z-10">
+                      {step.number}
+                    </div>
+                    
+                    {/* Card Container - Fixed Mobile Dimensions */}
+                    <div className="w-full h-64 card-gradient rounded-2xl p-8 text-center space-y-4 hover:bg-background/60 transition-all duration-300 relative overflow-hidden">
+                      
+                       {/* Icon Container */}
+                       <div className="relative z-10 mb-4 flex justify-center">
+                         {step.number === 1 ? (
+                           <IconComponent className="w-14 h-14" />
+                         ) : (
+                           <div className={`w-14 h-14 bg-gradient-to-br ${step.color} rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                             <IconComponent className="w-7 h-7 text-black" />
+                           </div>
+                         )}
+                       </div>
+                      
+                      {/* Content */}
+                      <div className="relative z-10 flex flex-col justify-between h-auto space-y-4">
+                        <h4 className={`font-bold text-lg transition-colors duration-300 ${
+                          step.number <= 2 ? 'text-header-glow' : 'text-header-glow group-hover:text-crypto-accent'
+                        }`}>
+                          {step.title}
+                        </h4>
+                        <p className="text-foreground/90 text-sm leading-relaxed px-2">
+                          {step.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Down Arrow Connector */}
+                  {index < steps.length - 1 && (
+                    <div className="flex justify-center my-8">
+                      <ChevronDown className="w-8 h-8 text-orange-300" />
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+           </div>
           </div>
         </div>
       </div>
