@@ -259,10 +259,8 @@ const About = () => {
         <section className="py-16 relative overflow-hidden">
           <div className="container relative">
             <div className="max-w-5xl mx-auto">
-              {/* Container with glowing effect when line 6 animation reaches it */}
-              <div className={`card-gradient rounded-3xl p-8 md:p-12 card-bottom-static border border-transparent relative transition-all duration-1000 ${
-                animationState.commitmentToSuccessLine ? 'shadow-2xl shadow-header-glow/20' : ''
-              }`}>
+              {/* Container with exactly matching background - no animations to prevent flickering */}
+              <div className="card-gradient rounded-3xl p-8 md:p-12 card-bottom-static border border-transparent relative">
                 <div className="relative z-10 text-center">
                   <h2 className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed mb-12" 
                       style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>

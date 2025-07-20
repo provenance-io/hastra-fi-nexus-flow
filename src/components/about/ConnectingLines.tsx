@@ -76,7 +76,7 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
         }}
       />
 
-      {/* Provenance to HASH Token Line - Left aligned with animation */}
+      {/* Provenance to HASH Token Line - Left aligned */}
       <div 
         className={`absolute transition-all duration-1000 z-40 ${
           provenanceToHashTokenLine ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
@@ -92,7 +92,7 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
         }}
       />
 
-      {/* HASH Token to Commitment Line - Right aligned with animation */}
+      {/* HASH Token to Commitment Line - Right aligned */}
       <div 
         className={`absolute transition-all duration-1000 z-40 ${
           hashTokenToCommitmentLine ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
@@ -108,57 +108,20 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
         }}
       />
 
-      {/* Commitment to Success Line - Center aligned with branching effect */}
+      {/* Commitment to Success Line - Center aligned */}
       <div 
         className={`absolute left-1/2 transform -translate-x-1/2 transition-all duration-1000 z-40 ${
           commitmentToSuccessLine ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
         }`}
         style={{
           top: isMobile ? '2710px' : '3110px',
-          height: isMobile ? '146px' : '194px',
+          height: isMobile ? '162px' : '216px',
           width: '2px',
           background: 'rgba(229, 218, 194, 0.8)',
           transformOrigin: 'top',
           boxShadow: '0 0 12px rgba(229, 218, 194, 0.6), 0 0 6px rgba(229, 218, 194, 0.4)',
         }}
       />
-
-      {/* Branching lines for Join Our Mission - Left and Right branches */}
-      {commitmentToSuccessLine && (
-        <>
-          {/* Left branch */}
-          <div 
-            className={`absolute transition-all duration-1000 delay-500 z-40 ${
-              commitmentToSuccessLine ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
-            }`}
-            style={{
-              left: isMobile ? '20%' : '25%',
-              top: isMobile ? '2850px' : '3280px',
-              width: isMobile ? '30%' : '25%',
-              height: '2px',
-              background: 'rgba(229, 218, 194, 0.8)',
-              transformOrigin: 'left',
-              boxShadow: '0 0 12px rgba(229, 218, 194, 0.6), 0 0 6px rgba(229, 218, 194, 0.4)',
-            }}
-          />
-          
-          {/* Right branch */}
-          <div 
-            className={`absolute transition-all duration-1000 delay-500 z-40 ${
-              commitmentToSuccessLine ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
-            }`}
-            style={{
-              left: isMobile ? '50%' : '50%',
-              top: isMobile ? '2850px' : '3280px',
-              width: isMobile ? '30%' : '25%',
-              height: '2px',
-              background: 'rgba(229, 218, 194, 0.8)',
-              transformOrigin: 'right',
-              boxShadow: '0 0 12px rgba(229, 218, 194, 0.6), 0 0 6px rgba(229, 218, 194, 0.4)',
-            }}
-          />
-        </>
-      )}
     </>
   );
 };
