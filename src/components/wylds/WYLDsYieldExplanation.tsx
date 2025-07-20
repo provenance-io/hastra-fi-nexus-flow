@@ -291,10 +291,10 @@ const WYLDsYieldExplanation = () => {
              })}
             </div>
 
-            {/* Custom Sleek Scroll Bar - Desktop Only */}
+            {/* Ultra Sleek Scroll Bar - Desktop Only */}
             <div className="hidden lg:flex justify-center mt-8">
               <div 
-                className="relative w-60 h-1 cursor-pointer"
+                className="relative w-60 h-1 cursor-pointer group"
                 onMouseDown={(e) => {
                   const sliderRect = e.currentTarget.getBoundingClientRect();
                   handleSliderChange(e.clientX, sliderRect);
@@ -312,12 +312,16 @@ const WYLDsYieldExplanation = () => {
                   document.addEventListener('mouseup', handleMouseUp);
                 }}
               >
+                {/* Subtle track hint on hover */}
+                <div className="absolute inset-0 bg-orange-300/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
                 <div 
-                  className="absolute top-1/2 -translate-y-1/2 w-12 h-3 bg-orange-300 rounded-full transition-all duration-200 shadow-md hover:shadow-lg hover:scale-110 cursor-grab active:cursor-grabbing"
+                  className="absolute top-1/2 -translate-y-1/2 w-8 h-2 bg-gradient-to-r from-orange-400 via-orange-300 to-orange-200 rounded-full transition-all duration-300 ease-out cursor-grab active:cursor-grabbing group-hover:scale-125 group-hover:shadow-[0_0_20px_rgba(251,146,60,0.6)] active:scale-110"
                   style={{ 
-                    left: `${Math.max(0, Math.min(100 - (48/240*100), scrollProgress))}%`,
+                    left: `${Math.max(0, Math.min(100 - (32/240*100), scrollProgress))}%`,
                     transform: 'translateY(-50%)',
-                    boxShadow: '0 2px 8px rgba(251, 146, 60, 0.3)'
+                    filter: 'drop-shadow(0 2px 4px rgba(251, 146, 60, 0.3))',
+                    background: 'linear-gradient(135deg, #fb923c 0%, #fdba74 50%, #fed7aa 100%)'
                   }}
                 />
               </div>
