@@ -122,8 +122,8 @@ const WYLDsStatsDashboard = () => {
       <div className="max-w-5xl mx-auto px-4 relative">
         <div className="max-w-5xl mx-auto">
           <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
-            <div className="text-center mb-8">
-              <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed mb-6 md:mb-8" 
+            <div className="text-center mb-6">
+              <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed mb-4" 
                  style={{ 
                    textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' 
                  }}>
