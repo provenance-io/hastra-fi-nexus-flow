@@ -189,7 +189,7 @@ const BuyCard = () => {
                   variant="ghost"
                   size="sm" 
                   onClick={handleMaxClick}
-                  className="h-8 md:h-7 px-3 md:px-2 text-sm md:text-xs font-medium text-orange-300 hover:bg-orange-900/30 hover:text-orange-200 transition-all duration-200"
+                  className="h-8 md:h-7 px-3 md:px-2 text-sm md:text-xs font-medium text-[hsl(34_100%_84%)] hover:bg-orange-900/30 hover:text-[hsl(34_100%_84%)] transition-all duration-200"
                 >
                   Max
                 </Button>
@@ -211,7 +211,7 @@ const BuyCard = () => {
         {amount && receiveAmount.tokens > 0 && (
           <div className="bg-muted/50 border border-orange-800/30 rounded-lg p-4 md:p-4">
             <div className="text-base md:text-sm text-muted-foreground mb-2">You'll receive</div>
-            <div className="font-semibold text-xl md:text-lg text-orange-300">{receiveAmount.tokens.toFixed(6)} {buyAsset}</div>
+            <div className="font-semibold text-xl md:text-lg text-[hsl(34_100%_84%)]">{receiveAmount.tokens.toFixed(6)} {buyAsset}</div>
             <div className="text-sm md:text-xs text-muted-foreground">${receiveAmount.usd.toFixed(2)} USD</div>
           </div>
         )}

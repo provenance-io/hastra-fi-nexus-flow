@@ -75,10 +75,10 @@ const PortfolioSummary = ({
         }`}>
           <div className="flex items-center gap-3">
             <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
-              isClaimAnimating ? 'bg-crypto-accent/20' : 'bg-orange-400/10'
+              isClaimAnimating ? 'bg-crypto-accent/20' : 'bg-auburn-primary/10'
             }`}>
               <Gift className={`w-5 h-5 transition-colors duration-300 ${
-                isClaimAnimating ? 'text-crypto-accent' : 'text-orange-400'
+                isClaimAnimating ? 'text-crypto-accent' : 'text-[hsl(34_100%_84%)]'
               }`} />
             </div>
             <p className="text-sm text-muted-foreground font-medium">Available to Claim</p>

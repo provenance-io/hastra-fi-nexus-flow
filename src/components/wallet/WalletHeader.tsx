@@ -26,11 +26,11 @@ const WalletHeader = ({
   const getWalletIcon = (type: string | null) => {
     switch (type) {
       case 'MetaMask':
-        return <Wallet className="w-6 h-6 text-orange-400" />;
+        return <Wallet className="w-6 h-6 text-[hsl(34_100%_84%)]" />;
       case 'Phantom':
         return <Wallet className="w-6 h-6 text-purple-400" />;
       case 'Solflare':
-        return <Wallet className="w-6 h-6 text-yellow-400" />;
+        return <Wallet className="w-6 h-6 text-[hsl(34_100%_84%)]" />;
       case 'Coinbase':
         return <Wallet className="w-6 h-6 text-blue-400" />;
       default:

@@ -166,7 +166,8 @@ const WalletDashboard = () => {
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Button 
-              className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold py-4 rounded-xl transition-all duration-200"
+              className="font-bold py-4 rounded-xl"
+              variant="secondary"
               asChild
             >
               <a href="https://app.kamino.finance" target="_blank" rel="noopener noreferrer">
@@ -175,7 +176,8 @@ const WalletDashboard = () => {
               </a>
             </Button>
             <Button 
-              className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold py-4 rounded-xl transition-all duration-200"
+              className="font-bold py-4 rounded-xl"
+              variant="secondary"
               asChild
             >
               <a href="https://raydium.io" target="_blank" rel="noopener noreferrer">

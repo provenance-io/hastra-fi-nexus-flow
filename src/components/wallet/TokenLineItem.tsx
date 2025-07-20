@@ -103,7 +103,7 @@ const TokenLineItem = ({
         <div className="text-left space-y-1">
           <p className="text-muted-foreground text-sm font-medium">Total Claimed</p>
           <div className="flex items-center gap-2">
-            <TrendingUp className="w-4 h-4 text-orange-300" />
+            <TrendingUp className="w-4 h-4 text-[hsl(34_100%_84%)]" />
             <p className="font-semibold text-white text-lg">
               ${totalInterestEarnedUSD.toLocaleString('en-US', { 
                 minimumFractionDigits: 2,
@@ -193,7 +193,7 @@ const TokenLineItem = ({
         <div className="grid grid-cols-2 gap-3">
           <div className="bg-background/40 rounded-xl p-4 text-center">
             <div className="flex items-center justify-center gap-1.5 mb-2">
-              <TrendingUp className="w-4 h-4 text-orange-300" />
+              <TrendingUp className="w-4 h-4 text-[hsl(34_100%_84%)]" />
               <p className="text-sm text-muted-foreground font-medium">Total Claimed</p>
             </div>
             <p className="font-bold text-white text-lg leading-tight">
