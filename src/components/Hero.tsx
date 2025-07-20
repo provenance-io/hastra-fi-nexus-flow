@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { ArrowRight, TrendingUp, Shield, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -29,62 +28,51 @@ const Hero = () => {
     refetchInterval: 5 * 60 * 1000, // Refetch every 5 minutes
   });
 
-  // Enhanced coin configuration with more coins and bigger ones on the left (6 coins total)
+  // Enhanced coin configuration with even distribution across full screen width
   const coinConfigs = useRef([...Array(6)].map((_, i) => {
-    // Distribute coins across 2 depth layers for simplicity
+    // Distribute coins across 2 depth layers for visual depth
     const layer = i % 2; // 0 = far, 1 = near
-    const zDepth = layer === 0 ? 0.4 : 1.0; // Simplified depth
-    const baseScale = layer === 0 ? 0.6 : 1.0; // Simplified scaling
+    const zDepth = layer === 0 ? 0.4 : 1.0;
+    const baseScale = layer === 0 ? 0.6 : 1.0;
     
-    // Size variations - between 1.25 and 1.75
-    const sizeVariations = [1.25, 1.35, 1.75, 1.45, 1.6, 1.5]; // 1.25-1.75 range
-    const coinSize = sizeVariations[i % sizeVariations.length];
+    // Size variations within 1.25-1.75 range
+    const sizeVariations = [1.45, 1.3, 1.65, 1.4, 1.55, 1.75];
+    const coinSize = sizeVariations[i];
     
-    // Position configuration - more big coins on left side
-    let startX;
-    if (i < 3) {
-      // First 3 coins on left side, make them larger
-      startX = 5 + (i * 8) + Math.random() * 5; // Left side positioning
-      const leftSideSizes = [1.55, 1.75, 1.4]; // 1.25-1.75 range for left coins
-      return {
-        id: i,
-        layer,
-        zDepth,
-        baseScale,
-        coinSize: leftSideSizes[i], // Force large sizes on left
-        startX,
-        drift: (Math.random() - 0.5) * (40 * zDepth),
-        duration: 4 + (i * 0.3),
-        delay: i * 1.0,
-        rotationStart: i * 45,
-        spinSpeed: 360 + (i * 20),
-        blur: layer === 0 ? 0.5 : 0,
-        opacity: layer === 0 ? 0.7 : 1.0,
-      }
-    } else {
-      // Remaining coins distributed across the rest
-      startX = 30 + ((i - 3) * 12) + Math.random() * 8;
-      return {
-        id: i,
-        layer,
-        zDepth,
-        baseScale,
-        coinSize,
-        startX,
-        drift: (Math.random() - 0.5) * (40 * zDepth),
-        duration: 4 + (i * 0.3),
-        delay: i * 1.0,
-        rotationStart: i * 45,
-        spinSpeed: 360 + (i * 20),
-        blur: layer === 0 ? 0.5 : 0,
-        opacity: layer === 0 ? 0.7 : 1.0,
-      }
-    }
+    // Even distribution algorithm: divide screen into 6 equal sections (16.67% each)
+    const sectionWidth = 100 / 6; // 16.67% per section
+    const sectionStart = i * sectionWidth; // Start of this coin's section
+    const sectionCenter = sectionStart + (sectionWidth / 2); // Center of section
+    
+    // Add randomization within section bounds (±6% from center)
+    const randomOffset = (Math.random() - 0.5) * 12; // ±6% variation
+    const startX = Math.max(2, Math.min(98, sectionCenter + randomOffset)); // Clamp to screen bounds
+    
+    return {
+      id: i,
+      layer,
+      zDepth,
+      baseScale,
+      coinSize,
+      startX,
+      drift: (Math.random() - 0.5) * (40 * zDepth),
+      duration: 4 + (i * 0.3),
+      delay: i * 1.0,
+      rotationStart: i * 45,
+      spinSpeed: 360 + (i * 20),
+      blur: layer === 0 ? 0.5 : 0,
+      opacity: layer === 0 ? 0.7 : 1.0,
+    };
   }));
 
   useEffect(() => {
     // Debug coin configurations
-    console.log('Coin configurations:', coinConfigs.current.map(c => ({ id: c.id, coinSize: c.coinSize })));
+    console.log('Coin configurations:', coinConfigs.current.map(c => ({ 
+      id: c.id, 
+      coinSize: c.coinSize, 
+      startX: c.startX.toFixed(1) + '%',
+      section: Math.floor(c.id * 16.67) + '-' + Math.floor((c.id + 1) * 16.67) + '%'
+    })));
     
     // Preload and initialize animations
     const timer = setTimeout(() => {
