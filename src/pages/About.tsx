@@ -175,7 +175,7 @@ const About = () => {
                 
                 <div className="relative z-10">
                   <p className="text-lg text-foreground/90 leading-relaxed">
-                    Most DeFi protocols create their own tokens to capture value for themselves. We're taking a different approach. <span className="text-header-glow font-semibold">Instead of launching another token, we're channeling our success directly back to the HASH holders who power and secure the <a href="https://provenance.io" target="_blank" rel="noopener noreferrer" className="text-header-glow hover:text-header-glow/80 transition-colors">Provenance Blockchain</a>.</span>
+                    Most DeFi protocols create their own tokens to capture value for themselves. We're taking a different approach. Instead of launching another token, we're channeling our success directly back to the HASH holders who power and secure the <a href="https://provenance.io" target="_blank" rel="noopener noreferrer" className="text-header-glow hover:text-header-glow/80 transition-colors">Provenance Blockchain</a>.
                   </p>
                 </div>
               </div>
