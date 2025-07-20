@@ -174,7 +174,7 @@ const BuyCard = () => {
                 variant="outline" 
                 size="sm" 
                 onClick={handleMaxClick}
-                className="btn-hastra-outline h-8 text-xs"
+                className="h-7 px-3 text-xs font-medium bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 rounded-md transition-all duration-200"
               >
                 Max
               </Button>
