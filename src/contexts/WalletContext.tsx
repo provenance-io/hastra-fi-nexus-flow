@@ -58,8 +58,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       
       const walletAddress = (state as any).caipAddress || 
                            (state as any).address || 
-                           (state as any).account ||
-                           'Connected Wallet';
+                           (state as any).account;
       
       // Get the actual wallet provider name from AppKit
       const connectedWalletName = (state as any).connectorName || 
@@ -67,19 +66,26 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
                                  (state as any).walletInfo?.name ||
                                  'WalletConnect';
       
+      console.log('Connection check:', { hasConnection, walletAddress, modalOpen: state.open });
+      
       // Only update state when modal is closed to avoid intermediate states
       if (!state.open) {
-        if (hasConnection && walletAddress) {
-          // Wallet is connected
-          setWalletState(prev => ({
-            ...prev,
-            isConnected: true,
-            address: walletAddress,
-            isConnecting: false,
-            walletType: connectedWalletName,
-            balance: 1250.45,
-          }));
+        if (hasConnection && walletAddress && walletAddress !== 'Connected Wallet') {
+          // Wallet is connected with real address
+          console.log('Setting connected state with:', { walletAddress, connectedWalletName });
+          setWalletState(prev => {
+            const wasConnecting = prev.isConnecting;
+            return {
+              ...prev,
+              isConnected: true,
+              address: walletAddress,
+              isConnecting: false,
+              walletType: connectedWalletName,
+              balance: 1250.45,
+            };
+          });
           
+          // Show toast only if we were in connecting state
           if (walletState.isConnecting) {
             toast({
               title: "🟢 Wallet Connected",
@@ -87,8 +93,9 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
               className: "border-l-4 border-l-crypto-accent bg-crypto-accent/10 shadow-glow",
             });
           }
-        } else if (!hasConnection) {
+        } else if (!hasConnection || !walletAddress) {
           // Wallet is disconnected
+          console.log('Setting disconnected state');
           setWalletState(prev => ({
             ...prev,
             isConnected: false,
@@ -104,7 +111,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     return () => {
       unsubscribe();
     };
-  }, [toast, walletState.isConnecting]);
+  }, [toast]);
 
   const connectWallet = async (): Promise<void> => {
     setWalletState(prev => ({ ...prev, isConnecting: true, networkError: null }));
@@ -131,22 +138,40 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   };
 
   const disconnectWallet = (): void => {
-    appkit.disconnect();
-    
-    setWalletState({
-      isConnected: false,
-      isConnecting: false,
-      address: null,
-      balance: 0,
-      networkError: null,
-      walletType: null,
-    });
-    
-    toast({
-      title: "🔴 Wallet Disconnected",
-      description: "Your wallet has been disconnected",
-      className: "border-l-4 border-l-auburn-primary bg-auburn-primary/10 shadow-auburn",
-    });
+    try {
+      // First disconnect from AppKit
+      appkit.disconnect();
+      
+      // Wait a bit then reset state to ensure clean disconnect
+      setTimeout(() => {
+        setWalletState({
+          isConnected: false,
+          isConnecting: false,
+          address: null,
+          balance: 0,
+          networkError: null,
+          walletType: null,
+        });
+        
+        toast({
+          title: "🔴 Wallet Disconnected",
+          description: "Your wallet has been disconnected",
+          className: "border-l-4 border-l-auburn-primary bg-auburn-primary/10 shadow-auburn",
+        });
+      }, 100);
+      
+    } catch (error) {
+      console.error('Error disconnecting wallet:', error);
+      // Force reset state even if disconnect fails
+      setWalletState({
+        isConnected: false,
+        isConnecting: false,
+        address: null,
+        balance: 0,
+        networkError: null,
+        walletType: null,
+      });
+    }
   };
 
   const refreshBalance = async (): Promise<void> => {
