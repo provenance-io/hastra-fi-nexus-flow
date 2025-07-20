@@ -74,8 +74,9 @@ const BuyCard = () => {
     }
 
     toast({
-      title: "Swap Initiated",
+      title: "⚡ Swap Initiated",
       description: `Swapping ${amount} ${denomination === 'usd' ? 'USD' : sellAsset} for ${receiveAmount.tokens.toFixed(6)} ${buyAsset}`,
+      className: "border-l-4 border-l-hastra-teal bg-hastra-teal/10 shadow-hastra",
     });
   };
 

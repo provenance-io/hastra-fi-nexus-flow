@@ -93,8 +93,9 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       localStorage.setItem('mock-wallet-type', walletType);
       
       toast({
-        title: "Wallet Connected",
+        title: "🟢 Wallet Connected",
         description: `Successfully connected to ${walletType}`,
+        className: "border-l-4 border-l-crypto-accent bg-crypto-accent/10 shadow-glow",
       });
       
     } catch (error) {
@@ -129,8 +130,9 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     localStorage.removeItem('mock-wallet-type');
     
     toast({
-      title: "Wallet Disconnected",
+      title: "🔴 Wallet Disconnected",
       description: "Your wallet has been disconnected",
+      className: "border-l-4 border-l-auburn-primary bg-auburn-primary/10 shadow-auburn",
     });
   };
 

@@ -122,3 +122,18 @@
     letter-spacing: 0.01em;
   }
 }
+
+@layer components {
+  /* Enhanced Toast Styles for Action Notifications */
+  .toast-action-success {
+    @apply border-l-4 border-l-crypto-accent bg-crypto-accent/10 shadow-glow;
+  }
+  
+  .toast-action-warning {
+    @apply border-l-4 border-l-auburn-primary bg-auburn-primary/10 shadow-auburn;
+  }
+  
+  .toast-action-info {
+    @apply border-l-4 border-l-hastra-teal bg-hastra-teal/10 shadow-hastra;
+  }
+}
