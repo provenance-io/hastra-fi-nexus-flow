@@ -36,8 +36,8 @@ const Hero = () => {
     const zDepth = layer === 0 ? 0.4 : 1.0; // Simplified depth
     const baseScale = layer === 0 ? 0.6 : 1.0; // Simplified scaling
     
-    // Size variations - removed very small coins, added more variety
-    const sizeVariations = [1.2, 1.0, 2.0, 1.5, 2.5, 1.8, 2.2, 1.3]; // Better size range
+    // Size variations - reduced to max half the size of hero title
+    const sizeVariations = [0.6, 0.5, 1.0, 0.75, 1.25, 0.9, 1.1, 0.65]; // Reduced size range
     const coinSize = sizeVariations[i % sizeVariations.length];
     
     // Position configuration - more big coins on left side
@@ -45,7 +45,7 @@ const Hero = () => {
     if (i < 3) {
       // First 3 coins on left side, make them larger
       startX = 5 + (i * 8) + Math.random() * 5; // Left side positioning
-      const leftSideSizes = [2.2, 2.5, 2.0]; // Ensure left coins are big
+      const leftSideSizes = [1.1, 1.25, 1.0]; // Reduced left coin sizes
       return {
         id: i,
         layer,
