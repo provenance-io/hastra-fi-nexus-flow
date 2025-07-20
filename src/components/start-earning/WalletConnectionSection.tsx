@@ -28,7 +28,7 @@ const WalletConnectionSection = () => {
     <section className="pt-2 md:pt-4 pb-16 md:pb-24 relative">
       {/* Removed background effects to allow parent gradient to show through */}
       <div className="container relative">
-        <div className="max-w-2xl mx-auto space-y-12">
+        <div className="max-w-2xl mx-auto space-y-20">
           <div className="text-center space-y-6">
             <div className="w-20 h-20 mx-auto rounded-full card-gradient border border-white/20 flex items-center justify-center"
                  style={{
