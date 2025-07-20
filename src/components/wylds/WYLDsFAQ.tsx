@@ -54,10 +54,10 @@ const WYLDsFAQ = () => {
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="border border-border/10 rounded-xl bg-card/60 hover:bg-card/80 transition-all duration-300"
+                className="border border-border/10 rounded-xl bg-card/80 hover:bg-card/90 transition-all duration-300"
               >
                 <AccordionTrigger className="px-6 py-4 text-left hover:no-underline group">
-                  <span className="text-lg text-foreground group-hover:text-foreground/80 transition-colors duration-300">
+                  <span className="text-base md:text-lg text-foreground group-hover:text-foreground/80 transition-colors duration-300">
                     {faq.question}
                   </span>
                 </AccordionTrigger>
