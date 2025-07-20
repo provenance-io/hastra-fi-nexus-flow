@@ -79,7 +79,7 @@ const TokenLineItem = ({
         {/* Tokens Column */}
         <div className="text-left space-y-1">
           <p className="text-muted-foreground text-sm font-medium">Balance</p>
-          <p className="font-bold text-orange-300 text-lg">
+          <p className="font-bold text-white text-lg">
             {amount.toLocaleString('en-US', { 
               minimumFractionDigits: 2,
               maximumFractionDigits: 4 
@@ -91,7 +91,7 @@ const TokenLineItem = ({
         {/* Worth Column */}
         <div className="text-left space-y-1">
           <p className="text-muted-foreground text-sm font-medium">Value</p>
-          <p className="font-semibold text-orange-300 text-lg">
+          <p className="font-semibold text-white text-lg">
             ${value.toLocaleString('en-US', { 
               minimumFractionDigits: 2,
               maximumFractionDigits: 2 
@@ -104,7 +104,7 @@ const TokenLineItem = ({
           <p className="text-muted-foreground text-sm font-medium">Total Claimed</p>
           <div className="flex items-center gap-2">
             <TrendingUp className="w-4 h-4 text-orange-300" />
-            <p className="font-semibold text-orange-300 text-lg">
+            <p className="font-semibold text-white text-lg">
               ${totalInterestEarnedUSD.toLocaleString('en-US', { 
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2 
@@ -116,7 +116,7 @@ const TokenLineItem = ({
         {/* Unclaimed Interest Column */}
         <div className="text-left space-y-1">
           <p className="text-muted-foreground text-sm font-medium">Available</p>
-          <p className={`font-semibold text-lg ${unclaimedInterest > 0 ? 'text-orange-300' : 'text-muted-foreground'}`}>
+          <p className={`font-semibold text-lg ${unclaimedInterest > 0 ? 'text-white' : 'text-muted-foreground'}`}>
             ${unclaimedInterestUSD.toLocaleString('en-US', { 
               minimumFractionDigits: 2,
               maximumFractionDigits: 2 
@@ -167,7 +167,7 @@ const TokenLineItem = ({
             <p className="text-sm text-muted-foreground mt-0.5">Token</p>
           </div>
           <div className="text-right flex-shrink-0">
-            <p className="font-bold text-orange-300 text-xl leading-tight">
+            <p className="font-bold text-white text-xl leading-tight">
               ${value.toLocaleString('en-US', { 
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2 
@@ -179,7 +179,7 @@ const TokenLineItem = ({
 
         {/* Token Balance - Centered */}
         <div className="text-center py-3 bg-background/20 rounded-xl">
-          <p className="text-3xl font-bold text-orange-300 leading-tight">
+          <p className="text-3xl font-bold text-white leading-tight">
             {amount.toLocaleString('en-US', { 
               minimumFractionDigits: 2,
               maximumFractionDigits: 4 
@@ -195,7 +195,7 @@ const TokenLineItem = ({
               <TrendingUp className="w-4 h-4 text-orange-300" />
               <p className="text-sm text-muted-foreground font-medium">Total Claimed</p>
             </div>
-            <p className="font-bold text-orange-300 text-lg leading-tight">
+            <p className="font-bold text-white text-lg leading-tight">
               ${totalInterestEarnedUSD.toLocaleString('en-US', { 
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2 
@@ -205,7 +205,7 @@ const TokenLineItem = ({
           
           <div className="bg-background/40 rounded-xl p-4 text-center">
             <p className="text-sm text-muted-foreground font-medium mb-2">Available</p>
-            <p className={`font-bold text-lg leading-tight ${unclaimedInterest > 0 ? 'text-orange-300' : 'text-muted-foreground'}`}>
+            <p className={`font-bold text-lg leading-tight ${unclaimedInterest > 0 ? 'text-white' : 'text-muted-foreground'}`}>
               ${unclaimedInterestUSD.toLocaleString('en-US', { 
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2 
