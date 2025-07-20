@@ -84,14 +84,9 @@ const WYLDsYieldExplanation = () => {
         {/* Dashboard Box - Matching About page styling */}
         <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
           <div className="relative z-10">
-            {/* Section Header - Inside the box */}
-            <div className="text-center mb-12">
-              <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed mb-6 md:mb-8" 
-                 style={{ 
-                   textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' 
-                 }}>
-                What is YIELD?
-              </p>
+            {/* Section Header - Matching About page AnimatedCard style */}
+            <div className="mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">What is YIELD?</h2>
             </div>
             {/* Feature Cards */}
             <div className="grid gap-6 md:gap-10 md:grid-cols-3">
@@ -143,13 +138,14 @@ const WYLDsYieldExplanation = () => {
               ))}
             </div>
 
-            {/* Description */}
-            <div className="text-center mb-16 mt-12">
-            <p className="text-base md:text-lg lg:text-xl text-foreground/90 max-w-4xl mx-auto leading-relaxed px-4 md:px-6">
-              YIELD is a token representing a portion of a pool of reserves holding the YLDS token - the first SEC-registered, yield-bearing stablecoin combining the liquidity of traditional stablecoins with the earning power of a money market fund.
-              <br /><br />
-              As users deposit USDC, Hastra purchases and holds YLDS, and distributes interest in YIELD to token holders.
-            </p>
+            {/* Description - Matching About page style */}
+            <div className="mt-12 mb-16">
+              <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                YIELD is a token representing a portion of a pool of reserves holding the YLDS token - the first SEC-registered, yield-bearing stablecoin combining the liquidity of traditional stablecoins with the earning power of a money market fund.
+              </p>
+              <p className="text-lg text-foreground/90 leading-relaxed">
+                As users deposit USDC, Hastra purchases and holds YLDS, and distributes interest in YIELD to token holders. Because <span className="text-header-glow font-semibold">earning yield shouldn't require complex strategies—it should just work</span>.
+              </p>
             </div>
 
             {/* CTA Button */}
@@ -170,14 +166,9 @@ const WYLDsYieldExplanation = () => {
         {/* How It Works Dashboard Box */}
         <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
           <div className="relative z-10">
-            {/* How It Works Section Header - Inside the box */}
-            <div className="text-center mb-12">
-              <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed mb-6 md:mb-8" 
-                 style={{ 
-                   textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' 
-                 }}>
-                How It Works
-              </p>
+            {/* How It Works Section Header - Matching About page AnimatedCard style */}
+            <div className="mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">How It Works</h2>
             </div>
           
           {/* Desktop: Scrollable Horizontal Layout */}
