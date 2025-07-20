@@ -84,7 +84,7 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
         style={{
           left: isMobile ? '15%' : '20%',
           top: isMobile ? '1860px' : '2160px',
-          height: isMobile ? '40px' : '48px',
+          height: isMobile ? '80px' : '96px',
           width: '2px',
           background: 'rgba(229, 218, 194, 0.8)',
           transformOrigin: 'top',
