@@ -131,18 +131,18 @@ const WYLDsStatsDashboard = () => {
               </p>
             </div>
             
-            <div className="grid gap-8 grid-cols-1 md:grid-cols-2">
+            <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
             {stats.map((stat, index) => (
               <div 
                 key={stat.title} 
-                className="card-gradient rounded-xl p-4 text-center space-y-2 hover:bg-background/60 transition-all duration-300"
+                className="aspect-square card-gradient rounded-xl p-6 text-center flex flex-col justify-center space-y-3 hover:bg-background/60 transition-all duration-300"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="text-xs font-medium text-orange-300">
                   {stat.title}
                 </div>
-                <div className="text-2xl md:text-3xl font-bold flex items-center justify-center gap-2">
-                  {stat.isLoading && <Loader2 className="h-6 w-6 animate-spin" />}
+                <div className="text-xl md:text-2xl font-bold flex items-center justify-center gap-2">
+                  {stat.isLoading && <Loader2 className="h-5 w-5 animate-spin" />}
                   <span className={stat.isLoading ? 'opacity-50' : stat.hasError ? 'text-red-400' : 'text-foreground/90'}>
                     {stat.value}
                   </span>
