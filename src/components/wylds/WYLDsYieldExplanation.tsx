@@ -186,7 +186,9 @@ const WYLDsYieldExplanation = () => {
                           
                           {/* Content */}
                           <div className="relative z-10 flex flex-col justify-between h-auto space-y-4">
-                            <h4 className="font-bold text-lg text-header-glow group-hover:text-crypto-accent transition-colors duration-300">
+                            <h4 className={`font-bold text-lg transition-colors duration-300 ${
+                              step.number <= 2 ? 'text-header-glow' : 'text-header-glow group-hover:text-crypto-accent'
+                            }`}>
                               {step.title}
                             </h4>
                             <p className="text-foreground/90 text-sm leading-relaxed px-2">
@@ -240,7 +242,9 @@ const WYLDsYieldExplanation = () => {
                       
                       {/* Content */}
                       <div className="relative z-10 flex flex-col justify-between h-auto space-y-4">
-                        <h4 className="font-bold text-lg text-header-glow group-hover:text-crypto-accent transition-colors duration-300">
+                        <h4 className={`font-bold text-lg transition-colors duration-300 ${
+                          step.number <= 2 ? 'text-header-glow' : 'text-header-glow group-hover:text-crypto-accent'
+                        }`}>
                           {step.title}
                         </h4>
                         <p className="text-foreground/90 text-sm leading-relaxed px-2">
