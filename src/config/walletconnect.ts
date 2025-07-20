@@ -3,7 +3,7 @@ import { SolanaAdapter } from '@reown/appkit-adapter-solana'
 import { solana, solanaTestnet, solanaDevnet } from '@reown/appkit/networks'
 
 // 1. Get projectId from https://cloud.reown.com
-const projectId = 'YOUR_PROJECT_ID' // You'll need to replace this
+const projectId = '02661e769c8e5bedcf941045cf4ec583' // You'll need to replace this
 
 // 2. Create a metadata object - describe your app
 const metadata = {
