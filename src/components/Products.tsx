@@ -221,7 +221,7 @@ const Products = () => {
           </div>
 
           {/* HOMES Product */}
-          <div className="card-gradient rounded-3xl p-8 md:p-12 space-y-8 animate-fade-in-up relative" style={{ animationDelay: '0.2s' }}>
+          <div className="card-gradient rounded-3xl p-8 md:p-12 space-y-8 animate-fade-in-up relative mt-16" style={{ animationDelay: '0.2s' }}>
             
             {/* Product header */}
             <div className="space-y-6">
