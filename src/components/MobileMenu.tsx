@@ -66,9 +66,9 @@ const MobileMenu = () => {
           <span className="sr-only">Open menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-80 bg-background/95 backdrop-blur border-border/50 flex flex-col h-full">
+      <SheetContent side="right" className="w-80 bg-background/20 backdrop-blur border-border/50 flex flex-col h-full">
         <SheetHeader className="flex-shrink-0">
-          <SheetTitle className="text-left text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-header-glow to-crypto-accent">
+          <SheetTitle className="text-left text-lg font-bold text-gradient">
             Navigation
           </SheetTitle>
         </SheetHeader>
@@ -76,10 +76,10 @@ const MobileMenu = () => {
         <div className="flex-1 overflow-y-auto py-3 space-y-3">
           {/* Wallet Section - Show when connected */}
           {isConnected && address && (
-            <div className="p-3 bg-orange-900/20 border border-orange-800/30 rounded-lg">
+            <div className="p-3 bg-orange-900/10 border border-orange-800/20 rounded-lg">
               <div className="flex items-center gap-2 mb-3">
-                <div className="w-6 h-6 rounded-full bg-orange-900/30 flex items-center justify-center">
-                  <WalletIcon className="w-3 h-3 text-orange-600" />
+                <div className="w-6 h-6 rounded-full bg-orange-900/20 flex items-center justify-center">
+                  <WalletIcon className="w-3 h-3 text-orange-400" />
                 </div>
                 <div>
                   <p className="font-medium text-foreground text-xs">Connected</p>
@@ -93,20 +93,20 @@ const MobileMenu = () => {
                     setOpen(false);
                     window.location.href = '/earn';
                   }}
-                  className="w-full flex items-center gap-2 p-2 text-xs text-foreground hover:bg-orange-900/30 rounded-md transition-colors"
+                  className="w-full flex items-center gap-2 p-2 text-xs text-foreground hover:bg-orange-900/20 rounded-md transition-colors"
                 >
-                  <TrendingUp className="w-3 h-3 text-orange-600" />
+                  <TrendingUp className="w-3 h-3 text-orange-400" />
                   View Earnings
                 </button>
                 
                 <button
                   onClick={copyAddress}
-                  className="w-full flex items-center gap-2 p-2 text-xs text-foreground hover:bg-orange-900/30 rounded-md transition-colors"
+                  className="w-full flex items-center gap-2 p-2 text-xs text-foreground hover:bg-orange-900/20 rounded-md transition-colors"
                 >
                   {addressCopied ? (
-                    <Check className="w-3 h-3 text-orange-600" />
+                    <Check className="w-3 h-3 text-orange-400" />
                   ) : (
-                    <Copy className="w-3 h-3 text-orange-600" />
+                    <Copy className="w-3 h-3 text-orange-400" />
                   )}
                   {addressCopied ? 'Copied!' : 'Copy Address'}
                 </button>
