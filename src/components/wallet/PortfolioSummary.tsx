@@ -74,7 +74,7 @@ const PortfolioSummary = ({
           </div>
           
           <div className="space-y-2">
-            <p className="text-2xl lg:text-3xl font-bold text-orange-400">
+            <p className="text-2xl lg:text-3xl font-bold text-orange-300">
               ${totalUnclaimedInterest.toLocaleString('en-US', { 
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2 
