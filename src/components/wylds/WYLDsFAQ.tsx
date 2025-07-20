@@ -41,8 +41,8 @@ const WYLDsFAQ = () => {
       <div className="max-w-5xl mx-auto px-4 relative z-10">
         {/* FAQ Accordion */}
         <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent relative">
-          <div className="mb-8">
-            <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed text-center" 
+          <div className="mb-6">
+            <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed text-center mb-4" 
                style={{ 
                  textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' 
                }}>
