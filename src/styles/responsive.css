@@ -9,8 +9,8 @@
   }
   
   .falling-coin-smooth {
-    width: calc(16px * var(--coin-size, 1));
-    height: calc(16px * var(--coin-size, 1));
+    width: calc(14px * min(var(--coin-size, 1), 1.8));
+    height: calc(14px * min(var(--coin-size, 1), 1.8));
   }
   
   /* Simplify coin visuals on mobile */
@@ -35,8 +35,8 @@
   }
   
   .falling-coin-smooth {
-    width: calc(12px * var(--coin-size, 1));
-    height: calc(12px * var(--coin-size, 1));
+    width: calc(10px * min(var(--coin-size, 1), 1.5));
+    height: calc(10px * min(var(--coin-size, 1), 1.5));
   }
   
   /* Reduce number of visible coins on very small screens */
