@@ -145,54 +145,57 @@ const TokenLineItem = ({
         </Button>
       </div>
 
-      {/* Mobile/Tablet Layout */}
-      <div className="lg:hidden p-6 space-y-6">
-        {/* Token Header */}
-        <div className="flex items-start gap-4">
-          <div className="flex flex-col items-center gap-2">
+      {/* Mobile/Tablet Layout - Redesigned */}
+      <div className="lg:hidden p-5 space-y-5">
+        {/* Token Header - Improved Layout */}
+        <div className="flex items-center gap-4">
+          <div className="flex-shrink-0">
             {isImage ? (
               <img 
                 src={icon} 
                 alt={`${token} Token`}
-                className="w-14 h-14 rounded-full object-cover shadow-sm"
+                className="w-12 h-12 rounded-full object-cover shadow-sm"
               />
             ) : (
-              <div className="w-14 h-14 rounded-xl bg-hastra-teal/10 flex items-center justify-center shadow-sm">
+              <div className="w-12 h-12 rounded-xl bg-hastra-teal/10 flex items-center justify-center shadow-sm">
                 <span className="text-hastra-teal font-bold text-lg">{icon}</span>
               </div>
             )}
-            <h4 className="font-medium text-foreground text-sm text-center">{token}</h4>
           </div>
-          <div className="flex-1 space-y-2">
-            <div className="text-center">
-              <p className="font-bold text-orange-400 text-2xl">
-                {amount.toLocaleString('en-US', { 
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 4 
-                })}
-              </p>
-              <p className="text-sm text-muted-foreground">tokens</p>
-            </div>
+          <div className="flex-1 min-w-0">
+            <h4 className="font-semibold text-foreground text-lg leading-tight">{token}</h4>
+            <p className="text-sm text-muted-foreground mt-0.5">Token</p>
           </div>
-          <div className="text-right space-y-1">
-            <p className="font-semibold text-foreground text-lg">
+          <div className="text-right flex-shrink-0">
+            <p className="font-bold text-foreground text-xl leading-tight">
               ${value.toLocaleString('en-US', { 
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2 
               })}
             </p>
-            <p className="text-sm text-muted-foreground">Total Value</p>
+            <p className="text-sm text-muted-foreground mt-0.5">Total Value</p>
           </div>
         </div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 gap-4">
-          <div className="bg-background/40 rounded-xl p-4 space-y-2">
-            <div className="flex items-center gap-2">
+        {/* Token Balance - Centered */}
+        <div className="text-center py-3 bg-background/20 rounded-xl">
+          <p className="text-3xl font-bold text-orange-400 leading-tight">
+            {amount.toLocaleString('en-US', { 
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 4 
+            })}
+          </p>
+          <p className="text-sm text-muted-foreground mt-1">tokens held</p>
+        </div>
+
+        {/* Stats Grid - Improved Spacing */}
+        <div className="grid grid-cols-2 gap-3">
+          <div className="bg-background/40 rounded-xl p-4 text-center">
+            <div className="flex items-center justify-center gap-1.5 mb-2">
               <TrendingUp className="w-4 h-4 text-green-400" />
               <p className="text-sm text-muted-foreground font-medium">Total Claimed</p>
             </div>
-            <p className="font-semibold text-green-400 text-lg">
+            <p className="font-bold text-green-400 text-lg leading-tight">
               ${totalInterestEarnedUSD.toLocaleString('en-US', { 
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2 
@@ -200,9 +203,9 @@ const TokenLineItem = ({
             </p>
           </div>
           
-          <div className="bg-background/40 rounded-xl p-4 space-y-2">
-            <p className="text-sm text-muted-foreground font-medium">Available</p>
-            <p className={`font-semibold text-lg ${unclaimedInterest > 0 ? 'text-orange-400' : 'text-muted-foreground'}`}>
+          <div className="bg-background/40 rounded-xl p-4 text-center">
+            <p className="text-sm text-muted-foreground font-medium mb-2">Available</p>
+            <p className={`font-bold text-lg leading-tight ${unclaimedInterest > 0 ? 'text-orange-400' : 'text-muted-foreground'}`}>
               ${unclaimedInterestUSD.toLocaleString('en-US', { 
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2 
@@ -211,21 +214,21 @@ const TokenLineItem = ({
           </div>
         </div>
 
-        {/* Claim Button */}
+        {/* Claim Button - Full Width */}
         <Button
           onClick={handleClaim}
           disabled={unclaimedInterest <= 0 || isClaiming}
-          className="w-full bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring py-4 text-sm font-medium rounded-xl transition-all duration-200 disabled:opacity-50"
+          className="w-full bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring py-4 text-base font-semibold rounded-xl transition-all duration-200 disabled:opacity-50"
         >
           {isClaiming ? (
-            <div className="flex items-center justify-center gap-2">
-              <div className="w-4 h-4 border-2 border-orange-300 border-t-transparent rounded-full animate-spin" />
-              Claiming Interest...
+            <div className="flex items-center justify-center gap-2.5">
+              <div className="w-5 h-5 border-2 border-orange-300 border-t-transparent rounded-full animate-spin" />
+              <span>Claiming Interest...</span>
             </div>
           ) : (
-            <div className="flex items-center justify-center gap-2">
-              <Gift className="w-4 h-4" />
-              Claim ${unclaimedInterestUSD.toFixed(2)} APY
+            <div className="flex items-center justify-center gap-2.5">
+              <Gift className="w-5 h-5" />
+              <span>Claim ${unclaimedInterestUSD.toFixed(2)} APY</span>
             </div>
           )}
         </Button>
