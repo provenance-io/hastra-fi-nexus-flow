@@ -207,22 +207,6 @@ const Header = () => {
             >
               Earn
             </Link>
-            <Link
-              to="/brand-guide"
-              className="text-lg md:text-xl font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase"
-              style={{ 
-                textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)',
-                transition: 'text-shadow 0.3s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.textShadow = '0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.4), 0 0 45px rgba(255, 255, 255, 0.2)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.textShadow = '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)';
-              }}
-            >
-              Brand
-            </Link>
           </nav>
         </div>
         

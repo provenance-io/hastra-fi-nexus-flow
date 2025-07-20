@@ -75,6 +75,7 @@ export const innovationApproach = [
 export const footerLinks = {
     company: [
         { label: 'About', href: '/about' },
+        { label: 'Press & Media', href: '/brand-guide' },
         { label: 'Earn', href: '/earn' },
         { label: '(L)earn', href: '/learn' },
     ],
