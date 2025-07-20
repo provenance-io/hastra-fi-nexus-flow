@@ -83,8 +83,8 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-muted/30 backdrop-blur supports-[backdrop-filter]:bg-muted/20 shadow-sm shadow-header-glow/5">
       <div className="container flex h-16 md:h-16 items-center justify-between px-4 md:px-6">
         {/* Mobile: Center the logo with more space, Desktop: Left aligned */}
-        <div className="flex items-center space-x-6 md:space-x-12 md:flex-1 w-full md:w-auto">
-          <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity md:flex-initial flex-1 justify-center md:justify-start">
+        <div className="flex items-center space-x-6 md:space-x-12 md:flex-1">
+          <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
             <FooterLogo />
           </Link>
           <nav className="hidden md:flex items-center space-x-7 lg:space-x-11">
