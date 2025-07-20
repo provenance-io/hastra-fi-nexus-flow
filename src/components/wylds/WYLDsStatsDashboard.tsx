@@ -131,25 +131,25 @@ const WYLDsStatsDashboard = () => {
               </p>
             </div>
             
-            <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
+            <div className="grid gap-3 md:gap-6 grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
             {stats.map((stat, index) => (
               <div 
                 key={stat.title} 
-                className="aspect-square card-gradient rounded-xl p-6 text-center flex flex-col justify-center space-y-3 hover:bg-background/60 transition-all duration-300"
+                className="aspect-square card-gradient rounded-lg md:rounded-xl p-3 md:p-6 text-center flex flex-col justify-center space-y-1 md:space-y-3 hover:bg-background/60 transition-all duration-300"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="text-xs font-medium text-orange-300">
+                <div className="text-[10px] md:text-xs font-medium text-orange-300 leading-tight">
                   {stat.title}
                 </div>
-                <div className="text-xl md:text-2xl font-bold flex items-center justify-center gap-2">
-                  {stat.isLoading && <Loader2 className="h-5 w-5 animate-spin" />}
+                <div className="text-lg md:text-xl lg:text-2xl font-bold flex items-center justify-center gap-1 md:gap-2">
+                  {stat.isLoading && <Loader2 className="h-3 w-3 md:h-5 md:w-5 animate-spin" />}
                   <span className={stat.isLoading ? 'opacity-50' : stat.hasError ? 'text-red-400' : 'text-foreground/90'}>
                     {stat.value}
                   </span>
                 </div>
-                <div className="flex justify-center items-center gap-2">
-                  <div className={`w-1.5 h-1.5 rounded-full ${stat.hasError ? 'bg-red-400' : 'bg-header-glow animate-pulse'}`}></div>
-                  <span className="text-xs text-platinum/60">{stat.hasError ? 'Error' : 'Live'}</span>
+                <div className="flex justify-center items-center gap-1 md:gap-2">
+                  <div className={`w-1 h-1 md:w-1.5 md:h-1.5 rounded-full ${stat.hasError ? 'bg-red-400' : 'bg-header-glow animate-pulse'}`}></div>
+                  <span className="text-[10px] md:text-xs text-platinum/60">{stat.hasError ? 'Error' : 'Live'}</span>
                 </div>
               </div>
             ))}
