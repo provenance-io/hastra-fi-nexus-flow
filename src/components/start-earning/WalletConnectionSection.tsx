@@ -26,7 +26,7 @@ const WalletConnectionSection = () => {
 
   return (
     <section className="py-24 md:py-32 relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90"></div>
+      {/* Removed background effects to allow parent gradient to show through */}
       <div className="container relative">
         <div className="max-w-2xl mx-auto space-y-8">
           <div className="text-center space-y-6">

@@ -35,7 +35,7 @@ const riskColors = {
 const BuyEarnSection = () => {
   return (
     <section className="py-20 md:py-32 relative" data-section="buy-earn">
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90"></div>
+      {/* Removed background effects to allow parent gradient to show through */}
       <div className="container relative">
         {/* Enhanced Section Header */}
         <div className="text-center mb-20">
