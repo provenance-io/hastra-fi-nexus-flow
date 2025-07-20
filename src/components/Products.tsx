@@ -160,13 +160,16 @@ const Products = () => {
                         </span>
                       </div>
                     </div>
-                    <Link 
-                      to="/yield"
-                      className="bg-orange-900/20 text-orange-300 hover:bg-orange-900/30 focus-ring font-semibold tracking-tight px-5 py-3 text-base rounded-lg transition-all duration-300 group sm:ml-4 cursor-pointer flex items-center shadow-sm hover:shadow-md"
+                    <Button 
+                      variant="secondary"
+                      className="group sm:ml-4 cursor-pointer"
+                      asChild
                     >
-                      Learn More
-                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Link>
+                      <Link to="/yield">
+                        Learn More
+                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </Link>
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -254,7 +257,8 @@ const Products = () => {
                      >
                        <Button 
                          size="lg" 
-                         className="bg-orange-900/20 text-orange-300 hover:bg-orange-900/30 focus-ring font-semibold tracking-tight px-5 py-3 text-base rounded-lg transition-all duration-300 group sm:ml-4 shadow-sm hover:shadow-md"
+                         variant="secondary"
+                         className="group sm:ml-4"
                        >
                          Learn More
                          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
