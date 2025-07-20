@@ -74,6 +74,19 @@ const MobileMenu = () => {
         </SheetHeader>
         
         <div className="flex-1 overflow-y-auto py-3 space-y-3">
+          {/* Connect Wallet Button - Show when not connected */}
+          {!isConnected && (
+            <div className="px-1">
+              <Button 
+                onClick={handleConnectWallet}
+                size="sm" 
+                className="w-full btn-gradient text-sm"
+              >
+                Connect Wallet
+              </Button>
+            </div>
+          )}
+
           {/* Wallet Section - Show when connected */}
           {isConnected && address && (
             <div className="p-3 bg-orange-900/10 border border-orange-800/20 rounded-lg">
@@ -135,18 +148,6 @@ const MobileMenu = () => {
               </div>
             ))}
           </nav>
-        </div>
-        
-        <div className="flex-shrink-0 pt-3 border-t border-border/20">
-          {!isConnected && (
-            <Button 
-              onClick={handleConnectWallet}
-              size="sm" 
-              className="w-full btn-gradient text-sm"
-            >
-              Connect Wallet
-            </Button>
-          )}
         </div>
       </SheetContent>
     </Sheet>
