@@ -105,36 +105,36 @@ const SendCard = () => {
         <div className="space-y-3">
           <Label className="text-base md:text-sm font-medium text-foreground">Select token to send</Label>
           <Select value={selectedToken} onValueChange={(value: 'YIELD' | 'HASH') => setSelectedToken(value)}>
-            <SelectTrigger className="bg-muted/50 h-16 md:h-auto">
-              <div className="flex items-center gap-4 w-full">
-                <img 
-                  src={selectedToken === 'YIELD' ? yieldIcon : hashIcon} 
-                  alt={selectedToken} 
-                  className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0" 
-                />
-                <div className="flex flex-col min-w-0 flex-1">
+            <SelectTrigger className="bg-muted/50 h-14 md:h-auto">
+              <div className="flex items-center justify-between w-full">
+                <div className="flex items-center gap-4">
+                  <img 
+                    src={selectedToken === 'YIELD' ? yieldIcon : hashIcon} 
+                    alt={selectedToken} 
+                    className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0" 
+                  />
                   <span className="text-base md:text-sm font-medium">{selectedToken}</span>
-                  <span className="text-sm md:text-xs text-muted-foreground truncate">{tokenBalances[selectedToken]}</span>
                 </div>
+                <span className="text-sm md:text-xs text-muted-foreground font-mono">{tokenBalances[selectedToken]}</span>
               </div>
             </SelectTrigger>
             <SelectContent className="bg-card">
-              <SelectItem value="YIELD" className="py-3">
-                <div className="flex items-center gap-4 py-2">
-                  <img src={yieldIcon} alt="YIELD" className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0" />
-                  <div className="flex flex-col min-w-0 flex-1">
+              <SelectItem value="YIELD" className="py-2">
+                <div className="flex items-center justify-between w-full py-1">
+                  <div className="flex items-center gap-4">
+                    <img src={yieldIcon} alt="YIELD" className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0" />
                     <span className="text-base md:text-sm font-medium">YIELD</span>
-                    <span className="text-sm md:text-xs text-muted-foreground truncate">{tokenBalances.YIELD}</span>
                   </div>
+                  <span className="text-sm md:text-xs text-muted-foreground font-mono">{tokenBalances.YIELD}</span>
                 </div>
               </SelectItem>
-              <SelectItem value="HASH" className="py-3">
-                <div className="flex items-center gap-4 py-2">
-                  <img src={hashIcon} alt="HASH" className="w-8 h-8 md:w-6 md:h-6 rounded-full object-cover flex-shrink-0" />
-                  <div className="flex flex-col min-w-0 flex-1">
+              <SelectItem value="HASH" className="py-2">
+                <div className="flex items-center justify-between w-full py-1">
+                  <div className="flex items-center gap-4">
+                    <img src={hashIcon} alt="HASH" className="w-8 h-8 md:w-6 md:h-6 rounded-full object-cover flex-shrink-0" />
                     <span className="text-base md:text-sm font-medium">HASH</span>
-                    <span className="text-sm md:text-xs text-muted-foreground truncate">{tokenBalances.HASH}</span>
                   </div>
+                  <span className="text-sm md:text-xs text-muted-foreground font-mono">{tokenBalances.HASH}</span>
                 </div>
               </SelectItem>
             </SelectContent>
