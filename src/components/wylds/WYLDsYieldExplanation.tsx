@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { ArrowRight, ChevronDown, TrendingUp, Calendar, Repeat, Building2, Zap, Link2 } from 'lucide-react';
+import { ArrowRight, ChevronDown, ChevronRight, TrendingUp, Calendar, Repeat, Building2, Zap, Link2 } from 'lucide-react';
 import yieldIcon from '/lovable-uploads/1d678c0f-09c8-4451-a9a6-3e635e0fef72.png';
 
 const YieldTokenIcon = ({ className }: { className?: string }) => (
@@ -164,8 +164,6 @@ const WYLDsYieldExplanation = () => {
                         
                         {/* Card Container - Fixed Dimensions */}
                         <div className="w-64 h-80 card-gradient rounded-2xl p-8 text-center space-y-4 hover:bg-background/60 transition-all duration-300 relative overflow-hidden">
-                          {/* Hover Overlay */}
-                          <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl`}></div>
                           
                           {/* Icon Container */}
                           <div className="relative z-10 mb-4 flex justify-center">
@@ -195,7 +193,7 @@ const WYLDsYieldExplanation = () => {
                       {/* Arrow Connector */}
                       {index < steps.length - 1 && (
                         <div className="mx-6 flex items-center justify-center h-80">
-                          <ArrowRight className="w-8 h-8 text-orange-400" />
+                          <ChevronRight className="w-8 h-8 text-orange-300" />
                         </div>
                       )}
                     </div>
@@ -220,8 +218,6 @@ const WYLDsYieldExplanation = () => {
                     
                     {/* Card Container - Fixed Mobile Dimensions */}
                     <div className="w-full h-64 card-gradient rounded-2xl p-8 text-center space-y-4 hover:bg-background/60 transition-all duration-300 relative overflow-hidden">
-                      {/* Hover Overlay */}
-                      <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl`}></div>
                       
                        {/* Icon Container */}
                        <div className="relative z-10 mb-4 flex justify-center">
@@ -251,7 +247,7 @@ const WYLDsYieldExplanation = () => {
                   {/* Down Arrow Connector */}
                   {index < steps.length - 1 && (
                     <div className="flex justify-center my-8">
-                      <ChevronDown className="w-8 h-8 text-orange-400" />
+                      <ChevronDown className="w-8 h-8 text-orange-300" />
                     </div>
                   )}
                 </div>
