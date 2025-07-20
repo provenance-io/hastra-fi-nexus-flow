@@ -39,22 +39,29 @@ const WYLDsFAQ = () => {
       {/* Unified seamless background - removed conflicting gradient */}
       
       <div className="max-w-5xl mx-auto px-4 relative z-10">
+        {/* Description text outside container */}
+        <div className="text-center mb-12">
+          <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed" 
+             style={{ 
+               textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' 
+             }}>
+            Get answers to common questions about YIELD tokens and how they work
+          </p>
+        </div>
+
         {/* FAQ Accordion */}
         <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent relative">
-          <div className="mb-6">
-            <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed text-center mb-4" 
-               style={{ 
-                 textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' 
-               }}>
-              Get answers to common questions about YIELD tokens and how they work
-            </p>
-          </div>
+          <div className="relative z-10">
+            {/* Section Header - Matching About page AnimatedCard style */}
+            <div className="mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">FAQ</h2>
+            </div>
           <Accordion type="single" collapsible className="space-y-6">
             {faqs.map((faq, index) => (
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="border border-border/10 rounded-xl bg-card/80 hover:bg-card/90 transition-all duration-300"
+                className="border border-border/10 rounded-xl card-gradient hover:bg-background/60 transition-all duration-300"
               >
                 <AccordionTrigger className="px-6 py-4 text-left hover:no-underline group">
                   <span className="text-base md:text-lg text-foreground group-hover:text-foreground/80 transition-colors duration-300">
@@ -84,6 +91,7 @@ const WYLDsFAQ = () => {
               </AccordionItem>
             ))}
           </Accordion>
+          </div>
         </div>
       </div>
     </section>

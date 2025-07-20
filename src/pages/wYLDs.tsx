@@ -18,7 +18,6 @@ const WYLDsPage = () => {
         <WYLDsHero />
         
         <WYLDsYieldExplanation />
-        <WYLDsStatsDashboard />
         <WYLDsFAQ />
         <WYLDsTypeformEmbed />
         <WYLDsResources />
