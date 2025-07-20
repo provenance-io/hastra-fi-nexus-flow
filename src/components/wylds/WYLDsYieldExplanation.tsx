@@ -20,7 +20,7 @@ const WYLDsYieldExplanation = () => {
       number: 2,
       icon: TrendingUp,
       title: "Watch your balance grow",
-      description: "Watch your balance grow without any additional action. Yield is automatically calculated.",
+      description: "Watch your balance grow on hastra.io - Yield is automatically calculated.",
       color: "from-crypto-accent to-header-glow",
       bgPattern: "bg-crypto-accent/10"
     },
