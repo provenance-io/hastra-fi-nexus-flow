@@ -32,7 +32,7 @@ const WYLDsHero = () => {
 
   const displayApy = apyLoading ? 'Loading...' : apyError ? 'Error' : `${apy || 0}%`;
 
-  const flashingPhrases = ["TRADE IT.", " LEND IT.", " SPEND IT.", " SEND IT."];
+  const flashingPhrases = ["BUY IT.", " TRADE IT.", " LEND IT.", " SEND IT."];
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden py-8 md:py-12 pt-6 md:pt-10">
