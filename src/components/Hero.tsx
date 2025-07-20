@@ -36,8 +36,8 @@ const Hero = () => {
     const zDepth = layer === 0 ? 0.4 : 1.0; // Simplified depth
     const baseScale = layer === 0 ? 0.6 : 1.0; // Simplified scaling
     
-    // Size variations - between 1.0 and 1.25
-    const sizeVariations = [1.0, 1.1, 1.25, 1.05, 1.2, 1.15]; // 1.0-1.25 range
+    // Size variations - between 1.25 and 1.75
+    const sizeVariations = [1.25, 1.35, 1.75, 1.45, 1.6, 1.5]; // 1.25-1.75 range
     const coinSize = sizeVariations[i % sizeVariations.length];
     
     // Position configuration - more big coins on left side
@@ -45,7 +45,7 @@ const Hero = () => {
     if (i < 3) {
       // First 3 coins on left side, make them larger
       startX = 5 + (i * 8) + Math.random() * 5; // Left side positioning
-      const leftSideSizes = [1.15, 1.25, 1.1]; // 1.0-1.25 range for left coins
+      const leftSideSizes = [1.55, 1.75, 1.4]; // 1.25-1.75 range for left coins
       return {
         id: i,
         layer,
@@ -132,9 +132,9 @@ const Hero = () => {
             >
               <div className="coin-face-smooth">
                 <img 
-                  src="/lovable-uploads/b4e3a1a3-5eb7-4825-be74-ab9c8be136aa.png" 
+                  src="/lovable-uploads/4906f514-8559-48de-8ba3-342f6a26b5eb.png" 
                   alt="Token logo" 
-                  className="w-3/4 h-3/4 object-contain absolute inset-0 m-auto"
+                  className="w-3/4 h-3/4 object-contain absolute inset-0 m-auto opacity-80"
                 />
               </div>
               <div className="coin-edge-smooth" />
