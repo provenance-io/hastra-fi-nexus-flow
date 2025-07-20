@@ -1,7 +1,8 @@
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { useToast } from '@/hooks/use-toast';
-import { appkit } from '@/config/walletconnect';
+import { useWallet as useSolanaWallet } from '@solana/wallet-adapter-react';
+import { useWalletModal } from '@solana/wallet-adapter-react-ui';
 
 export interface WalletState {
   isConnected: boolean;
@@ -43,91 +44,54 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   });
 
   const { toast } = useToast();
+  const { 
+    wallet, 
+    publicKey, 
+    connected, 
+    connecting, 
+    disconnect: solanaDisconnect,
+  } = useSolanaWallet();
+  const { setVisible } = useWalletModal();
 
-  // Listen for AppKit state changes
+  // Update our state based on Solana wallet adapter state
   useEffect(() => {
-    const unsubscribe = appkit.subscribeState((state) => {
-      console.log('🔍 AppKit State Update:', {
-        loading: state.loading,
-        open: state.open,
-        selectedNetworkId: state.selectedNetworkId,
-        activeChain: state.activeChain
-      });
-      
-      // Check all possible connection indicators from AppKit
-      const caipAddress = (state as any).caipAddress;
-      const address = (state as any).address;
-      const account = (state as any).account;
-      const isConnected = (state as any).isConnected;
-      const connectorType = (state as any).connectorType;
-      
-      // Log detailed connection state
-      console.log('🔎 Wallet Connection Details:', {
-        caipAddress,
-        address,
-        account,
-        isConnected,
-        connectorType,
-        hasAnyAddress: !!(caipAddress || address || account)
-      });
-      
-      // Determine if we have a valid wallet connection
-      const hasValidConnection = (isConnected === true) || !!(caipAddress || address || account);
-      const walletAddress = caipAddress || address || account;
-      
-      // Only process state when not loading and modal is closed
-      if (!state.loading && !state.open) {
-        if (hasValidConnection && walletAddress) {
-          console.log('✅ Setting connected state with address:', walletAddress);
-          setWalletState(prev => ({
-            ...prev,
-            isConnected: true,
-            address: walletAddress,
-            isConnecting: false,
-            walletType: connectorType || 'Solana Wallet',
-            balance: 1250.45,
-            networkError: null,
-          }));
-          
-          toast({
-            title: "🟢 Wallet Connected",
-            description: `Successfully connected ${connectorType || 'Solana wallet'}`,
-            className: "border-l-4 border-l-crypto-accent bg-crypto-accent/10 shadow-glow",
-          });
-        } else {
-          console.log('❌ No valid connection - clearing state');
-          setWalletState(prev => ({
-            ...prev,
-            isConnected: false,
-            address: null,
-            isConnecting: false,
-            walletType: null,
-            balance: 0,
-          }));
-        }
-      } else if (state.open) {
-        console.log('📱 Modal is open - setting connecting state');
-        setWalletState(prev => ({
-          ...prev,
-          isConnecting: true,
-          networkError: null,
-        }));
-      }
+    console.log('🔍 Solana Wallet State Update:', {
+      connected,
+      connecting,
+      publicKey: publicKey?.toString(),
+      walletName: wallet?.adapter?.name
     });
 
-    return () => {
-      unsubscribe();
-    };
-  }, [toast]);
+    const previouslyConnected = walletState.isConnected;
+
+    setWalletState(prev => ({
+      ...prev,
+      isConnected: connected,
+      isConnecting: connecting,
+      address: publicKey?.toString() || null,
+      walletType: wallet?.adapter?.name || null,
+      balance: connected ? 1250.45 : 0, // Mock balance for now
+      networkError: null,
+    }));
+
+    // Show connection success toast
+    if (connected && publicKey && !previouslyConnected) {
+      toast({
+        title: "🟢 Wallet Connected",
+        description: `Successfully connected ${wallet?.adapter?.name || 'wallet'}`,
+        className: "border-l-4 border-l-crypto-accent bg-crypto-accent/10 shadow-glow",
+      });
+    }
+  }, [connected, connecting, publicKey, wallet, toast, walletState.isConnected]);
 
   const connectWallet = async (): Promise<void> => {
-    console.log('🚀 Starting wallet connection process...');
+    console.log('🚀 Opening Solana wallet selection modal...');
     
     try {
       setWalletState(prev => ({ ...prev, isConnecting: true, networkError: null }));
       
-      console.log('📱 Opening wallet selection modal...');
-      appkit.open({ view: 'Connect' }); // Explicitly open to Connect view
+      // Open the wallet selection modal
+      setVisible(true);
       
     } catch (error) {
       console.error('❌ Error opening wallet modal:', error);
@@ -139,7 +103,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       
       toast({
         title: "Connection Error",
-        description: "Could not open wallet selection. Please refresh and try again.",
+        description: "Could not open wallet selection. Please try again.",
         variant: "destructive",
       });
     }
@@ -147,26 +111,23 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
 
   const disconnectWallet = (): void => {
     try {
-      // First disconnect from AppKit
-      appkit.disconnect();
+      console.log('🔌 Disconnecting wallet...');
+      solanaDisconnect();
       
-      // Wait a bit then reset state to ensure clean disconnect
-      setTimeout(() => {
-        setWalletState({
-          isConnected: false,
-          isConnecting: false,
-          address: null,
-          balance: 0,
-          networkError: null,
-          walletType: null,
-        });
-        
-        toast({
-          title: "🔴 Wallet Disconnected",
-          description: "Your wallet has been disconnected",
-          className: "border-l-4 border-l-auburn-primary bg-auburn-primary/10 shadow-auburn",
-        });
-      }, 100);
+      setWalletState({
+        isConnected: false,
+        isConnecting: false,
+        address: null,
+        balance: 0,
+        networkError: null,
+        walletType: null,
+      });
+      
+      toast({
+        title: "🔴 Wallet Disconnected",
+        description: "Your wallet has been disconnected",
+        className: "border-l-4 border-l-auburn-primary bg-auburn-primary/10 shadow-auburn",
+      });
       
     } catch (error) {
       console.error('Error disconnecting wallet:', error);
