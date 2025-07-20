@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useWallet } from '@/contexts/WalletContext';
 import { useToast } from '@/hooks/use-toast';
 import { getWalletIcon } from '@/utils/walletIcons';
+import HastraLogo from '@/components/HastraLogo';
 import {
   Sheet,
   SheetContent,
@@ -66,56 +67,62 @@ const MobileMenu = () => {
           <span className="sr-only">Open menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-80 bg-background/20 backdrop-blur border-border/50 flex flex-col h-full">
+      <SheetContent side="right" className="w-80 bg-card/60 backdrop-blur-xl border-border/30 flex flex-col h-full shadow-2xl">
         <SheetHeader className="flex-shrink-0">
-          <SheetTitle className="text-left text-lg font-bold text-gradient">
-            Navigation
+          <SheetTitle className="text-left">
+            <Link 
+              to="/" 
+              onClick={() => setOpen(false)}
+              className="inline-block hover:scale-105 transition-transform duration-200"
+            >
+              <HastraLogo className="h-10 w-auto" />
+            </Link>
           </SheetTitle>
         </SheetHeader>
         
         <div className="flex-1 overflow-y-auto py-3 space-y-3">
           {/* Wallet Section - Show when connected */}
           {isConnected && address && (
-            <div className="p-3 bg-orange-900/10 border border-orange-800/20 rounded-lg">
-              <div className="flex items-center gap-2 mb-3">
-                <div className="w-6 h-6 rounded-full bg-orange-900/20 flex items-center justify-center">
-                  <WalletIcon className="w-3 h-3 text-orange-400" />
+            <div className="p-4 bg-crypto-accent/10 border border-crypto-accent/20 rounded-xl shadow-lg">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-8 rounded-full bg-crypto-accent/20 flex items-center justify-center">
+                  <WalletIcon className="w-4 h-4 text-crypto-accent" />
                 </div>
                 <div>
-                  <p className="font-medium text-foreground text-xs">Connected</p>
-                  <p className="text-xs text-muted-foreground font-mono">{formatAddress(address)}</p>
+                  <p className="font-medium text-foreground text-sm">Connected</p>
+                  <p className="text-sm text-muted-foreground font-mono">{formatAddress(address)}</p>
                 </div>
               </div>
               
-              <div className="space-y-1">
+              <div className="space-y-2">
                 <button
                   onClick={() => {
                     setOpen(false);
                     window.location.href = '/earn';
                   }}
-                  className="w-full flex items-center gap-2 p-2 text-xs text-foreground hover:bg-orange-900/20 rounded-md transition-colors"
+                  className="w-full flex items-center gap-3 p-3 text-sm text-foreground hover:bg-crypto-accent/20 rounded-lg transition-colors"
                 >
-                  <TrendingUp className="w-3 h-3 text-orange-400" />
+                  <TrendingUp className="w-4 h-4 text-crypto-accent" />
                   View Earnings
                 </button>
                 
                 <button
                   onClick={copyAddress}
-                  className="w-full flex items-center gap-2 p-2 text-xs text-foreground hover:bg-orange-900/20 rounded-md transition-colors"
+                  className="w-full flex items-center gap-3 p-3 text-sm text-foreground hover:bg-crypto-accent/20 rounded-lg transition-colors"
                 >
                   {addressCopied ? (
-                    <Check className="w-3 h-3 text-orange-400" />
+                    <Check className="w-4 h-4 text-crypto-accent" />
                   ) : (
-                    <Copy className="w-3 h-3 text-orange-400" />
+                    <Copy className="w-4 h-4 text-crypto-accent" />
                   )}
                   {addressCopied ? 'Copied!' : 'Copy Address'}
                 </button>
                 
                 <button
                   onClick={handleDisconnect}
-                  className="w-full flex items-center gap-2 p-2 text-xs text-foreground hover:bg-orange-900/20 rounded-md transition-colors"
+                  className="w-full flex items-center gap-3 p-3 text-sm text-foreground hover:bg-crypto-accent/20 rounded-lg transition-colors"
                 >
-                  <LogOut className="w-3 h-3 text-orange-400" />
+                  <LogOut className="w-4 h-4 text-crypto-accent" />
                   Disconnect
                 </button>
               </div>
