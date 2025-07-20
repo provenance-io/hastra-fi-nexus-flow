@@ -179,11 +179,11 @@ const WYLDsYieldExplanation = () => {
                           </div>
                           
                           {/* Content */}
-                          <div className="relative z-10 h-36 flex flex-col justify-between">
-                            <h4 className="font-bold text-lg text-header-glow group-hover:text-crypto-accent transition-colors duration-300 mb-3">
+                          <div className="relative z-10 flex flex-col justify-between h-auto space-y-3">
+                            <h4 className="font-bold text-lg text-header-glow group-hover:text-crypto-accent transition-colors duration-300">
                               {step.title}
                             </h4>
-                            <p className="text-foreground/90 text-sm leading-relaxed flex-1 flex items-center justify-center">
+                            <p className="text-foreground/90 text-sm leading-relaxed">
                               {step.description}
                             </p>
                           </div>
@@ -193,11 +193,7 @@ const WYLDsYieldExplanation = () => {
                       {/* Arrow Connector */}
                       {index < steps.length - 1 && (
                         <div className="mx-4 flex items-center justify-center h-72">
-                          <div className="flex items-center">
-                            <div className="w-6 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent rounded-full"></div>
-                            <ArrowRight className="w-6 h-6 text-orange-400 mx-2" />
-                            <div className="w-6 h-0.5 bg-gradient-to-r from-crypto-accent to-header-glow rounded-full"></div>
-                          </div>
+                          <ArrowRight className="w-8 h-8 text-orange-400" />
                         </div>
                       )}
                     </div>
@@ -237,11 +233,11 @@ const WYLDsYieldExplanation = () => {
                        </div>
                       
                       {/* Content */}
-                      <div className="relative z-10 h-28 flex flex-col justify-between">
-                        <h4 className="font-bold text-lg text-header-glow group-hover:text-crypto-accent transition-colors duration-300 mb-3">
+                      <div className="relative z-10 flex flex-col justify-between h-auto space-y-3">
+                        <h4 className="font-bold text-lg text-header-glow group-hover:text-crypto-accent transition-colors duration-300">
                           {step.title}
                         </h4>
-                        <p className="text-foreground/90 text-sm leading-relaxed flex-1 flex items-center justify-center">
+                        <p className="text-foreground/90 text-sm leading-relaxed">
                           {step.description}
                         </p>
                       </div>
@@ -251,9 +247,7 @@ const WYLDsYieldExplanation = () => {
                   {/* Down Arrow Connector */}
                   {index < steps.length - 1 && (
                     <div className="flex justify-center my-6">
-                      <div className="bg-orange-900/20 border border-orange-800/30 rounded-full p-2">
-                        <ChevronDown className="w-4 h-4 text-orange-400" />
-                      </div>
+                      <ChevronDown className="w-8 h-8 text-orange-400" />
                     </div>
                   )}
                 </div>
