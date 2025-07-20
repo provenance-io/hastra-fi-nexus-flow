@@ -29,8 +29,8 @@ const Hero = () => {
     refetchInterval: 5 * 60 * 1000, // Refetch every 5 minutes
   });
 
-  // Enhanced coin configuration with more coins and bigger ones on the left (8 coins total)
-  const coinConfigs = useRef([...Array(8)].map((_, i) => {
+  // Enhanced coin configuration with more coins and bigger ones on the left (7 coins total - reduced by 10%)
+  const coinConfigs = useRef([...Array(7)].map((_, i) => {
     // Distribute coins across 2 depth layers for simplicity
     const layer = i % 2; // 0 = far, 1 = near
     const zDepth = layer === 0 ? 0.4 : 1.0; // Simplified depth
