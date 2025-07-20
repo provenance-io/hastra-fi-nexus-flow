@@ -1,23 +1,23 @@
 
 @layer components {
   .btn-gradient {
-    @apply bg-gradient-to-r from-header-glow to-crypto-accent text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95;
+    @apply bg-gradient-to-r from-header-glow to-crypto-accent text-white font-semibold tracking-tight rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] active:scale-[0.98];
   }
   
   .btn-hastra {
-    @apply bg-gradient-to-r from-hastra-teal to-hastra-teal-light text-white font-bold shadow-lg hover:shadow-xl hover:shadow-hastra transition-all duration-300 hover:scale-105 active:scale-95;
+    @apply bg-gradient-to-r from-hastra-teal to-hastra-teal-light text-white font-semibold tracking-tight rounded-lg shadow-sm hover:shadow-md shadow-hastra-teal/20 hover:shadow-hastra-teal/30 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98];
   }
   
   .btn-hastra-outline {
-    @apply border border-hastra-teal/30 bg-hastra-teal/10 text-hastra-teal hover:bg-hastra-teal/20 hover:border-hastra-teal/50 font-bold shadow-lg hover:shadow-hastra transition-all duration-300 hover:scale-105 active:scale-95;
+    @apply border border-hastra-teal/30 bg-hastra-teal/10 text-hastra-teal hover:bg-hastra-teal/20 hover:border-hastra-teal/50 font-semibold tracking-tight rounded-lg shadow-sm hover:shadow-md shadow-hastra-teal/10 hover:shadow-hastra-teal/20 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98];
   }
   
   .btn-auburn {
-    @apply bg-gradient-to-r from-auburn-primary to-auburn-light text-white font-bold shadow-lg hover:shadow-xl hover:shadow-auburn transition-all duration-300 hover:scale-105 active:scale-95;
+    @apply bg-gradient-to-r from-auburn-primary to-auburn-light text-white font-semibold tracking-tight rounded-lg shadow-sm hover:shadow-md shadow-auburn-primary/20 hover:shadow-auburn-primary/30 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98];
   }
   
   .btn-auburn-outline {
-    @apply border border-auburn-primary/30 bg-auburn-primary/10 text-auburn-primary hover:bg-auburn-primary/20 hover:border-auburn-primary/50 font-bold shadow-lg hover:shadow-auburn transition-all duration-300 hover:scale-105 active:scale-95;
+    @apply border border-auburn-primary/30 bg-auburn-primary/10 text-auburn-primary hover:bg-auburn-primary/20 hover:border-auburn-primary/50 font-semibold tracking-tight rounded-lg shadow-sm hover:shadow-md shadow-auburn-primary/10 hover:shadow-auburn-primary/20 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98];
   }
 
   .btn-premium {
