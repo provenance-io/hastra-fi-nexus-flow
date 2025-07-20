@@ -59,15 +59,15 @@ const HOMESAbout = () => {
             Experience the convergence of Real World Assets and decentralized finance. Earn competitive yields while maintaining the transparency and accessibility that DeFi promises.
           </p>
           <div className="grid md:grid-cols-3 gap-8 mt-8">
-            <div className="bg-gradient-to-r from-header-glow/10 to-crypto-accent/10 rounded-2xl p-6 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300 shadow-sm">
+            <div className="bg-background/80 rounded-2xl p-6 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300 shadow-sm">
               <div className="text-2xl lg:text-3xl font-bold text-foreground mb-2">7.5%</div>
               <div className="text-sm text-muted-foreground">Target APY</div>
             </div>
-            <div className="bg-gradient-to-r from-header-glow/10 to-crypto-accent/10 rounded-2xl p-6 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300 shadow-sm">
+            <div className="bg-background/80 rounded-2xl p-6 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300 shadow-sm">
               <div className="text-2xl lg:text-3xl font-bold text-foreground mb-2">$5M-$100M</div>
               <div className="text-sm text-muted-foreground">Pool Size</div>
             </div>
-            <div className="bg-gradient-to-r from-header-glow/10 to-crypto-accent/10 rounded-2xl p-6 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300 shadow-sm">
+            <div className="bg-background/80 rounded-2xl p-6 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300 shadow-sm">
               <div className="text-2xl lg:text-3xl font-bold text-foreground mb-2">Solana RWA</div>
               <div className="text-sm text-muted-foreground">First Mover</div>
             </div>
