@@ -116,7 +116,7 @@ const WYLDsYieldExplanation = () => {
                   <div className="relative w-full h-full transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
                     {/* Front of card */}
                     <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(0deg)]">
-                      <div className="w-full h-full card-gradient rounded-2xl p-4 md:p-6 text-center space-y-3 hover:bg-background/80 transition-all duration-300 bg-background/95 backdrop-blur-sm">
+                      <div className="w-full h-full bg-background/30 rounded-2xl p-4 md:p-6 text-center space-y-3 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300 backdrop-blur-sm">
                         <div className="h-full flex flex-col justify-center">
                           <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-header-glow to-crypto-accent rounded-xl md:rounded-2xl mx-auto mb-4 md:mb-6 flex items-center justify-center shadow-lg">
                             <feature.icon className="h-8 w-8 md:h-10 md:w-10 text-black" />
@@ -337,7 +337,7 @@ const WYLDsYieldExplanation = () => {
             </div>
             
             <div className="grid gap-6 md:gap-8 grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
-              <div className="aspect-square card-gradient rounded-lg md:rounded-xl p-3 md:p-6 text-center flex flex-col justify-center space-y-1 md:space-y-3 hover:bg-background/60 transition-all duration-300">
+              <div className="aspect-square bg-background/30 rounded-lg md:rounded-xl p-3 md:p-6 text-center flex flex-col justify-center space-y-1 md:space-y-3 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300">
                 <div className="text-[10px] md:text-xs font-medium text-orange-300 leading-tight">
                   Total YIELD in Circulation
                 </div>
@@ -350,7 +350,7 @@ const WYLDsYieldExplanation = () => {
                 </div>
               </div>
 
-              <div className="aspect-square card-gradient rounded-lg md:rounded-xl p-3 md:p-6 text-center flex flex-col justify-center space-y-1 md:space-y-3 hover:bg-background/60 transition-all duration-300" style={{ animationDelay: '0.1s' }}>
+              <div className="aspect-square bg-background/30 rounded-lg md:rounded-xl p-3 md:p-6 text-center flex flex-col justify-center space-y-1 md:space-y-3 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300" style={{ animationDelay: '0.1s' }}>
                 <div className="text-[10px] md:text-xs font-medium text-orange-300 leading-tight">
                   Current APY
                 </div>
@@ -363,7 +363,7 @@ const WYLDsYieldExplanation = () => {
                 </div>
               </div>
 
-              <div className="aspect-square card-gradient rounded-lg md:rounded-xl p-3 md:p-6 text-center flex flex-col justify-center space-y-1 md:space-y-3 hover:bg-background/60 transition-all duration-300" style={{ animationDelay: '0.2s' }}>
+              <div className="aspect-square bg-background/30 rounded-lg md:rounded-xl p-3 md:p-6 text-center flex flex-col justify-center space-y-1 md:space-y-3 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300" style={{ animationDelay: '0.2s' }}>
                 <div className="text-[10px] md:text-xs font-medium text-orange-300 leading-tight">
                   Total Yield Earned
                 </div>
@@ -376,7 +376,7 @@ const WYLDsYieldExplanation = () => {
                 </div>
               </div>
 
-              <div className="aspect-square card-gradient rounded-lg md:rounded-xl p-3 md:p-6 text-center flex flex-col justify-center space-y-1 md:space-y-3 hover:bg-background/60 transition-all duration-300" style={{ animationDelay: '0.3s' }}>
+              <div className="aspect-square bg-background/30 rounded-lg md:rounded-xl p-3 md:p-6 text-center flex flex-col justify-center space-y-1 md:space-y-3 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300" style={{ animationDelay: '0.3s' }}>
                 <div className="text-[10px] md:text-xs font-medium text-orange-300 leading-tight">
                   Active Holders
                 </div>
