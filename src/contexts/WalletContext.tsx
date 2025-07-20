@@ -49,38 +49,49 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     const unsubscribe = appkit.subscribeState((state) => {
       console.log('AppKit State:', state); // Debug log
       
-      // Check if we have an active account connection
-      const isWalletConnected = (state as any).address && !state.open;
-      const isWalletDisconnected = !(state as any).address && !state.open;
+      // Use multiple approaches to detect wallet connection
+      const hasConnection = (state as any).isConnected || 
+                           (state as any).address || 
+                           (state as any).caipAddress ||
+                           (state as any).account ||
+                           state.selectedNetworkId;
       
-      if (isWalletConnected) {
-        // Wallet is connected
-        setWalletState(prev => ({
-          ...prev,
-          isConnected: true,
-          address: (state as any).address,
-          isConnecting: false,
-          walletType: 'Connected',
-          balance: 1250.45, // You can implement actual balance fetching here
-        }));
-        
-        if (walletState.isConnecting) {
-          toast({
-            title: "🟢 Wallet Connected",
-            description: `Successfully connected wallet`,
-            className: "border-l-4 border-l-crypto-accent bg-crypto-accent/10 shadow-glow",
-          });
+      const walletAddress = (state as any).caipAddress || 
+                           (state as any).address || 
+                           (state as any).account ||
+                           'Connected Wallet';
+      
+      // Only update state when modal is closed to avoid intermediate states
+      if (!state.open) {
+        if (hasConnection && walletAddress) {
+          // Wallet is connected
+          setWalletState(prev => ({
+            ...prev,
+            isConnected: true,
+            address: walletAddress,
+            isConnecting: false,
+            walletType: 'Connected',
+            balance: 1250.45,
+          }));
+          
+          if (walletState.isConnecting) {
+            toast({
+              title: "🟢 Wallet Connected",
+              description: `Successfully connected wallet`,
+              className: "border-l-4 border-l-crypto-accent bg-crypto-accent/10 shadow-glow",
+            });
+          }
+        } else if (!hasConnection) {
+          // Wallet is disconnected
+          setWalletState(prev => ({
+            ...prev,
+            isConnected: false,
+            address: null,
+            isConnecting: false,
+            walletType: null,
+            balance: 0,
+          }));
         }
-      } else if (isWalletDisconnected) {
-        // Wallet is disconnected
-        setWalletState(prev => ({
-          ...prev,
-          isConnected: false,
-          address: null,
-          isConnecting: false,
-          walletType: null,
-          balance: 0,
-        }));
       }
     });
 
