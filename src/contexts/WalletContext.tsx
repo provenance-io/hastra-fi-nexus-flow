@@ -47,13 +47,18 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   // Listen for AppKit state changes
   useEffect(() => {
     const unsubscribe = appkit.subscribeState((state) => {
-      // Check if we have an active account address
-      if (state.selectedNetworkId && state.open === false) {
+      console.log('AppKit State:', state); // Debug log
+      
+      // Check if we have an active account connection
+      const isWalletConnected = (state as any).address && !state.open;
+      const isWalletDisconnected = !(state as any).address && !state.open;
+      
+      if (isWalletConnected) {
         // Wallet is connected
         setWalletState(prev => ({
           ...prev,
           isConnected: true,
-          address: state.selectedNetworkId || 'Connected',
+          address: (state as any).address,
           isConnecting: false,
           walletType: 'Connected',
           balance: 1250.45, // You can implement actual balance fetching here
@@ -66,7 +71,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
             className: "border-l-4 border-l-crypto-accent bg-crypto-accent/10 shadow-glow",
           });
         }
-      } else if (!state.selectedNetworkId && !state.open) {
+      } else if (isWalletDisconnected) {
         // Wallet is disconnected
         setWalletState(prev => ({
           ...prev,
@@ -82,7 +87,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     return () => {
       unsubscribe();
     };
-  }, [toast]);
+  }, [toast, walletState.isConnecting]);
 
   const connectWallet = async (): Promise<void> => {
     setWalletState(prev => ({ ...prev, isConnecting: true, networkError: null }));
