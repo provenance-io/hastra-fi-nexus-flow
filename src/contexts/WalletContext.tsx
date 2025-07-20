@@ -57,7 +57,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
           isConnected: true,
           address: savedAddress,
           balance: savedBalance ? parseFloat(savedBalance) : 1250.45,
-          walletType: savedWalletType || 'MetaMask',
+          walletType: savedWalletType || 'Phantom',
         }));
       }
     };
@@ -72,10 +72,10 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       // Simulate connection delay
       await new Promise(resolve => setTimeout(resolve, 1500));
       
-      // Mock successful connection
-      const mockAddress = '0x742d35Cc6734Cf532A954B07C03bfcBb1316d35A4';
+      // Mock successful connection with Solana address
+      const mockAddress = '9WzDXwBbmkg8ZTbNMqUxvQRAyrZzDsGYdLVL9zYtAWWM';
       const mockBalance = 1250.45;
-      const walletType = 'MetaMask'; // Could be dynamically determined
+      const walletType = 'Phantom'; // Phantom wallet for Solana
       
       setWalletState(prev => ({
         ...prev,
