@@ -34,6 +34,11 @@
     --hastra-slate-light: 215 25% 35%;
     --hastra-slate-dark: 215 25% 20%;
     
+    /* Muted Hastra colors for subtle gradients */
+    --hastra-muted: 180 30% 15%;
+    --hastra-muted-light: 180 20% 12%;
+    --hastra-muted-dark: 180 40% 10%;
+    
     /* Glass Morphism */
     --glass-bg: 255 255 255 / 0.05;
     --glass-border: 255 255 255 / 0.1;
