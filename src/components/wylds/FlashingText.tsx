@@ -18,27 +18,28 @@ const FlashingText = ({ phrases, className = "" }: FlashingTextProps) => {
       setActiveIndex((prevIndex) => {
         const nextIndex = prevIndex + 1;
         
-        // If we've reached the end, this shouldn't happen anymore
+        // If we've reached the end, reset to start
         if (nextIndex >= phrases.length) {
-          return prevIndex; // Stay at current index
+          // Reset all states and start over
+          setIsLastPhraseExtended(false);
+          setIsSlowFading(false);
+          timeout = setTimeout(() => {
+            setActiveIndex(0);
+            timeout = setTimeout(showNextPhrase, 1000);
+          }, 1500); // Pause between cycles
+          return -1; // Clear display
         }
         
         // If this is the last phrase, handle extended timing
         if (nextIndex === phrases.length - 1) {
           setIsLastPhraseExtended(true);
-          // Shorter display time for last phrase (2 seconds) + slow fade
+          // Display for 2 seconds, then fade for 2 seconds
           timeout = setTimeout(() => {
             setIsSlowFading(true);
             timeout = setTimeout(() => {
-              // Reset states and move to next cycle
-              setIsLastPhraseExtended(false);
-              setIsSlowFading(false);
-              setActiveIndex(-1); // Clear before restart
-              timeout = setTimeout(() => {
-                setActiveIndex(0);
-                timeout = setTimeout(showNextPhrase, 1000);
-              }, 1500); // Pause between cycles
-            }, 2000); // 2 second slow fade
+              // Move to next (which will trigger reset logic above)
+              showNextPhrase();
+            }, 2000); // 2 second fade
           }, 2000); // Stay visible for 2 seconds
         } else {
           // Regular phrases: 1 second display time
@@ -50,7 +51,10 @@ const FlashingText = ({ phrases, className = "" }: FlashingTextProps) => {
     };
 
     // Start the cycle initially
-    timeout = setTimeout(showNextPhrase, 1000);
+    timeout = setTimeout(() => {
+      setActiveIndex(0);
+      timeout = setTimeout(showNextPhrase, 1000);
+    }, 1000);
 
     return () => {
       if (timeout) clearTimeout(timeout);
