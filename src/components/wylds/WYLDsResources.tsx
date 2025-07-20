@@ -33,7 +33,7 @@ const WYLDsResources = () => {
             >
               <div className="card-gradient rounded-2xl hover:bg-background/60 transition-all duration-300">
                 <div className="flex items-center p-6">
-                  <resource.icon className="h-8 w-8 mr-6 text-blue-400 flex-shrink-0" />
+                  <resource.icon className="h-8 w-8 mr-6 text-header-glow flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-lg">{resource.title}</h3>
                     <p className="text-sm text-muted-foreground mt-1">{resource.description}</p>
