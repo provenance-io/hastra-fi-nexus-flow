@@ -150,7 +150,7 @@ const BuyCard = () => {
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label className="text-sm font-medium text-foreground">Amount</Label>
-            <div className="flex gap-2">
+            <div className="flex items-center gap-2">
               <div className="flex items-center bg-muted/30 rounded-md p-1">
                 <Button 
                   variant={denomination === 'usd' ? 'default' : 'ghost'}
@@ -170,14 +170,16 @@ const BuyCard = () => {
                   {sellAsset}
                 </Button>
               </div>
-              <Button 
-                variant="outline" 
-                size="sm" 
-                onClick={handleMaxClick}
-                className="h-7 px-3 text-xs font-medium bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 rounded-md transition-all duration-200"
-              >
-                Max
-              </Button>
+              <div className="bg-muted/30 rounded-md p-1">
+                <Button 
+                  variant="ghost"
+                  size="sm" 
+                  onClick={handleMaxClick}
+                  className="h-7 px-2 text-xs font-medium text-orange-300 hover:bg-orange-900/30 hover:text-orange-200 transition-all duration-200"
+                >
+                  Max
+                </Button>
+              </div>
             </div>
           </div>
           <Input
