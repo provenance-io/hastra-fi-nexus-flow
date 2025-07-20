@@ -52,7 +52,7 @@ const WYLDsYieldExplanation = () => {
         <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
           <div className="relative z-10">
             {/* Section Header - Inside the box */}
-            <div className="mb-12">
+            <div className="text-center mb-12">
               <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed mb-6 md:mb-8" 
                  style={{ 
                    textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' 
@@ -89,8 +89,8 @@ const WYLDsYieldExplanation = () => {
                     <div className="absolute inset-0 w-full h-full backface-hidden">
                       <div className="w-full h-full card-gradient rounded-2xl p-6 text-center space-y-3 hover:bg-background/60 transition-all duration-300">
                         <div className="h-full flex flex-col justify-center">
-                          <div className="w-20 h-20 bg-orange-900/20 border border-orange-800/30 rounded-2xl mx-auto mb-6 flex items-center justify-center">
-                            <feature.icon className="h-10 w-10 text-orange-400" />
+                          <div className="w-20 h-20 bg-gradient-to-br from-header-glow to-crypto-accent rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg">
+                            <feature.icon className="h-10 w-10 text-black" />
                           </div>
                           <h3 className="text-2xl font-bold text-hastra-teal">{feature.title}</h3>
                         </div>
