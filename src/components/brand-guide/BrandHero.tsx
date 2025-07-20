@@ -16,19 +16,20 @@ const BrandHero = ({ generatePDF, isGenerating }: BrandHeroProps) => {
       <div className="container relative text-center">
         <div className="flex justify-center mb-8">
           <div 
-            className="relative"
+            className="relative animate-fade-in"
             style={{
               filter: 'drop-shadow(0 0 6px rgba(0, 255, 150, 0.4)) drop-shadow(0 0 12px rgba(0, 200, 255, 0.2))',
               animation: 'logoGlow 4s ease-in-out infinite'
             }}
           >
-            <HastraLogo className="h-24 md:h-32" />
+            <img 
+              src="/lovable-uploads/8c030929-6e47-4894-bd4f-ad6c2021ca5e.png" 
+              alt="Hastra Logo" 
+              className="h-48 md:h-64 w-auto"
+              loading="eager"
+            />
           </div>
         </div>
-        
-        <h1 className="text-5xl md:text-6xl font-black text-gradient mb-4">
-          Hastra Brand Guide
-        </h1>
         <p className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed mb-12" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
           Complete Visual Identity & Design System
         </p>

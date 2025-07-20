@@ -25,7 +25,7 @@ const About = () => {
             
             {/* Subtle inline glow effect */}
             <div className="flex justify-center mb-12">
-              <div className="relative">
+              <div className="relative animate-fade-in">
                 <img 
                   src="/lovable-uploads/e7187c63-0dae-455c-971c-a6de70ce2afc.png" 
                   alt="Mission Logo" 
@@ -34,6 +34,7 @@ const About = () => {
                     filter: 'drop-shadow(0 0 6px rgba(0, 255, 150, 0.4)) drop-shadow(0 0 12px rgba(0, 200, 255, 0.2))',
                     animation: 'logoGlow 4s ease-in-out infinite'
                   }}
+                  loading="eager"
                 />
               </div>
             </div>
