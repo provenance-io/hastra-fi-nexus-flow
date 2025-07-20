@@ -36,11 +36,16 @@ const Hero = () => {
     const zDepth = layer === 0 ? 0.4 : 1.0; // Simplified depth
     const baseScale = layer === 0 ? 0.6 : 1.0; // Simplified scaling
     
+    // Add size variation - create different coin sizes
+    const sizeVariations = [0.7, 1.0, 1.3, 0.8, 1.5]; // Different sizes for each coin
+    const coinSize = sizeVariations[i % sizeVariations.length];
+    
     return {
       id: i,
       layer,
       zDepth,
       baseScale,
+      coinSize, // New size property
       startX: 15 + (i * 15) + Math.random() * 8, // Better distribution
       drift: (Math.random() - 0.5) * (40 * zDepth), // Single drift value
       duration: 4 + (i * 0.3), // Consistent timing
@@ -82,7 +87,7 @@ const Hero = () => {
             <div 
               key={`smooth-coin-${config.id}`}
               className="falling-coin-smooth"
-              style={{ 
+               style={{ 
                 '--fall-start-x': `${config.startX}%`,
                 '--drift-amount': `${config.drift}px`,
                 '--fall-duration': `${config.duration}s`,
@@ -91,10 +96,11 @@ const Hero = () => {
                 '--spin-speed': `${config.spinSpeed}deg`,
                 '--z-depth': config.zDepth,
                 '--base-scale': config.baseScale,
+                '--coin-size': config.coinSize,
                 '--layer': config.layer,
                 '--blur-amount': `${config.blur}px`,
                 '--layer-opacity': config.opacity,
-              } as React.CSSProperties}
+               } as React.CSSProperties}
             >
               <div className="coin-face-smooth" />
               <div className="coin-edge-smooth" />

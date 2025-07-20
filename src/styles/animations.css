@@ -9,8 +9,8 @@
 
 .falling-coin-smooth {
   position: absolute;
-  width: 28px;
-  height: 28px;
+  width: calc(28px * var(--coin-size, 1));
+  height: calc(28px * var(--coin-size, 1));
   animation: ultra-smooth-fall var(--fall-duration, 4s) infinite linear var(--animation-delay, 0s);
   left: var(--fall-start-x, 50%);
   top: -40px;
@@ -36,7 +36,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 12px;
+  font-size: calc(12px * var(--coin-size, 1));
   font-weight: bold;
   color: hsl(var(--mint-green-dark));
 }
