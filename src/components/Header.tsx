@@ -218,8 +218,9 @@ const Header = () => {
           ) : (
             <Button 
               asChild 
-              size="sm" 
-              className="hidden md:flex btn-gradient text-base px-4 py-2"
+              size="lg" 
+              variant="secondary"
+              className="hidden md:flex"
             >
               <Link to="/earn">Launch Protocol</Link>
             </Button>
