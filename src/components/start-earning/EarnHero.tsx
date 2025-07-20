@@ -33,7 +33,7 @@ const EarnHero = () => {
               textShadow: '0 0 30px rgba(229, 218, 194, 0.4)'
             }}>
               Start Earning{' '}
-              <span className="text-hastra-gradient">
+              <span className="text-gradient">
                 Immediately
               </span>
             </span>
