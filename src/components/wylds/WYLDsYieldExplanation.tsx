@@ -336,56 +336,56 @@ const WYLDsYieldExplanation = () => {
               <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">By the Numbers</h2>
             </div>
             
-            <div className="grid gap-6 md:gap-8 grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
-              <div className="aspect-square bg-background/30 rounded-lg md:rounded-xl p-3 md:p-6 text-center flex flex-col justify-center space-y-1 md:space-y-3 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300">
-                <div className="text-[10px] md:text-xs font-medium text-orange-300 leading-tight">
+            <div className="grid gap-8 md:gap-10 grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto">
+              <div className="aspect-square bg-background/30 rounded-xl md:rounded-2xl p-6 md:p-8 text-center flex flex-col justify-center space-y-3 md:space-y-4 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300">
+                <div className="text-xs md:text-sm font-medium text-orange-300 leading-tight">
                   Total YIELD in Circulation
                 </div>
-                <div className="text-lg md:text-xl lg:text-2xl font-bold flex items-center justify-center gap-1 md:gap-2">
+                <div className="text-2xl md:text-3xl lg:text-4xl font-bold flex items-center justify-center gap-1 md:gap-2">
                   <span className="text-foreground/90">$2.4M</span>
                 </div>
                 <div className="flex justify-center items-center gap-1 md:gap-2">
-                  <div className="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-header-glow animate-pulse"></div>
-                  <span className="text-[10px] md:text-xs text-platinum/60">Live</span>
+                  <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-header-glow animate-pulse"></div>
+                  <span className="text-xs md:text-sm text-platinum/60">Live</span>
                 </div>
               </div>
 
-              <div className="aspect-square bg-background/30 rounded-lg md:rounded-xl p-3 md:p-6 text-center flex flex-col justify-center space-y-1 md:space-y-3 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300" style={{ animationDelay: '0.1s' }}>
-                <div className="text-[10px] md:text-xs font-medium text-orange-300 leading-tight">
+              <div className="aspect-square bg-background/30 rounded-xl md:rounded-2xl p-6 md:p-8 text-center flex flex-col justify-center space-y-3 md:space-y-4 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300" style={{ animationDelay: '0.1s' }}>
+                <div className="text-xs md:text-sm font-medium text-orange-300 leading-tight">
                   Current APY
                 </div>
-                <div className="text-lg md:text-xl lg:text-2xl font-bold flex items-center justify-center gap-1 md:gap-2">
+                <div className="text-2xl md:text-3xl lg:text-4xl font-bold flex items-center justify-center gap-1 md:gap-2">
                   <span className="text-foreground/90">4.78%</span>
                 </div>
                 <div className="flex justify-center items-center gap-1 md:gap-2">
-                  <div className="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-header-glow animate-pulse"></div>
-                  <span className="text-[10px] md:text-xs text-platinum/60">Live</span>
+                  <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-header-glow animate-pulse"></div>
+                  <span className="text-xs md:text-sm text-platinum/60">Live</span>
                 </div>
               </div>
 
-              <div className="aspect-square bg-background/30 rounded-lg md:rounded-xl p-3 md:p-6 text-center flex flex-col justify-center space-y-1 md:space-y-3 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300" style={{ animationDelay: '0.2s' }}>
-                <div className="text-[10px] md:text-xs font-medium text-orange-300 leading-tight">
+              <div className="aspect-square bg-background/30 rounded-xl md:rounded-2xl p-6 md:p-8 text-center flex flex-col justify-center space-y-3 md:space-y-4 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300" style={{ animationDelay: '0.2s' }}>
+                <div className="text-xs md:text-sm font-medium text-orange-300 leading-tight">
                   Total Yield Earned
                 </div>
-                <div className="text-lg md:text-xl lg:text-2xl font-bold flex items-center justify-center gap-1 md:gap-2">
+                <div className="text-2xl md:text-3xl lg:text-4xl font-bold flex items-center justify-center gap-1 md:gap-2">
                   <span className="text-foreground/90">$1.2M</span>
                 </div>
                 <div className="flex justify-center items-center gap-1 md:gap-2">
-                  <div className="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-header-glow animate-pulse"></div>
-                  <span className="text-[10px] md:text-xs text-platinum/60">Live</span>
+                  <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-header-glow animate-pulse"></div>
+                  <span className="text-xs md:text-sm text-platinum/60">Live</span>
                 </div>
               </div>
 
-              <div className="aspect-square bg-background/30 rounded-lg md:rounded-xl p-3 md:p-6 text-center flex flex-col justify-center space-y-1 md:space-y-3 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300" style={{ animationDelay: '0.3s' }}>
-                <div className="text-[10px] md:text-xs font-medium text-orange-300 leading-tight">
+              <div className="aspect-square bg-background/30 rounded-xl md:rounded-2xl p-6 md:p-8 text-center flex flex-col justify-center space-y-3 md:space-y-4 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300" style={{ animationDelay: '0.3s' }}>
+                <div className="text-xs md:text-sm font-medium text-orange-300 leading-tight">
                   Active Holders
                 </div>
-                <div className="text-lg md:text-xl lg:text-2xl font-bold flex items-center justify-center gap-1 md:gap-2">
+                <div className="text-2xl md:text-3xl lg:text-4xl font-bold flex items-center justify-center gap-1 md:gap-2">
                   <span className="text-foreground/90">1.2k+</span>
                 </div>
                 <div className="flex justify-center items-center gap-1 md:gap-2">
-                  <div className="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-header-glow animate-pulse"></div>
-                  <span className="text-[10px] md:text-xs text-platinum/60">Live</span>
+                  <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-header-glow animate-pulse"></div>
+                  <span className="text-xs md:text-sm text-platinum/60">Live</span>
                 </div>
               </div>
             </div>
