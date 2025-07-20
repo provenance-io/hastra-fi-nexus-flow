@@ -20,8 +20,8 @@ const InnovationApproach = () => {
                             <div className="grid gap-8 md:grid-cols-3">
                                 {innovationApproach.map((item, index) => (
                                     <div key={index} className="text-center">
-                                        <div className="inline-flex items-center justify-center w-16 h-16 rounded-lg bg-gradient-to-br from-header-glow/30 to-header-glow/10 border border-header-glow/20 mb-6">
-                                            <item.icon className="w-8 h-8 text-primary" />
+                                        <div className="inline-flex items-center justify-center w-16 h-16 rounded-lg bg-gradient-to-br from-hastra-teal/20 to-hastra-teal-dark/30 border border-hastra-teal/30 mb-6 shadow-[0_0_15px_hsl(var(--hastra-teal)/0.2)]">
+                                            <item.icon className="w-8 h-8 text-hastra-teal" />
                                         </div>
                                         <h3 className="text-xl font-bold">{item.title}</h3>
                                         <p className="mt-2 text-muted-foreground">{item.description}</p>
