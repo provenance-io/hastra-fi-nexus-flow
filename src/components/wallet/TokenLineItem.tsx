@@ -56,22 +56,22 @@ const TokenLineItem = ({
   return (
     <div className="bg-background/30 rounded-2xl border border-border/20 hover:border-hastra-teal/30 transition-all duration-300 hover:shadow-lg">
       {/* Desktop Layout */}
-      <div className="hidden lg:grid grid-cols-[auto_1fr_1fr_1fr_1fr_auto] gap-8 items-center p-6">
+      <div className="hidden lg:grid grid-cols-[140px_1fr_1fr_1fr_1fr_auto] gap-6 items-center p-6">
         {/* Token Info */}
-        <div className="flex flex-col items-center gap-3 min-w-0">
+        <div className="flex flex-col items-center gap-2 w-full">
           {isImage ? (
             <img 
               src={icon} 
               alt={`${token} Token`}
-              className="w-16 h-16 rounded-full object-cover shadow-sm"
+              className="w-12 h-12 rounded-full object-cover shadow-sm"
             />
           ) : (
-            <div className="w-16 h-16 rounded-xl bg-hastra-teal/10 flex items-center justify-center shadow-sm">
-              <span className="text-hastra-teal font-bold text-xl">{icon}</span>
+            <div className="w-12 h-12 rounded-xl bg-hastra-teal/10 flex items-center justify-center shadow-sm">
+              <span className="text-hastra-teal font-bold text-lg">{icon}</span>
             </div>
           )}
-          <div className="text-center space-y-1">
-            <h4 className="font-medium text-foreground text-sm">{token}</h4>
+          <div className="text-center space-y-0.5">
+            <h4 className="font-medium text-foreground text-sm leading-tight">{token}</h4>
             <p className="text-xs text-muted-foreground">Token</p>
           </div>
         </div>
@@ -79,7 +79,7 @@ const TokenLineItem = ({
         {/* Tokens Column */}
         <div className="text-left space-y-1">
           <p className="text-muted-foreground text-sm font-medium">Balance</p>
-          <p className="font-bold text-orange-400 text-xl">
+          <p className="font-bold text-orange-400 text-lg">
             {amount.toLocaleString('en-US', { 
               minimumFractionDigits: 2,
               maximumFractionDigits: 4 
