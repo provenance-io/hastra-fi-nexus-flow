@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { Slider } from '@/components/ui/slider';
 import { ArrowRight, ChevronDown, ChevronRight, TrendingUp, Calendar, Repeat, Building2, Zap, Link2 } from 'lucide-react';
 import yieldIcon from '/lovable-uploads/1d678c0f-09c8-4451-a9a6-3e635e0fef72.png';
 
@@ -252,8 +253,23 @@ const WYLDsYieldExplanation = () => {
                   )}
                 </div>
               );
-            })}
-           </div>
+             })}
+            </div>
+
+            {/* Amber Slider Bar */}
+            <div className="mt-12 px-4">
+              <Slider 
+                defaultValue={[75]} 
+                max={100} 
+                step={1}
+                className="w-full [&_[role=slider]]:bg-amber-500 [&_[role=slider]]:border-amber-600"
+                style={{
+                  '--slider-track': 'hsl(45 93% 47%)',
+                  '--slider-range': 'hsl(43 96% 56%)',
+                  '--slider-thumb': 'hsl(43 96% 56%)'
+                } as React.CSSProperties}
+              />
+            </div>
           </div>
         </div>
       </div>
