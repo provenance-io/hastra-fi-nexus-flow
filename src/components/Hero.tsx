@@ -135,6 +135,7 @@ const Hero = () => {
                   src="/lovable-uploads/4906f514-8559-48de-8ba3-342f6a26b5eb.png" 
                   alt="Token logo" 
                   className="w-3/4 h-3/4 object-contain absolute inset-0 m-auto opacity-80"
+                  style={{ filter: 'drop-shadow(0 0 1px hsl(var(--mint-green)))' }}
                 />
               </div>
               <div className="coin-edge-smooth" />
