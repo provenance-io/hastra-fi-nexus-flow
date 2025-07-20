@@ -320,6 +320,16 @@ const WYLDsYieldExplanation = () => {
           </div>
         </div>
 
+        {/* Track YIELD performance text section */}
+        <div className="text-center mb-12">
+          <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed" 
+             style={{ 
+               textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' 
+             }}>
+            Track YIELD performance with real-time data and transparent metrics
+          </p>
+        </div>
+
         {/* YIELD Usage Metrics Dashboard Box */}
         <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
           <div className="relative z-10">
