@@ -150,7 +150,7 @@ const WYLDsYieldExplanation = () => {
           {/* Desktop: Scrollable Horizontal Layout */}
           <div className="hidden lg:block max-w-7xl mx-auto">
             <div className="overflow-x-auto pb-4 scrollbar-hide">
-              <div className="flex items-center gap-4 min-w-max px-4 py-4">
+              <div className="flex items-center gap-8 min-w-max px-4 py-4">
                 {steps.map((step, index) => {
                   const IconComponent = step.icon;
                   return (
@@ -194,7 +194,7 @@ const WYLDsYieldExplanation = () => {
                       
                       {/* Arrow Connector */}
                       {index < steps.length - 1 && (
-                        <div className="mx-4 flex items-center justify-center h-80">
+                        <div className="mx-6 flex items-center justify-center h-80">
                           <ArrowRight className="w-8 h-8 text-orange-400" />
                         </div>
                       )}
@@ -206,7 +206,7 @@ const WYLDsYieldExplanation = () => {
           </div>
 
           {/* Mobile/Tablet: Clean Vertical Layout */}
-          <div className="lg:hidden max-w-sm mx-auto space-y-6">
+          <div className="lg:hidden max-w-sm mx-auto space-y-8">
             {steps.map((step, index) => {
               const IconComponent = step.icon;
               return (
@@ -250,7 +250,7 @@ const WYLDsYieldExplanation = () => {
                   
                   {/* Down Arrow Connector */}
                   {index < steps.length - 1 && (
-                    <div className="flex justify-center my-6">
+                    <div className="flex justify-center my-8">
                       <ChevronDown className="w-8 h-8 text-orange-400" />
                     </div>
                   )}
