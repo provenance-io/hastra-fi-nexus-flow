@@ -29,15 +29,15 @@ const Hero = () => {
     refetchInterval: 5 * 60 * 1000, // Refetch every 5 minutes
   });
 
-  // Enhanced coin configuration with more coins and bigger ones on the left (7 coins total - reduced by 10%)
-  const coinConfigs = useRef([...Array(7)].map((_, i) => {
+  // Enhanced coin configuration with more coins and bigger ones on the left (6 coins total)
+  const coinConfigs = useRef([...Array(6)].map((_, i) => {
     // Distribute coins across 2 depth layers for simplicity
     const layer = i % 2; // 0 = far, 1 = near
     const zDepth = layer === 0 ? 0.4 : 1.0; // Simplified depth
     const baseScale = layer === 0 ? 0.6 : 1.0; // Simplified scaling
     
-    // Size variations - reduced to max half the size of hero title
-    const sizeVariations = [0.6, 0.5, 1.0, 0.75, 1.25, 0.9, 1.1, 0.65]; // Reduced size range
+    // Size variations - between 1.0 and 1.25
+    const sizeVariations = [1.0, 1.1, 1.25, 1.05, 1.2, 1.15]; // 1.0-1.25 range
     const coinSize = sizeVariations[i % sizeVariations.length];
     
     // Position configuration - more big coins on left side
@@ -45,7 +45,7 @@ const Hero = () => {
     if (i < 3) {
       // First 3 coins on left side, make them larger
       startX = 5 + (i * 8) + Math.random() * 5; // Left side positioning
-      const leftSideSizes = [1.1, 1.25, 1.0]; // Reduced left coin sizes
+      const leftSideSizes = [1.15, 1.25, 1.1]; // 1.0-1.25 range for left coins
       return {
         id: i,
         layer,
