@@ -95,7 +95,7 @@ const BuyCard = () => {
             <SelectTrigger className="bg-muted/50">
               <SelectValue />
             </SelectTrigger>
-            <SelectContent className="bg-card">
+            <SelectContent className="bg-card/80 backdrop-blur-sm border border-border/20">
               <SelectItem value="USDC">
                 <div className="flex items-center gap-3 py-1">
                   <img src={usdcIcon} alt="USDC" className="w-6 h-6 rounded-full flex-shrink-0" />
@@ -125,7 +125,7 @@ const BuyCard = () => {
             <SelectTrigger className="bg-muted/50">
               <SelectValue />
             </SelectTrigger>
-            <SelectContent className="bg-card">
+            <SelectContent className="bg-card/80 backdrop-blur-sm border border-border/20">
               <SelectItem value="YIELD">
                 <div className="flex items-center gap-3 py-1">
                   <img src={yieldIcon} alt="YIELD" className="w-6 h-6 rounded-full flex-shrink-0" />

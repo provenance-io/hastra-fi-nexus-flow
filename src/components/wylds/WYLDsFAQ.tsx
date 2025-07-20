@@ -38,9 +38,9 @@ const WYLDsFAQ = () => {
       {/* Background gradient */}
       {/* Unified seamless background - removed conflicting gradient */}
       
-      <div className="relative z-10 max-w-4xl mx-auto">
+      <div className="relative z-10 max-w-5xl mx-auto">
         {/* FAQ Accordion */}
-        <div className="card-gradient rounded-2xl p-8 hover:bg-background/60 transition-all duration-300">
+        <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent relative">
           <div className="mb-8">
             <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed text-center" 
                style={{ 
