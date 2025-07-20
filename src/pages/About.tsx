@@ -244,29 +244,36 @@ const About = () => {
               </div>
               
               {/* Glowy conclusion text */}
-              <div className="mt-16 text-center">
+              <div className="mt-16 text-center relative">
                 <p className="text-xl md:text-2xl text-foreground/90 max-w-5xl mx-auto leading-relaxed" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
                   When we succeed, HASH holders succeed.
                 </p>
+                
+                {/* Connecting line */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 top-full h-24 w-0.5 bg-gradient-to-b from-foreground/30 to-transparent"
+                     style={{ 
+                       filter: 'drop-shadow(0 0 8px rgba(255, 255, 255, 0.4))',
+                       background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.3), transparent)'
+                     }} />
               </div>
             </div>
           </div>
         </section>
 
-        {/* Enhanced CTA Section with Glowing Container */}
+        {/* Enhanced CTA Section with Matching White Glow */}
         <section className="py-16 relative overflow-hidden">
           <div className="container relative">
             <div className="max-w-4xl mx-auto">
-              {/* Glowing container that flows from above */}
-              <div className="card-gradient rounded-3xl p-12 md:p-16 card-bottom-glow border-2 border-hastra-teal/20 relative"
+              {/* Glowing container with white glow to match above */}
+              <div className="card-gradient rounded-3xl p-12 md:p-16 border border-foreground/20 relative"
                    style={{ 
-                     boxShadow: '0 0 30px rgba(0, 255, 255, 0.15), 0 0 60px rgba(0, 255, 255, 0.1), 0 0 90px rgba(0, 255, 255, 0.05)',
-                     background: 'linear-gradient(135deg, rgba(0, 255, 255, 0.03), rgba(0, 200, 255, 0.01))'
+                     boxShadow: '0 0 30px rgba(255, 255, 255, 0.15), 0 0 60px rgba(255, 255, 255, 0.1), 0 0 90px rgba(255, 255, 255, 0.05)',
+                     background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01))'
                    }}>
-                {/* Animated border glow effect */}
+                {/* Animated border glow effect with white glow */}
                 <div className="absolute inset-0 rounded-3xl pointer-events-none" 
                      style={{ 
-                       background: 'linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent)',
+                       background: 'linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent)',
                        animation: 'borderGlow 3s ease-in-out infinite'
                      }} />
                 
