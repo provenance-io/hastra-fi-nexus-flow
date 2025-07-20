@@ -17,6 +17,7 @@ import WYLDsPage from "./pages/wYLDs";
 import HOMESPage from "./pages/HOMES";
 import Learn from "./pages/Learn";
 import Earn from "./pages/Earn";
+import BrandGuidePage from "./pages/BrandGuide";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +38,7 @@ const App = () => (
                 <Route path="/about" element={<About />} />
                 <Route path="/learn" element={<Learn />} />
                 <Route path="/earn" element={<Earn />} />
+                <Route path="/brand-guide" element={<BrandGuidePage />} />
                 
                 <Route path="/yield" element={<WYLDsPage />} />
                 <Route path="/homes" element={<HOMESPage />} />
