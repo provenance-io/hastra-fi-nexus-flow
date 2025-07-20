@@ -78,6 +78,9 @@ export default {
 				'hastra-slate': 'hsl(var(--hastra-slate))',
 				'hastra-slate-light': 'hsl(var(--hastra-slate-light))',
 				'hastra-slate-dark': 'hsl(var(--hastra-slate-dark))',
+				'hastra-gradient-start': 'hsl(var(--hastra-gradient-start))',
+				'hastra-gradient-mid': 'hsl(var(--hastra-gradient-mid))',
+				'hastra-gradient-end': 'hsl(var(--hastra-gradient-end))',
 			},
 			boxShadow: {
 				'auburn': '0 0 20px hsl(var(--auburn-primary) / 0.3)',
