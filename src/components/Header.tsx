@@ -73,7 +73,7 @@ const Header = () => {
           <nav className="hidden md:flex items-center space-x-7 lg:space-x-11">
             <Link
               to="/about"
-              className="text-lg md:text-xl font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase"
+              className="text-base md:text-lg font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase"
               style={{ 
                 textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)',
                 transition: 'text-shadow 0.3s ease'
@@ -89,7 +89,7 @@ const Header = () => {
             </Link>
             <DropdownMenu>
               <DropdownMenuTrigger 
-                className="flex items-center text-lg md:text-xl font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase" 
+                className="flex items-center text-base md:text-lg font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase" 
                 style={{ 
                   textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)',
                   transition: 'text-shadow 0.3s ease'
@@ -157,7 +157,7 @@ const Header = () => {
                 {item.isAnchor ? (
                   <button
                     onClick={() => handleNavClick(item.href, true)}
-                    className="text-lg md:text-xl font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase"
+                     className="text-base md:text-lg font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase"
                     style={{ 
                       textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)',
                       transition: 'text-shadow 0.3s ease'
@@ -174,7 +174,7 @@ const Header = () => {
                 ) : (
                   <Link
                     to={item.href}
-                    className="text-lg md:text-xl font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase"
+                    className="text-base md:text-lg font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase"
                     style={{ 
                       textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)',
                       transition: 'text-shadow 0.3s ease'
@@ -193,7 +193,7 @@ const Header = () => {
             ))}
             <Link
               to="/learn"
-              className="text-lg md:text-xl font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase"
+              className="text-base md:text-lg font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase"
               style={{ 
                 textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)',
                 transition: 'text-shadow 0.3s ease'
@@ -209,7 +209,7 @@ const Header = () => {
             </Link>
             <Link
               to="/earn"
-              className="text-lg md:text-xl font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase"
+              className="text-base md:text-lg font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase"
               style={{ 
                 textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)',
                 transition: 'text-shadow 0.3s ease'
