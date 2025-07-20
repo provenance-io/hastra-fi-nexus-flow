@@ -318,7 +318,7 @@ const WYLDsYieldExplanation = () => {
         </div>
 
         {/* Watch YIELD as it Grows text section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 mt-16">
           <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed" 
              style={{ 
                textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' 
