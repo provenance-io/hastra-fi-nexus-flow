@@ -118,23 +118,23 @@ const SendCard = () => {
                 <span className="text-sm md:text-xs text-muted-foreground font-mono">{tokenBalances[selectedToken]}</span>
               </div>
             </SelectTrigger>
-            <SelectContent className="bg-card">
-              <SelectItem value="YIELD" className="py-2">
-                <div className="flex items-center justify-between w-full py-1">
+            <SelectContent className="bg-card/90 backdrop-blur-sm border border-border/20 z-50">
+              <SelectItem value="YIELD" className="py-4 md:py-2">
+                <div className="flex items-center justify-between w-full py-2 md:py-1">
                   <div className="flex items-center gap-4">
                     <img src={yieldIcon} alt="YIELD" className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0" />
                     <span className="text-base md:text-sm font-medium">YIELD</span>
                   </div>
-                  <span className="text-sm md:text-xs text-muted-foreground font-mono">{tokenBalances.YIELD}</span>
+                  <span className="text-sm md:text-xs text-muted-foreground font-mono ml-4">{tokenBalances.YIELD}</span>
                 </div>
               </SelectItem>
-              <SelectItem value="HASH" className="py-2">
-                <div className="flex items-center justify-between w-full py-1">
+              <SelectItem value="HASH" className="py-4 md:py-2">
+                <div className="flex items-center justify-between w-full py-2 md:py-1">
                   <div className="flex items-center gap-4">
                     <img src={hashIcon} alt="HASH" className="w-8 h-8 md:w-6 md:h-6 rounded-full object-cover flex-shrink-0" />
                     <span className="text-base md:text-sm font-medium">HASH</span>
                   </div>
-                  <span className="text-sm md:text-xs text-muted-foreground font-mono">{tokenBalances.HASH}</span>
+                  <span className="text-sm md:text-xs text-muted-foreground font-mono ml-4">{tokenBalances.HASH}</span>
                 </div>
               </SelectItem>
             </SelectContent>

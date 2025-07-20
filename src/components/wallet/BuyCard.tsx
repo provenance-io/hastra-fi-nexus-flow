@@ -106,23 +106,23 @@ const BuyCard = () => {
                 <span className="text-sm md:text-xs text-muted-foreground font-mono">{mockBalances[sellAsset]}</span>
               </div>
             </SelectTrigger>
-            <SelectContent className="bg-card/80 backdrop-blur-sm border border-border/20">
-              <SelectItem value="USDC" className="py-2">
-                <div className="flex items-center justify-between w-full py-1">
+            <SelectContent className="bg-card/90 backdrop-blur-sm border border-border/20 z-50">
+              <SelectItem value="USDC" className="py-4 md:py-2">
+                <div className="flex items-center justify-between w-full py-2 md:py-1">
                   <div className="flex items-center gap-4">
                     <img src={usdcIcon} alt="USDC" className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0" />
                     <span className="text-base md:text-sm font-medium">USDC</span>
                   </div>
-                  <span className="text-sm md:text-xs text-muted-foreground font-mono">{mockBalances.USDC}</span>
+                  <span className="text-sm md:text-xs text-muted-foreground font-mono ml-4">{mockBalances.USDC}</span>
                 </div>
               </SelectItem>
-              <SelectItem value="SOL" className="py-2">
-                <div className="flex items-center justify-between w-full py-1">
+              <SelectItem value="SOL" className="py-4 md:py-2">
+                <div className="flex items-center justify-between w-full py-2 md:py-1">
                   <div className="flex items-center gap-4">
                     <img src={solanaIcon} alt="Solana" className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0" />
                     <span className="text-base md:text-sm font-medium">Solana</span>
                   </div>
-                  <span className="text-sm md:text-xs text-muted-foreground font-mono">{mockBalances.SOL}</span>
+                  <span className="text-sm md:text-xs text-muted-foreground font-mono ml-4">{mockBalances.SOL}</span>
                 </div>
               </SelectItem>
             </SelectContent>
@@ -143,15 +143,15 @@ const BuyCard = () => {
                 <span className="text-base md:text-sm font-medium">{buyAsset}</span>
               </div>
             </SelectTrigger>
-            <SelectContent className="bg-card/80 backdrop-blur-sm border border-border/20">
-              <SelectItem value="YIELD" className="py-2">
-                <div className="flex items-center gap-4 py-1">
+            <SelectContent className="bg-card/90 backdrop-blur-sm border border-border/20 z-50">
+              <SelectItem value="YIELD" className="py-4 md:py-2">
+                <div className="flex items-center gap-4 py-2 md:py-1">
                   <img src={yieldIcon} alt="YIELD" className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0" />
                   <span className="text-base md:text-sm font-medium">YIELD</span>
                 </div>
               </SelectItem>
-              <SelectItem value="HASH" className="py-2">
-                <div className="flex items-center gap-4 py-1">
+              <SelectItem value="HASH" className="py-4 md:py-2">
+                <div className="flex items-center gap-4 py-2 md:py-1">
                   <img src={hashIcon} alt="HASH" className="w-8 h-8 md:w-6 md:h-6 rounded-full object-cover flex-shrink-0" />
                   <span className="text-base md:text-sm font-medium">HASH</span>
                 </div>
