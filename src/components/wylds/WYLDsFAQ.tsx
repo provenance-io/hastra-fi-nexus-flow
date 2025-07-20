@@ -49,7 +49,7 @@ const WYLDsFAQ = () => {
               Get answers to common questions about YIELD tokens and how they work
             </p>
           </div>
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-6">
             {faqs.map((faq, index) => (
               <AccordionItem 
                 key={index} 

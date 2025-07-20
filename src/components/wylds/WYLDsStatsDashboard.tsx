@@ -131,7 +131,7 @@ const WYLDsStatsDashboard = () => {
               </p>
             </div>
             
-            <div className="grid gap-3 md:gap-6 grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
+            <div className="grid gap-6 md:gap-8 grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
             {stats.map((stat, index) => (
               <div 
                 key={stat.title} 

@@ -22,7 +22,7 @@ const WYLDsResources = () => {
     <section className="py-20 border-t border-border/40">
       <div className="container">
         <h2 className="text-2xl md:text-3xl font-bold text-foreground/90 text-center mb-12">Documentation & Resources</h2>
-        <div className="max-w-3xl mx-auto space-y-4">
+        <div className="max-w-3xl mx-auto space-y-6">
           {resources.map((resource) => (
             <a
               key={resource.title}
