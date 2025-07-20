@@ -52,7 +52,7 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
         }`}
         style={{
           left: isMobile ? '85%' : '80%',
-          top: isMobile ? '639px' : '680px',
+          top: isMobile ? '640px' : '681px',
           height: isMobile ? '84px' : '96px',
           width: '2px',
           background: 'rgba(229, 218, 194, 0.8)',
@@ -67,7 +67,7 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
           visionToHashLine ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
         }`}
         style={{
-          top: isMobile ? '960px' : '1078px',
+          top: isMobile ? '1020px' : '1138px',
           height: isMobile ? '150px' : '192px',
           width: '2px',
           background: 'rgba(229, 218, 194, 0.8)',
