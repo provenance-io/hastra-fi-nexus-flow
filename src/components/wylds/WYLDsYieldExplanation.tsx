@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
-import { Slider } from '@/components/ui/slider';
 import { ArrowRight, ChevronDown, ChevronRight, TrendingUp, Calendar, Repeat, Building2, Zap, Link2 } from 'lucide-react';
+import { useRef, useState, useEffect } from 'react';
 import yieldIcon from '/lovable-uploads/1d678c0f-09c8-4451-a9a6-3e635e0fef72.png';
 
 const YieldTokenIcon = ({ className }: { className?: string }) => (
@@ -8,6 +8,9 @@ const YieldTokenIcon = ({ className }: { className?: string }) => (
 );
 
 const WYLDsYieldExplanation = () => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
   const steps = [
     {
       number: 1,
@@ -42,6 +45,35 @@ const WYLDsYieldExplanation = () => {
       bgPattern: "bg-crypto-accent/10"
     }
   ];
+
+  const handleScrollUpdate = () => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const scrollLeft = container.scrollLeft;
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      const progress = maxScroll > 0 ? (scrollLeft / maxScroll) * 100 : 0;
+      setScrollProgress(progress);
+    }
+  };
+
+  const handleSliderChange = (clientX: number, sliderRect: DOMRect) => {
+    const percentage = Math.max(0, Math.min(100, ((clientX - sliderRect.left) / sliderRect.width) * 100));
+    setScrollProgress(percentage);
+    
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      container.scrollLeft = (percentage / 100) * maxScroll;
+    }
+  };
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      container.addEventListener('scroll', handleScrollUpdate);
+      return () => container.removeEventListener('scroll', handleScrollUpdate);
+    }
+  }, []);
 
   return (
     <section className="py-16 px-4 relative overflow-hidden">
@@ -150,7 +182,10 @@ const WYLDsYieldExplanation = () => {
           
           {/* Desktop: Scrollable Horizontal Layout */}
           <div className="hidden lg:block max-w-7xl mx-auto">
-            <div className="overflow-x-auto pb-4 scrollbar-hide">
+            <div 
+              ref={scrollContainerRef}
+              className="overflow-x-auto pb-4 scrollbar-hide"
+            >
               <div className="flex items-center gap-8 min-w-max px-4 py-4">
                 {steps.map((step, index) => {
                   const IconComponent = step.icon;
@@ -256,19 +291,32 @@ const WYLDsYieldExplanation = () => {
              })}
             </div>
 
-            {/* Amber Slider Bar */}
-            <div className="mt-12 px-4">
-              <Slider 
-                defaultValue={[75]} 
-                max={100} 
-                step={1}
-                className="w-full [&_[role=slider]]:bg-amber-500 [&_[role=slider]]:border-amber-600"
-                style={{
-                  '--slider-track': 'hsl(45 93% 47%)',
-                  '--slider-range': 'hsl(43 96% 56%)',
-                  '--slider-thumb': 'hsl(43 96% 56%)'
-                } as React.CSSProperties}
-              />
+            {/* Custom Amber Scroll Bar - Desktop Only */}
+            <div className="hidden lg:flex justify-center mt-8">
+              <div 
+                className="relative w-60 h-2 bg-amber-900/30 rounded-full cursor-pointer"
+                onMouseDown={(e) => {
+                  const sliderRect = e.currentTarget.getBoundingClientRect();
+                  handleSliderChange(e.clientX, sliderRect);
+                  
+                  const handleMouseMove = (moveEvent: MouseEvent) => {
+                    handleSliderChange(moveEvent.clientX, sliderRect);
+                  };
+                  
+                  const handleMouseUp = () => {
+                    document.removeEventListener('mousemove', handleMouseMove);
+                    document.removeEventListener('mouseup', handleMouseUp);
+                  };
+                  
+                  document.addEventListener('mousemove', handleMouseMove);
+                  document.addEventListener('mouseup', handleMouseUp);
+                }}
+              >
+                <div 
+                  className="absolute top-0 left-0 h-full bg-amber-500 rounded-full transition-all duration-150"
+                  style={{ width: `${Math.max(60, (scrollProgress / 100) * 240)}px` }}
+                />
+              </div>
             </div>
           </div>
         </div>
