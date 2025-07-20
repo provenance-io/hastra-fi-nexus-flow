@@ -99,7 +99,7 @@ const WalletConnectionSection = () => {
                 <Button
                   onClick={handleConnectWallet}
                   disabled={isConnecting}
-                  className="w-full bg-platinum/10 border border-platinum/20 text-platinum hover:bg-platinum/20 hover:border-platinum/30 transition-all duration-300 font-medium"
+                  className="w-full bg-platinum/10 text-platinum hover:bg-platinum/20 transition-all duration-300 font-semibold tracking-tight rounded-lg shadow-sm hover:shadow-md"
                   style={{
                     backdropFilter: 'blur(10px)',
                     boxShadow: '0 0 20px rgba(229, 218, 194, 0.3), 0 0 40px rgba(229, 218, 194, 0.1)'
@@ -127,7 +127,7 @@ const WalletConnectionSection = () => {
             <div className="text-center">
               <Button 
                 size="lg" 
-                className="bg-platinum/10 border border-platinum/20 text-platinum hover:bg-platinum/20 hover:border-platinum/30 transition-all duration-300 font-medium"
+                className="bg-platinum/10 text-platinum hover:bg-platinum/20 transition-all duration-300 font-semibold tracking-tight rounded-lg shadow-sm hover:shadow-md"
                 style={{
                   backdropFilter: 'blur(10px)',
                   boxShadow: '0 0 20px rgba(229, 218, 194, 0.3), 0 0 40px rgba(229, 218, 194, 0.1)'

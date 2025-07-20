@@ -116,7 +116,7 @@ const BuyEarnSection = () => {
                   ))}
                 </div>
                 <Button 
-                  className="w-full bg-platinum/10 border border-platinum/20 text-platinum hover:bg-platinum/20 hover:border-platinum/30 transition-all duration-300 group-hover:scale-[1.02] font-medium"
+                  className="w-full bg-platinum/10 text-platinum hover:bg-platinum/20 transition-all duration-300 group-hover:scale-[1.02] font-semibold tracking-tight rounded-lg shadow-sm hover:shadow-md"
                   style={{
                     backdropFilter: 'blur(10px)',
                     boxShadow: '0 0 10px rgba(229, 218, 194, 0.2)'
