@@ -59,9 +59,9 @@ const WalletConnectionSection = () => {
                    backdropFilter: 'blur(16px)'
                  }}>
               <div className="text-center mb-8">
-                <h3 className="text-xl font-bold text-platinum mb-2">Get Started</h3>
+                <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Get Started</h3>
                 <p className="text-platinum/70">
-                  Connect your MetaMask wallet to access premium DeFi opportunities
+                  Connect your Solana wallet to access premium DeFi opportunities
                 </p>
               </div>
               <div className="space-y-6 mb-8">
