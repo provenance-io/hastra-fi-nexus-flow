@@ -183,7 +183,7 @@ const WYLDsYieldExplanation = () => {
                             <h4 className="font-bold text-lg text-header-glow group-hover:text-crypto-accent transition-colors duration-300 mb-3">
                               {step.title}
                             </h4>
-                            <p className="text-platinum/80 text-sm leading-relaxed flex-1 flex items-center justify-center">
+                            <p className="text-foreground/90 text-sm leading-relaxed flex-1 flex items-center justify-center">
                               {step.description}
                             </p>
                           </div>
@@ -195,7 +195,7 @@ const WYLDsYieldExplanation = () => {
                         <div className="mx-4 flex items-center justify-center h-72">
                           <div className="flex items-center">
                             <div className="w-6 h-0.5 bg-gradient-to-r from-header-glow to-crypto-accent rounded-full"></div>
-                            <ArrowRight className="w-6 h-6 text-crypto-accent mx-2" />
+                            <ArrowRight className="w-6 h-6 text-orange-400 mx-2" />
                             <div className="w-6 h-0.5 bg-gradient-to-r from-crypto-accent to-header-glow rounded-full"></div>
                           </div>
                         </div>
@@ -241,7 +241,7 @@ const WYLDsYieldExplanation = () => {
                         <h4 className="font-bold text-lg text-header-glow group-hover:text-crypto-accent transition-colors duration-300 mb-3">
                           {step.title}
                         </h4>
-                        <p className="text-platinum/80 text-sm leading-relaxed flex-1 flex items-center justify-center">
+                        <p className="text-foreground/90 text-sm leading-relaxed flex-1 flex items-center justify-center">
                           {step.description}
                         </p>
                       </div>
@@ -251,8 +251,8 @@ const WYLDsYieldExplanation = () => {
                   {/* Down Arrow Connector */}
                   {index < steps.length - 1 && (
                     <div className="flex justify-center my-6">
-                      <div className="bg-gradient-to-b from-header-glow to-crypto-accent rounded-full p-2">
-                        <ChevronDown className="w-4 h-4 text-black" />
+                      <div className="bg-orange-900/20 border border-orange-800/30 rounded-full p-2">
+                        <ChevronDown className="w-4 h-4 text-orange-400" />
                       </div>
                     </div>
                   )}
