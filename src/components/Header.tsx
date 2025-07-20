@@ -1,3 +1,4 @@
+
 import { Link, useLocation } from 'react-router-dom';
 import FooterLogo from './FooterLogo';
 import MobileMenu from './MobileMenu';
@@ -62,6 +63,22 @@ const Header = () => {
     }
   };
 
+  // Shared navigation link styles
+  const navLinkStyles = "text-base md:text-lg font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase focus:outline-none focus:ring-2 focus:ring-hastra-teal/50 focus:ring-offset-2 focus:ring-offset-background rounded-md px-2 py-1";
+  
+  const navTextShadowStyles = {
+    textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)',
+    transition: 'text-shadow 0.3s ease'
+  };
+
+  const handleMouseEnter = (e: React.MouseEvent<HTMLElement>) => {
+    e.currentTarget.style.textShadow = '0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.4), 0 0 45px rgba(255, 255, 255, 0.2)';
+  };
+
+  const handleMouseLeave = (e: React.MouseEvent<HTMLElement>) => {
+    e.currentTarget.style.textShadow = '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)';
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-muted/30 backdrop-blur supports-[backdrop-filter]:bg-muted/20 shadow-sm shadow-header-glow/5">
       <div className="container flex h-16 md:h-16 items-center justify-between px-4 md:px-6">
@@ -73,33 +90,19 @@ const Header = () => {
           <nav className="hidden md:flex items-center space-x-7 lg:space-x-11">
             <Link
               to="/about"
-              className="text-base md:text-lg font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase"
-              style={{ 
-                textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)',
-                transition: 'text-shadow 0.3s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.textShadow = '0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.4), 0 0 45px rgba(255, 255, 255, 0.2)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.textShadow = '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)';
-              }}
+              className={navLinkStyles}
+              style={navTextShadowStyles}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
               About
             </Link>
             <DropdownMenu>
               <DropdownMenuTrigger 
-                className="flex items-center text-base md:text-lg font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase" 
-                style={{ 
-                  textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)',
-                  transition: 'text-shadow 0.3s ease'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.textShadow = '0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.4), 0 0 45px rgba(255, 255, 255, 0.2)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.textShadow = '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)';
-                }}
+                className={`${navLinkStyles} flex items-center outline-none focus:outline-none focus:ring-2 focus:ring-hastra-teal/50 focus:ring-offset-2 focus:ring-offset-background border-none bg-transparent`}
+                style={navTextShadowStyles}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
               >
                 Products
                 <svg 
@@ -116,7 +119,7 @@ const Header = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-72 bg-background/95 backdrop-blur-md border border-hastra-teal/30 shadow-2xl mt-4 z-50" align="start">
                 <DropdownMenuItem asChild>
-                  <Link to="/yield" className="flex items-center w-full cursor-pointer p-3 hover:bg-hastra-teal/10 hover:text-hastra-teal rounded-lg transition-all duration-200 group">
+                  <Link to="/yield" className="flex items-center w-full cursor-pointer p-3 hover:bg-hastra-teal/10 hover:text-hastra-teal rounded-lg transition-all duration-200 group focus:outline-none focus:ring-2 focus:ring-hastra-teal/50">
                     <div className="flex items-center gap-3">
                       <img 
                         src="/lovable-uploads/08452a7b-6782-4b0a-900e-0f0c99a4fc4e.png" 
@@ -136,7 +139,7 @@ const Header = () => {
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/homes" className="flex items-center w-full cursor-pointer p-3 hover:bg-hastra-teal/10 hover:text-hastra-teal rounded-lg transition-all duration-200 group">
+                  <Link to="/homes" className="flex items-center w-full cursor-pointer p-3 hover:bg-hastra-teal/10 hover:text-hastra-teal rounded-lg transition-all duration-200 group focus:outline-none focus:ring-2 focus:ring-hastra-teal/50">
                     <div className="flex items-center gap-3">
                       <img 
                         src="/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png" 
@@ -157,34 +160,20 @@ const Header = () => {
                 {item.isAnchor ? (
                   <button
                     onClick={() => handleNavClick(item.href, true)}
-                     className="text-base md:text-lg font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase"
-                    style={{ 
-                      textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)',
-                      transition: 'text-shadow 0.3s ease'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.textShadow = '0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.4), 0 0 45px rgba(255, 255, 255, 0.2)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.textShadow = '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)';
-                    }}
+                    className={navLinkStyles}
+                    style={navTextShadowStyles}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
                   >
                     {item.label}
                   </button>
                 ) : (
                   <Link
                     to={item.href}
-                    className="text-base md:text-lg font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase"
-                    style={{ 
-                      textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)',
-                      transition: 'text-shadow 0.3s ease'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.textShadow = '0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.4), 0 0 45px rgba(255, 255, 255, 0.2)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.textShadow = '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)';
-                    }}
+                    className={navLinkStyles}
+                    style={navTextShadowStyles}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
                   >
                     {item.label}
                   </Link>
@@ -193,33 +182,19 @@ const Header = () => {
             ))}
             <Link
               to="/learn"
-              className="text-base md:text-lg font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase"
-              style={{ 
-                textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)',
-                transition: 'text-shadow 0.3s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.textShadow = '0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.4), 0 0 45px rgba(255, 255, 255, 0.2)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.textShadow = '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)';
-              }}
+              className={navLinkStyles}
+              style={navTextShadowStyles}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
               Learn
             </Link>
             <Link
               to="/earn"
-              className="text-base md:text-lg font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase"
-              style={{ 
-                textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)',
-                transition: 'text-shadow 0.3s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.textShadow = '0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.4), 0 0 45px rgba(255, 255, 255, 0.2)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.textShadow = '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)';
-              }}
+              className={navLinkStyles}
+              style={navTextShadowStyles}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
               Earn
             </Link>
