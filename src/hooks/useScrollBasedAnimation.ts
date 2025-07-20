@@ -65,7 +65,7 @@ export const useScrollBasedAnimation = () => {
         beliefGlow: scrollProgress > 0.22 && scrollProgress < 0.32,
         visionGlow: scrollProgress > 0.32 && scrollProgress < 0.42,
         provenanceCardGlow: scrollProgress > 0.4 && scrollProgress < 0.5,
-        hashTokenCardGlow: scrollProgress > 0.5 && scrollProgress < 0.6,
+        hashTokenCardGlow: scrollProgress > 0.5 && scrollProgress < 0.65,
         commitmentCardGlow: scrollProgress > 0.6 && scrollProgress < 0.7,
       };
 
