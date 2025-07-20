@@ -93,7 +93,17 @@ const BuyCard = () => {
           <Label className="text-sm font-medium text-foreground">You're selling</Label>
           <Select value={sellAsset} onValueChange={(value: 'USDC' | 'SOL') => setSellAsset(value)}>
             <SelectTrigger className="bg-muted/50">
-              <SelectValue />
+              <div className="flex items-center gap-3 w-full">
+                <img 
+                  src={sellAsset === 'USDC' ? usdcIcon : solanaIcon} 
+                  alt={sellAsset === 'USDC' ? 'USDC' : 'Solana'} 
+                  className="w-6 h-6 rounded-full flex-shrink-0" 
+                />
+                <div className="flex flex-col min-w-0 flex-1">
+                  <span className="text-sm font-medium">{sellAsset === 'USDC' ? 'USDC' : 'Solana'}</span>
+                  <span className="text-xs text-muted-foreground truncate">{mockBalances[sellAsset]}</span>
+                </div>
+              </div>
             </SelectTrigger>
             <SelectContent className="bg-card/80 backdrop-blur-sm border border-border/20">
               <SelectItem value="USDC">
@@ -123,7 +133,16 @@ const BuyCard = () => {
           <Label className="text-sm font-medium text-foreground">You're buying</Label>
           <Select value={buyAsset} onValueChange={(value: 'YIELD' | 'HASH') => setBuyAsset(value)}>
             <SelectTrigger className="bg-muted/50">
-              <SelectValue />
+              <div className="flex items-center gap-3 w-full">
+                <img 
+                  src={buyAsset === 'YIELD' ? yieldIcon : hashIcon} 
+                  alt={buyAsset} 
+                  className="w-6 h-6 rounded-full flex-shrink-0" 
+                />
+                <div className="flex flex-col min-w-0 flex-1">
+                  <span className="text-sm font-medium">{buyAsset}</span>
+                </div>
+              </div>
             </SelectTrigger>
             <SelectContent className="bg-card/80 backdrop-blur-sm border border-border/20">
               <SelectItem value="YIELD">

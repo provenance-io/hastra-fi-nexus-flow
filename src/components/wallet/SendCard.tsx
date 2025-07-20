@@ -106,7 +106,17 @@ const SendCard = () => {
           <Label className="text-sm font-medium text-foreground">Select token to send</Label>
           <Select value={selectedToken} onValueChange={(value: 'YIELD' | 'HASH') => setSelectedToken(value)}>
             <SelectTrigger className="bg-muted/50">
-              <SelectValue />
+              <div className="flex items-center gap-3 w-full">
+                <img 
+                  src={selectedToken === 'YIELD' ? yieldIcon : hashIcon} 
+                  alt={selectedToken} 
+                  className="w-6 h-6 rounded-full flex-shrink-0" 
+                />
+                <div className="flex flex-col min-w-0 flex-1">
+                  <span className="text-sm font-medium">{selectedToken}</span>
+                  <span className="text-xs text-muted-foreground truncate">{tokenBalances[selectedToken]}</span>
+                </div>
+              </div>
             </SelectTrigger>
             <SelectContent className="bg-card">
               <SelectItem value="YIELD">
