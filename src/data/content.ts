@@ -84,7 +84,7 @@ export const footerLinks = {
         { label: 'HOMES', href: '/homes' },
     ],
     legal: [
-        { label: 'Terms', href: '#' },
+        { label: 'Terms', href: '/terms' },
         { label: 'Privacy', href: '#' },
         { label: 'Compliance', href: '#' },
     ]
