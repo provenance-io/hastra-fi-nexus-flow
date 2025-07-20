@@ -58,6 +58,9 @@ const Hero = () => {
   }));
 
   useEffect(() => {
+    // Debug coin configurations
+    console.log('Coin configurations:', coinConfigs.current.map(c => ({ id: c.id, coinSize: c.coinSize })));
+    
     // Preload and initialize animations
     const timer = setTimeout(() => {
       setIsLoaded(true);

@@ -27,7 +27,9 @@
     hsl(var(--mint-green-light)) 0%, 
     hsl(var(--mint-green)) 50%,
     hsl(var(--mint-green-dark)) 100%);
-  border: 1px solid hsl(var(--mint-green-dark));
+  border: calc(1px * var(--coin-size, 1)) solid hsl(var(--mint-green-dark));
+  /* Debug: Add a subtle border that scales with coin size to verify the variable works */
+  box-shadow: 0 0 calc(2px * var(--coin-size, 1)) rgba(255, 255, 255, 0.3);
 }
 
 .coin-face-smooth::before {
