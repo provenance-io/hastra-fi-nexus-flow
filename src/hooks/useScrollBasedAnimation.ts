@@ -49,7 +49,10 @@ export const useScrollBasedAnimation = () => {
       const documentHeight = document.documentElement.scrollHeight;
       const scrollProgress = scrollY / (documentHeight - windowHeight);
 
-      // Progressive animation triggers based on scroll position
+      // Enhanced scroll progress with debugging
+      console.log('Scroll Progress:', scrollProgress.toFixed(3));
+
+      // Progressive animation triggers with improved thresholds
       const newState: ScrollAnimationState = {
         missionVisible: scrollProgress > 0.1,
         beliefVisible: scrollProgress > 0.2,
@@ -57,25 +60,35 @@ export const useScrollBasedAnimation = () => {
         missionToBeliefLine: scrollProgress > 0.15,
         beliefToVisionLine: scrollProgress > 0.25,
         visionToHashLine: scrollProgress > 0.35,
-        // New bottom connecting lines with earlier triggers for better visibility
-        provenanceToHashTokenLine: scrollProgress > 0.42,
-        hashTokenToCommitmentLine: scrollProgress > 0.52,
-        commitmentToSuccessLine: scrollProgress > 0.62,
-        hashGlow: scrollProgress > 0.35, // HASH glows when line reaches it
+        // Bottom connecting lines with earlier, more reliable triggers
+        provenanceToHashTokenLine: scrollProgress > 0.35, // Reduced from 0.42
+        hashTokenToCommitmentLine: scrollProgress > 0.45, // Reduced from 0.52
+        commitmentToSuccessLine: scrollProgress > 0.55, // Reduced from 0.62
+        hashGlow: scrollProgress > 0.35,
         // Card glow timing - only one card glows at a time
         missionGlow: scrollProgress > 0.12 && scrollProgress < 0.22,
         beliefGlow: scrollProgress > 0.22 && scrollProgress < 0.32,
         visionGlow: scrollProgress > 0.32 && scrollProgress < 0.42,
-        provenanceCardGlow: scrollProgress > 0.4 && scrollProgress < 0.55,
-        hashTokenCardGlow: scrollProgress > 0.5 && scrollProgress < 0.65,
-        commitmentCardGlow: scrollProgress > 0.6 && scrollProgress < 0.75,
-        joinMissionGlow: scrollProgress > 0.75, // Stays glowing once started
+        provenanceCardGlow: scrollProgress > 0.35 && scrollProgress < 0.5, // Adjusted timing
+        hashTokenCardGlow: scrollProgress > 0.45 && scrollProgress < 0.6, // Adjusted timing
+        commitmentCardGlow: scrollProgress > 0.55 && scrollProgress < 0.7, // Adjusted timing
+        joinMissionGlow: scrollProgress > 0.7, // Stays glowing once started
       };
+
+      // Debug logging for bottom lines
+      if (scrollProgress > 0.3) {
+        console.log('Bottom lines status:', {
+          provenanceToHashToken: newState.provenanceToHashTokenLine,
+          hashTokenToCommitment: newState.hashTokenToCommitmentLine,
+          commitmentToSuccess: newState.commitmentToSuccessLine,
+          scrollProgress: scrollProgress.toFixed(3)
+        });
+      }
 
       setState(newState);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // Initial call
 
     return () => window.removeEventListener('scroll', handleScroll);
