@@ -8,7 +8,7 @@ const Index = () => {
   return (
     <div className="relative">
       {/* Extended gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-bl from-background via-header-glow/5 to-crypto-accent/5"></div>
+      <div className="absolute inset-0 bg-gradient-to-bl from-crypto-accent/5 via-header-glow/5 to-background"></div>
       <div className="relative z-10">
         <Hero />
         <Products />

@@ -13,7 +13,7 @@ const WYLDsPage = () => {
   return (
     <div className="relative">
       {/* Extended gradient background to match homepage */}
-      <div className="absolute inset-0 bg-gradient-to-bl from-background via-header-glow/5 to-crypto-accent/5"></div>
+      <div className="absolute inset-0 bg-gradient-to-bl from-crypto-accent/5 via-header-glow/5 to-background"></div>
       <div className="relative z-10 space-y-16">
         <WYLDsHero />
         

@@ -28,7 +28,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <div className="flex flex-col min-h-screen bg-gradient-to-bl from-background via-header-glow/5 to-crypto-accent/5">
+          <div className="flex flex-col min-h-screen bg-gradient-to-bl from-crypto-accent/5 via-header-glow/5 to-background">
             <AccessibilityFeatures />
             <PerformanceOptimizer />
             <Header />
