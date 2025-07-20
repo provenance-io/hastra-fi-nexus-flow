@@ -21,7 +21,10 @@ const WYLDsResources = () => {
   return (
     <section className="py-20 border-t border-border/40">
       <div className="container">
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground/90 text-center mb-12">Documentation & Resources</h2>
+        <h2 className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed text-center mb-12" 
+           style={{ 
+             textShadow: "0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)" 
+           }}>Documentation & Resources</h2>
         <div className="max-w-3xl mx-auto space-y-6">
           {resources.map((resource) => (
             <a
