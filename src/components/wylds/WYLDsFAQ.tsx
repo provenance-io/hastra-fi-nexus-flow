@@ -39,18 +39,16 @@ const WYLDsFAQ = () => {
       {/* Unified seamless background - removed conflicting gradient */}
       
       <div className="relative z-10 max-w-4xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed mb-6 md:mb-8" 
-             style={{ 
-               textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' 
-             }}>
-            Get answers to common questions about YIELD tokens and how they work
-          </p>
-        </div>
-
         {/* FAQ Accordion */}
         <div className="card-gradient rounded-2xl p-8 hover:bg-background/60 transition-all duration-300">
+          <div className="mb-8">
+            <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed text-center" 
+               style={{ 
+                 textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' 
+               }}>
+              Get answers to common questions about YIELD tokens and how they work
+            </p>
+          </div>
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem 
