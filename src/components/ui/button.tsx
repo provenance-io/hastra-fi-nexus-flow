@@ -22,10 +22,10 @@ const buttonVariants = cva(
         "auburn-outline": "border border-auburn-primary/30 bg-auburn-primary/10 text-auburn-primary hover:bg-auburn-primary/20 hover:border-auburn-primary/50 transition-all duration-300 shadow-auburn-primary/10 hover:shadow-auburn-primary/20",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
-        icon: "h-10 w-10",
+        default: "h-9 px-3 py-1.5",
+        sm: "h-8 px-2.5",
+        lg: "h-10 px-5",
+        icon: "h-9 w-9",
       },
     },
     defaultVariants: {
