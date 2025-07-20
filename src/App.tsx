@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { WalletProvider } from "@/contexts/WalletContext";
 import Header from "@/components/Header";
+import ScrollToTop from "@/components/ScrollToTop";
 import Footer from "@/components/Footer";
 import AccessibilityFeatures from "@/components/AccessibilityFeatures";
 import PerformanceOptimizer from "@/components/PerformanceOptimizer";
@@ -28,6 +29,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <div className="flex flex-col min-h-screen bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5">
             <AccessibilityFeatures />
             <PerformanceOptimizer />
