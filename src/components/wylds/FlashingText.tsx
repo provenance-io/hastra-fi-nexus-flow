@@ -33,13 +33,13 @@ const FlashingText = ({ phrases, className = "" }: FlashingTextProps) => {
         // If this is the last phrase, handle extended timing
         if (nextIndex === phrases.length - 1) {
           setIsLastPhraseExtended(true);
-          // Display for 2 seconds, then fade for 2 seconds
+          // Display for 2 seconds, then fade for 1 second
           timeout = setTimeout(() => {
             setIsSlowFading(true);
             timeout = setTimeout(() => {
               // Move to next (which will trigger reset logic above)
               showNextPhrase();
-            }, 2000); // 2 second fade
+            }, 1000); // 1 second fade (matches CSS transition)
           }, 2000); // Stay visible for 2 seconds
         } else {
           // Regular phrases: 1 second display time
@@ -67,7 +67,7 @@ const FlashingText = ({ phrases, className = "" }: FlashingTextProps) => {
         <span 
           key={index}
           className={`
-            transition-colors duration-3000 ease-out
+            transition-colors duration-1000 ease-out
             ${activeIndex === index 
               ? (index === phrases.length - 1 
                 ? (isSlowFading ? 'text-transparent' : 'text-[hsl(var(--hastra-teal))]')
