@@ -130,11 +130,14 @@ const Hero = () => {
                 '--layer-opacity': config.opacity,
                } as React.CSSProperties}
             >
-              <img 
-                src="/lovable-uploads/b4e3a1a3-5eb7-4825-be74-ab9c8be136aa.png" 
-                alt="Token logo" 
-                className="w-full h-full object-contain"
-              />
+              <div className="coin-face-smooth">
+                <img 
+                  src="/lovable-uploads/b4e3a1a3-5eb7-4825-be74-ab9c8be136aa.png" 
+                  alt="Token logo" 
+                  className="w-3/4 h-3/4 object-contain absolute inset-0 m-auto"
+                />
+              </div>
+              <div className="coin-edge-smooth" />
             </div>
           ))}
         </div>
