@@ -7,9 +7,6 @@ import {
 import { clusterApiUrl } from '@solana/web3.js';
 import { useMemo } from 'react';
 
-// Default styles that can be overridden by your app
-require('@solana/wallet-adapter-react-ui/styles.css');
-
 export const useSolanaWalletConfig = () => {
   // The network can be set to 'devnet', 'testnet', or 'mainnet-beta'.
   const network = 'mainnet-beta';

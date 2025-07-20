@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
 import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
 import { useSolanaWalletConfig } from '@/config/solanaWallet';
+import '@solana/wallet-adapter-react-ui/styles.css';
 
 interface SolanaWalletProviderProps {
   children: ReactNode;
