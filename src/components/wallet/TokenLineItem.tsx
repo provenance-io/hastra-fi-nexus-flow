@@ -79,7 +79,7 @@ const TokenLineItem = ({
         {/* Tokens Column */}
         <div className="text-left space-y-1">
           <p className="text-muted-foreground text-sm font-medium">Balance</p>
-          <p className="font-bold text-orange-400 text-lg">
+          <p className="font-bold text-orange-300 text-lg">
             {amount.toLocaleString('en-US', { 
               minimumFractionDigits: 2,
               maximumFractionDigits: 4 
@@ -103,8 +103,8 @@ const TokenLineItem = ({
         <div className="text-left space-y-1">
           <p className="text-muted-foreground text-sm font-medium">Total Claimed</p>
           <div className="flex items-center gap-2">
-            <TrendingUp className="w-4 h-4 text-orange-400" />
-            <p className="font-semibold text-orange-400 text-lg">
+            <TrendingUp className="w-4 h-4 text-orange-300" />
+            <p className="font-semibold text-orange-300 text-lg">
               ${totalInterestEarnedUSD.toLocaleString('en-US', { 
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2 
@@ -179,7 +179,7 @@ const TokenLineItem = ({
 
         {/* Token Balance - Centered */}
         <div className="text-center py-3 bg-background/20 rounded-xl">
-          <p className="text-3xl font-bold text-orange-400 leading-tight">
+          <p className="text-3xl font-bold text-orange-300 leading-tight">
             {amount.toLocaleString('en-US', { 
               minimumFractionDigits: 2,
               maximumFractionDigits: 4 
@@ -192,10 +192,10 @@ const TokenLineItem = ({
         <div className="grid grid-cols-2 gap-3">
           <div className="bg-background/40 rounded-xl p-4 text-center">
             <div className="flex items-center justify-center gap-1.5 mb-2">
-              <TrendingUp className="w-4 h-4 text-orange-400" />
+              <TrendingUp className="w-4 h-4 text-orange-300" />
               <p className="text-sm text-muted-foreground font-medium">Total Claimed</p>
             </div>
-            <p className="font-bold text-orange-400 text-lg leading-tight">
+            <p className="font-bold text-orange-300 text-lg leading-tight">
               ${totalInterestEarnedUSD.toLocaleString('en-US', { 
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2 
