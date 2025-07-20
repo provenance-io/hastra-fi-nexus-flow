@@ -7,11 +7,8 @@ const WYLDsTypeformEmbed = () => {
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground/90 mb-4">
-            Partner with YIELD
-          </h2>
-          <p className="text-lg text-platinum/80">
             Want to bring YIELD to your platform or chain? Fill out our form to get started.
-          </p>
+          </h2>
         </div>
         
         <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
