@@ -91,7 +91,7 @@ const TokenLineItem = ({
         {/* Worth Column */}
         <div className="text-left space-y-1">
           <p className="text-muted-foreground text-sm font-medium">Value</p>
-          <p className="font-semibold text-foreground text-lg">
+          <p className="font-semibold text-orange-300 text-lg">
             ${value.toLocaleString('en-US', { 
               minimumFractionDigits: 2,
               maximumFractionDigits: 2 
@@ -116,7 +116,7 @@ const TokenLineItem = ({
         {/* Unclaimed Interest Column */}
         <div className="text-left space-y-1">
           <p className="text-muted-foreground text-sm font-medium">Available</p>
-          <p className={`font-semibold text-lg ${unclaimedInterest > 0 ? 'text-green-400' : 'text-muted-foreground'}`}>
+          <p className={`font-semibold text-lg ${unclaimedInterest > 0 ? 'text-orange-300' : 'text-muted-foreground'}`}>
             ${unclaimedInterestUSD.toLocaleString('en-US', { 
               minimumFractionDigits: 2,
               maximumFractionDigits: 2 
@@ -167,7 +167,7 @@ const TokenLineItem = ({
             <p className="text-sm text-muted-foreground mt-0.5">Token</p>
           </div>
           <div className="text-right flex-shrink-0">
-            <p className="font-bold text-foreground text-xl leading-tight">
+            <p className="font-bold text-orange-300 text-xl leading-tight">
               ${value.toLocaleString('en-US', { 
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2 
@@ -205,7 +205,7 @@ const TokenLineItem = ({
           
           <div className="bg-background/40 rounded-xl p-4 text-center">
             <p className="text-sm text-muted-foreground font-medium mb-2">Available</p>
-            <p className={`font-bold text-lg leading-tight ${unclaimedInterest > 0 ? 'text-green-400' : 'text-muted-foreground'}`}>
+            <p className={`font-bold text-lg leading-tight ${unclaimedInterest > 0 ? 'text-orange-300' : 'text-muted-foreground'}`}>
               ${unclaimedInterestUSD.toLocaleString('en-US', { 
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2 
