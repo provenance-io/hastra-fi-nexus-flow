@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { ArrowRight, ChevronDown, TrendingUp, Calendar, Repeat, Shield, Globe } from 'lucide-react';
+import { ArrowRight, ChevronDown, TrendingUp, Calendar, Repeat, Building2, Zap, Link2 } from 'lucide-react';
 import yieldIcon from '/lovable-uploads/1d678c0f-09c8-4451-a9a6-3e635e0fef72.png';
 
 const YieldTokenIcon = ({ className }: { className?: string }) => (
@@ -64,17 +64,17 @@ const WYLDsYieldExplanation = () => {
             <div className="grid gap-10 md:grid-cols-3">
               {[
                 {
-                  icon: Shield,
+                  icon: Building2,
                   title: 'Backed by RWAs',
                   description: 'YIELD token is backed by reserves of YLDS - the first SEC-registered, yield-bearing stablecoin backed by real world assets.',
                 },
                 {
-                  icon: TrendingUp,
+                  icon: Zap,
                   title: 'Automatic Yield',
                   description: 'Earn yield automatically just by holding YIELD in your wallet - no staking required.',
                 },
                 {
-                  icon: Globe,
+                  icon: Link2,
                   title: 'Cross-Chain',
                   description: 'Available on Solana with plans to expand to additional blockchain networks.',
                 },
