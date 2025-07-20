@@ -294,7 +294,7 @@ const WYLDsYieldExplanation = () => {
             {/* Custom Amber Scroll Bar - Desktop Only */}
             <div className="hidden lg:flex justify-center mt-8">
               <div 
-                className="relative w-60 h-2 bg-amber-900/30 rounded-full cursor-pointer"
+                className="relative w-60 h-2 bg-amber-200/30 rounded-full cursor-pointer"
                 onMouseDown={(e) => {
                   const sliderRect = e.currentTarget.getBoundingClientRect();
                   handleSliderChange(e.clientX, sliderRect);
@@ -313,8 +313,11 @@ const WYLDsYieldExplanation = () => {
                 }}
               >
                 <div 
-                  className="absolute top-0 left-0 h-full bg-amber-500 rounded-full transition-all duration-150"
-                  style={{ width: `${Math.max(60, (scrollProgress / 100) * 240)}px` }}
+                  className="absolute top-1/2 -translate-y-1/2 w-16 h-4 bg-amber-300 rounded-full transition-all duration-150 shadow-lg"
+                  style={{ 
+                    left: `${Math.max(0, Math.min(100 - (64/240*100), scrollProgress))}%`,
+                    transform: 'translateY(-50%)'
+                  }}
                 />
               </div>
             </div>
