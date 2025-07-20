@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -6,6 +5,7 @@ import { useScrollBasedAnimation } from '@/hooks/useScrollBasedAnimation';
 import AnimatedCard from '@/components/about/AnimatedCard';
 import ConnectingLines from '@/components/about/ConnectingLines';
 import EnhancedHashLogo from '@/components/about/EnhancedHashLogo';
+import ProvenanceBranding from '@/components/ProvenanceBranding';
 
 const About = () => {
   const animationState = useScrollBasedAnimation();
@@ -320,6 +320,7 @@ const About = () => {
           </div>
         </section>
         </main>
+        <ProvenanceBranding />
       </div>
     </div>
   );

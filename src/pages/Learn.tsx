@@ -1,5 +1,7 @@
+
 import LearnHero from '@/components/start-earning/LearnHero';
 import EnhancedGuidesSection from '@/components/start-earning/EnhancedGuidesSection';
+import ProvenanceBranding from '@/components/ProvenanceBranding';
 
 const Learn = () => {
   return (
@@ -9,6 +11,7 @@ const Learn = () => {
       <div className="relative z-10">
         <LearnHero />
         <EnhancedGuidesSection />
+        <ProvenanceBranding />
       </div>
     </div>
   );

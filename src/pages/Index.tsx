@@ -2,6 +2,7 @@
 import Hero from '@/components/Hero';
 import Products from '@/components/Products';
 import InnovationApproach from '@/components/InnovationApproach';
+import ProvenanceBranding from '@/components/ProvenanceBranding';
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
         <Hero />
         <Products />
         <InnovationApproach />
+        <ProvenanceBranding />
       </div>
     </div>
   );

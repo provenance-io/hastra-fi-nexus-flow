@@ -7,7 +7,7 @@ import WYLDsResources from '@/components/wylds/WYLDsResources';
 import WYLDsFAQ from '@/components/wylds/WYLDsFAQ';
 import WYLDsTypeformEmbed from '@/components/wylds/WYLDsTypeformEmbed';
 import SolanaAvailableBanner from '@/components/wylds/SolanaAvailableBanner';
-
+import ProvenanceBranding from '@/components/ProvenanceBranding';
 
 const WYLDsPage = () => {
   return (
@@ -22,6 +22,7 @@ const WYLDsPage = () => {
         <WYLDsFAQ />
         <WYLDsTypeformEmbed />
         <WYLDsResources />
+        <ProvenanceBranding />
       </div>
     </div>
   );

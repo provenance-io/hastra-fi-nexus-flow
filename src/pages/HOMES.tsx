@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import HOMESHero from '@/components/homes/HOMESHero';
 import HOMESAbout from '@/components/homes/HOMESAbout';
@@ -5,6 +6,7 @@ import HOMESPortfolio from '@/components/homes/HOMESPortfolio';
 import HOMESPoolComposition from '@/components/homes/HOMESPoolComposition';
 import HOMESFAQ from '@/components/homes/HOMESFAQ';
 import HOMESComingSoonModal from '@/components/homes/HOMESComingSoonModal';
+import ProvenanceBranding from '@/components/ProvenanceBranding';
 
 const HOMESPage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -36,6 +38,7 @@ const HOMESPage = () => {
           <HOMESPortfolio />
           <HOMESPoolComposition />
           <HOMESFAQ />
+          <ProvenanceBranding />
         </div>
       </div>
     </div>
