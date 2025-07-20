@@ -32,7 +32,10 @@ const EarnHero = () => {
               WebkitTextFillColor: 'transparent',
               textShadow: '0 0 30px rgba(229, 218, 194, 0.4)'
             }}>
-              Start Earning Immediately
+              Start Earning{' '}
+              <span className="text-hastra-gradient">
+                Immediately
+              </span>
             </span>
           </h1>
           
