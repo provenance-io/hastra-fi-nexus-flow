@@ -46,7 +46,8 @@ const ActionCard = ({
           onClick={action}
           disabled={isLoading}
           size="lg"
-          className="w-full bg-orange-900/20 text-orange-300 hover:bg-orange-900/30 focus-ring px-6 py-3 text-sm font-semibold tracking-tight rounded-lg transition-all duration-300 shadow-sm hover:shadow-md"
+          className="w-full"
+          variant="secondary"
         >
           {isLoading ? (
             <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />

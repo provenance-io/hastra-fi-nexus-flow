@@ -9,17 +9,17 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_20px_rgba(251,146,60,0.3)] hover:shadow-[0_0_30px_rgba(251,146,60,0.5)]",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_12px_rgba(251,146,60,0.15)] hover:shadow-[0_0_18px_rgba(251,146,60,0.25)]",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-[0_0_20px_rgba(239,68,68,0.3)] hover:shadow-[0_0_30px_rgba(239,68,68,0.5)]",
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-[0_0_12px_rgba(239,68,68,0.15)] hover:shadow-[0_0_18px_rgba(239,68,68,0.25)]",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground shadow-[0_0_15px_rgba(251,146,60,0.2)] hover:shadow-[0_0_25px_rgba(251,146,60,0.4)]",
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground shadow-[0_0_8px_rgba(251,146,60,0.1)] hover:shadow-[0_0_15px_rgba(251,146,60,0.2)]",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-[0_0_20px_rgba(251,146,60,0.2)] hover:shadow-[0_0_30px_rgba(251,146,60,0.3)]",
-        ghost: "hover:bg-accent hover:text-accent-foreground shadow-none hover:shadow-[0_0_15px_rgba(251,146,60,0.2)]",
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-[0_0_10px_rgba(251,146,60,0.1)] hover:shadow-[0_0_15px_rgba(251,146,60,0.15)]",
+        ghost: "hover:bg-accent hover:text-accent-foreground shadow-none hover:shadow-[0_0_8px_rgba(251,146,60,0.1)]",
         link: "text-primary underline-offset-4 hover:underline shadow-none",
-        auburn: "bg-auburn-primary text-white hover:bg-auburn-dark transition-all duration-300 shadow-[0_0_25px_rgba(251,146,60,0.4)] hover:shadow-[0_0_35px_rgba(251,146,60,0.6)]",
-        "auburn-outline": "border border-auburn-primary/30 bg-auburn-primary/10 text-auburn-primary hover:bg-auburn-primary/20 hover:border-auburn-primary/50 transition-all duration-300 shadow-[0_0_20px_rgba(251,146,60,0.3)] hover:shadow-[0_0_30px_rgba(251,146,60,0.5)]",
+        auburn: "bg-auburn-primary text-white hover:bg-auburn-dark transition-all duration-300 shadow-[0_0_15px_rgba(251,146,60,0.2)] hover:shadow-[0_0_20px_rgba(251,146,60,0.3)]",
+        "auburn-outline": "border border-auburn-primary/30 bg-auburn-primary/10 text-auburn-primary hover:bg-auburn-primary/20 hover:border-auburn-primary/50 transition-all duration-300 shadow-[0_0_12px_rgba(251,146,60,0.15)] hover:shadow-[0_0_18px_rgba(251,146,60,0.25)]",
       },
       size: {
         default: "h-9 px-3 py-1.5",

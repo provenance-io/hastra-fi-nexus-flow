@@ -129,7 +129,8 @@ const TokenLineItem = ({
           onClick={handleClaim}
           disabled={unclaimedInterest <= 0 || isClaiming}
           size="sm"
-          className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring px-6 py-3 text-sm font-medium rounded-xl transition-all duration-200 disabled:opacity-50 whitespace-nowrap min-w-[120px]"
+          className="px-6 py-3 text-sm font-medium rounded-xl disabled:opacity-50 whitespace-nowrap min-w-[120px]"
+          variant="secondary"
         >
           {isClaiming ? (
             <div className="flex items-center gap-2">
@@ -218,7 +219,8 @@ const TokenLineItem = ({
         <Button
           onClick={handleClaim}
           disabled={unclaimedInterest <= 0 || isClaiming}
-          className="w-full bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring py-4 text-base font-semibold rounded-xl transition-all duration-200 disabled:opacity-50"
+          className="w-full py-4 text-base font-semibold rounded-xl disabled:opacity-50"
+          variant="secondary"
         >
           {isClaiming ? (
             <div className="flex items-center justify-center gap-2.5">

@@ -43,8 +43,9 @@ const LearnHero = () => {
           <p className="text-lg text-muted-foreground mb-6">Start your DeFi education journey</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button 
-              size="lg" 
-              className="bg-orange-900/20 text-orange-300 hover:bg-orange-900/30 focus-ring font-semibold tracking-tight px-6 py-3 text-lg rounded-lg min-w-[200px] group transition-all duration-300 shadow-sm hover:shadow-md"
+              className="min-w-[200px] group"
+              variant="secondary"
+              size="lg"
               onClick={() => {
                 const guidesSection = document.querySelector('[data-section="guides"]');
                 if (guidesSection) {

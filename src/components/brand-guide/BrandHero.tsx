@@ -37,8 +37,9 @@ const BrandHero = ({ generatePDF, isGenerating }: BrandHeroProps) => {
         <Button 
           onClick={generatePDF}
           disabled={isGenerating}
+          className="group mb-12"
+          variant="secondary"
           size="lg"
-          className="bg-orange-900/20 text-orange-300 hover:bg-orange-900/30 focus-ring font-semibold tracking-tight px-6 py-3 text-lg rounded-lg group mb-12 transition-all duration-300 shadow-sm hover:shadow-md"
         >
           {isGenerating ? (
             <>

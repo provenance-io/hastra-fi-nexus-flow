@@ -38,15 +38,17 @@ const HOMESHero = () => {
         
         <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
           <Button 
-            size="lg" 
-            className="bg-orange-900/20 text-orange-300 hover:bg-orange-900/30 focus-ring font-semibold tracking-tight px-6 py-3 text-lg rounded-lg min-w-[200px] group transition-all duration-300 shadow-sm hover:shadow-md"
+            className="min-w-[200px] group"
+            variant="secondary"
+            size="lg"
           >
             Learn More
             <TrendingUp className="ml-2 h-4 w-4" />
           </Button>
           <Button 
-            size="lg" 
-            className="bg-orange-900/20 text-orange-300 hover:bg-orange-900/30 focus-ring font-semibold tracking-tight px-6 py-3 text-lg rounded-lg min-w-[200px] group transition-all duration-300 shadow-sm hover:shadow-md"
+            className="min-w-[200px] group"
+            variant="secondary"
+            size="lg"
           >
             Manage HOMES
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
