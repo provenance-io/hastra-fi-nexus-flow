@@ -52,7 +52,7 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
         }`}
         style={{
           left: isMobile ? '85%' : '80%',
-          top: isMobile ? '640px' : '681px',
+          top: isMobile ? '641px' : '682px',
           height: isMobile ? '84px' : '96px',
           width: '2px',
           background: 'rgba(229, 218, 194, 0.8)',
@@ -67,7 +67,7 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
           visionToHashLine ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
         }`}
         style={{
-          top: isMobile ? '1052px' : '1170px',
+          top: isMobile ? '1054px' : '1172px',
           height: isMobile ? '173px' : '221px',
           width: '2px',
           background: 'rgba(229, 218, 194, 0.8)',
@@ -83,8 +83,8 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
         }`}
         style={{
           left: isMobile ? '15%' : '20%',
-          top: isMobile ? '1870px' : '2170px',
-          height: isMobile ? '240px' : '288px',
+          top: isMobile ? '1860px' : '2160px',
+          height: isMobile ? '264px' : '317px',
           width: '2px',
           background: 'rgba(229, 218, 194, 0.8)',
           transformOrigin: 'top',
@@ -99,8 +99,8 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
         }`}
         style={{
           left: isMobile ? '85%' : '80%',
-          top: isMobile ? '2260px' : '2560px',
-          height: isMobile ? '40px' : '48px',
+          top: isMobile ? '2240px' : '2540px',
+          height: isMobile ? '100px' : '120px',
           width: '2px',
           background: 'rgba(229, 218, 194, 0.8)',
           transformOrigin: 'top',
