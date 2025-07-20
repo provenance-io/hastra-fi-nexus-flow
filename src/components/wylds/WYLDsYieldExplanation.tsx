@@ -81,9 +81,10 @@ const WYLDsYieldExplanation = () => {
       {/* Unified seamless background - removed conflicting gradient */}
       
       <div className="max-w-5xl mx-auto px-4 relative z-10">
-        {/* Dashboard Box - Matching About page styling */}
+        {/* Combined Dashboard Box - What is YIELD? + How It Works */}
         <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
           <div className="relative z-10">
+            {/* What is YIELD Section */}
             {/* Section Header - Matching About page AnimatedCard style */}
             <div className="mb-8 text-center">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">What is YIELD?</h2>
@@ -149,7 +150,7 @@ const WYLDsYieldExplanation = () => {
             </div>
 
             {/* CTA Button */}
-            <div className="text-center">
+            <div className="text-center mb-16">
               <Button 
                 size="lg" 
                 className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-3 text-lg rounded-xl transition-all duration-200"
@@ -160,163 +161,159 @@ const WYLDsYieldExplanation = () => {
                 </a>
               </Button>
             </div>
-          </div>
-        </div>
 
-        {/* How It Works Dashboard Box */}
-        <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
-          <div className="relative z-10">
+            {/* How It Works Section */}
             {/* How It Works Section Header - Matching About page AnimatedCard style */}
             <div className="mb-8 text-center">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">How It Works</h2>
             </div>
           
-          {/* Desktop: Scrollable Horizontal Layout */}
-          <div className="hidden lg:block max-w-7xl mx-auto">
-            <div 
-              ref={scrollContainerRef}
-              className="overflow-x-auto pb-4 scrollbar-hide"
-            >
-              <div className="flex items-center gap-8 min-w-max px-4 py-4">
-                {steps.map((step, index) => {
-                  const IconComponent = step.icon;
-                  return (
-                    <div key={step.number} className="flex items-center flex-shrink-0">
-                      {/* Step Card - Fixed Size */}
-                      <div className="relative group">
-                        {/* Number Badge */}
-                        <div className="absolute -top-3 -right-3 w-8 h-8 bg-orange-900/20 border border-orange-800/30 text-orange-300 rounded-full flex items-center justify-center font-bold text-sm shadow-lg z-10">
-                          {step.number}
+            {/* Desktop: Scrollable Horizontal Layout */}
+            <div className="hidden lg:block max-w-7xl mx-auto">
+              <div 
+                ref={scrollContainerRef}
+                className="overflow-x-auto pb-4 scrollbar-hide"
+              >
+                <div className="flex items-center gap-8 min-w-max px-4 py-4">
+                  {steps.map((step, index) => {
+                    const IconComponent = step.icon;
+                    return (
+                      <div key={step.number} className="flex items-center flex-shrink-0">
+                        {/* Step Card - Fixed Size */}
+                        <div className="relative group">
+                          {/* Number Badge */}
+                          <div className="absolute -top-3 -right-3 w-8 h-8 bg-orange-900/20 border border-orange-800/30 text-orange-300 rounded-full flex items-center justify-center font-bold text-sm shadow-lg z-10">
+                            {step.number}
+                          </div>
+                          
+                          {/* Card Container - Fixed Dimensions */}
+                          <div className="w-64 h-80 card-gradient rounded-2xl p-8 text-center space-y-4 hover:bg-background/60 transition-all duration-300 relative overflow-hidden">
+                            
+                            {/* Icon Container */}
+                            <div className="relative z-10 mb-4 flex justify-center">
+                              {step.number === 1 ? (
+                                <IconComponent className="w-14 h-14" />
+                              ) : (
+                                <div className={`w-14 h-14 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                                  <IconComponent className="w-7 h-7 text-black" />
+                                </div>
+                              )}
+                            </div>
+                            
+                            {/* Content */}
+                            <div className="relative z-10 flex flex-col justify-between h-auto space-y-4">
+                              <h4 className={`font-bold text-lg transition-colors duration-300 ${
+                                step.number <= 2 ? 'text-header-glow' : 'text-header-glow group-hover:text-crypto-accent'
+                              }`}>
+                                {step.title}
+                              </h4>
+                              <p className="text-foreground/90 text-sm leading-relaxed px-2">
+                                {step.description}
+                              </p>
+                            </div>
+                          </div>
                         </div>
                         
-                        {/* Card Container - Fixed Dimensions */}
-                        <div className="w-64 h-80 card-gradient rounded-2xl p-8 text-center space-y-4 hover:bg-background/60 transition-all duration-300 relative overflow-hidden">
-                          
-                          {/* Icon Container */}
-                          <div className="relative z-10 mb-4 flex justify-center">
-                            {step.number === 1 ? (
-                              <IconComponent className="w-14 h-14" />
-                            ) : (
-                              <div className={`w-14 h-14 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                                <IconComponent className="w-7 h-7 text-black" />
-                              </div>
-                            )}
+                        {/* Arrow Connector */}
+                        {index < steps.length - 1 && (
+                          <div className="mx-6 flex items-center justify-center h-80">
+                            <ChevronRight className="w-8 h-8 text-orange-300" />
                           </div>
-                          
-                          {/* Content */}
-                          <div className="relative z-10 flex flex-col justify-between h-auto space-y-4">
-                            <h4 className={`font-bold text-lg transition-colors duration-300 ${
-                              step.number <= 2 ? 'text-header-glow' : 'text-header-glow group-hover:text-crypto-accent'
-                            }`}>
-                              {step.title}
-                            </h4>
-                            <p className="text-foreground/90 text-sm leading-relaxed px-2">
-                              {step.description}
-                            </p>
-                          </div>
-                        </div>
+                        )}
                       </div>
-                      
-                      {/* Arrow Connector */}
-                      {index < steps.length - 1 && (
-                        <div className="mx-6 flex items-center justify-center h-80">
-                          <ChevronRight className="w-8 h-8 text-orange-300" />
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Mobile/Tablet: Clean Vertical Layout */}
-          <div className="lg:hidden max-w-sm mx-auto space-y-8">
-            {steps.map((step, index) => {
-              const IconComponent = step.icon;
-              return (
-                <div key={step.number} className="relative">
-                  {/* Step Card - Consistent Mobile Size */}
-                  <div className="relative group">
-                    {/* Number Badge */}
-                    <div className="absolute -top-3 -right-3 w-8 h-8 bg-orange-900/20 border border-orange-800/30 text-orange-300 rounded-full flex items-center justify-center font-bold text-sm shadow-lg z-10">
-                      {step.number}
+            {/* Mobile/Tablet: Clean Vertical Layout */}
+            <div className="lg:hidden max-w-sm mx-auto space-y-8">
+              {steps.map((step, index) => {
+                const IconComponent = step.icon;
+                return (
+                  <div key={step.number} className="relative">
+                    {/* Step Card - Consistent Mobile Size */}
+                    <div className="relative group">
+                      {/* Number Badge */}
+                      <div className="absolute -top-3 -right-3 w-8 h-8 bg-orange-900/20 border border-orange-800/30 text-orange-300 rounded-full flex items-center justify-center font-bold text-sm shadow-lg z-10">
+                        {step.number}
+                      </div>
+                      
+                      {/* Card Container - Fixed Mobile Dimensions */}
+                      <div className="w-full h-64 card-gradient rounded-2xl p-8 text-center space-y-4 hover:bg-background/60 transition-all duration-300 relative overflow-hidden">
+                        
+                         {/* Icon Container */}
+                         <div className="relative z-10 mb-4 flex justify-center">
+                           {step.number === 1 ? (
+                             <IconComponent className="w-14 h-14" />
+                           ) : (
+                             <div className={`w-14 h-14 bg-gradient-to-br ${step.color} rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                               <IconComponent className="w-7 h-7 text-black" />
+                             </div>
+                           )}
+                         </div>
+                        
+                        {/* Content */}
+                        <div className="relative z-10 flex flex-col justify-between h-auto space-y-4">
+                          <h4 className={`font-bold text-lg transition-colors duration-300 ${
+                            step.number <= 2 ? 'text-header-glow' : 'text-header-glow group-hover:text-crypto-accent'
+                          }`}>
+                            {step.title}
+                          </h4>
+                          <p className="text-foreground/90 text-sm leading-relaxed px-2">
+                            {step.description}
+                          </p>
+                        </div>
+                      </div>
                     </div>
                     
-                    {/* Card Container - Fixed Mobile Dimensions */}
-                    <div className="w-full h-64 card-gradient rounded-2xl p-8 text-center space-y-4 hover:bg-background/60 transition-all duration-300 relative overflow-hidden">
-                      
-                       {/* Icon Container */}
-                       <div className="relative z-10 mb-4 flex justify-center">
-                         {step.number === 1 ? (
-                           <IconComponent className="w-14 h-14" />
-                         ) : (
-                           <div className={`w-14 h-14 bg-gradient-to-br ${step.color} rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                             <IconComponent className="w-7 h-7 text-black" />
-                           </div>
-                         )}
-                       </div>
-                      
-                      {/* Content */}
-                      <div className="relative z-10 flex flex-col justify-between h-auto space-y-4">
-                        <h4 className={`font-bold text-lg transition-colors duration-300 ${
-                          step.number <= 2 ? 'text-header-glow' : 'text-header-glow group-hover:text-crypto-accent'
-                        }`}>
-                          {step.title}
-                        </h4>
-                        <p className="text-foreground/90 text-sm leading-relaxed px-2">
-                          {step.description}
-                        </p>
+                    {/* Down Arrow Connector */}
+                    {index < steps.length - 1 && (
+                      <div className="flex justify-center my-8">
+                        <ChevronDown className="w-8 h-8 text-orange-300" />
                       </div>
-                    </div>
+                    )}
                   </div>
-                  
-                  {/* Down Arrow Connector */}
-                  {index < steps.length - 1 && (
-                    <div className="flex justify-center my-8">
-                      <ChevronDown className="w-8 h-8 text-orange-300" />
-                    </div>
-                  )}
-                </div>
-              );
-             })}
-            </div>
+                 );
+               })}
+             </div>
 
-            {/* Ultra Sleek Scroll Bar - Desktop Only */}
-            <div className="hidden lg:flex justify-center mt-8">
-              <div 
-                className="relative w-60 h-1 cursor-pointer group"
-                onMouseDown={(e) => {
-                  const sliderRect = e.currentTarget.getBoundingClientRect();
-                  handleSliderChange(e.clientX, sliderRect);
-                  
-                  const handleMouseMove = (moveEvent: MouseEvent) => {
-                    handleSliderChange(moveEvent.clientX, sliderRect);
-                  };
-                  
-                  const handleMouseUp = () => {
-                    document.removeEventListener('mousemove', handleMouseMove);
-                    document.removeEventListener('mouseup', handleMouseUp);
-                  };
-                  
-                  document.addEventListener('mousemove', handleMouseMove);
-                  document.addEventListener('mouseup', handleMouseUp);
-                }}
-              >
-                {/* Subtle track hint on hover */}
-                <div className="absolute inset-0 bg-orange-300/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                <div 
-                  className="absolute top-1/2 -translate-y-1/2 w-8 h-2 bg-gradient-to-r from-orange-400 via-orange-300 to-orange-200 rounded-full transition-all duration-300 ease-out cursor-grab active:cursor-grabbing group-hover:scale-125 group-hover:shadow-[0_0_20px_rgba(251,146,60,0.6)] active:scale-110"
-                  style={{ 
-                    left: `${Math.max(0, Math.min(100 - (32/240*100), scrollProgress))}%`,
-                    transform: 'translateY(-50%)',
-                    filter: 'drop-shadow(0 2px 4px rgba(251, 146, 60, 0.3))',
-                    background: 'linear-gradient(135deg, #fb923c 0%, #fdba74 50%, #fed7aa 100%)'
-                  }}
-                />
-              </div>
-            </div>
+             {/* Ultra Sleek Scroll Bar - Desktop Only */}
+             <div className="hidden lg:flex justify-center mt-8">
+               <div 
+                 className="relative w-60 h-1 cursor-pointer group"
+                 onMouseDown={(e) => {
+                   const sliderRect = e.currentTarget.getBoundingClientRect();
+                   handleSliderChange(e.clientX, sliderRect);
+                   
+                   const handleMouseMove = (moveEvent: MouseEvent) => {
+                     handleSliderChange(moveEvent.clientX, sliderRect);
+                   };
+                   
+                   const handleMouseUp = () => {
+                     document.removeEventListener('mousemove', handleMouseMove);
+                     document.removeEventListener('mouseup', handleMouseUp);
+                   };
+                   
+                   document.addEventListener('mousemove', handleMouseMove);
+                   document.addEventListener('mouseup', handleMouseUp);
+                 }}
+               >
+                 {/* Subtle track hint on hover */}
+                 <div className="absolute inset-0 bg-orange-300/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                 
+                 <div 
+                   className="absolute top-1/2 -translate-y-1/2 w-8 h-2 bg-gradient-to-r from-orange-400 via-orange-300 to-orange-200 rounded-full transition-all duration-300 ease-out cursor-grab active:cursor-grabbing group-hover:scale-125 group-hover:shadow-[0_0_20px_rgba(251,146,60,0.6)] active:scale-110"
+                   style={{ 
+                     left: `${Math.max(0, Math.min(100 - (32/240*100), scrollProgress))}%`,
+                     transform: 'translateY(-50%)',
+                     filter: 'drop-shadow(0 2px 4px rgba(251, 146, 60, 0.3))',
+                     background: 'linear-gradient(135deg, #fb923c 0%, #fdba74 50%, #fed7aa 100%)'
+                   }}
+                 />
+               </div>
+             </div>
           </div>
         </div>
       </div>
