@@ -26,14 +26,9 @@ const EarnHero = () => {
         {/* Hero Content */}
         <div className="text-center mb-12 animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-8">
-            <span className="block" style={{ 
-              background: 'linear-gradient(135deg, hsl(var(--platinum)), hsl(var(--muted-foreground)))', 
-              WebkitBackgroundClip: 'text', 
-              WebkitTextFillColor: 'transparent',
-              textShadow: '0 0 30px rgba(229, 218, 194, 0.4)'
-            }}>
-              Start Earning{' '}
-              <span className="text-gradient">
+            <span className="block">
+              <span className="text-gradient">Start Earning</span>{' '}
+              <span className="text-white">
                 Immediately
               </span>
             </span>
@@ -54,10 +49,7 @@ const EarnHero = () => {
           <Button 
             size="lg" 
             variant="secondary"
-            style={{
-              boxShadow: '0 0 20px rgba(229, 218, 194, 0.3), 0 0 40px rgba(229, 218, 194, 0.1)',
-              backdropFilter: 'blur(10px)'
-            }}
+            className="transition-all duration-300"
             onClick={handleConnectWallet}
           >
             {isConnected ? 'View Dashboard' : 'Connect Wallet'}

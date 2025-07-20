@@ -38,12 +38,6 @@ const WalletConnectionSection = () => {
               <Wallet className="w-10 h-10 text-platinum" />
             </div>
             <div>
-              <h2 className="text-3xl font-bold mb-3" style={{ 
-                background: 'linear-gradient(135deg, hsl(var(--platinum)), hsl(var(--muted-foreground)))', 
-                WebkitBackgroundClip: 'text', 
-                WebkitTextFillColor: 'transparent',
-                textShadow: '0 0 30px rgba(229, 218, 194, 0.4)'
-              }}>Connect Your Wallet</h2>
               <p className="text-platinum/80 text-lg leading-relaxed" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.2)' }}>
                 {isConnected ? 'Wallet connected! View your dashboard above to start trading.' : 'Connect your wallet to start earning yield with YIELD and sHASH tokens in a secure, premium DeFi environment'}
               </p>
@@ -62,8 +56,7 @@ const WalletConnectionSection = () => {
           {!isConnected && (
             <div className="card-gradient rounded-3xl p-8 border border-white/10"
                  style={{
-                   backdropFilter: 'blur(16px)',
-                   boxShadow: '0 0 20px rgba(229, 218, 194, 0.2), 0 0 40px rgba(229, 218, 194, 0.1)'
+                   backdropFilter: 'blur(16px)'
                  }}>
               <div className="text-center mb-8">
                 <h3 className="text-xl font-bold text-platinum mb-2">Get Started</h3>
@@ -102,8 +95,7 @@ const WalletConnectionSection = () => {
                   variant="secondary"
                   className="w-full"
                   style={{
-                    backdropFilter: 'blur(10px)',
-                    boxShadow: '0 0 20px rgba(229, 218, 194, 0.3), 0 0 40px rgba(229, 218, 194, 0.1)'
+                    backdropFilter: 'blur(10px)'
                   }}
                   size="lg"
                 >
@@ -130,8 +122,7 @@ const WalletConnectionSection = () => {
                 size="lg" 
                 variant="secondary"
                 style={{
-                  backdropFilter: 'blur(10px)',
-                  boxShadow: '0 0 20px rgba(229, 218, 194, 0.3), 0 0 40px rgba(229, 218, 194, 0.1)'
+                  backdropFilter: 'blur(10px)'
                 }}
                 onClick={handleConnectWallet}
               >
