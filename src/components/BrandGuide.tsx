@@ -337,102 +337,214 @@ const BrandGuide = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background py-20">
-      <div className="container max-w-4xl mx-auto px-4">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="flex justify-center mb-6">
-            <HastraLogo className="h-16" />
-          </div>
-          <h1 className="text-5xl md:text-6xl font-black text-gradient mb-4">
-            Hastra Brand Guide
-          </h1>
-          <p className="text-xl text-muted-foreground mb-8">
-            Complete Visual Identity & Design System
-          </p>
-          <Button 
-            onClick={generatePDF}
-            disabled={isGenerating}
-            size="lg"
-            className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-4 text-lg rounded-xl group"
-          >
-            {isGenerating ? (
-              <>
-                <div className="animate-spin mr-2 h-5 w-5 border-2 border-current border-t-transparent rounded-full" />
-                Generating...
-              </>
-            ) : (
-              <>
-                <Download className="mr-2 h-5 w-5" />
-                Download Brand Guide
-              </>
-            )}
-          </Button>
-        </div>
-
-        {/* Preview Sections */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <div className="card-premium rounded-2xl p-6 text-center">
-            <Palette className="w-12 h-12 text-hastra-teal mx-auto mb-4" />
-            <h3 className="text-xl font-bold mb-2">Color Palette</h3>
-            <p className="text-muted-foreground">Complete color system with HSL values and usage guidelines</p>
-          </div>
-
-          <div className="card-premium rounded-2xl p-6 text-center">
-            <Type className="w-12 h-12 text-auburn-primary mx-auto mb-4" />
-            <h3 className="text-xl font-bold mb-2">Typography</h3>
-            <p className="text-muted-foreground">Font families, scales, and typographic hierarchy</p>
-          </div>
-
-          <div className="card-premium rounded-2xl p-6 text-center">
-            <Zap className="w-12 h-12 text-electric-blue mx-auto mb-4" />
-            <h3 className="text-xl font-bold mb-2">Visual Effects</h3>
-            <p className="text-muted-foreground">Glass morphism, shadows, and animation guidelines</p>
-          </div>
-
-          <div className="card-premium rounded-2xl p-6 text-center">
-            <Eye className="w-12 h-12 text-mint-green mx-auto mb-4" />
-            <h3 className="text-xl font-bold mb-2">Component Styles</h3>
-            <p className="text-muted-foreground">Buttons, cards, and interactive element standards</p>
-          </div>
-
-          <div className="card-premium rounded-2xl p-6 text-center">
-            <Globe className="w-12 h-12 text-premium-gold mx-auto mb-4" />
-            <h3 className="text-xl font-bold mb-2">Brand Applications</h3>
-            <p className="text-muted-foreground">Usage guidelines and implementation standards</p>
-          </div>
-
-          <div className="card-premium rounded-2xl p-6 text-center">
-            <Smartphone className="w-12 h-12 text-rose-gold mx-auto mb-4" />
-            <h3 className="text-xl font-bold mb-2">Responsive Design</h3>
-            <p className="text-muted-foreground">Mobile-first approach and breakpoint system</p>
-          </div>
-        </div>
-
-        {/* Brand Overview */}
-        <div className="mt-16 card-premium rounded-2xl p-8">
-          <h2 className="text-3xl font-bold mb-6 text-center">Brand Overview</h2>
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div>
-              <h3 className="text-xl font-bold text-hastra-teal mb-3">Mission</h3>
-              <p className="text-muted-foreground">
-                Bridge traditional finance with decentralized innovation, creating elite DeFi products backed by real-world assets.
+    <div className="relative">
+      {/* Extended gradient background to match About page */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
+      
+      <div className="relative z-10">
+        <main className="flex-grow">
+          {/* Enhanced Hero Section */}
+          <section className="relative py-20 md:py-32 overflow-hidden">
+            {/* Unified seamless background pattern */}
+            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMTAsIDIwLCA0MCwwLjA1KSI+PGQgcGF0aD0iTTAtMSAwIDEgTS0xIDAgMSAwIj48L2Q+PC9zdmc+')] opacity-30"></div>
+            
+            <div className="container relative text-center">
+              {/* Logo with glow effect */}
+              <div className="flex justify-center mb-8">
+                <div 
+                  className="relative"
+                  style={{
+                    filter: 'drop-shadow(0 0 6px rgba(0, 255, 150, 0.4)) drop-shadow(0 0 12px rgba(0, 200, 255, 0.2))',
+                    animation: 'logoGlow 4s ease-in-out infinite'
+                  }}
+                >
+                  <HastraLogo className="h-24 md:h-32" />
+                </div>
+              </div>
+              
+              <h1 className="text-5xl md:text-6xl font-black text-gradient mb-4">
+                Hastra Brand Guide
+              </h1>
+              <p className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed mb-12" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
+                Complete Visual Identity & Design System
               </p>
+              
+              <Button 
+                onClick={generatePDF}
+                disabled={isGenerating}
+                size="lg"
+                className="bg-orange-900/20 border border-orange-800/30 text-orange-300 hover:bg-orange-900/30 hover:border-orange-800/40 focus-ring font-bold px-8 py-4 text-lg rounded-xl group"
+              >
+                {isGenerating ? (
+                  <>
+                    <div className="animate-spin mr-2 h-5 w-5 border-2 border-current border-t-transparent rounded-full" />
+                    Generating...
+                  </>
+                ) : (
+                  <>
+                    <Download className="mr-2 h-5 w-5" />
+                    Download Brand Guide
+                  </>
+                )}
+              </Button>
+
+              {/* Flashing downward arrow indicator */}
+              <div className="flex justify-center my-12">
+                <div className="animate-pulse">
+                  <svg 
+                    className="w-8 h-8" 
+                    style={{
+                      filter: 'drop-shadow(0 0 12px rgba(229, 218, 194, 0.8)) drop-shadow(0 0 24px rgba(229, 218, 194, 0.4))',
+                      animation: 'pulse 2s ease-in-out infinite'
+                    }}
+                    fill="none" 
+                    stroke="rgba(229, 218, 194, 1)" 
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </div>
+              </div>
             </div>
-            <div>
-              <h3 className="text-xl font-bold text-auburn-primary mb-3">Vision</h3>
-              <p className="text-muted-foreground">
-                Be the premier platform where traditional finance meets cutting-edge blockchain technology.
-              </p>
+          </section>
+
+          {/* Brand Components Grid Section */}
+          <section className="py-16 relative">
+            <div className="container relative">
+              <div className="max-w-5xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-gradient">
+                  Brand System Components
+                </h2>
+                
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-24">
+                  <div className="card-gradient rounded-3xl p-8 card-bottom-static border border-transparent hover:border-hastra-teal/30 transition-all duration-300 group">
+                    <Palette className="w-12 h-12 text-hastra-teal mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+                    <h3 className="text-xl font-bold mb-2 text-center">Color Palette</h3>
+                    <p className="text-muted-foreground text-center">Complete color system with HSL values and usage guidelines</p>
+                  </div>
+
+                  <div className="card-gradient rounded-3xl p-8 card-bottom-static border border-transparent hover:border-auburn-primary/30 transition-all duration-300 group">
+                    <Type className="w-12 h-12 text-auburn-primary mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+                    <h3 className="text-xl font-bold mb-2 text-center">Typography</h3>
+                    <p className="text-muted-foreground text-center">Font families, scales, and typographic hierarchy</p>
+                  </div>
+
+                  <div className="card-gradient rounded-3xl p-8 card-bottom-static border border-transparent hover:border-crypto-accent/30 transition-all duration-300 group">
+                    <Zap className="w-12 h-12 text-crypto-accent mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+                    <h3 className="text-xl font-bold mb-2 text-center">Visual Effects</h3>
+                    <p className="text-muted-foreground text-center">Glass morphism, shadows, and animation guidelines</p>
+                  </div>
+
+                  <div className="card-gradient rounded-3xl p-8 card-bottom-static border border-transparent hover:border-mint-green/30 transition-all duration-300 group">
+                    <Eye className="w-12 h-12 text-mint-green mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+                    <h3 className="text-xl font-bold mb-2 text-center">Component Styles</h3>
+                    <p className="text-muted-foreground text-center">Buttons, cards, and interactive element standards</p>
+                  </div>
+
+                  <div className="card-gradient rounded-3xl p-8 card-bottom-static border border-transparent hover:border-header-glow/30 transition-all duration-300 group">
+                    <Globe className="w-12 h-12 text-header-glow mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+                    <h3 className="text-xl font-bold mb-2 text-center">Brand Applications</h3>
+                    <p className="text-muted-foreground text-center">Usage guidelines and implementation standards</p>
+                  </div>
+
+                  <div className="card-gradient rounded-3xl p-8 card-bottom-static border border-transparent hover:border-orange-400/30 transition-all duration-300 group">
+                    <Smartphone className="w-12 h-12 text-orange-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+                    <h3 className="text-xl font-bold mb-2 text-center">Responsive Design</h3>
+                    <p className="text-muted-foreground text-center">Mobile-first approach and breakpoint system</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div>
-              <h3 className="text-xl font-bold text-electric-blue mb-3">Values</h3>
-              <p className="text-muted-foreground">
-                Innovation, Security, Transparency, Accessibility, Excellence
-              </p>
+          </section>
+
+          {/* Brand Overview Section */}
+          <section className="py-20 relative">
+            <div className="container relative">
+              <div className="max-w-5xl mx-auto">
+                <div className="card-gradient rounded-3xl p-8 md:p-12 card-bottom-static border border-transparent">
+                  <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-gradient">Brand Overview</h2>
+                  <div className="grid md:grid-cols-3 gap-12">
+                    <div className="text-center">
+                      <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-hastra-teal/10 flex items-center justify-center">
+                        <div className="w-8 h-8 bg-hastra-teal rounded-full"></div>
+                      </div>
+                      <h3 className="text-xl font-bold text-hastra-teal mb-4">Mission</h3>
+                      <p className="text-lg text-foreground/90 leading-relaxed">
+                        Bridge traditional finance with decentralized innovation, creating elite DeFi products backed by real-world assets.
+                      </p>
+                    </div>
+                    <div className="text-center">
+                      <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-auburn-primary/10 flex items-center justify-center">
+                        <div className="w-8 h-8 bg-auburn-primary rounded-full"></div>
+                      </div>
+                      <h3 className="text-xl font-bold text-auburn-primary mb-4">Vision</h3>
+                      <p className="text-lg text-foreground/90 leading-relaxed">
+                        Be the premier platform where traditional finance meets cutting-edge blockchain technology.
+                      </p>
+                    </div>
+                    <div className="text-center">
+                      <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-crypto-accent/10 flex items-center justify-center">
+                        <div className="w-8 h-8 bg-crypto-accent rounded-full"></div>
+                      </div>
+                      <h3 className="text-xl font-bold text-crypto-accent mb-4">Values</h3>
+                      <p className="text-lg text-foreground/90 leading-relaxed">
+                        Innovation, Security, Transparency, Accessibility, Excellence
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          </section>
+
+          {/* Brand Applications Section */}
+          <section className="py-20 relative">
+            <div className="container relative">
+              <div className="max-w-5xl mx-auto">
+                <div className="card-gradient rounded-3xl p-8 md:p-12 card-bottom-static border border-transparent">
+                  <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-gradient">Brand Implementation</h2>
+                  <div className="space-y-8">
+                    <div>
+                      <h3 className="text-xl font-bold mb-4 text-header-glow">Logo Usage</h3>
+                      <p className="text-lg text-foreground/90 leading-relaxed">
+                        The Hastra logo should always maintain proper spacing and contrast. Ensure adequate breathing room and never distort proportions. <span className="text-hastra-teal font-semibold">Use the provided SVG format for scalability across all platforms.</span>
+                      </p>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold mb-4 text-auburn-primary">Color Application</h3>
+                      <p className="text-lg text-foreground/90 leading-relaxed">
+                        Primary brand colors should be used consistently across all touchpoints. <span className="text-crypto-accent font-semibold">Hastra Teal serves as the primary accent, while Auburn provides secondary emphasis.</span>
+                      </p>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold mb-4 text-mint-green">Digital Guidelines</h3>
+                      <p className="text-lg text-foreground/90 leading-relaxed">
+                        Maintain consistent spacing, typography hierarchy, and interactive states across all digital platforms. <span className="text-orange-400 font-semibold">Every interaction should reflect our commitment to premium user experience.</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Final CTA Section */}
+          <section className="py-20 relative">
+            <div className="container relative text-center">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-4xl md:text-5xl font-bold mb-8 text-gradient">
+                  Ready to Build with Hastra?
+                </h2>
+                <p className="text-xl md:text-2xl text-foreground/90 leading-relaxed mb-12" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
+                  Use these guidelines to create consistent, beautiful experiences that represent our brand values.
+                </p>
+              </div>
+            </div>
+          </section>
+        </main>
       </div>
     </div>
   );
