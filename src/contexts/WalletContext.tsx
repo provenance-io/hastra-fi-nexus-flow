@@ -55,12 +55,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
 
   // Update our state based on Solana wallet adapter state
   useEffect(() => {
-    console.log('🔍 Solana Wallet State Update:', {
-      connected,
-      connecting,
-      publicKey: publicKey?.toString(),
-      walletName: wallet?.adapter?.name
-    });
+    // Wallet state monitoring for development debugging if needed
 
     const previouslyConnected = walletState.isConnected;
 
@@ -85,7 +80,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   }, [connected, connecting, publicKey, wallet, toast, walletState.isConnected]);
 
   const connectWallet = async (): Promise<void> => {
-    console.log('🚀 Opening Solana wallet selection modal...');
+    // Opening Solana wallet selection modal
     
     try {
       setWalletState(prev => ({ ...prev, isConnecting: true, networkError: null }));
@@ -94,7 +89,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       setVisible(true);
       
     } catch (error) {
-      console.error('❌ Error opening wallet modal:', error);
+      // Error opening wallet modal - could be connected to error tracking service
       setWalletState(prev => ({
         ...prev,
         isConnecting: false,
@@ -111,7 +106,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
 
   const disconnectWallet = (): void => {
     try {
-      console.log('🔌 Disconnecting wallet...');
+      // Disconnecting wallet
       solanaDisconnect();
       
       setWalletState({
@@ -130,7 +125,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       });
       
     } catch (error) {
-      console.error('Error disconnecting wallet:', error);
+      // Error disconnecting wallet - could be connected to error tracking service
       // Force reset state even if disconnect fails
       setWalletState({
         isConnected: false,
@@ -159,7 +154,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       localStorage.setItem('mock-wallet-balance', newBalance.toString());
       
     } catch (error) {
-      console.error('Failed to refresh balance:', error);
+      // Failed to refresh balance - could be connected to error tracking service
     }
   };
 

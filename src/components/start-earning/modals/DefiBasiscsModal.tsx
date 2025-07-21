@@ -1,29 +1,32 @@
+import { memo } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { BookOpen, Shield, TrendingUp, ArrowRight, Play, ExternalLink } from 'lucide-react';
-
-interface DefiBasiscsModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
+import { LearningModalProps } from '@/types/learning';
 
 /**
- * Lesson card component for DeFi basics
+ * Lesson data interface for better type safety
  */
-const LessonCard = ({ 
-  title, 
-  description, 
-  duration, 
-  level, 
-  topics 
-}: {
+interface LessonData {
   title: string;
   description: string;
   duration: string;
   level: 'Beginner' | 'Intermediate';
   topics: string[];
+}
+
+/**
+ * Lesson card component for DeFi basics
+ * Memoized for performance optimization
+ */
+const LessonCard = memo<LessonData>(({ 
+  title, 
+  description, 
+  duration, 
+  level, 
+  topics 
 }) => (
   <Card className="group hover:shadow-lg transition-all duration-300 hover:border-header-glow/40">
     <CardHeader className="pb-3">
@@ -60,13 +63,16 @@ const LessonCard = ({
       </div>
     </CardContent>
   </Card>
-);
+));
+
+LessonCard.displayName = 'LessonCard';
 
 /**
  * Track 1: DeFi Basics Modal - Essential fundamentals for DeFi understanding
+ * Memoized to prevent unnecessary re-renders
  */
-const DefiBasiscsModal = ({ isOpen, onClose }: DefiBasiscsModalProps) => {
-  const lessons = [
+const DefiBasiscsModal = memo<LearningModalProps>(({ isOpen, onClose }) => {
+  const lessons: LessonData[] = [
     {
       title: "What is DeFi?",
       description: "Complete introduction to decentralized finance, its core principles and how it differs from traditional banking.",
@@ -235,6 +241,8 @@ const DefiBasiscsModal = ({ isOpen, onClose }: DefiBasiscsModalProps) => {
       </DialogContent>
     </Dialog>
   );
-};
+});
+
+DefiBasiscsModal.displayName = 'DefiBasiscsModal';
 
 export default DefiBasiscsModal;

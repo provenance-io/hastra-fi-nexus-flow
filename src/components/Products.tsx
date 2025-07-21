@@ -251,9 +251,9 @@ const Products = () => {
                      </div>
                      <Link 
                        to="/homes"
-                       onClick={() => {
-                         console.log('Learn More button clicked - navigating to /homes');
-                       }}
+                        onClick={() => {
+                          // Navigation handled by Link component
+                        }}
                      >
                        <Button 
                          size="lg" 

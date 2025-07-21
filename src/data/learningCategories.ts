@@ -1,23 +1,6 @@
-import { Target, TrendingUp, BookOpen, LucideIcon } from 'lucide-react';
-
-export interface LearningArea {
-  icon: LucideIcon;
-  title: string;
-  description: string;
-  features: string[];
-  action: string;
-  href: string;
-}
-
-export interface LearningCategory {
-  id: string;
-  icon: LucideIcon;
-  title: string;
-  description: string;
-  trackCount: number;
-  level: string;
-  tracks: LearningArea[];
-}
+import { Target, TrendingUp, BookOpen } from 'lucide-react';
+import { LearningCategory } from '@/types/learning';
+import { TRACK_ACTIONS, LEARNING_LEVELS } from '@/constants/learning';
 
 /**
  * Learning categories with their associated tracks
@@ -29,7 +12,7 @@ export const LEARNING_CATEGORIES: LearningCategory[] = [
     title: 'Hastra',
     description: 'Master our platform, YIELD and HASH tokens, and the Provenance ecosystem.',
     trackCount: 1,
-    level: 'Beginner',
+    level: LEARNING_LEVELS.BEGINNER,
     tracks: [
       {
         icon: Target,
@@ -41,7 +24,7 @@ export const LEARNING_CATEGORIES: LearningCategory[] = [
           "Strengthening Provenance ecosystem",
           "Platform-specific walkthroughs"
         ],
-        action: "Start Track",
+        action: TRACK_ACTIONS.START,
         href: "#"
       }
     ]
@@ -52,7 +35,7 @@ export const LEARNING_CATEGORIES: LearningCategory[] = [
     title: 'DeFi',
     description: 'Learn decentralized finance from basics to advanced strategies and mastery.',
     trackCount: 2,
-    level: 'All Levels',
+    level: LEARNING_LEVELS.ALL_LEVELS,
     tracks: [
       {
         icon: BookOpen,
@@ -64,7 +47,7 @@ export const LEARNING_CATEGORIES: LearningCategory[] = [
           "Best practices reference guide",
           "Safe wallet management"
         ],
-        action: "Start Track",
+        action: TRACK_ACTIONS.START,
         href: "#"
       },
       {
@@ -77,7 +60,7 @@ export const LEARNING_CATEGORIES: LearningCategory[] = [
           "Risk & reward analysis",
           "Advanced DeFi strategies"
         ],
-        action: "Start Track",
+        action: TRACK_ACTIONS.START,
         href: "#"
       }
     ]
@@ -88,7 +71,7 @@ export const LEARNING_CATEGORIES: LearningCategory[] = [
     title: 'Crypto',
     description: 'Fundamental blockchain and cryptocurrency concepts for complete beginners.',
     trackCount: 3,
-    level: 'Beginner',
+    level: LEARNING_LEVELS.BEGINNER,
     tracks: [
       {
         icon: BookOpen,
@@ -100,7 +83,7 @@ export const LEARNING_CATEGORIES: LearningCategory[] = [
           "Public vs private keys",
           "Transaction mechanics"
         ],
-        action: "Start Track",
+        action: TRACK_ACTIONS.START,
         href: "#"
       },
       {
@@ -113,7 +96,7 @@ export const LEARNING_CATEGORIES: LearningCategory[] = [
           "Backup and recovery",
           "Avoiding scams and phishing"
         ],
-        action: "Start Track",
+        action: TRACK_ACTIONS.START,
         href: "#"
       },
       {
@@ -126,19 +109,9 @@ export const LEARNING_CATEGORIES: LearningCategory[] = [
           "Risk management principles",
           "Creating a trading plan"
         ],
-        action: "Start Track",
+        action: TRACK_ACTIONS.START,
         href: "#"
       }
     ]
   }
 ];
-
-/**
- * Constants for the learning section
- */
-export const LEARNING_SECTION_CONTENT = {
-  TITLE: "Choose Your Learning Path",
-  SUBTITLE: "Select your area of interest to see relevant learning tracks",
-  CTA_TEXT: "Ready to start earning on Hastra?",
-  CTA_BUTTON: "Start Earning Now",
-} as const;

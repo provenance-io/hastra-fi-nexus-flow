@@ -1,21 +1,22 @@
+import { memo } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ExternalLink } from 'lucide-react';
-import { LearningArea } from '@/data/learningCategories';
-
-interface TrackCardProps {
-  track: LearningArea;
-  index: number;
-  onTrackClick: (title: string) => void;
-}
+import { TrackCardProps } from '@/types/learning';
+import { ANIMATION_DELAY_MULTIPLIER } from '@/constants/learning';
 
 /**
  * Individual learning track card component
  * Displays information about a specific learning track with features and action button
+ * Memoized to prevent unnecessary re-renders
  */
-const TrackCard = ({ track, index, onTrackClick }: TrackCardProps) => {
+const TrackCard = memo<TrackCardProps>(({ track, index, onTrackClick }) => {
   const IconComponent = track.icon;
-  const animationDelay = `${index * 0.1}s`;
+  const animationDelay = `${index * ANIMATION_DELAY_MULTIPLIER}s`;
+
+  const handleTrackClick = () => {
+    onTrackClick(track.title);
+  };
 
   return (
     <Card 
@@ -48,7 +49,7 @@ const TrackCard = ({ track, index, onTrackClick }: TrackCardProps) => {
           variant="secondary" 
           className="w-full group/btn"
           type="button"
-          onClick={() => onTrackClick(track.title)}
+          onClick={handleTrackClick}
         >
           {track.action}
           <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
@@ -56,6 +57,8 @@ const TrackCard = ({ track, index, onTrackClick }: TrackCardProps) => {
       </CardContent>
     </Card>
   );
-};
+});
+
+TrackCard.displayName = 'TrackCard';
 
 export default TrackCard;

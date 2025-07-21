@@ -8,8 +8,8 @@ const HastraLogo = ({ className = "h-14 md:h-18 lg:h-28 w-auto", white = false }
         className={`h-14 md:h-18 lg:h-28 w-auto brightness-110 contrast-110 ${white ? 'filter brightness-0 invert' : ''}`}
         loading="eager"
         decoding="async"
-        onError={(e) => {
-          console.error('Logo failed to load:', e);
+        onError={() => {
+          // Silently handle logo load errors - fallback handled by alt text
         }}
       />
     </div>

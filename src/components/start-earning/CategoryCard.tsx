@@ -1,27 +1,28 @@
+import { memo } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight } from 'lucide-react';
-import { LearningCategory } from '@/data/learningCategories';
-
-interface CategoryCardProps {
-  category: LearningCategory;
-  index: number;
-  onClick: (categoryId: string) => void;
-}
+import { CategoryCardProps } from '@/types/learning';
+import { ANIMATION_DELAY_MULTIPLIER } from '@/constants/learning';
 
 /**
  * Category selection card component
  * Displays a learning category with overview information
+ * Memoized to prevent unnecessary re-renders
  */
-const CategoryCard = ({ category, index, onClick }: CategoryCardProps) => {
+const CategoryCard = memo<CategoryCardProps>(({ category, index, onClick }) => {
   const IconComponent = category.icon;
-  const animationDelay = `${index * 0.1}s`;
+  const animationDelay = `${index * ANIMATION_DELAY_MULTIPLIER}s`;
+
+  const handleClick = () => {
+    onClick(category.id);
+  };
 
   return (
     <Card 
       className="group relative overflow-hidden glass-effect border-header-glow/20 hover:border-header-glow/40 transition-all duration-500 hover:shadow-glow animate-fade-in cursor-pointer"
       style={{ animationDelay }}
-      onClick={() => onClick(category.id)}
+      onClick={handleClick}
     >
       <CardHeader className="text-center pb-4">
         <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-header-glow/20 to-crypto-accent/20 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
@@ -51,6 +52,8 @@ const CategoryCard = ({ category, index, onClick }: CategoryCardProps) => {
       </CardContent>
     </Card>
   );
-};
+});
+
+CategoryCard.displayName = 'CategoryCard';
 
 export default CategoryCard;

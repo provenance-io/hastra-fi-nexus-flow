@@ -41,7 +41,7 @@ const PerformanceOptimizer = () => {
             await navigator.serviceWorker.register('/sw.js');
           }
         } catch (error) {
-          console.log('Service worker registration failed');
+          // Service worker registration failed - could be connected to error tracking
         }
       }
     };
@@ -124,7 +124,7 @@ const PerformanceOptimizer = () => {
             const entries = list.getEntries();
             entries.forEach((entry) => {
               if (entry.entryType === 'largest-contentful-paint') {
-                console.log('LCP:', entry.startTime);
+                // LCP metrics could be sent to analytics service
               }
             });
           }).observe({ entryTypes: ['largest-contentful-paint'] });
@@ -135,12 +135,12 @@ const PerformanceOptimizer = () => {
             entries.forEach((entry) => {
               if (entry.entryType === 'first-input') {
                 const fidEntry = entry as any; // Performance API typing is complex
-                console.log('FID:', fidEntry.processingStart - fidEntry.startTime);
+                // FID metrics could be sent to analytics service
               }
             });
           }).observe({ entryTypes: ['first-input'] });
         } catch (error) {
-          console.log('Performance monitoring not supported');
+          // Performance monitoring not supported in this browser
         }
       }
     };

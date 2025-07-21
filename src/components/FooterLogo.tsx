@@ -7,8 +7,8 @@ const FooterLogo = ({ className = "h-16 md:h-18 lg:h-20 w-auto" }: { className?:
         className={`brightness-110 contrast-110 ${className}`}
         loading="eager"
         decoding="async"
-        onError={(e) => {
-          console.error('Footer logo failed to load:', e);
+        onError={() => {
+          // Silently handle logo load errors - fallback handled by alt text
         }}
       />
     </div>

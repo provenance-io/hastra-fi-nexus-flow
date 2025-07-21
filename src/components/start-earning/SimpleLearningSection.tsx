@@ -1,9 +1,10 @@
 
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, TrendingUp } from 'lucide-react';
-import { LEARNING_CATEGORIES, LEARNING_SECTION_CONTENT } from '@/data/learningCategories';
+import { LEARNING_CATEGORIES } from '@/data/learningCategories';
+import { LEARNING_SECTION_CONTENT, ANIMATION_DELAY_MULTIPLIER } from '@/constants/learning';
 import { SECTION_IDS } from '@/constants/sections';
+import { useLearningState } from '@/hooks/useLearningState';
 import CategoryCard from './CategoryCard';
 import TrackCard from './TrackCard';
 import DefiBasiscsModal from './modals/DefiBasiscsModal';
@@ -109,24 +110,14 @@ const QuickStartCTA = () => (
  * Displays learning categories and tracks with detailed modals
  */
 const SimpleLearningSection = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [activeModal, setActiveModal] = useState<string | null>(null);
-
-  const handleCategoryClick = (categoryId: string) => {
-    setSelectedCategory(categoryId);
-  };
-
-  const handleTrackClick = (title: string) => {
-    setActiveModal(title);
-  };
-
-  const handleBackClick = () => {
-    setSelectedCategory(null);
-  };
-
-  const handleCloseModal = () => {
-    setActiveModal(null);
-  };
+  const {
+    selectedCategory,
+    activeModal,
+    handleCategoryClick,
+    handleTrackClick,
+    handleBackClick,
+    handleCloseModal,
+  } = useLearningState();
 
   return (
     <>
