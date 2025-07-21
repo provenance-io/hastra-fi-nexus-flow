@@ -64,7 +64,7 @@ const Header = () => {
   };
 
   // Shared navigation link styles
-  const navLinkStyles = "text-base md:text-lg font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase focus:outline-none focus:ring-0 rounded-md px-2 py-1";
+  const navLinkStyles = "text-sm md:text-base lg:text-lg font-medium text-foreground/90 hover:text-foreground transition-all duration-300 relative group tracking-widest uppercase focus:outline-none focus:ring-0 rounded-md px-1 md:px-2 py-1";
   
   const navTextShadowStyles = {
     textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)',
@@ -81,13 +81,13 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-muted/30 backdrop-blur supports-[backdrop-filter]:bg-muted/20 shadow-sm shadow-header-glow/5">
-      <div className="container flex h-16 md:h-16 items-center justify-between px-4 md:px-6">
-        {/* Mobile: Center the logo with more space, Desktop: Left aligned */}
-        <div className="flex items-center space-x-6 md:space-x-12 md:flex-1">
+      <div className="container flex h-14 md:h-16 lg:h-18 items-center justify-between px-4 md:px-6">
+        {/* Responsive logo with proper tablet sizing */}
+        <div className="flex items-center space-x-4 md:space-x-6 lg:space-x-12 md:flex-1">
           <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
-            <FooterLogo />
+            <FooterLogo className="h-10 md:h-12 lg:h-16 w-auto" />
           </Link>
-          <nav className="hidden md:flex items-center space-x-7 lg:space-x-11">
+          <nav className="hidden md:flex items-center space-x-4 lg:space-x-7 xl:space-x-11">
             <Link
               to="/about"
               className={navLinkStyles}

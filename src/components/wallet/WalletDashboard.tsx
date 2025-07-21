@@ -38,17 +38,17 @@ const WalletDashboard = () => {
     <div className="w-full">
       {/* Header */}
       <div className="mb-6 md:mb-8">
-        <h1 className="text-2xl md:text-3xl font-bold text-gradient mb-2">
+        <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-gradient mb-2">
           Earnings Dashboard
         </h1>
-        <p className="text-xl md:text-2xl text-foreground/90 max-w-4xl leading-relaxed" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
+        <p className="text-base md:text-lg lg:text-xl text-foreground/90 max-w-4xl leading-relaxed" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
           Your decentralized finance command center
         </p>
       </div>
 
-      <div className="space-y-8">
+      <div className="space-y-6 md:space-y-8">
         {/* Wallet Overview */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         <Card className="glass-effect border-border/50">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Total Balance</CardTitle>
@@ -119,33 +119,45 @@ const WalletDashboard = () => {
         <CardContent>
           <div className="space-y-4">
             {portfolioStats.positions.map((position, index) => (
-              <div key={index} className="flex items-center justify-between p-4 rounded-xl glass-effect border border-border/30">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-header-glow/20 flex items-center justify-center">
-                    {position.token === 'YIELD' ? (
-                      <img 
-                        src="/lovable-uploads/08452a7b-6782-4b0a-900e-0f0c99a4fc4e.png" 
-                        alt="YIELD Token"
-                        className="w-8 h-8 rounded"
-                      />
-                    ) : (
-                      <img 
-                        src="/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png" 
-                        alt="HASH Token"
-                        className="w-8 h-8 rounded-full object-cover"
-                      />
-                    )}
+              <div key={index} className="flex flex-col md:flex-row md:items-center md:justify-between p-4 rounded-xl glass-effect border border-border/30 space-y-3 md:space-y-0">
+                <div className="flex items-center justify-between md:justify-start md:gap-4 w-full">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-header-glow/20 flex items-center justify-center flex-shrink-0">
+                      {position.token === 'YIELD' ? (
+                        <img 
+                          src="/lovable-uploads/08452a7b-6782-4b0a-900e-0f0c99a4fc4e.png" 
+                          alt="YIELD Token"
+                          className="w-6 h-6 md:w-8 md:h-8 rounded"
+                        />
+                      ) : (
+                        <img 
+                          src="/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png" 
+                          alt="HASH Token"
+                          className="w-6 h-6 md:w-8 md:h-8 rounded-full object-cover"
+                        />
+                      )}
+                    </div>
+                    <div>
+                      <p className="font-medium text-sm md:text-base">{position.token}</p>
+                      <p className="text-xs md:text-sm text-muted-foreground">
+                        {position.amount.toLocaleString()} tokens
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-medium">{position.token}</p>
-                    <p className="text-sm text-muted-foreground">
-                      {position.amount.toLocaleString()} tokens
-                    </p>
+                  
+                  <div className="text-right md:hidden">
+                    <p className="font-medium text-sm">${position.value.toLocaleString('en-US', { minimumFractionDigits: 2 })}</p>
+                    <Badge className="bg-green-500/20 border-green-500/30 text-green-300 text-xs mt-1">
+                      {position.apy}% APY
+                    </Badge>
                   </div>
                 </div>
-                <div className="text-right">
-                  <p className="font-medium">${position.value.toLocaleString('en-US', { minimumFractionDigits: 2 })}</p>
-                  <div className="flex items-center gap-2">
+                
+                <div className="hidden md:flex md:text-right md:items-center md:gap-4">
+                  <div>
+                    <p className="font-medium">${position.value.toLocaleString('en-US', { minimumFractionDigits: 2 })}</p>
+                  </div>
+                  <div>
                     <Badge className="bg-green-500/20 border-green-500/30 text-green-300 text-xs">
                       {position.apy}% APY
                     </Badge>
@@ -164,7 +176,7 @@ const WalletDashboard = () => {
           <CardDescription>Manage your DeFi positions</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
             <Button 
               className="font-bold py-4 rounded-xl"
               variant="secondary"
