@@ -1,9 +1,13 @@
 
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { TrendingUp } from 'lucide-react';
 import { LEARNING_AREAS, LEARNING_SECTION_CONTENT } from '@/data/learningContent';
 import { SECTION_IDS } from '@/constants/sections';
 import LearningCard from './LearningCard';
+import DefiBasiscsModal from './modals/DefiBasiscsModal';
+import PlatformGuidesModal from './modals/PlatformGuidesModal';
+import AdvancedStrategiesModal from './modals/AdvancedStrategiesModal';
 
 /**
  * Section header component for learning resources
@@ -20,12 +24,14 @@ const SectionHeader = () => (
 );
 
 /**
- * Learning areas grid component
+ * Learning areas grid component with modal functionality
  */
-const LearningAreasGrid = () => (
+const LearningAreasGrid = ({ onCardClick }: { onCardClick: (title: string) => void }) => (
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     {LEARNING_AREAS.map((area, index) => (
-      <LearningCard key={area.title} area={area} index={index} />
+      <div key={area.title} onClick={() => onCardClick(area.title)} className="cursor-pointer">
+        <LearningCard area={area} index={index} />
+      </div>
     ))}
   </div>
 );
@@ -53,22 +59,48 @@ const QuickStartCTA = () => (
 );
 
 /**
- * Simple learning section component
- * Displays learning areas in an organized grid with clear navigation
+ * Simple learning section component with modal state management
+ * Displays learning areas in an organized grid with detailed modals
  */
 const SimpleLearningSection = () => {
+  const [activeModal, setActiveModal] = useState<string | null>(null);
+
+  const handleCardClick = (title: string) => {
+    setActiveModal(title);
+  };
+
+  const handleCloseModal = () => {
+    setActiveModal(null);
+  };
+
   return (
-    <section 
-      id={SECTION_IDS.LEARNING} 
-      data-section={SECTION_IDS.LEARNING} 
-      className="py-20 md:py-32 relative"
-    >
-      <div className="container">
-        <SectionHeader />
-        <LearningAreasGrid />
-        <QuickStartCTA />
-      </div>
-    </section>
+    <>
+      <section 
+        id={SECTION_IDS.LEARNING} 
+        data-section={SECTION_IDS.LEARNING} 
+        className="py-20 md:py-32 relative"
+      >
+        <div className="container">
+          <SectionHeader />
+          <LearningAreasGrid onCardClick={handleCardClick} />
+          <QuickStartCTA />
+        </div>
+      </section>
+
+      {/* Modals */}
+      <DefiBasiscsModal 
+        isOpen={activeModal === 'DeFi Basics'} 
+        onClose={handleCloseModal} 
+      />
+      <PlatformGuidesModal 
+        isOpen={activeModal === 'Platform Guides'} 
+        onClose={handleCloseModal} 
+      />
+      <AdvancedStrategiesModal 
+        isOpen={activeModal === 'Advanced Strategies'} 
+        onClose={handleCloseModal} 
+      />
+    </>
   );
 };
 

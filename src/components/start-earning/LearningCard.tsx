@@ -35,7 +35,7 @@ const LearningCard = ({ area, index }: LearningCardProps) => {
 
       <CardContent className="space-y-6">
         <FeatureList features={area.features} />
-        <ActionButton action={area.action} href={area.href} />
+        <ActionButton action={area.action} />
       </CardContent>
     </Card>
   );
@@ -58,16 +58,14 @@ const FeatureList = ({ features }: { features: string[] }) => (
 /**
  * Action button component for learning area cards
  */
-const ActionButton = ({ action, href }: { action: string; href: string }) => (
+const ActionButton = ({ action }: { action: string }) => (
   <Button 
     variant="secondary" 
     className="w-full group/btn"
-    asChild
+    type="button"
   >
-    <a href={href} className="flex items-center justify-center">
-      {action}
-      <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-    </a>
+    {action}
+    <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
   </Button>
 );
 
