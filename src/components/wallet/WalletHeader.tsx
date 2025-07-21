@@ -100,9 +100,9 @@ const WalletHeader = ({
             className="text-muted-foreground hover:text-foreground p-3 rounded-xl hover:bg-background/30 transition-all duration-200"
           >
             {showTokenHoldings ? (
-              <ChevronUp className="w-4 h-4" />
+              <ChevronUp className="w-4 h-4 text-foreground" />
             ) : (
-              <ChevronDown className="w-4 h-4" />
+              <ChevronDown className="w-4 h-4 text-foreground" />
             )}
           </Button>
           
@@ -113,7 +113,7 @@ const WalletHeader = ({
             disabled={isRefreshing}
             className="text-muted-foreground hover:text-foreground p-3 rounded-xl hover:bg-background/30 transition-all duration-200 disabled:opacity-50"
           >
-            <RefreshCw className={`w-4 h-4 ${isRefreshing ? 'animate-spin' : ''}`} />
+            <RefreshCw className={`w-4 h-4 text-foreground ${isRefreshing ? 'animate-spin' : ''}`} />
           </Button>
         </div>
       </div>

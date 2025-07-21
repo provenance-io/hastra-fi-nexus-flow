@@ -115,7 +115,7 @@ const PortfolioSummary = ({
             onClick={handleClaimAll}
             className="px-6 py-2"
           >
-            Claim All Available Rewards
+            Claim All
           </Button>
         </div>
       )}

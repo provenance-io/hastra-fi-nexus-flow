@@ -139,7 +139,7 @@ const TokenLineItem = ({
           ) : (
             <div className="flex items-center gap-2">
               <Gift className="w-4 h-4" />
-              Claim APY
+              Claim {token}
             </div>
           )}
         </Button>
@@ -228,7 +228,7 @@ const TokenLineItem = ({
           ) : (
             <div className="flex items-center justify-center gap-2.5">
               <Gift className="w-5 h-5" />
-              <span>Claim ${unclaimedInterestUSD.toFixed(2)}</span>
+              <span>Claim {token} - ${unclaimedInterestUSD.toFixed(2)}</span>
             </div>
           )}
         </Button>
