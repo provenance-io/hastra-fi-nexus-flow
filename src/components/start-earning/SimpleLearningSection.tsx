@@ -1,27 +1,86 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { TrendingUp } from 'lucide-react';
-import { LEARNING_AREAS, LEARNING_SECTION_CONTENT } from '@/data/learningContent';
+import { ArrowLeft, TrendingUp } from 'lucide-react';
+import { LEARNING_CATEGORIES, LEARNING_SECTION_CONTENT } from '@/data/learningCategories';
 import { SECTION_IDS } from '@/constants/sections';
-import LearningCard from './LearningCard';
+import CategoryCard from './CategoryCard';
+import TrackCard from './TrackCard';
 import DefiBasiscsModal from './modals/DefiBasiscsModal';
 import MasteringDefiModal from './modals/MasteringDefiModal';
 import HastraForDummiesModal from './modals/HastraForDummiesModal';
+import BlockchainFundamentalsModal from './modals/BlockchainFundamentalsModal';
 
 
 /**
- * Learning areas grid component with modal functionality
+ * Categories grid component
  */
-const LearningAreasGrid = ({ onCardClick }: { onCardClick: (title: string) => void }) => (
+const CategoriesGrid = ({ onCategoryClick }: { onCategoryClick: (categoryId: string) => void }) => (
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    {LEARNING_AREAS.map((area, index) => (
-      <div key={area.title} onClick={() => onCardClick(area.title)} className="cursor-pointer">
-        <LearningCard area={area} index={index} />
-      </div>
+    {LEARNING_CATEGORIES.map((category, index) => (
+      <CategoryCard 
+        key={category.id} 
+        category={category} 
+        index={index} 
+        onClick={onCategoryClick} 
+      />
     ))}
   </div>
 );
+
+/**
+ * Tracks grid component for selected category
+ */
+const TracksGrid = ({ 
+  categoryId, 
+  onTrackClick, 
+  onBackClick 
+}: { 
+  categoryId: string; 
+  onTrackClick: (title: string) => void;
+  onBackClick: () => void;
+}) => {
+  const selectedCategory = LEARNING_CATEGORIES.find(cat => cat.id === categoryId);
+  
+  if (!selectedCategory) return null;
+
+  return (
+    <div className="space-y-8">
+      {/* Back Button and Category Header */}
+      <div className="space-y-4">
+        <Button 
+          variant="ghost" 
+          onClick={onBackClick}
+          className="group flex items-center gap-2 text-muted-foreground hover:text-foreground"
+        >
+          <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+          Back to Categories
+        </Button>
+        
+        <div className="text-center space-y-4">
+          <h2 className="text-4xl md:text-6xl font-black tracking-tight">
+            <span className="text-gradient">{selectedCategory.title} Learning Tracks</span>
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            {selectedCategory.description}
+          </p>
+        </div>
+      </div>
+
+      {/* Tracks Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {selectedCategory.tracks.map((track, index) => (
+          <TrackCard 
+            key={track.title} 
+            track={track} 
+            index={index} 
+            onTrackClick={onTrackClick}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 /**
  * Call-to-action section at the bottom of the learning section
@@ -46,14 +105,23 @@ const QuickStartCTA = () => (
 );
 
 /**
- * Simple learning section component with modal state management
- * Displays learning areas in an organized grid with detailed modals
+ * Simple learning section component with category and track state management
+ * Displays learning categories and tracks with detailed modals
  */
 const SimpleLearningSection = () => {
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [activeModal, setActiveModal] = useState<string | null>(null);
 
-  const handleCardClick = (title: string) => {
+  const handleCategoryClick = (categoryId: string) => {
+    setSelectedCategory(categoryId);
+  };
+
+  const handleTrackClick = (title: string) => {
     setActiveModal(title);
+  };
+
+  const handleBackClick = () => {
+    setSelectedCategory(null);
   };
 
   const handleCloseModal = () => {
@@ -68,8 +136,28 @@ const SimpleLearningSection = () => {
         className="py-20 md:py-32 relative"
       >
         <div className="container">
-          <LearningAreasGrid onCardClick={handleCardClick} />
-          <QuickStartCTA />
+          {!selectedCategory ? (
+            // Category Selection View
+            <div className="space-y-16">
+              <div className="text-center animate-fade-in">
+                <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-6">
+                  <span className="text-gradient">{LEARNING_SECTION_CONTENT.TITLE}</span>
+                </h2>
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                  {LEARNING_SECTION_CONTENT.SUBTITLE}
+                </p>
+              </div>
+              <CategoriesGrid onCategoryClick={handleCategoryClick} />
+              <QuickStartCTA />
+            </div>
+          ) : (
+            // Tracks View for Selected Category
+            <TracksGrid 
+              categoryId={selectedCategory}
+              onTrackClick={handleTrackClick}
+              onBackClick={handleBackClick}
+            />
+          )}
         </div>
       </section>
 
@@ -84,6 +172,10 @@ const SimpleLearningSection = () => {
       />
       <HastraForDummiesModal 
         isOpen={activeModal === 'Hastra for Dummies'} 
+        onClose={handleCloseModal} 
+      />
+      <BlockchainFundamentalsModal 
+        isOpen={activeModal === 'Blockchain Fundamentals'} 
         onClose={handleCloseModal} 
       />
     </>
