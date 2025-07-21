@@ -75,7 +75,7 @@ const MobileMenu = () => {
               onClick={() => setOpen(false)}
               className="inline-block hover:scale-105 transition-transform duration-200"
             >
-              <HastraLogo className="h-10 w-auto" />
+              <HastraLogo className="h-10 w-auto" white={true} />
             </Link>
           </SheetTitle>
         </SheetHeader>
@@ -148,8 +148,9 @@ const MobileMenu = () => {
             <div className="px-1 pt-2">
               <Button 
                 onClick={handleConnectWallet}
-                size="sm" 
-                className="w-full btn-gradient text-sm"
+                size="lg" 
+                variant="secondary"
+                className="w-full tracking-widest"
               >
                 Connect Wallet
               </Button>
