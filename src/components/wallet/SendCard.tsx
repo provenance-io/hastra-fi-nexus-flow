@@ -95,15 +95,15 @@ const SendCard = () => {
   const equivalent = calculateEquivalent();
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center gap-3 mb-6">
-        <Send className="w-6 h-6 md:w-5 md:h-5 text-header-glow" />
-        <h3 className="text-2xl md:text-xl font-bold">Send Tokens</h3>
+    <div className="space-y-8">
+      <div className="flex items-center gap-4 mb-8">
+        <Send className="w-8 h-8 md:w-5 md:h-5 text-header-glow" />
+        <h3 className="text-3xl md:text-xl font-bold">Send Tokens</h3>
       </div>
-      <div className="card-gradient rounded-2xl p-6 md:p-8 space-y-6">
+      <div className="card-gradient rounded-2xl p-8 md:p-10 space-y-8">
         {/* Token Selection */}
-        <div className="space-y-3">
-          <Label className="text-base md:text-sm font-medium text-foreground">Select token to send</Label>
+        <div className="space-y-4">
+          <Label className="text-lg md:text-sm font-semibold text-foreground">Select token to send</Label>
           <Select value={selectedToken} onValueChange={(value: 'YIELD' | 'HASH') => setSelectedToken(value)}>
             <SelectTrigger className="bg-muted/50 h-14 md:h-auto font-sans">
               <div className="flex items-center justify-between w-full">
@@ -142,8 +142,8 @@ const SendCard = () => {
         </div>
 
         {/* Recipient Address */}
-        <div className="space-y-3">
-          <Label className="text-base md:text-sm font-medium text-foreground font-sans">Recipient wallet address</Label>
+        <div className="space-y-4">
+          <Label className="text-lg md:text-sm font-semibold text-foreground font-sans">Recipient wallet address</Label>
           <Input
             placeholder="Enter recipient address..."
             value={recipientAddress}
@@ -153,9 +153,9 @@ const SendCard = () => {
         </div>
 
         {/* Amount Input */}
-        <div className="space-y-3">
+        <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <Label className="text-base md:text-sm font-medium text-foreground font-sans">Amount to send</Label>
+            <Label className="text-lg md:text-sm font-semibold text-foreground font-sans">Amount to send</Label>
             <div className="flex items-center bg-muted/30 rounded-md p-1">
               <Button 
                 variant={denomination === 'token' ? 'default' : 'ghost'}
