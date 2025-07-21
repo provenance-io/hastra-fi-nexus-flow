@@ -50,12 +50,12 @@ const HastraDashboard = () => {
 
       {/* Buy and Send Interfaces */}
       <div id="buy-send-section" className="mb-8 md:mb-12">
-        <div className="card-gradient rounded-3xl border border-border/30 shadow-lg p-8 md:p-12">
-          <h2 className="text-lg md:text-xl font-semibold text-foreground mb-8 md:mb-10">
+        <div className="card-gradient rounded-3xl border border-border/30 shadow-lg p-6 md:p-12">
+          <h2 className="text-lg md:text-xl font-semibold text-foreground mb-6 md:mb-8">
             Buy & Send
           </h2>
           
-          <div className="bg-background/20 rounded-2xl p-8 md:p-10">
+          <div className="bg-background/20 rounded-2xl p-6 md:p-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
               <BuyCard />
               <SendCard />

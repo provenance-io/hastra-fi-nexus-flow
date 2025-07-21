@@ -88,7 +88,7 @@ const BuyCard = () => {
         <ArrowUpDown className="w-6 h-6 md:w-5 md:h-5 text-header-glow" />
         <h3 className="text-xl md:text-xl font-bold">Buy Tokens</h3>
       </div>
-      <div className="bg-background/30 rounded-2xl border border-border/20 p-8 space-y-8">
+      <div className="bg-background/30 rounded-2xl border border-border/20 p-6 space-y-6">
         {/* Sell Asset Selection */}
         <div className="space-y-4">
           <Label className="text-base md:text-sm font-semibold text-foreground">You're selling</Label>
@@ -162,24 +162,24 @@ const BuyCard = () => {
 
         {/* Amount Input */}
         <div className="space-y-4">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <Label className="text-base md:text-sm font-semibold text-foreground">Amount</Label>
-            <div className="flex items-center gap-3">
-              <div className="flex items-center bg-muted/30 rounded-md p-1 gap-1">
+            <div className="flex items-center gap-2 flex-wrap">
+              <div className="flex items-center bg-muted/30 rounded-md p-1 gap-1 min-w-0">
                 <Button 
                   variant={denomination === 'usd' ? 'default' : 'ghost'}
                   size="sm"
                   onClick={() => setDenomination('usd')}
-                  className={`h-7 md:h-7 text-xs md:text-xs px-3 md:px-3 ${denomination === 'usd' ? 'btn-hastra' : 'text-muted-foreground hover:text-foreground'}`}
+                  className={`h-7 text-xs px-2 min-w-[50px] ${denomination === 'usd' ? 'btn-hastra' : 'text-muted-foreground hover:text-foreground'}`}
                 >
-                  <DollarSign className="w-3 h-3 md:w-3 md:h-3 mr-1" />
+                  <DollarSign className="w-3 h-3 mr-1" />
                   USD
                 </Button>
                 <Button 
                   variant={denomination === 'token' ? 'default' : 'ghost'}
                   size="sm"
                   onClick={() => setDenomination('token')}
-                  className={`h-7 md:h-7 text-xs md:text-xs px-3 md:px-3 ${denomination === 'token' ? 'btn-hastra' : 'text-muted-foreground hover:text-foreground'}`}
+                  className={`h-7 text-xs px-2 min-w-[50px] ${denomination === 'token' ? 'btn-hastra' : 'text-muted-foreground hover:text-foreground'}`}
                 >
                   {sellAsset}
                 </Button>
@@ -188,7 +188,7 @@ const BuyCard = () => {
                 variant="ghost"
                 size="sm" 
                 onClick={handleMaxClick}
-                className="h-7 md:h-7 px-3 md:px-3 text-xs md:text-xs font-medium text-[hsl(34_100%_84%)] hover:bg-orange-900/30 hover:text-[hsl(34_100%_84%)] transition-all duration-200 bg-muted/30 rounded-md"
+                className="h-7 px-3 text-xs font-medium text-[hsl(34_100%_84%)] hover:bg-orange-900/30 hover:text-[hsl(34_100%_84%)] transition-all duration-200 bg-muted/30 rounded-md min-w-[50px]"
               >
                 Max
               </Button>

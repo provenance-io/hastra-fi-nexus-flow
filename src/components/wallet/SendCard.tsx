@@ -100,7 +100,7 @@ const SendCard = () => {
         <Send className="w-6 h-6 md:w-5 md:h-5 text-header-glow" />
         <h3 className="text-xl md:text-xl font-bold">Send Tokens</h3>
       </div>
-      <div className="bg-background/30 rounded-2xl border border-border/20 p-8 space-y-8">
+      <div className="bg-background/30 rounded-2xl border border-border/20 p-6 space-y-6">
         {/* Token Selection */}
         <div className="space-y-4">
           <Label className="text-base md:text-sm font-semibold text-foreground">Select token to send</Label>
