@@ -403,6 +403,18 @@
   }
 }
 
+/* Soft pulsating glow animation for Join Our Mission section */
+@keyframes soft-pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(229, 218, 194, 0.15), 0 0 60px rgba(229, 218, 194, 0.08), inset 0 0 20px rgba(229, 218, 194, 0.02);
+    border-color: rgba(229, 218, 194, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(229, 218, 194, 0.25), 0 0 80px rgba(229, 218, 194, 0.15), inset 0 0 30px rgba(229, 218, 194, 0.05);
+    border-color: rgba(229, 218, 194, 0.2);
+  }
+}
+
 /* Performance-optimized legacy animations for backwards compatibility */
 .falling-coin-stable {
   position: absolute;
