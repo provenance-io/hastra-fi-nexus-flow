@@ -56,7 +56,7 @@ const TokenLineItem = ({
   return (
     <div className="bg-background/30 rounded-2xl border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)]">
       {/* Desktop Layout */}
-      <div className="hidden lg:flex items-center p-6 gap-8">
+      <div className="hidden lg:flex items-center p-6">
         {/* Token Info - Fixed Width */}
         <div className="flex flex-col items-center gap-2 w-32 flex-shrink-0">
           {isImage ? (
@@ -76,10 +76,10 @@ const TokenLineItem = ({
           </div>
         </div>
         
-        {/* Data Columns - Equal Width Distribution */}
-        <div className="flex-1 grid grid-cols-4 gap-8 text-center">
+        {/* Data Columns - Equal Distribution with justify-between */}
+        <div className="flex-1 flex justify-between items-center px-8">
           {/* Balance Column */}
-          <div className="space-y-1">
+          <div className="flex flex-col items-center text-center space-y-1 w-24">
             <p className="text-muted-foreground text-sm font-medium">Balance</p>
             <p className="font-bold text-white text-lg">
               {amount.toLocaleString('en-US', { 
@@ -91,7 +91,7 @@ const TokenLineItem = ({
           </div>
           
           {/* Value Column */}
-          <div className="space-y-1">
+          <div className="flex flex-col items-center text-center space-y-1 w-24">
             <p className="text-muted-foreground text-sm font-medium">Value</p>
             <p className="font-semibold text-white text-lg">
               ${value.toLocaleString('en-US', { 
@@ -102,7 +102,7 @@ const TokenLineItem = ({
           </div>
           
           {/* Total Claimed Column */}
-          <div className="space-y-1">
+          <div className="flex flex-col items-center text-center space-y-1 w-24">
             <p className="text-muted-foreground text-sm font-medium">Total Claimed</p>
             <p className="font-semibold text-white text-lg">
               ${totalInterestEarnedUSD.toLocaleString('en-US', { 
@@ -113,7 +113,7 @@ const TokenLineItem = ({
           </div>
           
           {/* Available Column */}
-          <div className="space-y-1">
+          <div className="flex flex-col items-center text-center space-y-1 w-24">
             <p className="text-muted-foreground text-sm font-medium">Available</p>
             <p className={`font-semibold text-lg ${unclaimedInterest > 0 ? 'text-white' : 'text-muted-foreground'}`}>
               ${unclaimedInterestUSD.toLocaleString('en-US', { 
