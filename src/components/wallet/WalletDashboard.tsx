@@ -111,7 +111,7 @@ const WalletDashboard = () => {
               <PieChart className="h-5 w-5 text-header-glow" />
               <div>
                 <CardTitle className="text-lg">Your Positions</CardTitle>
-                <CardDescription>Current token holdings and yields</CardDescription>
+                <CardDescription>Current Token Holdings and yields</CardDescription>
               </div>
             </div>
           </div>
