@@ -2,7 +2,7 @@
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
-import { Gift, TrendingUp } from 'lucide-react';
+import { TrendingUp } from 'lucide-react';
 import { useState } from 'react';
 
 interface TokenLineItemProps {
@@ -71,7 +71,7 @@ const TokenLineItem = ({
             </div>
           )}
           <div className="text-center space-y-0.5">
-            <h4 className="font-medium text-foreground text-sm leading-tight">{token}</h4>
+            <h4 className="font-medium text-foreground text-sm leading-tight">{token.replace(' (Sol)', '')}</h4>
             <p className="text-xs text-muted-foreground">Token</p>
           </div>
         </div>
@@ -137,10 +137,9 @@ const TokenLineItem = ({
               Claiming...
             </div>
           ) : (
-            <div className="flex items-center gap-2">
-              <Gift className="w-4 h-4" />
-              Claim {token}
-            </div>
+            <>
+              Claim {token.replace(' (Sol)', '')}
+            </>
           )}
         </Button>
       </div>
@@ -163,7 +162,7 @@ const TokenLineItem = ({
             )}
           </div>
           <div className="flex-1 min-w-0">
-            <h4 className="font-semibold text-foreground text-lg leading-tight">{token}</h4>
+            <h4 className="font-semibold text-foreground text-lg leading-tight">{token.replace(' (Sol)', '')}</h4>
             <p className="text-sm text-muted-foreground mt-0.5">Token</p>
           </div>
           <div className="text-right flex-shrink-0">
@@ -227,8 +226,7 @@ const TokenLineItem = ({
             </div>
           ) : (
             <div className="flex items-center justify-center gap-2.5">
-              <Gift className="w-5 h-5" />
-              <span>Claim {token} - ${unclaimedInterestUSD.toFixed(2)}</span>
+              <span>Claim {token.replace(' (Sol)', '')} - ${unclaimedInterestUSD.toFixed(2)}</span>
             </div>
           )}
         </Button>

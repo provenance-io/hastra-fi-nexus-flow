@@ -3,6 +3,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ExternalLink, TrendingUp, DollarSign } from 'lucide-react';
+import raydiumLogo from '@/assets/raydium-logo.png';
+import kaminoLogo from '@/assets/kamino-logo.png';
 
 const tradingPlatforms = [
   {
@@ -37,11 +39,11 @@ const TradingPlatformsSection = () => {
         {tradingPlatforms.map((platform, index) => (
           <div key={index} className="bg-background/30 rounded-2xl p-6 border border-border/10 hover:border-border/20 transition-all duration-300 group">
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-16 h-16 rounded-xl bg-hastra-teal/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <div className="w-16 h-16 rounded-xl bg-hastra-teal/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 p-2">
                 {platform.name === 'Raydium' ? (
-                  <TrendingUp className="w-8 h-8 text-hastra-teal" />
+                  <img src={raydiumLogo} alt="Raydium" className="w-full h-full object-contain" />
                 ) : (
-                  <DollarSign className="w-8 h-8 text-hastra-teal" />
+                  <img src={kaminoLogo} alt="Kamino Finance" className="w-full h-full object-contain" />
                 )}
               </div>
               <div>
