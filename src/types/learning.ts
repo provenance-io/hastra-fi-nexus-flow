@@ -1,13 +1,23 @@
 import { LucideIcon } from 'lucide-react';
 
 /**
+ * Learning article interface representing a single article/resource
+ */
+export interface LearningArticle {
+  title: string;
+  description: string;
+  readTime: string;
+  difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
+}
+
+/**
  * Learning area interface representing a single learning track
  */
 export interface LearningArea {
   icon: LucideIcon;
   title: string;
   description: string;
-  features: string[];
+  articles: LearningArticle[];
   action: string;
   href: string;
 }
