@@ -67,7 +67,7 @@ const MobileMenu = () => {
           <span className="sr-only">Open menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-80 bg-card/60 backdrop-blur-xl border-border/30 flex flex-col h-full shadow-2xl">
+      <SheetContent side="right" className="w-80 bg-background/20 backdrop-blur-xl border-border/30 flex flex-col h-full shadow-2xl rounded-l-3xl">
         <SheetHeader className="flex-shrink-0">
           <SheetTitle className="text-left">
             <Link 
