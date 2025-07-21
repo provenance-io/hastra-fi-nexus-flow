@@ -142,7 +142,7 @@ const WYLDsYieldExplanation = () => {
             {/* Description - Matching About page style */}
             <div className="mt-12 mb-16">
               <p className="text-lg text-foreground/90 leading-relaxed mb-4">
-                YIELD is a token representing a portion of a pool of reserves holding the YLDS token - the first SEC-registered, yield-bearing stablecoin combining the liquidity of traditional stablecoins with the earning power of a money market fund.
+                YIELD is a token representing a portion of a pool of reserves holding the YLDS token - the first SEC-registered, yield-bearing stablecoin combining the liquidity of traditional stablecoins with the earning power of a money market fund.*
               </p>
               <p className="text-lg text-foreground/90 leading-relaxed">
                 As users deposit USDC, Hastra purchases and holds YLDS, and distributes interest in YIELD to token holders. Because <span className="text-header-glow font-semibold">earning yield shouldn't require complex strategies—it should just work</span>.
@@ -161,6 +161,13 @@ const WYLDsYieldExplanation = () => {
                   Learn more about YLDS
                 </a>
               </Button>
+            </div>
+
+            {/* Disclaimer */}
+            <div className="text-center mb-16">
+              <p className="text-sm italic text-white/80 max-w-2xl mx-auto leading-relaxed">
+                *YIELD is not registered with the SEC or any securities regulator. YLDS is issued by a third party independent of Hastra.
+              </p>
             </div>
 
             {/* How It Works Section */}
@@ -203,9 +210,7 @@ const WYLDsYieldExplanation = () => {
                             
                             {/* Content */}
                             <div className="relative z-10 flex flex-col justify-between h-auto space-y-4">
-                              <h4 className={`font-bold text-lg transition-colors duration-300 ${
-                                step.number <= 2 ? 'text-header-glow' : 'text-header-glow group-hover:text-crypto-accent'
-                              }`}>
+                              <h4 className="font-bold text-lg transition-colors duration-300 text-orange-300">
                                 {step.title}
                               </h4>
                               <p className="text-foreground/90 text-sm leading-relaxed px-2">
@@ -257,9 +262,7 @@ const WYLDsYieldExplanation = () => {
                         
                         {/* Content */}
                         <div className="relative z-10 flex flex-col justify-between h-auto space-y-4">
-                          <h4 className={`font-bold text-lg transition-colors duration-300 ${
-                            step.number <= 2 ? 'text-header-glow' : 'text-header-glow group-hover:text-crypto-accent'
-                          }`}>
+                           <h4 className="font-bold text-lg transition-colors duration-300 text-orange-300">
                             {step.title}
                           </h4>
                           <p className="text-foreground/90 text-sm leading-relaxed px-2">
@@ -280,10 +283,10 @@ const WYLDsYieldExplanation = () => {
                })}
              </div>
 
-             {/* Ultra Sleek Scroll Bar - Desktop Only */}
-             <div className="hidden lg:flex justify-center mt-8">
-               <div 
-                 className="relative w-60 h-1 cursor-pointer group"
+              {/* Ultra Sleek Scroll Bar - Desktop Only */}
+              <div className="hidden lg:flex justify-center mt-8">
+                <div 
+                  className="relative w-80 h-0.5 cursor-pointer group"
                  onMouseDown={(e) => {
                    const sliderRect = e.currentTarget.getBoundingClientRect();
                    handleSliderChange(e.clientX, sliderRect);
@@ -304,15 +307,14 @@ const WYLDsYieldExplanation = () => {
                  {/* Subtle track hint on hover */}
                  <div className="absolute inset-0 bg-orange-300/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                  
-                 <div 
-                   className="absolute top-1/2 -translate-y-1/2 w-8 h-2 bg-gradient-to-r from-orange-400 via-orange-300 to-orange-200 rounded-full transition-all duration-300 ease-out cursor-grab active:cursor-grabbing group-hover:scale-125 group-hover:shadow-[0_0_20px_rgba(251,146,60,0.6)] active:scale-110"
-                   style={{ 
-                     left: `${Math.max(0, Math.min(100 - (32/240*100), scrollProgress))}%`,
-                     transform: 'translateY(-50%)',
-                     filter: 'drop-shadow(0 2px 4px rgba(251, 146, 60, 0.3))',
-                     background: 'linear-gradient(135deg, #fb923c 0%, #fdba74 50%, #fed7aa 100%)'
-                   }}
-                 />
+                  <div 
+                    className="absolute top-1/2 -translate-y-1/2 w-6 h-1 bg-orange-300 rounded-full transition-all duration-300 ease-out cursor-grab active:cursor-grabbing group-hover:scale-125 group-hover:shadow-[0_0_20px_rgba(251,146,60,0.6)] active:scale-110"
+                    style={{ 
+                      left: `${Math.max(0, Math.min(100 - (24/320*100), scrollProgress))}%`,
+                      transform: 'translateY(-50%)',
+                      filter: 'drop-shadow(0 2px 4px rgba(251, 146, 60, 0.3))'
+                    }}
+                  />
                </div>
              </div>
           </div>
