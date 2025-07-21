@@ -64,10 +64,8 @@ const HastraDashboard = () => {
 
       {/* Trading Platforms Section */}
       <div id="trade-lend-section" className="mb-8 md:mb-12">
-        <div className="card-gradient rounded-3xl border border-border/30 shadow-lg p-8 md:p-12">
-          <div className="bg-background/20 rounded-2xl p-8 md:p-10">
-            <TradingPlatformsSection />
-          </div>
+        <div className="card-gradient rounded-3xl border border-border/30 shadow-lg p-6 md:p-12">
+          <TradingPlatformsSection />
         </div>
       </div>
 
