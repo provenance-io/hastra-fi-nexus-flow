@@ -10,46 +10,46 @@ export interface LearningArea {
 }
 
 /**
- * Learning areas data for the SimpleLearningSection component
+ * Learning tracks data for the SimpleLearningSection component
  */
 export const LEARNING_AREAS: LearningArea[] = [
   {
     icon: BookOpen,
     title: "DeFi Basics",
-    description: "Learn the fundamentals of decentralized finance, from wallets to yield farming.",
+    description: "Essential DeFi fundamentals, security practices, and best practices reference guide.",
     features: [
-      "Wallet setup and security",
-      "Understanding APY and yields",
-      "DeFi vs traditional finance",
-      "Risk management basics"
+      "What is DeFi and how it works",
+      "Security & privacy fundamentals",
+      "Best practices reference guide",
+      "Safe wallet management"
     ],
-    action: "Start Learning",
+    action: "Start Track 1",
     href: "#"
   },
   {
     icon: TrendingUp,
-    title: "Platform Guides",
-    description: "Step-by-step guides for using YIELD and HOMES tokens effectively.",
+    title: "Mastering DeFi",
+    description: "Advanced DeFi concepts including lending pools, tokenomics, and risk assessment.",
     features: [
-      "How to buy YIELD tokens",
-      "HOMES token explained",
-      "Platform navigation",
-      "Transaction walkthroughs"
+      "Understanding lending pools",
+      "Interpreting tokenomics",
+      "Risk & reward analysis",
+      "Advanced DeFi strategies"
     ],
-    action: "View Guides",
+    action: "Start Track 2",
     href: "#"
   },
   {
     icon: Target,
-    title: "Advanced Strategies",
-    description: "Optimize your returns with advanced DeFi strategies and portfolio management.",
+    title: "Hastra for Dummies",
+    description: "Complete guide to YIELD and HASH tokens within the Provenance ecosystem.",
     features: [
-      "Portfolio diversification",
-      "Yield optimization",
-      "Risk assessment tools",
-      "Market analysis basics"
+      "What is YIELD and how to use it",
+      "Understanding the HASH token",
+      "Strengthening Provenance ecosystem",
+      "Platform-specific walkthroughs"
     ],
-    action: "Learn Advanced",
+    action: "Start Track 3",
     href: "#"
   }
 ];
@@ -58,8 +58,8 @@ export const LEARNING_AREAS: LearningArea[] = [
  * Constants for the learning section
  */
 export const LEARNING_SECTION_CONTENT = {
-  TITLE: "Learning Resources",
-  SUBTITLE: "Everything you need to master DeFi and start earning with confidence",
-  CTA_TEXT: "Ready to put your knowledge into practice?",
+  TITLE: "Learning Tracks",
+  SUBTITLE: "Master DeFi and the Provenance ecosystem with our structured learning paths",
+  CTA_TEXT: "Ready to start earning on Hastra?",
   CTA_BUTTON: "Start Earning Now",
 } as const;

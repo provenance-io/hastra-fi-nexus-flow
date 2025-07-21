@@ -6,8 +6,8 @@ import { LEARNING_AREAS, LEARNING_SECTION_CONTENT } from '@/data/learningContent
 import { SECTION_IDS } from '@/constants/sections';
 import LearningCard from './LearningCard';
 import DefiBasiscsModal from './modals/DefiBasiscsModal';
-import PlatformGuidesModal from './modals/PlatformGuidesModal';
-import AdvancedStrategiesModal from './modals/AdvancedStrategiesModal';
+import MasteringDefiModal from './modals/MasteringDefiModal';
+import HastraForDummiesModal from './modals/HastraForDummiesModal';
 
 /**
  * Section header component for learning resources
@@ -92,12 +92,12 @@ const SimpleLearningSection = () => {
         isOpen={activeModal === 'DeFi Basics'} 
         onClose={handleCloseModal} 
       />
-      <PlatformGuidesModal 
-        isOpen={activeModal === 'Platform Guides'} 
+      <MasteringDefiModal 
+        isOpen={activeModal === 'Mastering DeFi'} 
         onClose={handleCloseModal} 
       />
-      <AdvancedStrategiesModal 
-        isOpen={activeModal === 'Advanced Strategies'} 
+      <HastraForDummiesModal 
+        isOpen={activeModal === 'Hastra for Dummies'} 
         onClose={handleCloseModal} 
       />
     </>
