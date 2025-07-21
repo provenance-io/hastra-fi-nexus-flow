@@ -83,47 +83,49 @@ const MobileMenu = () => {
         <div className="flex-1 overflow-y-auto py-3 space-y-3">
           {/* Wallet Section - Show when connected */}
           {isConnected && address && (
-            <div className="p-4 bg-crypto-accent/10 border border-crypto-accent/20 rounded-xl shadow-lg">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-8 rounded-full bg-crypto-accent/20 flex items-center justify-center">
-                  <WalletIcon className="w-4 h-4 text-crypto-accent" />
+            <div className="p-4 bg-background/30 backdrop-blur-md border border-border/20 hover:border-orange-300/20 rounded-xl shadow-2xl">
+              <div className="flex items-center gap-3 mb-4 pb-3 border-b border-orange-300/20">
+                <div className="w-8 h-8 rounded-full bg-orange-300/20 flex items-center justify-center">
+                  <WalletIcon className="w-4 h-4 text-orange-300" />
                 </div>
                 <div>
-                  <p className="font-medium text-foreground text-sm">Connected</p>
-                  <p className="text-sm text-muted-foreground font-mono">{formatAddress(address)}</p>
+                  <p className="font-medium text-platinum/90 text-sm">
+                    {walletType && walletType !== 'Connected' ? walletType : 'Connected Wallet'}
+                  </p>
+                  <p className="text-sm text-platinum/70 font-mono">{formatAddress(address)}</p>
                 </div>
               </div>
               
-              <div className="space-y-2">
+              <div className="space-y-1">
                 <button
                   onClick={() => {
                     setOpen(false);
                     window.location.href = '/earn';
                   }}
-                  className="w-full flex items-center gap-3 p-3 text-sm text-foreground hover:bg-crypto-accent/20 rounded-lg transition-colors"
+                  className="w-full flex items-center gap-3 p-3 text-sm text-platinum/90 hover:bg-orange-300/10 hover:text-orange-300 rounded-lg transition-colors"
                 >
-                  <TrendingUp className="w-4 h-4 text-crypto-accent" />
-                  View Earnings
+                  <TrendingUp className="w-4 h-4 text-platinum/60" />
+                  View My Earnings
                 </button>
                 
                 <button
                   onClick={copyAddress}
-                  className="w-full flex items-center gap-3 p-3 text-sm text-foreground hover:bg-crypto-accent/20 rounded-lg transition-colors"
+                  className="w-full flex items-center gap-3 p-3 text-sm text-platinum/90 hover:bg-orange-300/10 hover:text-orange-300 rounded-lg transition-colors"
                 >
                   {addressCopied ? (
-                    <Check className="w-4 h-4 text-crypto-accent" />
+                    <Check className="w-4 h-4 text-orange-300" />
                   ) : (
-                    <Copy className="w-4 h-4 text-crypto-accent" />
+                    <Copy className="w-4 h-4 text-platinum/60" />
                   )}
-                  {addressCopied ? 'Copied!' : 'Copy Address'}
+                  {addressCopied ? 'Address Copied!' : 'Copy Address'}
                 </button>
                 
                 <button
                   onClick={handleDisconnect}
-                  className="w-full flex items-center gap-3 p-3 text-sm text-foreground hover:bg-crypto-accent/20 rounded-lg transition-colors"
+                  className="w-full flex items-center gap-3 p-3 text-sm text-red-400 hover:bg-red-900/20 hover:text-red-300 rounded-lg transition-colors"
                 >
-                  <LogOut className="w-4 h-4 text-crypto-accent" />
-                  Disconnect
+                  <LogOut className="w-4 h-4" />
+                  Disconnect Wallet
                 </button>
               </div>
             </div>
@@ -149,7 +151,7 @@ const MobileMenu = () => {
               <Button 
                 onClick={handleConnectWallet}
                 size="lg" 
-                variant="secondary"
+                variant="destructive"
                 className="w-full tracking-widest"
               >
                 Connect Wallet

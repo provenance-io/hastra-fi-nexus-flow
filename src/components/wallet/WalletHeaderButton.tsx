@@ -55,7 +55,7 @@ const WalletHeaderButton = () => {
       <DropdownMenuTrigger asChild>
         <Button 
           variant="outline" 
-          className="gap-2 bg-background/20 border border-orange-300/30 text-platinum/90 hover:bg-orange-300/10 hover:border-orange-300/50 hover:text-orange-300 shadow-lg font-medium px-4 py-2 rounded-xl transition-all duration-300"
+          className="gap-2 bg-background/20 border border-orange-300/30 text-platinum/90 hover:bg-orange-300/10 hover:border-orange-300/50 hover:text-orange-300 shadow-lg font-medium px-3 py-1.5 rounded-xl transition-all duration-300 h-8 text-sm"
           style={{ 
             textShadow: '0 0 8px rgba(255, 255, 255, 0.2)',
             transition: 'all 0.3s ease'
@@ -77,7 +77,7 @@ const WalletHeaderButton = () => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent 
-        className="w-64 bg-background/30 backdrop-blur-md border border-border/20 hover:border-orange-300/20 shadow-2xl mt-4 z-50" 
+        className="w-56 bg-background/30 backdrop-blur-md border border-border/20 hover:border-orange-300/20 shadow-2xl mt-4 z-50" 
         align="end"
       >
         <div className="p-3 border-b border-orange-300/20">
