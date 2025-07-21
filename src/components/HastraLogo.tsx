@@ -3,9 +3,9 @@ const HastraLogo = ({ className = "h-14 md:h-18 lg:h-28 w-auto", white = false }
   return (
     <div className={`flex items-center ${className}`}>
       <img 
-        src="/lovable-uploads/9c0de370-6aee-4c13-9fc7-8e244a2d12f4.png" 
+        src="/lovable-uploads/19ede298-00c0-4c17-b8ad-18366183aecc.png" 
         alt="Hastra" 
-        className={`h-14 md:h-18 lg:h-28 w-auto brightness-110 contrast-110 ${white ? 'filter brightness-0 invert' : ''}`}
+        className={`h-14 md:h-18 lg:h-28 w-auto ${white ? 'filter brightness-0 invert' : ''}`}
         loading="eager"
         decoding="async"
         onError={() => {
