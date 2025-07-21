@@ -16,27 +16,10 @@ const LearnHero = () => {
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-12">
-            Master DeFi basics with our comprehensive guides, tutorials, and interactive content before investing.
+            Don't know where to start? We got your back.
           </p>
         </div>
 
-        {/* Learning Stats */}
-        <div className="text-center mb-12">
-          <div className="flex flex-wrap justify-center gap-8 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-header-glow rounded-full animate-pulse"></div>
-              <span>18 Step-by-step guides</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-crypto-accent rounded-full animate-pulse"></div>
-              <span>Video tutorials</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-header-glow rounded-full animate-pulse"></div>
-              <span>Interactive exercises</span>
-            </div>
-          </div>
-        </div>
 
         {/* CTA Section */}
         <div className="text-center">
@@ -57,9 +40,9 @@ const LearnHero = () => {
               <BookOpen className="ml-2 h-5 w-5" />
             </Button>
             <Button 
-              variant="outline"
-              size="lg" 
-              className="px-6 py-3 text-lg rounded-lg min-w-[200px] group transition-all duration-300 font-semibold tracking-tight shadow-sm hover:shadow-md"
+              className="min-w-[200px] group"
+              variant="secondary"
+              size="lg"
               asChild
             >
               <a href="/earn">
