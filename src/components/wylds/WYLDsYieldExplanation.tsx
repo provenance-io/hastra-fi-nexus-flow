@@ -118,10 +118,10 @@ const WYLDsYieldExplanation = () => {
                     <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(0deg)]">
                       <div className="w-full h-full bg-background/30 rounded-2xl p-4 md:p-6 text-center space-y-3 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300 backdrop-blur-sm">
                         <div className="h-full flex flex-col justify-center">
-                          <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-header-glow to-crypto-accent rounded-xl md:rounded-2xl mx-auto mb-4 md:mb-6 flex items-center justify-center shadow-lg">
-                            <feature.icon className="h-8 w-8 md:h-10 md:w-10 text-black" />
+                          <div className="w-14 h-14 bg-gradient-to-br from-header-glow to-crypto-accent rounded-2xl mx-auto mb-4 md:mb-6 flex items-center justify-center shadow-lg">
+                            <feature.icon className="h-7 w-7 text-black" />
                           </div>
-                          <h3 className="text-base md:text-lg lg:text-2xl font-bold text-white px-2">{feature.title}</h3>
+                          <h3 className="font-bold text-lg" style={{ color: 'hsl(34, 100%, 84%)' }}>{feature.title}</h3>
                         </div>
                       </div>
                     </div>
