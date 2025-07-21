@@ -161,7 +161,7 @@ const SendCard = () => {
                 variant={denomination === 'token' ? 'default' : 'ghost'}
                 size="sm"
                 onClick={() => setDenomination('token')}
-                className={`h-8 md:h-7 text-sm md:text-xs px-3 md:px-2 font-sans ${denomination === 'token' ? 'btn-hastra' : 'text-muted-foreground hover:text-foreground'}`}
+                className={`h-8 md:h-7 text-sm md:text-xs px-3 md:px-2 font-sans ${denomination === 'token' ? 'btn-hastra' : 'text-muted-foreground hover:text-auburn-primary'}`}
               >
                 {selectedToken}
               </Button>
@@ -169,7 +169,7 @@ const SendCard = () => {
                 variant={denomination === 'usd' ? 'default' : 'ghost'}
                 size="sm"
                 onClick={() => setDenomination('usd')}
-                className={`h-8 md:h-7 text-sm md:text-xs px-3 md:px-2 font-sans ${denomination === 'usd' ? 'btn-hastra' : 'text-muted-foreground hover:text-foreground'}`}
+                className={`h-8 md:h-7 text-sm md:text-xs px-3 md:px-2 font-sans ${denomination === 'usd' ? 'btn-hastra' : 'text-muted-foreground hover:text-auburn-primary'}`}
               >
                 <DollarSign className="w-4 h-4 md:w-3 md:h-3 mr-1" />
                 USD

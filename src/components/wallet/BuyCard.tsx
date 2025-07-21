@@ -170,7 +170,7 @@ const BuyCard = () => {
                   variant={denomination === 'usd' ? 'default' : 'ghost'}
                   size="sm"
                   onClick={() => setDenomination('usd')}
-                  className={`h-7 text-xs px-2 min-w-[50px] ${denomination === 'usd' ? 'btn-hastra' : 'text-muted-foreground hover:text-foreground'}`}
+                  className={`h-7 text-xs px-2 min-w-[50px] ${denomination === 'usd' ? 'btn-hastra' : 'text-muted-foreground hover:text-auburn-primary'}`}
                 >
                   <DollarSign className="w-3 h-3 mr-1" />
                   USD
@@ -179,7 +179,7 @@ const BuyCard = () => {
                   variant={denomination === 'token' ? 'default' : 'ghost'}
                   size="sm"
                   onClick={() => setDenomination('token')}
-                  className={`h-7 text-xs px-2 min-w-[50px] ${denomination === 'token' ? 'btn-hastra' : 'text-muted-foreground hover:text-foreground'}`}
+                  className={`h-7 text-xs px-2 min-w-[50px] ${denomination === 'token' ? 'btn-hastra' : 'text-muted-foreground hover:text-auburn-primary'}`}
                 >
                   {sellAsset}
                 </Button>
@@ -188,7 +188,7 @@ const BuyCard = () => {
                 variant="ghost"
                 size="sm" 
                 onClick={handleMaxClick}
-                className="h-7 px-3 text-xs font-medium text-[hsl(34_100%_84%)] hover:bg-orange-900/30 hover:text-[hsl(34_100%_84%)] transition-all duration-200 bg-muted/30 rounded-md min-w-[50px]"
+                className="h-7 px-3 text-xs font-medium text-auburn-light hover:bg-auburn-primary/20 hover:text-auburn-light transition-all duration-200 bg-muted/30 rounded-md min-w-[50px]"
               >
                 Max
               </Button>

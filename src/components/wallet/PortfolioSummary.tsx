@@ -44,7 +44,7 @@ const PortfolioSummary = ({
     <div className="px-6 pt-0 pb-6 space-y-4">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Total Portfolio Value */}
-        <div className="bg-background/30 rounded-xl p-4 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300">
+        <div className="bg-background/30 rounded-xl p-4 border border-border/20 hover:border-auburn-primary/30 transition-all duration-300 hover:shadow-auburn">
           <div className="flex items-center gap-2 mb-3">
             <div className="w-8 h-8 rounded-lg bg-hastra-teal/10 flex items-center justify-center">
               <DollarSign className="w-4 h-4 text-hastra-teal" />
@@ -60,7 +60,7 @@ const PortfolioSummary = ({
         </div>
         
         {/* Total Interest Earned */}
-        <div className="bg-background/30 rounded-xl p-4 border border-border/20 hover:border-green-400/20 transition-all duration-300">
+        <div className="bg-background/30 rounded-xl p-4 border border-border/20 hover:border-auburn-primary/30 transition-all duration-300 hover:shadow-auburn">
           <div className="flex items-center gap-2 mb-3">
             <div className="w-8 h-8 rounded-lg bg-green-400/10 flex items-center justify-center">
               <TrendingUp className="w-4 h-4 text-green-400" />
@@ -79,7 +79,7 @@ const PortfolioSummary = ({
         </div>
 
         {/* Available to Claim */}
-        <div className={`bg-background/30 rounded-xl p-4 border border-border/20 hover:border-orange-400/20 transition-all duration-300 ${
+        <div className={`bg-background/30 rounded-xl p-4 border border-border/20 hover:border-auburn-primary/30 transition-all duration-300 hover:shadow-auburn ${
           isClaimAnimating ? 'animate-claim-flash border-crypto-accent/50 bg-crypto-accent/20' : ''
         }`}>
           <div className="flex items-center gap-2 mb-3">

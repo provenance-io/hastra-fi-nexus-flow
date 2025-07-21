@@ -97,7 +97,7 @@ const WalletHeader = ({
             variant="ghost"
             size="sm"
             onClick={onToggleHoldings}
-            className="text-muted-foreground hover:text-foreground p-3 rounded-xl hover:bg-background/30 transition-all duration-200"
+            className="text-muted-foreground hover:text-auburn-primary p-3 rounded-xl hover:bg-auburn-primary/10 transition-all duration-200"
           >
             {showTokenHoldings ? (
               <ChevronUp className="w-4 h-4 text-foreground" />
@@ -111,7 +111,7 @@ const WalletHeader = ({
             size="sm"
             onClick={onRefresh}
             disabled={isRefreshing}
-            className="text-muted-foreground hover:text-foreground p-3 rounded-xl hover:bg-background/30 transition-all duration-200 disabled:opacity-50"
+            className="text-muted-foreground hover:text-auburn-primary p-3 rounded-xl hover:bg-auburn-primary/10 transition-all duration-200 disabled:opacity-50"
           >
             <RefreshCw className={`w-4 h-4 text-foreground ${isRefreshing ? 'animate-spin' : ''}`} />
           </Button>
