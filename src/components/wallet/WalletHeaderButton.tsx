@@ -13,11 +13,10 @@ import { Copy, LogOut, ChevronDown, Check, TrendingUp } from 'lucide-react';
 import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { useNavigate } from 'react-router-dom';
-import { getWalletIcon } from '@/utils/walletIcons';
+import { WalletIconComponent } from '@/utils/walletIcons';
 
 const WalletHeaderButton = () => {
   const { isConnected, address, disconnectWallet, walletType } = useWallet();
-  const WalletIcon = getWalletIcon(walletType);
   const [addressCopied, setAddressCopied] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
@@ -82,8 +81,8 @@ const WalletHeaderButton = () => {
       >
         <div className="p-3 border-b border-orange-300/20">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-orange-300/20 flex items-center justify-center">
-              <WalletIcon className="w-4 h-4 text-orange-300" />
+             <div className="w-8 h-8 rounded-full bg-orange-300/20 flex items-center justify-center">
+               <WalletIconComponent walletType={walletType} className="w-4 h-4 text-orange-300" />
             </div>
             <div>
               <p className="font-medium text-platinum/90">
