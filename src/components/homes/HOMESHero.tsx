@@ -23,8 +23,8 @@ const HOMESHero = () => {
         <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-4">
           <span className="block text-gradient">HOMES</span>
         </h1>
-        <h2 className="text-4xl md:text-6xl font-black tracking-tight" style={{ color: 'hsl(var(--hastra-teal)) !important' }}>
-          RWA Yield Pools
+        <h2 className="text-4xl md:text-6xl font-black tracking-tight" style={{ color: 'hsl(var(--hastra-teal))' }}>
+          Fractionalized Home Loan Ownership
         </h2>
         <p className="mt-6 max-w-4xl mx-auto text-xl md:text-2xl text-muted-foreground leading-relaxed">
           Access competitive yields through Real World Asset pools on Solana. Earn attractive returns with both yield tokens and enhanced HASH token rewards.

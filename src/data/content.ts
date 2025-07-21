@@ -41,7 +41,7 @@ export const products = {
   },
   homes: {
     name: 'HOMES',
-    tagline: 'RWA Yield Pools',
+    tagline: 'Fractionalized Home Loan Ownership',
     description: "Access competitive yields through Real World Asset pools on Solana. Earn attractive returns with both yield tokens and enhanced HASH token rewards.",
     innovation: 'Professional-grade DeFi product with rigorous risk management and transparent operations.',
     status: 'Coming Soon',

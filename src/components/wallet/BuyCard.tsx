@@ -184,16 +184,14 @@ const BuyCard = () => {
                   {sellAsset}
                 </Button>
               </div>
-              <div className="bg-muted/30 rounded-md p-1">
-                <Button 
-                  variant="ghost"
-                  size="sm" 
-                  onClick={handleMaxClick}
-                  className="h-8 md:h-7 px-3 md:px-2 text-sm md:text-xs font-medium text-[hsl(34_100%_84%)] hover:bg-orange-900/30 hover:text-[hsl(34_100%_84%)] transition-all duration-200"
-                >
-                  Max
-                </Button>
-              </div>
+              <Button 
+                variant="ghost"
+                size="sm" 
+                onClick={handleMaxClick}
+                className="h-8 md:h-7 px-3 md:px-2 text-sm md:text-xs font-medium text-[hsl(34_100%_84%)] hover:bg-orange-900/30 hover:text-[hsl(34_100%_84%)] transition-all duration-200 bg-muted/30 rounded-md"
+              >
+                Max
+              </Button>
             </div>
           </div>
           <Input

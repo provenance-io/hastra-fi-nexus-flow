@@ -84,9 +84,7 @@ const MobileMenu = () => {
           {isConnected && address && (
             <div className="p-4 bg-background/30 backdrop-blur-md border border-border/20 hover:border-orange-300/20 rounded-xl shadow-2xl">
               <div className="flex items-center gap-3 mb-4 pb-3 border-b border-orange-300/20">
-                <div className="w-8 h-8 rounded-full bg-orange-300/20 flex items-center justify-center">
-                  <WalletIconComponent walletType={walletType} className="w-4 h-4 text-orange-300" />
-                </div>
+                <WalletIconComponent walletType={walletType} className="w-8 h-8" />
                 <div>
                   <p className="font-medium text-platinum/90 text-sm">
                     {walletType && walletType !== 'Connected' ? walletType : 'Connected Wallet'}
