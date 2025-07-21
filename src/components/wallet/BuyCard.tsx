@@ -85,13 +85,13 @@ const BuyCard = () => {
   return (
     <div className="space-y-8">
       <div className="flex items-center gap-4 mb-8">
-        <ArrowUpDown className="w-8 h-8 md:w-5 md:h-5 text-header-glow" />
-        <h3 className="text-3xl md:text-xl font-bold">Buy Tokens</h3>
+        <ArrowUpDown className="w-6 h-6 md:w-5 md:h-5 text-header-glow" />
+        <h3 className="text-xl md:text-xl font-bold">Buy Tokens</h3>
       </div>
       <div className="card-gradient rounded-2xl p-8 md:p-10 space-y-8">
         {/* Sell Asset Selection */}
         <div className="space-y-4">
-          <Label className="text-lg md:text-sm font-semibold text-foreground">You're selling</Label>
+          <Label className="text-base md:text-sm font-semibold text-foreground">You're selling</Label>
           <Select value={sellAsset} onValueChange={(value: 'USDC' | 'SOL') => setSellAsset(value)}>
             <SelectTrigger className="bg-muted/50 h-14 md:h-auto font-sans">
               <div className="flex items-center justify-between w-full">
@@ -131,7 +131,7 @@ const BuyCard = () => {
 
         {/* Buy Asset Selection */}
         <div className="space-y-4">
-          <Label className="text-lg md:text-sm font-semibold text-foreground">You're buying</Label>
+          <Label className="text-base md:text-sm font-semibold text-foreground">You're buying</Label>
           <Select value={buyAsset} onValueChange={(value: 'YIELD' | 'HASH') => setBuyAsset(value)}>
             <SelectTrigger className="bg-muted/50 h-14 md:h-auto font-sans">
               <div className="flex items-center gap-4 w-full">
@@ -163,7 +163,7 @@ const BuyCard = () => {
         {/* Amount Input */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <Label className="text-lg md:text-sm font-semibold text-foreground">Amount</Label>
+            <Label className="text-base md:text-sm font-semibold text-foreground">Amount</Label>
             <div className="flex items-center gap-3">
               <div className="flex items-center bg-muted/30 rounded-md p-1 gap-1">
                 <Button 
