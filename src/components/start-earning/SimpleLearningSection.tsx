@@ -131,9 +131,12 @@ const SimpleLearningSection = () => {
             // Category Selection View
             <div className="space-y-16">
               <div className="text-center animate-fade-in">
-                <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-6">
-                  <span className="text-gradient">{LEARNING_SECTION_CONTENT.TITLE}</span>
-                </h2>
+                <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed mb-6" 
+                   style={{ 
+                     textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' 
+                   }}>
+                  {LEARNING_SECTION_CONTENT.TITLE}
+                </p>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                   {LEARNING_SECTION_CONTENT.SUBTITLE}
                 </p>

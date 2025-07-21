@@ -63,7 +63,10 @@ const WYLDsFAQ = () => {
                 value={`item-${index}`}
                 className="border border-border/10 rounded-xl card-gradient hover:bg-background/60 transition-all duration-300"
               >
-                <AccordionTrigger className="px-6 py-4 text-left hover:no-underline group">
+                <AccordionTrigger className="px-6 py-4 text-left hover:no-underline group"
+                  style={{ 
+                    color: 'hsl(var(--foreground))'
+                  }}>
                   <span className="text-base md:text-lg text-foreground group-hover:text-foreground/80 transition-colors duration-300">
                     {faq.question}
                   </span>
