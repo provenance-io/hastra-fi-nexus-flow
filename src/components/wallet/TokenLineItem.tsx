@@ -56,9 +56,9 @@ const TokenLineItem = ({
   return (
     <div className="bg-background/30 rounded-2xl border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)]">
       {/* Desktop Layout */}
-      <div className="hidden lg:grid grid-cols-[140px_1fr_1fr_1fr_1fr_140px] gap-6 items-center p-6">
-        {/* Token Info */}
-        <div className="flex flex-col items-center gap-2 w-full">
+      <div className="hidden lg:flex items-center p-6 gap-8">
+        {/* Token Info - Fixed Width */}
+        <div className="flex flex-col items-center gap-2 w-32 flex-shrink-0">
           {isImage ? (
             <img 
               src={icon} 
@@ -76,33 +76,34 @@ const TokenLineItem = ({
           </div>
         </div>
         
-        {/* Balance Column */}
-        <div className="text-center space-y-1">
-          <p className="text-muted-foreground text-sm font-medium">Balance</p>
-          <p className="font-bold text-white text-lg">
-            {amount.toLocaleString('en-US', { 
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 4 
-            })}
-          </p>
-          <p className="text-xs text-muted-foreground">tokens</p>
-        </div>
-        
-        {/* Value Column */}
-        <div className="text-center space-y-1">
-          <p className="text-muted-foreground text-sm font-medium">Value</p>
-          <p className="font-semibold text-white text-lg">
-            ${value.toLocaleString('en-US', { 
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 2 
-            })}
-          </p>
-        </div>
-        
-        {/* Total Claimed Column */}
-        <div className="text-center space-y-1">
-          <p className="text-muted-foreground text-sm font-medium">Total Claimed</p>
-          <div className="flex items-center justify-center gap-2">
+        {/* Data Columns - Equal Width Distribution */}
+        <div className="flex-1 grid grid-cols-4 gap-8 text-center">
+          {/* Balance Column */}
+          <div className="space-y-1">
+            <p className="text-muted-foreground text-sm font-medium">Balance</p>
+            <p className="font-bold text-white text-lg">
+              {amount.toLocaleString('en-US', { 
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 4 
+              })}
+            </p>
+            <p className="text-xs text-muted-foreground">tokens</p>
+          </div>
+          
+          {/* Value Column */}
+          <div className="space-y-1">
+            <p className="text-muted-foreground text-sm font-medium">Value</p>
+            <p className="font-semibold text-white text-lg">
+              ${value.toLocaleString('en-US', { 
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2 
+              })}
+            </p>
+          </div>
+          
+          {/* Total Claimed Column */}
+          <div className="space-y-1">
+            <p className="text-muted-foreground text-sm font-medium">Total Claimed</p>
             <p className="font-semibold text-white text-lg">
               ${totalInterestEarnedUSD.toLocaleString('en-US', { 
                 minimumFractionDigits: 2,
@@ -110,26 +111,26 @@ const TokenLineItem = ({
               })}
             </p>
           </div>
+          
+          {/* Available Column */}
+          <div className="space-y-1">
+            <p className="text-muted-foreground text-sm font-medium">Available</p>
+            <p className={`font-semibold text-lg ${unclaimedInterest > 0 ? 'text-white' : 'text-muted-foreground'}`}>
+              ${unclaimedInterestUSD.toLocaleString('en-US', { 
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2 
+              })}
+            </p>
+          </div>
         </div>
         
-        {/* Available Column */}
-        <div className="text-center space-y-1">
-          <p className="text-muted-foreground text-sm font-medium">Available</p>
-          <p className={`font-semibold text-lg ${unclaimedInterest > 0 ? 'text-white' : 'text-muted-foreground'}`}>
-            ${unclaimedInterestUSD.toLocaleString('en-US', { 
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 2 
-            })}
-          </p>
-        </div>
-        
-        {/* Claim Button */}
-        <div className="flex justify-center">
+        {/* Claim Button - Fixed Width */}
+        <div className="w-32 flex-shrink-0 flex justify-center">
           <Button
             onClick={handleClaim}
             disabled={unclaimedInterest <= 0 || isClaiming}
             size="sm"
-            className="px-6 py-3 text-sm font-medium rounded-xl disabled:opacity-50 whitespace-nowrap min-w-[120px]"
+            className="px-6 py-3 text-sm font-medium rounded-xl disabled:opacity-50 whitespace-nowrap"
             variant="secondary"
           >
             {isClaiming ? (
