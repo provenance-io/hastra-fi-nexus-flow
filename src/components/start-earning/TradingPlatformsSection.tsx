@@ -35,29 +35,40 @@ const TradingPlatformsSection = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {tradingPlatforms.map((platform, index) => (
-          <div key={index} className="card-gradient rounded-2xl p-6 space-y-4 transition-all duration-300 group">
-            <div className="pb-3">
-              <div className="flex items-center justify-between mb-2">
-                <h3 className="text-lg font-semibold">{platform.name}</h3>
+          <div key={index} className="bg-background/30 rounded-2xl p-6 border border-border/10 hover:border-border/20 transition-all duration-300 group">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-16 h-16 rounded-xl bg-hastra-teal/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                {platform.name === 'Raydium' ? (
+                  <TrendingUp className="w-8 h-8 text-hastra-teal" />
+                ) : (
+                  <DollarSign className="w-8 h-8 text-hastra-teal" />
+                )}
               </div>
-              <p className="text-sm text-muted-foreground">{platform.description}</p>
+              <div>
+                <div className="text-2xl font-bold text-foreground">{platform.name}</div>
+                <div className="text-sm text-muted-foreground font-medium">{platform.type}</div>
+              </div>
             </div>
-            <div className="pt-0">
-              <ul className="space-y-2 mb-4">
-                {platform.features.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <div className="w-1.5 h-1.5 bg-header-glow rounded-full"></div>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <Button asChild variant="secondary" className="w-full group-hover:scale-[1.02]">
-                <a href={platform.link} target="_blank" rel="noopener noreferrer">
-                  Access {platform.name}
-                  <ExternalLink className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
+            
+            <p className="text-muted-foreground text-base mb-6 leading-relaxed">{platform.description}</p>
+            <div className="space-y-3 mb-8">
+              {platform.features.map((feature, i) => (
+                <div key={i} className="flex items-center gap-3 text-sm text-muted-foreground">
+                  <div className="w-2 h-2 bg-foreground/60 rounded-full"></div>
+                  <span>{feature}</span>
+                </div>
+              ))}
             </div>
+            <Button 
+              asChild 
+              variant="secondary" 
+              className="w-full group-hover:scale-[1.02] transition-transform duration-300"
+            >
+              <a href={platform.link} target="_blank" rel="noopener noreferrer">
+                Access {platform.name}
+                <ExternalLink className="ml-2 h-4 w-4 group-hover:scale-110 transition-transform" />
+              </a>
+            </Button>
           </div>
         ))}
       </div>

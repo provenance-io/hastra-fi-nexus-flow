@@ -148,7 +148,7 @@ const SendCard = () => {
             placeholder="Enter recipient address..."
             value={recipientAddress}
             onChange={(e) => setRecipientAddress(e.target.value)}
-            className="font-mono text-sm md:text-sm bg-muted/50 h-12 md:h-auto"
+            className="bg-muted/50 h-12 md:h-auto text-base md:text-sm font-sans"
           />
         </div>
 
