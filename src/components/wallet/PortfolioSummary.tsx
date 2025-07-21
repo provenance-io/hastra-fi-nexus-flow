@@ -41,7 +41,7 @@ const PortfolioSummary = ({
     }
   };
   return (
-    <div className="px-6 pt-0 pb-4 space-y-4">
+    <div className="px-6 -mt-2 pb-6 space-y-4">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Total Portfolio Value */}
         <div className="bg-background/30 rounded-xl p-4 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300">
