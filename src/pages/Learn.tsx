@@ -1,6 +1,6 @@
 
 import LearnHero from '@/components/start-earning/LearnHero';
-import EnhancedGuidesSection from '@/components/start-earning/EnhancedGuidesSection';
+import SimpleLearningSection from '@/components/start-earning/SimpleLearningSection';
 import ProvenanceBranding from '@/components/ProvenanceBranding';
 
 const Learn = () => {
@@ -10,7 +10,7 @@ const Learn = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
       <div className="relative z-10">
         <LearnHero />
-        <EnhancedGuidesSection />
+        <SimpleLearningSection />
         <ProvenanceBranding />
       </div>
     </div>
