@@ -88,7 +88,7 @@ const BuyCard = () => {
         <ArrowUpDown className="w-6 h-6 md:w-5 md:h-5 text-header-glow" />
         <h3 className="text-xl md:text-xl font-bold">Buy Tokens</h3>
       </div>
-      <div className="card-gradient rounded-2xl p-8 md:p-10 space-y-8">
+      <div className="bg-background/30 rounded-2xl border border-border/20 p-8 space-y-8">
         {/* Sell Asset Selection */}
         <div className="space-y-4">
           <Label className="text-base md:text-sm font-semibold text-foreground">You're selling</Label>
@@ -207,7 +207,7 @@ const BuyCard = () => {
 
         {/* Receive Amount Display */}
         {amount && receiveAmount.tokens > 0 && (
-          <div className="bg-muted/50 border border-orange-800/30 rounded-lg p-4 md:p-4">
+          <div className="bg-background/30 border border-orange-800/30 rounded-xl p-4 md:p-6">
             <div className="text-sm md:text-sm text-muted-foreground mb-2">You'll receive</div>
             <div className="font-semibold text-lg md:text-base text-[hsl(34_100%_84%)]">{receiveAmount.tokens.toFixed(6)} {buyAsset}</div>
             <div className="text-xs md:text-xs text-muted-foreground">${receiveAmount.usd.toFixed(2)} USD</div>

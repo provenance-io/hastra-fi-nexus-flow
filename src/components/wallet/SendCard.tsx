@@ -100,7 +100,7 @@ const SendCard = () => {
         <Send className="w-6 h-6 md:w-5 md:h-5 text-header-glow" />
         <h3 className="text-xl md:text-xl font-bold">Send Tokens</h3>
       </div>
-      <div className="card-gradient rounded-2xl p-8 md:p-10 space-y-8">
+      <div className="bg-background/30 rounded-2xl border border-border/20 p-8 space-y-8">
         {/* Token Selection */}
         <div className="space-y-4">
           <Label className="text-base md:text-sm font-semibold text-foreground">Select token to send</Label>
@@ -194,14 +194,15 @@ const SendCard = () => {
 
         {/* Transaction Summary */}
         {amount && recipientAddress && (
-          <div className="glass-hastra rounded-lg p-4 border border-hastra-teal/20">
-            <div className="text-sm text-muted-foreground mb-1">Transaction Summary</div>
-            <div className="font-semibold text-lg text-hastra-teal">
+          <div className="bg-background/30 border border-hastra-teal/30 rounded-xl p-4 md:p-6">
+            <div className="text-sm text-muted-foreground mb-2">Transaction Summary</div>
+            <div className="font-semibold text-lg md:text-base text-hastra-teal">
               Send {denomination === 'token' ? amount : equivalent.toFixed(6)} {selectedToken}
             </div>
-            <div className="text-xs text-muted-foreground font-mono">
+            <div className="text-xs text-muted-foreground font-mono mt-1">
               To: {recipientAddress.slice(0, 8)}...{recipientAddress.slice(-8)}
             </div>
+            <div className="text-xs text-muted-foreground mt-1">Network fee: ~$0.05</div>
           </div>
         )}
 
