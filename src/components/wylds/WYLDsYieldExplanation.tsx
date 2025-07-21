@@ -304,8 +304,8 @@ const WYLDsYieldExplanation = () => {
                    document.addEventListener('mouseup', handleMouseUp);
                  }}
                >
-                 {/* Subtle track hint on hover */}
-                 <div className="absolute inset-0 bg-orange-300/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  {/* Visible track */}
+                  <div className="absolute inset-0 bg-orange-300/30 rounded-full" />
                  
                   <div 
                     className="absolute top-1/2 -translate-y-1/2 w-6 h-1 bg-orange-300 rounded-full transition-all duration-300 ease-out cursor-grab active:cursor-grabbing group-hover:scale-125 group-hover:shadow-[0_0_20px_rgba(251,146,60,0.6)] active:scale-110"
