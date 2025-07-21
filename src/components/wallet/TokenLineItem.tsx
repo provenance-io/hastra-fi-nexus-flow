@@ -54,7 +54,7 @@ const TokenLineItem = ({
   const unclaimedInterestUSD = unclaimedInterest * tokenPrice;
 
   return (
-    <div className="bg-background/30 rounded-2xl border border-border/20 hover:border-amber-glow/20 transition-all duration-300 hover:shadow-[0_0_15px_rgba(229,218,194,0.15),0_0_30px_rgba(229,218,194,0.08)]">
+    <div className="bg-background/30 rounded-2xl border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)]">
       {/* Desktop Layout */}
       <div className="hidden lg:grid grid-cols-[140px_1fr_1fr_1fr_1fr_auto] gap-6 items-center p-6">
         {/* Token Info */}
