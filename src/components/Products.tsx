@@ -154,8 +154,8 @@ const Products = () => {
                         {products.live.name}
                       </h3>
                       <div className="flex items-center mt-1">
-                        <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
-                        <span className="text-sm font-medium text-green-400 animate-pulse-light">
+                        <div className="w-2 h-2 bg-orange-300 rounded-full mr-2 animate-pulse"></div>
+                        <span className="text-sm font-medium animate-pulse-light" style={{ color: 'hsl(34, 100%, 84%)' }}>
                           {products.live.status}
                         </span>
                       </div>
