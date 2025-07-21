@@ -12,9 +12,9 @@ const ProvenanceBranding = () => {
     >
       {/* Removed gradient background to allow parent gradient to show through */}
       <div className="container relative z-10">
-        <div className="flex flex-col items-center justify-center gap-1">
+        <div className="flex flex-col items-center justify-center gap-0">
           <span className="text-xl md:text-2xl text-foreground/80 font-medium">
-            Built on
+            BUILT ON
           </span>
           <img 
             src="/lovable-uploads/e80568de-0fba-4199-a928-a9d5b3fa9b76.png" 
