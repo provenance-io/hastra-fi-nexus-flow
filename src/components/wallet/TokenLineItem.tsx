@@ -56,7 +56,7 @@ const TokenLineItem = ({
   return (
     <div className="bg-background/30 rounded-2xl border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)]">
       {/* Desktop Layout */}
-      <div className="hidden lg:grid grid-cols-[140px_1fr_1fr_1fr_1fr_auto] gap-6 items-center p-6">
+      <div className="hidden lg:grid grid-cols-[140px_1fr_1fr_1fr_1fr_140px] gap-6 items-center p-6">
         {/* Token Info */}
         <div className="flex flex-col items-center gap-2 w-full">
           {isImage ? (
@@ -76,8 +76,8 @@ const TokenLineItem = ({
           </div>
         </div>
         
-        {/* Tokens Column */}
-        <div className="text-left space-y-1">
+        {/* Balance Column */}
+        <div className="text-center space-y-1">
           <p className="text-muted-foreground text-sm font-medium">Balance</p>
           <p className="font-bold text-white text-lg">
             {amount.toLocaleString('en-US', { 
@@ -88,8 +88,8 @@ const TokenLineItem = ({
           <p className="text-xs text-muted-foreground">tokens</p>
         </div>
         
-        {/* Worth Column */}
-        <div className="text-left space-y-1">
+        {/* Value Column */}
+        <div className="text-center space-y-1">
           <p className="text-muted-foreground text-sm font-medium">Value</p>
           <p className="font-semibold text-white text-lg">
             ${value.toLocaleString('en-US', { 
@@ -99,10 +99,10 @@ const TokenLineItem = ({
           </p>
         </div>
         
-        {/* Total Interest Claimed Column */}
-        <div className="text-left space-y-1">
+        {/* Total Claimed Column */}
+        <div className="text-center space-y-1">
           <p className="text-muted-foreground text-sm font-medium">Total Claimed</p>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center justify-center gap-2">
             <p className="font-semibold text-white text-lg">
               ${totalInterestEarnedUSD.toLocaleString('en-US', { 
                 minimumFractionDigits: 2,
@@ -112,8 +112,8 @@ const TokenLineItem = ({
           </div>
         </div>
         
-        {/* Unclaimed Interest Column */}
-        <div className="text-left space-y-1">
+        {/* Available Column */}
+        <div className="text-center space-y-1">
           <p className="text-muted-foreground text-sm font-medium">Available</p>
           <p className={`font-semibold text-lg ${unclaimedInterest > 0 ? 'text-white' : 'text-muted-foreground'}`}>
             ${unclaimedInterestUSD.toLocaleString('en-US', { 
@@ -124,24 +124,26 @@ const TokenLineItem = ({
         </div>
         
         {/* Claim Button */}
-        <Button
-          onClick={handleClaim}
-          disabled={unclaimedInterest <= 0 || isClaiming}
-          size="sm"
-          className="px-6 py-3 text-sm font-medium rounded-xl disabled:opacity-50 whitespace-nowrap min-w-[120px]"
-          variant="secondary"
-        >
-          {isClaiming ? (
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 border-2 border-orange-300 border-t-transparent rounded-full animate-spin" />
-              Claiming...
-            </div>
-          ) : (
-            <>
-              Claim {token.replace(' (Sol)', '')}
-            </>
-          )}
-        </Button>
+        <div className="flex justify-center">
+          <Button
+            onClick={handleClaim}
+            disabled={unclaimedInterest <= 0 || isClaiming}
+            size="sm"
+            className="px-6 py-3 text-sm font-medium rounded-xl disabled:opacity-50 whitespace-nowrap min-w-[120px]"
+            variant="secondary"
+          >
+            {isClaiming ? (
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 border-2 border-orange-300 border-t-transparent rounded-full animate-spin" />
+                Claiming...
+              </div>
+            ) : (
+              <>
+                Claim {token.replace(' (Sol)', '')}
+              </>
+            )}
+          </Button>
+        </div>
       </div>
 
       {/* Mobile/Tablet Layout - Redesigned */}
