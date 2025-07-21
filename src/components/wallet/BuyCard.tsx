@@ -209,7 +209,7 @@ const BuyCard = () => {
         {amount && receiveAmount.tokens > 0 && (
           <div className="bg-background/30 border border-orange-800/30 rounded-xl p-4 md:p-6">
             <div className="text-sm md:text-sm text-muted-foreground mb-2">You'll receive</div>
-            <div className="font-semibold text-lg md:text-base text-[hsl(34_100%_84%)]">{receiveAmount.tokens.toFixed(6)} {buyAsset}</div>
+            <div className="font-semibold text-lg md:text-base text-[hsl(34_100%_84%)]">{receiveAmount.tokens.toFixed(2)} {buyAsset}</div>
             <div className="text-xs md:text-xs text-muted-foreground">${receiveAmount.usd.toFixed(2)} USD</div>
           </div>
         )}
