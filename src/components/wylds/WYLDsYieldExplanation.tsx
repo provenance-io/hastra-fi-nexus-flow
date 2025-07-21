@@ -210,7 +210,7 @@ const WYLDsYieldExplanation = () => {
                             
                             {/* Content */}
                             <div className="relative z-10 flex flex-col justify-between h-auto space-y-4">
-                              <h4 className="font-bold text-lg transition-colors duration-300 text-orange-300">
+                              <h4 className="font-bold text-lg transition-colors duration-300" style={{ color: 'hsl(34, 100%, 84%)' }}>
                                 {step.title}
                               </h4>
                               <p className="text-foreground/90 text-sm leading-relaxed px-2">
@@ -223,7 +223,7 @@ const WYLDsYieldExplanation = () => {
                         {/* Arrow Connector */}
                         {index < steps.length - 1 && (
                           <div className="mx-6 flex items-center justify-center h-80">
-                            <ChevronRight className="w-8 h-8 text-orange-300" />
+                            <ChevronRight className="w-8 h-8" style={{ color: 'hsl(34, 100%, 84%)' }} />
                           </div>
                         )}
                       </div>
@@ -262,7 +262,7 @@ const WYLDsYieldExplanation = () => {
                         
                         {/* Content */}
                         <div className="relative z-10 flex flex-col justify-between h-auto space-y-4">
-                           <h4 className="font-bold text-lg transition-colors duration-300 text-orange-300">
+                           <h4 className="font-bold text-lg transition-colors duration-300" style={{ color: 'hsl(34, 100%, 84%)' }}>
                             {step.title}
                           </h4>
                           <p className="text-foreground/90 text-sm leading-relaxed px-2">
@@ -275,7 +275,7 @@ const WYLDsYieldExplanation = () => {
                     {/* Down Arrow Connector */}
                     {index < steps.length - 1 && (
                       <div className="flex justify-center my-8">
-                        <ChevronDown className="w-8 h-8 text-orange-300" />
+                        <ChevronDown className="w-8 h-8" style={{ color: 'hsl(34, 100%, 84%)' }} />
                       </div>
                     )}
                   </div>
@@ -305,14 +305,16 @@ const WYLDsYieldExplanation = () => {
                  }}
                >
                   {/* Visible track */}
-                  <div className="absolute inset-0 bg-orange-300/30 rounded-full" />
+                  <div className="absolute inset-0 rounded-full" style={{ backgroundColor: 'hsl(34, 100%, 84%, 0.3)' }} />
                  
                   <div 
-                    className="absolute top-1/2 -translate-y-1/2 w-6 h-1 bg-orange-300 rounded-full transition-all duration-300 ease-out cursor-grab active:cursor-grabbing group-hover:scale-125 group-hover:shadow-[0_0_20px_rgba(251,146,60,0.6)] active:scale-110"
+                    className="absolute top-1/2 -translate-y-1/2 w-6 h-1 rounded-full transition-all duration-300 ease-out cursor-grab active:cursor-grabbing group-hover:scale-125 active:scale-110"
                     style={{ 
                       left: `${Math.max(0, Math.min(100 - (24/320*100), scrollProgress))}%`,
                       transform: 'translateY(-50%)',
-                      filter: 'drop-shadow(0 2px 4px rgba(251, 146, 60, 0.3))'
+                      backgroundColor: 'hsl(34, 100%, 84%)',
+                      filter: 'drop-shadow(0 2px 4px rgba(251, 146, 60, 0.3))',
+                      boxShadow: '0 0 20px hsla(34, 100%, 84%, 0.6)'
                     }}
                   />
                </div>
@@ -340,7 +342,7 @@ const WYLDsYieldExplanation = () => {
             
             <div className="grid gap-8 md:gap-10 grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto">
               <div className="aspect-square bg-background/30 rounded-xl md:rounded-2xl p-6 md:p-8 text-center flex flex-col justify-center space-y-3 md:space-y-4 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300">
-                <div className="text-xs md:text-sm font-medium text-orange-300 leading-tight">
+                <div className="text-xs md:text-sm font-medium leading-tight" style={{ color: 'hsl(34, 100%, 84%)' }}>
                   Total YIELD in Circulation
                 </div>
                 <div className="text-2xl md:text-3xl lg:text-4xl font-bold flex items-center justify-center gap-1 md:gap-2">
@@ -353,7 +355,7 @@ const WYLDsYieldExplanation = () => {
               </div>
 
               <div className="aspect-square bg-background/30 rounded-xl md:rounded-2xl p-6 md:p-8 text-center flex flex-col justify-center space-y-3 md:space-y-4 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300" style={{ animationDelay: '0.1s' }}>
-                <div className="text-xs md:text-sm font-medium text-orange-300 leading-tight">
+                <div className="text-xs md:text-sm font-medium leading-tight" style={{ color: 'hsl(34, 100%, 84%)' }}>
                   Current APY
                 </div>
                 <div className="text-2xl md:text-3xl lg:text-4xl font-bold flex items-center justify-center gap-1 md:gap-2">
@@ -366,7 +368,7 @@ const WYLDsYieldExplanation = () => {
               </div>
 
               <div className="aspect-square bg-background/30 rounded-xl md:rounded-2xl p-6 md:p-8 text-center flex flex-col justify-center space-y-3 md:space-y-4 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300" style={{ animationDelay: '0.2s' }}>
-                <div className="text-xs md:text-sm font-medium text-orange-300 leading-tight">
+                <div className="text-xs md:text-sm font-medium leading-tight" style={{ color: 'hsl(34, 100%, 84%)' }}>
                   Total Yield Earned
                 </div>
                 <div className="text-2xl md:text-3xl lg:text-4xl font-bold flex items-center justify-center gap-1 md:gap-2">
@@ -379,7 +381,7 @@ const WYLDsYieldExplanation = () => {
               </div>
 
               <div className="aspect-square bg-background/30 rounded-xl md:rounded-2xl p-6 md:p-8 text-center flex flex-col justify-center space-y-3 md:space-y-4 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300" style={{ animationDelay: '0.3s' }}>
-                <div className="text-xs md:text-sm font-medium text-orange-300 leading-tight">
+                <div className="text-xs md:text-sm font-medium leading-tight" style={{ color: 'hsl(34, 100%, 84%)' }}>
                   Active Holders
                 </div>
                 <div className="text-2xl md:text-3xl lg:text-4xl font-bold flex items-center justify-center gap-1 md:gap-2">
