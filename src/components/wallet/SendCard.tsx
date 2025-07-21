@@ -105,36 +105,36 @@ const SendCard = () => {
         <div className="space-y-4">
           <Label className="text-base md:text-sm font-semibold text-foreground">Select token to send</Label>
           <Select value={selectedToken} onValueChange={(value: 'YIELD' | 'HASH') => setSelectedToken(value)}>
-            <SelectTrigger className="bg-muted/50 h-14 md:h-auto font-sans">
+            <SelectTrigger className="bg-muted/50 h-12 md:h-auto font-sans">
               <div className="flex items-center justify-between w-full">
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3">
                   <img 
                     src={selectedToken === 'YIELD' ? yieldIcon : hashIcon} 
                     alt={selectedToken} 
-                    className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0 object-cover" 
+                    className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover" 
                   />
-                  <span className="text-base md:text-sm font-medium font-sans">{selectedToken}</span>
+                  <span className="text-sm md:text-sm font-medium font-sans">{selectedToken}</span>
                 </div>
-                <span className="text-sm md:text-xs text-muted-foreground font-mono">{tokenBalances[selectedToken]}</span>
+                <span className="text-xs md:text-xs text-muted-foreground font-mono">{tokenBalances[selectedToken]}</span>
               </div>
             </SelectTrigger>
             <SelectContent className="bg-card/90 backdrop-blur-sm border border-border/20 z-50">
-              <SelectItem value="YIELD" className="py-4 md:py-2">
-                <div className="flex items-center justify-between w-full py-2 md:py-1">
-                  <div className="flex items-center gap-4">
-                    <img src={yieldIcon} alt="YIELD" className="w-8 h-8 md:w-6 md:h-6 rounded-full flex-shrink-0 object-cover" />
-                    <span className="text-base md:text-sm font-medium font-sans">YIELD</span>
+              <SelectItem value="YIELD" className="py-3 md:py-2">
+                <div className="flex items-center justify-between w-full py-1 md:py-1">
+                  <div className="flex items-center gap-3">
+                    <img src={yieldIcon} alt="YIELD" className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover" />
+                    <span className="text-sm md:text-sm font-medium font-sans">YIELD</span>
                   </div>
-                  <span className="text-sm md:text-xs text-muted-foreground font-mono ml-4">{tokenBalances.YIELD}</span>
+                  <span className="text-xs md:text-xs text-muted-foreground font-mono ml-4">{tokenBalances.YIELD}</span>
                 </div>
               </SelectItem>
-              <SelectItem value="HASH" className="py-4 md:py-2">
-                <div className="flex items-center justify-between w-full py-2 md:py-1">
-                  <div className="flex items-center gap-4">
-                    <img src={hashIcon} alt="HASH" className="w-8 h-8 md:w-6 md:h-6 rounded-full object-cover flex-shrink-0" />
-                    <span className="text-base md:text-sm font-medium font-sans">HASH</span>
+              <SelectItem value="HASH" className="py-3 md:py-2">
+                <div className="flex items-center justify-between w-full py-1 md:py-1">
+                  <div className="flex items-center gap-3">
+                    <img src={hashIcon} alt="HASH" className="w-6 h-6 md:w-5 md:h-5 rounded-full object-cover flex-shrink-0" />
+                    <span className="text-sm md:text-sm font-medium font-sans">HASH</span>
                   </div>
-                  <span className="text-sm md:text-xs text-muted-foreground font-mono ml-4">{tokenBalances.HASH}</span>
+                  <span className="text-xs md:text-xs text-muted-foreground font-mono ml-4">{tokenBalances.HASH}</span>
                 </div>
               </SelectItem>
             </SelectContent>
@@ -148,7 +148,7 @@ const SendCard = () => {
             placeholder="Enter recipient address..."
             value={recipientAddress}
             onChange={(e) => setRecipientAddress(e.target.value)}
-            className="font-mono text-base md:text-sm bg-muted/50 h-14 md:h-auto"
+            className="font-mono text-sm md:text-sm bg-muted/50 h-12 md:h-auto"
           />
         </div>
 
@@ -183,7 +183,7 @@ const SendCard = () => {
             placeholder={`Enter amount in ${denomination === 'token' ? selectedToken : 'USD'}`}
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            className="bg-muted/50 h-14 md:h-auto text-lg md:text-base font-sans [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&]:[-moz-appearance:textfield]"
+            className="bg-muted/50 h-12 md:h-auto text-base md:text-sm font-sans [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&]:[-moz-appearance:textfield]"
           />
           {amount && equivalent > 0 && (
             <div className="text-xs text-muted-foreground">
@@ -209,7 +209,7 @@ const SendCard = () => {
         <Button 
           onClick={handleSend} 
           size="lg"
-          className="w-full px-8 py-6 md:py-4 text-lg md:text-sm font-medium font-sans rounded-xl min-w-[200px] group"
+          className="w-full px-6 py-4 md:py-3 text-base md:text-sm font-medium font-sans rounded-xl min-w-[200px] group"
           variant="secondary"
           disabled={!amount || !recipientAddress}
         >
