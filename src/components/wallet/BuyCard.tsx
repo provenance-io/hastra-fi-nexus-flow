@@ -164,13 +164,13 @@ const BuyCard = () => {
         <div className="space-y-3">
           <div className="flex items-center justify-between">
             <Label className="text-base md:text-sm font-medium text-foreground">Amount</Label>
-            <div className="flex items-center gap-2">
-              <div className="flex items-center bg-muted/30 rounded-md p-1">
+            <div className="flex items-center gap-3">
+              <div className="flex items-center bg-muted/30 rounded-md p-1 gap-1">
                 <Button 
                   variant={denomination === 'usd' ? 'default' : 'ghost'}
                   size="sm"
                   onClick={() => setDenomination('usd')}
-                  className={`h-8 md:h-7 text-sm md:text-xs px-3 md:px-2 ${denomination === 'usd' ? 'btn-hastra' : 'text-muted-foreground hover:text-foreground'}`}
+                  className={`h-8 md:h-7 text-sm md:text-xs px-4 md:px-3 ${denomination === 'usd' ? 'btn-hastra' : 'text-muted-foreground hover:text-foreground'}`}
                 >
                   <DollarSign className="w-4 h-4 md:w-3 md:h-3 mr-1" />
                   USD
@@ -179,7 +179,7 @@ const BuyCard = () => {
                   variant={denomination === 'token' ? 'default' : 'ghost'}
                   size="sm"
                   onClick={() => setDenomination('token')}
-                  className={`h-8 md:h-7 text-sm md:text-xs px-3 md:px-2 ${denomination === 'token' ? 'btn-hastra' : 'text-muted-foreground hover:text-foreground'}`}
+                  className={`h-8 md:h-7 text-sm md:text-xs px-4 md:px-3 ${denomination === 'token' ? 'btn-hastra' : 'text-muted-foreground hover:text-foreground'}`}
                 >
                   {sellAsset}
                 </Button>
@@ -188,7 +188,7 @@ const BuyCard = () => {
                 variant="ghost"
                 size="sm" 
                 onClick={handleMaxClick}
-                className="h-8 md:h-7 px-3 md:px-2 text-sm md:text-xs font-medium text-[hsl(34_100%_84%)] hover:bg-orange-900/30 hover:text-[hsl(34_100%_84%)] transition-all duration-200 bg-muted/30 rounded-md"
+                className="h-8 md:h-7 px-4 md:px-3 text-sm md:text-xs font-medium text-[hsl(34_100%_84%)] hover:bg-orange-900/30 hover:text-[hsl(34_100%_84%)] transition-all duration-200 bg-muted/30 rounded-md"
               >
                 Max
               </Button>
