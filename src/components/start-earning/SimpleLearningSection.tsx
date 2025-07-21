@@ -9,19 +9,6 @@ import DefiBasiscsModal from './modals/DefiBasiscsModal';
 import MasteringDefiModal from './modals/MasteringDefiModal';
 import HastraForDummiesModal from './modals/HastraForDummiesModal';
 
-/**
- * Section header component for learning resources
- */
-const SectionHeader = () => (
-  <div className="text-center mb-16 animate-fade-in">
-    <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-6">
-      <span className="text-gradient">{LEARNING_SECTION_CONTENT.TITLE}</span>
-    </h2>
-    <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-      {LEARNING_SECTION_CONTENT.SUBTITLE}
-    </p>
-  </div>
-);
 
 /**
  * Learning areas grid component with modal functionality
@@ -81,7 +68,6 @@ const SimpleLearningSection = () => {
         className="py-20 md:py-32 relative"
       >
         <div className="container">
-          <SectionHeader />
           <LearningAreasGrid onCardClick={handleCardClick} />
           <QuickStartCTA />
         </div>

@@ -8,7 +8,6 @@ import { SECTION_DATA_ATTRIBUTES } from '@/constants/sections';
  * Hero section constants
  */
 const HERO_CONTENT = {
-  BADGE: "DeFi Education Hub",
   MAIN_TITLE: "Learn DeFi",
   SUBTITLE: "Start Earning",
   DESCRIPTION: "Master DeFi fundamentals and start earning with YIELD and HOMES tokens.",
@@ -29,17 +28,6 @@ const handleScrollToLearning = (): void => {
   scrollToSection(SECTION_DATA_ATTRIBUTES.LEARNING);
 };
 
-/**
- * Hero badge component with animated indicator
- */
-const HeroBadge = () => (
-  <div className="inline-flex items-center text-sm font-medium text-foreground/90">
-    <span className="mr-2 w-2 h-2 bg-header-glow rounded-full animate-pulse" />
-    <span className="flex items-center gap-1">
-      {HERO_CONTENT.BADGE}
-    </span>
-  </div>
-);
 
 /**
  * Main hero heading with gradient text effects
@@ -108,7 +96,6 @@ const LearnHero = () => {
     <section className="relative py-24 md:py-40 overflow-hidden" role="banner">
       <div className="container relative z-20">
         <div className="text-center space-y-8 animate-fade-in">
-          <HeroBadge />
           <HeroHeading />
           <HeroDescription />
           <HeroCTAButtons />
