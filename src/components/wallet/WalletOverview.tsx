@@ -11,6 +11,7 @@ const WalletOverview = () => {
   const { 
     tokens, 
     claimInterest, 
+    claimAllInterest,
     getTotalPortfolioValue, 
     getTotalInterestEarned,
     getTotalUnclaimedInterest 
@@ -27,6 +28,10 @@ const WalletOverview = () => {
 
   const handleTokenClaim = (tokenSymbol: string) => (claimedAmount: number) => {
     claimInterest(tokenSymbol, claimedAmount);
+  };
+
+  const handleClaimAll = () => {
+    claimAllInterest();
   };
 
   const totalPortfolioValue = getTotalPortfolioValue();
@@ -50,6 +55,7 @@ const WalletOverview = () => {
           totalPortfolioValue={totalPortfolioValue}
           totalInterestEarned={totalInterestEarned}
           totalUnclaimedInterest={totalUnclaimedInterest}
+          onClaimAll={handleClaimAll}
         />
 
         {/* Token Holdings */}

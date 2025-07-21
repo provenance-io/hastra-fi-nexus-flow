@@ -52,6 +52,18 @@ export const useTokenPortfolio = () => {
     );
   }, []);
 
+  const claimAllInterest = useCallback(() => {
+    setTokens(prevTokens => 
+      prevTokens.map(token => ({
+        ...token,
+        amount: token.amount + token.unclaimedInterest,
+        value: token.value + token.unclaimedInterest, // Assuming 1:1 for simplicity
+        totalInterestEarned: token.totalInterestEarned + token.unclaimedInterest,
+        unclaimedInterest: 0
+      }))
+    );
+  }, []);
+
   const getTotalPortfolioValue = useCallback(() => {
     return tokens.reduce((total, token) => total + token.value, 0);
   }, [tokens]);
@@ -67,6 +79,7 @@ export const useTokenPortfolio = () => {
   return {
     tokens,
     claimInterest,
+    claimAllInterest,
     getTotalPortfolioValue,
     getTotalInterestEarned,
     getTotalUnclaimedInterest
