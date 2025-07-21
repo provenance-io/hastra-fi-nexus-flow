@@ -79,7 +79,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       toast({
         title: "🟢 Wallet Connected",
         description: `Successfully connected ${wallet?.adapter?.name || 'wallet'}`,
-        className: "border-l-4 border-l-crypto-accent bg-crypto-accent/10 shadow-glow",
+        className: "bg-background/30 backdrop-blur-md border border-border/20 hover:border-orange-300/20 shadow-2xl",
       });
     }
   }, [connected, connecting, publicKey, wallet, toast, walletState.isConnected]);
