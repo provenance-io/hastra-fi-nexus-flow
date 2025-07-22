@@ -20,6 +20,8 @@ import Learn from "./pages/Learn";
 import Earn from "./pages/Earn";
 import BrandGuidePage from "./pages/BrandGuide";
 import Terms from "./pages/Terms";
+import {ReactQueryDevtools} from '@tanstack/react-query-devtools';
+
 
 const queryClient = new QueryClient();
 
@@ -44,7 +46,7 @@ const App = () => (
                 <Route path="/earn" element={<Earn />} />
                 <Route path="/terms" element={<Terms />} />
                 <Route path="/brand-guide" element={<BrandGuidePage />} />
-                
+
                 <Route path="/yield" element={<WYLDsPage />} />
                 <Route path="/homes" element={<HOMESPage />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
@@ -55,6 +57,8 @@ const App = () => (
           </div>
         </BrowserRouter>
       </TooltipProvider>
+        <ReactQueryDevtools initialIsOpen={false}/>
+
     </WalletProvider>
   </SolanaWalletProvider>
 </QueryClientProvider>

@@ -5,6 +5,7 @@ import TokenLineItem from './TokenLineItem';
 import WalletHeader from './WalletHeader';
 import PortfolioSummary from './PortfolioSummary';
 import { useState } from 'react';
+import {YIELD} from "@/types/tokens.ts";
 
 const WalletOverview = () => {
   const { refreshBalance, address, walletType } = useWallet();
@@ -76,7 +77,7 @@ const WalletOverview = () => {
                   totalInterestEarned={token.totalInterestEarned}
                   unclaimedInterest={token.unclaimedInterest}
                   icon={token.icon}
-                  onClaim={handleTokenClaim(token.token)}
+                  onClaim={token.address === YIELD ? handleTokenClaim(token.token) : undefined}
                 />
               ))}
             </div>

@@ -1,62 +1,71 @@
-import React, { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { ArrowUpDown, DollarSign } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
-import usdcIcon from '/lovable-uploads/dce72281-6459-4785-814f-a1e9872bbb8d.png';
-import solanaIcon from '/lovable-uploads/05bbaafe-890c-4692-bac6-96927ee62b7e.png';
-import yieldIcon from '/lovable-uploads/0db58d6a-9142-44d8-8e1d-a2283f6ac976.png';
-import hashIcon from '/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png';
+import React, {useEffect, useState} from 'react';
+import {Button} from '@/components/ui/button';
+import {Input} from '@/components/ui/input';
+import {Label} from '@/components/ui/label';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger
+} from '@/components/ui/select';
+import {ArrowUpDown, DollarSign} from 'lucide-react';
+import {useToast} from '@/hooks/use-toast';
+import hastraIcon
+  from '/lovable-uploads/9da758ec-2299-4fe7-82e4-e7fb95e9cdb8.png';
 
+import {useTokenPortfolio} from "@/hooks/useTokenPortfolio.ts";
+import {useCoinGeckoPrice} from "@/hooks/useSolanaQuery.ts";
+import {USDC, YIELD} from "@/types/tokens";
+import {useDepositAndMint} from "@/hooks/use-solana-tx.ts";
+import {AnchorError} from "@coral-xyz/anchor";
 const BuyCard = () => {
-  const [sellAsset, setSellAsset] = useState<'USDC' | 'SOL'>('USDC');
-  const [buyAsset, setBuyAsset] = useState<'YIELD' | 'HASH'>('YIELD');
+
+  const [exchangeRate, setExchangeRate] = useState<object>({});
+  const [sellAsset, setSellAsset] = useState<string>(USDC);
+  const [buyAsset, setBuyAsset] = useState<string>(YIELD);
   const [amount, setAmount] = useState('');
   const [denomination, setDenomination] = useState<'token' | 'usd'>('usd');
   const { toast } = useToast();
+  const { data: geckoPrice } = useCoinGeckoPrice();
+  const { tokens } = useTokenPortfolio();
+  const {invoke} = useDepositAndMint();
 
-  // Mock exchange rates for calculation
-  const exchangeRates = {
-    'SOL': 200, // SOL to USD
-    'USDC': 1,  // USDC to USD
-    'YIELD': 0.50, // YIELD to USD
-    'HASH': 1.20   // HASH to USD
-  };
+  useEffect(() => {
+    const o = {};
+    o['SOL'] = geckoPrice?.solana?.usd as number || 0; // SOL to USD
+    o[USDC] = 1;  // USDC to USD
+    o[YIELD] = 1; // YIELD to USD
+    o['HASH'] = geckoPrice?.['hash-2']?.usd as number || 0;   // HASH to USD
 
-  const mockBalances = {
-    'SOL': 5.5,
-    'USDC': 1200
-  };
+    setExchangeRate(o)
+  }, [setExchangeRate, geckoPrice]);
 
   const calculateReceiveAmount = () => {
     if (!amount || isNaN(parseFloat(amount))) return { tokens: 0, usd: 0 };
-    
+
     const inputAmount = parseFloat(amount);
     let usdValue: number;
-    
+
     if (denomination === 'usd') {
       usdValue = inputAmount;
     } else {
-      usdValue = inputAmount * exchangeRates[sellAsset];
+      usdValue = inputAmount * exchangeRate[sellAsset];
     }
-    
-    const receiveTokens = usdValue / exchangeRates[buyAsset];
-    return { 
-      tokens: receiveTokens, 
-      usd: usdValue 
+
+    const receiveTokens = usdValue / exchangeRate[buyAsset];
+    return {
+      tokens: receiveTokens,
+      usd: usdValue
     };
   };
 
   const handleMaxClick = () => {
-    const maxBalance = mockBalances[sellAsset];
+    const maxBalance = tokens.find(t => t.address === sellAsset);
     const gasBuffer = sellAsset === 'SOL' ? 0.01 : 0; // Reserve SOL for gas
-    const maxAmount = Math.max(0, maxBalance - gasBuffer);
+    const maxAmount = Math.max(0, (maxBalance?.amount || 0) - gasBuffer);
     
     if (denomination === 'usd') {
-      setAmount((maxAmount * exchangeRates[sellAsset]).toFixed(2));
+      setAmount((maxAmount * exchangeRate[sellAsset]).toFixed(2));
     } else {
       setAmount(maxAmount.toFixed(6));
     }
@@ -64,7 +73,7 @@ const BuyCard = () => {
 
   const handleSwap = () => {
     const receiveAmount = calculateReceiveAmount();
-    if (receiveAmount.tokens === 0) {
+    if (receiveAmount.tokens === 0 || receiveAmount.tokens > balance(sellAsset)) {
       toast({
         title: "Invalid Amount",
         description: "Please enter a valid amount to swap.",
@@ -75,10 +84,50 @@ const BuyCard = () => {
 
     toast({
       title: "⚡ Swap Initiated",
-      description: `Swapping ${amount} ${denomination === 'usd' ? 'USD' : sellAsset} for ${receiveAmount.tokens.toFixed(6)} ${buyAsset}`,
+      description: `Swapping ${amount} ${denomination === 'usd' ? 'USD' : symbol(sellAsset)} for ${receiveAmount.tokens.toFixed(6)} ${symbol(buyAsset)}`,
       className: "border-l-4 border-l-hastra-teal bg-hastra-teal/10 shadow-hastra",
     });
+
+    invoke(Number(amount)).then((response) => {
+      toast({
+        title: "Success",
+        description: `Swapped ${amount} ${denomination === 'usd' ? 'USD' : symbol(sellAsset)} for ${receiveAmount.tokens.toFixed(6)} ${symbol(buyAsset)}`,
+        className: "border-l-4 border-l-hastra-teal bg-hastra-teal/10 shadow-hastra",
+      });
+    }).catch((error) => {
+      let response = 'error';
+      console.error(error);
+      if (error instanceof AnchorError) {
+        const e = error as AnchorError;
+        response = `${e.error.errorCode.number} ${e.error.errorCode.code} ${e.error.errorMessage}`;
+      } else {
+        const e = JSON.stringify(error);
+        response = e;
+      }
+
+      toast({
+        title: "Error",
+        description: response,
+        variant:  "destructive"
+      });
+    });
+
   };
+
+  const balance = (address: string) => {
+    const t = tokens.find(t => t.address === address);
+    return t ? t.amount : 0;
+  }
+
+  const symbol = (address: string) => {
+    const t = tokens.find(t => t.address === address);
+    return t ? t.token : '';
+  }
+
+  const icon = (address: string, defaultIcon: string = hastraIcon) => {
+    const t = tokens.find(t => t.address === address);
+    return t?.icon ? t.icon : defaultIcon;
+  }
 
   const receiveAmount = calculateReceiveAmount();
 
@@ -92,37 +141,28 @@ const BuyCard = () => {
         {/* Sell Asset Selection */}
         <div className="space-y-4">
           <Label className="text-base md:text-sm font-semibold text-foreground">You're selling</Label>
-          <Select value={sellAsset} onValueChange={(value: 'USDC' | 'SOL') => setSellAsset(value)}>
+          <Select value={sellAsset} onValueChange={(value) => setSellAsset(value)}>
             <SelectTrigger className="bg-muted/50 h-12 md:h-auto font-sans">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center gap-3">
                   <img 
-                    src={sellAsset === 'USDC' ? usdcIcon : solanaIcon} 
-                    alt={sellAsset === 'USDC' ? 'USDC' : 'Solana'} 
+                    src={icon(sellAsset)}
+                    alt={symbol(sellAsset)}
                     className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover" 
                   />
-                  <span className="text-sm md:text-sm font-medium font-sans">{sellAsset === 'USDC' ? 'USDC' : 'Solana'}</span>
+                  <span className="text-sm md:text-sm font-medium font-sans">{symbol(sellAsset)}</span>
                 </div>
-                <span className="text-xs md:text-xs text-muted-foreground font-mono">{mockBalances[sellAsset]}</span>
+                <span className="text-xs md:text-xs text-muted-foreground font-mono">{balance(sellAsset)}</span>
               </div>
             </SelectTrigger>
             <SelectContent className="bg-card/90 backdrop-blur-sm border border-border/20 z-50">
-              <SelectItem value="USDC" className="py-3 md:py-2">
+              <SelectItem value={USDC} className="py-3 md:py-2">
                 <div className="flex items-center justify-between w-full py-1 md:py-1">
                   <div className="flex items-center gap-3">
-                    <img src={usdcIcon} alt="USDC" className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover" />
-                    <span className="text-sm md:text-sm font-medium font-sans">USDC</span>
+                    <img src={icon(sellAsset)} alt={symbol(sellAsset)} className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover" />
+                    <span className="text-sm md:text-sm font-medium font-sans">{symbol(sellAsset)}</span>
                   </div>
-                  <span className="text-xs md:text-xs text-muted-foreground font-mono ml-4">{mockBalances.USDC}</span>
-                </div>
-              </SelectItem>
-              <SelectItem value="SOL" className="py-3 md:py-2">
-                <div className="flex items-center justify-between w-full py-1 md:py-1">
-                  <div className="flex items-center gap-3">
-                    <img src={solanaIcon} alt="Solana" className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover" />
-                    <span className="text-sm md:text-sm font-medium font-sans">Solana</span>
-                  </div>
-                  <span className="text-xs md:text-xs text-muted-foreground font-mono ml-4">{mockBalances.SOL}</span>
+                  <span className="text-xs md:text-xs text-muted-foreground font-mono ml-4">{balance(USDC)}</span>
                 </div>
               </SelectItem>
             </SelectContent>
@@ -132,28 +172,22 @@ const BuyCard = () => {
         {/* Buy Asset Selection */}
         <div className="space-y-4">
           <Label className="text-base md:text-sm font-semibold text-foreground">You're buying</Label>
-          <Select value={buyAsset} onValueChange={(value: 'YIELD' | 'HASH') => setBuyAsset(value)}>
+          <Select value={buyAsset} onValueChange={(value) => setBuyAsset(value)}>
             <SelectTrigger className="bg-muted/50 h-12 md:h-auto font-sans">
               <div className="flex items-center gap-3 w-full">
                 <img 
-                  src={buyAsset === 'YIELD' ? yieldIcon : hashIcon} 
-                  alt={buyAsset} 
+                  src={icon(buyAsset)}
+                  alt={symbol(buyAsset)}
                   className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover" 
                 />
-                <span className="text-sm md:text-sm font-medium font-sans">{buyAsset}</span>
+                <span className="text-sm md:text-sm font-medium font-sans">{symbol(buyAsset)}</span>
               </div>
             </SelectTrigger>
             <SelectContent className="bg-card/90 backdrop-blur-sm border border-border/20 z-50">
               <SelectItem value="YIELD" className="py-3 md:py-2">
                 <div className="flex items-center gap-3 py-1 md:py-1">
-                  <img src={yieldIcon} alt="YIELD" className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover" />
-                  <span className="text-sm md:text-sm font-medium font-sans">YIELD</span>
-                </div>
-              </SelectItem>
-              <SelectItem value="HASH" className="py-3 md:py-2">
-                <div className="flex items-center gap-3 py-1 md:py-1">
-                  <img src={hashIcon} alt="HASH" className="w-6 h-6 md:w-5 md:h-5 rounded-full object-cover flex-shrink-0" />
-                  <span className="text-sm md:text-sm font-medium font-sans">HASH</span>
+                  <img src={icon(buyAsset)} alt={symbol(buyAsset)} className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover" />
+                  <span className="text-sm md:text-sm font-medium font-sans">{symbol(buyAsset)}</span>
                 </div>
               </SelectItem>
             </SelectContent>
@@ -181,7 +215,7 @@ const BuyCard = () => {
                   onClick={() => setDenomination('token')}
                   className={`h-7 text-xs px-2 min-w-[50px] ${denomination === 'token' ? 'btn-hastra' : 'text-muted-foreground hover:text-auburn-primary'}`}
                 >
-                  {sellAsset}
+                  {symbol(sellAsset)}
                 </Button>
               </div>
               <Button 
@@ -198,7 +232,7 @@ const BuyCard = () => {
             type="number"
             min="0"
             step="any"
-            placeholder={`Enter amount in ${denomination === 'usd' ? 'USD' : sellAsset}`}
+            placeholder={`Enter amount in ${denomination === 'usd' ? 'USD' : symbol(sellAsset)}`}
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             className="bg-muted/50 h-12 md:h-auto text-base md:text-sm [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&]:[-moz-appearance:textfield]"
@@ -209,7 +243,7 @@ const BuyCard = () => {
         {amount && receiveAmount.tokens > 0 && (
           <div className="bg-background/30 border border-orange-800/30 rounded-xl p-4 md:p-6">
             <div className="text-sm md:text-sm text-muted-foreground mb-2">You'll receive</div>
-            <div className="font-semibold text-lg md:text-base text-[hsl(34_100%_84%)]">{receiveAmount.tokens.toFixed(2)} {buyAsset}</div>
+            <div className="font-semibold text-lg md:text-base text-[hsl(34_100%_84%)]">{receiveAmount.tokens.toFixed(2)} {symbol(buyAsset)}</div>
             <div className="text-xs md:text-xs text-muted-foreground">${receiveAmount.usd.toFixed(2)} USD</div>
           </div>
         )}
@@ -222,7 +256,7 @@ const BuyCard = () => {
           variant="secondary"
           disabled={!amount || receiveAmount.tokens === 0}
         >
-          Swap {sellAsset} for {buyAsset}
+          Swap {symbol(sellAsset)} for {symbol(buyAsset)}
         </Button>
         </div>
     </div>
