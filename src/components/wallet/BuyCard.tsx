@@ -25,6 +25,7 @@ const BuyCard = () => {
   const [buyAsset, setBuyAsset] = useState<string>(YIELD);
   const [amount, setAmount] = useState('');
   const [denomination, setDenomination] = useState<'token' | 'usd'>('usd');
+  const [txId, setTxId] = useState('');
   const { toast } = useToast();
   const { data: geckoPrice } = useCoinGeckoPrice();
   const { tokens } = useTokenPortfolio();
@@ -38,7 +39,9 @@ const BuyCard = () => {
     o['HASH'] = geckoPrice?.['hash-2']?.usd as number || 0;   // HASH to USD
 
     setExchangeRate(o)
-  }, [setExchangeRate, geckoPrice]);
+
+    console.dir(tokens);
+  }, [setExchangeRate, geckoPrice, tokens]);
 
   const calculateReceiveAmount = () => {
     if (!amount || isNaN(parseFloat(amount))) return { tokens: 0, usd: 0 };
@@ -72,6 +75,7 @@ const BuyCard = () => {
   };
 
   const handleSwap = () => {
+    setTxId("");
     const receiveAmount = calculateReceiveAmount();
     if (receiveAmount.tokens === 0 || receiveAmount.tokens > balance(sellAsset)) {
       toast({
@@ -89,20 +93,20 @@ const BuyCard = () => {
     });
 
     invoke(Number(amount)).then((response) => {
+      setTxId(response.txId);
       toast({
         title: "Success",
         description: `Swapped ${amount} ${denomination === 'usd' ? 'USD' : symbol(sellAsset)} for ${receiveAmount.tokens.toFixed(6)} ${symbol(buyAsset)}`,
         className: "border-l-4 border-l-hastra-teal bg-hastra-teal/10 shadow-hastra",
       });
     }).catch((error) => {
-      let response = 'error';
+      let response;
       console.error(error);
       if (error instanceof AnchorError) {
         const e = error as AnchorError;
         response = `${e.error.errorCode.number} ${e.error.errorCode.code} ${e.error.errorMessage}`;
       } else {
-        const e = JSON.stringify(error);
-        response = e;
+        response = JSON.stringify(error);
       }
 
       toast({
@@ -234,7 +238,10 @@ const BuyCard = () => {
             step="any"
             placeholder={`Enter amount in ${denomination === 'usd' ? 'USD' : symbol(sellAsset)}`}
             value={amount}
-            onChange={(e) => setAmount(e.target.value)}
+            onChange={(e) => {
+              setAmount(e.target.value);
+              setTxId("");
+            }}
             className="bg-muted/50 h-12 md:h-auto text-base md:text-sm [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&]:[-moz-appearance:textfield]"
           />
         </div>
@@ -245,6 +252,14 @@ const BuyCard = () => {
             <div className="text-sm md:text-sm text-muted-foreground mb-2">You'll receive</div>
             <div className="font-semibold text-lg md:text-base text-[hsl(34_100%_84%)]">{receiveAmount.tokens.toFixed(2)} {symbol(buyAsset)}</div>
             <div className="text-xs md:text-xs text-muted-foreground">${receiveAmount.usd.toFixed(2)} USD</div>
+            { txId && <div className="text-xs text-muted-foreground font-mono mt-1">
+              <a href={`${import.meta.env.VITE_EXPLORER_URL}/tx/${txId}?cluster=${import.meta.env.VITE_SOLANA_CLUSTER_NAME}`}
+                 target="_blank"
+                 className={"underline"}
+                 rel="noopener noreferrer">
+                View {txId.slice(0,8)}...{txId.slice(-8)} on Explorer
+              </a>
+            </div>}
           </div>
         )}
 

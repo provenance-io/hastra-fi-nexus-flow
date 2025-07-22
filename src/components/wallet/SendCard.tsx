@@ -11,7 +11,6 @@ import {
 import {DollarSign, Send} from 'lucide-react';
 import {useToast} from '@/hooks/use-toast';
 import {useCoinGeckoPrice} from "@/hooks/useSolanaQuery.ts";
-import {useWallet} from "@/contexts/WalletContext.tsx";
 import {USDC, YIELD} from "@/types/tokens.ts";
 import {PublicKey} from "@solana/web3.js";
 import hastraIcon
@@ -24,6 +23,7 @@ import {AnchorError} from "@coral-xyz/anchor";
 const SendCard = () => {
   const [exchangeRate, setExchangeRate] = useState<object>({});
   const [selectedToken, setSelectedToken] = useState<string>(YIELD);
+  const [txId, setTxId] = useState<string>('');
   const [recipientAddress, setRecipientAddress] = useState('');
   const [amount, setAmount] = useState('');
   const [denomination, setDenomination] = useState<'token' | 'usd'>('token');
@@ -78,6 +78,7 @@ const SendCard = () => {
   }
 
   const handleSend = () => {
+    setTxId("");
     if (!recipientAddress) {
       toast({
         title: "Recipient Required",
@@ -122,20 +123,20 @@ const SendCard = () => {
     });
 
     invoke(recipientAddress, selectedToken, Number(amount)).then((response) => {
+      setTxId(response.txId);
       toast({
         title: "Success",
         description: `Sent ${amount} ${denomination === 'usd' ? 'USD' : symbol(selectedToken)} to ${recipientAddress.slice(0,8)}...`,
         className: "border-l-4 border-l-hastra-teal bg-hastra-teal/10 shadow-hastra",
       });
     }).catch((error) => {
-      let response = 'error';
+      let response;
       console.error(error);
       if (error instanceof AnchorError) {
         const e = error as AnchorError;
         response = `${e.error.errorCode.number} ${e.error.errorCode.code} ${e.error.errorMessage}`;
       } else {
-        const e = JSON.stringify(error);
-        response = e;
+        response = JSON.stringify(error);
       }
 
       toast({
@@ -173,7 +174,7 @@ const SendCard = () => {
               </div>
             </SelectTrigger>
             <SelectContent className="bg-card/90 backdrop-blur-sm border border-border/20 z-50">
-              {tokens.map((token, index) => (
+              {tokens.map((token) => (
                 <SelectItem value={token.address} className="py-3 md:py-2">
                   <div className="flex items-center justify-between w-full py-1 md:py-1">
                     <div className="flex items-center gap-3">
@@ -229,7 +230,10 @@ const SendCard = () => {
             step="any"
             placeholder={`Enter amount in ${denomination === 'token' ? symbol(selectedToken) : 'USD'}`}
             value={amount}
-            onChange={(e) => setAmount(e.target.value)}
+            onChange={(e) => {
+              setAmount(e.target.value)
+              setTxId("")
+            }}
             className="bg-muted/50 h-12 md:h-auto text-base md:text-sm font-sans [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&]:[-moz-appearance:textfield]"
           />
           {amount && equivalent > 0 && (
@@ -249,7 +253,14 @@ const SendCard = () => {
             <div className="text-xs text-muted-foreground font-mono mt-1">
               To: {recipientAddress.slice(0, 8)}...{recipientAddress.slice(-8)}
             </div>
-            <div className="text-xs text-muted-foreground mt-1">Network fee: ~$0.05</div>
+            { txId && <div className="text-xs text-muted-foreground font-mono mt-1">
+              <a href={`${import.meta.env.VITE_EXPLORER_URL}/tx/${txId}?cluster=${import.meta.env.VITE_SOLANA_CLUSTER_NAME}`}
+                 target="_blank"
+                 className={"underline"}
+                 rel="noopener noreferrer">
+                View {txId.slice(0,8)}...{txId.slice(-8)} on Explorer
+              </a>
+            </div>}
           </div>
         )}
 

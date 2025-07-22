@@ -9,15 +9,15 @@ import {YIELD} from "@/types/tokens.ts";
 
 const WalletOverview = () => {
   const { refreshBalance, address, walletType } = useWallet();
-  const { 
-    tokens, 
-    claimInterest, 
+  const {
+    tokens,
+    claimInterest,
     claimAllInterest,
-    getTotalPortfolioValue, 
+    getTotalPortfolioValue,
     getTotalInterestEarned,
-    getTotalUnclaimedInterest 
+    getTotalUnclaimedInterest
   } = useTokenPortfolio();
-  
+
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [showTokenHoldings, setShowTokenHoldings] = useState(true);
 
@@ -49,7 +49,7 @@ const WalletOverview = () => {
         onRefresh={handleRefreshBalance}
         onToggleHoldings={() => setShowTokenHoldings(!showTokenHoldings)}
       />
-      
+
       <div className="bg-background/20 rounded-b-3xl">
         {/* Portfolio Summary */}
         <PortfolioSummary
@@ -66,6 +66,7 @@ const WalletOverview = () => {
               <h3 className="text-xl font-semibold text-foreground">Token Holdings</h3>
               <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent flex-1 ml-6"></div>
             </div>
+            { (tokens && tokens.length > 0) &&
             <div className="space-y-4">
               {tokens.map((token) => (
                 <TokenLineItem
@@ -81,6 +82,10 @@ const WalletOverview = () => {
                 />
               ))}
             </div>
+            }
+              {(!tokens || tokens.length === 0) &&
+                <div className="flex items-center justify-between">You must have SOL and USDC in your wallet to buy and sell YIELD.</div>
+              }
           </div>
         )}
       </div>
