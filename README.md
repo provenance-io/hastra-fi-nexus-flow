@@ -1,73 +1,92 @@
-# Welcome to your Lovable project
+# Hastra
 
-## Project info
+Hastra is part of the **Hastra Finance** platform — a forward-looking initiative leveraging blockchain technology to reimagine the flow of assets and capital in financial markets. Hastra enables a new generation of digital finance through programmable, composable, and transparent infrastructure built on the Provenance Blockchain.
 
-**URL**: https://lovable.dev/projects/1e8d1b97-9882-4778-bd70-3688c5f7d54e
+## 🌐 About Hastra
 
-## How can I edit this code?
+**Hastra Finance** is an ecosystem of DeFi and TradFi financial tools designed to simplify and accelerate how value moves in today's digital economy. Built with trust, compliance, and innovation at its core, Hastra helps developers and institutions alike launch, manage, and automate financial workflows using blockchain-native primitives.
 
-There are several ways of editing your application.
+### Core Goals
+- **Reduce friction** in traditional finance using decentralized infrastructure
+- **Accelerate asset mobility** across tokenized and real-world financial products
+- **Enable programmability** in money movement, governance, and capital deployment
 
-**Use Lovable**
+## 🔧 Technology Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/1e8d1b97-9882-4778-bd70-3688c5f7d54e) and start prompting.
+Hastra is built using:
+- **TypeScript** and **React**
+- **Tailwind CSS** for UI styling
+- **Vite** for front-end tooling
+- **Provenance Blockchain** for on-chain integration
+- **Cosmos SDK / CosmJS** to interact with governance, tokens, and smart contracts
+- **WalletConnect** and **Keplr** for user wallet interaction
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🚀 Getting Started
 
-**Use your preferred IDE**
+### Prerequisites
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Ensure you have the following installed:
+- Node.js (>=18)
+- pnpm (preferred) or npm
+- Git
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Clone the Repository
 
-Follow these steps:
+```bash
+git clone https://github.com/provenance-io/hastra-fi-nexus-flow.git
+cd hastra-fi-nexus-flow
+```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Install Dependencies
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+```bash
+pnpm install
+# or
+npm install
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Run the App Locally
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+pnpm dev
+# or
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The app will start at [http://localhost:5173](http://localhost:5173)
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Build for Production
 
-**Use GitHub Codespaces**
+```bash
+pnpm build
+# or
+npm run build
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Preview Production Build
 
-## What technologies are used for this project?
+```bash
+pnpm preview
+# or
+npm run preview
+```
 
-This project is built with:
+## 🧪 Testing
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+TBD – Test suite setup and instructions coming soon.
 
-## How can I deploy this project?
+## 📄 License
 
-Simply open [Lovable](https://lovable.dev/projects/1e8d1b97-9882-4778-bd70-3688c5f7d54e) and click on Share -> Publish.
+[Apache 2.0](https://github.com/provenance-io/hastra-fi-nexus-flow/blob/main/LICENSE)
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
+## 🙌 Contributing
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+We welcome issues, feedback, and pull requests! Please open an issue to discuss your feature request or bug fix before submitting a PR.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+---
+
+## 🌍 Learn More
+
+Visit [https://test.hastra.io/about](https://test.hastra.io/about) to explore Hastra Finance and its vision to reshape capital markets using blockchain.
