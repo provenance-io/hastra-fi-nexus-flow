@@ -3,6 +3,7 @@ import { DollarSign, TrendingUp, Gift } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
+import {useWallet} from "@/contexts/WalletContext.tsx";
 
 interface PortfolioSummaryProps {
   totalPortfolioValue: number;

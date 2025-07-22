@@ -1,7 +1,13 @@
-
-import { useState, useCallback } from 'react';
+import {useCallback, useEffect, useState} from 'react';
+import {useWallet} from "@/contexts/WalletContext.tsx";
+import {clusterApiUrl, Connection, PublicKey} from "@solana/web3.js";
+import {useQuery} from "@tanstack/react-query";
+import {getAssociatedTokenAddress} from "@solana/spl-token";
+import {Metaplex} from "@metaplex-foundation/js";
+import {useSolBalanceQuery} from "@/hooks/useSolanaQuery.ts";
 
 export interface TokenData {
+  address: string;
   token: string;
   amount: number;
   value: number;
@@ -9,31 +15,84 @@ export interface TokenData {
   totalInterestEarned: number;
   unclaimedInterest: number;
   icon: string;
+  mint: string;
 }
 
-const initialTokens: TokenData[] = [
-  {
-    token: 'YIELD',
-    amount: 850.25,
-    value: 850.25,
-    apy: 8.0,
-    totalInterestEarned: 68.02,
-    unclaimedInterest: 12.45,
-    icon: '/lovable-uploads/08452a7b-6782-4b0a-900e-0f0c99a4fc4e.png'
-  },
-  {
-    token: 'HASH (Sol)',
-    amount: 127.43,
-    value: 400.20,
-    apy: 12.5,
-    totalInterestEarned: 50.03,
-    unclaimedInterest: 8.67,
-    icon: '/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png'
-  }
-];
+const connection = new Connection(clusterApiUrl(import.meta.env.VITE_SOLANA_CLUSTER_NAME), 'confirmed');
+const metaplex = Metaplex.make(connection);
 
+export const useTokenPortfolioQuery = (publicKey: PublicKey, tokenMintAddresses: string[] =
+[`${import.meta.env.VITE_SOLANA_USDC_MINT}`, `${import.meta.env.VITE_SOLANA_YIELD_MINT}`]) => {
+  return useQuery<TokenData[], Error>({
+    queryKey: ['tokenPortfolio', publicKey],
+    enabled: !!publicKey,
+    queryFn: async () => {
+      if (!publicKey) throw new Error('No pubkey');
+      return await Promise.all(tokenMintAddresses.map(async (address) => {
+        const mint = new PublicKey(address);
+        const ta = await getAssociatedTokenAddress(mint, publicKey);
+        const balanceInfo = await connection.getTokenAccountBalance(ta);
+
+        const value = Number(balanceInfo.value.amount) / Math.pow(10, balanceInfo.value.decimals);
+        const amount = balanceInfo.value.uiAmount;
+        try {
+          const nftMetadata = await metaplex.nfts().findByMint({ mintAddress: mint });
+          const metadata = await fetch(nftMetadata.uri);
+          const j = await metadata.json();
+          if (j) {
+            return {
+              address: address,
+              token: j.symbol,
+              amount: amount,
+              value: value,
+              apy: 0,
+              totalInterestEarned: 0,
+              unclaimedInterest: 0,
+              icon: j.image,
+              mint: mint.toBase58()
+            } as TokenData;
+          }
+        } catch (e) {
+          console.error(`Error processing mint address ${mint.toBase58()}`);
+          console.error(e);
+        }
+        return {
+          address: address,
+          token: "UNKNOWN",
+          amount: amount,
+          value: value,
+          apy: 0,
+          totalInterestEarned: 0,
+          unclaimedInterest: 0,
+          icon: "",
+          mint: mint.toBase58()
+        } as TokenData
+      }));
+    },
+    initialData: [],
+    refetchInterval: 5000, // Refetch every minute
+  });
+}
 export const useTokenPortfolio = () => {
-  const [tokens, setTokens] = useState<TokenData[]>(initialTokens);
+  const [tokens, setTokens] = useState<TokenData[]>([]);
+
+  const {
+    address
+  } = useWallet();
+
+  const {
+    data: tokenData
+  } = useTokenPortfolioQuery(new PublicKey(address));
+
+  const {
+    data: solBalance
+  } = useSolBalanceQuery(new PublicKey(address));
+
+  useEffect(() => {
+    if(tokenData) {
+      setTokens(tokenData);
+    }
+  }, [tokenData]);
 
   const claimInterest = useCallback((tokenSymbol: string, claimedAmount: number) => {
     setTokens(prevTokens => 
@@ -65,19 +124,19 @@ export const useTokenPortfolio = () => {
   }, []);
 
   const getTotalPortfolioValue = useCallback(() => {
-    return tokens.reduce((total, token) => total + token.value, 0);
-  }, [tokens]);
+    return tokenData.reduce((total, token) => total + token.value,0);
+  }, [tokenData]);
 
   const getTotalInterestEarned = useCallback(() => {
     return tokens.reduce((total, token) => total + token.totalInterestEarned, 0);
-  }, [tokens]);
+  }, [tokenData]);
 
   const getTotalUnclaimedInterest = useCallback(() => {
     return tokens.reduce((total, token) => total + token.unclaimedInterest, 0);
-  }, [tokens]);
+  }, [tokenData]);
 
   return {
-    tokens,
+    tokens: tokenData,
     claimInterest,
     claimAllInterest,
     getTotalPortfolioValue,

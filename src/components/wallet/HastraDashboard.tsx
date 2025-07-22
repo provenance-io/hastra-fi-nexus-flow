@@ -1,18 +1,13 @@
-
-import { useWallet } from '@/contexts/WalletContext';
+import {useWallet} from '@/contexts/WalletContext';
 import WalletOverview from './WalletOverview';
-import ActionCard from './ActionCard';
 import BuyCard from './BuyCard';
 import SendCard from './SendCard';
 import TradingPlatformsSection from '../start-earning/TradingPlatformsSection';
-import { 
-  PlusCircle, 
-  ArrowLeftRight
-} from 'lucide-react';
+import {useTokenPortfolio} from "@/hooks/useTokenPortfolio.ts";
 
 const HastraDashboard = () => {
   const { isConnected } = useWallet();
-
+  const { tokens } = useTokenPortfolio();
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -49,18 +44,20 @@ const HastraDashboard = () => {
 
 
       {/* Buy and Send Interfaces */}
-      <div id="buy-send-section" className="mb-8 md:mb-12">
-        <div className="card-gradient rounded-3xl border border-border/30 shadow-lg p-6 md:p-12">
-          <h2 className="text-lg md:text-xl font-semibold text-foreground mb-6 md:mb-8">
-            Buy & Send
-          </h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
-            <BuyCard />
-            <SendCard />
-          </div>
-        </div>
-      </div>
+        { (tokens && tokens.length > 0) &&
+            <div id="buy-send-section" className="mb-8 md:mb-12">
+                <div className="card-gradient rounded-3xl border border-border/30 shadow-lg p-6 md:p-12">
+                    <h2 className="text-lg md:text-xl font-semibold text-foreground mb-6 md:mb-8">
+                        Buy & Send
+                    </h2>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+                        <BuyCard />
+                        <SendCard />
+                    </div>
+                </div>
+            </div>
+        }
 
       {/* Trading Platforms Section */}
       <div id="trade-lend-section" className="mb-8 md:mb-12">

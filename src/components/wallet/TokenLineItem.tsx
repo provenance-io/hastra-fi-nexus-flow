@@ -13,7 +13,8 @@ interface TokenLineItemProps {
   totalInterestEarned: number;
   unclaimedInterest: number;
   icon: string;
-  onClaim: (amount: number) => void;
+  onClaim?: (amount: number) => void;
+
 }
 
 const TokenLineItem = ({
@@ -123,7 +124,7 @@ const TokenLineItem = ({
         
         {/* Claim Button - Compact */}
         <div className="w-28 flex-shrink-0 flex justify-center">
-          <Button
+          { onClaim && <Button
             onClick={handleClaim}
             disabled={unclaimedInterest <= 0 || isClaiming}
             size="sm"
@@ -140,7 +141,7 @@ const TokenLineItem = ({
                 Claim {token.replace(' (Sol)', '')}
               </>
             )}
-          </Button>
+          </Button> }
         </div>
       </div>
 
