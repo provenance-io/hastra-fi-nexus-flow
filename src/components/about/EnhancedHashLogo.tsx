@@ -38,7 +38,7 @@ const EnhancedHashLogo: React.FC<EnhancedHashLogoProps> = ({ shouldGlow, showCir
         )}
         
         {/* Animated Circles that draw around the logo */}
-        {showCircle && (
+        /* {showCircle && (
           <svg 
             className="absolute inset-0 w-full h-full pointer-events-none"
             style={{ transform: 'scale(1.4)' }}
@@ -76,7 +76,7 @@ const EnhancedHashLogo: React.FC<EnhancedHashLogoProps> = ({ shouldGlow, showCir
               }}
             />
           </svg>
-        )}
+        )} */
         {showCircle && (
   <svg 
     className="absolute inset-0 w-full h-full pointer-events-none"
