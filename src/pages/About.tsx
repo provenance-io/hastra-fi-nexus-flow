@@ -273,7 +273,7 @@ const About = () => {
                     right: '0px',
                     bottom: '-2px',
                     background: 'transparent',
-                    border: '1px solid hsl(var(--header-glow))',
+                    border: '1px solid rgba(229, 218, 194, 0.8)',
                     clipPath: 'inset(0 0 100% 0)',
                     animation: 'revealFromTop 3s ease-out forwards'
                   }}
