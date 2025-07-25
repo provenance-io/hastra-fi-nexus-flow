@@ -30,7 +30,10 @@ const HOMESPage = () => {
       <div className="relative z-10">
         <HOMESComingSoonModal 
           isOpen={showModal} 
-          onClose={() => setShowModal(false)} 
+          onClose={() => {
+            setShowModal(false);
+            setPageAccessible(true);
+          }} 
         />
         <div className={`${!pageAccessible ? 'content-protection' : 'content-accessible'}`}>
           <HOMESHero />
