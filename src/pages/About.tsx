@@ -278,30 +278,34 @@ const About = () => {
                 {/* Animated Border SVG */}
                 {animationState.joinMissionGlow && (
                   <svg 
-                    className="absolute inset-0 w-full h-full pointer-events-none"
-                    style={{ borderRadius: '1.5rem' }}
-                  >
-                    <rect
-                      x="1"
-                      y="1" 
-                      width="calc(100% - 2px)"
-                      height="calc(100% - 2px)"
-                      rx="23"
-                      ry="23"
-                      fill="none"
-                      stroke="rgba(229, 218, 194, 0.8)"
-                      strokeWidth="2"
-                      strokeDasharray="1000"
-                      strokeDashoffset="1000"
-                      filter="drop-shadow(0 0 12px rgba(229, 218, 194, 0.6)) drop-shadow(0 0 6px rgba(229, 218, 194, 0.4))"
-                      style={{
-                        animation: 'draw-border-complete 3s ease-out forwards',
-                        strokeLinecap: 'round',
-                        transformOrigin: 'center top'
-                      }}
-                      pathLength="1000"
-                    />
-                  </svg>
+            className="absolute inset-0 w-full h-full pointer-events-none"
+            style={{ borderRadius: '1.5rem' }}
+          >
+            <path
+              d="M 160 1 
+                 L 299 1 
+                 Q 319 1 319 24
+                 L 319 296
+                 Q 319 319 296 319
+                 L 24 319
+                 Q 1 319 1 296
+                 L 1 24
+                 Q 1 1 24 1
+                 L 160 1 Z"
+              fill="none"
+              stroke="rgba(229, 218, 194, 0.8)"
+              strokeWidth="2"
+              strokeDasharray="1000"
+              strokeDashoffset="1000"
+              filter="drop-shadow(0 0 12px rgba(229, 218, 194, 0.6)) drop-shadow(0 0 6px rgba(229, 218, 194, 0.4))"
+              style={{
+                animation: 'draw-border-complete 3s ease-out forwards',
+                strokeLinecap: 'round',
+                transformOrigin: 'center top'
+              }}
+              pathLength="1000"
+            />
+          </svg>
                 )}
                 
                 <div className="relative z-10 space-y-6">
