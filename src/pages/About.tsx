@@ -264,33 +264,16 @@ const About = () => {
           <div className="container relative">
             <div className="max-w-5xl mx-auto">
               {/* Container with soft pulsating glow around the entire section */}
-              <div className="relative">
-                {/* Background div that reveals from top to bottom */}
-                <div 
-                  className={`absolute inset-0 rounded-3xl transition-all duration-[4000ms] ease-out ${
-                    animationState.joinMissionGlow ? 'animate-reveal-backdrop' : 'opacity-0'
-                  }`}
-                  style={{
-                    background: 'transparent',
-                    border: '2px solid rgba(0, 255, 150, 0.6)',
-                    borderRadius: '1.5rem',
-                    boxShadow: '0 0 20px rgba(0, 255, 150, 0.3), 0 0 40px rgba(0, 255, 150, 0.1)',
-                    transform: 'scaleX(1.005) scaleY(1.01)',
-                    zIndex: -1
-                  }}
-                />
-                
-                <div id="join-mission" className={`card-gradient rounded-3xl p-8 md:p-12 card-bottom-static transition-all duration-500 ${
-                  animationState.joinMissionGlow ? 'card-bottom-glow animate-border-draw' : 'border border-transparent'
-                } relative animate-pulse-glow overflow-hidden`}
-                     style={{
-                       background: 'rgba(255, 255, 255, 0.02)',
-                       backdropFilter: 'blur(20px)',
-                       border: '1px solid rgba(229, 218, 194, 0.1)',
-                       borderRadius: '1.5rem',
-                       boxShadow: '0 0 30px rgba(229, 218, 194, 0.15), 0 0 60px rgba(229, 218, 194, 0.08), inset 0 0 20px rgba(229, 218, 194, 0.02)',
-                       animation: 'soft-pulse-glow 4s ease-in-out infinite'
-                     }}>
+              <div id="join-mission" className={`card-gradient rounded-3xl p-8 md:p-12 card-bottom-static transition-all duration-500 ${
+                animationState.joinMissionGlow ? 'card-bottom-glow animate-border-draw' : 'border border-transparent'
+              } relative animate-pulse-glow overflow-hidden`}
+                   style={{
+                     background: 'rgba(255, 255, 255, 0.02)',
+                     backdropFilter: 'blur(20px)',
+                     border: '1px solid rgba(229, 218, 194, 0.1)',
+                     boxShadow: '0 0 30px rgba(229, 218, 194, 0.15), 0 0 60px rgba(229, 218, 194, 0.08), inset 0 0 20px rgba(229, 218, 194, 0.02)',
+                     animation: 'soft-pulse-glow 4s ease-in-out infinite'
+                   }}>
                 
                 <div className="relative z-10 space-y-6">
                   <h3 className="text-2xl md:text-3xl font-bold">Join Our Mission</h3>
@@ -357,12 +340,11 @@ const About = () => {
                          </svg>
                        </a>
                      </div>
-                  </div>
+                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
         </section>
         </main>
         <ProvenanceBranding />
