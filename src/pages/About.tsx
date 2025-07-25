@@ -78,6 +78,7 @@ const About = () => {
               { from: 'vision-card', to: 'hash-logo', visible: animationState.visionToHashLine },
               { from: 'provenance-card', to: 'hash-token-card', visible: animationState.hashTokenToCommitmentLine },
               { from: 'hash-token-card', to: 'commitment-card', visible: animationState.commitmentToSuccessLine },
+              { from: 'short-term-movements', to: 'join-mission', visible: animationState.shortTermToJoinLine },
             ]}
           />
           
@@ -238,7 +239,7 @@ const About = () => {
                        style={{ background: 'linear-gradient(to bottom right, rgba(229, 218, 194, 0.02), rgba(229, 218, 194, 0.01))' }} />
                 )}
                 
-                <div className="relative z-10">
+                <div id="short-term-movements" className="relative z-10">
                   <p className="text-lg text-foreground/90 leading-relaxed">
                     This isn't about short-term price movements. It's about building sustainable value for the community that makes decentralized finance possible. <span className="text-orange-400 font-semibold">Every token we burn represents our commitment to the ecosystem that enables financial freedom for everyone.</span>
                   </p>
@@ -261,7 +262,7 @@ const About = () => {
           <div className="container relative">
             <div className="max-w-5xl mx-auto">
               {/* Container with soft pulsating glow around the entire section */}
-              <div className={`card-gradient rounded-3xl p-8 md:p-12 card-bottom-static transition-all duration-500 ${
+              <div id="join-mission" className={`card-gradient rounded-3xl p-8 md:p-12 card-bottom-static transition-all duration-500 ${
                 animationState.joinMissionGlow ? 'card-bottom-glow border-2' : 'border border-transparent'
               } relative animate-pulse-glow`}
                    style={{
