@@ -422,16 +422,6 @@
   }
 }
 
-/* Border drawing animation for Join Our Mission section */
-@keyframes drawBorder {
-  from {
-    stroke-dashoffset: 500;
-  }
-  to {
-    stroke-dashoffset: -500;
-  }
-}
-
 /* Performance-optimized legacy animations for backwards compatibility */
 .falling-coin-stable {
   position: absolute;

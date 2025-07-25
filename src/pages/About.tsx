@@ -275,46 +275,6 @@ const About = () => {
                      animation: 'soft-pulse-glow 4s ease-in-out infinite'
                    }}>
                 
-                {/* Animated Border Drawing Effect */}
-                {animationState.shortTermToJoinLine && (
-                  <svg
-                    className="absolute inset-0 w-full h-full pointer-events-none"
-                    style={{ borderRadius: '1.5rem' }}
-                  >
-                    <defs>
-                      <linearGradient id="border-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="rgba(229, 218, 194, 0.8)" />
-                        <stop offset="50%" stopColor="rgba(229, 218, 194, 1)" />
-                        <stop offset="100%" stopColor="rgba(229, 218, 194, 0.8)" />
-                      </linearGradient>
-                      <filter id="border-glow" x="-50%" y="-50%" width="200%" height="200%">
-                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                        <feMerge> 
-                          <feMergeNode in="coloredBlur"/>
-                          <feMergeNode in="SourceGraphic"/>
-                        </feMerge>
-                      </filter>
-                    </defs>
-                    <rect
-                      x="2"
-                      y="2"
-                      width="calc(100% - 4px)"
-                      height="calc(100% - 4px)"
-                      rx="22"
-                      ry="22"
-                      fill="none"
-                      stroke="url(#border-gradient)"
-                      strokeWidth="2"
-                      strokeDasharray="1000"
-                      strokeDashoffset="1000"
-                      filter="url(#border-glow)"
-                      style={{
-                        animation: 'drawBorder 2s ease-out forwards'
-                      }}
-                    />
-                  </svg>
-                )}
-                
                 <div className="relative z-10 space-y-6">
                   <h3 className="text-2xl md:text-3xl font-bold">Join Our Mission</h3>
                   <p className="text-lg text-foreground/90 leading-relaxed">
