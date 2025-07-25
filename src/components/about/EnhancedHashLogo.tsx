@@ -48,14 +48,14 @@ const EnhancedHashLogo: React.FC<EnhancedHashLogoProps> = ({ shouldGlow, circleP
               <circle
                 cx="50"
                 cy="50"
-                r="48"
+                r="54"
                 fill="none"
                 stroke="rgba(229, 218, 194, 0.8)"
                 strokeWidth="2"
                 strokeLinecap="round"
                 style={{
-                  strokeDasharray: `${Math.PI * 48}`,
-                  strokeDashoffset: `${Math.PI * 48 * (1 - circleProgress)}`,
+                  strokeDasharray: `${Math.PI * 54}`,
+                  strokeDashoffset: `${Math.PI * 54 * (1 - circleProgress)}`,
                   filter: 'drop-shadow(0 0 12px rgba(229, 218, 194, 0.6)) drop-shadow(0 0 6px rgba(229, 218, 194, 0.4))',
                   transition: 'stroke-dashoffset 0.3s ease-out',
                   transform: 'rotate(-90deg)',
@@ -66,14 +66,14 @@ const EnhancedHashLogo: React.FC<EnhancedHashLogoProps> = ({ shouldGlow, circleP
               <circle
                 cx="50"
                 cy="50"
-                r="48"
+                r="54"
                 fill="none"
                 stroke="rgba(229, 218, 194, 0.8)"
                 strokeWidth="2"
                 strokeLinecap="round"
                 style={{
-                  strokeDasharray: `${Math.PI * 48}`,
-                  strokeDashoffset: `${Math.PI * 48 * (1 - circleProgress)}`,
+                  strokeDasharray: `${Math.PI * 54}`,
+                  strokeDashoffset: `${Math.PI * 54 * (1 - circleProgress)}`,
                   filter: 'drop-shadow(0 0 12px rgba(229, 218, 194, 0.6)) drop-shadow(0 0 6px rgba(229, 218, 194, 0.4))',
                   transition: 'stroke-dashoffset 0.3s ease-out',
                   transform: 'rotate(90deg) scaleY(-1)',
