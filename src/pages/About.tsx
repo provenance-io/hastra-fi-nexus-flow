@@ -75,6 +75,8 @@ const About = () => {
             connections={[
               { from: 'mission-card', to: 'belief-card', visible: animationState.missionToBeliefLine },
               { from: 'belief-card', to: 'vision-card', visible: animationState.beliefToVisionLine },
+              { from: 'vision-card', to: 'hash-logo', visible: animationState.visionToHashLine },
+              { from: 'hash-logo', to: 'provenance-card', visible: animationState.provenanceToHashTokenLine },
               { from: 'provenance-card', to: 'hash-token-card', visible: animationState.hashTokenToCommitmentLine },
               { from: 'hash-token-card', to: 'commitment-card', visible: animationState.commitmentToSuccessLine },
             ]}
