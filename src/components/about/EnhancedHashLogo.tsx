@@ -41,7 +41,7 @@ const EnhancedHashLogo: React.FC<EnhancedHashLogoProps> = ({ shouldGlow, showCir
         {showCircle && (
           <svg 
             className="absolute inset-0 w-full h-full pointer-events-none"
-            style={{ transform: 'scale(1.08)' }}
+            style={{ transform: 'scale(1.4)' }}
             viewBox="0 0 100 100"
           >
             <defs>
@@ -80,7 +80,7 @@ const EnhancedHashLogo: React.FC<EnhancedHashLogoProps> = ({ shouldGlow, showCir
         {showCircle && (
           <svg 
             className="absolute inset-0 w-full h-full pointer-events-none"
-            style={{ transform: 'scale(1.08) scaleX(-1)' }}
+            style={{ transform: 'scale(1.4) scaleX(-1)' }}
             viewBox="0 0 100 100"
           >
             <defs>
