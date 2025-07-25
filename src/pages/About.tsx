@@ -266,11 +266,11 @@ const About = () => {
               {/* Animated background div that reveals when dynamic line hits */}
               {animationState.shortTermToJoinLine && (
                 <div 
-                  className="absolute inset-0 rounded-3xl pointer-events-none"
+                  className="absolute rounded-3xl pointer-events-none"
                   style={{
-                    left: '0px',
+                    left: '-2px',
                     top: '-2px',
-                    right: '0px',
+                    right: '-2px',
                     bottom: '-2px',
                     background: 'transparent',
                     border: '1px solid hsl(var(--header-glow))',
