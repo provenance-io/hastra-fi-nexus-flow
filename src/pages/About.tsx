@@ -266,13 +266,21 @@ const About = () => {
               {/* Container with soft pulsating glow around the entire section */}
               <div id="join-mission" className={`card-gradient rounded-3xl p-8 md:p-12 card-bottom-static transition-all duration-500 ${
                 animationState.joinMissionGlow ? 'card-bottom-glow border-2' : 'border border-transparent'
+              } ${
+                animationState.shortTermToJoinLine ? 'animate-border-pulse' : ''
               } relative animate-pulse-glow`}
                    style={{
                      background: 'rgba(255, 255, 255, 0.02)',
                      backdropFilter: 'blur(20px)',
-                     border: '1px solid rgba(229, 218, 194, 0.1)',
-                     boxShadow: '0 0 30px rgba(229, 218, 194, 0.15), 0 0 60px rgba(229, 218, 194, 0.08), inset 0 0 20px rgba(229, 218, 194, 0.02)',
-                     animation: 'soft-pulse-glow 4s ease-in-out infinite'
+                     border: animationState.shortTermToJoinLine 
+                       ? '2px solid rgba(229, 218, 194, 0.8)' 
+                       : '1px solid rgba(229, 218, 194, 0.1)',
+                     boxShadow: animationState.shortTermToJoinLine 
+                       ? '0 0 30px rgba(229, 218, 194, 0.4), 0 0 60px rgba(229, 218, 194, 0.2), inset 0 0 20px rgba(229, 218, 194, 0.1)' 
+                       : '0 0 30px rgba(229, 218, 194, 0.15), 0 0 60px rgba(229, 218, 194, 0.08), inset 0 0 20px rgba(229, 218, 194, 0.02)',
+                     animation: animationState.shortTermToJoinLine 
+                       ? 'soft-pulse-glow 4s ease-in-out infinite, border-pulse 2s ease-in-out infinite' 
+                       : 'soft-pulse-glow 4s ease-in-out infinite'
                    }}>
                 
                 <div className="relative z-10 space-y-6">
