@@ -268,9 +268,9 @@ const About = () => {
                 <div 
                   className="absolute inset-0 rounded-3xl pointer-events-none"
                   style={{
-                    left: '-2px',
+                    left: '0px',
                     top: '-2px',
-                    right: '-2px',
+                    right: '0px',
                     bottom: '-2px',
                     background: 'transparent',
                     border: '1px solid hsl(var(--header-glow))',
