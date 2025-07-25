@@ -266,7 +266,7 @@ const About = () => {
               {/* Animated background div that reveals when dynamic line hits */}
               {animationState.shortTermToJoinLine && (
                 <div 
-                  className="absolute rounded-3xl pointer-events-none mx-8 md:mx-12"
+                  className="absolute rounded-3xl pointer-events-none mx-[30px] md:mx-[46px]"
                   style={{
                     left: '0px',
                     top: '-2px',
@@ -275,7 +275,7 @@ const About = () => {
                     background: 'transparent',
                     border: '1px solid hsl(var(--header-glow))',
                     clipPath: 'inset(0 0 100% 0)',
-                    animation: 'revealFromTop 4s ease-out forwards'
+                    animation: 'revealFromTop 3s ease-out forwards'
                   }}
                 />
               )}
