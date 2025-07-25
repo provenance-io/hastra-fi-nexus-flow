@@ -283,13 +283,12 @@ const About = () => {
               {/* Container with soft pulsating glow around the entire section */}
               <div id="join-mission" className={`card-gradient rounded-3xl p-8 md:p-12 card-bottom-static transition-all duration-500 ${
                 animationState.joinMissionGlow ? 'card-bottom-glow animate-border-draw' : 'border border-transparent'
-              } relative animate-pulse-glow overflow-hidden`}
+              } relative overflow-hidden`}
                    style={{
                      background: 'rgba(255, 255, 255, 0.02)',
                      backdropFilter: 'blur(20px)',
                      border: '1px solid rgba(229, 218, 194, 0.1)',
-                     boxShadow: '0 0 30px rgba(229, 218, 194, 0.15), 0 0 60px rgba(229, 218, 194, 0.08), inset 0 0 20px rgba(229, 218, 194, 0.02)',
-                     animation: 'soft-pulse-glow 4s ease-in-out infinite'
+                     boxShadow: '0 0 30px rgba(229, 218, 194, 0.15), 0 0 60px rgba(229, 218, 194, 0.08), inset 0 0 20px rgba(229, 218, 194, 0.02)'
                    }}>
                 
                 <div className="relative z-10 space-y-6">
