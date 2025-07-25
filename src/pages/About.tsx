@@ -283,8 +283,8 @@ const About = () => {
                   animationState.joinMissionGlow ? 'card-bottom-glow animate-border-draw' : 'border border-transparent'
                 } relative animate-pulse-glow overflow-hidden`}
                      style={{
-                       background: 'hsl(var(--background))',
-                       backdropFilter: 'none',
+                       background: 'rgba(255, 255, 255, 0.02)',
+                       backdropFilter: 'blur(20px)',
                        border: '1px solid rgba(229, 218, 194, 0.1)',
                        boxShadow: '0 0 30px rgba(229, 218, 194, 0.15), 0 0 60px rgba(229, 218, 194, 0.08), inset 0 0 20px rgba(229, 218, 194, 0.02)',
                        animation: 'soft-pulse-glow 4s ease-in-out infinite'
