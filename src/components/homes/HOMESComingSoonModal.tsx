@@ -63,7 +63,7 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({ isOpen, onC
                 />
               </div>
               <h2 className="text-xl font-bold text-foreground mb-2">
-                Earn 7-14% APY
+                Earn 6-12% APY
               </h2>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 We're exploring new ways to generate yield through pools of real asset-backed loans.
@@ -74,21 +74,21 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({ isOpen, onC
             <div className="space-y-3 mb-6">
               <div className="flex items-center gap-3">
                 <div className="flex-shrink-0 w-6 h-6 rounded-lg bg-header-glow/10 flex items-center justify-center">
-                  <TrendingUp className="h-3 w-3 text-header-glow" />
+                  <TrendingUp className="h-3 w-3" style={{ color: 'rgba(229, 218, 194, 0.8)' }} />
                 </div>
-                <span className="text-xs text-foreground">Target yields of 7-14% annually</span>
+                <span className="text-xs text-foreground">Target yields of 6-12% annually</span>
               </div>
               
               <div className="flex items-center gap-3">
                 <div className="flex-shrink-0 w-6 h-6 rounded-lg bg-header-glow/10 flex items-center justify-center">
-                  <Shield className="h-3 w-3 text-header-glow" />
+                  <Shield className="h-3 w-3" style={{ color: 'rgba(229, 218, 194, 0.8)' }} />
                 </div>
                 <span className="text-xs text-foreground">Backed by real assets, not speculation</span>
               </div>
               
               <div className="flex items-center gap-3">
                 <div className="flex-shrink-0 w-6 h-6 rounded-lg bg-header-glow/10 flex items-center justify-center">
-                  <Bell className="h-3 w-3 text-header-glow" />
+                  <Bell className="h-3 w-3" style={{ color: 'rgba(229, 218, 194, 0.8)' }} />
                 </div>
                 <span className="text-xs text-foreground">Join the waitlist for early access</span>
               </div>
