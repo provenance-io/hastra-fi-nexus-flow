@@ -85,18 +85,37 @@ const DynamicConnectingLines: React.FC<DynamicConnectingLinesProps> = ({
     // Initial calculation
     const timer = setTimeout(updatePositions, 100);
     
-    // Update on resize
-    const handleResize = () => {
-      updatePositions();
+    // Throttled scroll handler
+    let scrollTicking = false;
+    const handleScroll = () => {
+      if (!scrollTicking) {
+        requestAnimationFrame(() => {
+          updatePositions();
+          scrollTicking = false;
+        });
+        scrollTicking = true;
+      }
     };
     
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('scroll', updatePositions);
+    // Throttled resize handler
+    let resizeTicking = false;
+    const handleResize = () => {
+      if (!resizeTicking) {
+        requestAnimationFrame(() => {
+          updatePositions();
+          resizeTicking = false;
+        });
+        resizeTicking = true;
+      }
+    };
+    
+    window.addEventListener('resize', handleResize, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
     
     return () => {
       clearTimeout(timer);
       window.removeEventListener('resize', handleResize);
-      window.removeEventListener('scroll', updatePositions);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [connections]);
 
