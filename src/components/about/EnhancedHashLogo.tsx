@@ -38,46 +38,45 @@ const EnhancedHashLogo: React.FC<EnhancedHashLogoProps> = ({ shouldGlow, showCir
         )}
         
         {/* Animated Circles that draw around the logo */}
-       
         {showCircle && (
-  <svg 
-    className="absolute inset-0 w-full h-full pointer-events-none"
-    style={{ transform: 'scale(1.4)' }}
-    viewBox="0 0 100 100"
-  >
-    <defs>
-      <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="rgba(229, 218, 194, 0.8)" />
-        <stop offset="50%" stopColor="rgba(229, 218, 194, 0.6)" />
-        <stop offset="100%" stopColor="rgba(229, 218, 194, 0.8)" />
-      </linearGradient>
-      <filter id="glow">
-        <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-        <feMerge> 
-          <feMergeNode in="coloredBlur"/>
-          <feMergeNode in="SourceGraphic"/>
-        </feMerge>
-      </filter>
-    </defs>
-    
-    {/* Clockwise circle starting from top */}
-    <circle
-      cx="50"
-      cy="50"
-      r="40"
-      fill="none"
-      stroke="url(#circleGradient)"
-      strokeWidth="2"
-      filter="url(#glow)"
-      strokeDasharray="251.33"
-      strokeDashoffset="-251.33"
-      transform="rotate(-90 50 50)"
-      style={{
-        animation: 'drawCircleClockwise 2s ease-out forwards',
-      }}
-    />
-  </svg>
-)}
+          <svg 
+            className="absolute inset-0 w-full h-full pointer-events-none"
+            style={{ transform: 'scale(1.4)' }}
+            viewBox="0 0 100 100"
+          >
+            <defs>
+              <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="rgba(229, 218, 194, 0.8)" />
+                <stop offset="50%" stopColor="rgba(229, 218, 194, 0.6)" />
+                <stop offset="100%" stopColor="rgba(229, 218, 194, 0.8)" />
+              </linearGradient>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                <feMerge> 
+                  <feMergeNode in="coloredBlur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+            
+            {/* Counter-clockwise circle starting from top */}
+            <circle
+              cx="50"
+              cy="50"
+              r="40"
+              fill="none"
+              stroke="url(#circleGradient)"
+              strokeWidth="2"
+              filter="url(#glow)"
+              strokeDasharray="251.33"
+              strokeDashoffset="251.33"
+              transform="rotate(-90 50 50)"
+              style={{
+                animation: 'drawCircleCounterClockwise 2s ease-out forwards',
+              }}
+            />
+          </svg>
+        )}
       </div>
     </div>
   );
