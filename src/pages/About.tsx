@@ -273,6 +273,7 @@ const About = () => {
                   style={{
                     background: 'rgba(229, 218, 194, 0.08)',
                     border: '2px solid rgba(229, 218, 194, 0.3)',
+                    border-radius: '1.5rem',
                     boxShadow: '0 0 30px rgba(229, 218, 194, 0.2), 0 0 60px rgba(229, 218, 194, 0.1)',
                     transform: 'scaleX(1.005) scaleY(1.01)', // Smaller on x-axis, 2px larger on y-axis
                     zIndex: -1
@@ -286,6 +287,7 @@ const About = () => {
                        background: 'rgba(255, 255, 255, 0.02)',
                        backdropFilter: 'blur(20px)',
                        border: '1px solid rgba(229, 218, 194, 0.1)',
+                       border-radius: '1.5rem',
                        boxShadow: '0 0 30px rgba(229, 218, 194, 0.15), 0 0 60px rgba(229, 218, 194, 0.08), inset 0 0 20px rgba(229, 218, 194, 0.02)',
                        animation: 'soft-pulse-glow 4s ease-in-out infinite'
                      }}>
