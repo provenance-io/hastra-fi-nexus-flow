@@ -271,10 +271,10 @@ const About = () => {
                     animationState.joinMissionGlow ? 'animate-reveal-backdrop' : 'opacity-0'
                   }`}
                   style={{
-                    background: 'rgba(229, 218, 194, 0.08)',
-                    border: '2px solid rgba(229, 218, 194, 0.3)',
+                    background: 'transparent',
+                    border: '2px solid rgba(0, 255, 150, 0.6)',
                     borderRadius: '1.5rem',
-                    boxShadow: '0 0 30px rgba(229, 218, 194, 0.2), 0 0 60px rgba(229, 218, 194, 0.1)',
+                    boxShadow: '0 0 20px rgba(0, 255, 150, 0.3), 0 0 40px rgba(0, 255, 150, 0.1)',
                     transform: 'scaleX(1.005) scaleY(1.01)',
                     zIndex: -1
                   }}
