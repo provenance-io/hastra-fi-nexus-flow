@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useScrollBasedAnimation } from '@/hooks/useScrollBasedAnimation';
 import AnimatedCard from '@/components/about/AnimatedCard';
-import ConnectingLines from '@/components/about/ConnectingLines';
+import DynamicConnectingLines from '@/components/about/DynamicConnectingLines';
 import EnhancedHashLogo from '@/components/about/EnhancedHashLogo';
 import ProvenanceBranding from '@/components/ProvenanceBranding';
 
@@ -70,14 +70,16 @@ const About = () => {
 
         {/* Three Core Segments Section with Animation */}
         <section className="py-4 md:py-8 relative">
-          {/* Connecting Lines - Updated to include bottom lines */}
-          <ConnectingLines 
-            missionToBeliefLine={animationState.missionToBeliefLine}
-            beliefToVisionLine={animationState.beliefToVisionLine}
-            visionToHashLine={animationState.visionToHashLine}
-            provenanceToHashTokenLine={animationState.provenanceToHashTokenLine}
-            hashTokenToCommitmentLine={animationState.hashTokenToCommitmentLine}
-            commitmentToSuccessLine={animationState.commitmentToSuccessLine}
+          {/* Dynamic Connecting Lines */}
+          <DynamicConnectingLines 
+            connections={[
+              { from: 'mission-card', to: 'belief-card', visible: animationState.missionToBeliefLine },
+              { from: 'belief-card', to: 'vision-card', visible: animationState.beliefToVisionLine },
+              { from: 'vision-card', to: 'hash-logo', visible: animationState.visionToHashLine },
+              { from: 'hash-logo', to: 'provenance-card', visible: animationState.provenanceToHashTokenLine },
+              { from: 'provenance-card', to: 'hash-token-card', visible: animationState.hashTokenToCommitmentLine },
+              { from: 'hash-token-card', to: 'commitment-card', visible: animationState.commitmentToSuccessLine },
+            ]}
           />
           
           <div className="container relative">
@@ -165,7 +167,7 @@ const About = () => {
                 </div>
               </div>
               
-              <div className={`card-gradient rounded-3xl p-6 md:p-8 card-bottom-static max-w-5xl mx-auto mb-12 transition-all duration-500 ${
+              <div id="provenance-card" className={`card-gradient rounded-3xl p-6 md:p-8 card-bottom-static max-w-5xl mx-auto mb-12 transition-all duration-500 ${
                 animationState.provenanceCardGlow ? 'card-bottom-glow border-2' : 'border border-transparent'
               }`}>
                 {animationState.provenanceCardGlow && (
@@ -182,7 +184,7 @@ const About = () => {
             </div>
 
             <div className="max-w-5xl mx-auto mt-32">
-              <div className={`card-gradient rounded-3xl p-8 md:p-12 card-bottom-static transition-all duration-500 ${
+              <div id="hash-token-card" className={`card-gradient rounded-3xl p-8 md:p-12 card-bottom-static transition-all duration-500 ${
                 animationState.hashTokenCardGlow ? 'card-bottom-glow border-2' : 'border border-transparent'
               }`}>
                 {animationState.hashTokenCardGlow && (
@@ -229,7 +231,7 @@ const About = () => {
               </div>
               
               {/* Additional commitment section */}
-              <div className={`card-gradient rounded-3xl p-8 md:p-12 card-bottom-static mt-32 transition-all duration-500 ${
+              <div id="commitment-card" className={`card-gradient rounded-3xl p-8 md:p-12 card-bottom-static mt-32 transition-all duration-500 ${
                 animationState.commitmentCardGlow ? 'card-bottom-glow border-2' : 'border border-transparent'
               }`}>
                 {animationState.commitmentCardGlow && (

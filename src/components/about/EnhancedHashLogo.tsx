@@ -7,7 +7,7 @@ interface EnhancedHashLogoProps {
 
 const EnhancedHashLogo: React.FC<EnhancedHashLogoProps> = ({ shouldGlow }) => {
   return (
-    <div className="flex justify-center mb-12">
+    <div id="hash-logo" className="flex justify-center mb-12">
       <div className="relative">
         <img 
           src="/lovable-uploads/9da758ec-2299-4fe7-82e4-e7fb95e9cdb8.png" 
