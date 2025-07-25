@@ -416,21 +416,9 @@
 }
 
 /* Circle drawing animations for Hastra logo */
-@keyframes drawCircleCounterClockwise {
-  from {
-    stroke-dashoffset: 251.33;
-  }
+@keyframes drawCircle {
   to {
     stroke-dashoffset: 0;
-  }
-}
-
-@keyframes drawCircleClockwise {
-  from {
-    stroke-dashoffset: 0;
-  }
-  to {
-    stroke-dashoffset: 251.33;
   }
 }
 
