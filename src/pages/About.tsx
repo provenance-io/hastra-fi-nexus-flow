@@ -266,22 +266,54 @@ const About = () => {
               {/* Container with soft pulsating glow around the entire section */}
               <div id="join-mission" className={`card-gradient rounded-3xl p-8 md:p-12 card-bottom-static transition-all duration-500 ${
                 animationState.joinMissionGlow ? 'card-bottom-glow border-2' : 'border border-transparent'
-              } ${
-                animationState.shortTermToJoinLine ? 'animate-border-pulse' : ''
               } relative animate-pulse-glow`}
                    style={{
                      background: 'rgba(255, 255, 255, 0.02)',
                      backdropFilter: 'blur(20px)',
-                     border: animationState.shortTermToJoinLine 
-                       ? '2px solid rgba(229, 218, 194, 0.8)' 
-                       : '1px solid rgba(229, 218, 194, 0.1)',
-                     boxShadow: animationState.shortTermToJoinLine 
-                       ? '0 0 30px rgba(229, 218, 194, 0.4), 0 0 60px rgba(229, 218, 194, 0.2), inset 0 0 20px rgba(229, 218, 194, 0.1)' 
-                       : '0 0 30px rgba(229, 218, 194, 0.15), 0 0 60px rgba(229, 218, 194, 0.08), inset 0 0 20px rgba(229, 218, 194, 0.02)',
-                     animation: animationState.shortTermToJoinLine 
-                       ? 'soft-pulse-glow 4s ease-in-out infinite, border-pulse 2s ease-in-out infinite' 
-                       : 'soft-pulse-glow 4s ease-in-out infinite'
+                     border: '1px solid rgba(229, 218, 194, 0.1)',
+                     boxShadow: '0 0 30px rgba(229, 218, 194, 0.15), 0 0 60px rgba(229, 218, 194, 0.08), inset 0 0 20px rgba(229, 218, 194, 0.02)',
+                     animation: 'soft-pulse-glow 4s ease-in-out infinite'
                    }}>
+                
+                {/* Animated Border Drawing Effect */}
+                {animationState.shortTermToJoinLine && (
+                  <svg
+                    className="absolute inset-0 w-full h-full pointer-events-none"
+                    style={{ borderRadius: '1.5rem' }}
+                  >
+                    <defs>
+                      <linearGradient id="border-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="rgba(229, 218, 194, 0.8)" />
+                        <stop offset="50%" stopColor="rgba(229, 218, 194, 1)" />
+                        <stop offset="100%" stopColor="rgba(229, 218, 194, 0.8)" />
+                      </linearGradient>
+                      <filter id="border-glow" x="-50%" y="-50%" width="200%" height="200%">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                        <feMerge> 
+                          <feMergeNode in="coloredBlur"/>
+                          <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                      </filter>
+                    </defs>
+                    <rect
+                      x="2"
+                      y="2"
+                      width="calc(100% - 4px)"
+                      height="calc(100% - 4px)"
+                      rx="22"
+                      ry="22"
+                      fill="none"
+                      stroke="url(#border-gradient)"
+                      strokeWidth="2"
+                      strokeDasharray="1000"
+                      strokeDashoffset="1000"
+                      filter="url(#border-glow)"
+                      style={{
+                        animation: 'drawBorder 2s ease-out forwards'
+                      }}
+                    />
+                  </svg>
+                )}
                 
                 <div className="relative z-10 space-y-6">
                   <h3 className="text-2xl md:text-3xl font-bold">Join Our Mission</h3>
