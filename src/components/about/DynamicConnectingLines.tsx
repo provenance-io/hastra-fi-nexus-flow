@@ -41,13 +41,13 @@ const DynamicConnectingLines: React.FC<DynamicConnectingLinesProps> = ({
     let fromX, toX;
     
     switch (pattern) {
-      case 0: // Left side
-        fromX = fromRect.left + 20 - containerRect.left;
-        toX = toRect.left + 20 - containerRect.left;
+      case 0: // Left side - 20% from left edge
+        fromX = fromRect.left + (fromRect.width * 0.2) - containerRect.left;
+        toX = toRect.left + (toRect.width * 0.2) - containerRect.left;
         break;
-      case 1: // Right side
-        fromX = fromRect.right - 20 - containerRect.left;
-        toX = toRect.right - 20 - containerRect.left;
+      case 1: // Right side - 20% from right edge
+        fromX = fromRect.right - (fromRect.width * 0.2) - containerRect.left;
+        toX = toRect.right - (toRect.width * 0.2) - containerRect.left;
         break;
       case 2: // Center
       default:
