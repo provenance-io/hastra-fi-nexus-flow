@@ -24,7 +24,7 @@ const DynamicConnectingLines: React.FC<DynamicConnectingLinesProps> = ({
   const [linePositions, setLinePositions] = useState<{ [key: string]: LinePosition }>({});
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const calculateLinePosition = (fromId: string, toId: string): LinePosition | null => {
+  const calculateLinePosition = (fromId: string, toId: string, connectionIndex: number): LinePosition | null => {
     const fromElement = document.getElementById(fromId);
     const toElement = document.getElementById(toId);
     
@@ -36,10 +36,29 @@ const DynamicConnectingLines: React.FC<DynamicConnectingLinesProps> = ({
     const fromRect = fromElement.getBoundingClientRect();
     const toRect = toElement.getBoundingClientRect();
 
-    // Calculate connection points (bottom center of from element, top center of to element)
-    const x1 = fromRect.left + fromRect.width / 2 - containerRect.left;
+    // Determine connection points based on alternating pattern: left, right, center
+    const pattern = connectionIndex % 3;
+    let fromX, toX;
+    
+    switch (pattern) {
+      case 0: // Left side
+        fromX = fromRect.left + 20 - containerRect.left;
+        toX = toRect.left + 20 - containerRect.left;
+        break;
+      case 1: // Right side
+        fromX = fromRect.right - 20 - containerRect.left;
+        toX = toRect.right - 20 - containerRect.left;
+        break;
+      case 2: // Center
+      default:
+        fromX = fromRect.left + fromRect.width / 2 - containerRect.left;
+        toX = toRect.left + toRect.width / 2 - containerRect.left;
+        break;
+    }
+
+    const x1 = fromX;
     const y1 = fromRect.bottom - containerRect.top;
-    const x2 = toRect.left + toRect.width / 2 - containerRect.left;
+    const x2 = toX;
     const y2 = toRect.top - containerRect.top;
 
     const length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
@@ -51,9 +70,9 @@ const DynamicConnectingLines: React.FC<DynamicConnectingLinesProps> = ({
   const updatePositions = () => {
     const newPositions: { [key: string]: LinePosition } = {};
     
-    connections.forEach(({ from, to }) => {
+    connections.forEach(({ from, to }, index) => {
       const key = `${from}-${to}`;
-      const position = calculateLinePosition(from, to);
+      const position = calculateLinePosition(from, to, index);
       if (position) {
         newPositions[key] = position;
       }
