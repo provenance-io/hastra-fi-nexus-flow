@@ -75,41 +75,6 @@ const EnhancedHashLogo: React.FC<EnhancedHashLogoProps> = ({ shouldGlow, showCir
                 animation: 'drawCircleCounterClockwise 2s ease-out forwards',
               }}
             />
-            
-            {/* Clockwise circle starting from top */}
-            <circle
-              cx="50"
-              cy="50"
-              r="40"
-              fill="none"
-              stroke="url(#circleGradient)"
-              strokeWidth="2"
-              filter="url(#glow)"
-              strokeDasharray="251.33"
-              strokeDashoffset="251.33"
-              transform="rotate(-90 50 50) scale(-1, 1)"
-              style={{
-                animation: 'drawCircleClockwise 2s ease-out forwards',
-              }}
-            />
-            
-            {/* Additional counter-clockwise circle for enhanced effect */}
-            <circle
-              cx="50"
-              cy="50"
-              r="40"
-              fill="none"
-              stroke="url(#circleGradient)"
-              strokeWidth="1.5"
-              filter="url(#glow)"
-              strokeDasharray="251.33"
-              strokeDashoffset="251.33"
-              transform="rotate(-90 50 50)"
-              style={{
-                animation: 'drawCircleCounterClockwise 2.5s ease-out forwards 0.3s',
-                opacity: '0.7',
-              }}
-            />
           </svg>
         )}
       </div>
