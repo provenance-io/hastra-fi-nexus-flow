@@ -68,8 +68,8 @@ const EnhancedHashLogo: React.FC<EnhancedHashLogoProps> = ({ shouldGlow, showCir
               stroke="url(#circleGradient)"
               strokeWidth="2"
               filter="url(#glow)"
-              strokeDasharray="125.66"
-              strokeDashoffset="251.33"
+              strokeDasharray="125.66 251.33"
+              strokeDashoffset="125.66"
               transform="rotate(-90 50 50)"
               style={{
                 animation: 'drawCircleCounterClockwise 2s ease-out forwards',
@@ -107,8 +107,8 @@ const EnhancedHashLogo: React.FC<EnhancedHashLogoProps> = ({ shouldGlow, showCir
               stroke="url(#circleGradient)"
               strokeWidth="2"
               filter="url(#glow)"
-              strokeDasharray="125.66"
-              strokeDashoffset="251.33"
+              strokeDasharray="125.66 251.33"
+              strokeDashoffset="125.66"
               transform="rotate(-90 50 50)"
               style={{
                 animation: 'drawCircleCounterClockwise 2s ease-out forwards',
