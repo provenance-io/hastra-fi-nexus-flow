@@ -266,7 +266,7 @@ const About = () => {
               {/* Container with soft pulsating glow around the entire section */}
               <div id="join-mission" className={`card-gradient rounded-3xl p-8 md:p-12 card-bottom-static transition-all duration-500 ${
                 animationState.joinMissionGlow ? 'card-bottom-glow border-2' : 'border border-transparent'
-              } relative animate-pulse-glow`}
+              } relative animate-pulse-glow overflow-hidden`}
                    style={{
                      background: 'rgba(255, 255, 255, 0.02)',
                      backdropFilter: 'blur(20px)',
@@ -274,6 +274,33 @@ const About = () => {
                      boxShadow: '0 0 30px rgba(229, 218, 194, 0.15), 0 0 60px rgba(229, 218, 194, 0.08), inset 0 0 20px rgba(229, 218, 194, 0.02)',
                      animation: 'soft-pulse-glow 4s ease-in-out infinite'
                    }}>
+                
+                {/* Animated Border SVG */}
+                {animationState.joinMissionGlow && (
+                  <svg 
+                    className="absolute inset-0 w-full h-full pointer-events-none"
+                    style={{ borderRadius: '1.5rem' }}
+                  >
+                    <rect
+                      x="2"
+                      y="2" 
+                      width="calc(100% - 4px)"
+                      height="calc(100% - 4px)"
+                      rx="22"
+                      ry="22"
+                      fill="none"
+                      stroke="rgba(229, 218, 194, 0.8)"
+                      strokeWidth="2"
+                      strokeDasharray="800"
+                      strokeDashoffset="800"
+                      filter="drop-shadow(0 0 12px rgba(229, 218, 194, 0.6)) drop-shadow(0 0 6px rgba(229, 218, 194, 0.4))"
+                      style={{
+                        animation: 'draw-border 2s ease-out forwards',
+                        strokeLinecap: 'round'
+                      }}
+                    />
+                  </svg>
+                )}
                 
                 <div className="relative z-10 space-y-6">
                   <h3 className="text-2xl md:text-3xl font-bold">Join Our Mission</h3>

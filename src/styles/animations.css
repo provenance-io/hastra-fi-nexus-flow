@@ -415,6 +415,16 @@
   }
 }
 
+/* Animation for drawing border around Join Our Mission div */
+@keyframes draw-border {
+  0% {
+    stroke-dashoffset: 800;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
 /* Circle drawing animations for Hastra logo */
 @keyframes drawCircle {
   to {
