@@ -265,7 +265,7 @@ const About = () => {
             <div className="max-w-5xl mx-auto">
               {/* Container with soft pulsating glow around the entire section */}
               <div id="join-mission" className={`card-gradient rounded-3xl p-8 md:p-12 card-bottom-static transition-all duration-500 ${
-                animationState.joinMissionGlow ? 'card-bottom-glow border-2' : 'border border-transparent'
+                animationState.joinMissionGlow ? 'card-bottom-glow animate-border-draw' : 'border border-transparent'
               } relative animate-pulse-glow overflow-hidden`}
                    style={{
                      background: 'rgba(255, 255, 255, 0.02)',
