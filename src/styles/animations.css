@@ -416,11 +416,13 @@
 }
 
 /* Animation for drawing border around Join Our Mission div */
-@keyframes draw-border {
+@keyframes draw-border-complete {
   0% {
-    stroke-dashoffset: 800;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
   }
   100% {
+    stroke-dasharray: 1000;
     stroke-dashoffset: 0;
   }
 }

@@ -282,22 +282,24 @@ const About = () => {
                     style={{ borderRadius: '1.5rem' }}
                   >
                     <rect
-                      x="2"
-                      y="2" 
-                      width="calc(100% - 4px)"
-                      height="calc(100% - 4px)"
-                      rx="22"
-                      ry="22"
+                      x="1"
+                      y="1" 
+                      width="calc(100% - 2px)"
+                      height="calc(100% - 2px)"
+                      rx="23"
+                      ry="23"
                       fill="none"
                       stroke="rgba(229, 218, 194, 0.8)"
                       strokeWidth="2"
-                      strokeDasharray="800"
-                      strokeDashoffset="800"
+                      strokeDasharray="1000"
+                      strokeDashoffset="1000"
                       filter="drop-shadow(0 0 12px rgba(229, 218, 194, 0.6)) drop-shadow(0 0 6px rgba(229, 218, 194, 0.4))"
                       style={{
-                        animation: 'draw-border 2s ease-out forwards',
-                        strokeLinecap: 'round'
+                        animation: 'draw-border-complete 3s ease-out forwards',
+                        strokeLinecap: 'round',
+                        transformOrigin: 'center top'
                       }}
+                      pathLength="1000"
                     />
                   </svg>
                 )}
