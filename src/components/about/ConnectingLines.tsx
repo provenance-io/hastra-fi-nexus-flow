@@ -62,7 +62,7 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
       />
 
       {/* Vision to HASH Line - Center aligned */}
-      <div 
+      {/* <div 
         className={`absolute left-1/2 transform -translate-x-1/2 transition-all duration-1000 z-40 ${
           visionToHashLine ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
         }`}
@@ -74,7 +74,7 @@ const ConnectingLines: React.FC<ConnectingLinesProps> = ({
           transformOrigin: 'top',
           boxShadow: '0 0 12px rgba(229, 218, 194, 0.6), 0 0 6px rgba(229, 218, 194, 0.4)',
         }}
-      />
+      /> */}
 
       {/* Provenance to HASH Token Line - Left aligned with enhanced animation */}
       <div 
