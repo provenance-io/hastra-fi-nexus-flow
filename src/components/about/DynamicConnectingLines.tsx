@@ -59,12 +59,7 @@ const DynamicConnectingLines: React.FC<DynamicConnectingLinesProps> = ({
     const x1 = fromX;
     const y1 = fromRect.bottom - containerRect.top;
     const x2 = toX;
-    // Stop the line at the edge of the circle animation (logo radius + circle scale factor)
-    const logoRect = toElement.getBoundingClientRect();
-    const logoRadius = logoRect.width / 2;
-    const circleScale = 1.4; // Same as the SVG transform scale
-    const circleRadius = logoRadius * circleScale;
-    const y2 = (toRect.top + toRect.height / 2) - circleRadius - containerRect.top;
+    const y2 = toRect.top - containerRect.top;
 
     const length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
     const angle = Math.atan2(y2 - y1, x2 - x1) * (180 / Math.PI);
