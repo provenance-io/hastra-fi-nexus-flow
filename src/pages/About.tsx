@@ -231,7 +231,7 @@ const About = () => {
               </div>
               
               {/* Additional commitment section */}
-              <div id="commitment-card" className={`card-gradient rounded-3xl p-8 md:p-12 card-bottom-static mt-32 transition-all duration-500 ${
+              <div id="short-term-movements" className={`card-gradient rounded-3xl p-8 md:p-12 card-bottom-static mt-32 transition-all duration-500 ${
                 animationState.commitmentCardGlow ? 'card-bottom-glow border-2' : 'border border-transparent'
               }`}>
                 {animationState.commitmentCardGlow && (
@@ -239,7 +239,7 @@ const About = () => {
                        style={{ background: 'linear-gradient(to bottom right, rgba(229, 218, 194, 0.02), rgba(229, 218, 194, 0.01))' }} />
                 )}
                 
-                <div id="short-term-movements" className="relative z-10">
+                <div className="relative z-10">
                   <p className="text-lg text-foreground/90 leading-relaxed">
                     This isn't about short-term price movements. It's about building sustainable value for the community that makes decentralized finance possible. <span className="text-orange-400 font-semibold">Every token we burn represents our commitment to the ecosystem that enables financial freedom for everyone.</span>
                   </p>
