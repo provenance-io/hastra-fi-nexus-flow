@@ -466,6 +466,20 @@
   }
 }
 
+/* Backdrop reveal animation - reveals from top to bottom over 4 seconds */
+@keyframes reveal-backdrop {
+  0% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+
+.animate-reveal-backdrop {
+  animation: reveal-backdrop 4s ease-out forwards;
+}
+
 /* Circle drawing animations for Hastra logo */
 @keyframes drawCircle {
   to {
