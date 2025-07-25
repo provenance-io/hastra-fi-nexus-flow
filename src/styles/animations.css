@@ -425,10 +425,10 @@
 /* Border drawing animation for Join Our Mission section */
 @keyframes drawBorder {
   from {
-    stroke-dashoffset: 1000;
+    stroke-dashoffset: 500;
   }
   to {
-    stroke-dashoffset: 0;
+    stroke-dashoffset: -500;
   }
 }
 
