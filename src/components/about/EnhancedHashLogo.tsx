@@ -3,10 +3,10 @@ import React from 'react';
 
 interface EnhancedHashLogoProps {
   shouldGlow: boolean;
-  circleProgress: number;
+  showCircle: boolean;
 }
 
-const EnhancedHashLogo: React.FC<EnhancedHashLogoProps> = ({ shouldGlow, circleProgress }) => {
+const EnhancedHashLogo: React.FC<EnhancedHashLogoProps> = ({ shouldGlow, showCircle }) => {
   return (
     <div id="hash-logo" className="flex justify-center mb-12">
       <div className="relative">
@@ -37,8 +37,8 @@ const EnhancedHashLogo: React.FC<EnhancedHashLogoProps> = ({ shouldGlow, circleP
           />
         )}
         
-        {/* Animated Circle that draws around the logo */}
-        {circleProgress > 0 && (
+        {/* Animated Circles that draw around the logo */}
+        {showCircle && (
           <svg 
             className="absolute inset-0 w-full h-full pointer-events-none"
             style={{ transform: 'scale(1.4)' }}
@@ -59,31 +59,37 @@ const EnhancedHashLogo: React.FC<EnhancedHashLogoProps> = ({ shouldGlow, circleP
               </filter>
             </defs>
             
-            {/* Left semicircle */}
-            <path
-              d="M 50 10 A 40 40 0 0 0 50 90"
+            {/* Counter-clockwise circle starting from top */}
+            <circle
+              cx="50"
+              cy="50"
+              r="40"
               fill="none"
               stroke="url(#circleGradient)"
               strokeWidth="2"
               filter="url(#glow)"
-              strokeDasharray="125.66"
-              strokeDashoffset={125.66 * (1 - Math.min(circleProgress * 2, 1))}
+              strokeDasharray="251.33"
+              strokeDashoffset="251.33"
+              transform="rotate(-90 50 50)"
               style={{
-                transition: 'stroke-dashoffset 0.1s ease-out',
+                animation: 'drawCircleCounterClockwise 2s ease-out forwards',
               }}
             />
             
-            {/* Right semicircle */}
-            <path
-              d="M 50 90 A 40 40 0 0 0 50 10"
+            {/* Clockwise circle starting from top */}
+            <circle
+              cx="50"
+              cy="50"
+              r="40"
               fill="none"
               stroke="url(#circleGradient)"
               strokeWidth="2"
               filter="url(#glow)"
-              strokeDasharray="125.66"
-              strokeDashoffset={125.66 * (1 - Math.min(Math.max(circleProgress * 2 - 1, 0), 1))}
+              strokeDasharray="251.33"
+              strokeDashoffset="251.33"
+              transform="rotate(-90 50 50) scale(-1, 1)"
               style={{
-                transition: 'stroke-dashoffset 0.1s ease-out',
+                animation: 'drawCircleClockwise 2s ease-out forwards',
               }}
             />
           </svg>

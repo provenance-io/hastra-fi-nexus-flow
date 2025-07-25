@@ -12,7 +12,7 @@ interface ScrollAnimationState {
   hashTokenToCommitmentLine: boolean;
   commitmentToSuccessLine: boolean;
   hashGlow: boolean;
-  hashCircleProgress: number;
+  hashCircleVisible: boolean;
   missionGlow: boolean;
   beliefGlow: boolean;
   visionGlow: boolean;
@@ -34,7 +34,7 @@ export const useScrollBasedAnimation = () => {
     hashTokenToCommitmentLine: false,
     commitmentToSuccessLine: false,
     hashGlow: false,
-    hashCircleProgress: 0,
+    hashCircleVisible: false,
     missionGlow: false,
     beliefGlow: false,
     visionGlow: false,
@@ -64,8 +64,7 @@ export const useScrollBasedAnimation = () => {
         hashTokenToCommitmentLine: scrollProgress > 0.52,
         commitmentToSuccessLine: scrollProgress > 0.62,
         hashGlow: scrollProgress > 0.35, // HASH glows when line reaches it
-        // Circle progress starts when line reaches logo and completes over scroll range
-        hashCircleProgress: scrollProgress > 0.35 ? Math.min((scrollProgress - 0.35) / 0.07, 1) : 0,
+        hashCircleVisible: scrollProgress > 0.35, // Circle triggers when line reaches logo
         // Card glow timing - only one card glows at a time
         missionGlow: scrollProgress > 0.12 && scrollProgress < 0.22,
         beliefGlow: scrollProgress > 0.22 && scrollProgress < 0.32,
