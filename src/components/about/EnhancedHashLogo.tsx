@@ -98,7 +98,7 @@ const EnhancedHashLogo: React.FC<EnhancedHashLogoProps> = ({ shouldGlow, showCir
               </filter>
             </defs>
             
-            {/* Counter-clockwise circle starting from top */}
+            {/* Half circle starting from top, traveling halfway counter-clockwise */}
             <circle
               cx="50"
               cy="50"
