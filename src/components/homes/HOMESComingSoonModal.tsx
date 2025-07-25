@@ -35,12 +35,12 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({ isOpen, onC
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Backdrop */}
       <div 
-        className="absolute inset-0 bg-black/30 backdrop-blur-md" 
+        className="absolute inset-0 bg-black/30 backdrop-blur-sm" 
         onClick={onClose}
       />
       
       {/* Modal */}
-      <div className="relative bg-background/30 backdrop-blur-md rounded-2xl shadow-premium w-full max-w-md mx-auto border border-border/20 hover:border-hastra-teal/20 animate-fade-in max-h-[90vh] overflow-hidden">
+      <div className="relative bg-background/30 backdrop-blur-lg rounded-2xl shadow-premium w-full max-w-md mx-auto border border-border/20 hover:border-hastra-teal/20 animate-fade-in max-h-[90vh] overflow-hidden">
         {/* Close Button - Fixed at top */}
         <button
           onClick={onClose}
