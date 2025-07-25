@@ -278,14 +278,14 @@ const About = () => {
                 {/* Animated background div that reveals when dynamic line hits */}
                 {animationState.shortTermToJoinLine && (
                   <div 
-                    className="absolute rounded-3xl pointer-events-none"
+                    className="absolute rounded-3xl pointer-events-none z-10"
                     style={{
                       left: '-1px',
                       top: '-1px',
                       right: '-1px',
                       bottom: '-1px',
                       background: 'transparent',
-                      border: '1px solid rgba(229, 218, 194, 0.8)',
+                      border: '2px solid rgba(229, 218, 194, 0.8)',
                       clipPath: 'inset(0 0 100% 0)',
                       animation: 'revealFromTop 3s ease-out forwards'
                     }}
