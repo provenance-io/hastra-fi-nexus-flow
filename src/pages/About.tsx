@@ -295,7 +295,7 @@ const About = () => {
                       strokeDashoffset="1000"
                       filter="drop-shadow(0 0 12px rgba(229, 218, 194, 0.6)) drop-shadow(0 0 6px rgba(229, 218, 194, 0.4))"
                       style={{
-                        animation: 'draw-border-complete 3s ease-out forwards',
+                        animation: 'draw-border-complete 4s ease-out forwards',
                         strokeLinecap: 'round',
                         transformOrigin: 'center top'
                       }}
