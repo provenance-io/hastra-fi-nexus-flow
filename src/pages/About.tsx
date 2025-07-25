@@ -139,7 +139,7 @@ const About = () => {
           <div className="container relative">
             <div className="text-center mb-16 animate-fade-in">
               {/* Enhanced HASH Logo with scroll-based glow */}
-              <EnhancedHashLogo shouldGlow={animationState.hashGlow} />
+              <EnhancedHashLogo shouldGlow={animationState.hashGlow} circleProgress={animationState.hashCircleProgress} />
               
               <p className="text-xl md:text-2xl text-foreground/90 max-w-5xl mx-auto leading-relaxed mb-12" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
                 Hastra is built on <a href="https://provenance.io" target="_blank" rel="noopener noreferrer" className="text-foreground/90 transition-colors hover:text-[#60C4A8]">Provenance Blockchain</a>—and we're committed to making the entire ecosystem stronger.
