@@ -262,23 +262,7 @@ const About = () => {
         {/* Enhanced CTA Section with Pulsating Glow */}
         <section className="py-16 relative overflow-hidden">
           <div className="container relative">
-            <div className="max-w-5xl mx-auto">
-              {/* Animated background div that reveals when dynamic line hits */}
-              {animationState.shortTermToJoinLine && (
-                <div 
-                  className="absolute rounded-3xl pointer-events-none"
-                  style={{
-                    left: '0px',
-                    top: '-2px',
-                    right: '0px',
-                    bottom: '-2px',
-                    background: 'transparent',
-                    border: '1px solid rgba(229, 218, 194, 0.8)',
-                    clipPath: 'inset(0 0 100% 0)',
-                    animation: 'revealFromTop 3s ease-out forwards'
-                  }}
-                />
-              )}
+            <div className="max-w-5xl mx-auto relative">
               
               {/* Container with soft pulsating glow around the entire section */}
               <div id="join-mission" className={`card-gradient rounded-3xl p-8 md:p-12 card-bottom-static transition-all duration-500 ${
@@ -290,6 +274,23 @@ const About = () => {
                      border: '1px solid rgba(229, 218, 194, 0.1)',
                      boxShadow: '0 0 30px rgba(229, 218, 194, 0.15), 0 0 60px rgba(229, 218, 194, 0.08), inset 0 0 20px rgba(229, 218, 194, 0.02)'
                    }}>
+                
+                {/* Animated background div that reveals when dynamic line hits */}
+                {animationState.shortTermToJoinLine && (
+                  <div 
+                    className="absolute rounded-3xl pointer-events-none"
+                    style={{
+                      left: '-1px',
+                      top: '-1px',
+                      right: '-1px',
+                      bottom: '-1px',
+                      background: 'transparent',
+                      border: '1px solid rgba(229, 218, 194, 0.8)',
+                      clipPath: 'inset(0 0 100% 0)',
+                      animation: 'revealFromTop 3s ease-out forwards'
+                    }}
+                  />
+                )}
                 
                 <div className="relative z-10 space-y-6">
                   <h3 className="text-2xl md:text-3xl font-bold">Join Our Mission</h3>
