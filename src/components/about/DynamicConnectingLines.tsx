@@ -58,29 +58,8 @@ const DynamicConnectingLines: React.FC<DynamicConnectingLinesProps> = ({
 
     const x1 = fromX;
     const y1 = fromRect.bottom - containerRect.top;
-    let x2 = toX;
-    let y2 = toRect.top - containerRect.top;
-
-    // Special handling for vision to hash-logo connection - stop at animated circle edge
-    if (fromId.includes('vision') && toId === 'hash-logo') {
-      // Calculate the circle radius (logo is scaled 1.4 times with 40% radius in SVG coordinates)
-      const logoRadius = (toRect.width / 2) * 1.4 * 0.4;
-      
-      // Calculate direction vector from logo center to line start
-      const logoCenterX = toRect.left + toRect.width / 2 - containerRect.left;
-      const logoCenterY = toRect.top + toRect.height / 2 - containerRect.top;
-      
-      const dx = x1 - logoCenterX;
-      const dy = y1 - logoCenterY;
-      const distance = Math.sqrt(dx * dx + dy * dy);
-      
-      // Normalize and scale by circle radius
-      const normalizedX = dx / distance;
-      const normalizedY = dy / distance;
-      
-      x2 = logoCenterX + normalizedX * logoRadius;
-      y2 = logoCenterY + normalizedY * logoRadius;
-    }
+    const x2 = toX;
+    const y2 = toRect.top - containerRect.top;
 
     const length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
     const angle = Math.atan2(y2 - y1, x2 - x1) * (180 / Math.PI);
