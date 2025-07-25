@@ -274,7 +274,7 @@ const About = () => {
                     background: 'rgba(229, 218, 194, 0.08)',
                     border: '2px solid rgba(229, 218, 194, 0.3)',
                     boxShadow: '0 0 30px rgba(229, 218, 194, 0.2), 0 0 60px rgba(229, 218, 194, 0.1)',
-                    transform: 'scale(1.01)', // 2px larger on all sides
+                    transform: 'scaleX(1.005) scaleY(1.01)', // Smaller on x-axis, 2px larger on y-axis
                     zIndex: -1
                   }}
                 />
@@ -283,8 +283,8 @@ const About = () => {
                   animationState.joinMissionGlow ? 'card-bottom-glow animate-border-draw' : 'border border-transparent'
                 } relative animate-pulse-glow overflow-hidden`}
                      style={{
-                       background: 'rgba(255, 255, 255, 0.02)',
-                       backdropFilter: 'blur(20px)',
+                       background: 'hsl(var(--background))',
+                       backdropFilter: 'none',
                        border: '1px solid rgba(229, 218, 194, 0.1)',
                        boxShadow: '0 0 30px rgba(229, 218, 194, 0.15), 0 0 60px rgba(229, 218, 194, 0.08), inset 0 0 20px rgba(229, 218, 194, 0.02)',
                        animation: 'soft-pulse-glow 4s ease-in-out infinite'
