@@ -274,7 +274,6 @@ const About = () => {
                     bottom: '-2px',
                     background: 'transparent',
                     border: '1px solid hsl(var(--header-glow))',
-                    boxShadow: '0 0 8px hsl(var(--header-glow) / 0.4), 0 0 16px hsl(var(--header-glow) / 0.2)',
                     clipPath: 'inset(0 0 100% 0)',
                     animation: 'revealFromTop 4s ease-out forwards'
                   }}
