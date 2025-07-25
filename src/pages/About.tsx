@@ -263,6 +263,24 @@ const About = () => {
         <section className="py-16 relative overflow-hidden">
           <div className="container relative">
             <div className="max-w-5xl mx-auto">
+              {/* Animated background div that reveals when dynamic line hits */}
+              {animationState.shortTermToJoinLine && (
+                <div 
+                  className="absolute inset-0 rounded-3xl pointer-events-none"
+                  style={{
+                    left: '-2px',
+                    top: '-2px',
+                    right: '-2px',
+                    bottom: '-2px',
+                    background: 'transparent',
+                    border: '1px solid hsl(var(--header-glow))',
+                    boxShadow: '0 0 8px hsl(var(--header-glow) / 0.4), 0 0 16px hsl(var(--header-glow) / 0.2)',
+                    clipPath: 'inset(0 0 100% 0)',
+                    animation: 'revealFromTop 4s ease-out forwards'
+                  }}
+                />
+              )}
+              
               {/* Container with soft pulsating glow around the entire section */}
               <div id="join-mission" className={`card-gradient rounded-3xl p-8 md:p-12 card-bottom-static transition-all duration-500 ${
                 animationState.joinMissionGlow ? 'card-bottom-glow animate-border-draw' : 'border border-transparent'
