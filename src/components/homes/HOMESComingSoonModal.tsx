@@ -40,7 +40,7 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({ isOpen, onC
       />
       
       {/* Modal */}
-      <div className="relative bg-background/30 backdrop-blur-lg rounded-2xl shadow-premium w-full max-w-md mx-auto border border-border/20 hover:border-hastra-teal/20 animate-fade-in max-h-[90vh] overflow-hidden">
+      <div className="relative bg-background/30 backdrop-blur-md rounded-2xl shadow-premium w-full max-w-md mx-auto border border-border/20 hover:border-hastra-teal/20 animate-fade-in max-h-[90vh] overflow-hidden">
         {/* Close Button - Fixed at top */}
         <button
           onClick={onClose}
@@ -74,21 +74,21 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({ isOpen, onC
             <div className="space-y-3 mb-6">
               <div className="flex items-center gap-3">
                 <div className="flex-shrink-0 w-6 h-6 rounded-lg bg-header-glow/10 flex items-center justify-center">
-                  <TrendingUp className="h-3 w-3" style={{ color: 'rgba(229, 218, 194, 0.8)' }} />
+                  <TrendingUp className="h-3 w-3 text-header-glow" />
                 </div>
-                <span className="text-xs text-foreground">Target yields of 6-12% annually</span>
+                <span className="text-xs text-foreground">Target yields of 7-14% annually</span>
               </div>
               
               <div className="flex items-center gap-3">
                 <div className="flex-shrink-0 w-6 h-6 rounded-lg bg-header-glow/10 flex items-center justify-center">
-                  <Shield className="h-3 w-3" style={{ color: 'rgba(229, 218, 194, 0.8)' }} />
+                  <Shield className="h-3 w-3 text-header-glow" />
                 </div>
                 <span className="text-xs text-foreground">Backed by real assets, not speculation</span>
               </div>
               
               <div className="flex items-center gap-3">
                 <div className="flex-shrink-0 w-6 h-6 rounded-lg bg-header-glow/10 flex items-center justify-center">
-                  <Bell className="h-3 w-3" style={{ color: 'rgba(229, 218, 194, 0.8)' }} />
+                  <Bell className="h-3 w-3 text-header-glow" />
                 </div>
                 <span className="text-xs text-foreground">Join the waitlist for early access</span>
               </div>
