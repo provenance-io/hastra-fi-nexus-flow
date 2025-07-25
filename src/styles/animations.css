@@ -427,10 +427,10 @@
 
 @keyframes drawCircleClockwise {
   from {
-    stroke-dashoffset: 251.33;
+    stroke-dashoffset: 0;
   }
   to {
-    stroke-dashoffset: 0;
+    stroke-dashoffset: 251.33;
   }
 }
 
