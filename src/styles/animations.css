@@ -419,11 +419,11 @@
 @keyframes draw-border-complete {
   0% {
     stroke-dasharray: 1000;
-    stroke-dashoffset: 1250; /* Start from middle top by offsetting by 1/4 perimeter */
+    stroke-dashoffset: 1000;
   }
   100% {
     stroke-dasharray: 1000;
-    stroke-dashoffset: 250; /* Complete the circle, leaving 250 offset to maintain starting position */
+    stroke-dashoffset: 0;
   }
 }
 
