@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { useWallet } from "@/contexts/WalletContext.tsx";
-import { Cluster, clusterApiUrl, Connection, PublicKey } from "@solana/web3.js";
+import { clusterApiUrl, Connection, PublicKey } from "@solana/web3.js";
 import { useQuery } from "@tanstack/react-query";
 import { getAssociatedTokenAddress } from "@solana/spl-token";
 import { Metaplex } from "@metaplex-foundation/js";
@@ -19,7 +19,7 @@ export interface TokenData {
 }
 
 const connection = new Connection(
-  clusterApiUrl(import.meta.env.VITE_SOLANA_CLUSTER_NAME as Cluster),
+  clusterApiUrl(import.meta.env.VITE_SOLANA_CLUSTER_NAME),
   "confirmed"
 );
 const metaplex = Metaplex.make(connection);

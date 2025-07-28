@@ -1,7 +1,9 @@
 /// <reference types="vite/client" />
 
+import { Cluster } from "@solana/web3.js";
+
 interface ImportMetaEnv {
-  VITE_SOLANA_CLUSTER_NAME: string;
+  VITE_SOLANA_CLUSTER_NAME: Cluster;
   VITE_SOLANA_RPC_URL: string;
   VITE_SOLANA_USDC_MINT: string;
   VITE_SOLANA_YIELD_MINT: string;

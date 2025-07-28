@@ -1,10 +1,10 @@
-import { Cluster, clusterApiUrl, Connection, PublicKey } from "@solana/web3.js";
+import { clusterApiUrl, Connection, PublicKey } from "@solana/web3.js";
 import { getAssociatedTokenAddress } from "@solana/spl-token";
 import { useQuery } from "@tanstack/react-query";
 import type { CoinGeckoPrice } from "../types/coin-gecko";
 
 const connection = new Connection(
-  clusterApiUrl(import.meta.env.VITE_SOLANA_CLUSTER_NAME as Cluster),
+  clusterApiUrl(import.meta.env.VITE_SOLANA_CLUSTER_NAME),
   "confirmed"
 );
 
