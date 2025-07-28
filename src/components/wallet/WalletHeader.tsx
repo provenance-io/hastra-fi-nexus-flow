@@ -1,6 +1,5 @@
-
-import { Button } from '@/components/ui/button';
-import { RefreshCw, ChevronDown, ChevronUp, Wallet } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { RefreshCw, ChevronDown, ChevronUp, Wallet } from "lucide-react";
 
 interface WalletHeaderProps {
   address: string | null;
@@ -17,7 +16,7 @@ const WalletHeader = ({
   isRefreshing,
   showTokenHoldings,
   onRefresh,
-  onToggleHoldings
+  onToggleHoldings,
 }: WalletHeaderProps) => {
   const formatAddress = (addr: string) => {
     return `${addr.slice(0, 6)}...${addr.slice(-4)}`;
@@ -25,27 +24,27 @@ const WalletHeader = ({
 
   const getWalletIcon = (type: string | null) => {
     switch (type) {
-      case 'MetaMask':
+      case "MetaMask":
         return <Wallet className="w-6 h-6 text-[hsl(34_100%_84%)]" />;
-      case 'Phantom':
+      case "Phantom":
         return (
-          <img 
-            src="/lovable-uploads/a4d8da02-50c5-4552-bfd9-bd18932e737c.png" 
-            alt="Phantom Wallet" 
+          <img
+            src="/lovable-uploads/a4d8da02-50c5-4552-bfd9-bd18932e737c.png"
+            alt="Phantom Wallet"
             className="w-6 h-6 rounded-lg"
           />
         );
-      case 'Solflare':
+      case "Solflare":
         return <Wallet className="w-6 h-6 text-[hsl(34_100%_84%)]" />;
-      case 'Coinbase':
+      case "Coinbase":
         return <Wallet className="w-6 h-6 text-blue-400" />;
-      case 'WalletConnect':
+      case "WalletConnect":
         return <Wallet className="w-6 h-6 text-blue-400" />;
-      case 'Backpack':
+      case "Backpack":
         return <Wallet className="w-6 h-6 text-purple-400" />;
-      case 'Slope':
+      case "Slope":
         return <Wallet className="w-6 h-6 text-green-400" />;
-      case 'Glow':
+      case "Glow":
         return <Wallet className="w-6 h-6 text-yellow-400" />;
       default:
         return <Wallet className="w-6 h-6 text-hastra-teal" />;
@@ -54,24 +53,24 @@ const WalletHeader = ({
 
   const getWalletBrandColor = (type: string | null) => {
     switch (type) {
-      case 'MetaMask':
-        return 'bg-orange-900/20';
-      case 'Phantom':
-        return 'bg-transparent';
-      case 'Solflare':
-        return 'bg-yellow-900/20';
-      case 'Coinbase':
-        return 'bg-blue-900/20';
-      case 'WalletConnect':
-        return 'bg-blue-900/20';
-      case 'Backpack':
-        return 'bg-purple-900/20';
-      case 'Slope':
-        return 'bg-green-900/20';
-      case 'Glow':
-        return 'bg-yellow-900/20';
+      case "MetaMask":
+        return "bg-orange-900/20";
+      case "Phantom":
+        return "bg-transparent";
+      case "Solflare":
+        return "bg-yellow-900/20";
+      case "Coinbase":
+        return "bg-blue-900/20";
+      case "WalletConnect":
+        return "bg-blue-900/20";
+      case "Backpack":
+        return "bg-purple-900/20";
+      case "Slope":
+        return "bg-green-900/20";
+      case "Glow":
+        return "bg-yellow-900/20";
       default:
-        return 'bg-hastra-teal/20';
+        return "bg-hastra-teal/20";
     }
   };
 
@@ -79,19 +78,25 @@ const WalletHeader = ({
     <div className="bg-background/20 rounded-t-3xl px-8 pt-6 pb-0">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4 mt-4">
-          <div className={`w-14 h-14 rounded-xl ${getWalletBrandColor(walletType)} flex items-center justify-center shadow-sm`}>
+          <div
+            className={`w-14 h-14 rounded-xl ${getWalletBrandColor(
+              walletType
+            )} flex items-center justify-center shadow-sm`}
+          >
             {getWalletIcon(walletType)}
           </div>
           <div>
             <p className="text-sm text-foreground font-mono font-medium">
-              {address ? formatAddress(address) : 'Loading...'}
+              {address ? formatAddress(address) : "Loading..."}
             </p>
             <p className="text-xs text-muted-foreground">
-              {walletType && walletType !== 'Connected' ? walletType : 'Connected Wallet'}
+              {walletType && walletType !== "Connected"
+                ? walletType
+                : "Connected Wallet"}
             </p>
           </div>
         </div>
-        
+
         <div className="flex items-center gap-2">
           <Button
             variant="ghost"
@@ -105,7 +110,7 @@ const WalletHeader = ({
               <ChevronDown className="w-4 h-4 text-foreground" />
             )}
           </Button>
-          
+
           <Button
             variant="ghost"
             size="sm"
@@ -113,7 +118,11 @@ const WalletHeader = ({
             disabled={isRefreshing}
             className="text-muted-foreground hover:text-auburn-primary p-3 rounded-xl hover:bg-auburn-primary/10 transition-all duration-200 disabled:opacity-50"
           >
-            <RefreshCw className={`w-4 h-4 text-foreground ${isRefreshing ? 'animate-spin' : ''}`} />
+            <RefreshCw
+              className={`w-4 h-4 text-foreground ${
+                isRefreshing ? "animate-spin" : ""
+              }`}
+            />
           </Button>
         </div>
       </div>
