@@ -39,7 +39,7 @@ const TradingPlatformsSection = () => {
             <div className="flex items-center gap-4 mb-6">
               <div className="w-16 h-16 rounded-xl bg-hastra-teal/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 p-2">
                 {platform.name === 'Raydium' ? (
-                  <img src="/lovable-uploads/274280db-aeb6-4c52-9da0-f373c9d9dba1.png" alt="Raydium" className="w-full h-full object-contain" />
+                  <img src="/lovable-uploads/c8008f2b-8127-4c87-a6b3-1cd6c817986f.png" alt="Raydium" className="w-full h-full object-contain" />
                 ) : (
                   <img src="/lovable-uploads/4e1e9873-a987-4561-9c94-bac0340e4c37.png" alt="Kamino Finance" className="w-full h-full object-contain" />
                 )}
