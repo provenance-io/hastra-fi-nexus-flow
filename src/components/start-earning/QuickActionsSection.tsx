@@ -13,7 +13,7 @@ const platforms = [
   {
     name: "Kamino Finance",
     description: "Lending and borrowing with automated strategies",
-    logo: "/lovable-uploads/9edb1ae1-8f98-4dcd-90f7-4f7e3135521e.png",
+    logo: "/lovable-uploads/4e1e9873-a987-4561-9c94-bac0340e4c37.png",
     link: "https://app.kamino.finance",
     apy: "Up to 8%",
     color: "blue"

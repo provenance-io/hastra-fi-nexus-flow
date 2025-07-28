@@ -41,7 +41,7 @@ const TradingPlatformsSection = () => {
                 {platform.name === 'Raydium' ? (
                   <img src="/lovable-uploads/274280db-aeb6-4c52-9da0-f373c9d9dba1.png" alt="Raydium" className="w-full h-full object-contain" />
                 ) : (
-                  <img src="/lovable-uploads/2d97b9d9-dc85-4433-823e-5dda53a6bce0.png" alt="Kamino Finance" className="w-full h-full object-contain" />
+                  <img src="/lovable-uploads/4e1e9873-a987-4561-9c94-bac0340e4c37.png" alt="Kamino Finance" className="w-full h-full object-contain" />
                 )}
               </div>
               <div>
