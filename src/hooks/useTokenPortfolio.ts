@@ -40,12 +40,20 @@ export const useTokenPortfolioQuery = (
         tokenMintAddresses.map(async (address) => {
           const mint = new PublicKey(address);
           const ta = await getAssociatedTokenAddress(mint, publicKey);
-          const balanceInfo = await connection.getTokenAccountBalance(ta);
 
-          const value =
-            Number(balanceInfo.value.amount) /
-            Math.pow(10, balanceInfo.value.decimals);
-          const amount = balanceInfo.value.uiAmount;
+          let value = 0;
+          let amount = 0;
+
+          try {
+            const balanceInfo = await connection.getTokenAccountBalance(ta);
+
+            value =
+              Number(balanceInfo.value.amount) /
+              Math.pow(10, balanceInfo.value.decimals);
+            amount = balanceInfo.value.uiAmount;
+          } catch (e) {
+            console.error(`No balance info for token address ${ta.toBase58()}`);
+          }
           try {
             const nftMetadata = await metaplex
               .nfts()
@@ -66,8 +74,7 @@ export const useTokenPortfolioQuery = (
               } as TokenData;
             }
           } catch (e) {
-            console.error(`Error processing mint address ${mint.toBase58()}`);
-            console.error(e);
+            console.error(`No metaplex info for mint address ${mint.toBase58()}`);
           }
           return {
             address: address,
@@ -100,7 +107,7 @@ export const useTokenPortfolio = () => {
     if (tokenData) {
       setTokens(tokenData);
     }
-  }, [tokenData]);
+  }, [tokenData, setTokens]);
 
   const claimInterest = useCallback(
     (tokenSymbol: string, claimedAmount: number) => {
@@ -144,11 +151,11 @@ export const useTokenPortfolio = () => {
       (total, token) => total + token.totalInterestEarned,
       0
     );
-  }, [tokenData]);
+  }, [tokens]);
 
   const getTotalUnclaimedInterest = useCallback(() => {
     return tokens.reduce((total, token) => total + token.unclaimedInterest, 0);
-  }, [tokenData]);
+  }, [tokens]);
 
   return {
     tokens: tokenData,
