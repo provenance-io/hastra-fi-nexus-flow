@@ -20,6 +20,7 @@ import Learn from "./pages/Learn";
 import Earn from "./pages/Earn";
 import BrandGuidePage from "./pages/BrandGuide";
 import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
 import {ReactQueryDevtools} from '@tanstack/react-query-devtools';
 
 
@@ -45,6 +46,7 @@ const App = () => (
                 <Route path="/learn" element={<Learn />} />
                 <Route path="/earn" element={<Earn />} />
                 <Route path="/terms" element={<Terms />} />
+                <Route path="/privacy" element={<Privacy />} />
                 <Route path="/brand-guide" element={<BrandGuidePage />} />
 
                 <Route path="/yield" element={<WYLDsPage />} />
