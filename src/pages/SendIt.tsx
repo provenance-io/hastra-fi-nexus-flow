@@ -1,32 +1,12 @@
 import HastraLogo from "@/components/HastraLogo";
 import { useState } from "react";
+import { playAudio } from "@/utils/audioUtils";
 
 const SendIt = () => {
   const [isPressed, setIsPressed] = useState(false);
   
   const playChaChing = () => {
-    // Create audio element and play cha-ching sound
-    const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+Dsr2ASBkCa5+7Qfj0MIXHF8+OYSA');
-    audio.volume = 0.3;
-    audio.play().catch(() => {
-      // Fallback: create a simple beep if audio fails
-      const audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
-      const oscillator = audioCtx.createOscillator();
-      const gainNode = audioCtx.createGain();
-      
-      oscillator.connect(gainNode);
-      gainNode.connect(audioCtx.destination);
-      
-      oscillator.frequency.setValueAtTime(800, audioCtx.currentTime);
-      oscillator.frequency.setValueAtTime(600, audioCtx.currentTime + 0.1);
-      oscillator.frequency.setValueAtTime(400, audioCtx.currentTime + 0.2);
-      
-      gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime);
-      gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
-      
-      oscillator.start(audioCtx.currentTime);
-      oscillator.stop(audioCtx.currentTime + 0.3);
-    });
+    playAudio('/sounds/cha-ching.mp3', 0.3);
   };
 
   const handleClick = () => {
@@ -108,10 +88,11 @@ const SendIt = () => {
                   {/* Enhanced Text with Press Effect */}
                   <div className={`
                     text-white font-black tracking-wider mb-4
+                    text-3xl md:text-4xl lg:text-5xl
                     transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]
                     ${isPressed 
-                      ? 'text-2xl md:text-3xl lg:text-4xl drop-shadow-sm transform translate-y-0.5' 
-                      : 'text-3xl md:text-4xl lg:text-5xl drop-shadow-lg transform translate-y-0'
+                      ? 'drop-shadow-[2px_4px_8px_rgba(0,0,0,0.8)] transform translate-y-1 translate-x-0.5' 
+                      : 'drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] transform translate-y-0 translate-x-0'
                     }
                   `}>
                     SEND IT
@@ -121,8 +102,8 @@ const SendIt = () => {
                   <div className={`
                     transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]
                     ${isPressed 
-                      ? 'transform translate-y-0.5 scale-95 opacity-90' 
-                      : 'transform translate-y-0 scale-100 opacity-100'
+                      ? 'transform translate-y-1 translate-x-0.5 scale-95 opacity-90' 
+                      : 'transform translate-y-0 translate-x-0 scale-100 opacity-100'
                     }
                   `}>
                     <HastraLogo className={`
