@@ -87,7 +87,7 @@ const SendIt = () => {
                 </div>
                 
                 {/* Hastra Logo Area */}
-                <HastraLogo className="h-2 md:h-3 lg:h-3 w-auto" />
+                <HastraLogo className="h-8 md:h-10 lg:h-12 w-auto" />
               </div>
               
             </div>
