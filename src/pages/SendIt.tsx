@@ -8,7 +8,7 @@ const SendIt = () => {
   const [sendCount, setSendCount] = useState(0);
   
   const playChaChing = () => {
-    playAudio('/sounds/cash-register.mp3', 0.3);
+    playAudio('/sounds/cash-register.mp3', 0.3, 1);
   };
 
   const handleClick = () => {

@@ -1,7 +1,8 @@
-export const playAudio = async (audioPath: string, volume: number = 0.3): Promise<void> => {
+export const playAudio = async (audioPath: string, volume: number = 0.3, startTime: number = 0): Promise<void> => {
   try {
     const audio = new Audio(audioPath);
     audio.volume = volume;
+    audio.currentTime = startTime;
     await audio.play();
   } catch (error) {
     // Fallback: create a simple beep if audio fails
