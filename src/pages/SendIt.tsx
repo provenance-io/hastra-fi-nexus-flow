@@ -32,7 +32,7 @@ const SendIt = () => {
   const handleClick = () => {
     setIsPressed(true);
     playChaChing();
-    setTimeout(() => setIsPressed(false), 150);
+    setTimeout(() => setIsPressed(false), 200);
   };
 
   return (
@@ -59,41 +59,104 @@ const SendIt = () => {
             onClick={handleClick}
             className={`
               relative group
-              transition-all duration-200 ease-out
-              ${isPressed ? 'scale-95' : 'hover:scale-105 active:scale-95'}
+              transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]
+              ${isPressed ? 'scale-98' : 'hover:scale-105 active:scale-98'}
               focus:outline-none
+              filter drop-shadow-2xl
             `}
             aria-label="Send it! Easy button"
           >
-            {/* Button Base/Shadow */}
+            {/* Enhanced Button Base Structure */}
             <div className="relative">
-              {/* Silver/Gray Base */}
-              <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-gradient-to-b from-gray-300 via-gray-400 to-gray-500 rounded-full shadow-2xl border-4 border-gray-600"></div>
-              
-              {/* Green Button Top */}
+              {/* Deep Shadow Layer */}
               <div className={`
-                absolute top-2 left-2 right-2 bottom-8
-                bg-gradient-to-b from-green-400 via-green-500 to-green-600
-                hover:from-green-300 hover:via-green-400 hover:to-green-500
-                rounded-full shadow-inner
-                border-2 border-green-700
-                flex flex-col items-center justify-center
-                transition-all duration-200
-                ${isPressed ? 'top-4 bottom-6 shadow-none' : 'shadow-[inset_0_-8px_16px_rgba(0,0,0,0.3),inset_0_8px_16px_rgba(255,255,255,0.3)]'}
-              `}>
-                {/* SEND IT Text */}
-                <div className="text-white font-black text-3xl md:text-4xl lg:text-5xl tracking-wider drop-shadow-lg mb-4">
-                  SEND IT
-                </div>
-                
-                {/* Hastra Logo Area */}
-                <HastraLogo className="h-8 md:h-10 lg:h-12 w-auto" />
-              </div>
+                absolute inset-0 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 
+                bg-gradient-to-b from-gray-800 via-gray-900 to-black 
+                rounded-full blur-lg opacity-40
+                transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]
+                ${isPressed ? 'scale-95 opacity-60' : 'scale-100'}
+              `}></div>
               
+              {/* Interactive Base Layer */}
+              <div className={`
+                relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 
+                bg-gradient-to-b from-gray-300 via-gray-400 to-gray-600
+                rounded-full border-4 border-gray-700
+                transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]
+                ${isPressed 
+                  ? 'shadow-[inset_0_8px_32px_rgba(0,0,0,0.6),0_4px_16px_rgba(0,0,0,0.4)] transform translate-y-1' 
+                  : 'shadow-[0_16px_32px_rgba(0,0,0,0.4),0_8px_16px_rgba(0,0,0,0.2)] transform translate-y-0'
+                }
+              `}>
+                
+                {/* Enhanced Green Button Top */}
+                <div className={`
+                  absolute transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]
+                  ${isPressed 
+                    ? 'top-6 left-3 right-3 bottom-4' 
+                    : 'top-2 left-2 right-2 bottom-8'
+                  }
+                  bg-gradient-to-b rounded-full border-2 border-green-700
+                  flex flex-col items-center justify-center
+                  ${isPressed 
+                    ? 'from-green-500 via-green-600 to-green-700 shadow-[inset_0_4px_16px_rgba(0,0,0,0.4)]' 
+                    : 'from-green-400 via-green-500 to-green-600 shadow-[inset_0_-12px_24px_rgba(0,0,0,0.3),inset_0_12px_24px_rgba(255,255,255,0.3)]'
+                  }
+                  hover:from-green-300 hover:via-green-400 hover:to-green-500
+                `}>
+                  
+                  {/* Enhanced Text with Press Effect */}
+                  <div className={`
+                    text-white font-black tracking-wider mb-4
+                    transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]
+                    ${isPressed 
+                      ? 'text-2xl md:text-3xl lg:text-4xl drop-shadow-sm transform translate-y-0.5' 
+                      : 'text-3xl md:text-4xl lg:text-5xl drop-shadow-lg transform translate-y-0'
+                    }
+                  `}>
+                    SEND IT
+                  </div>
+                  
+                  {/* Enhanced Logo with Press Effect */}
+                  <div className={`
+                    transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]
+                    ${isPressed 
+                      ? 'transform translate-y-0.5 scale-95 opacity-90' 
+                      : 'transform translate-y-0 scale-100 opacity-100'
+                    }
+                  `}>
+                    <HastraLogo className={`
+                      w-auto transition-all duration-300
+                      ${isPressed 
+                        ? 'h-7 md:h-9 lg:h-11' 
+                        : 'h-8 md:h-10 lg:h-12'
+                      }
+                    `} />
+                  </div>
+                </div>
+              </div>
             </div>
             
-            {/* Glow Effects */}
-            <div className="absolute inset-0 rounded-full bg-green-400/20 blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500 animate-pulse"></div>
+            {/* Enhanced Glow Effects */}
+            <div className={`
+              absolute inset-0 rounded-full blur-xl 
+              transition-all duration-500 ease-out
+              ${isPressed 
+                ? 'bg-green-500/30 opacity-40 scale-95' 
+                : 'bg-green-400/20 opacity-0 group-hover:opacity-60 group-hover:scale-105'
+              }
+              animate-pulse
+            `}></div>
+            
+            {/* Interaction Ripple Effect */}
+            <div className={`
+              absolute inset-0 rounded-full
+              transition-all duration-300 ease-out
+              ${isPressed 
+                ? 'bg-green-300/20 scale-110 opacity-100' 
+                : 'bg-transparent scale-100 opacity-0'
+              }
+            `}></div>
             
           </button>
         </div>
