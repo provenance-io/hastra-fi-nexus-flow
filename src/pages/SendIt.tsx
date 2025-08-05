@@ -61,7 +61,7 @@ const SendIt = () => {
               relative group
               transition-all duration-200 ease-out
               ${isPressed ? 'scale-95' : 'hover:scale-105 active:scale-95'}
-              focus:outline-none focus:ring-4 focus:ring-green-500/30
+              focus:outline-none
             `}
             aria-label="Send it! Easy button"
           >
@@ -87,23 +87,14 @@ const SendIt = () => {
                 </div>
                 
                 {/* Hastra Logo Area */}
-                <div className="bg-white/90 rounded-lg px-3 py-1 md:px-4 md:py-2 shadow-md">
-                  <HastraLogo className="h-8 md:h-10 lg:h-12 w-auto" />
-                </div>
+                <HastraLogo className="h-8 md:h-10 lg:h-12 w-auto" />
               </div>
               
-              {/* Button Highlight */}
-              <div className="absolute top-4 left-4 right-4 h-16 md:h-20 lg:h-24 bg-gradient-to-b from-white/40 to-transparent rounded-full blur-sm opacity-70"></div>
             </div>
             
             {/* Glow Effects */}
             <div className="absolute inset-0 rounded-full bg-green-400/20 blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500 animate-pulse"></div>
             
-            {/* Sparkle effects around button */}
-            <div className="absolute -top-4 left-1/4 w-3 h-3 bg-green-300 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping"></div>
-            <div className="absolute -bottom-4 right-1/4 w-4 h-4 bg-green-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping delay-150"></div>
-            <div className="absolute top-1/4 -left-6 w-2 h-2 bg-green-500 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping delay-300"></div>
-            <div className="absolute bottom-1/4 -right-6 w-2 h-2 bg-green-300 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping delay-500"></div>
           </button>
         </div>
 
