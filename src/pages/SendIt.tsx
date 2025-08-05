@@ -1,9 +1,11 @@
 import HastraLogo from "@/components/HastraLogo";
 import { useState } from "react";
 import { playAudio } from "@/utils/audioUtils";
+import FlapDisplay from "@/components/FlapDisplay";
 
 const SendIt = () => {
   const [isPressed, setIsPressed] = useState(false);
+  const [sendCount, setSendCount] = useState(0);
   
   const playChaChing = () => {
     playAudio('/sounds/cha-ching.mp3', 0.3);
@@ -11,6 +13,7 @@ const SendIt = () => {
 
   const handleClick = () => {
     setIsPressed(true);
+    setSendCount(prev => prev + 1);
     playChaChing();
     setTimeout(() => setIsPressed(false), 200);
   };
@@ -143,13 +146,18 @@ const SendIt = () => {
         </div>
 
         {/* Fun subtitle */}
-        <div className="space-y-2">
+        <div className="space-y-4">
           <p className="text-lg md:text-xl text-muted-foreground">
             💰 Every click brings you closer to financial freedom! 💰
           </p>
           <p className="text-sm text-muted-foreground/60">
             (Not financial advice, just good vibes)
           </p>
+          
+          {/* Send Counter */}
+          <div className="flex justify-center pt-4">
+            <FlapDisplay value={sendCount} digits={6} />
+          </div>
         </div>
       </div>
     </div>
