@@ -53,38 +53,57 @@ const SendIt = () => {
           </p>
         </div>
 
-        {/* Giant interactive button */}
+        {/* Giant Easy Button Style */}
         <div className="flex justify-center">
           <button
             onClick={handleClick}
             className={`
-              relative group p-8 md:p-12 lg:p-16 
-              bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20
-              hover:from-primary/30 hover:via-primary/20 hover:to-accent/30
-              border-2 border-primary/30 hover:border-primary/50
-              rounded-3xl shadow-2xl hover:shadow-3xl
-              transition-all duration-300 ease-out
-              ${isPressed ? 'scale-95 shadow-inner' : 'hover:scale-105 active:scale-95'}
-              backdrop-blur-sm
-              before:absolute before:inset-0 before:rounded-3xl
-              before:bg-gradient-to-br before:from-white/10 before:to-transparent
-              before:opacity-0 hover:before:opacity-100 before:transition-opacity
-              focus:outline-none focus:ring-4 focus:ring-primary/30
+              relative group
+              transition-all duration-200 ease-out
+              ${isPressed ? 'scale-95' : 'hover:scale-105 active:scale-95'}
+              focus:outline-none focus:ring-4 focus:ring-green-500/30
             `}
-            aria-label="Send it! Easter egg button"
+            aria-label="Send it! Easy button"
           >
-            <div className={`transition-all duration-200 ${isPressed ? 'scale-90' : ''}`}>
-              <HastraLogo className="h-32 md:h-40 lg:h-48 w-auto drop-shadow-2xl" />
+            {/* Button Base/Shadow */}
+            <div className="relative">
+              {/* Silver/Gray Base */}
+              <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-gradient-to-b from-gray-300 via-gray-400 to-gray-500 rounded-full shadow-2xl border-4 border-gray-600"></div>
+              
+              {/* Green Button Top */}
+              <div className={`
+                absolute top-2 left-2 right-2 bottom-8
+                bg-gradient-to-b from-green-400 via-green-500 to-green-600
+                hover:from-green-300 hover:via-green-400 hover:to-green-500
+                rounded-full shadow-inner
+                border-2 border-green-700
+                flex flex-col items-center justify-center
+                transition-all duration-200
+                ${isPressed ? 'top-4 bottom-6 shadow-none' : 'shadow-[inset_0_-8px_16px_rgba(0,0,0,0.3),inset_0_8px_16px_rgba(255,255,255,0.3)]'}
+              `}>
+                {/* SEND IT Text */}
+                <div className="text-white font-black text-3xl md:text-4xl lg:text-5xl tracking-wider drop-shadow-lg mb-4">
+                  SEND IT
+                </div>
+                
+                {/* Hastra Logo Area */}
+                <div className="bg-white/90 rounded-lg px-3 py-1 md:px-4 md:py-2 shadow-md">
+                  <HastraLogo className="h-8 md:h-10 lg:h-12 w-auto" />
+                </div>
+              </div>
+              
+              {/* Button Highlight */}
+              <div className="absolute top-4 left-4 right-4 h-16 md:h-20 lg:h-24 bg-gradient-to-b from-white/40 to-transparent rounded-full blur-sm opacity-70"></div>
             </div>
             
-            {/* Glow effect */}
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/20 to-accent/20 blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
+            {/* Glow Effects */}
+            <div className="absolute inset-0 rounded-full bg-green-400/20 blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500 animate-pulse"></div>
             
-            {/* Sparkle effects */}
-            <div className="absolute -top-2 -right-2 w-4 h-4 bg-primary rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping"></div>
-            <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-accent rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping delay-150"></div>
-            <div className="absolute top-1/4 -left-4 w-2 h-2 bg-primary rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping delay-300"></div>
-            <div className="absolute bottom-1/4 -right-4 w-2 h-2 bg-accent rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping delay-500"></div>
+            {/* Sparkle effects around button */}
+            <div className="absolute -top-4 left-1/4 w-3 h-3 bg-green-300 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping"></div>
+            <div className="absolute -bottom-4 right-1/4 w-4 h-4 bg-green-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping delay-150"></div>
+            <div className="absolute top-1/4 -left-6 w-2 h-2 bg-green-500 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping delay-300"></div>
+            <div className="absolute bottom-1/4 -right-6 w-2 h-2 bg-green-300 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping delay-500"></div>
           </button>
         </div>
 
