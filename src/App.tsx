@@ -16,6 +16,7 @@ import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import WYLDsPage from "./pages/wYLDs";
 import HOMESPage from "./pages/HOMES";
+import SendIt from "./pages/SendIt";
 import Learn from "./pages/Learn";
 import Earn from "./pages/Earn";
 import BrandGuidePage from "./pages/BrandGuide";
@@ -51,6 +52,7 @@ const App = () => (
 
                 <Route path="/yield" element={<WYLDsPage />} />
                 <Route path="/homes" element={<HOMESPage />} />
+                <Route path="/sendit" element={<SendIt />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
