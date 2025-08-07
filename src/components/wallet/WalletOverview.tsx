@@ -78,6 +78,7 @@ const WalletOverview = () => {
                   totalInterestEarned={token.totalInterestEarned}
                   unclaimedInterest={token.unclaimedInterest}
                   icon={token.icon}
+                  tokenAddress={token.tokenAddress}
                   onClaim={token.address === YIELD ? handleTokenClaim(token.token) : undefined}
                 />
               ))}

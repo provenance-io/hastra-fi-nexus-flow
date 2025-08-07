@@ -95,6 +95,24 @@ export const useDepositAndMint = () => {
         import.meta.env.VITE_SOLANA_USDC_YIELD_MINT_AUTHORITY_PDA
       );
 
+      const toTokenAccountInfo = await connection.getAccountInfo(toTokenAccount);
+      const createAtaInstructions = toTokenAccountInfo ? [] : [
+        createAssociatedTokenAccountInstruction(
+          signer,
+          toTokenAccount,
+          signer,
+          yieldMint
+        )
+      ];
+
+      console.log(`signer:        ${signer.toBase58()}`);
+      console.log(`swapToken:     ${swapTokenAccount.toBase58()}`);
+      console.log(`toAccount:     ${toTokenAccount.toBase58()}`);
+      console.log(`vault:         ${vault.toBase58()}`);
+      console.log(`mint:          ${yieldMint.toBase58()}`);
+      console.log(`configPda:     ${configPda.toBase58()}`);
+      console.log(`mintAuthority: ${mintAuthorityPda.toBase58()}`);
+      console.log(`tokenProgram:  ${TOKEN_PROGRAM_ID.toBase58()}`);
       return await confirmTransaction(connection, () =>
         program?.methods
           .depositAndMint(new BN(amount * 1_000_000))
@@ -108,6 +126,7 @@ export const useDepositAndMint = () => {
             mintAuthority: mintAuthorityPda,
             tokenProgram: TOKEN_PROGRAM_ID,
           })
+          .preInstructions(createAtaInstructions)
           .rpc()
       );
     },
