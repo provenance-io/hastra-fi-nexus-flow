@@ -3,9 +3,7 @@ interface APYResponse {
 }
 
 export const fetchCurrentAPY = async (): Promise<number> => {
-  const response = await fetch(
-    "https://provenance.io/hastra-pulse/apy/estimated"
-  );
+  const response = await fetch("https://hastra.io/hastra-pulse/apy/estimated");
   if (!response.ok) {
     throw new Error("Failed to fetch APY data");
   }
