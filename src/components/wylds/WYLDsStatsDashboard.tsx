@@ -70,7 +70,7 @@ const WYLDsStatsDashboard = () => {
     },
     {
       title: "Current APY",
-      value: apyLoading ? "Loading..." : apyError ? "Error" : `${apy || 0}%`,
+      value: apyLoading ? "Loading..." : apyError ? "Error" : `${apy || 4}%`,
       description: "The current annual percentage yield for holding sYLDS.",
       isLoading: apyLoading,
       hasError: !!apyError,

@@ -47,7 +47,7 @@ const Header = () => {
     ? "Loading..."
     : apyError
     ? "Error"
-    : `Earn Up to ${apy || 0}% APY`;
+    : `Earn Up to ${apy || 4}% APY`;
   const isEarnPage = location.pathname === "/earn";
 
   const handleConnectWallet = async () => {
