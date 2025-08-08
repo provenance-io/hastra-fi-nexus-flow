@@ -3,7 +3,7 @@ name: build-testnet
 on:
   push:
     branches:
-      - main  # Triggers only when code is pushed (including merged PRs) to main
+      - main # Triggers only when code is pushed (including merged PRs) to main
   merge_group:
   pull_request:
     branches:
@@ -34,6 +34,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+
+      - name: Clean npm cahce
+        run: npm cache clean --force
 
       - name: Install npm Packages
         run: npm ci
