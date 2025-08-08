@@ -23,7 +23,7 @@ jobs:
   build-testnet:
     runs-on: ubuntu-latest
     env:
-      DOCKER_IMAGE: us-east1-docker.pkg.dev/provenance-io-test/docker/hastra-marketing
+      DOCKER_IMAGE: us-east1-docker.pkg.dev/provenance-io-test/docker/hastra-fi-nexus-flow
     steps:
       - name: "Announce version"
         run: echo "Building version for ${{ github.ref_name }}"
