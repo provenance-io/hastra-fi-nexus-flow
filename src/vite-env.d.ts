@@ -10,6 +10,7 @@ interface ImportMetaEnv {
   VITE_SOLANA_USDC_VAULT: string;
   VITE_SOLANA_USDC_YIELD_CONFIG_PDA: string;
   VITE_SOLANA_USDC_YIELD_MINT_AUTHORITY_PDA: string;
+  VITE_HASTRA_PULSE_URL: string;
 }
 
 interface ImportMeta {
