@@ -58,27 +58,27 @@ const WYLDsStatsDashboard = () => {
 
   const stats = [
     {
-      title: "Total YIELD in Circulation",
+      title: "Total sYLDS in Circulation",
       value: circulationLoading
         ? "Loading..."
         : circulationError
         ? "Error"
         : formatNumber(circulation || 0),
-      description: "The total value of YIELD tokens currently in circulation.",
+      description: "The total value of sYLDS tokens currently in circulation.",
       isLoading: circulationLoading,
       hasError: !!circulationError,
     },
     {
       title: "Current APY",
       value: apyLoading ? "Loading..." : apyError ? "Error" : `${apy || 0}%`,
-      description: "The current annual percentage yield for holding YIELD.",
+      description: "The current annual percentage yield for holding sYLDS.",
       isLoading: apyLoading,
       hasError: !!apyError,
     },
     {
       title: "Total Yield Earned",
       value: "$1.2M",
-      description: "Cumulative yield distributed to all YIELD holders.",
+      description: "Cumulative yield distributed to all sYLDS holders.",
       isLoading: false,
       hasError: false,
     },
@@ -89,7 +89,7 @@ const WYLDsStatsDashboard = () => {
         : holdersError
         ? "Error"
         : formatHolders(holders || "0"),
-      description: "Total number of wallets currently holding YIELD tokens.",
+      description: "Total number of wallets currently holding sYLDS tokens.",
       isLoading: holdersLoading,
       hasError: !!holdersError,
     },
@@ -111,7 +111,7 @@ const WYLDsStatsDashboard = () => {
                     "0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)",
                 }}
               >
-                Track YIELD performance with real-time data and transparent
+                Track sYLDS performance with real-time data and transparent
                 metrics
               </p>
             </div>

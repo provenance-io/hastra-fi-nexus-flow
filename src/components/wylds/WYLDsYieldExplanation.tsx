@@ -16,7 +16,7 @@ import yieldIcon from "/lovable-uploads/1d678c0f-09c8-4451-a9a6-3e635e0fef72.png
 const YieldTokenIcon = ({ className }: { className?: string }) => (
   <img
     src={yieldIcon}
-    alt="YIELD Token"
+    alt="sYLDS Token"
     className={`${className} object-contain`}
   />
 );
@@ -29,8 +29,8 @@ const WYLDsYieldExplanation = () => {
     {
       number: 1,
       icon: YieldTokenIcon,
-      title: "Hold YIELD tokens",
-      description: "Simply hold YIELD tokens in any compatible Solana wallet",
+              title: "Hold sYLDS tokens",
+              description: "Simply hold sYLDS tokens in any compatible Solana wallet",
       color: "from-header-glow to-crypto-accent",
       bgPattern: "bg-header-glow/10",
     },
@@ -47,8 +47,8 @@ const WYLDsYieldExplanation = () => {
       number: 3,
       icon: Calendar,
       title: "Monthly Distributions",
-      description:
-        "Claim your yield on hastra.io on a monthly basis in YIELD tokens",
+              description:
+                "Claim your yield on hastra.io on a monthly basis in sYLDS tokens",
       color: "from-header-glow to-crypto-accent",
       bgPattern: "bg-header-glow/10",
     },
@@ -56,8 +56,8 @@ const WYLDsYieldExplanation = () => {
       number: 4,
       icon: Repeat,
       title: "Use daily, or redeem for USDC",
-      description:
-        "Easily redeem your YIELD through Raydium and Kamino protocols",
+              description:
+                "Easily redeem your sYLDS through Raydium and Kamino protocols",
       color: "from-crypto-accent to-header-glow",
       bgPattern: "bg-crypto-accent/10",
     },
@@ -108,7 +108,7 @@ const WYLDsYieldExplanation = () => {
             {/* Section Header - Matching About page AnimatedCard style */}
             <div className="mb-8 text-center">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">
-                What is YIELD?
+                What is sYLDS?
               </h2>
             </div>
             {/* Feature Cards */}
@@ -118,13 +118,13 @@ const WYLDsYieldExplanation = () => {
                   icon: Building2,
                   title: "Backed by RWAs",
                   description:
-                    "YIELD token is backed by reserves of YLDS - the first SEC-registered, yield-bearing stablecoin backed by real world assets.",
+                    "sYLDS token is backed by reserves of YLDS - the first SEC-registered, yield-bearing stablecoin backed by real world assets.",
                 },
                 {
                   icon: Zap,
                   title: "Automatic Yield",
                   description:
-                    "Earn yield automatically just by holding YIELD in your wallet - no staking required.",
+                    "Earn yield automatically just by holding sYLDS in your wallet - no staking required.",
                 },
                 {
                   icon: Link2,

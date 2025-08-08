@@ -4,7 +4,7 @@ import { ExternalLink, Coins } from 'lucide-react';
 
 const buyOptions = [
   {
-    token: "YIELD",
+    token: "sYLDS",
     description: "Yield-bearing stablecoin earning up to 8% APY",
     platform: "Raydium",
     link: "https://raydium.io",
@@ -28,7 +28,7 @@ const BuyTokensSection = () => {
             Buy Tokens
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Get started with YIELD and sHASH tokens to participate in our DeFi ecosystem
+            Get started with sYLDS and sHASH tokens to participate in our DeFi ecosystem
           </p>
         </div>
 
@@ -37,10 +37,10 @@ const BuyTokensSection = () => {
             <Card key={index} className="glass-effect border-border/50 hover:border-header-glow/30 transition-all duration-300">
               <CardHeader>
                 <CardTitle className="flex items-center gap-3">
-                  {option.token === 'YIELD' ? (
+                  {option.token === 'sYLDS' ? (
                     <img 
                       src="/lovable-uploads/08452a7b-6782-4b0a-900e-0f0c99a4fc4e.png" 
-                      alt="YIELD Token"
+                      alt="sYLDS Token"
                       className="w-10 h-10 rounded-lg"
                     />
                   ) : (

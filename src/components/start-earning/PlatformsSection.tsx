@@ -6,7 +6,7 @@ const platforms = [
   {
     name: "Raydium",
     description: "Automated Market Maker for liquidity pools and swaps",
-    features: ["YIELD/USDC Pool", "HASH/USDC Pool", "Low fees", "High liquidity"],
+    features: ["sYLDS/USDC Pool", "HASH/USDC Pool", "Low fees", "High liquidity"],
     link: "https://raydium.io"
   },
   {

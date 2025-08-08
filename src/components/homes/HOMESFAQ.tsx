@@ -16,20 +16,20 @@ const HOMESFAQ = () => {
       answer: "HOMES generates yield through multiple streams: rental income from tokenized properties (4-12% annual yield), property appreciation over time, and professional property management. Rewards are distributed as yield-bearing tokens that can be staked, traded, or converted to stablecoins. Token holders receive proportional rental income and participate in property value increases."
     },
     {
-      question: "What is wYIELD and Rewards?",
-      answer: "wYIELD is a yield-bearing wrapper token that automatically compounds returns from multiple DeFi protocols. Rewards are distributed through smart contracts that allocate yield based on your token holdings. wYIELD tokens earn continuous yield that can be claimed at any time or automatically compounded for maximum returns."
+      question: "What is wsYLDS and Rewards?",
+      answer: "wsYLDS is a yield-bearing wrapper token that automatically compounds returns from multiple DeFi protocols. Rewards are distributed through smart contracts that allocate yield based on your token holdings. wsYLDS tokens earn continuous yield that can be claimed at any time or automatically compounded for maximum returns."
     },
     {
-      question: "How is YIELD earned and distributed?",
-      answer: "YIELD is earned through staking mechanisms, liquidity provision, and participation in various DeFi protocols. Distribution happens automatically through smart contracts on a continuous basis. Users can claim their YIELD rewards at any time or set up auto-compounding to maximize returns. The distribution rate varies based on total protocol participation and market conditions."
+      question: "How is sYLDS earned and distributed?",
+      answer: "sYLDS is earned through staking mechanisms, liquidity provision, and participation in various DeFi protocols. Distribution happens automatically through smart contracts on a continuous basis. Users can claim their sYLDS rewards at any time or set up auto-compounding to maximize returns. The distribution rate varies based on total protocol participation and market conditions."
     },
     {
       question: "What is HASH and sHASH (bridged Hash SPL)?",
       answer: "HASH is the native utility token of the Provenance Blockchain ecosystem, used for governance, staking, and transaction fees. sHASH is the Solana SPL (Solana Program Library) bridged version of HASH, allowing HASH holders to participate in Solana-based DeFi while maintaining exposure to the Provenance ecosystem. sHASH enables cross-chain liquidity and yield opportunities."
     },
     {
-      question: "How can I convert YIELD or sHASH to USDC?",
-      answer: "You can convert YIELD to USDC through the YIELD/USDC liquidity pool on Raydium DEX. For sHASH, you can use the HASH/USDC liquidity pool also available on Raydium. Both pools offer instant swaps with competitive rates. Additionally, you can provide liquidity to these pools to earn trading fees and additional yield. Simply connect your Solana wallet and swap directly through the Raydium interface."
+      question: "How can I convert sYLDS or sHASH to USDC?",
+      answer: "You can convert sYLDS to USDC through the sYLDS/USDC liquidity pool on Raydium DEX. For sHASH, you can use the HASH/USDC liquidity pool also available on Raydium. Both pools offer instant swaps with competitive rates. Additionally, you can provide liquidity to these pools to earn trading fees and additional yield. Simply connect your Solana wallet and swap directly through the Raydium interface."
     }
   ];
 

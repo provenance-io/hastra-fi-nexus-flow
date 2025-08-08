@@ -8,7 +8,7 @@ export const innovationFocusAreas = [
   {
     title: 'Yield-Bearing Infrastructure',
     description: 'Reimagining how stable assets generate yield through regulatory-compliant mechanisms.',
-    product: 'Current Product: YIELD - First SEC-registered yield-bearing stablecoin',
+    product: 'Current Product: sYLDS - First SEC-registered yield-bearing stablecoin',
     innovation: 'Bridging traditional finance regulations with DeFi accessibility.',
   },
   {
@@ -27,7 +27,7 @@ export const innovationFocusAreas = [
 
 export const products = {
   live: {
-    name: 'YIELD',
+    name: 'sYLDS',
     tagline: 'Earn Yield on Your Stable',
     description: "TradFi Yields meets DeFi Velocity. Earn up to 4% APY on-the-go and trade whenever you want - all backed by real world assets.",
     innovation: 'Instant transfers, minimal fees, full DeFi composability - all backed by real world assets',
@@ -80,7 +80,7 @@ export const footerLinks = {
         { label: '(L)earn', href: '/learn' },
     ],
     products: [
-        { label: 'YIELD', href: '/yield' },
+        { label: 'sYLDS', href: '/yield' },
         { label: 'HOMES', href: '/homes' },
     ],
     legal: [
