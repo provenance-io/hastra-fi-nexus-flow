@@ -42,7 +42,7 @@ const WYLDsHero = () => {
         <div className="mb-4 md:mb-6 flex justify-center">
           <img
             src="/lovable-uploads/cb96356b-822d-4dc0-963a-96ef43bfedbd.png"
-            alt="YIELD Token"
+            alt="sYLDS Token"
             className="w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 animate-pulse"
             style={{
               filter:
@@ -97,7 +97,7 @@ const WYLDsHero = () => {
             </div>
           </div>
 
-          {/* GET YIELD Button - aligned */}
+          {/* GET sYLDS Button - aligned */}
           <div className="order-1 lg:order-2 w-full max-w-[200px]">
             <Button
               size="lg"
@@ -106,7 +106,7 @@ const WYLDsHero = () => {
               asChild
             >
               <Link to="/earn" className="flex items-center justify-center">
-                Get YIELD
+                Get sYLDS
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>

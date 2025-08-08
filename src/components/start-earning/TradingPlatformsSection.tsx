@@ -9,7 +9,7 @@ const tradingPlatforms = [
     name: "Raydium",
     description: "Trade tokens and provide liquidity on Solana's leading AMM",
     type: "Trading & Liquidity",
-    features: ["YIELD/USDC Trading", "HASH/USDC Pool", "Low fees", "High liquidity"],
+    features: ["sYLDS/USDC Trading", "HASH/USDC Pool", "Low fees", "High liquidity"],
     link: "https://raydium.io",
     color: "blue"
   },

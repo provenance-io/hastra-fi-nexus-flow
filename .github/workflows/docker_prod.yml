@@ -19,7 +19,7 @@ jobs:
   build-mainnet:
     runs-on: ubuntu-latest
     env:
-      DOCKER_IMAGE: us-central1-docker.pkg.dev/provenance-io/docker/hastra-marketing
+      DOCKER_IMAGE: us-central1-docker.pkg.dev/provenance-io/docker/hastra-fi-nexus-flow
     steps:
       - uses: actions/checkout@main
 

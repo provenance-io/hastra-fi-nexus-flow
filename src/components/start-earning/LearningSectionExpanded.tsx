@@ -41,7 +41,7 @@ const quickStarters = [
       intro: "Start your DeFi journey with confidence. This step-by-step guide walks you through making your first $100 investment safely and strategically.",
       keyPoints: [
         "Start with established platforms like Raydium or Kamino",
-        "Consider YIELD token for stable, consistent returns",
+        "Consider sYLDS token for stable, consistent returns",
         "Diversify across 2-3 different strategies initially",
         "Set aside funds for transaction fees (usually $1-5)",
         "Track your positions and understand how to exit"

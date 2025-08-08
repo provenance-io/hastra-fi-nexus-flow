@@ -137,12 +137,12 @@ const Header = () => {
                     <div className="flex items-center gap-3">
                       <img
                         src="/lovable-uploads/08452a7b-6782-4b0a-900e-0f0c99a4fc4e.png"
-                        alt="YIELD Token"
+                        alt="sYLDS Token"
                         className="w-10 h-10 rounded-lg group-hover:scale-105 transition-transform"
                       />
                       <div>
                         <div className="font-semibold text-platinum/90 mb-1">
-                          YIELD
+                          sYLDS
                         </div>
                         <div className="text-sm text-platinum/70 flex items-center gap-1">
                           {apyLoading && (

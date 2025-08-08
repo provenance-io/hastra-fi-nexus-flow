@@ -16,7 +16,7 @@ import yieldIcon from "/lovable-uploads/1d678c0f-09c8-4451-a9a6-3e635e0fef72.png
 const YieldTokenIcon = ({ className }: { className?: string }) => (
   <img
     src={yieldIcon}
-    alt="YIELD Token"
+    alt="sYLDS Token"
     className={`${className} object-contain`}
   />
 );
@@ -29,8 +29,8 @@ const WYLDsYieldExplanation = () => {
     {
       number: 1,
       icon: YieldTokenIcon,
-      title: "Hold YIELD tokens",
-      description: "Simply hold YIELD tokens in any compatible Solana wallet",
+              title: "Hold sYLDS tokens",
+              description: "Simply hold sYLDS tokens in any compatible Solana wallet",
       color: "from-header-glow to-crypto-accent",
       bgPattern: "bg-header-glow/10",
     },
@@ -47,8 +47,8 @@ const WYLDsYieldExplanation = () => {
       number: 3,
       icon: Calendar,
       title: "Monthly Distributions",
-      description:
-        "Claim your yield on hastra.io on a monthly basis in YIELD tokens",
+              description:
+                "Claim your yield on hastra.io on a monthly basis in sYLDS tokens",
       color: "from-header-glow to-crypto-accent",
       bgPattern: "bg-header-glow/10",
     },
@@ -56,8 +56,8 @@ const WYLDsYieldExplanation = () => {
       number: 4,
       icon: Repeat,
       title: "Use daily, or redeem for USDC",
-      description:
-        "Easily redeem your YIELD through Raydium and Kamino protocols",
+              description:
+                "Easily redeem your sYLDS through Raydium and Kamino protocols",
       color: "from-crypto-accent to-header-glow",
       bgPattern: "bg-crypto-accent/10",
     },
@@ -101,14 +101,14 @@ const WYLDsYieldExplanation = () => {
       {/* Unified seamless background - removed conflicting gradient */}
 
       <div className="max-w-5xl mx-auto px-4 relative z-10">
-        {/* Combined Dashboard Box - What is YIELD? + How It Works */}
+        {/* Combined Dashboard Box - What is sYLDS? + How It Works */}
         <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
           <div className="relative z-10">
-            {/* What is YIELD Section */}
+            {/* What is sYLDS Section */}
             {/* Section Header - Matching About page AnimatedCard style */}
             <div className="mb-8 text-center">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">
-                What is YIELD?
+                What is sYLDS?
               </h2>
             </div>
             {/* Feature Cards */}
@@ -118,13 +118,13 @@ const WYLDsYieldExplanation = () => {
                   icon: Building2,
                   title: "Backed by RWAs",
                   description:
-                    "YIELD token is backed by reserves of YLDS - the first SEC-registered, yield-bearing stablecoin backed by real world assets.",
+                    "sYLDS token is backed by reserves of YLDS - the first SEC-registered, yield-bearing stablecoin backed by real world assets.",
                 },
                 {
                   icon: Zap,
                   title: "Automatic Yield",
                   description:
-                    "Earn yield automatically just by holding YIELD in your wallet - no staking required.",
+                    "Earn yield automatically just by holding sYLDS in your wallet - no staking required.",
                 },
                 {
                   icon: Link2,
@@ -174,14 +174,14 @@ const WYLDsYieldExplanation = () => {
             {/* Description - Matching About page style */}
             <div className="mt-12 mb-16">
               <p className="text-lg text-foreground/90 leading-relaxed mb-4">
-                YIELD is a token representing a portion of a pool of reserves
+                sYLDS is a token representing a portion of a pool of reserves
                 holding the YLDS token - the first SEC-registered, yield-bearing
                 stablecoin combining the liquidity of traditional stablecoins
                 with the earning power of a money market fund.*
               </p>
               <p className="text-lg text-foreground/90 leading-relaxed">
                 As users deposit USDC, Hastra purchases and holds YLDS, and
-                distributes interest in YIELD to token holders. Because{" "}
+                distributes interest in sYLDS to token holders. Because{" "}
                 <span className="text-header-glow font-semibold">
                   earning yield shouldn't require complex strategies—it should
                   just work
@@ -211,7 +211,7 @@ const WYLDsYieldExplanation = () => {
             {/* Disclaimer */}
             <div className="text-center mb-16">
               <p className="text-sm italic text-white/80 max-w-2xl mx-auto leading-relaxed">
-                *YIELD is not registered with the SEC or any securities
+                *sYLDS is not registered with the SEC or any securities
                 regulator. YLDS is issued by a third party independent of
                 Hastra.
               </p>
@@ -394,7 +394,7 @@ const WYLDsYieldExplanation = () => {
           </div>
         </div>
 
-        {/* Watch YIELD as it Grows text section */}
+        {/* Watch sYLDS as it Grows text section */}
         <div className="text-center mb-12 mt-32">
           <p
             className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed"
@@ -403,7 +403,7 @@ const WYLDsYieldExplanation = () => {
                 "0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)",
             }}
           >
-            Watch YIELD as it Grows
+            Watch sYLDS as it Grows
           </p>
         </div>
 
@@ -423,7 +423,7 @@ const WYLDsYieldExplanation = () => {
                   className="text-xs md:text-sm font-medium leading-tight"
                   style={{ color: "hsl(34, 100%, 84%)" }}
                 >
-                  Total YIELD in Circulation
+                  Total sYLDS in Circulation
                 </div>
                 <div className="text-2xl md:text-3xl lg:text-4xl font-bold flex items-center justify-center gap-1 md:gap-2">
                   <span className="text-foreground/90">$2.4M</span>

@@ -10,18 +10,18 @@ export const LEARNING_CATEGORIES: LearningCategory[] = [
     id: 'hastra',
     icon: Target,
     title: 'Hastra',
-    description: 'Master our platform, YIELD and HASH tokens, and the Provenance ecosystem.',
+    description: 'Master our platform, sYLDS and HASH tokens, and the Provenance ecosystem.',
     trackCount: 1,
     level: LEARNING_LEVELS.BEGINNER,
     tracks: [
       {
         icon: Target,
         title: "Hastra for Dummies",
-        description: "Complete guide to YIELD and HASH tokens within the Provenance ecosystem.",
+        description: "Complete guide to sYLDS and HASH tokens within the Provenance ecosystem.",
         articles: [
           {
-            title: "What is YIELD and how to use it",
-            description: "Complete overview of YIELD tokens, their purpose, and practical usage within the Provenance ecosystem.",
+            title: "What is sYLDS and how to use it",
+            description: "Complete overview of sYLDS tokens, their purpose, and practical usage within the Provenance ecosystem.",
             readTime: "8 min read",
             difficulty: "Beginner"
           },
@@ -33,7 +33,7 @@ export const LEARNING_CATEGORIES: LearningCategory[] = [
           },
           {
             title: "Strengthening Provenance ecosystem",
-            description: "How YIELD and HASH tokens contribute to and strengthen the broader Provenance blockchain ecosystem.",
+            description: "How sYLDS and HASH tokens contribute to and strengthen the broader Provenance blockchain ecosystem.",
             readTime: "10 min read",
             difficulty: "Intermediate"
           },

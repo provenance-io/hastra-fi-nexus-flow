@@ -34,7 +34,7 @@ export const portfolioCards = [
   },
   {
     id: 'yield-redeem',
-    title: 'Redeem YIELD',
+    title: 'Redeem sYLDS',
     subtitle: 'Convert to USDC',
     icon: TrendingUp,
     accentIcon: Activity,

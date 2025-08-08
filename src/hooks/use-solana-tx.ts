@@ -23,7 +23,7 @@ import {
   TOKEN_PROGRAM_ID,
 } from "@solana/spl-token";
 import BN from "bn.js";
-import { USDC, YIELD } from "@/types/tokens.ts";
+import { USDC, sYLDS } from "@/types/tokens.ts";
 
 const RPC_ENDPOINT = import.meta.env.VITE_SOLANA_RPC_URL;
 
@@ -83,10 +83,10 @@ export const useDepositAndMint = () => {
         signer
       );
       const toTokenAccount: PublicKey = await getAssociatedTokenAddress(
-        new PublicKey(YIELD),
+        new PublicKey(sYLDS),
         signer
       );
-      const yieldMint = new PublicKey(YIELD);
+      const yieldMint = new PublicKey(sYLDS);
       const vault = new PublicKey(import.meta.env.VITE_SOLANA_USDC_VAULT);
       const configPda = new PublicKey(
         import.meta.env.VITE_SOLANA_USDC_YIELD_CONFIG_PDA
@@ -95,6 +95,24 @@ export const useDepositAndMint = () => {
         import.meta.env.VITE_SOLANA_USDC_YIELD_MINT_AUTHORITY_PDA
       );
 
+      const toTokenAccountInfo = await connection.getAccountInfo(toTokenAccount);
+      const createAtaInstructions = toTokenAccountInfo ? [] : [
+        createAssociatedTokenAccountInstruction(
+          signer,
+          toTokenAccount,
+          signer,
+          yieldMint
+        )
+      ];
+
+      console.log(`signer:        ${signer.toBase58()}`);
+      console.log(`swapToken:     ${swapTokenAccount.toBase58()}`);
+      console.log(`toAccount:     ${toTokenAccount.toBase58()}`);
+      console.log(`vault:         ${vault.toBase58()}`);
+      console.log(`mint:          ${yieldMint.toBase58()}`);
+      console.log(`configPda:     ${configPda.toBase58()}`);
+      console.log(`mintAuthority: ${mintAuthorityPda.toBase58()}`);
+      console.log(`tokenProgram:  ${TOKEN_PROGRAM_ID.toBase58()}`);
       return await confirmTransaction(connection, () =>
         program?.methods
           .depositAndMint(new BN(amount * 1_000_000))
@@ -108,6 +126,7 @@ export const useDepositAndMint = () => {
             mintAuthority: mintAuthorityPda,
             tokenProgram: TOKEN_PROGRAM_ID,
           })
+          .preInstructions(createAtaInstructions)
           .rpc()
       );
     },

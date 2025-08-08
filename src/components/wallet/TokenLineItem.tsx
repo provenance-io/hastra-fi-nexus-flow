@@ -13,6 +13,7 @@ interface TokenLineItemProps {
   totalInterestEarned: number;
   unclaimedInterest: number;
   icon: string;
+  tokenAddress: string;
   onClaim?: (amount: number) => void;
 
 }
@@ -25,6 +26,7 @@ const TokenLineItem = ({
   totalInterestEarned,
   unclaimedInterest,
   icon,
+  tokenAddress,
   onClaim
 }: TokenLineItemProps) => {
   const [isClaiming, setIsClaiming] = useState(false);
@@ -49,10 +51,19 @@ const TokenLineItem = ({
     setIsClaiming(false);
   };
 
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(tokenAddress);
+    toast({
+      title: "TA copied to clipboard",
+      description: `${tokenAddress} copied successfully`,
+      duration: 3000,
+    });
+  };
+
   // Calculate dollar values for interest
   const tokenPrice = value / amount; // Price per token
-  const totalInterestEarnedUSD = totalInterestEarned * tokenPrice;
-  const unclaimedInterestUSD = unclaimedInterest * tokenPrice;
+  const totalInterestEarnedUSD = isNaN(totalInterestEarned * tokenPrice) ? 0 : (totalInterestEarned * tokenPrice);
+  const unclaimedInterestUSD = isNaN(unclaimedInterest * tokenPrice) ? 0 : (totalInterestEarned * tokenPrice);
 
   return (
     <div className="bg-background/30 rounded-2xl border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)] max-w-4xl mx-auto">
@@ -74,7 +85,7 @@ const TokenLineItem = ({
           )}
           <div className="min-w-0">
             <h4 className="font-medium text-foreground text-sm leading-tight">{token.replace(' (Sol)', '')}</h4>
-            <p className="text-xs text-muted-foreground">Token</p>
+            <p className="text-xs text-muted-foreground hover:cursor-pointer" onClick={copyToClipboard}>Token</p>
           </div>
         </div>
         

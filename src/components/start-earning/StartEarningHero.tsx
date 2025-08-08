@@ -14,7 +14,7 @@ const StartEarningHero = () => {
           <span className="block text-gradient">Start (L)earning</span>
         </h1>
         <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-          Access premium DeFi opportunities with YIELD and sHASH. Buy tokens, provide liquidity, and earn consistent returns through our integrated ecosystem.
+          Access premium DeFi opportunities with sYLDS and sHASH. Buy tokens, provide liquidity, and earn consistent returns through our integrated ecosystem.
         </p>
       </div>
     </section>

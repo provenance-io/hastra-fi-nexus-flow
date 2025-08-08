@@ -5,7 +5,7 @@ import TokenLineItem from './TokenLineItem';
 import WalletHeader from './WalletHeader';
 import PortfolioSummary from './PortfolioSummary';
 import { useState } from 'react';
-import {YIELD} from "@/types/tokens.ts";
+import {sYLDS} from "@/types/tokens.ts";
 
 const WalletOverview = () => {
   const { refreshBalance, address, walletType } = useWallet();
@@ -78,13 +78,14 @@ const WalletOverview = () => {
                   totalInterestEarned={token.totalInterestEarned}
                   unclaimedInterest={token.unclaimedInterest}
                   icon={token.icon}
-                  onClaim={token.address === YIELD ? handleTokenClaim(token.token) : undefined}
+                  tokenAddress={token.tokenAddress}
+                  onClaim={token.address === sYLDS ? handleTokenClaim(token.token) : undefined}
                 />
               ))}
             </div>
             }
               {(!tokens || tokens.length === 0) &&
-                <div className="flex items-center justify-between">You must have SOL and USDC in your wallet to buy and sell YIELD.</div>
+                <div className="flex items-center justify-between">You must have SOL and USDC in your wallet to buy and sell sYLDS.</div>
               }
           </div>
         )}

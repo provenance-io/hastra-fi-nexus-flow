@@ -16,6 +16,7 @@ export interface TokenData {
   unclaimedInterest: number;
   icon: string;
   mint: string;
+  tokenAddress: string;
 }
 
 const connection = new Connection(
@@ -71,6 +72,7 @@ export const useTokenPortfolioQuery = (
                 unclaimedInterest: 0,
                 icon: j.image,
                 mint: mint.toBase58(),
+                tokenAddress: ta.toBase58(),
               } as TokenData;
             }
           } catch (e) {
@@ -86,6 +88,7 @@ export const useTokenPortfolioQuery = (
             unclaimedInterest: 0,
             icon: "",
             mint: mint.toBase58(),
+            tokenAddress: ta.toBase58(),
           } as TokenData;
         })
       );

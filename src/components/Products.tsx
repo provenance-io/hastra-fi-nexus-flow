@@ -92,7 +92,7 @@ const Products = () => {
     "First Mover": ExternalLink,
   };
 
-  // Create dynamic stats for YIELD product
+  // Create dynamic stats for sYLDS product
   const yieldStats = [
     {
       label: "Current APY",
@@ -152,15 +152,15 @@ const Products = () => {
         </div>
 
         <div className="max-w-6xl mx-auto space-y-8">
-          {/* YIELD Product */}
+          {/* sYLDS Product */}
           <div className="card-gradient rounded-3xl p-8 md:p-12 space-y-8 animate-fade-in-up">
             {/* Product header */}
             <div className="space-y-8">
               <div className="flex items-center gap-4">
-                {/* YIELD Token Icon */}
+                {/* sYLDS Token Icon */}
                 <img
                   src="/lovable-uploads/08452a7b-6782-4b0a-900e-0f0c99a4fc4e.png"
-                  alt="YIELD Token"
+                  alt="sYLDS Token"
                   className="w-16 h-16 rounded-full"
                 />
                 <div className="flex-1">
