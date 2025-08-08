@@ -54,7 +54,7 @@ const Web3ConnectionStatus = () => {
         </Button>
         
         <p className="text-sm text-muted-foreground text-center">
-          Connect your wallet to start earning yield with YIELD
+          Connect your wallet to start earning yield with sYLDS
         </p>
       </div>
     );
@@ -86,7 +86,7 @@ const Web3ConnectionStatus = () => {
       
       <div className="text-center">
         <p className="text-sm text-muted-foreground">
-          Ready to interact with YIELD protocol
+          Ready to interact with sYLDS protocol
         </p>
       </div>
     </div>

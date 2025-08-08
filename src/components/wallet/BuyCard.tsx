@@ -15,14 +15,14 @@ import hastraIcon
 
 import {useTokenPortfolio} from "@/hooks/useTokenPortfolio.ts";
 import {useCoinGeckoPrice} from "@/hooks/useSolanaQuery.ts";
-import {USDC, YIELD} from "@/types/tokens";
+import {USDC, sYLDS} from "@/types/tokens";
 import {useDepositAndMint} from "@/hooks/use-solana-tx.ts";
 import {AnchorError} from "@coral-xyz/anchor";
 const BuyCard = () => {
 
   const [exchangeRate, setExchangeRate] = useState<object>({});
   const [sellAsset, setSellAsset] = useState<string>(USDC);
-  const [buyAsset, setBuyAsset] = useState<string>(YIELD);
+  const [buyAsset, setBuyAsset] = useState<string>(sYLDS);
   const [amount, setAmount] = useState('');
   const [denomination, setDenomination] = useState<'token' | 'usd'>('usd');
   const [txId, setTxId] = useState('');
@@ -35,7 +35,7 @@ const BuyCard = () => {
     const o = {};
     o['SOL'] = geckoPrice?.solana?.usd as number || 0; // SOL to USD
     o[USDC] = 1;  // USDC to USD
-    o[YIELD] = 1; // YIELD to USD
+    o[sYLDS] = 1; // sYLDS to USD
     o['HASH'] = geckoPrice?.['hash-2']?.usd as number || 0;   // HASH to USD
 
     setExchangeRate(o)
@@ -188,7 +188,7 @@ const BuyCard = () => {
               </div>
             </SelectTrigger>
             <SelectContent className="bg-card/90 backdrop-blur-sm border border-border/20 z-50">
-              <SelectItem value="YIELD" className="py-3 md:py-2">
+              <SelectItem value="sYLDS" className="py-3 md:py-2">
                 <div className="flex items-center gap-3 py-1 md:py-1">
                   <img src={icon(buyAsset)} alt={symbol(buyAsset)} className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover" />
                   <span className="text-sm md:text-sm font-medium font-sans">{symbol(buyAsset)}</span>

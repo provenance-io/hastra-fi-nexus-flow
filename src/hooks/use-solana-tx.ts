@@ -23,7 +23,7 @@ import {
   TOKEN_PROGRAM_ID,
 } from "@solana/spl-token";
 import BN from "bn.js";
-import { USDC, YIELD } from "@/types/tokens.ts";
+import { USDC, sYLDS } from "@/types/tokens.ts";
 
 const RPC_ENDPOINT = import.meta.env.VITE_SOLANA_RPC_URL;
 
@@ -83,10 +83,10 @@ export const useDepositAndMint = () => {
         signer
       );
       const toTokenAccount: PublicKey = await getAssociatedTokenAddress(
-        new PublicKey(YIELD),
+        new PublicKey(sYLDS),
         signer
       );
-      const yieldMint = new PublicKey(YIELD);
+      const yieldMint = new PublicKey(sYLDS);
       const vault = new PublicKey(import.meta.env.VITE_SOLANA_USDC_VAULT);
       const configPda = new PublicKey(
         import.meta.env.VITE_SOLANA_USDC_YIELD_CONFIG_PDA

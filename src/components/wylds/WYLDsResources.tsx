@@ -10,8 +10,8 @@ const resources = [
     icon: ExternalLink,
   },
   {
-    title: 'YIELD Whitepaper',
-    description: 'Read the full technical details and vision for YIELD.',
+    title: 'sYLDS Whitepaper',
+    description: 'Read the full technical details and vision for sYLDS.',
     href: '#',
     icon: File,
   },
