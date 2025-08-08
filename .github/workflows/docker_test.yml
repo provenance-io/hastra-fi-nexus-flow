@@ -35,9 +35,6 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Clean npm cahce
-        run: npm cache clean --force
-
       - name: Install npm Packages
         run: npm ci
 
