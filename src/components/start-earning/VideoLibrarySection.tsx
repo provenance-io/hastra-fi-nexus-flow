@@ -16,8 +16,8 @@ const videoCategories = [
 const videos = [
   {
     id: 1,
-    title: "Getting Started with YIELD Token",
-    description: "Learn how to acquire and use YIELD tokens for earning stable yields",
+    title: "Getting Started with sYLDS Token",
+    description: "Learn how to acquire and use sYLDS tokens for earning stable yields",
     duration: "12:45",
     difficulty: "Beginner",
     category: "basics",

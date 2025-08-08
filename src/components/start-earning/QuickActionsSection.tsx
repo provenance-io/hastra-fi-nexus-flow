@@ -68,7 +68,7 @@ const QuickActionsSection = () => {
                 Start Earning Today
               </h2>
               <p className="text-muted-foreground text-lg">
-                Get YIELD and sHASH tokens on these trusted platforms
+                Get sYLDS and sHASH tokens on these trusted platforms
               </p>
             </div>
 

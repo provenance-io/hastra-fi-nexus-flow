@@ -48,7 +48,7 @@ const Terms = () => {
                     <ul className="list-disc pl-6 space-y-2">
                       <li>Connect a compatible digital wallet;</li>
                       <li>Lock up USDC (a U.S. dollar–backed stablecoin);</li>
-                      <li>Receive in return a Solana-based token, YIELD, representing a claim against fully collateralized assets held by Hastra.</li>
+                      <li>Receive in return a Solana-based token, sYLDS, representing a claim against fully collateralized assets held by Hastra.</li>
                     </ul>
                     <p>
                       The YIELD token is backed 1:1 by YLDS, a yield-bearing stablecoin issued by Figure and registered with the U.S. Securities and Exchange Commission (SEC). Hastra holds YLDS as collateral for YIELD, but does not issue YLDS and makes no representations or warranties whatsoever regarding the nature, risk profile, regulatory status, or performance of YLDS or any associated parties.

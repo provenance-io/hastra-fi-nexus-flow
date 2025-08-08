@@ -97,7 +97,7 @@ const WYLDsHero = () => {
             </div>
           </div>
 
-          {/* GET YIELD Button - aligned */}
+          {/* GET sYLDS Button - aligned */}
           <div className="order-1 lg:order-2 w-full max-w-[200px]">
             <Button
               size="lg"

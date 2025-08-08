@@ -101,10 +101,10 @@ const WYLDsYieldExplanation = () => {
       {/* Unified seamless background - removed conflicting gradient */}
 
       <div className="max-w-5xl mx-auto px-4 relative z-10">
-        {/* Combined Dashboard Box - What is YIELD? + How It Works */}
+        {/* Combined Dashboard Box - What is sYLDS? + How It Works */}
         <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
           <div className="relative z-10">
-            {/* What is YIELD Section */}
+            {/* What is sYLDS Section */}
             {/* Section Header - Matching About page AnimatedCard style */}
             <div className="mb-8 text-center">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">
@@ -174,14 +174,14 @@ const WYLDsYieldExplanation = () => {
             {/* Description - Matching About page style */}
             <div className="mt-12 mb-16">
               <p className="text-lg text-foreground/90 leading-relaxed mb-4">
-                YIELD is a token representing a portion of a pool of reserves
+                sYLDS is a token representing a portion of a pool of reserves
                 holding the YLDS token - the first SEC-registered, yield-bearing
                 stablecoin combining the liquidity of traditional stablecoins
                 with the earning power of a money market fund.*
               </p>
               <p className="text-lg text-foreground/90 leading-relaxed">
                 As users deposit USDC, Hastra purchases and holds YLDS, and
-                distributes interest in YIELD to token holders. Because{" "}
+                distributes interest in sYLDS to token holders. Because{" "}
                 <span className="text-header-glow font-semibold">
                   earning yield shouldn't require complex strategies—it should
                   just work
@@ -211,7 +211,7 @@ const WYLDsYieldExplanation = () => {
             {/* Disclaimer */}
             <div className="text-center mb-16">
               <p className="text-sm italic text-white/80 max-w-2xl mx-auto leading-relaxed">
-                *YIELD is not registered with the SEC or any securities
+                *sYLDS is not registered with the SEC or any securities
                 regulator. YLDS is issued by a third party independent of
                 Hastra.
               </p>
@@ -394,7 +394,7 @@ const WYLDsYieldExplanation = () => {
           </div>
         </div>
 
-        {/* Watch YIELD as it Grows text section */}
+        {/* Watch sYLDS as it Grows text section */}
         <div className="text-center mb-12 mt-32">
           <p
             className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-platinum/80 leading-relaxed"
@@ -403,7 +403,7 @@ const WYLDsYieldExplanation = () => {
                 "0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)",
             }}
           >
-            Watch YIELD as it Grows
+            Watch sYLDS as it Grows
           </p>
         </div>
 
@@ -423,7 +423,7 @@ const WYLDsYieldExplanation = () => {
                   className="text-xs md:text-sm font-medium leading-tight"
                   style={{ color: "hsl(34, 100%, 84%)" }}
                 >
-                  Total YIELD in Circulation
+                  Total sYLDS in Circulation
                 </div>
                 <div className="text-2xl md:text-3xl lg:text-4xl font-bold flex items-center justify-center gap-1 md:gap-2">
                   <span className="text-foreground/90">$2.4M</span>
