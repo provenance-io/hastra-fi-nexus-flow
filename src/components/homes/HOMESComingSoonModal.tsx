@@ -82,7 +82,7 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({
                   <TrendingUp className="h-3 w-3 text-header-glow" />
                 </div>
                 <span className="text-xs text-foreground">
-                  Target yields of 7-14% annually
+                  Target yields of 6-12% annually
                 </span>
               </div>
 

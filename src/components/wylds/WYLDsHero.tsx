@@ -24,7 +24,7 @@ const WYLDsHero = () => {
     ? "Loading..."
     : apyError
     ? "Error"
-    : `${apy || 0}%`;
+    : `${apy || 4}%`;
 
   const flashingPhrases = ["BUY IT.", " TRADE IT.", " LEND IT.", " SEND IT."];
 

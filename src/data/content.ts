@@ -1,4 +1,4 @@
-import { FlaskConical, Shield, Network } from 'lucide-react';
+import { FlaskConical, Shield, Network } from "lucide-react";
 
 export const navigationLinks = [
   // Removed Products link
@@ -6,86 +6,101 @@ export const navigationLinks = [
 
 export const innovationFocusAreas = [
   {
-    title: 'Yield-Bearing Infrastructure',
-    description: 'Reimagining how stable assets generate yield through regulatory-compliant mechanisms.',
-    product: 'Current Product: sYLDS - First SEC-registered yield-bearing stablecoin',
-    innovation: 'Bridging traditional finance regulations with DeFi accessibility.',
+    title: "Yield-Bearing Infrastructure",
+    description:
+      "Reimagining how stable assets generate yield through regulatory-compliant mechanisms.",
+    product:
+      "Current Product: sYLDS - First SEC-registered yield-bearing stablecoin",
+    innovation:
+      "Bridging traditional finance regulations with DeFi accessibility.",
   },
   {
-    title: 'Cross-Chain Financial Protocols',
-    description: 'Building seamless financial infrastructure across blockchain ecosystems.',
-    status: 'In Development',
-    innovation: 'Multi-chain native financial products with unified user experience.',
+    title: "Cross-Chain Financial Protocols",
+    description:
+      "Building seamless financial infrastructure across blockchain ecosystems.",
+    status: "In Development",
+    innovation:
+      "Multi-chain native financial products with unified user experience.",
   },
   {
-    title: 'Next-Generation Trading Infrastructure',
-    description: 'Developing advanced trading and liquidity solutions for digital assets.',
-    status: 'Research Phase',
-    innovation: 'AI-powered trading algorithms and institutional-grade execution.',
+    title: "Next-Generation Trading Infrastructure",
+    description:
+      "Developing advanced trading and liquidity solutions for digital assets.",
+    status: "Research Phase",
+    innovation:
+      "AI-powered trading algorithms and institutional-grade execution.",
   },
 ];
 
-export const products = {
+export const products = (apy?: number) => ({
   live: {
-    name: 'sYLDS',
-    tagline: 'Earn Yield on Your Stable',
-    description: "TradFi Yields meets DeFi Velocity. Earn up to 4% APY on-the-go and trade whenever you want - all backed by real world assets.",
-    innovation: 'Instant transfers, minimal fees, full DeFi composability - all backed by real world assets',
-    status: 'Live on Solana',
-    cta: 'Learn More',
-    stats: [
-      { label: 'Current APY', value: '4.75%' },
-      { label: 'Total Supply', value: '$5M' },
-      { label: 'Active Users', value: '12,403' },
-    ],
+    name: "sYLDS",
+    tagline: "Earn Yield on Your Stable",
+    description: `TradFi Yields meets DeFi Velocity. Earn up to ${
+      apy || 4
+    }% APY on-the-go and trade whenever you want - all backed by real world assets.`,
+    innovation:
+      "Instant transfers, minimal fees, full DeFi composability - all backed by real world assets",
+    status: "Live on Solana",
+    cta: "Learn More",
+    // stats: [
+    //   { label: "Current APY", value: "4.75%" },
+    //   { label: "Total Supply", value: "$5M" },
+    //   { label: "Active Users", value: "12,403" },
+    // ],
   },
   homes: {
-    name: 'HOMES',
-    tagline: 'Fractionalized Home Loan Ownership',
-    description: "Access competitive yields through Real World Asset pools on Solana. Earn attractive returns with both yield tokens and enhanced HASH token rewards.",
-    innovation: 'Professional-grade DeFi product with rigorous risk management and transparent operations.',
-    status: 'Coming Soon',
-    cta: 'Learn More',
+    name: "HOMES",
+    tagline: "Fractionalized Home Loan Ownership",
+    description:
+      "Access competitive yields through Real World Asset pools on Solana. Earn attractive returns with both yield tokens and enhanced HASH token rewards.",
+    innovation:
+      "Professional-grade DeFi product with rigorous risk management and transparent operations.",
+    status: "Coming Soon",
+    cta: "Learn More",
     stats: [
-      { label: 'Target APY', value: '7.5%' },
-      { label: 'Pool Size', value: '$5M-$100M' },
-      { label: 'First Mover', value: 'Solana RWA' },
+      { label: "Target APY", value: "7.5%" },
+      { label: "Pool Size", value: "$5M-$100M" },
+      { label: "First Mover", value: "Solana RWA" },
     ],
-  }
-};
+  },
+});
 
 export const innovationApproach = [
-    {
-        icon: FlaskConical,
-        title: 'Research-Driven Development',
-        description: 'Deep market research and technical analysis drives every product decision.',
-    },
-    {
-        icon: Shield,
-        title: 'Regulatory-First Innovation',
-        description: 'Building compliant solutions that work within existing financial frameworks.',
-    },
-    {
-        icon: Network,
-        title: 'Open Financial Infrastructure',
-        description: 'Creating interoperable solutions that enhance the entire financial ecosystem.',
-    }
+  {
+    icon: FlaskConical,
+    title: "Research-Driven Development",
+    description:
+      "Deep market research and technical analysis drives every product decision.",
+  },
+  {
+    icon: Shield,
+    title: "Regulatory-First Innovation",
+    description:
+      "Building compliant solutions that work within existing financial frameworks.",
+  },
+  {
+    icon: Network,
+    title: "Open Financial Infrastructure",
+    description:
+      "Creating interoperable solutions that enhance the entire financial ecosystem.",
+  },
 ];
 
 export const footerLinks = {
-    company: [
-        { label: 'About', href: '/about' },
-        { label: 'Press & Media', href: '/brand-guide' },
-        { label: 'Earn', href: '/earn' },
-        { label: '(L)earn', href: '/learn' },
-    ],
-    products: [
-        { label: 'sYLDS', href: '/yield' },
-        { label: 'HOMES', href: '/homes' },
-    ],
-    legal: [
-        { label: 'Terms', href: '/terms' },
-        { label: 'Privacy', href: '/privacy' },
-        { label: 'Compliance', href: '#' },
-    ]
-}
+  company: [
+    { label: "About", href: "/about" },
+    { label: "Press & Media", href: "/brand-guide" },
+    { label: "Earn", href: "/earn" },
+    { label: "(L)earn", href: "/learn" },
+  ],
+  products: [
+    { label: "sYLDS", href: "/yield" },
+    { label: "HOMES", href: "/homes" },
+  ],
+  legal: [
+    { label: "Terms", href: "/terms" },
+    { label: "Privacy", href: "/privacy" },
+    { label: "Compliance", href: "#" },
+  ],
+};

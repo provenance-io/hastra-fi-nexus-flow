@@ -3,7 +3,7 @@ name: build-testnet
 on:
   push:
     branches:
-      - main  # Triggers only when code is pushed (including merged PRs) to main
+      - main # Triggers only when code is pushed (including merged PRs) to main
   merge_group:
   pull_request:
     branches:
