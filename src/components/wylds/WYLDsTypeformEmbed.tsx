@@ -30,24 +30,28 @@ const WYLDsTypeformEmbed = () => {
     setError("");
     setLoading(true);
     setSuccess(false);
-    const response = await fetch(
-      "https://hastra.io/hastra-pulse/notion-contact-form",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          first_name: data.firstName,
-          last_name: data.lastName,
-          email: data.email,
-          company: data.company,
-        }),
+    if (!data.honeypot) {
+      const response = await fetch(
+        "https://corsproxy.io/?url=https://hastra.io/hastra-pulse/notion-contact-form",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            first_name: data.firstName,
+            last_name: data.lastName,
+            email: data.email,
+            company: data.company,
+          }),
+        }
+      );
+      const responseJSON = await response.json();
+      if (!response.ok) {
+        setError(JSON.stringify(responseJSON));
+      } else {
+        setSuccess(true);
       }
-    );
-    const responseJSON = await response.json();
-    if (!response.ok) {
-      setError(JSON.stringify(responseJSON));
-      console.log(error);
+    } else {
+      setSuccess(true);
     }
-    setSuccess(true);
     setLoading(false);
   };
   return (
