@@ -32,7 +32,7 @@ const WYLDsTypeformEmbed = () => {
     setSuccess(false);
     if (!data.honeypot) {
       const response = await fetch(
-        "https://corsproxy.io/?url=https://hastra.io/hastra-pulse/notion-contact-form",
+        "https://hastra.io/hastra-pulse/notion-contact-form",
         {
           method: "POST",
           body: JSON.stringify({
