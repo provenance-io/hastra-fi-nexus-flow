@@ -6,7 +6,7 @@ import {
 import { useQuery } from "@tanstack/react-query";
 import { Loader2 } from "lucide-react";
 
-const formatNumber = (num: number): string => {
+export const formatNumber = (num: number): string => {
   if (num >= 1e9) {
     return `$${(num / 1e9).toFixed(1)}B`;
   } else if (num >= 1e6) {
@@ -75,13 +75,13 @@ const WYLDsStatsDashboard = () => {
       isLoading: apyLoading,
       hasError: !!apyError,
     },
-    {
-      title: "Total Yield Earned",
-      value: "$1.2M",
-      description: "Cumulative yield distributed to all sYLDS holders.",
-      isLoading: false,
-      hasError: false,
-    },
+    // {
+    //   title: "Total Yield Earned",
+    //   value: "$1.2M",
+    //   description: "Cumulative yield distributed to all sYLDS holders.",
+    //   isLoading: false,
+    //   hasError: false,
+    // },
     {
       title: "Active Holders",
       value: holdersLoading
