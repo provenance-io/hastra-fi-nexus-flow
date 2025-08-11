@@ -9,9 +9,17 @@ import {
   Building2,
   Zap,
   Link2,
+  Loader2,
 } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 import yieldIcon from "/lovable-uploads/1d678c0f-09c8-4451-a9a6-3e635e0fef72.png";
+import {
+  fetchCurrentAPY,
+  fetchActiveHolders,
+  fetchTotalCirculation,
+} from "@/utils/solana-utils";
+import { useQuery } from "@tanstack/react-query";
+import { formatNumber } from "./WYLDsStatsDashboard";
 
 const YieldTokenIcon = ({ className }: { className?: string }) => (
   <img
@@ -22,6 +30,35 @@ const YieldTokenIcon = ({ className }: { className?: string }) => (
 );
 
 const WYLDsYieldExplanation = () => {
+  const {
+    data: apy,
+    isLoading: apyLoading,
+    error: apyError,
+  } = useQuery({
+    queryKey: ["yield-apy"],
+    queryFn: fetchCurrentAPY,
+    refetchInterval: 5 * 60 * 1000, // Refetch every 5 minutes
+  });
+
+  const {
+    data: holders,
+    isLoading: holdersLoading,
+    error: holdersError,
+  } = useQuery({
+    queryKey: ["active-holders"],
+    queryFn: fetchActiveHolders,
+    refetchInterval: 5 * 60 * 1000, // Refetch every 5 minutes
+  });
+
+  const {
+    data: circulation,
+    isLoading: circulationLoading,
+    error: circulationError,
+  } = useQuery({
+    queryKey: ["total-circulation"],
+    queryFn: fetchTotalCirculation,
+    refetchInterval: 5 * 60 * 1000, // Refetch every 5 minutes
+  });
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -29,8 +66,8 @@ const WYLDsYieldExplanation = () => {
     {
       number: 1,
       icon: YieldTokenIcon,
-              title: "Hold sYLDS tokens",
-              description: "Simply hold sYLDS tokens in any compatible Solana wallet",
+      title: "Hold sYLDS tokens",
+      description: "Simply hold sYLDS tokens in any compatible Solana wallet",
       color: "from-header-glow to-crypto-accent",
       bgPattern: "bg-header-glow/10",
     },
@@ -47,8 +84,8 @@ const WYLDsYieldExplanation = () => {
       number: 3,
       icon: Calendar,
       title: "Monthly Distributions",
-              description:
-                "Claim your yield on hastra.io on a monthly basis in sYLDS tokens",
+      description:
+        "Claim your yield on hastra.io on a monthly basis in sYLDS tokens",
       color: "from-header-glow to-crypto-accent",
       bgPattern: "bg-header-glow/10",
     },
@@ -56,8 +93,8 @@ const WYLDsYieldExplanation = () => {
       number: 4,
       icon: Repeat,
       title: "Use daily, or redeem for USDC",
-              description:
-                "Easily redeem your sYLDS through Raydium and Kamino protocols",
+      description:
+        "Easily redeem your sYLDS through Raydium and Kamino protocols",
       color: "from-crypto-accent to-header-glow",
       bgPattern: "bg-crypto-accent/10",
     },
@@ -417,7 +454,7 @@ const WYLDsYieldExplanation = () => {
               </h2>
             </div>
 
-            <div className="grid gap-8 md:gap-10 grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto">
+            <div className="grid gap-8 md:gap-10 grid-cols-1 sm:grid-cols-3 max-w-7xl mx-auto">
               <div className="aspect-square bg-background/30 rounded-xl md:rounded-2xl p-6 md:p-8 text-center flex flex-col justify-center space-y-3 md:space-y-4 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300">
                 <div
                   className="text-xs md:text-sm font-medium leading-tight"
@@ -426,12 +463,30 @@ const WYLDsYieldExplanation = () => {
                   Total sYLDS in Circulation
                 </div>
                 <div className="text-2xl md:text-3xl lg:text-4xl font-bold flex items-center justify-center gap-1 md:gap-2">
-                  <span className="text-foreground/90">$2.4M</span>
+                  <span
+                    className={
+                      circulationError ? "text-red-400" : "text-foreground/90"
+                    }
+                  >
+                    {circulationLoading ? (
+                      <Loader2 className="h-3 w-3 md:h-5 md:w-5 animate-spin" />
+                    ) : circulationError ? (
+                      "Error"
+                    ) : (
+                      formatNumber(circulation || 0)
+                    )}
+                  </span>
                 </div>
                 <div className="flex justify-center items-center gap-1 md:gap-2">
-                  <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-header-glow animate-pulse"></div>
+                  <div
+                    className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full ${
+                      circulationError
+                        ? "bg-red-400"
+                        : "bg-header-glow animate-pulse"
+                    }`}
+                  ></div>
                   <span className="text-xs md:text-sm text-platinum/60">
-                    Live
+                    {circulationError ? "Error" : "Live"}
                   </span>
                 </div>
               </div>
@@ -447,17 +502,31 @@ const WYLDsYieldExplanation = () => {
                   Current APY
                 </div>
                 <div className="text-2xl md:text-3xl lg:text-4xl font-bold flex items-center justify-center gap-1 md:gap-2">
-                  <span className="text-foreground/90">4.78%</span>
+                  <span
+                    className={apyError ? "text-red-400" : "text-foreground/90"}
+                  >
+                    {apyLoading ? (
+                      <Loader2 className="h-3 w-3 md:h-5 md:w-5 animate-spin" />
+                    ) : apyError ? (
+                      "Error"
+                    ) : (
+                      `${apy}%`
+                    )}
+                  </span>
                 </div>
                 <div className="flex justify-center items-center gap-1 md:gap-2">
-                  <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-header-glow animate-pulse"></div>
+                  <div
+                    className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full ${
+                      apyError ? "bg-red-400" : "bg-header-glow animate-pulse"
+                    }`}
+                  ></div>
                   <span className="text-xs md:text-sm text-platinum/60">
-                    Live
+                    {apyError ? "Error" : "Live"}
                   </span>
                 </div>
               </div>
 
-              <div
+              {/* <div
                 className="aspect-square bg-background/30 rounded-xl md:rounded-2xl p-6 md:p-8 text-center flex flex-col justify-center space-y-3 md:space-y-4 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300"
                 style={{ animationDelay: "0.2s" }}
               >
@@ -476,7 +545,7 @@ const WYLDsYieldExplanation = () => {
                     Live
                   </span>
                 </div>
-              </div>
+              </div> */}
 
               <div
                 className="aspect-square bg-background/30 rounded-xl md:rounded-2xl p-6 md:p-8 text-center flex flex-col justify-center space-y-3 md:space-y-4 border border-border/20 hover:border-hastra-teal/20 transition-all duration-300"
@@ -489,12 +558,30 @@ const WYLDsYieldExplanation = () => {
                   Active Holders
                 </div>
                 <div className="text-2xl md:text-3xl lg:text-4xl font-bold flex items-center justify-center gap-1 md:gap-2">
-                  <span className="text-foreground/90">1.2k+</span>
+                  <span
+                    className={
+                      holdersError ? "text-red-400" : "text-foreground/90"
+                    }
+                  >
+                    {holdersLoading ? (
+                      <Loader2 className="h-3 w-3 md:h-5 md:w-5 animate-spin" />
+                    ) : holdersError ? (
+                      "Error"
+                    ) : (
+                      holders
+                    )}
+                  </span>
                 </div>
                 <div className="flex justify-center items-center gap-1 md:gap-2">
-                  <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-header-glow animate-pulse"></div>
+                  <div
+                    className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full ${
+                      holdersError
+                        ? "bg-red-400"
+                        : "bg-header-glow animate-pulse"
+                    }`}
+                  ></div>
                   <span className="text-xs md:text-sm text-platinum/60">
-                    Live
+                    {holdersError ? "Error" : "Live"}
                   </span>
                 </div>
               </div>
