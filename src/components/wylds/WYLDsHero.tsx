@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import FlashingText from "./FlashingText";
 import { fetchCurrentAPY } from "@/utils/solana-utils";
+import solanaLogo from "@/assets/solana-logo.svg";
 
 interface FigureYieldResponse {
   rate: number;
@@ -117,7 +118,7 @@ const WYLDsHero = () => {
               <span className="text-platinum/90 font-semibold flex items-center justify-center gap-2">
                 Now available on
                 <img
-                  src="/src/assets/solana-logo.svg"
+                  src={solanaLogo}
                   alt="Solana"
                   className="h-4 w-auto inline"
                 />
