@@ -3,6 +3,7 @@ import WalletOverview from './WalletOverview';
 import BuyCard from './BuyCard';
 import SendCard from './SendCard';
 import TradingPlatformsSection from '../start-earning/TradingPlatformsSection';
+import StakingSection from '../staking/StakingSection';
 import {useTokenPortfolio} from "@/hooks/useTokenPortfolio.ts";
 
 const HastraDashboard = () => {
@@ -58,6 +59,9 @@ const HastraDashboard = () => {
                 </div>
             </div>
         }
+
+      {/* Staking Section */}
+      <StakingSection />
 
       {/* Trading Platforms Section */}
       <div id="trade-lend-section" className="mb-8 md:mb-12">
