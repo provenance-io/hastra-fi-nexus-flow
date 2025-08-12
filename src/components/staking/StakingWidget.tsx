@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useStaking } from '@/hooks/useStaking';
 import { useWallet } from '@/contexts/WalletContext';
 import StakingMode from './StakingMode';
@@ -13,9 +12,6 @@ import { Coins, TrendingUp } from 'lucide-react';
 const StakingWidget: React.FC = () => {
   const { isConnected, connectWallet } = useWallet();
   const {
-    widgetMode,
-    setWidgetMode,
-    isTransacting,
     protocolData,
     transaction,
     resetTransaction,
@@ -53,65 +49,58 @@ const StakingWidget: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <Card className="bg-background/30 rounded-xl border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)] p-6 md:p-8">
-        <div className="space-y-6">
-          {/* Header */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="p-2 rounded-lg bg-amber-warm/10 border border-amber-warm/20">
-                <TrendingUp className="h-5 w-5 text-amber-warm" />
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-foreground">
-                  Stake wYLDS
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  Earn staking rewards on your wYLDS tokens
-                </p>
-              </div>
-            </div>
-            
-            <APRDisplay 
-              currentAPR={protocolData.currentAPR}
-              aprTrend="up"
-              dataSource="Based on last 7 days"
-              tooltipContent="Annual Percentage Rate based on current staking rewards and total staked amount"
-            />
+      {/* Header */}
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center space-x-3">
+          <div className="p-2 rounded-lg bg-amber-warm/10 border border-amber-warm/20">
+            <TrendingUp className="h-5 w-5 text-amber-warm" />
           </div>
-
-          {/* Mode Toggle */}
-          <Tabs 
-            value={widgetMode} 
-            onValueChange={(value) => setWidgetMode(value as 'stake' | 'unstake')}
-            className="w-full"
-          >
-            <TabsList className="grid w-full grid-cols-2 bg-secondary/50">
-              <TabsTrigger 
-                value="stake" 
-                disabled={isTransacting}
-                className="data-[state=active]:bg-amber-warm data-[state=active]:text-white"
-              >
-                Stake
-              </TabsTrigger>
-              <TabsTrigger 
-                value="unstake" 
-                disabled={isTransacting}
-                className="data-[state=active]:bg-auburn-primary data-[state=active]:text-white"
-              >
-                Unstake
-              </TabsTrigger>
-            </TabsList>
-
-            <TabsContent value="stake" className="mt-6">
-              <StakingMode />
-            </TabsContent>
-
-            <TabsContent value="unstake" className="mt-6">
-              <UnstakingMode />
-            </TabsContent>
-          </Tabs>
+          <div>
+            <h3 className="text-lg font-semibold text-foreground">
+              Stake wYLDS
+            </h3>
+            <p className="text-sm text-muted-foreground">
+              Earn staking rewards on your wYLDS tokens
+            </p>
+          </div>
         </div>
-      </Card>
+        
+        <APRDisplay 
+          currentAPR={protocolData.currentAPR}
+          aprTrend="up"
+          dataSource="Based on last 7 days"
+          tooltipContent="Annual Percentage Rate based on current staking rewards and total staked amount"
+        />
+      </div>
+
+      {/* Side by Side Cards */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Stake Card */}
+        <Card className="bg-background/30 rounded-xl border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)] p-6 animate-fade-in">
+          <div className="space-y-4">
+            <div className="flex items-center space-x-2">
+              <div className="p-2 rounded-lg bg-amber-warm/10 border border-amber-warm/20">
+                <TrendingUp className="h-4 w-4 text-amber-warm" />
+              </div>
+              <h4 className="text-lg font-semibold text-foreground">Stake</h4>
+            </div>
+            <StakingMode />
+          </div>
+        </Card>
+
+        {/* Unstake Card */}
+        <Card className="bg-background/30 rounded-xl border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)] p-6 animate-fade-in">
+          <div className="space-y-4">
+            <div className="flex items-center space-x-2">
+              <div className="p-2 rounded-lg bg-auburn-primary/10 border border-auburn-primary/20">
+                <Coins className="h-4 w-4 text-[hsl(34_100%_84%)]" />
+              </div>
+              <h4 className="text-lg font-semibold text-foreground">Unstake</h4>
+            </div>
+            <UnstakingMode />
+          </div>
+        </Card>
+      </div>
 
       {/* Transaction Progress */}
       <TransactionProgress
