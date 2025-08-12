@@ -71,7 +71,7 @@ const comprehensiveGuides = [
   },
   {
     id: 3,
-    title: "HOMES RWA Investment",
+    title: "swYLDS Staking Investment",
     description: "Real World Asset pools and yield optimization",
     difficulty: "Intermediate",
     duration: "20 min read", 
@@ -80,7 +80,7 @@ const comprehensiveGuides = [
     sections: 6,
     type: "comprehensive",
     icon: ExternalLink,
-    route: "/guides/homes-rwa"
+    route: "/guides/swylds-staking"
   }
 ];
 

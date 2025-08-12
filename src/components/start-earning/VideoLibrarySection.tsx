@@ -16,8 +16,8 @@ const videoCategories = [
 const videos = [
   {
     id: 1,
-    title: "Getting Started with sYLDS Token",
-    description: "Learn how to acquire and use sYLDS tokens for earning stable yields",
+    title: "Getting Started with wYLDS Token",
+    description: "Learn how to acquire and use wYLDS tokens for earning stable yields",
     duration: "12:45",
     difficulty: "Beginner",
     category: "basics",
@@ -50,8 +50,8 @@ const videos = [
   },
   {
     id: 4,
-    title: "HOMES RWA Pool Participation",
-    description: "How to participate in Real World Asset pools through HOMES",
+    title: "swYLDS Staking Pool Participation",
+    description: "How to participate in staking pools through swYLDS",
     duration: "22:15",
     difficulty: "Advanced",
     category: "advanced",

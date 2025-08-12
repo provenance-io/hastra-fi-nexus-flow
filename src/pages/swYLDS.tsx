@@ -8,7 +8,7 @@ import HOMESFAQ from '@/components/homes/HOMESFAQ';
 import HOMESComingSoonModal from '@/components/homes/HOMESComingSoonModal';
 import ProvenanceBranding from '@/components/ProvenanceBranding';
 
-const HOMESPage = () => {
+const SwYLDSPage = () => {
   const [showModal, setShowModal] = useState(false);
   
   // Use a more obscure naming convention and always keep blur active
@@ -48,4 +48,4 @@ const HOMESPage = () => {
   );
 };
 
-export default HOMESPage;
+export default SwYLDSPage;

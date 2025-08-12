@@ -25,13 +25,13 @@ const ModuleCard = ({
   duration: string;
   status: 'Available' | 'Coming Soon';
   topics: string[];
-  tokenType: 'sYLDS' | 'HASH';
+  tokenType: 'wYLDS' | 'HASH';
 }) => (
   <Card className={`group transition-all duration-300 ${status === 'Available' ? 'hover:shadow-lg hover:border-header-glow/40' : 'opacity-75'}`}>
     <CardHeader className="pb-3">
       <div className="flex items-start justify-between mb-2">
         <div className="flex items-center gap-2">
-          <Badge variant={tokenType === 'sYLDS' ? 'default' : 'secondary'}>
+          <Badge variant={tokenType === 'wYLDS' ? 'default' : 'secondary'}>
             {tokenType}
           </Badge>
           <Badge variant={status === 'Available' ? 'outline' : 'secondary'} className="text-xs">
@@ -84,42 +84,42 @@ const ModuleCard = ({
 );
 
 /**
- * Track 3: Hastra for Dummies Modal - Platform-specific content for sYLDS and HASH
+ * Track 3: Hastra for Dummies Modal - Platform-specific content for wYLDS and HASH
  */
 const HastraForDummiesModal = ({ isOpen, onClose }: HastraForDummiesModalProps) => {
   const modules = [
     {
-      title: "What is sYLDS?",
-      description: "Complete introduction to the sYLDS token, its purpose, and core functionality within the Hastra ecosystem.",
+      title: "What is wYLDS?",
+      description: "Complete introduction to the wYLDS token, its purpose, and core functionality within the Hastra ecosystem.",
       duration: "8 min",
       status: "Available" as const,
-      tokenType: "sYLDS" as const,
+      tokenType: "wYLDS" as const,
       topics: [
-        "sYLDS token fundamentals",
+        "wYLDS token fundamentals",
         "Role in the Hastra ecosystem",
         "Utility and use cases",
         "Token mechanics and features"
       ]
     },
     {
-      title: "How to Get sYLDS",
-      description: "Step-by-step guide to acquiring sYLDS tokens through various methods and platforms.",
+      title: "How to Get wYLDS",
+      description: "Step-by-step guide to acquiring wYLDS tokens through various methods and platforms.",
       duration: "12 min",
       status: "Available" as const,
-      tokenType: "sYLDS" as const,
+      tokenType: "wYLDS" as const,
       topics: [
-        "Where to buy sYLDS tokens",
-        "Wallet setup for sYLDS",
+        "Where to buy wYLDS tokens",
+        "Wallet setup for wYLDS",
         "Transaction walkthrough",
         "Best practices for acquisition"
       ]
     },
     {
-      title: "Using sYLDS on Hastra",
-      description: "Comprehensive guide to utilizing sYLDS tokens effectively within the Hastra platform.",
+      title: "Using wYLDS on Hastra",
+      description: "Comprehensive guide to utilizing wYLDS tokens effectively within the Hastra platform.",
       duration: "15 min",
       status: "Available" as const,
-      tokenType: "sYLDS" as const,
+      tokenType: "wYLDS" as const,
       topics: [
         "Platform navigation",
         "Staking and earning mechanisms",
@@ -196,7 +196,7 @@ const HastraForDummiesModal = ({ isOpen, onClose }: HastraForDummiesModalProps) 
                   Track 3: Hastra for Dummies
                 </DialogTitle>
                 <p className="text-muted-foreground mt-1">
-                  Master sYLDS and HASH tokens in the Provenance ecosystem
+                  Master wYLDS and HASH tokens in the Provenance ecosystem
                 </p>
               </div>
             </div>
@@ -233,21 +233,21 @@ const HastraForDummiesModal = ({ isOpen, onClose }: HastraForDummiesModalProps) 
             </h3>
             <p className="text-muted-foreground leading-relaxed">
               Get hands-on with the Hastra platform and Provenance ecosystem. This practical track covers 
-              everything from understanding sYLDS and HASH tokens to actually using them effectively. 
+              everything from understanding wYLDS and HASH tokens to actually using them effectively. 
               Perfect for those ready to start earning with our specific tools and tokens.
             </p>
           </div>
 
           {/* Token Sections */}
           <div className="space-y-8">
-            {/* sYLDS Section */}
+            {/* wYLDS Section */}
             <div className="space-y-4">
               <h3 className="text-xl font-semibold flex items-center gap-2">
                 <TrendingUp className="w-5 h-5 text-header-glow" />
-                sYLDS Token Mastery
+                wYLDS Token Mastery
               </h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {modules.filter(module => module.tokenType === 'sYLDS').map((module, index) => (
+                {modules.filter(module => module.tokenType === 'wYLDS').map((module, index) => (
                   <ModuleCard key={index} {...module} />
                 ))}
               </div>
@@ -272,7 +272,7 @@ const HastraForDummiesModal = ({ isOpen, onClose }: HastraForDummiesModalProps) 
             <Card className="border-header-glow/20">
               <CardHeader>
                 <CardTitle className="text-lg flex items-center gap-2">
-                  <Badge>sYLDS</Badge>
+                  <Badge>wYLDS</Badge>
                   Platform Features
                 </CardTitle>
               </CardHeader>
@@ -348,7 +348,7 @@ const HastraForDummiesModal = ({ isOpen, onClose }: HastraForDummiesModalProps) 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t">
             <Button size="lg" className="flex-1 group">
-              Start with sYLDS
+              Start with wYLDS
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button size="lg" variant="secondary" className="flex-1 group">

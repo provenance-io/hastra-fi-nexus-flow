@@ -15,7 +15,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import WYLDsPage from "./pages/wYLDs";
-import HOMESPage from "./pages/HOMES";
+import SwYLDSPage from "./pages/swYLDS";
 import SendIt from "./pages/SendIt";
 import Learn from "./pages/Learn";
 import Earn from "./pages/Earn";
@@ -51,7 +51,7 @@ const App = () => (
                 <Route path="/brand-guide" element={<BrandGuidePage />} />
 
                 <Route path="/yield" element={<WYLDsPage />} />
-                <Route path="/homes" element={<HOMESPage />} />
+                <Route path="/swylds" element={<SwYLDSPage />} />
                 <Route path="/sendit" element={<SendIt />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />

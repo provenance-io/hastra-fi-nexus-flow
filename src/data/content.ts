@@ -49,7 +49,7 @@ export const products = (apy?: number) => ({
     //   { label: "Active Users", value: "12,403" },
     // ],
   },
-  homes: {
+  swylds: {
     name: "swYLDS",
     tagline: "Staked wYLDS Token",
     description:
@@ -96,7 +96,7 @@ export const footerLinks = {
   ],
   products: [
     { label: "wYLDS", href: "/yield" },
-    { label: "swYLDS", href: "/homes" },
+    { label: "swYLDS", href: "/swylds" },
   ],
   legal: [
     { label: "Terms", href: "/terms" },

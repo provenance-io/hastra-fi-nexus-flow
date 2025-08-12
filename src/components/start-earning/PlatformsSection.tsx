@@ -6,13 +6,13 @@ const platforms = [
   {
     name: "Raydium",
     description: "Automated Market Maker for liquidity pools and swaps",
-    features: ["sYLDS/USDC Pool", "HASH/USDC Pool", "Low fees", "High liquidity"],
+    features: ["wYLDS/USDC Pool", "HASH/USDC Pool", "Low fees", "High liquidity"],
     link: "https://raydium.io"
   },
   {
     name: "Kamino",
     description: "Lending and borrowing protocol with yield optimization",
-    features: ["Lending pools", "Automated strategies", "HOMES participation", "Yield farming"],
+    features: ["Lending pools", "Automated strategies", "swYLDS participation", "Yield farming"],
     link: "https://kamino.finance"
   }
 ];

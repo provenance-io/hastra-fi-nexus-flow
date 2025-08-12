@@ -124,7 +124,7 @@ const enhancedQuickStarters = [
           title: "Token Acquisition Guide",
           content: [
             "Purchase SOL for transaction fees (keep $10-20)",
-            "Choose between sYLDS (stable) or sHASH (growth)",
+            "Choose between wYLDS (stable) or wHASH (growth)",
             "Use Jupiter for token swaps with price comparison",
             "Set appropriate slippage tolerance (0.5-1%)",
             "Consider dollar-cost averaging for larger amounts",

@@ -39,7 +39,7 @@ const WalletConnectionSection = () => {
             </div>
             <div>
               <p className="text-platinum/80 text-lg leading-relaxed" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.2)' }}>
-                {isConnected ? 'Wallet connected! View your dashboard above to start trading.' : 'Connect your wallet to start earning yield with sYLDS and sHASH tokens in a secure, premium DeFi environment'}
+                {isConnected ? 'Wallet connected! View your dashboard above to start trading.' : 'Connect your wallet to start earning yield with wYLDS and wHASH tokens in a secure, premium DeFi environment'}
               </p>
             </div>
           </div>

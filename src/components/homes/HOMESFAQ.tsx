@@ -8,28 +8,28 @@ import {
 const HOMESFAQ = () => {
   const faqData = [
     {
-      question: "What is HOMES?",
-      answer: "HOMES is a tokenized real estate platform that allows you to own fractions of premium properties through blockchain technology. Each property is tokenized, enabling fractional ownership with complete transparency and liquidity. Investors can earn rental yields and participate in property appreciation while maintaining the ability to trade their tokens 24/7."
+      question: "What is swYLDS?",
+      answer: "swYLDS is a staked yield-bearing token that represents staked wYLDS. When you stake wYLDS tokens, you receive swYLDS in return, which automatically earns yield through various DeFi protocols. swYLDS provides enhanced yield opportunities while maintaining complete transparency and liquidity through blockchain technology."
     },
     {
-      question: "How does HOMES earn yield and what are the Rewards options?",
-      answer: "HOMES generates yield through multiple streams: rental income from tokenized properties (4-12% annual yield), property appreciation over time, and professional property management. Rewards are distributed as yield-bearing tokens that can be staked, traded, or converted to stablecoins. Token holders receive proportional rental income and participate in property value increases."
+      question: "How does swYLDS earn yield and what are the Rewards options?",
+      answer: "swYLDS generates yield through multiple DeFi strategies including lending protocols, liquidity provision, and yield farming (8-15% annual yield). Rewards are automatically compounded and distributed through smart contracts. Token holders can stake, trade, or convert their rewards to stablecoins while earning continuous yield from the underlying wYLDS tokens."
     },
     {
-      question: "What is wsYLDS and Rewards?",
-      answer: "wsYLDS is a yield-bearing wrapper token that automatically compounds returns from multiple DeFi protocols. Rewards are distributed through smart contracts that allocate yield based on your token holdings. wsYLDS tokens earn continuous yield that can be claimed at any time or automatically compounded for maximum returns."
+      question: "What is swYLDS and Rewards?",
+      answer: "swYLDS is a yield-bearing wrapper token that automatically compounds returns from multiple DeFi protocols. Rewards are distributed through smart contracts that allocate yield based on your token holdings. swYLDS tokens earn continuous yield that can be claimed at any time or automatically compounded for maximum returns."
     },
     {
-      question: "How is sYLDS earned and distributed?",
-      answer: "sYLDS is earned through staking mechanisms, liquidity provision, and participation in various DeFi protocols. Distribution happens automatically through smart contracts on a continuous basis. Users can claim their sYLDS rewards at any time or set up auto-compounding to maximize returns. The distribution rate varies based on total protocol participation and market conditions."
+      question: "How is wYLDS earned and distributed?",
+      answer: "wYLDS is earned through staking mechanisms, liquidity provision, and participation in various DeFi protocols. Distribution happens automatically through smart contracts on a continuous basis. Users can claim their wYLDS rewards at any time or set up auto-compounding to maximize returns. The distribution rate varies based on total protocol participation and market conditions."
     },
     {
       question: "What is HASH and sHASH (bridged Hash SPL)?",
       answer: "HASH is the native utility token of the Provenance Blockchain ecosystem, used for governance, staking, and transaction fees. sHASH is the Solana SPL (Solana Program Library) bridged version of HASH, allowing HASH holders to participate in Solana-based DeFi while maintaining exposure to the Provenance ecosystem. sHASH enables cross-chain liquidity and yield opportunities."
     },
     {
-      question: "How can I convert sYLDS or sHASH to USDC?",
-      answer: "You can convert sYLDS to USDC through the sYLDS/USDC liquidity pool on Raydium DEX. For sHASH, you can use the HASH/USDC liquidity pool also available on Raydium. Both pools offer instant swaps with competitive rates. Additionally, you can provide liquidity to these pools to earn trading fees and additional yield. Simply connect your Solana wallet and swap directly through the Raydium interface."
+      question: "How can I convert wYLDS or wHASH to USDC?",
+      answer: "You can convert wYLDS to USDC through the wYLDS/USDC liquidity pool on Raydium DEX. For wHASH, you can use the HASH/USDC liquidity pool also available on Raydium. Both pools offer instant swaps with competitive rates. Additionally, you can provide liquidity to these pools to earn trading fees and additional yield. Simply connect your Solana wallet and swap directly through the Raydium interface."
     }
   ];
 
@@ -41,7 +41,7 @@ const HOMESFAQ = () => {
             Frequently Asked Questions
           </h2>
           <p className="text-xl text-muted-foreground">
-            Everything you need to know about HOMES and our tokenized real estate platform
+            Everything you need to know about swYLDS staking and our yield optimization platform
           </p>
         </div>
 
