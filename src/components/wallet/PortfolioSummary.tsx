@@ -136,53 +136,53 @@ const PortfolioSummary = ({
             <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent flex-1 ml-4"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {/* Total in Staking */}
-            <div className="bg-background/30 rounded-xl p-4 border border-border/20 hover:border-amber-glow/15 transition-all duration-300">
-              <div className="flex items-center gap-2 mb-2">
-                <Coins className="w-4 h-4 text-amber-warm" />
-                <p className="text-xs text-muted-foreground">Total in Staking</p>
-              </div>
-              <p className="text-xl font-bold text-white">
-                {formatStakingAmount(totalInStaking.toString())}
-              </p>
-              <p className="text-xs text-amber-warm">stYLDS + Pending</p>
-            </div>
-
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             {/* Active Staking */}
-            <div className="bg-background/30 rounded-xl p-4 border border-border/20 hover:border-amber-glow/15 transition-all duration-300">
-              <div className="flex items-center gap-2 mb-2">
-                <TrendingUp className="w-4 h-4 text-hastra-teal" />
-                <p className="text-xs text-muted-foreground">Active Staking</p>
+            <div className="bg-background/30 rounded-xl p-4 border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)]">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-8 h-8 rounded-lg bg-hastra-teal/10 flex items-center justify-center">
+                  <TrendingUp className="w-4 h-4 text-hastra-teal" />
+                </div>
+                <p className="text-sm text-muted-foreground font-medium">Active Staking</p>
               </div>
-              <p className="text-xl font-bold text-white">
+              <p className="text-3xl lg:text-4xl font-bold text-white mb-1">
                 {formatStakingAmount(userBalance.stYLDS)}
               </p>
-              <p className="text-xs text-hastra-teal">{protocolData.currentAPR}% APR</p>
+              <p className="text-xs text-muted-foreground">
+                {protocolData.currentAPR}% APR
+              </p>
             </div>
 
-            {/* Daily Rewards */}
-            <div className="bg-background/30 rounded-xl p-4 border border-border/20 hover:border-amber-glow/15 transition-all duration-300">
-              <div className="flex items-center gap-2 mb-2">
-                <Gift className="w-4 h-4 text-green-400" />
-                <p className="text-xs text-muted-foreground">Daily Rewards</p>
+            {/* Daily Earnings */}
+            <div className="bg-background/30 rounded-xl p-4 border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)]">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-8 h-8 rounded-lg bg-green-400/10 flex items-center justify-center">
+                  <Gift className="w-4 h-4 text-green-400" />
+                </div>
+                <p className="text-sm text-muted-foreground font-medium">Daily Earnings</p>
               </div>
-              <p className="text-xl font-bold text-white">
+              <p className="text-3xl lg:text-4xl font-bold text-white mb-1">
                 {formatStakingAmount(dailyRewards)}
               </p>
-              <p className="text-xs text-green-400">wYLDS per day</p>
+              <p className="text-xs text-muted-foreground">
+                wYLDS per day
+              </p>
             </div>
 
-            {/* Pending Unstakes */}
-            <div className="bg-background/30 rounded-xl p-4 border border-border/20 hover:border-amber-glow/15 transition-all duration-300">
-              <div className="flex items-center gap-2 mb-2">
-                <Coins className="w-4 h-4 text-auburn-primary" />
-                <p className="text-xs text-muted-foreground">Unstaking</p>
+            {/* Total Unstaking */}
+            <div className="bg-background/30 rounded-xl p-4 border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)]">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-8 h-8 rounded-lg bg-auburn-primary/10 flex items-center justify-center">
+                  <Coins className="w-4 h-4 text-[hsl(34_100%_84%)]" />
+                </div>
+                <p className="text-sm text-muted-foreground font-medium">Total Unstaking</p>
               </div>
-              <p className="text-xl font-bold text-white">
+              <p className="text-3xl lg:text-4xl font-bold text-white mb-1">
                 {formatStakingAmount(pendingUnstakes.totalPending)}
               </p>
-              <p className="text-xs text-auburn-primary">7-day cooldown</p>
+              <p className="text-xs text-muted-foreground">
+                7-day cooldown
+              </p>
             </div>
           </div>
         </div>
