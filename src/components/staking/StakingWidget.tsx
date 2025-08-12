@@ -38,7 +38,9 @@ const StakingWidget: React.FC = () => {
           
           <Button 
             onClick={connectWallet}
-            className="px-8 py-3 text-lg bg-gradient-to-r from-amber-warm to-auburn-primary text-white font-semibold tracking-tight rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+            size="lg"
+            variant="secondary"
+            className="tracking-widest"
           >
             Connect Wallet
           </Button>
@@ -57,10 +59,10 @@ const StakingWidget: React.FC = () => {
           </div>
           <div>
             <h3 className="text-lg font-semibold text-foreground">
-              Stake wYLDS
+              Get swYLDS
             </h3>
             <p className="text-sm text-muted-foreground">
-              Earn staking rewards on your wYLDS tokens
+              Earn staking yield on your wYLDS tokens
             </p>
           </div>
         </div>

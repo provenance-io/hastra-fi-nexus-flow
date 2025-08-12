@@ -126,7 +126,9 @@ const StakingMode: React.FC = () => {
         <Button
           onClick={executeStaking}
           disabled={!stakingForm.isValid || isTransacting}
-          className="w-full h-12 text-lg font-semibold bg-gradient-to-r from-amber-warm to-auburn-primary text-white tracking-tight rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+          size="lg"
+          variant="secondary"
+          className="w-full tracking-widest"
         >
           {isTransacting ? (
             <>

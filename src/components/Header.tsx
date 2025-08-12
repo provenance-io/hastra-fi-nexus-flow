@@ -206,15 +206,6 @@ const Header = () => {
               </div>
             ))}
             <Link
-              to="/learn"
-              className={navLinkStyles}
-              style={navTextShadowStyles}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              Learn
-            </Link>
-            <Link
               to="/earn"
               className={navLinkStyles}
               style={navTextShadowStyles}
@@ -222,6 +213,15 @@ const Header = () => {
               onMouseLeave={handleMouseLeave}
             >
               Earn
+            </Link>
+            <Link
+              to="/learn"
+              className={navLinkStyles}
+              style={navTextShadowStyles}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              Learn
             </Link>
           </nav>
         </div>
