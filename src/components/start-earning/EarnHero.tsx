@@ -36,7 +36,7 @@ const EarnHero = () => {
           
           <p className="text-xl md:text-2xl text-platinum/80 max-w-4xl mx-auto leading-relaxed mb-16" 
              style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
-            Buy sYLDS and sHASH tokens on trusted platforms. Start earning from day one with proven strategies backed by real-world assets.
+            Buy wYLDS and sHASH tokens on trusted platforms. Start earning from day one with proven strategies backed by real-world assets.
           </p>
         </div>
 

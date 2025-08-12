@@ -10,7 +10,7 @@ export const innovationFocusAreas = [
     description:
       "Reimagining how stable assets generate yield through regulatory-compliant mechanisms.",
     product:
-      "Current Product: sYLDS - First SEC-registered yield-bearing stablecoin",
+      "Current Product: wYLDS - First SEC-registered yield-bearing stablecoin",
     innovation:
       "Bridging traditional finance regulations with DeFi accessibility.",
   },
@@ -34,7 +34,7 @@ export const innovationFocusAreas = [
 
 export const products = (apy?: number) => ({
   live: {
-    name: "sYLDS",
+    name: "wYLDS",
     tagline: "Earn Yield on Your Stable",
     description: `TradFi Yields meets DeFi Velocity. Earn up to ${
       apy || 4
@@ -50,10 +50,10 @@ export const products = (apy?: number) => ({
     // ],
   },
   homes: {
-    name: "HOMES",
-    tagline: "Fractionalized Home Loan Ownership",
+    name: "swYLDS",
+    tagline: "Staked wYLDS Token",
     description:
-      "Access competitive yields through Real World Asset pools on Solana. Earn attractive returns with both yield tokens and enhanced HASH token rewards.",
+      "Stake your wYLDS tokens to earn enhanced yields. Access professional-grade DeFi strategies with automated compounding and additional HASH token rewards.",
     innovation:
       "Professional-grade DeFi product with rigorous risk management and transparent operations.",
     status: "Coming Soon",
@@ -95,8 +95,8 @@ export const footerLinks = {
     { label: "(L)earn", href: "/learn" },
   ],
   products: [
-    { label: "sYLDS", href: "/yield" },
-    { label: "HOMES", href: "/homes" },
+    { label: "wYLDS", href: "/yield" },
+    { label: "swYLDS", href: "/homes" },
   ],
   legal: [
     { label: "Terms", href: "/terms" },

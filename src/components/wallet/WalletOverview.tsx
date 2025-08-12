@@ -5,7 +5,7 @@ import TokenLineItem from './TokenLineItem';
 import WalletHeader from './WalletHeader';
 import PortfolioSummary from './PortfolioSummary';
 import { useState } from 'react';
-import {sYLDS} from "@/types/tokens.ts";
+import {wYLDS} from "@/types/tokens.ts";
 
 const WalletOverview = () => {
   const { refreshBalance, address, walletType } = useWallet();
@@ -79,7 +79,7 @@ const WalletOverview = () => {
                   unclaimedInterest={token.unclaimedInterest}
                   icon={token.icon}
                   tokenAddress={token.tokenAddress}
-                  onClaim={token.address === sYLDS ? handleTokenClaim(token.token) : undefined}
+                  onClaim={token.address === wYLDS ? handleTokenClaim(token.token) : undefined}
                 />
               ))}
             </div>

@@ -10,7 +10,7 @@ export const tokenPoolData = {
 export const portfolioCards = [
   {
     id: 'homes-pool',
-    title: 'HOMES Token Pool',
+    title: 'swYLDS Token Pool',
     subtitle: 'Join the RWA Revolution',
     icon: Home,
     accentIcon: BarChart3,
@@ -34,7 +34,7 @@ export const portfolioCards = [
   },
   {
     id: 'yield-redeem',
-    title: 'Redeem sYLDS',
+    title: 'Redeem wYLDS',
     subtitle: 'Convert to USDC',
     icon: TrendingUp,
     accentIcon: Activity,

@@ -11,7 +11,7 @@ import {
 import {DollarSign, Send} from 'lucide-react';
 import {useToast} from '@/hooks/use-toast';
 import {useCoinGeckoPrice} from "@/hooks/useSolanaQuery.ts";
-import {USDC, sYLDS} from "@/types/tokens.ts";
+import {USDC, wYLDS} from "@/types/tokens.ts";
 import {PublicKey} from "@solana/web3.js";
 import hastraIcon
   from '/lovable-uploads/9da758ec-2299-4fe7-82e4-e7fb95e9cdb8.png';
@@ -22,7 +22,7 @@ import {AnchorError} from "@coral-xyz/anchor";
 
 const SendCard = () => {
   const [exchangeRate, setExchangeRate] = useState<object>({});
-  const [selectedToken, setSelectedToken] = useState<string>(sYLDS);
+  const [selectedToken, setSelectedToken] = useState<string>(wYLDS);
   const [txId, setTxId] = useState<string>('');
   const [recipientAddress, setRecipientAddress] = useState('');
   const [amount, setAmount] = useState('');
@@ -36,7 +36,7 @@ const SendCard = () => {
     const o = {};
     o['SOL'] = geckoPrice?.solana?.usd as number || 0; // SOL to USD
     o[USDC] = 1;  // USDC to USD
-    o[sYLDS] = 1; // sYLDS to USD
+    o[wYLDS] = 1; // wYLDS to USD
     setExchangeRate(o)
   }, [setExchangeRate, geckoPrice]);
 

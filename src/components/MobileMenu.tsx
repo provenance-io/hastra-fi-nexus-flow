@@ -52,7 +52,7 @@ const MobileMenu = () => {
 
   const navItems = [
     { label: 'About', href: '/about' },
-    { label: 'sYLDS', href: '/yield' },
+    { label: 'wYLDS', href: '/yield' },
     { label: 'HOMES', href: '/homes' },
     { label: 'Earn', href: '/earn' },
     { label: '(L)earn', href: '/learn' },

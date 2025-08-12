@@ -10,7 +10,7 @@ import { SECTION_DATA_ATTRIBUTES } from '@/constants/sections';
 const HERO_CONTENT = {
   MAIN_TITLE: "Learn DeFi",
   SUBTITLE: "Start Earning",
-  DESCRIPTION: "Master DeFi fundamentals and start earning with sYLDS and HOMES tokens.",
+  DESCRIPTION: "Master DeFi fundamentals and start earning with wYLDS and swYLDS tokens.",
   CTA_PRIMARY: "Start Learning",
   CTA_SECONDARY: "Skip to Earning",
 } as const;
@@ -53,8 +53,8 @@ const HeroDescription = () => (
       style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}
     >
       Master DeFi fundamentals and start earning with{' '}
-      <span className="font-semibold">sYLDS</span> and{' '}
-      <span className="font-semibold">HOMES</span> tokens.
+      <span className="font-semibold">wYLDS</span> and{' '}
+      <span className="font-semibold">swYLDS</span> tokens.
     </p>
   </div>
 );
