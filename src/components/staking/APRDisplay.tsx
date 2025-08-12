@@ -46,7 +46,7 @@ const APRDisplay: React.FC<APRDisplayProps> = ({
           <div className="flex items-center space-x-2 cursor-help">
             <Badge 
               variant="secondary" 
-              className="bg-hastra-teal/10 border-hastra-teal/20 text-hastra-teal hover:bg-hastra-teal/20 px-3 py-1"
+              className="bg-amber-warm/10 border-amber-warm/20 text-amber-warm hover:bg-amber-warm/20 px-3 py-1"
             >
               <div className="flex items-center space-x-1">
                 <span className="font-semibold">

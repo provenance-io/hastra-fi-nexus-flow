@@ -62,7 +62,7 @@ const UnstakingMode: React.FC = () => {
               placeholder="0.00"
               value={unstakingForm.amount}
               onChange={(e) => setUnstakingAmount(e.target.value)}
-              className="pr-24 text-lg h-12 focus:ring-auburn-primary focus:border-auburn-primary"
+              className="pr-24 text-lg h-12 focus:ring-amber-warm focus:border-amber-warm"
               disabled={isTransacting}
             />
             <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center space-x-2">
@@ -72,7 +72,7 @@ const UnstakingMode: React.FC = () => {
                 size="sm"
                 onClick={setMaxUnstakeAmount}
                 disabled={isTransacting}
-                className="h-6 px-2 text-xs font-medium text-auburn-primary hover:text-auburn-dark"
+                className="h-6 px-2 text-xs font-medium text-amber-warm hover:text-amber-warm/80"
               >
                 MAX
               </Button>
@@ -99,8 +99,8 @@ const UnstakingMode: React.FC = () => {
               <div className="flex items-center justify-between">
                 <span className="text-sm text-muted-foreground">You will receive</span>
                 <div className="flex items-center space-x-2">
-                  <Clock className="h-4 w-4 text-auburn-primary" />
-                  <span className="text-sm font-medium text-auburn-primary">
+                  <Clock className="h-4 w-4 text-amber-warm" />
+                  <span className="text-sm font-medium text-amber-warm">
                     ~{formatStakingAmount(unstakingForm.estimatedOutput)} wYLDS
                   </span>
                 </div>
@@ -152,7 +152,7 @@ const UnstakingMode: React.FC = () => {
         <Button
           onClick={executeUnstaking}
           disabled={!unstakingForm.isValid || isTransacting}
-          className="w-full btn-auburn h-12 text-lg font-semibold"
+          className="w-full h-12 text-lg font-semibold bg-gradient-to-r from-auburn-primary to-auburn-light text-white tracking-tight rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
         >
           {isTransacting ? (
             <>

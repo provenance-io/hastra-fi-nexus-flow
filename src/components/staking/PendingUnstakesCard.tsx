@@ -26,7 +26,7 @@ const PendingUnstakesCard: React.FC = () => {
 
   if (pendingUnstakes.list.length === 0) {
     return (
-      <Card className="card-gradient rounded-3xl border border-border/30 shadow-lg p-6">
+      <Card className="bg-background/30 rounded-xl border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)] p-6">
         <div className="text-center space-y-4">
           <div className="flex items-center justify-center">
             <div className="p-3 rounded-full bg-secondary/30 border border-border/20">
@@ -56,7 +56,7 @@ const PendingUnstakesCard: React.FC = () => {
   };
 
   return (
-    <Card className="card-gradient rounded-3xl border border-border/30 shadow-lg p-6">
+    <Card className="bg-background/30 rounded-xl border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)] p-6">
       <div className="space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between">
@@ -104,7 +104,7 @@ const PendingUnstakesCard: React.FC = () => {
               <Button
                 onClick={handleClaimAll}
                 disabled={isTransacting}
-                className="btn-hastra"
+                className="bg-gradient-to-r from-amber-warm to-auburn-primary text-white font-semibold tracking-tight rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
               >
                 {isTransacting ? (
                   <>
@@ -186,7 +186,7 @@ const PendingUnstakesCard: React.FC = () => {
                       onClick={() => handleClaimSingle(unstake.id)}
                       disabled={isTransacting}
                       size="sm"
-                      className="btn-hastra"
+                      className="bg-gradient-to-r from-amber-warm to-auburn-primary text-white font-semibold tracking-tight rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
                     >
                       {isTransacting ? (
                         <>

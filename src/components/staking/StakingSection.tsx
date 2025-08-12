@@ -1,7 +1,6 @@
 import React from 'react';
 import StakingWidget from './StakingWidget';
 import PendingUnstakesCard from './PendingUnstakesCard';
-import StakingPortfolioCard from './StakingPortfolioCard';
 
 const StakingSection: React.FC = () => {
   return (
@@ -15,11 +14,8 @@ const StakingSection: React.FC = () => {
           {/* Main Staking Widget */}
           <StakingWidget />
           
-          {/* Portfolio and Unstaking Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
-            <StakingPortfolioCard />
-            <PendingUnstakesCard />
-          </div>
+          {/* Pending Unstakes */}
+          <PendingUnstakesCard />
         </div>
       </div>
     </div>

@@ -52,7 +52,7 @@ const StakingMode: React.FC = () => {
               placeholder="0.00"
               value={stakingForm.amount}
               onChange={(e) => setStakingAmount(e.target.value)}
-              className="pr-20 text-lg h-12 focus:ring-hastra-teal focus:border-hastra-teal"
+              className="pr-20 text-lg h-12 focus:ring-amber-warm focus:border-amber-warm"
               disabled={isTransacting}
             />
             <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center space-x-2">
@@ -62,7 +62,7 @@ const StakingMode: React.FC = () => {
                 size="sm"
                 onClick={setMaxStakeAmount}
                 disabled={isTransacting}
-                className="h-6 px-2 text-xs font-medium text-hastra-teal hover:text-hastra-teal-dark"
+                className="h-6 px-2 text-xs font-medium text-amber-warm hover:text-amber-warm/80"
               >
                 MAX
               </Button>
@@ -89,8 +89,8 @@ const StakingMode: React.FC = () => {
               <div className="flex items-center justify-between">
                 <span className="text-sm text-muted-foreground">You will receive</span>
                 <div className="flex items-center space-x-2">
-                  <TrendingUp className="h-4 w-4 text-hastra-teal" />
-                  <span className="text-sm font-medium text-hastra-teal">
+                  <TrendingUp className="h-4 w-4 text-amber-warm" />
+                  <span className="text-sm font-medium text-amber-warm">
                     ~{formatStakingAmount(stakingForm.estimatedOutput)} stYLDS
                   </span>
                 </div>
@@ -115,7 +115,7 @@ const StakingMode: React.FC = () => {
                 </div>
                 <div className="flex justify-between text-xs">
                   <span className="text-muted-foreground">APR</span>
-                  <span className="font-medium text-hastra-teal">{protocolData.currentAPR}%</span>
+                  <span className="font-medium text-amber-warm">{protocolData.currentAPR}%</span>
                 </div>
               </div>
             </div>
@@ -126,7 +126,7 @@ const StakingMode: React.FC = () => {
         <Button
           onClick={executeStaking}
           disabled={!stakingForm.isValid || isTransacting}
-          className="w-full btn-hastra h-12 text-lg font-semibold"
+          className="w-full h-12 text-lg font-semibold bg-gradient-to-r from-amber-warm to-auburn-primary text-white tracking-tight rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
         >
           {isTransacting ? (
             <>
@@ -144,7 +144,7 @@ const StakingMode: React.FC = () => {
         {/* Staking Benefits */}
         <div className="grid grid-cols-2 gap-4 pt-4">
           <div className="text-center p-3 bg-secondary/20 rounded-lg border border-border/20">
-            <div className="text-lg font-semibold text-hastra-teal">
+            <div className="text-lg font-semibold text-amber-warm">
               {protocolData.currentAPR}%
             </div>
             <div className="text-xs text-muted-foreground">

@@ -23,11 +23,11 @@ const StakingWidget: React.FC = () => {
 
   if (!isConnected) {
     return (
-      <Card className="card-gradient rounded-3xl border border-border/30 shadow-lg p-6 md:p-8">
+      <Card className="bg-background/30 rounded-xl border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)] p-6 md:p-8">
         <div className="text-center space-y-6">
           <div className="flex items-center justify-center">
-            <div className="p-4 rounded-full bg-hastra-teal/10 border border-hastra-teal/20">
-              <Coins className="h-8 w-8 text-hastra-teal" />
+            <div className="p-4 rounded-full bg-amber-warm/10 border border-amber-warm/20">
+              <Coins className="h-8 w-8 text-amber-warm" />
             </div>
           </div>
           
@@ -42,7 +42,7 @@ const StakingWidget: React.FC = () => {
           
           <Button 
             onClick={connectWallet}
-            className="btn-hastra px-8 py-3 text-lg"
+            className="px-8 py-3 text-lg bg-gradient-to-r from-amber-warm to-auburn-primary text-white font-semibold tracking-tight rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
           >
             Connect Wallet
           </Button>
@@ -53,13 +53,13 @@ const StakingWidget: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <Card className="card-gradient rounded-3xl border border-border/30 shadow-lg p-6 md:p-8">
+      <Card className="bg-background/30 rounded-xl border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)] p-6 md:p-8">
         <div className="space-y-6">
           {/* Header */}
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="p-2 rounded-lg bg-hastra-teal/10 border border-hastra-teal/20">
-                <TrendingUp className="h-5 w-5 text-hastra-teal" />
+              <div className="p-2 rounded-lg bg-amber-warm/10 border border-amber-warm/20">
+                <TrendingUp className="h-5 w-5 text-amber-warm" />
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-foreground">
@@ -89,7 +89,7 @@ const StakingWidget: React.FC = () => {
               <TabsTrigger 
                 value="stake" 
                 disabled={isTransacting}
-                className="data-[state=active]:bg-hastra-teal data-[state=active]:text-white"
+                className="data-[state=active]:bg-amber-warm data-[state=active]:text-white"
               >
                 Stake
               </TabsTrigger>
