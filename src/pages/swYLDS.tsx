@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import SwYLDSHero from '@/components/swylds/SwYLDSHero';
 import SwYLDSMetrics from '@/components/swylds/SwYLDSMetrics';
 import SwYLDSValueProposition from '@/components/swylds/SwYLDSValueProposition';
+import SwYLDSInvestmentDetails from '@/components/swylds/SwYLDSInvestmentDetails';
 import SwYLDSHowItWorks from '@/components/swylds/SwYLDSHowItWorks';
 import SwYLDSYieldComparison from '@/components/swylds/SwYLDSYieldComparison';
 import SwYLDSSocialProof from '@/components/swylds/SwYLDSSocialProof';
@@ -29,7 +30,7 @@ const SwYLDSPage = () => {
 
   return (
     <div className="relative">
-      {/* Extended gradient background to match homepage */}
+      {/* Unified gradient background to match other pages */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
       <div className="relative z-10">
         <HOMESComingSoonModal 
@@ -43,6 +44,7 @@ const SwYLDSPage = () => {
           <SwYLDSHero />
           <SwYLDSMetrics />
           <SwYLDSValueProposition />
+          <SwYLDSInvestmentDetails />
           <SwYLDSHowItWorks />
           <SwYLDSYieldComparison />
           <SwYLDSSocialProof />
