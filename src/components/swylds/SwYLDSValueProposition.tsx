@@ -36,18 +36,21 @@ const features = [
 
 const SwYLDSValueProposition = () => {
   return (
-    <section className="py-16 md:py-24 relative">
-      <div className="container">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Why Choose swYLDS?
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Sustainable yield backed by real-world assets, not speculation
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section className="py-16 px-4 relative overflow-hidden">
+      <div className="max-w-5xl mx-auto px-4 relative z-10">
+        {/* Combined Dashboard Box - Why Choose swYLDS */}
+        <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
+          <div className="relative z-10">
+            <div className="text-center mb-16">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground/90 mb-4">
+                Why Choose swYLDS?
+              </h2>
+              <p className="text-lg text-foreground/70 max-w-3xl mx-auto">
+                Sustainable yield backed by real-world assets, not speculation
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <Card key={index} className="p-6 bg-card/50 backdrop-blur-sm border-border/40 hover:bg-card/70 transition-all duration-300 group">
               <div className="flex flex-col items-start space-y-4">
@@ -72,6 +75,8 @@ const SwYLDSValueProposition = () => {
           <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-crypto-accent/10 to-auburn-primary/10 rounded-full px-6 py-3">
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
             <span className="text-sm font-medium">Real assets generating real yield since 2024</span>
+          </div>
+            </div>
           </div>
         </div>
       </div>

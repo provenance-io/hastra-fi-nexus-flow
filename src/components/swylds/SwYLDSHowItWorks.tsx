@@ -34,16 +34,19 @@ const steps = [
 
 const SwYLDSHowItWorks = () => {
   return (
-    <section className="py-16 md:py-24 relative">
-      <div className="container">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            How swYLDS Works
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Simple staking, powerful yields
-          </p>
-        </div>
+    <section className="py-16 px-4 relative overflow-hidden">
+      <div className="max-w-5xl mx-auto px-4 relative z-10">
+        {/* Combined Dashboard Box - How swYLDS Works */}
+        <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
+          <div className="relative z-10">
+            <div className="text-center mb-16">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground/90 mb-4">
+                How swYLDS Works
+              </h2>
+              <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+                Simple staking, powerful yields
+              </p>
+            </div>
         
         {/* Desktop horizontal flow */}
         <div className="hidden lg:block">
@@ -117,6 +120,8 @@ const SwYLDSHowItWorks = () => {
           <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-500/10 to-blue-500/10 rounded-full px-6 py-3">
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
             <span className="text-sm font-medium">Start earning in under 5 minutes</span>
+          </div>
+        </div>
           </div>
         </div>
       </div>
