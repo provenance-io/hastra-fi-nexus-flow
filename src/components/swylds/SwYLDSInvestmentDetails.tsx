@@ -129,6 +129,23 @@ const SwYLDSInvestmentDetails = () => {
                   <ExternalLink className="h-4 w-4" />
                 </a>
               </Button>
+              
+              <Button
+                size="lg"
+                variant="outline"
+                className="min-w-[200px] group"
+                asChild
+              >
+                <a
+                  href="https://www.figuremarkets.com/disclosures/helocs-credit-profile/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  HELOC Credit Profiles
+                  <ExternalLink className="h-4 w-4" />
+                </a>
+              </Button>
             </div>
 
             {/* Disclaimer */}
