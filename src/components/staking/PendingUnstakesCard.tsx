@@ -31,9 +31,7 @@ const PendingUnstakesCard: React.FC = () => {
       <Card className="bg-background/30 rounded-xl border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)] p-6">
         <div className="text-center space-y-4">
           <div className="flex items-center justify-center">
-            <div className="p-3 rounded-full bg-secondary/30 border border-border/20">
-              <Timer className="h-6 w-6 text-muted-foreground" />
-            </div>
+            <Timer className="h-5 w-5 text-muted-foreground" />
           </div>
           <div>
             <h3 className="text-lg font-semibold text-foreground mb-2">
@@ -63,9 +61,7 @@ const PendingUnstakesCard: React.FC = () => {
         {/* Header */}
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="p-2 rounded-lg bg-auburn-primary/10 border border-auburn-primary/20">
-              <Clock className="h-5 w-5 text-auburn-primary" />
-            </div>
+            <Clock className="h-5 w-5 text-auburn-primary" />
             <div>
               <h3 className="text-lg font-semibold text-foreground">
                 Pending Unstakes

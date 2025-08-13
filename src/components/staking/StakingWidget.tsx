@@ -56,9 +56,7 @@ const StakingWidget: React.FC = () => {
         {/* Stake Section */}
         <div className="space-y-4">
           <div className="flex items-center space-x-2">
-            <div className="p-2 rounded-lg bg-amber-warm/10 border border-amber-warm/20">
-              <Send className="h-4 w-4 text-amber-warm" />
-            </div>
+            <Send className="h-5 w-5 text-amber-warm" />
             <h4 className="text-lg font-semibold text-foreground">Stake</h4>
           </div>
           <Card className="bg-background/30 rounded-xl border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)] p-6 animate-fade-in">
@@ -69,9 +67,7 @@ const StakingWidget: React.FC = () => {
         {/* Unstake Section */}
         <div className="space-y-4">
           <div className="flex items-center space-x-2">
-            <div className="p-2 rounded-lg bg-auburn-primary/10 border border-auburn-primary/20">
-              <Coins className="h-4 w-4 text-[hsl(34_100%_84%)]" />
-            </div>
+            <Coins className="h-5 w-5 text-[hsl(34_100%_84%)]" />
             <h4 className="text-lg font-semibold text-foreground">Unstake</h4>
           </div>
           <Card className="bg-background/30 rounded-xl border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)] p-6 animate-fade-in">
