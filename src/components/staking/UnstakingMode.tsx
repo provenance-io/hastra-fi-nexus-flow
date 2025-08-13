@@ -138,15 +138,6 @@ const UnstakingMode: React.FC = () => {
           </Card>
         )}
 
-        {/* Cooldown Warning for Current Unstake */}
-        {unstakingForm.amount && parseFloat(unstakingForm.amount) > 0 && (
-          <div className="p-3 bg-auburn-primary/10 border border-auburn-primary/20 rounded-lg">
-            <div className="flex items-center space-x-2 text-sm text-auburn-primary">
-              <Clock className="h-4 w-4" />
-              <span className="font-medium">{unstakingForm.cooldownWarning}</span>
-            </div>
-          </div>
-        )}
 
         {/* Unstake Button */}
         <Button

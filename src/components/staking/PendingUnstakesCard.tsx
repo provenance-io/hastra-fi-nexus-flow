@@ -88,13 +88,13 @@ const PendingUnstakesCard: React.FC = () => {
 
         {/* Claim All Button */}
         {hasReadyToClaim && (
-          <div className="p-4 bg-green-500/10 border border-green-500/20 rounded-lg">
+          <div className="p-4 bg-background/30 rounded-xl border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)]">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
                 <CheckCircle className="h-4 w-4 text-green-500" />
                 <div>
                   <p className="text-sm font-medium text-green-500">
-                    {formatStakingAmount(pendingUnstakes.totalReadyToClaim)} wYLDS Ready to Claim
+                    {formatStakingAmount(pendingUnstakes.totalReadyToClaim)} wYLDS
                   </p>
                   <p className="text-xs text-muted-foreground">
                     {readyToClaim.length} unstake{readyToClaim.length !== 1 ? 's' : ''} completed cooldown
@@ -133,11 +133,7 @@ const PendingUnstakesCard: React.FC = () => {
             return (
               <div
                 key={unstake.id}
-                className={`p-4 rounded-lg border transition-all duration-200 ${
-                  isReady
-                    ? 'bg-green-500/10 border-green-500/30 hover:bg-green-500/20'
-                    : 'bg-secondary/30 border-border/30 hover:bg-secondary/40'
-                }`}
+                className="p-4 bg-background/30 rounded-xl border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)]"
               >
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center space-x-3">
@@ -156,17 +152,13 @@ const PendingUnstakesCard: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="text-right">
-                    <Badge
-                      className={
-                        isReady
-                          ? 'bg-green-500/10 text-green-500 border-green-500/20'
-                          : 'bg-auburn-primary/10 text-auburn-primary border-auburn-primary/20'
-                      }
-                    >
-                      {isReady ? 'Ready' : timeRemaining}
-                    </Badge>
-                  </div>
+                  {!isReady && (
+                    <div className="text-right">
+                      <span className="text-sm text-muted-foreground">
+                        {timeRemaining}
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Progress Bar and Timer */}
