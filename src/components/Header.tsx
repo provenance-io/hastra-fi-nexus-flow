@@ -239,15 +239,17 @@ const Header = () => {
             >
               Earn
             </Link>
-            <Link
-              to="/learn"
+            <a
+              href="https://help.hastra.io"
+              target="_blank"
+              rel="noopener noreferrer"
               className={navLinkStyles}
               style={navTextShadowStyles}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
               Learn
-            </Link>
+            </a>
           </nav>
         </div>
 
