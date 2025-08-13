@@ -169,25 +169,6 @@ const UnstakingMode: React.FC = () => {
           )}
         </Button>
 
-        {/* Unstaking Info */}
-        <div className="grid grid-cols-2 gap-4 pt-4">
-          <div className="text-center p-3 bg-secondary/20 rounded-lg border border-border/20">
-            <div className="text-lg font-semibold text-auburn-primary">
-              {protocolData.unstakingCooldown}
-            </div>
-            <div className="text-xs text-muted-foreground">
-              Cooldown Period
-            </div>
-          </div>
-          <div className="text-center p-3 bg-secondary/20 rounded-lg border border-border/20">
-            <div className="text-lg font-semibold text-green-500">
-              No Fee
-            </div>
-            <div className="text-xs text-muted-foreground">
-              Unstaking Fee
-            </div>
-          </div>
-        </div>
 
         {/* Info Badge */}
         <div className="flex justify-center">
