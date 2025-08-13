@@ -52,25 +52,16 @@ const StakingWidget: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
-        <div className="flex items-center gap-4">
-          <Send className="w-6 h-6 md:w-5 md:h-5 text-header-glow" />
-          <div>
-            <h3 className="text-lg font-semibold text-foreground">
-              Get swYLDS
-            </h3>
-            <p className="text-sm text-muted-foreground">
-              Earn staking yield on your wYLDS tokens
-            </p>
-          </div>
+      <div className="flex items-center gap-4 mb-6">
+        <Send className="w-6 h-6 md:w-5 md:h-5 text-header-glow" />
+        <div>
+          <h3 className="text-lg font-semibold text-foreground">
+            Get swYLDS
+          </h3>
+          <p className="text-sm text-muted-foreground">
+            Earn staking yield on your wYLDS tokens
+          </p>
         </div>
-        
-        <APRDisplay 
-          currentAPR={protocolData.currentAPR}
-          aprTrend="up"
-          dataSource="Based on last 7 days"
-          tooltipContent="Annual Percentage Rate based on current staking rewards and total staked amount"
-        />
       </div>
 
       {/* Side by Side Cards */}

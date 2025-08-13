@@ -23,6 +23,26 @@ const StakingMode: React.FC = () => {
 
   return (
     <div className="space-y-6">
+      {/* Stats Grid */}
+      <div className="grid grid-cols-2 gap-4">
+        <div className="text-center p-3 bg-secondary/20 rounded-lg border border-border/20">
+          <div className="text-lg font-semibold text-amber-warm">
+            {protocolData.currentAPR}%
+          </div>
+          <div className="text-xs text-muted-foreground">
+            Current APR
+          </div>
+        </div>
+        <div className="text-center p-3 bg-secondary/20 rounded-lg border border-border/20">
+          <div className="text-lg font-semibold text-foreground">
+            {formatStakingAmount(protocolData.totalStaked)}
+          </div>
+          <div className="text-xs text-muted-foreground">
+            Total Staked
+          </div>
+        </div>
+      </div>
+
       {/* Balance Display */}
       <div className="flex items-center justify-between p-4 bg-secondary/30 rounded-lg border border-border/30">
         <div className="flex items-center space-x-2">
@@ -143,32 +163,6 @@ const StakingMode: React.FC = () => {
           )}
         </Button>
 
-        {/* Staking Benefits */}
-        <div className="grid grid-cols-2 gap-4 pt-4">
-          <div className="text-center p-3 bg-secondary/20 rounded-lg border border-border/20">
-            <div className="text-lg font-semibold text-amber-warm">
-              {protocolData.currentAPR}%
-            </div>
-            <div className="text-xs text-muted-foreground">
-              Current APR
-            </div>
-          </div>
-          <div className="text-center p-3 bg-secondary/20 rounded-lg border border-border/20">
-            <div className="text-lg font-semibold text-foreground">
-              {formatStakingAmount(protocolData.totalStaked)}
-            </div>
-            <div className="text-xs text-muted-foreground">
-              Total Staked
-            </div>
-          </div>
-        </div>
-
-        {/* Info Badge */}
-        <div className="flex justify-center">
-          <Badge variant="secondary" className="text-xs px-3 py-1">
-            Start earning rewards immediately after staking
-          </Badge>
-        </div>
       </div>
     </div>
   );
