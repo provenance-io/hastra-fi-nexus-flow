@@ -39,12 +39,12 @@ const SwYLDSPage = () => {
         />
         <div className={`${!pageAccessible ? 'content-protection' : 'content-accessible'}`}>
           <SwYLDSHero />
-          <SwYLDSMetrics />
           <SwYLDSHowItWorks />
           <SwYLDSValueProposition />
           <SwYLDSInvestmentDetails />
           <SwYLDSLeveragedLooping />
           <SwYLDSFinalCTA />
+          <SwYLDSMetrics />
           <ProvenanceBranding />
         </div>
       </div>
