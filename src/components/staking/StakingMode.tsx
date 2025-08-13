@@ -23,22 +23,16 @@ const StakingMode: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      {/* Stats Grid */}
-      <div className="grid grid-cols-2 gap-4">
-        <div className="text-center p-3 bg-secondary/20 rounded-lg border border-border/20">
-          <div className="text-lg font-semibold text-amber-warm">
+      {/* APR Display */}
+      <div className="bg-secondary/20 rounded-xl border border-border/20 p-6">
+        <div className="text-center space-y-2">
+          <h3 className="text-lg font-medium text-amber-warm">Current APY</h3>
+          <div className="text-3xl font-bold text-foreground">
             {protocolData.currentAPR}%
           </div>
-          <div className="text-xs text-muted-foreground">
-            Current APR
-          </div>
-        </div>
-        <div className="text-center p-3 bg-secondary/20 rounded-lg border border-border/20">
-          <div className="text-lg font-semibold text-foreground">
-            {formatStakingAmount(protocolData.totalStaked)}
-          </div>
-          <div className="text-xs text-muted-foreground">
-            Total Staked
+          <div className="flex items-center justify-center space-x-2">
+            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+            <span className="text-sm text-muted-foreground">Live Rate</span>
           </div>
         </div>
       </div>
