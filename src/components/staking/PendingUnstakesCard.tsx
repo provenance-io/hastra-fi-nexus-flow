@@ -105,7 +105,9 @@ const PendingUnstakesCard: React.FC = () => {
               <Button
                 onClick={handleClaimAll}
                 disabled={isTransacting}
-                className="bg-gradient-to-r from-amber-warm to-auburn-primary text-white font-semibold tracking-tight rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                size="lg"
+                variant="secondary"
+                className="w-full px-6 py-4 md:py-3 text-base md:text-sm font-medium font-sans rounded-xl min-w-[200px] group"
               >
                 {isTransacting ? (
                   <>
@@ -186,7 +188,8 @@ const PendingUnstakesCard: React.FC = () => {
                       onClick={() => handleClaimSingle(unstake.id)}
                       disabled={isTransacting}
                       size="sm"
-                      className="bg-gradient-to-r from-amber-warm to-auburn-primary text-white font-semibold tracking-tight rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                      variant="secondary"
+                      className="px-4 py-2 text-sm font-medium font-sans rounded-lg"
                     >
                       {isTransacting ? (
                         <>

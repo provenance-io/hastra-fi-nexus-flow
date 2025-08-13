@@ -50,9 +50,9 @@ const UnstakingMode: React.FC = () => {
       </Alert>
 
       {/* Unstaking Input */}
-      <div className="space-y-4">
-        <div className="space-y-2">
-          <Label htmlFor="unstake-amount" className="text-sm font-medium">
+      <div className="bg-background/30 rounded-2xl border border-border/20 p-6 space-y-6">
+        <div className="space-y-4">
+          <Label htmlFor="unstake-amount" className="text-base md:text-sm font-semibold text-foreground font-sans">
             Amount to Unstake
           </Label>
           <div className="relative">
@@ -62,7 +62,7 @@ const UnstakingMode: React.FC = () => {
               placeholder="0.00"
               value={unstakingForm.amount}
               onChange={(e) => setUnstakingAmount(e.target.value)}
-              className="pr-24 text-lg h-12 focus:ring-amber-warm focus:border-amber-warm"
+              className="bg-muted/50 h-12 md:h-auto text-base md:text-sm font-sans pr-24"
               disabled={isTransacting}
             />
             <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center space-x-2">
@@ -72,7 +72,7 @@ const UnstakingMode: React.FC = () => {
                 size="sm"
                 onClick={setMaxUnstakeAmount}
                 disabled={isTransacting}
-                className="h-6 px-2 text-xs font-medium text-amber-warm hover:text-amber-warm/80"
+                className="h-8 md:h-7 text-sm md:text-xs px-3 md:px-2 font-sans text-muted-foreground hover:text-auburn-primary"
               >
                 MAX
               </Button>
@@ -145,7 +145,7 @@ const UnstakingMode: React.FC = () => {
           disabled={!unstakingForm.isValid || isTransacting}
           size="lg"
           variant="secondary"
-          className="w-full tracking-widest"
+          className="w-full px-6 py-4 md:py-3 text-base md:text-sm font-medium font-sans rounded-xl min-w-[200px] group"
         >
           {isTransacting ? (
             <>
@@ -161,12 +161,6 @@ const UnstakingMode: React.FC = () => {
         </Button>
 
 
-        {/* Info Badge */}
-        <div className="flex justify-center">
-          <Badge variant="secondary" className="text-xs px-3 py-1">
-            You can claim your tokens after the cooldown period
-          </Badge>
-        </div>
       </div>
     </div>
   );
