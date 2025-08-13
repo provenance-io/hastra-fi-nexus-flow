@@ -73,21 +73,6 @@ const SwYLDSHero = () => {
             </Button>
           </div>
           
-          {/* Trust indicators */}
-          <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-muted-foreground">
-            <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-              <span>SEC-Registered Foundation</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-              <span>Real Asset Backing</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
-              <span>DeFi Compatible</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>
