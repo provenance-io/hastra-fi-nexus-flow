@@ -97,7 +97,7 @@ const QuickStartCTA = () => (
       className="min-w-[200px] group"
       asChild
     >
-      <a href="/earn">
+      <a href="https://help.hastra.io" target="_blank" rel="noopener noreferrer">
         {LEARNING_SECTION_CONTENT.CTA_BUTTON}
         <TrendingUp className="ml-2 h-5 w-5 transition-transform group-hover:scale-110" />
       </a>
