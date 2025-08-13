@@ -60,16 +60,8 @@ const PendingUnstakesCard: React.FC = () => {
       <div className="space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <Clock className="h-5 w-5 text-auburn-primary" />
-            <div>
-              <h3 className="text-lg font-semibold text-foreground">
-                Pending Unstakes
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                {pendingUnstakes.list.length} active unstaking request{pendingUnstakes.list.length !== 1 ? 's' : ''}
-              </p>
-            </div>
+          <div className="text-sm text-muted-foreground">
+            {pendingUnstakes.list.length} active unstaking request{pendingUnstakes.list.length !== 1 ? 's' : ''}
           </div>
 
           <div className="flex items-center gap-3">
