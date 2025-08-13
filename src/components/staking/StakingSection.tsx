@@ -13,17 +13,17 @@ const StakingSection: React.FC = () => {
         </h2>
         
         <StakingWidget />
-      </div>
-      
-      {/* Pending Unstakes - Outside the main box */}
-      <div className="space-y-4">
-        <div className="flex items-center space-x-2">
-          <Clock className="h-5 w-5 text-auburn-primary" />
-          <h2 className="text-lg md:text-xl font-semibold text-foreground">
-            Pending Unstakes
-          </h2>
+        
+        {/* Pending Unstakes - Inside the main box */}
+        <div className="mt-8 space-y-4">
+          <div className="flex items-center space-x-2">
+            <Clock className="h-5 w-5 text-auburn-primary" />
+            <h2 className="text-lg md:text-xl font-semibold text-foreground">
+              Pending Unstakes
+            </h2>
+          </div>
+          <PendingUnstakesCard />
         </div>
-        <PendingUnstakesCard />
       </div>
     </div>
   );
