@@ -1,10 +1,14 @@
 
 import { useState, useEffect } from 'react';
-import HOMESHero from '@/components/homes/HOMESHero';
-import HOMESAbout from '@/components/homes/HOMESAbout';
-import HOMESPortfolio from '@/components/homes/HOMESPortfolio';
-import HOMESPoolComposition from '@/components/homes/HOMESPoolComposition';
-import HOMESFAQ from '@/components/homes/HOMESFAQ';
+import SwYLDSHero from '@/components/swylds/SwYLDSHero';
+import SwYLDSMetrics from '@/components/swylds/SwYLDSMetrics';
+import SwYLDSValueProposition from '@/components/swylds/SwYLDSValueProposition';
+import SwYLDSHowItWorks from '@/components/swylds/SwYLDSHowItWorks';
+import SwYLDSYieldComparison from '@/components/swylds/SwYLDSYieldComparison';
+import SwYLDSSocialProof from '@/components/swylds/SwYLDSSocialProof';
+import SwYLDSTechnicalDetails from '@/components/swylds/SwYLDSTechnicalDetails';
+import SwYLDSRiskDisclosure from '@/components/swylds/SwYLDSRiskDisclosure';
+import SwYLDSFinalCTA from '@/components/swylds/SwYLDSFinalCTA';
 import HOMESComingSoonModal from '@/components/homes/HOMESComingSoonModal';
 import ProvenanceBranding from '@/components/ProvenanceBranding';
 
@@ -36,11 +40,15 @@ const SwYLDSPage = () => {
           }} 
         />
         <div className={`${!pageAccessible ? 'content-protection' : 'content-accessible'}`}>
-          <HOMESHero />
-          <HOMESAbout />
-          <HOMESPortfolio />
-          <HOMESPoolComposition />
-          <HOMESFAQ />
+          <SwYLDSHero />
+          <SwYLDSMetrics />
+          <SwYLDSValueProposition />
+          <SwYLDSHowItWorks />
+          <SwYLDSYieldComparison />
+          <SwYLDSSocialProof />
+          <SwYLDSTechnicalDetails />
+          <SwYLDSRiskDisclosure />
+          <SwYLDSFinalCTA />
           <ProvenanceBranding />
         </div>
       </div>

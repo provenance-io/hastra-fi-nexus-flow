@@ -67,11 +67,10 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({
                 />
               </div>
               <h2 className="text-xl font-bold text-foreground mb-2">
-                Earn 6-12% APY
+                Earn 9% APY with swYLDS
               </h2>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                We're exploring new ways to generate yield through pools of real
-                asset-backed loans.
+                Stake wYLDS to earn sustainable yield backed by real-world HELOC lending operations.
               </p>
             </div>
 
@@ -82,7 +81,7 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({
                   <TrendingUp className="h-3 w-3 text-header-glow" />
                 </div>
                 <span className="text-xs text-foreground">
-                  Target yields of 6-12% annually
+                  Earn 9% APY from real asset backing
                 </span>
               </div>
 
