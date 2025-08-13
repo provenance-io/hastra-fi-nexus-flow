@@ -10,12 +10,16 @@ const StakingSection: React.FC = () => {
           Stake
         </h2>
         
-        <div className="space-y-8 md:space-y-12">
-          {/* Main Staking Widget */}
-          <StakingWidget />
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-8 md:gap-12">
+          {/* Main Staking Widget - Takes 2 columns on xl screens */}
+          <div className="xl:col-span-2">
+            <StakingWidget />
+          </div>
           
-          {/* Pending Unstakes */}
-          <PendingUnstakesCard />
+          {/* Pending Unstakes - Takes 1 column on xl screens */}
+          <div className="xl:col-span-1">
+            <PendingUnstakesCard />
+          </div>
         </div>
       </div>
     </div>

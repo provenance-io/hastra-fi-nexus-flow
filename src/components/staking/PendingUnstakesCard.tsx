@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -11,10 +11,11 @@ import {
   formatTimestamp,
   sortUnstakesByStatus 
 } from '@/utils/stakingUtils';
-import { Clock, CheckCircle, ArrowRight, Timer } from 'lucide-react';
+import { Clock, CheckCircle, ArrowRight, Timer, ChevronDown, ChevronUp } from 'lucide-react';
 import CountdownTimer from './CountdownTimer';
 
 const PendingUnstakesCard: React.FC = () => {
+  const [showDetails, setShowDetails] = useState(false);
   const {
     pendingUnstakes,
     executeClaim,
@@ -75,14 +76,30 @@ const PendingUnstakesCard: React.FC = () => {
             </div>
           </div>
 
-          {/* Summary Stats */}
-          <div className="text-right space-y-1">
-            <div className="text-sm font-semibold text-foreground">
-              {formatStakingAmount(pendingUnstakes.totalPending)} stYLDS
+          <div className="flex items-center gap-3">
+            {/* Summary Stats */}
+            <div className="text-right space-y-1">
+              <div className="text-sm font-semibold text-foreground">
+                {formatStakingAmount(pendingUnstakes.totalPending)} stYLDS
+              </div>
+              <div className="text-xs text-muted-foreground">
+                Total Pending
+              </div>
             </div>
-            <div className="text-xs text-muted-foreground">
-              Total Pending
-            </div>
+            
+            {/* Toggle Button */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setShowDetails(!showDetails)}
+              className="text-muted-foreground hover:text-auburn-primary p-2 rounded-xl hover:bg-auburn-primary/10 transition-all duration-200"
+            >
+              {showDetails ? (
+                <ChevronUp className="w-4 h-4 text-foreground" />
+              ) : (
+                <ChevronDown className="w-4 h-4 text-foreground" />
+              )}
+            </Button>
           </div>
         </div>
 
@@ -105,9 +122,9 @@ const PendingUnstakesCard: React.FC = () => {
               <Button
                 onClick={handleClaimAll}
                 disabled={isTransacting}
-                size="lg"
+                size="default"
                 variant="secondary"
-                className="w-full px-6 py-4 md:py-3 text-base md:text-sm font-medium font-sans rounded-xl min-w-[200px] group"
+                className="px-4 py-2 text-sm font-medium font-sans rounded-lg"
               >
                 {isTransacting ? (
                   <>
@@ -125,7 +142,8 @@ const PendingUnstakesCard: React.FC = () => {
           </div>
         )}
 
-        {/* Unstakes List */}
+        {/* Unstakes List - Only show when expanded */}
+        {showDetails && (
         <div className="space-y-3">
           {sortedUnstakes.map((unstake) => {
             const progress = getUnstakeProgress(unstake.initiatedAt, unstake.availableAt);
@@ -216,8 +234,9 @@ const PendingUnstakesCard: React.FC = () => {
             );
           })}
         </div>
+        )}
 
-        {/* Info Footer */}
+        {/* Info Footer - Always visible */}
         <div className="text-center text-xs text-muted-foreground border-t border-border/30 pt-4">
           Tokens become claimable after the 20-day cooldown period
         </div>
