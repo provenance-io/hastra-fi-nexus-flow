@@ -6,6 +6,7 @@ import { useWallet } from '@/contexts/WalletContext';
 import { useToast } from '@/hooks/use-toast';
 import { WalletIconComponent } from '@/utils/walletIcons';
 import HastraLogo from '@/components/HastraLogo';
+import { isFeatureEnabled } from '@/utils/featureFlags';
 import {
   Sheet,
   SheetContent,
@@ -50,13 +51,23 @@ const MobileMenu = () => {
     setOpen(false);
   };
 
-  const navItems = [
-    { label: 'About', href: '/about' },
-    { label: 'wYLDS', href: '/yield' },
-    { label: 'swYLDS', href: '/swylds' },
-    { label: 'Earn', href: '/earn' },
-    { label: '(L)earn', href: '/learn' },
-  ];
+  const getNavItems = () => {
+    const items = [
+      { label: 'About', href: '/about' },
+      { label: 'wYLDS', href: '/yield' },
+      { label: 'swYLDS', href: '/swylds' },
+      { label: 'Earn', href: '/earn' },
+      { label: '(L)earn', href: '/learn' },
+    ];
+    
+    if (isFeatureEnabled('homesEnabled')) {
+      items.splice(3, 0, { label: 'HOMES', href: '/homes' });
+    }
+    
+    return items;
+  };
+
+  const navItems = getNavItems();
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>

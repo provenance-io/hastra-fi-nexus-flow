@@ -16,12 +16,14 @@ import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import WYLDsPage from "./pages/wYLDs";
 import SwYLDSPage from "./pages/swYLDS";
+import HOMESPage from "./pages/HOMES";
 import SendIt from "./pages/SendIt";
 import Learn from "./pages/Learn";
 import Earn from "./pages/Earn";
 import BrandGuidePage from "./pages/BrandGuide";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
+import AdminFeatureToggle from "./components/admin/AdminFeatureToggle";
 import {ReactQueryDevtools} from '@tanstack/react-query-devtools';
 
 
@@ -52,12 +54,14 @@ const App = () => (
 
                 <Route path="/yield" element={<WYLDsPage />} />
                 <Route path="/swylds" element={<SwYLDSPage />} />
+                <Route path="/homes" element={<HOMESPage />} />
                 <Route path="/sendit" element={<SendIt />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
             <Footer />
+            <AdminFeatureToggle />
           </div>
         </BrowserRouter>
       </TooltipProvider>

@@ -13,6 +13,7 @@ import { Loader2, Wallet } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { useWallet } from "@/contexts/WalletContext";
 import { fetchCurrentAPY } from "@/utils/solana-utils";
+import { isFeatureEnabled } from "@/utils/featureFlags";
 
 interface FigureYieldResponse {
   rate: number;
@@ -178,6 +179,30 @@ const Header = () => {
                     </div>
                   </Link>
                 </DropdownMenuItem>
+                {isFeatureEnabled('homesEnabled') && (
+                  <DropdownMenuItem asChild>
+                    <Link
+                      to="/homes"
+                      className="flex items-center w-full cursor-pointer p-3 hover:bg-orange-300/10 hover:text-orange-300 rounded-lg transition-all duration-200 group focus:outline-none focus:ring-0"
+                    >
+                      <div className="flex items-center gap-3">
+                        <img
+                          src="/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png"
+                          alt="HOMES Token"
+                          className="w-10 h-10 rounded-lg object-cover group-hover:scale-105 transition-transform"
+                        />
+                        <div>
+                          <div className="font-semibold text-platinum/90 mb-1">
+                            HOMES
+                          </div>
+                          <div className="text-sm text-platinum/70">
+                            COMING SOON
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  </DropdownMenuItem>
+                )}
               </DropdownMenuContent>
             </DropdownMenu>
             {navItems.map((item) => (
