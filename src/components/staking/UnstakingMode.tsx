@@ -41,9 +41,9 @@ const UnstakingMode: React.FC = () => {
       </div>
 
       {/* Cooldown Warning */}
-      <Alert className="border-auburn-primary/30 bg-auburn-primary/10">
-        <AlertTriangle className="h-4 w-4 text-auburn-primary" />
-        <AlertDescription className="text-auburn-primary">
+      <Alert className="border-amber-warm/30 bg-amber-warm/10">
+        <AlertTriangle className="h-4 w-4 text-amber-warm" />
+        <AlertDescription className="text-amber-warm">
           <strong>Unstaking Period:</strong> {protocolData.unstakingCooldown} cooldown period applies. 
           Your tokens will be available to claim after the cooldown period ends.
         </AlertDescription>
