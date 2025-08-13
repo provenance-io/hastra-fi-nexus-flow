@@ -121,7 +121,7 @@ const UnstakingMode: React.FC = () => {
                 </div>
                 <div className="flex justify-between text-xs">
                   <span className="text-muted-foreground">Unstaking Fee</span>
-                  <span className="font-medium">{protocolData.unstakingFee}%</span>
+                  <span className="font-medium text-green-500">No Fee</span>
                 </div>
                 <div className="flex justify-between text-xs">
                   <span className="text-muted-foreground">Estimated Gas Fee</span>
@@ -180,8 +180,8 @@ const UnstakingMode: React.FC = () => {
             </div>
           </div>
           <div className="text-center p-3 bg-secondary/20 rounded-lg border border-border/20">
-            <div className="text-lg font-semibold text-foreground">
-              {protocolData.unstakingFee}%
+            <div className="text-lg font-semibold text-green-500">
+              No Fee
             </div>
             <div className="text-xs text-muted-foreground">
               Unstaking Fee

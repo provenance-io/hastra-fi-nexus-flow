@@ -12,6 +12,7 @@ import {
   sortUnstakesByStatus 
 } from '@/utils/stakingUtils';
 import { Clock, CheckCircle, ArrowRight, Timer } from 'lucide-react';
+import CountdownTimer from './CountdownTimer';
 
 const PendingUnstakesCard: React.FC = () => {
   const {
@@ -168,14 +169,21 @@ const PendingUnstakesCard: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Progress Bar */}
+                {/* Progress Bar and Timer */}
                 {!isReady && (
-                  <div className="space-y-2">
-                    <Progress value={progress} className="h-1" />
-                    <div className="flex justify-between text-xs text-muted-foreground">
-                      <span>Cooldown Progress</span>
-                      <span>{progress}%</span>
+                  <div className="space-y-3">
+                    <div className="space-y-2">
+                      <Progress value={progress} className="h-1" />
+                      <div className="flex justify-between text-xs text-muted-foreground">
+                        <span>Cooldown Progress</span>
+                        <span>{progress}%</span>
+                      </div>
                     </div>
+                    {/* Live Countdown Timer */}
+                    <CountdownTimer 
+                      targetDate={unstake.availableAt}
+                      className="justify-center"
+                    />
                   </div>
                 )}
 
@@ -216,7 +224,7 @@ const PendingUnstakesCard: React.FC = () => {
 
         {/* Info Footer */}
         <div className="text-center text-xs text-muted-foreground border-t border-border/30 pt-4">
-          Tokens become claimable after the 7-day cooldown period
+          Tokens become claimable after the 20-day cooldown period
         </div>
       </div>
     </Card>

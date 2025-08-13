@@ -47,7 +47,7 @@ const INITIAL_STATE: StakingState = {
     currentAPR: '9.2',
     exchangeRate: '1.0',
     totalStaked: '0',
-    unstakingCooldown: '7 days',
+    unstakingCooldown: '20 days',
     unstakingFee: '0',
     lastUpdated: new Date(),
   },
@@ -63,8 +63,8 @@ export const useStaking = () => {
     currentAPR: '9.2',
     totalStaked: '1,247,893',
     exchangeRate: '1.0',
-    unstakingCooldown: '7 days',
-    unstakingFee: '0.5',
+    unstakingCooldown: '20 days',
+    unstakingFee: '0',
     totalUsers: 3420,
   };
 
@@ -72,8 +72,8 @@ export const useStaking = () => {
     {
       id: '1',
       amount: '100.0',
-      initiatedAt: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000), // 5 days ago
-      availableAt: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000), // 2 days from now
+      initiatedAt: new Date(Date.now() - 15 * 24 * 60 * 60 * 1000), // 15 days ago
+      availableAt: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000), // 5 days from now
       status: 'pending',
       canClaim: false,
       canCancel: true,
@@ -81,8 +81,8 @@ export const useStaking = () => {
     {
       id: '2',
       amount: '50.0',
-      initiatedAt: new Date(Date.now() - 8 * 24 * 60 * 60 * 1000), // 8 days ago
-      availableAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000), // 1 day ago (ready)
+      initiatedAt: new Date(Date.now() - 22 * 24 * 60 * 60 * 1000), // 22 days ago
+      availableAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000), // 2 days ago (ready)
       status: 'ready',
       canClaim: true,
       canCancel: false,
@@ -219,7 +219,7 @@ export const useStaking = () => {
   const setUnstakingAmount = useCallback((amount: string) => {
     const errors = validateUnstakingAmount(amount);
     const estimatedOutput = amount ? (parseFloat(amount) * parseFloat(state.protocolData.exchangeRate)).toString() : '0';
-    const cooldownDays = 7;
+    const cooldownDays = 20; // Updated to 20 days
     const availableDate = new Date(Date.now() + cooldownDays * 24 * 60 * 60 * 1000);
 
     setState(prev => ({
@@ -340,7 +340,7 @@ export const useStaking = () => {
 
       toast({
         title: "🟡 Unstaking Initiated",
-        description: `Unstaking ${state.unstakingForm.amount} stYLDS. Available in 7 days.`,
+        description: `Unstaking ${state.unstakingForm.amount} stYLDS. Available in 20 days.`,
         className: "toast-action-warning",
       });
 
