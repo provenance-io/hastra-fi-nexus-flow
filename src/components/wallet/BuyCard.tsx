@@ -36,6 +36,7 @@ const BuyCard = () => {
     o['SOL'] = geckoPrice?.solana?.usd as number || 0; // SOL to USD
     o[USDC] = 1;  // USDC to USD
     o[wYLDS] = 1; // wYLDS to USD
+    o['swYLDS'] = 1; // swYLDS to USD (1:1 with USD for now)
     o['HASH'] = geckoPrice?.['hash-2']?.usd as number || 0;   // HASH to USD
 
     setExchangeRate(o)
@@ -124,11 +125,13 @@ const BuyCard = () => {
   }
 
   const symbol = (address: string) => {
+    if (address === 'swYLDS') return 'swYLDS';
     const t = tokens.find(t => t.address === address);
     return t ? t.token : '';
   }
 
   const icon = (address: string, defaultIcon: string = hastraIcon) => {
+    if (address === 'swYLDS') return '/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png';
     const t = tokens.find(t => t.address === address);
     return t?.icon ? t.icon : defaultIcon;
   }
@@ -188,10 +191,16 @@ const BuyCard = () => {
               </div>
             </SelectTrigger>
             <SelectContent className="bg-card/90 backdrop-blur-sm border border-border/20 z-50">
-              <SelectItem value="wYLDS" className="py-3 md:py-2">
+              <SelectItem value={wYLDS} className="py-3 md:py-2">
                 <div className="flex items-center gap-3 py-1 md:py-1">
-                  <img src={icon(buyAsset)} alt={symbol(buyAsset)} className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover" />
-                  <span className="text-sm md:text-sm font-medium font-sans">{symbol(buyAsset)}</span>
+                  <img src={icon(wYLDS)} alt="wYLDS" className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover" />
+                  <span className="text-sm md:text-sm font-medium font-sans">wYLDS</span>
+                </div>
+              </SelectItem>
+              <SelectItem value="swYLDS" className="py-3 md:py-2">
+                <div className="flex items-center gap-3 py-1 md:py-1">
+                  <img src="/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png" alt="swYLDS" className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover" />
+                  <span className="text-sm md:text-sm font-medium font-sans">swYLDS</span>
                 </div>
               </SelectItem>
             </SelectContent>

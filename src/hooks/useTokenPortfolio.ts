@@ -30,6 +30,8 @@ export const useTokenPortfolioQuery = (
   tokenMintAddresses: string[] = [
     `${import.meta.env.VITE_SOLANA_USDC_MINT}`,
     `${import.meta.env.VITE_SOLANA_YIELD_MINT}`,
+    // Add swYLDS mint address when available
+    // `${import.meta.env.VITE_SOLANA_SWYLDS_MINT}`,
   ]
 ) => {
   return useQuery<TokenData[], Error>({
@@ -80,13 +82,15 @@ export const useTokenPortfolioQuery = (
           }
           return {
             address: address,
-            token: "UNKNOWN",
+            token: address === import.meta.env.VITE_SOLANA_USDC_MINT ? "USDC" : 
+                   address === import.meta.env.VITE_SOLANA_YIELD_MINT ? "wYLDS" : "sHASH",
             amount: amount,
             value: value,
-            apy: 0,
+            apy: address === import.meta.env.VITE_SOLANA_YIELD_MINT ? 4.5 : 0, // Default APY for wYLDS
             totalInterestEarned: 0,
-            unclaimedInterest: 0,
-            icon: "",
+            unclaimedInterest: address === import.meta.env.VITE_SOLANA_YIELD_MINT ? (amount * 0.001) : 0, // Mock unclaimed interest
+            icon: address === import.meta.env.VITE_SOLANA_USDC_MINT ? "/lovable-uploads/4a374512-469e-4932-9bfc-215e5dd3591d.png" :
+                  address === import.meta.env.VITE_SOLANA_YIELD_MINT ? "/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png" : "",
             mint: mint.toBase58(),
             tokenAddress: ta.toBase58(),
           } as TokenData;
