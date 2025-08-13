@@ -22,10 +22,6 @@ const SwYLDSHero = () => {
 
   return (
     <section className="relative py-20 md:py-32 overflow-hidden">
-      {/* Background gradients */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
-      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-background/50 to-auburn-primary/5"></div>
-      
       <div className="container relative z-10 text-center">
         <div className="max-w-4xl mx-auto">
           {/* Main headline */}
