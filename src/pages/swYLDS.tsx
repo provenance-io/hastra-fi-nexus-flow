@@ -2,13 +2,10 @@
 import { useState, useEffect } from 'react';
 import SwYLDSHero from '@/components/swylds/SwYLDSHero';
 import SwYLDSMetrics from '@/components/swylds/SwYLDSMetrics';
+import SwYLDSHowItWorks from '@/components/swylds/SwYLDSHowItWorks';
 import SwYLDSValueProposition from '@/components/swylds/SwYLDSValueProposition';
 import SwYLDSInvestmentDetails from '@/components/swylds/SwYLDSInvestmentDetails';
-import SwYLDSHowItWorks from '@/components/swylds/SwYLDSHowItWorks';
-import SwYLDSYieldComparison from '@/components/swylds/SwYLDSYieldComparison';
-import SwYLDSSocialProof from '@/components/swylds/SwYLDSSocialProof';
-import SwYLDSTechnicalDetails from '@/components/swylds/SwYLDSTechnicalDetails';
-import SwYLDSRiskDisclosure from '@/components/swylds/SwYLDSRiskDisclosure';
+import SwYLDSLeveragedLooping from '@/components/swylds/SwYLDSYieldComparison';
 import SwYLDSFinalCTA from '@/components/swylds/SwYLDSFinalCTA';
 import HOMESComingSoonModal from '@/components/homes/HOMESComingSoonModal';
 import ProvenanceBranding from '@/components/ProvenanceBranding';
@@ -43,13 +40,10 @@ const SwYLDSPage = () => {
         <div className={`${!pageAccessible ? 'content-protection' : 'content-accessible'}`}>
           <SwYLDSHero />
           <SwYLDSMetrics />
+          <SwYLDSHowItWorks />
           <SwYLDSValueProposition />
           <SwYLDSInvestmentDetails />
-          <SwYLDSHowItWorks />
-          <SwYLDSYieldComparison />
-          <SwYLDSSocialProof />
-          <SwYLDSTechnicalDetails />
-          <SwYLDSRiskDisclosure />
+          <SwYLDSLeveragedLooping />
           <SwYLDSFinalCTA />
           <ProvenanceBranding />
         </div>
