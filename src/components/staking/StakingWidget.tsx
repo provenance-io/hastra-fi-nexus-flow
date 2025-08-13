@@ -7,7 +7,7 @@ import StakingMode from './StakingMode';
 import UnstakingMode from './UnstakingMode';
 import TransactionProgress from './TransactionProgress';
 import APRDisplay from './APRDisplay';
-import { Coins, TrendingUp } from 'lucide-react';
+import { Coins, Send } from 'lucide-react';
 
 const StakingWidget: React.FC = () => {
   const { isConnected, connectWallet } = useWallet();
@@ -53,10 +53,8 @@ const StakingWidget: React.FC = () => {
     <div className="space-y-6">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
-        <div className="flex items-center space-x-3">
-          <div className="p-2 rounded-lg bg-amber-warm/10 border border-amber-warm/20">
-            <TrendingUp className="h-5 w-5 text-amber-warm" />
-          </div>
+        <div className="flex items-center gap-4">
+          <Send className="w-6 h-6 md:w-5 md:h-5 text-header-glow" />
           <div>
             <h3 className="text-lg font-semibold text-foreground">
               Get swYLDS
@@ -82,7 +80,7 @@ const StakingWidget: React.FC = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <div className="p-2 rounded-lg bg-amber-warm/10 border border-amber-warm/20">
-                <TrendingUp className="h-4 w-4 text-amber-warm" />
+                <Send className="h-4 w-4 text-amber-warm" />
               </div>
               <h4 className="text-lg font-semibold text-foreground">Stake</h4>
             </div>
