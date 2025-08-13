@@ -51,16 +51,19 @@ const StakingWidget: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-center gap-4 mb-6">
-        <Send className="w-6 h-6 md:w-5 md:h-5 text-header-glow" />
-        <div>
-          <h3 className="text-lg font-semibold text-foreground">
-            Get swYLDS
-          </h3>
-          <p className="text-sm text-muted-foreground">
-            Earn staking yield on your wYLDS tokens
-          </p>
+      {/* Section Headers */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-4">
+        <div className="flex items-center space-x-2">
+          <div className="p-2 rounded-lg bg-amber-warm/10 border border-amber-warm/20">
+            <Send className="h-4 w-4 text-amber-warm" />
+          </div>
+          <h4 className="text-lg font-semibold text-foreground">Stake</h4>
+        </div>
+        <div className="flex items-center space-x-2">
+          <div className="p-2 rounded-lg bg-auburn-primary/10 border border-auburn-primary/20">
+            <Coins className="h-4 w-4 text-[hsl(34_100%_84%)]" />
+          </div>
+          <h4 className="text-lg font-semibold text-foreground">Unstake</h4>
         </div>
       </div>
 
@@ -68,28 +71,12 @@ const StakingWidget: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Stake Card */}
         <Card className="bg-background/30 rounded-xl border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)] p-6 animate-fade-in">
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="p-2 rounded-lg bg-amber-warm/10 border border-amber-warm/20">
-                <Send className="h-4 w-4 text-amber-warm" />
-              </div>
-              <h4 className="text-lg font-semibold text-foreground">Stake</h4>
-            </div>
-            <StakingMode />
-          </div>
+          <StakingMode />
         </Card>
 
         {/* Unstake Card */}
         <Card className="bg-background/30 rounded-xl border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)] p-6 animate-fade-in">
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="p-2 rounded-lg bg-auburn-primary/10 border border-auburn-primary/20">
-                <Coins className="h-4 w-4 text-[hsl(34_100%_84%)]" />
-              </div>
-              <h4 className="text-lg font-semibold text-foreground">Unstake</h4>
-            </div>
-            <UnstakingMode />
-          </div>
+          <UnstakingMode />
         </Card>
       </div>
 
