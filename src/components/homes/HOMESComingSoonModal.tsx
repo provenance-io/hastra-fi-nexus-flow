@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { X, DollarSign, TrendingUp, Shield, Bell } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
-
 interface HOMESComingSoonModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
-
 const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({
   isOpen,
-  onClose,
+  onClose
 }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
-
   useEffect(() => {
     if (isOpen) {
       // Load the Beehiiv script when modal opens
@@ -20,37 +17,24 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({
       script.src = "https://subscribe-forms.beehiiv.com/embed.js";
       script.async = true;
       document.head.appendChild(script);
-
       return () => {
         // Clean up script when component unmounts
-        const existingScript = document.querySelector(
-          'script[src="https://subscribe-forms.beehiiv.com/embed.js"]'
-        );
+        const existingScript = document.querySelector('script[src="https://subscribe-forms.beehiiv.com/embed.js"]');
         if (existingScript) {
           document.head.removeChild(existingScript);
         }
       };
     }
   }, [isOpen]);
-
   if (!isOpen) return null;
-
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+  return <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Backdrop */}
-      <div
-        className="absolute inset-0 bg-black/30 backdrop-blur-sm"
-        onClick={onClose}
-      />
+      <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" onClick={onClose} />
 
       {/* Modal */}
       <div className="relative bg-background/30 backdrop-blur-md rounded-2xl shadow-premium w-full max-w-md mx-auto border border-border/20 hover:border-hastra-teal/20 animate-fade-in max-h-[90vh] overflow-hidden">
         {/* Close Button - Fixed at top */}
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors z-10 bg-background/80 rounded-full p-1"
-          aria-label="Close modal"
-        >
+        <button onClick={onClose} className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors z-10 bg-background/80 rounded-full p-1" aria-label="Close modal">
           <X className="h-4 w-4" />
         </button>
 
@@ -60,15 +44,9 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({
             {/* Header Section */}
             <div className="text-center mb-6">
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-header-glow/20 to-crypto-accent/10 mb-3">
-                <img
-                  src="/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png"
-                  alt="HOMES Token"
-                  className="h-12 w-12 rounded-full object-cover"
-                />
+                <img src="/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png" alt="HOMES Token" className="h-12 w-12 rounded-full object-cover" />
               </div>
-              <h2 className="text-xl font-bold text-foreground mb-2">
-                Earn 9% APY with swYLDS
-              </h2>
+              <h2 className="text-xl font-bold text-foreground mb-2">Earn Up to 8% APY with swYLDS</h2>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Stake wYLDS to earn sustainable yield backed by real-world HELOC lending operations.
               </p>
@@ -80,9 +58,7 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({
                 <div className="flex-shrink-0 w-6 h-6 rounded-lg bg-header-glow/10 flex items-center justify-center">
                   <TrendingUp className="h-3 w-3 text-header-glow" />
                 </div>
-                <span className="text-xs text-foreground">
-                  Earn 9% APY from real asset backing
-                </span>
+                <span className="text-xs text-foreground">Earn 6-8% APY from real world asset holdings</span>
               </div>
 
               <div className="flex items-center gap-3">
@@ -98,9 +74,7 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({
                 <div className="flex-shrink-0 w-6 h-6 rounded-lg bg-header-glow/10 flex items-center justify-center">
                   <Bell className="h-3 w-3 text-header-glow" />
                 </div>
-                <span className="text-xs text-foreground">
-                  Join the waitlist for early access
-                </span>
+                <span className="text-xs text-foreground">Join the waitlist to get notified of availibility</span>
               </div>
             </div>
 
@@ -116,10 +90,9 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({
               </div>
 
               <div className="w-full bg-muted rounded-full h-2 mb-2">
-                <div
-                  className="bg-gradient-to-r from-header-glow to-crypto-accent h-2 rounded-full transition-all duration-1000 ease-out"
-                  style={{ width: "50%" }}
-                />
+                <div className="bg-gradient-to-r from-header-glow to-crypto-accent h-2 rounded-full transition-all duration-1000 ease-out" style={{
+                width: "50%"
+              }} />
               </div>
 
               <p className="text-xs text-muted-foreground">
@@ -129,20 +102,13 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({
 
             {/* Beehiiv Embed Form - Compact with reduced bottom spacing */}
             <div className="w-full flex justify-center mb-2 h-[50px]">
-              <iframe
-                src="https://subscribe-forms.beehiiv.com/30217469-2e22-46f3-a339-7c531ae92535"
-                className="beehiiv-embed w-full rounded-lg border border-border/20"
-                data-test-id="beehiiv-embed"
-                frameBorder="0"
-                scrolling="no"
-                style={{
-                  height: "50px",
-                  maxWidth: "100%",
-                  margin: 0,
-                  backgroundColor: "transparent",
-                  boxShadow: "0 0 #0000",
-                }}
-              />
+              <iframe src="https://subscribe-forms.beehiiv.com/30217469-2e22-46f3-a339-7c531ae92535" className="beehiiv-embed w-full rounded-lg border border-border/20" data-test-id="beehiiv-embed" frameBorder="0" scrolling="no" style={{
+              height: "50px",
+              maxWidth: "100%",
+              margin: 0,
+              backgroundColor: "transparent",
+              boxShadow: "0 0 #0000"
+            }} />
             </div>
 
             {/* Footer Disclaimer */}
@@ -155,8 +121,6 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({
           </div>
         </ScrollArea>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default HOMESComingSoonModal;
