@@ -208,21 +208,23 @@ const TokenLineItem = ({
           </div>
         </div>
         
-        <Button
-          onClick={handleClaim}
-          disabled={unclaimedInterest <= 0 || isClaiming}
-          className="w-full py-3 text-sm font-medium rounded-xl disabled:opacity-50"
-          variant="secondary"
-        >
-          {isClaiming ? (
-            <div className="flex items-center justify-center gap-2">
-              <div className="w-4 h-4 border-2 border-orange-300 border-t-transparent rounded-full animate-spin" />
-              <span>Claiming...</span>
-            </div>
-          ) : (
-            <span>Claim {token.replace(' (Sol)', '').replace('YIELD', 'wYLDS')} - ${unclaimedInterestUSD.toFixed(2)}</span>
-          )}
-        </Button>
+        {onClaim && (
+          <Button
+            onClick={handleClaim}
+            disabled={unclaimedInterest <= 0 || isClaiming}
+            className="w-full py-3 text-sm font-medium rounded-xl disabled:opacity-50"
+            variant="secondary"
+          >
+            {isClaiming ? (
+              <div className="flex items-center justify-center gap-2">
+                <div className="w-4 h-4 border-2 border-orange-300 border-t-transparent rounded-full animate-spin" />
+                <span>Claiming...</span>
+              </div>
+            ) : (
+              <span>Claim {token.replace(' (Sol)', '').replace('YIELD', 'wYLDS')} - ${unclaimedInterestUSD.toFixed(2)}</span>
+            )}
+          </Button>
+        )}
       </div>
 
       {/* Mobile Layout (sm and below) */}
@@ -280,21 +282,23 @@ const TokenLineItem = ({
         </div>
 
         {/* Claim Button */}
-        <Button
-          onClick={handleClaim}
-          disabled={unclaimedInterest <= 0 || isClaiming}
-          className="w-full py-3 text-sm font-medium rounded-xl disabled:opacity-50"
-          variant="secondary"
-        >
-          {isClaiming ? (
-            <div className="flex items-center justify-center gap-2">
-              <div className="w-4 h-4 border-2 border-orange-300 border-t-transparent rounded-full animate-spin" />
-              <span>Claiming...</span>
-            </div>
-          ) : (
-            <span>Claim - ${unclaimedInterestUSD.toFixed(2)}</span>
-          )}
-        </Button>
+        {onClaim && (
+          <Button
+            onClick={handleClaim}
+            disabled={unclaimedInterest <= 0 || isClaiming}
+            className="w-full py-3 text-sm font-medium rounded-xl disabled:opacity-50"
+            variant="secondary"
+          >
+            {isClaiming ? (
+              <div className="flex items-center justify-center gap-2">
+                <div className="w-4 h-4 border-2 border-orange-300 border-t-transparent rounded-full animate-spin" />
+                <span>Claiming...</span>
+              </div>
+            ) : (
+              <span>Claim - ${unclaimedInterestUSD.toFixed(2)}</span>
+            )}
+          </Button>
+        )}
       </div>
     </div>
   );
