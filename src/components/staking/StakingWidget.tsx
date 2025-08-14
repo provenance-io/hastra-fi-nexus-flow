@@ -7,7 +7,7 @@ import StakingMode from './StakingMode';
 import UnstakingMode from './UnstakingMode';
 import TransactionProgress from './TransactionProgress';
 import APRDisplay from './APRDisplay';
-import { Coins, Send } from 'lucide-react';
+import { Coins, TrendingUp } from 'lucide-react';
 
 const StakingWidget: React.FC = () => {
   const { isConnected, connectWallet } = useWallet();
@@ -56,7 +56,7 @@ const StakingWidget: React.FC = () => {
         {/* Stake Section */}
         <div className="space-y-4">
           <div className="flex items-center space-x-2">
-            <Send className="h-5 w-5 text-amber-warm" />
+            <TrendingUp className="h-5 w-5 text-amber-warm" />
             <h4 className="text-lg font-semibold text-foreground">Stake</h4>
           </div>
           <Card className="bg-background/30 rounded-xl border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)] p-6 animate-fade-in">
