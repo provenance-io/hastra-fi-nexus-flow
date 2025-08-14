@@ -77,7 +77,7 @@ const TokenLineItem = ({
         <div className="flex items-center gap-3 w-36 flex-shrink-0">
           {isImage ? (
             <img 
-              src={icon} 
+              src={token === 'wYLDS' || token === 'YIELD' ? '/lovable-uploads/d73baf3a-34c8-4ad7-8378-e419bb8268ff.png' : icon}
               alt={`${token} Token`}
               className="w-10 h-10 rounded-full object-cover shadow-sm flex-shrink-0"
             />
@@ -165,7 +165,7 @@ const TokenLineItem = ({
           <div className="flex items-center gap-3">
             {isImage ? (
               <img 
-                src={icon} 
+                src={token === 'wYLDS' || token === 'YIELD' ? '/lovable-uploads/d73baf3a-34c8-4ad7-8378-e419bb8268ff.png' : icon}
                 alt={`${token} Token`}
                 className="w-10 h-10 rounded-full object-cover shadow-sm"
               />
@@ -234,7 +234,7 @@ const TokenLineItem = ({
           <div className="flex-shrink-0">
             {isImage ? (
               <img 
-                src={icon} 
+                src={token === 'wYLDS' || token === 'YIELD' ? '/lovable-uploads/d73baf3a-34c8-4ad7-8378-e419bb8268ff.png' : icon} 
                 alt={`${token} Token`}
                 className="w-10 h-10 rounded-full object-cover shadow-sm"
               />
