@@ -82,9 +82,9 @@ const StakingMode: React.FC = () => {
                 size="sm"
                 onClick={setMaxStakeAmount}
                 disabled={isTransacting}
-                className="h-8 md:h-7 text-sm md:text-xs px-3 md:px-2 font-sans text-muted-foreground hover:text-auburn-primary"
+                className="h-7 px-3 text-xs font-medium text-auburn-light hover:bg-auburn-primary/20 hover:text-auburn-light transition-all duration-200 bg-muted/30 rounded-md min-w-[50px]"
               >
-                MAX
+                Max
               </Button>
               <span className="text-sm text-muted-foreground">wYLDS</span>
             </div>
