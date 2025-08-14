@@ -118,7 +118,24 @@ export const useTokenPortfolio = () => {
     if (tokenData) {
       // Add swYLDS token from staking balance
       const swYLDSBalance = parseFloat(userBalance?.swYLDS || '0');
-      const tokensWithSwYLDS = [...tokenData];
+      let tokensWithSwYLDS = [...tokenData];
+      
+      // Ensure wYLDS always appears in the list, even with 0 balance
+      const wYLDSToken = tokensWithSwYLDS.find(t => t.token === 'wYLDS');
+      if (!wYLDSToken) {
+        tokensWithSwYLDS.push({
+          address: import.meta.env.VITE_SOLANA_YIELD_MINT,
+          token: 'wYLDS',
+          amount: 0,
+          value: 0,
+          apy: 4.5,
+          totalInterestEarned: 0,
+          unclaimedInterest: 0,
+          icon: '/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png',
+          mint: import.meta.env.VITE_SOLANA_YIELD_MINT,
+          tokenAddress: 'wYLDS-address',
+        });
+      }
       
       // Always add swYLDS token, even if balance is 0
       tokensWithSwYLDS.push({
