@@ -45,23 +45,23 @@ const SwYLDSLightningHero = () => {
     <div className="relative w-64 h-64 md:w-80 md:h-80 mx-auto">
       {/* Ethereal Lightning Effect */}
       {showLightning && (
-        <div className={`absolute -left-8 z-0 ${
+        <div className={`absolute -left-12 z-0 ${
           animationPhase === 2 ? 'animate-lightning-flash' : 'animate-lightning-buildup'
-        }`} style={{ top: '-140px' }}>
+        }`} style={{ top: '-160px' }}>
           
           {/* Atmospheric background glow */}
           <div 
-            className="absolute inset-0 w-80 h-72 opacity-30"
+            className="absolute inset-0 w-96 h-80 opacity-30"
             style={{
-              background: 'radial-gradient(ellipse 200px 300px at 50% 60%, rgba(147, 197, 253, 0.2) 0%, rgba(59, 130, 246, 0.1) 30%, rgba(79, 70, 229, 0.05) 70%, transparent 100%)',
+              background: 'radial-gradient(ellipse 240px 320px at 20% 30%, rgba(147, 197, 253, 0.2) 0%, rgba(59, 130, 246, 0.1) 30%, rgba(79, 70, 229, 0.05) 70%, transparent 100%)',
               filter: 'blur(20px)',
             }}
           />
           
           <svg 
-            width="200" 
-            height="220" 
-            viewBox="0 0 200 220"
+            width="240" 
+            height="280" 
+            viewBox="0 0 240 280"
             className="lightning-bolt"
             style={{
               filter: 'blur(0.5px) drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 25px rgba(147, 197, 253, 0.6)) drop-shadow(0 0 35px rgba(59, 130, 246, 0.4))'
@@ -69,7 +69,7 @@ const SwYLDSLightningHero = () => {
           >
             {/* Atmospheric outer glow layers */}
             <path 
-              d="M80 10 C82 18, 78 25, 85 35 C83 48, 89 52, 75 68 C77 82, 73 88, 88 105 C85 120, 92 125, 78 142 C81 158, 76 165, 95 185 C92 198, 98 205, 110 220"
+              d="M25 15 C35 28, 45 42, 58 58 C68 72, 78 88, 92 105 C102 118, 115 135, 128 152 C138 165, 152 182, 165 198 C175 212, 188 228, 200 245 C210 258, 220 270, 235 280"
               stroke="url(#atmosphericGlow)"
               strokeWidth="12"
               fill="none"
@@ -79,7 +79,7 @@ const SwYLDSLightningHero = () => {
             />
             
             <path 
-              d="M80 10 C82 18, 78 25, 85 35 C83 48, 89 52, 75 68 C77 82, 73 88, 88 105 C85 120, 92 125, 78 142 C81 158, 76 165, 95 185 C92 198, 98 205, 110 220"
+              d="M25 15 C35 28, 45 42, 58 58 C68 72, 78 88, 92 105 C102 118, 115 135, 128 152 C138 165, 152 182, 165 198 C175 212, 188 228, 200 245 C210 258, 220 270, 235 280"
               stroke="url(#atmosphericGlow2)"
               strokeWidth="8"
               fill="none"
@@ -88,103 +88,119 @@ const SwYLDSLightningHero = () => {
               style={{ filter: 'blur(4px)' }}
             />
             
-            {/* Main lightning channel with organic flow */}
+            {/* Main lightning channel with diagonal flow */}
             <path 
-              d="M80 10 C82 18, 78 25, 85 35 C83 48, 89 52, 75 68 C77 82, 73 88, 88 105 C85 120, 92 125, 78 142 C81 158, 76 165, 95 185 C92 198, 98 205, 110 220"
+              d="M25 15 C35 28, 45 42, 58 58 C68 72, 78 88, 92 105 C102 118, 115 135, 128 152 C138 165, 152 182, 165 198 C175 212, 188 228, 200 245 C210 258, 220 270, 235 280"
               stroke="url(#mainLightningGradient)"
               strokeWidth="3"
               fill="none"
-              className="lightning-path-main"
+              className={`lightning-path-main ${animationPhase === 1 ? 'animate-lightning-draw' : ''}`}
+              strokeDasharray={animationPhase === 1 ? "600" : "none"}
+              strokeDashoffset={animationPhase === 1 ? "600" : "0"}
             />
             
             {/* Bright white core */}
             <path 
-              d="M80 10 C82 18, 78 25, 85 35 C83 48, 89 52, 75 68 C77 82, 73 88, 88 105 C85 120, 92 125, 78 142 C81 158, 76 165, 95 185 C92 198, 98 205, 110 220"
+              d="M25 15 C35 28, 45 42, 58 58 C68 72, 78 88, 92 105 C102 118, 115 135, 128 152 C138 165, 152 182, 165 198 C175 212, 188 228, 200 245 C210 258, 220 270, 235 280"
               stroke="url(#coreLightningGradient)"
               strokeWidth="1"
               fill="none"
-              className="lightning-path-core"
+              className={`lightning-path-core ${animationPhase === 1 ? 'animate-lightning-draw' : ''}`}
+              strokeDasharray={animationPhase === 1 ? "600" : "none"}
+              strokeDashoffset={animationPhase === 1 ? "600" : "0"}
             />
             
-            {/* Organic branching patterns */}
+            {/* Organic branching patterns following diagonal flow */}
             {/* Upper left branch */}
             <path 
-              d="M85 35 C78 42, 72 48, 65 52 C58 58, 52 65, 45 72 C38 78, 32 85, 25 92"
+              d="M58 58 C48 68, 38 78, 28 88 C18 98, 8 108, -2 118"
               stroke="url(#branchGradient1)"
               strokeWidth="2"
               fill="none"
               opacity="0.8"
-              className="lightning-path-branch"
+              className={`lightning-path-branch ${animationPhase === 1 ? 'animate-lightning-draw-branch' : ''}`}
+              strokeDasharray={animationPhase === 1 ? "120" : "none"}
+              strokeDashoffset={animationPhase === 1 ? "120" : "0"}
             />
             
             {/* Upper right branch */}
             <path 
-              d="M85 35 C92 41, 98 47, 105 53 C112 59, 118 66, 125 73"
+              d="M58 58 C68 68, 78 78, 88 88 C98 98, 108 108, 118 118"
               stroke="url(#branchGradient1)"
               strokeWidth="1.5"
               fill="none"
               opacity="0.7"
-              className="lightning-path-branch"
+              className={`lightning-path-branch ${animationPhase === 1 ? 'animate-lightning-draw-branch' : ''}`}
+              strokeDasharray={animationPhase === 1 ? "100" : "none"}
+              strokeDashoffset={animationPhase === 1 ? "100" : "0"}
             />
             
-            {/* Middle left branch - flowing naturally */}
+            {/* Middle left branch - flowing diagonally */}
             <path 
-              d="M75 68 C68 74, 62 80, 55 86 C48 92, 42 98, 35 105 C28 112, 22 118, 15 125"
+              d="M92 105 C82 115, 72 125, 62 135 C52 145, 42 155, 32 165"
               stroke="url(#branchGradient2)"
               strokeWidth="1.8"
               fill="none"
               opacity="0.6"
-              className="lightning-path-branch"
+              className={`lightning-path-branch ${animationPhase === 1 ? 'animate-lightning-draw-branch' : ''}`}
+              strokeDasharray={animationPhase === 1 ? "110" : "none"}
+              strokeDashoffset={animationPhase === 1 ? "110" : "0"}
             />
             
             {/* Middle right branch */}
             <path 
-              d="M88 105 C95 111, 102 117, 109 123 C116 129, 123 135, 130 142 C137 148, 144 155, 151 162"
+              d="M128 152 C138 162, 148 172, 158 182 C168 192, 178 202, 188 212"
               stroke="url(#branchGradient2)"
               strokeWidth="1.5"
               fill="none"
               opacity="0.5"
-              className="lightning-path-branch"
+              className={`lightning-path-branch ${animationPhase === 1 ? 'animate-lightning-draw-branch' : ''}`}
+              strokeDasharray={animationPhase === 1 ? "95" : "none"}
+              strokeDashoffset={animationPhase === 1 ? "95" : "0"}
             />
             
             {/* Lower left branch */}
             <path 
-              d="M78 142 C71 148, 64 154, 57 160 C50 166, 43 172, 36 178"
+              d="M165 198 C155 208, 145 218, 135 228 C125 238, 115 248, 105 258"
               stroke="url(#branchGradient3)"
               strokeWidth="1.2"
               fill="none"
               opacity="0.4"
-              className="lightning-path-branch"
+              className={`lightning-path-branch ${animationPhase === 1 ? 'animate-lightning-draw-branch' : ''}`}
+              strokeDasharray={animationPhase === 1 ? "85" : "none"}
+              strokeDashoffset={animationPhase === 1 ? "85" : "0"}
             />
             
             {/* Micro-branches with subtle irregularities */}
             <path 
-              d="M82 25 C79 28, 76 32, 73 35 M89 55 C92 58, 95 62, 98 65 M85 125 C82 128, 79 132, 76 135 M98 192 C101 195, 104 199, 107 202"
+              d="M35 28 C32 32, 29 36, 26 40 M78 88 C82 92, 86 96, 90 100 M152 182 C149 186, 146 190, 143 194 M200 245 C204 249, 208 253, 212 257"
               stroke="url(#microBranchGradient)"
               strokeWidth="0.8"
               fill="none"
               opacity="0.3"
-              className="lightning-path-micro"
+              className={`lightning-path-micro ${animationPhase === 1 ? 'animate-lightning-draw-micro' : ''}`}
+              strokeDasharray={animationPhase === 1 ? "50" : "none"}
+              strokeDashoffset={animationPhase === 1 ? "50" : "0"}
             />
             
-            {/* Ethereal energy nodes */}
-            <circle cx="85" cy="35" r="1.5" fill="url(#nodeGradient)" opacity="0.9" className="animate-pulse" />
-            <circle cx="75" cy="68" r="1.2" fill="url(#nodeGradient)" opacity="0.8" className="animate-pulse" style={{animationDelay: "0.3s"}} />
-            <circle cx="88" cy="105" r="1.8" fill="url(#nodeGradient)" opacity="1" className="animate-pulse" style={{animationDelay: "0.1s"}} />
-            <circle cx="78" cy="142" r="1.3" fill="url(#nodeGradient)" opacity="0.7" className="animate-pulse" style={{animationDelay: "0.5s"}} />
-            <circle cx="95" cy="185" r="2" fill="url(#nodeGradient)" opacity="0.9" className="animate-pulse" style={{animationDelay: "0.2s"}} />
+            {/* Ethereal energy nodes following diagonal path */}
+            <circle cx="58" cy="58" r="1.5" fill="url(#nodeGradient)" opacity="0.9" className="animate-pulse" />
+            <circle cx="92" cy="105" r="1.2" fill="url(#nodeGradient)" opacity="0.8" className="animate-pulse" style={{animationDelay: "0.3s"}} />
+            <circle cx="128" cy="152" r="1.8" fill="url(#nodeGradient)" opacity="1" className="animate-pulse" style={{animationDelay: "0.1s"}} />
+            <circle cx="165" cy="198" r="1.3" fill="url(#nodeGradient)" opacity="0.7" className="animate-pulse" style={{animationDelay: "0.5s"}} />
+            <circle cx="200" cy="245" r="2" fill="url(#nodeGradient)" opacity="0.9" className="animate-pulse" style={{animationDelay: "0.2s"}} />
             
-            {/* Ionized air particles */}
-            {[...Array(8)].map((_, i) => (
+            {/* Ionized air particles following diagonal flow */}
+            {[...Array(10)].map((_, i) => (
               <circle 
                 key={i}
-                cx={70 + Math.sin(i * 0.8) * 15} 
-                cy={30 + i * 20} 
+                cx={15 + i * 22} 
+                cy={10 + i * 27} 
                 r="0.5" 
                 fill="rgba(255, 255, 255, 0.6)" 
                 opacity="0.4"
                 className="animate-pulse"
-                style={{animationDelay: `${i * 0.2}s`}}
+                style={{animationDelay: `${i * 0.15}s`}}
               />
             ))}
             
@@ -255,9 +271,8 @@ const SwYLDSLightningHero = () => {
             <div 
               className="absolute w-2 h-2 bg-premium-gold rounded-full animate-ping"
               style={{
-                bottom: '-8px',
-                left: '50%',
-                transform: 'translateX(-50%)',
+                bottom: '-20px',
+                right: '-40px',
                 filter: 'drop-shadow(0 0 8px hsl(var(--premium-gold)))',
               }}
             />
