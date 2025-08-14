@@ -168,52 +168,6 @@ const SwYLDSLeveragedLooping = () => {
           </div>
         </div>
 
-        {/* CTA Section */}
-        <div className="text-center">
-          <h3 className="text-xl font-bold text-foreground/90 mb-6">
-            Ready to Amplify Your swYLDS Yield?
-          </h3>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-crypto-accent to-auburn-primary hover:from-crypto-accent/90 hover:to-auburn-primary/90 text-white px-8 py-4 rounded-xl font-semibold"
-              asChild
-            >
-              <a
-                href="https://app.kamino.finance"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2"
-              >
-                Start Looping on Kamino
-                <ExternalLink className="h-4 w-4" />
-              </a>
-            </Button>
-            
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-border/40 bg-background/50 backdrop-blur-sm px-8 py-4 rounded-xl"
-              asChild
-            >
-              <a
-                href="https://docs.kamino.finance"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2"
-              >
-                Learn More About Kamino
-                <ExternalLink className="h-4 w-4" />
-              </a>
-            </Button>
-          </div>
-          
-          {/* Risk Disclaimer */}
-          <p className="text-sm text-platinum/60 max-w-3xl mx-auto leading-relaxed">
-            Leveraged strategies involve additional risks including liquidation risk. Higher leverage increases both potential returns and potential losses. 
-            Please understand the risks before engaging in leveraged strategies.
-          </p>
-        </div>
       </div>
     </section>
   );
