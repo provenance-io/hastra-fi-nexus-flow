@@ -84,7 +84,7 @@ const TokenLineItem = ({
             </div>
           )}
           <div className="min-w-0">
-            <h4 className="font-medium text-foreground text-sm leading-tight">{token.replace(' (Sol)', '')}</h4>
+            <h4 className="font-medium text-foreground text-sm leading-tight">{token.replace(' (Sol)', '').replace('YIELD', 'wYLDS')}</h4>
             <p className="text-xs text-muted-foreground hover:cursor-pointer" onClick={copyToClipboard}>Token</p>
           </div>
         </div>
@@ -149,7 +149,7 @@ const TokenLineItem = ({
               </div>
             ) : (
               <>
-                Claim {token.replace(' (Sol)', '')}
+                Claim {token.replace(' (Sol)', '').replace('YIELD', 'wYLDS')}
               </>
             )}
           </Button> }
@@ -172,7 +172,7 @@ const TokenLineItem = ({
               </div>
             )}
             <div>
-              <h4 className="font-semibold text-foreground text-base">{token.replace(' (Sol)', '')}</h4>
+              <h4 className="font-semibold text-foreground text-base">{token.replace(' (Sol)', '').replace('YIELD', 'wYLDS')}</h4>
               <p className="text-sm text-muted-foreground">Token</p>
             </div>
           </div>
@@ -217,7 +217,7 @@ const TokenLineItem = ({
               <span>Claiming...</span>
             </div>
           ) : (
-            <span>Claim {token.replace(' (Sol)', '')} - ${unclaimedInterestUSD.toFixed(2)}</span>
+            <span>Claim {token.replace(' (Sol)', '').replace('YIELD', 'wYLDS')} - ${unclaimedInterestUSD.toFixed(2)}</span>
           )}
         </Button>
       </div>
@@ -240,7 +240,7 @@ const TokenLineItem = ({
             )}
           </div>
           <div className="flex-1 min-w-0">
-            <h4 className="font-semibold text-foreground text-base leading-tight">{token.replace(' (Sol)', '')}</h4>
+            <h4 className="font-semibold text-foreground text-base leading-tight">{token.replace(' (Sol)', '').replace('YIELD', 'wYLDS')}</h4>
             <p className="text-sm text-muted-foreground">Token</p>
           </div>
           <div className="text-right flex-shrink-0">
