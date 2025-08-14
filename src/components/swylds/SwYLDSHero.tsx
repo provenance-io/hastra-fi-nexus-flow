@@ -33,7 +33,7 @@ const SwYLDSHero = () => {
           {/* Main headline */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
             Earn{' '}
-            <span className="bg-gradient-to-r from-crypto-accent to-auburn-primary bg-clip-text text-transparent">
+            <span className="text-hastra-gradient">
               {displayApy}% APY
             </span>{' '}
             with swYLDS
