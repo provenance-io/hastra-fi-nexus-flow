@@ -134,6 +134,12 @@ export const useTokenPortfolio = () => {
         tokenAddress: 'swYLDS-address',
       });
       
+      console.log('Final tokens with claim amounts:', tokensWithSwYLDS.map(t => ({ 
+        token: t.token, 
+        amount: t.amount,
+        unclaimedInterest: t.unclaimedInterest 
+      })));
+      
       setTokens(tokensWithSwYLDS);
     }
   }, [tokenData, userBalance?.swYLDS]);
