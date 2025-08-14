@@ -13,8 +13,8 @@ import ProvenanceBranding from '@/components/ProvenanceBranding';
 const SwYLDSPage = () => {
   const [showModal, setShowModal] = useState(false);
   
-  // Use a more obscure naming convention and always keep blur active
-  const [pageAccessible, setPageAccessible] = useState(false);
+  // Start with page accessible for now to avoid blocking content
+  const [pageAccessible, setPageAccessible] = useState(true);
 
   useEffect(() => {
     // Show modal after a brief delay on page load
