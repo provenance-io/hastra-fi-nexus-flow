@@ -69,7 +69,7 @@ const WalletOverview = () => {
             { (tokens && tokens.length > 0) &&
             <div className="space-y-4">
               {tokens.map((token) => {
-                console.log(`Rendering token: ${token.token}, onClaim condition: ${token.token === 'wYLDS' || token.token === 'swYLDS'}`);
+                console.log(`Rendering token: ${token.token}, onClaim condition: ${token.token === 'wYLDS' || token.token === 'YIELD' || token.token === 'swYLDS'}`);
                 return (
                   <TokenLineItem
                     key={token.token}
@@ -81,7 +81,7 @@ const WalletOverview = () => {
                     unclaimedInterest={token.unclaimedInterest}
                     icon={token.icon}
                     tokenAddress={token.tokenAddress}
-                    onClaim={token.token === 'wYLDS' || token.token === 'swYLDS' ? handleTokenClaim(token.token) : undefined}
+                    onClaim={token.token === 'wYLDS' || token.token === 'YIELD' || token.token === 'swYLDS' ? handleTokenClaim(token.token) : undefined}
                   />
                 );
               })}
