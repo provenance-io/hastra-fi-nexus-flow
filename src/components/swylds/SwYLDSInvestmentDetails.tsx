@@ -13,9 +13,6 @@ const SwYLDSInvestmentDetails = () => {
               <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">
                 What swYLDS Invests In
               </h2>
-              <p className="text-lg text-foreground/70 mt-4 max-w-3xl mx-auto">
-                Your swYLDS earns yield from real-world Home Equity Line of Credit (HELOC) lending through Democratized Prime
-              </p>
             </div>
 
             {/* Feature Cards */}
