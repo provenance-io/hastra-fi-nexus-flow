@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { fetchCurrentAPY } from '@/utils/solana-utils';
+import SwYLDSAnimatedHero from './SwYLDSAnimatedHero';
 
 const SwYLDSHero = () => {
   const [displayApy, setDisplayApy] = useState("9.2");
@@ -24,6 +25,11 @@ const SwYLDSHero = () => {
     <section className="relative py-20 md:py-32 overflow-hidden">
       <div className="container relative z-10 text-center">
         <div className="max-w-4xl mx-auto">
+          {/* Animated Hero Graphic */}
+          <div className="mb-8">
+            <SwYLDSAnimatedHero />
+          </div>
+          
           {/* Main headline */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
             Earn{' '}
