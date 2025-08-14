@@ -121,7 +121,7 @@ const PendingUnstakesCard: React.FC = () => {
                   </>
                 ) : (
                   <>
-                    Claim All
+                    Unstake to wYLDS
                     <ArrowRight className="ml-2 h-3 w-3" />
                   </>
                 )}
