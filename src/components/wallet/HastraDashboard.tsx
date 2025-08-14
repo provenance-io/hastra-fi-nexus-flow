@@ -38,7 +38,7 @@ const HastraDashboard = () => {
       {/* Portfolio Overview Section */}
       <div className="mb-8 md:mb-12 relative">
         <WalletOverview />
-        <h2 className="absolute top-4 left-6 text-lg md:text-xl font-semibold text-foreground z-10">
+        <h2 className="absolute top-6 left-6 text-lg md:text-xl font-semibold text-foreground z-10">
           Portfolio Overview
         </h2>
       </div>
