@@ -54,9 +54,7 @@ const SwYLDSLightningHero = () => {
             viewBox="0 0 160 240" 
             className="lightning-bolt"
             style={{
-              filter: 'drop-shadow(0 0 20px hsl(var(--premium-gold))) drop-shadow(0 0 30px hsl(var(--hastra-teal))) drop-shadow(0 0 40px hsl(var(--electric-blue)))',
-              transform: 'rotate(-45deg)',
-              transformOrigin: 'center'
+              filter: 'drop-shadow(0 0 20px hsl(var(--premium-gold))) drop-shadow(0 0 30px hsl(var(--hastra-teal))) drop-shadow(0 0 40px hsl(var(--electric-blue)))'
             }}
           >
             {/* Main lightning channel - organic curved path */}
