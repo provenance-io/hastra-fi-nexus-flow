@@ -191,9 +191,9 @@ const PortfolioSummary = ({
                 {formatStakingAmount(userBalance.swYLDS)}
               </p>
               <Button
-                variant="outline"
                 size="sm"
-                className="w-full text-xs"
+                variant="secondary"
+                className="w-full"
                 disabled={parseFloat(userBalance.swYLDS) <= 0}
                 onClick={() => {
                   // TODO: Implement unstake all functionality
