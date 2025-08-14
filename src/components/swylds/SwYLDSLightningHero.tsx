@@ -45,7 +45,7 @@ const SwYLDSLightningHero = () => {
     <div className="relative w-64 h-64 md:w-80 md:h-80 mx-auto">
       {/* Lightning bolt */}
       {showLightning && (
-        <div className={`absolute top-2 left-2 transform -rotate-90 origin-top-left z-20 ${
+        <div className={`absolute top-2 left-2 z-20 ${
           animationPhase === 2 ? 'animate-lightning-flash' : 'animate-lightning-buildup'
         }`}>
           <svg 
@@ -55,6 +55,8 @@ const SwYLDSLightningHero = () => {
             className="lightning-bolt"
             style={{
               filter: 'drop-shadow(0 0 15px hsl(var(--premium-gold))) drop-shadow(0 0 25px hsl(var(--hastra-teal)))',
+              transform: 'rotate(-90deg)',
+              transformOrigin: 'top left'
             }}
           >
             <path 
