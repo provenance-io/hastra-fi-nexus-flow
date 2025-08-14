@@ -2,5 +2,6 @@
 /* Import modular stylesheets */
 @import './styles/base.css';
 @import './styles/components.css';
+@import './styles/lightning-animations.css';
 @import './styles/animations.css';
 @import './styles/responsive.css';
