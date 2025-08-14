@@ -197,12 +197,6 @@ const BuyCard = () => {
                   <span className="text-sm md:text-sm font-medium font-sans">wYLDS</span>
                 </div>
               </SelectItem>
-              <SelectItem value="swYLDS" className="py-3 md:py-2">
-                <div className="flex items-center gap-3 py-1 md:py-1">
-                  <img src="/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png" alt="swYLDS" className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover" />
-                  <span className="text-sm md:text-sm font-medium font-sans">swYLDS</span>
-                </div>
-              </SelectItem>
             </SelectContent>
           </Select>
         </div>
