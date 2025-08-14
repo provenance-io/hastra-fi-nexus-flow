@@ -91,7 +91,7 @@ export const useTokenPortfolioQuery = (
             totalInterestEarned: 0,
             unclaimedInterest: address === import.meta.env.VITE_SOLANA_YIELD_MINT ? (amount > 0 ? amount * 0.001 : 0) : 0, // Only wYLDS has claimable yield when balance > 0
             icon: address === import.meta.env.VITE_SOLANA_USDC_MINT ? "/lovable-uploads/4a374512-469e-4932-9bfc-215e5dd3591d.png" :
-                  address === import.meta.env.VITE_SOLANA_YIELD_MINT ? "/lovable-uploads/e7187c63-0dae-455c-971c-a6de70ce2afc.png" : "",
+                  address === import.meta.env.VITE_SOLANA_YIELD_MINT ? "/lovable-uploads/49dceb8c-5ccf-4ceb-97e6-9447aa7fc33d.png" : "",
             mint: mint.toBase58(),
             tokenAddress: ta.toBase58(),
           } as TokenData;
@@ -121,22 +121,6 @@ export const useTokenPortfolio = () => {
       const swYLDSBalance = parseFloat(userBalance?.swYLDS || '0');
       let tokensWithSwYLDS = [...tokenData];
       
-      // Ensure wYLDS always appears in the list, even with 0 balance
-      const wYLDSToken = tokensWithSwYLDS.find(t => t.token === 'wYLDS');
-      if (!wYLDSToken) {
-        tokensWithSwYLDS.push({
-          address: import.meta.env.VITE_SOLANA_YIELD_MINT,
-          token: 'wYLDS',
-          amount: 0,
-          value: 0,
-          apy: 4.5,
-          totalInterestEarned: 0,
-          unclaimedInterest: 0,
-          icon: '/lovable-uploads/e7187c63-0dae-455c-971c-a6de70ce2afc.png',
-          mint: import.meta.env.VITE_SOLANA_YIELD_MINT,
-          tokenAddress: 'wYLDS-address',
-        });
-      }
       
       // Always add swYLDS token, even if balance is 0
       tokensWithSwYLDS.push({
@@ -147,7 +131,7 @@ export const useTokenPortfolio = () => {
         apy: 8.5, // Higher APY for staked tokens
         totalInterestEarned: swYLDSBalance * 0.002, // Mock earned interest
         unclaimedInterest: swYLDSBalance > 0 ? swYLDSBalance * 0.001 : 0, // Mock unclaimed interest only when balance > 0
-        icon: '/lovable-uploads/e7187c63-0dae-455c-971c-a6de70ce2afc.png',
+        icon: '/lovable-uploads/49dceb8c-5ccf-4ceb-97e6-9447aa7fc33d.png',
         mint: 'swYLDS-mint',
         tokenAddress: 'swYLDS-address',
       });
