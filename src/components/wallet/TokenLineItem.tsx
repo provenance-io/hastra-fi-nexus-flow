@@ -152,7 +152,7 @@ const TokenLineItem = ({
               </div>
             ) : (
               <>
-                Claim {token.replace(' (Sol)', '').replace('YIELD', 'wYLDS')}
+                Claim {token === 'swYLDS' ? 'wYLDS' : token.replace(' (Sol)', '').replace('YIELD', 'wYLDS')}
               </>
             )}
           </Button> }
@@ -221,7 +221,7 @@ const TokenLineItem = ({
                 <span>Claiming...</span>
               </div>
             ) : (
-              <span>Claim {token.replace(' (Sol)', '').replace('YIELD', 'wYLDS')} - ${unclaimedInterestUSD.toFixed(2)}</span>
+              <span>Claim {token === 'swYLDS' ? 'wYLDS' : token.replace(' (Sol)', '').replace('YIELD', 'wYLDS')} - ${unclaimedInterestUSD.toFixed(2)}</span>
             )}
           </Button>
         )}
@@ -295,7 +295,7 @@ const TokenLineItem = ({
                 <span>Claiming...</span>
               </div>
             ) : (
-              <span>Claim - ${unclaimedInterestUSD.toFixed(2)}</span>
+              <span>Claim {token === 'swYLDS' ? 'wYLDS' : token.replace(' (Sol)', '').replace('YIELD', 'wYLDS')} - ${unclaimedInterestUSD.toFixed(2)}</span>
             )}
           </Button>
         )}
