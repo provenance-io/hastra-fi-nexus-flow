@@ -91,7 +91,7 @@ export const useTokenPortfolioQuery = (
             totalInterestEarned: 0,
             unclaimedInterest: address === import.meta.env.VITE_SOLANA_YIELD_MINT ? (amount > 0 ? amount * 0.001 : 0) : 0, // Only wYLDS has claimable yield when balance > 0
             icon: address === import.meta.env.VITE_SOLANA_USDC_MINT ? "/lovable-uploads/4a374512-469e-4932-9bfc-215e5dd3591d.png" :
-                  address === import.meta.env.VITE_SOLANA_YIELD_MINT ? "/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png" : "",
+                  address === import.meta.env.VITE_SOLANA_YIELD_MINT ? "/lovable-uploads/e7187c63-0dae-455c-971c-a6de70ce2afc.png" : "",
             mint: mint.toBase58(),
             tokenAddress: ta.toBase58(),
           } as TokenData;
@@ -102,6 +102,7 @@ export const useTokenPortfolioQuery = (
     refetchInterval: 5000, // Refetch every minute
   });
 };
+
 export const useTokenPortfolio = () => {
   const [tokens, setTokens] = useState<TokenData[]>([]);
 
@@ -131,7 +132,7 @@ export const useTokenPortfolio = () => {
           apy: 4.5,
           totalInterestEarned: 0,
           unclaimedInterest: 0,
-          icon: '/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png',
+          icon: '/lovable-uploads/e7187c63-0dae-455c-971c-a6de70ce2afc.png',
           mint: import.meta.env.VITE_SOLANA_YIELD_MINT,
           tokenAddress: 'wYLDS-address',
         });
@@ -146,7 +147,7 @@ export const useTokenPortfolio = () => {
         apy: 8.5, // Higher APY for staked tokens
         totalInterestEarned: swYLDSBalance * 0.002, // Mock earned interest
         unclaimedInterest: swYLDSBalance > 0 ? swYLDSBalance * 0.001 : 0, // Mock unclaimed interest only when balance > 0
-        icon: '/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png',
+        icon: '/lovable-uploads/e7187c63-0dae-455c-971c-a6de70ce2afc.png',
         mint: 'swYLDS-mint',
         tokenAddress: 'swYLDS-address',
       });
