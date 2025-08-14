@@ -55,7 +55,7 @@ const SwYLDSLightningHero = () => {
             className="lightning-bolt"
             style={{
               filter: 'drop-shadow(0 0 15px hsl(var(--premium-gold))) drop-shadow(0 0 25px hsl(var(--hastra-teal)))',
-              transform: 'rotate(-90deg)',
+              transform: 'rotate(45deg)',
               transformOrigin: 'top left'
             }}
           >
