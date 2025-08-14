@@ -74,6 +74,7 @@ const SendCard = () => {
   }
 
   const icon = (address: string, defaultIcon: string = hastraIcon) => {
+    if (address === USDC) return '/lovable-uploads/4bfd88a4-fef5-42d3-81d9-236145936adc.png';
     const t = tokens.find(t => t.address === address);
     return t?.icon ? t.icon : defaultIcon;
   }

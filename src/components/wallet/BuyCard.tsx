@@ -134,6 +134,7 @@ const BuyCard = () => {
   const icon = (address: string, defaultIcon: string = hastraIcon) => {
     if (address === 'swYLDS') return '/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png';
     if (address === wYLDS) return '/lovable-uploads/d73baf3a-34c8-4ad7-8378-e419bb8268ff.png';
+    if (address === USDC) return '/lovable-uploads/4bfd88a4-fef5-42d3-81d9-236145936adc.png';
     const t = tokens.find(t => t.address === address);
     return t?.icon ? t.icon : defaultIcon;
   }
