@@ -148,6 +148,16 @@ const SendCard = () => {
     });
   };
 
+  const handleMaxClick = () => {
+    const maxAmount = balance(selectedToken);
+    if (denomination === 'token') {
+      setAmount(maxAmount.toString());
+    } else {
+      const usdValue = maxAmount * exchangeRate[selectedToken];
+      setAmount(usdValue.toString());
+    }
+  };
+
   const equivalent = calculateEquivalent();
 
   return (
@@ -205,23 +215,33 @@ const SendCard = () => {
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <Label className="text-base md:text-sm font-semibold text-foreground font-sans">Amount to send</Label>
-            <div className="flex items-center bg-muted/30 rounded-md p-1">
+            <div className="flex items-center gap-2">
+              <div className="flex items-center bg-muted/30 rounded-md p-1">
+                <Button 
+                  variant={denomination === 'token' ? 'default' : 'ghost'}
+                  size="sm"
+                  onClick={() => setDenomination('token')}
+                  className={`h-8 md:h-7 text-sm md:text-xs px-3 md:px-2 font-sans ${denomination === 'token' ? 'btn-hastra' : 'text-muted-foreground hover:text-auburn-primary'}`}
+                >
+                  {symbol(selectedToken)}
+                </Button>
+                <Button 
+                  variant={denomination === 'usd' ? 'default' : 'ghost'}
+                  size="sm"
+                  onClick={() => setDenomination('usd')}
+                  className={`h-8 md:h-7 text-sm md:text-xs px-3 md:px-2 font-sans ${denomination === 'usd' ? 'btn-hastra' : 'text-muted-foreground hover:text-auburn-primary'}`}
+                >
+                  <DollarSign className="w-4 h-4 md:w-3 md:h-3 mr-1" />
+                  USD
+                </Button>
+              </div>
               <Button 
-                variant={denomination === 'token' ? 'default' : 'ghost'}
-                size="sm"
-                onClick={() => setDenomination('token')}
-                className={`h-8 md:h-7 text-sm md:text-xs px-3 md:px-2 font-sans ${denomination === 'token' ? 'btn-hastra' : 'text-muted-foreground hover:text-auburn-primary'}`}
+                variant="ghost"
+                size="sm" 
+                onClick={handleMaxClick}
+                className="h-7 px-3 text-xs font-medium text-auburn-light hover:bg-auburn-primary/20 hover:text-auburn-light transition-all duration-200 bg-muted/30 rounded-md min-w-[50px]"
               >
-                {symbol(selectedToken)}
-              </Button>
-              <Button 
-                variant={denomination === 'usd' ? 'default' : 'ghost'}
-                size="sm"
-                onClick={() => setDenomination('usd')}
-                className={`h-8 md:h-7 text-sm md:text-xs px-3 md:px-2 font-sans ${denomination === 'usd' ? 'btn-hastra' : 'text-muted-foreground hover:text-auburn-primary'}`}
-              >
-                <DollarSign className="w-4 h-4 md:w-3 md:h-3 mr-1" />
-                USD
+                Max
               </Button>
             </div>
           </div>
