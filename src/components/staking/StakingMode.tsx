@@ -62,9 +62,21 @@ const StakingMode: React.FC = () => {
       {/* Staking Input */}
       <div className="bg-background/30 rounded-2xl border border-border/20 p-6 space-y-6">
         <div className="space-y-4">
-          <Label htmlFor="stake-amount" className="text-base md:text-sm font-semibold text-foreground font-sans">
-            Amount to Stake
-          </Label>
+          <div className="flex items-center justify-between">
+            <Label htmlFor="stake-amount" className="text-base md:text-sm font-semibold text-foreground font-sans">
+              Amount to Stake
+            </Label>
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              onClick={setMaxStakeAmount}
+              disabled={isTransacting}
+              className="h-7 px-3 text-xs font-medium text-auburn-light hover:bg-auburn-primary/20 hover:text-auburn-light transition-all duration-200 bg-muted/30 rounded-md min-w-[50px]"
+            >
+              Max
+            </Button>
+          </div>
           <div className="relative">
             <Input
               id="stake-amount"
@@ -72,20 +84,10 @@ const StakingMode: React.FC = () => {
               placeholder="0.00"
               value={stakingForm.amount}
               onChange={(e) => setStakingAmount(e.target.value)}
-              className="bg-muted/50 h-12 md:h-auto text-base md:text-sm font-sans pr-24 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+              className="bg-muted/50 h-12 md:h-auto text-base md:text-sm font-sans pr-20 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
               disabled={isTransacting}
             />
-            <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center space-x-2">
-              <Button
-                type="button"
-                variant="ghost"
-                size="sm"
-                onClick={setMaxStakeAmount}
-                disabled={isTransacting}
-                className="h-7 px-3 text-xs font-medium text-auburn-light hover:bg-auburn-primary/20 hover:text-auburn-light transition-all duration-200 bg-muted/30 rounded-md min-w-[50px]"
-              >
-                Max
-              </Button>
+            <div className="absolute right-3 top-1/2 -translate-y-1/2">
               <span className="text-sm text-muted-foreground">wYLDS</span>
             </div>
           </div>
