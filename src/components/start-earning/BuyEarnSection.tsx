@@ -13,7 +13,7 @@ import { useWallet } from "@/contexts/WalletContext";
 const tokens = [
   {
     symbol: "wYLDS",
-    name: "Yield Token",
+    name: "wYLDS Token",
     description: "Yield-bearing stablecoin offering consistent returns",
     apy: "Up to 4%",
     risk: "Low",
