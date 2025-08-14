@@ -45,32 +45,45 @@ const SwYLDSLightningHero = () => {
     <div className="relative w-64 h-64 md:w-80 md:h-80 mx-auto">
       {/* Lightning bolt */}
       {showLightning && (
-        <div className={`absolute top-4 left-4 transform rotate-45 origin-top-left z-20 ${
+        <div className={`absolute top-2 left-2 transform rotate-[38deg] origin-top-left z-20 ${
           animationPhase === 2 ? 'animate-lightning-flash' : 'animate-lightning-buildup'
         }`}>
           <svg 
-            width="12" 
-            height="65" 
-            viewBox="0 0 12 65" 
+            width="20" 
+            height="95" 
+            viewBox="0 0 20 95" 
             className="lightning-bolt"
             style={{
-              filter: 'drop-shadow(0 0 10px hsl(var(--premium-gold))) drop-shadow(0 0 20px hsl(var(--hastra-teal)))',
+              filter: 'drop-shadow(0 0 15px hsl(var(--premium-gold))) drop-shadow(0 0 25px hsl(var(--hastra-teal)))',
             }}
           >
             <path 
-              d="M6 0 L2 20 L4 20 L1 40 L3 40 L0 65 L8 35 L6 35 L9 20 L7 20 L10 0 Z" 
+              d="M10 0 L6 25 L8 25 L4 45 L6 45 L2 70 L4 70 L0 95 L12 55 L10 55 L14 35 L12 35 L16 15 L14 15 L18 0 Z" 
               fill="url(#lightningGradient)"
               className="lightning-path"
             />
             <defs>
               <linearGradient id="lightningGradient" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop offset="0%" stopColor="hsl(var(--background))" stopOpacity="1" />
-                <stop offset="30%" stopColor="hsl(var(--hastra-teal))" stopOpacity="0.95" />
-                <stop offset="70%" stopColor="hsl(var(--premium-gold))" stopOpacity="0.9" />
-                <stop offset="100%" stopColor="hsl(var(--premium-gold))" stopOpacity="0.8" />
+                <stop offset="20%" stopColor="hsl(var(--hastra-teal))" stopOpacity="0.98" />
+                <stop offset="60%" stopColor="hsl(var(--premium-gold))" stopOpacity="0.95" />
+                <stop offset="100%" stopColor="hsl(var(--premium-gold))" stopOpacity="0.9" />
               </linearGradient>
             </defs>
           </svg>
+          
+          {/* Impact spark effect at strike point */}
+          {animationPhase === 2 && (
+            <div 
+              className="absolute w-2 h-2 bg-premium-gold rounded-full animate-ping"
+              style={{
+                bottom: '-8px',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                filter: 'drop-shadow(0 0 8px hsl(var(--premium-gold)))',
+              }}
+            />
+          )}
         </div>
       )}
       
