@@ -119,9 +119,19 @@ const PortfolioSummary = ({
               maximumFractionDigits: 2 
             })}
           </p>
-          <p className="text-xs text-muted-foreground">
+          <p className="text-xs text-muted-foreground mb-3">
             Ready for withdrawal
           </p>
+          {totalUnclaimedInterest > 0 && (
+            <Button
+              size="sm"
+              variant="secondary"
+              onClick={handleClaimAll}
+              className="w-full"
+            >
+              Claim All
+            </Button>
+          )}
         </div>
       </div>
 
@@ -188,19 +198,6 @@ const PortfolioSummary = ({
         </div>
       )}
       
-      {/* Claim All Button - Outside of the cards */}
-      {totalUnclaimedInterest > 0 && (
-        <div className="flex justify-center pt-2">
-          <Button
-            size="default"
-            variant="secondary"
-            onClick={handleClaimAll}
-            className="px-6 py-2"
-          >
-            Claim All
-          </Button>
-        </div>
-      )}
     </div>
   );
 };
