@@ -71,21 +71,30 @@ export const useStaking = () => {
   const mockPendingUnstakes: PendingUnstake[] = [
     {
       id: '1',
-      amount: '100.0',
-      initiatedAt: new Date(Date.now() - 15 * 24 * 60 * 60 * 1000), // 15 days ago
-      availableAt: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000), // 5 days from now
-      status: 'pending',
-      canClaim: false,
-      canCancel: true,
-    },
-    {
-      id: '2',
       amount: '50.0',
       initiatedAt: new Date(Date.now() - 22 * 24 * 60 * 60 * 1000), // 22 days ago
       availableAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000), // 2 days ago (ready)
       status: 'ready',
       canClaim: true,
       canCancel: false,
+    },
+    {
+      id: '2',
+      amount: '50.0',
+      initiatedAt: new Date(Date.now() - 21 * 24 * 60 * 60 * 1000), // 21 days ago
+      availableAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000), // 1 day ago (ready)
+      status: 'ready',
+      canClaim: true,
+      canCancel: false,
+    },
+    {
+      id: '3',
+      amount: '100.0',
+      initiatedAt: new Date(Date.now() - 15 * 24 * 60 * 60 * 1000), // 15 days ago
+      availableAt: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000), // 5 days from now
+      status: 'pending',
+      canClaim: false,
+      canCancel: true,
     },
   ];
 
@@ -106,7 +115,6 @@ export const useStaking = () => {
             ...prev.pendingUnstakes,
             list: mockPendingUnstakes,
             totalPending: mockPendingUnstakes
-              .filter(u => u.status === 'pending')
               .reduce((sum, u) => sum + parseFloat(u.amount), 0)
               .toString(),
             totalReadyToClaim: mockPendingUnstakes
@@ -130,7 +138,7 @@ export const useStaking = () => {
         ...prev,
         userBalance: {
           wYLDS: yieldBalance?.toString() || '0',
-          swYLDS: '250.5', // Mock swYLDS balance
+          swYLDS: '200.0', // Mock swYLDS balance (reflects pending unstakes)
           isLoading: false,
         },
       }));
@@ -410,7 +418,6 @@ export const useStaking = () => {
             ...prev.pendingUnstakes,
             list: remainingUnstakes,
             totalPending: remainingUnstakes
-              .filter(u => u.status === 'pending')
               .reduce((sum, u) => sum + parseFloat(u.amount), 0)
               .toString(),
             totalReadyToClaim: remainingUnstakes
