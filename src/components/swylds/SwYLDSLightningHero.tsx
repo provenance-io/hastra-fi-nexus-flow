@@ -20,7 +20,7 @@ const SwYLDSLightningHero = () => {
   
   const getTokenImage = () => {
     return animationPhase >= 4 
-      ? '/lovable-uploads/f0615d6f-eee8-43fb-b807-b7d2685d3105.png' // swYLDS
+      ? '/lovable-uploads/cb25764a-a760-4bdf-9502-6b82befb91eb.png' // swYLDS
       : '/lovable-uploads/cb96356b-822d-4dc0-963a-96ef43bfedbd.png'  // wYLDS
   }
   
