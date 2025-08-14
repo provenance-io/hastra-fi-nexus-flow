@@ -62,7 +62,7 @@ const SwYLDSLightningHero = () => {
             width="240" 
             height="280" 
             viewBox="0 0 240 280"
-            className="lightning-bolt"
+            className={`lightning-bolt ${animationPhase === 1 ? 'animate-lightning-fade-left-to-right' : ''}`}
             style={{
               filter: 'blur(0.5px) drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 25px rgba(147, 197, 253, 0.6)) drop-shadow(0 0 35px rgba(59, 130, 246, 0.4))'
             }}
@@ -94,9 +94,7 @@ const SwYLDSLightningHero = () => {
               stroke="url(#mainLightningGradient)"
               strokeWidth="4"
               fill="none"
-              className={`lightning-path-main ${animationPhase === 1 ? 'animate-lightning-draw' : ''}`}
-              strokeDasharray={animationPhase === 1 ? "800" : "none"}
-              strokeDashoffset={animationPhase === 1 ? "800" : "0"}
+              className="lightning-path-main"
             />
             
             {/* Medium blue-white layer */}
@@ -105,9 +103,7 @@ const SwYLDSLightningHero = () => {
               stroke="url(#mediumLightningGradient)"
               strokeWidth="2"
               fill="none"
-              className={`lightning-path-medium ${animationPhase === 1 ? 'animate-lightning-draw' : ''}`}
-              strokeDasharray={animationPhase === 1 ? "800" : "none"}
-              strokeDashoffset={animationPhase === 1 ? "800" : "0"}
+              className="lightning-path-medium"
             />
             
             {/* Bright white core */}
@@ -116,9 +112,7 @@ const SwYLDSLightningHero = () => {
               stroke="url(#coreLightningGradient)"
               strokeWidth="0.8"
               fill="none"
-              className={`lightning-path-core ${animationPhase === 1 ? 'animate-lightning-draw' : ''}`}
-              strokeDasharray={animationPhase === 1 ? "800" : "none"}
-              strokeDashoffset={animationPhase === 1 ? "800" : "0"}
+              className="lightning-path-core"
             />
             
             {/* Jagged branching patterns with realistic angles */}
@@ -129,9 +123,7 @@ const SwYLDSLightningHero = () => {
               strokeWidth="2"
               fill="none"
               opacity="0.8"
-              className={`lightning-path-branch ${animationPhase === 1 ? 'animate-lightning-draw-branch' : ''}`}
-              strokeDasharray={animationPhase === 1 ? "120" : "none"}
-              strokeDashoffset={animationPhase === 1 ? "120" : "0"}
+              className="lightning-path-branch"
             />
             
             {/* Core for upper left branch */}
@@ -141,9 +133,7 @@ const SwYLDSLightningHero = () => {
               strokeWidth="0.5"
               fill="none"
               opacity="0.9"
-              className={`lightning-path-branch ${animationPhase === 1 ? 'animate-lightning-draw-branch' : ''}`}
-              strokeDasharray={animationPhase === 1 ? "120" : "none"}
-              strokeDashoffset={animationPhase === 1 ? "120" : "0"}
+              className="lightning-path-branch"
             />
             
             {/* Upper right branch - multiple splits */}
@@ -153,9 +143,7 @@ const SwYLDSLightningHero = () => {
               strokeWidth="1.5"
               fill="none"
               opacity="0.7"
-              className={`lightning-path-branch ${animationPhase === 1 ? 'animate-lightning-draw-branch' : ''}`}
-              strokeDasharray={animationPhase === 1 ? "100" : "none"}
-              strokeDashoffset={animationPhase === 1 ? "100" : "0"}
+              className="lightning-path-branch"
             />
             
             {/* Sub-branch from upper right */}
@@ -165,9 +153,7 @@ const SwYLDSLightningHero = () => {
               strokeWidth="1"
               fill="none"
               opacity="0.6"
-              className={`lightning-path-branch ${animationPhase === 1 ? 'animate-lightning-draw-branch' : ''}`}
-              strokeDasharray={animationPhase === 1 ? "50" : "none"}
-              strokeDashoffset={animationPhase === 1 ? "50" : "0"}
+              className="lightning-path-branch"
             />
             
             {/* Middle left branch - irregular zigzag */}
@@ -177,9 +163,7 @@ const SwYLDSLightningHero = () => {
               strokeWidth="1.8"
               fill="none"
               opacity="0.6"
-              className={`lightning-path-branch ${animationPhase === 1 ? 'animate-lightning-draw-branch' : ''}`}
-              strokeDasharray={animationPhase === 1 ? "110" : "none"}
-              strokeDashoffset={animationPhase === 1 ? "110" : "0"}
+              className="lightning-path-branch"
             />
             
             {/* Middle right branch - sharp turns */}
@@ -189,9 +173,7 @@ const SwYLDSLightningHero = () => {
               strokeWidth="1.5"
               fill="none"
               opacity="0.5"
-              className={`lightning-path-branch ${animationPhase === 1 ? 'animate-lightning-draw-branch' : ''}`}
-              strokeDasharray={animationPhase === 1 ? "95" : "none"}
-              strokeDashoffset={animationPhase === 1 ? "95" : "0"}
+              className="lightning-path-branch"
             />
             
             {/* Lower left branch - forked ending */}
@@ -201,9 +183,7 @@ const SwYLDSLightningHero = () => {
               strokeWidth="1.2"
               fill="none"
               opacity="0.4"
-              className={`lightning-path-branch ${animationPhase === 1 ? 'animate-lightning-draw-branch' : ''}`}
-              strokeDasharray={animationPhase === 1 ? "85" : "none"}
-              strokeDashoffset={animationPhase === 1 ? "85" : "0"}
+              className="lightning-path-branch"
             />
             
             {/* Lower left fork */}
@@ -213,9 +193,7 @@ const SwYLDSLightningHero = () => {
               strokeWidth="0.8"
               fill="none"
               opacity="0.3"
-              className={`lightning-path-branch ${animationPhase === 1 ? 'animate-lightning-draw-branch' : ''}`}
-              strokeDasharray={animationPhase === 1 ? "40" : "none"}
-              strokeDashoffset={animationPhase === 1 ? "40" : "0"}
+              className="lightning-path-branch"
             />
             
             {/* Micro-branches and electrical tendrils */}
@@ -225,9 +203,7 @@ const SwYLDSLightningHero = () => {
               strokeWidth="0.6"
               fill="none"
               opacity="0.3"
-              className={`lightning-path-micro ${animationPhase === 1 ? 'animate-lightning-draw-micro' : ''}`}
-              strokeDasharray={animationPhase === 1 ? "80" : "none"}
-              strokeDashoffset={animationPhase === 1 ? "80" : "0"}
+              className="lightning-path-micro"
             />
             
             {/* Secondary micro-tendrils */}
@@ -237,9 +213,7 @@ const SwYLDSLightningHero = () => {
               strokeWidth="0.4"
               fill="none"
               opacity="0.2"
-              className={`lightning-path-micro ${animationPhase === 1 ? 'animate-lightning-draw-micro' : ''}`}
-              strokeDasharray={animationPhase === 1 ? "60" : "none"}
-              strokeDashoffset={animationPhase === 1 ? "60" : "0"}
+              className="lightning-path-micro"
             />
             
             {/* Energy nodes at key electrical junctions */}
@@ -283,50 +257,55 @@ const SwYLDSLightningHero = () => {
                 <stop offset="100%" stopColor="rgba(59, 130, 246, 0.2)" />
               </radialGradient>
               
-              {/* Main lightning gradient with bright white core */}
-              <linearGradient id="mainLightningGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="rgba(255, 255, 255, 0.9)" />
-                <stop offset="20%" stopColor="rgba(147, 197, 253, 1)" />
-                <stop offset="50%" stopColor="rgba(255, 255, 255, 0.95)" />
-                <stop offset="80%" stopColor="rgba(59, 130, 246, 0.9)" />
-                <stop offset="100%" stopColor="rgba(147, 197, 253, 0.8)" />
+              {/* Main lightning gradient - horizontal blue to gold */}
+              <linearGradient id="mainLightningGradient" x1="0%" y1="50%" x2="100%" y2="50%">
+                <stop offset="0%" stopColor="rgba(59, 130, 246, 0.9)" />
+                <stop offset="30%" stopColor="rgba(147, 197, 253, 1)" />
+                <stop offset="60%" stopColor="rgba(255, 255, 255, 0.95)" />
+                <stop offset="85%" stopColor="rgba(255, 215, 0, 0.9)" />
+                <stop offset="100%" stopColor="rgba(255, 193, 7, 0.8)" />
               </linearGradient>
               
-              {/* Medium lightning layer - yellow-white to blue */}
-              <linearGradient id="mediumLightningGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="rgba(255, 255, 255, 0.95)" />
-                <stop offset="30%" stopColor="rgba(255, 255, 200, 0.9)" />
-                <stop offset="70%" stopColor="rgba(147, 197, 253, 0.8)" />
-                <stop offset="100%" stopColor="rgba(59, 130, 246, 0.7)" />
+              {/* Medium lightning layer - horizontal blue to warm gold */}
+              <linearGradient id="mediumLightningGradient" x1="0%" y1="50%" x2="100%" y2="50%">
+                <stop offset="0%" stopColor="rgba(147, 197, 253, 0.95)" />
+                <stop offset="40%" stopColor="rgba(255, 255, 255, 0.9)" />
+                <stop offset="70%" stopColor="rgba(255, 235, 59, 0.8)" />
+                <stop offset="100%" stopColor="rgba(255, 193, 7, 0.7)" />
               </linearGradient>
               
-              {/* Core lightning - pure white center */}
-              <linearGradient id="coreLightningGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              {/* Core lightning - horizontal white to bright gold */}
+              <linearGradient id="coreLightningGradient" x1="0%" y1="50%" x2="100%" y2="50%">
                 <stop offset="0%" stopColor="rgba(255, 255, 255, 1)" />
-                <stop offset="50%" stopColor="rgba(255, 255, 255, 0.95)" />
-                <stop offset="100%" stopColor="rgba(255, 255, 200, 0.9)" />
+                <stop offset="50%" stopColor="rgba(255, 255, 255, 0.98)" />
+                <stop offset="80%" stopColor="rgba(255, 235, 59, 0.95)" />
+                <stop offset="100%" stopColor="rgba(255, 215, 0, 0.9)" />
               </linearGradient>
               
-              {/* Branch gradients with atmospheric colors */}
-              <linearGradient id="branchGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="rgba(147, 197, 253, 0.8)" />
-                <stop offset="50%" stopColor="rgba(59, 130, 246, 0.6)" />
-                <stop offset="100%" stopColor="rgba(79, 70, 229, 0.4)" />
+              {/* Branch gradients - blue to gold horizontal */}
+              <linearGradient id="branchGradient1" x1="0%" y1="50%" x2="100%" y2="50%">
+                <stop offset="0%" stopColor="rgba(59, 130, 246, 0.8)" />
+                <stop offset="50%" stopColor="rgba(147, 197, 253, 0.6)" />
+                <stop offset="80%" stopColor="rgba(255, 255, 255, 0.5)" />
+                <stop offset="100%" stopColor="rgba(255, 215, 0, 0.4)" />
               </linearGradient>
               
-              <linearGradient id="branchGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <linearGradient id="branchGradient2" x1="0%" y1="50%" x2="100%" y2="50%">
                 <stop offset="0%" stopColor="rgba(147, 197, 253, 0.7)" />
-                <stop offset="100%" stopColor="rgba(59, 130, 246, 0.3)" />
+                <stop offset="60%" stopColor="rgba(255, 255, 255, 0.4)" />
+                <stop offset="100%" stopColor="rgba(255, 193, 7, 0.3)" />
               </linearGradient>
               
-              <linearGradient id="branchGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+              <linearGradient id="branchGradient3" x1="0%" y1="50%" x2="100%" y2="50%">
                 <stop offset="0%" stopColor="rgba(147, 197, 253, 0.6)" />
-                <stop offset="100%" stopColor="rgba(79, 70, 229, 0.2)" />
+                <stop offset="70%" stopColor="rgba(255, 255, 255, 0.3)" />
+                <stop offset="100%" stopColor="rgba(255, 215, 0, 0.2)" />
               </linearGradient>
               
-              <linearGradient id="microBranchGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <linearGradient id="microBranchGradient" x1="0%" y1="50%" x2="100%" y2="50%">
                 <stop offset="0%" stopColor="rgba(147, 197, 253, 0.5)" />
-                <stop offset="100%" stopColor="rgba(59, 130, 246, 0.2)" />
+                <stop offset="80%" stopColor="rgba(255, 255, 255, 0.3)" />
+                <stop offset="100%" stopColor="rgba(255, 193, 7, 0.2)" />
               </linearGradient>
               
               {/* Energy node gradient */}

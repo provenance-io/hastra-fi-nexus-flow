@@ -98,6 +98,17 @@
   50% { transform: scale(1.1); opacity: 0.6; }
 }
 
+@keyframes lightning-fade-left-to-right {
+  0% { 
+    mask: linear-gradient(90deg, transparent 0%, transparent 100%);
+    -webkit-mask: linear-gradient(90deg, transparent 0%, transparent 100%);
+  }
+  100% { 
+    mask: linear-gradient(90deg, white 0%, white 100%);
+    -webkit-mask: linear-gradient(90deg, white 0%, white 100%);
+  }
+}
+
 @keyframes lightning-draw {
   0% { stroke-dashoffset: 600; }
   100% { stroke-dashoffset: 0; }
@@ -178,6 +189,10 @@
 
 .animate-golden-aura {
   animation: golden-aura 3s ease-in-out infinite;
+}
+
+.animate-lightning-fade-left-to-right {
+  animation: lightning-fade-left-to-right 1.2s ease-out forwards;
 }
 
 .animate-lightning-draw {
