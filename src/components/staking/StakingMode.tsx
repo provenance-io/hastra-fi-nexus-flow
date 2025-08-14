@@ -72,7 +72,7 @@ const StakingMode: React.FC = () => {
               placeholder="0.00"
               value={stakingForm.amount}
               onChange={(e) => setStakingAmount(e.target.value)}
-              className="bg-muted/50 h-12 md:h-auto text-base md:text-sm font-sans pr-24"
+              className="bg-muted/50 h-12 md:h-auto text-base md:text-sm font-sans pr-24 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
               disabled={isTransacting}
             />
             <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center space-x-2">
