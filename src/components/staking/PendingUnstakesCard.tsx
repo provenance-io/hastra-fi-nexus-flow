@@ -121,7 +121,7 @@ const PendingUnstakesCard: React.FC = () => {
                         </>
                       ) : (
                         <>
-                          Unstake to wYLDS
+                          Unstake all to wYLDS
                           <ArrowRight className="ml-2 h-3 w-3" />
                         </>
                       )}
@@ -187,28 +187,12 @@ const PendingUnstakesCard: React.FC = () => {
                   </div>
                 )}
 
-                {/* Claim Button */}
+                {/* Status Badge for Ready Items */}
                 {isReady && (
                   <div className="mt-3 flex justify-end">
-                    <Button
-                      onClick={() => handleClaimSingle(unstake.id)}
-                      disabled={isTransacting}
-                      size="sm"
-                      variant="secondary"
-                      className="px-4 py-2 text-sm font-medium font-sans rounded-lg"
-                    >
-                      {isTransacting ? (
-                        <>
-                          <div className="animate-spin rounded-full h-3 w-3 border-2 border-white border-t-transparent mr-1" />
-                          Unstaking...
-                        </>
-                      ) : (
-                        <>
-                          Unstake to wYLDS
-                          <ArrowRight className="ml-1 h-3 w-3" />
-                        </>
-                      )}
-                    </Button>
+                    <Badge variant="secondary" className="text-xs px-2 py-1 bg-green-500/10 text-green-500 border-green-500/20">
+                      Ready to claim
+                    </Badge>
                   </div>
                 )}
 
