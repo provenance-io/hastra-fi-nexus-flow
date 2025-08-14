@@ -138,7 +138,7 @@ const TokenLineItem = ({
         
         {/* Claim Button - Compact */}
         <div className="w-28 flex-shrink-0 flex justify-center">
-          { onClaim && <Button
+          { onClaim && (console.log(`${token} has onClaim prop`, !!onClaim), true) && <Button
             onClick={handleClaim}
             disabled={unclaimedInterest <= 0 || isClaiming}
             size="sm"
