@@ -199,17 +199,17 @@ const PendingUnstakesCard: React.FC = () => {
                       onClick={() => handleClaimSingle(unstake.id)}
                       disabled={isTransacting}
                       size="sm"
-                      variant="outline"
-                      className="px-3 py-1.5 text-xs font-medium font-sans rounded-lg h-auto border-auburn-primary/30 text-auburn-primary hover:bg-auburn-primary/10"
+                      variant="secondary"
+                      className="px-3 py-1.5 text-xs font-medium font-sans rounded-lg"
                     >
                       {isTransacting ? (
                         <>
-                          <div className="animate-spin rounded-full h-3 w-3 border-2 border-auburn-primary border-t-transparent mr-1" />
+                          <div className="animate-spin rounded-full h-3 w-3 border-2 border-white border-t-transparent mr-1" />
                           Unstaking...
                         </>
                       ) : (
                         <>
-                          Unstake this amount
+                          Unstake to wYLDS
                           <ArrowRight className="ml-1 h-2.5 w-2.5" />
                         </>
                       )}
