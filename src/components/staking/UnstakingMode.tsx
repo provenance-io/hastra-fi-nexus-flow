@@ -27,7 +27,7 @@ const UnstakingMode: React.FC = () => {
       {/* Balance Display */}
       <div className="flex items-center justify-between p-4 bg-secondary/30 rounded-lg border border-border/30">
         <div className="flex items-center space-x-2">
-          <Wallet className="h-4 w-4 text-muted-foreground" />
+          <Wallet className="h-4 w-4 text-[hsl(48_100%_67%)]" />
           <span className="text-sm text-muted-foreground">Staked Balance</span>
         </div>
         <div className="text-right">
@@ -101,8 +101,8 @@ const UnstakingMode: React.FC = () => {
               <div className="flex items-center justify-between">
                 <span className="text-sm text-muted-foreground">You will receive</span>
                 <div className="flex items-center space-x-2">
-                  <Clock className="h-4 w-4 text-amber-warm" />
-                  <span className="text-sm font-medium text-amber-warm">
+                  <Clock className="h-4 w-4 text-[hsl(48_100%_67%)]" />
+                  <span className="text-sm font-medium text-[hsl(48_100%_67%)]">
                     ~{formatStakingAmount(unstakingForm.estimatedOutput)} wYLDS
                   </span>
                 </div>
@@ -131,7 +131,7 @@ const UnstakingMode: React.FC = () => {
                 </div>
                 <div className="flex justify-between text-xs">
                   <span className="text-muted-foreground">Available At</span>
-                  <span className="font-medium text-auburn-primary">
+                  <span className="font-medium text-[hsl(48_100%_67%)]">
                     {formatTimestamp(unstakingForm.availableDate)}
                   </span>
                 </div>
@@ -157,7 +157,7 @@ const UnstakingMode: React.FC = () => {
           ) : (
             <>
               Unstake {unstakingForm.amount || '0'} swYLDS
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <ArrowRight className="ml-2 h-4 w-4 text-[hsl(48_100%_67%)]" />
             </>
           )}
         </Button>

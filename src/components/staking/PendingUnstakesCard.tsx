@@ -31,7 +31,7 @@ const PendingUnstakesCard: React.FC = () => {
       <Card className="bg-background/30 rounded-xl border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)] p-6">
         <div className="text-center space-y-4">
           <div className="flex items-center justify-center">
-            <Timer className="h-5 w-5 text-muted-foreground" />
+            <Timer className="h-5 w-5 text-[hsl(48_100%_67%)]" />
           </div>
           <div>
             <h3 className="text-lg font-semibold text-foreground mb-2">
@@ -96,9 +96,9 @@ const PendingUnstakesCard: React.FC = () => {
           <div className="p-4 bg-background/30 rounded-xl border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)]">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
+                 <CheckCircle className="h-4 w-4 text-[hsl(48_100%_67%)]" />
                 <div>
-                  <p className="text-sm font-medium text-green-500">
+                  <p className="text-sm font-medium text-[hsl(48_100%_67%)]">
                     {formatStakingAmount(pendingUnstakes.totalReadyToClaim)} swYLDS
                   </p>
                   <p className="text-xs text-muted-foreground">
@@ -122,7 +122,7 @@ const PendingUnstakesCard: React.FC = () => {
                       ) : (
                         <>
                           Unstake all to wYLDS
-                          <ArrowRight className="ml-2 h-3 w-3" />
+                          <ArrowRight className="ml-2 h-3 w-3 text-[hsl(48_100%_67%)]" />
                         </>
                       )}
               </Button>
@@ -151,9 +151,9 @@ const PendingUnstakesCard: React.FC = () => {
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center space-x-3">
                     {isReady ? (
-                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <CheckCircle className="h-4 w-4 text-[hsl(48_100%_67%)]" />
                     ) : (
-                      <Clock className="h-4 w-4 text-auburn-primary" />
+                      <Clock className="h-4 w-4 text-[hsl(48_100%_67%)]" />
                     )}
                     <div>
                       <p className="font-medium text-foreground">
@@ -210,7 +210,7 @@ const PendingUnstakesCard: React.FC = () => {
                       ) : (
                         <>
                           Unstake to wYLDS
-                          <ArrowRight className="ml-1 h-2.5 w-2.5" />
+                          <ArrowRight className="ml-1 h-2.5 w-2.5 text-[hsl(48_100%_67%)]" />
                         </>
                       )}
                     </Button>
