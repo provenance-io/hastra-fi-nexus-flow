@@ -130,9 +130,14 @@ const PendingUnstakesCard: React.FC = () => {
           </div>
         )}
 
-        {/* Unstakes List - Only show when expanded */}
+        {/* Individual Unstakes List - Only show when expanded */}
         {showDetails && (
         <div className="space-y-3">
+          <div className="flex items-center justify-between text-sm text-muted-foreground border-b border-border/30 pb-2 mb-4">
+            <span>Individual Unstakes</span>
+            <span>{sortedUnstakes.length} unstake{sortedUnstakes.length !== 1 ? 's' : ''} contributing to total</span>
+          </div>
+          
           {sortedUnstakes.map((unstake) => {
             const progress = getUnstakeProgress(unstake.initiatedAt, unstake.availableAt);
             const timeRemaining = getTimeUntilClaimable(unstake.availableAt);
@@ -141,7 +146,7 @@ const PendingUnstakesCard: React.FC = () => {
             return (
               <div
                 key={unstake.id}
-                className="p-4 bg-background/30 rounded-xl border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)]"
+                className="relative border-l-2 border-auburn-primary/30 pl-4 ml-2 p-4 bg-background/30 rounded-xl border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)]"
               >
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center space-x-3">
@@ -187,12 +192,28 @@ const PendingUnstakesCard: React.FC = () => {
                   </div>
                 )}
 
-                {/* Status Badge for Ready Items */}
+                {/* Individual Claim Button for Ready Items */}
                 {isReady && (
                   <div className="mt-3 flex justify-end">
-                    <Badge variant="secondary" className="text-xs px-2 py-1 bg-green-500/10 text-green-500 border-green-500/20">
-                      Ready to claim
-                    </Badge>
+                    <Button
+                      onClick={() => handleClaimSingle(unstake.id)}
+                      disabled={isTransacting}
+                      size="sm"
+                      variant="outline"
+                      className="px-3 py-1.5 text-xs font-medium font-sans rounded-lg h-auto border-auburn-primary/30 text-auburn-primary hover:bg-auburn-primary/10"
+                    >
+                      {isTransacting ? (
+                        <>
+                          <div className="animate-spin rounded-full h-3 w-3 border-2 border-auburn-primary border-t-transparent mr-1" />
+                          Unstaking...
+                        </>
+                      ) : (
+                        <>
+                          Unstake this amount
+                          <ArrowRight className="ml-1 h-2.5 w-2.5" />
+                        </>
+                      )}
+                    </Button>
                   </div>
                 )}
 
