@@ -29,13 +29,13 @@ const SwYLDSTransformationToken = () => {
   useEffect(() => {
     const loader = new THREE.TextureLoader()
     
-    // Load wYLDS texture (using existing hash icon as placeholder)
-    loader.load('/src/assets/hash-icon.png', (texture) => {
+    // Load wYLDS texture (using the same image from wYLDs hero page)
+    loader.load('/lovable-uploads/cb96356b-822d-4dc0-963a-96ef43bfedbd.png', (texture) => {
       setWyldsTexture(texture)
     })
     
-    // Load swYLDS texture (same texture but will be colored differently)
-    loader.load('/lovable-uploads/cb96356b-822d-4dc0-963a-96ef43bfedbd.png', (texture) => {
+    // Load swYLDS texture (using the user's Y token image)
+    loader.load('/lovable-uploads/f0615d6f-eee8-43fb-b807-b7d2685d3105.png', (texture) => {
       setSwyldsTexture(texture)
     })
   }, [])
