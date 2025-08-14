@@ -45,9 +45,9 @@ const SwYLDSLightningHero = () => {
     <div className="relative w-64 h-64 md:w-80 md:h-80 mx-auto">
       {/* Lightning bolt */}
       {showLightning && (
-        <div className={`absolute -top-24 -left-4 z-20 ${
+        <div className={`absolute -left-4 z-20 ${
           animationPhase === 2 ? 'animate-lightning-flash' : 'animate-lightning-buildup'
-        }`}>
+        }`} style={{ top: '-126px' }}>
           <svg 
             width="160" 
             height="240" 
