@@ -79,13 +79,13 @@ export const validateMinimumAmount = (amount: string, minimum: number = 0.01): b
   return !isNaN(num) && num >= minimum;
 };
 
-export const calculateExchangeRate = (wyldsAmount: string, styldsAmount: string): string => {
+export const calculateExchangeRate = (wyldsAmount: string, swyldsAmount: string): string => {
   const wylds = parseFloat(wyldsAmount);
-  const stylds = parseFloat(styldsAmount);
+  const swylds = parseFloat(swyldsAmount);
   
-  if (isNaN(wylds) || isNaN(stylds) || wylds === 0) return '1.0';
+  if (isNaN(wylds) || isNaN(swylds) || wylds === 0) return '1.0';
   
-  return (stylds / wylds).toFixed(6);
+  return (swylds / wylds).toFixed(6);
 };
 
 export const estimateGasFee = (transactionType: 'stake' | 'unstake' | 'claim'): string => {

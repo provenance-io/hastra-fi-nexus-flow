@@ -27,14 +27,14 @@ const PortfolioSummary = ({
   const [prevClaimAmount, setPrevClaimAmount] = useState(totalUnclaimedInterest);
 
   // Calculate staking data
-  const stakedBalance = parseFloat(userBalance.stYLDS);
+  const stakedBalance = parseFloat(userBalance.swYLDS);
   const pendingBalance = parseFloat(pendingUnstakes.totalPending);
   const totalInStaking = stakedBalance + pendingBalance;
   const stakingValue = totalInStaking * 1.0; // Assuming 1:1 USD value
 
   const dailyRewards = calculateStakingRewards(
-    userBalance.stYLDS, 
-    protocolData.currentAPR, 
+    userBalance.swYLDS, 
+    protocolData.currentAPR,
     'daily'
   );
 
@@ -146,7 +146,7 @@ const PortfolioSummary = ({
                 <p className="text-sm text-muted-foreground font-medium">Active Staking</p>
               </div>
               <p className="text-3xl lg:text-4xl font-bold text-white mb-1">
-                {formatStakingAmount(userBalance.stYLDS)}
+                {formatStakingAmount(userBalance.swYLDS)}
               </p>
               <p className="text-xs text-muted-foreground">
                 {protocolData.currentAPR}% APR

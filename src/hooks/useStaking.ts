@@ -15,7 +15,7 @@ import {
 const INITIAL_STATE: StakingState = {
   userBalance: {
     wYLDS: '0',
-    stYLDS: '0',
+    swYLDS: '0',
     isLoading: false,
   },
   widgetMode: 'stake',
@@ -130,7 +130,7 @@ export const useStaking = () => {
         ...prev,
         userBalance: {
           wYLDS: yieldBalance?.toString() || '0',
-          stYLDS: '250.5', // Mock stYLDS balance
+          swYLDS: '250.5', // Mock swYLDS balance
           isLoading: false,
         },
       }));
@@ -172,7 +172,7 @@ export const useStaking = () => {
   const validateUnstakingAmount = useCallback((amount: string): ValidationError[] => {
     const errors: ValidationError[] = [];
     const numAmount = parseFloat(amount);
-    const balance = parseFloat(state.userBalance.stYLDS);
+    const balance = parseFloat(state.userBalance.swYLDS);
 
     if (!amount || isNaN(numAmount) || numAmount <= 0) {
       errors.push({
@@ -185,7 +185,7 @@ export const useStaking = () => {
     if (numAmount > balance) {
       errors.push({
         field: 'amount',
-        message: 'Insufficient stYLDS balance',
+        message: 'Insufficient swYLDS balance',
         type: 'insufficient_balance',
       });
     }
@@ -193,13 +193,13 @@ export const useStaking = () => {
     if (numAmount < 0.01) {
       errors.push({
         field: 'amount',
-        message: 'Minimum unstake amount is 0.01 stYLDS',
+        message: 'Minimum unstake amount is 0.01 swYLDS',
         type: 'min_amount',
       });
     }
 
     return errors;
-  }, [state.userBalance.stYLDS]);
+  }, [state.userBalance.swYLDS]);
 
   const setStakingAmount = useCallback((amount: string) => {
     const errors = validateStakingAmount(amount);
@@ -249,8 +249,8 @@ export const useStaking = () => {
   }, [state.userBalance.wYLDS, setStakingAmount]);
 
   const setMaxUnstakeAmount = useCallback(() => {
-    setUnstakingAmount(state.userBalance.stYLDS);
-  }, [state.userBalance.stYLDS, setUnstakingAmount]);
+    setUnstakingAmount(state.userBalance.swYLDS);
+  }, [state.userBalance.swYLDS, setUnstakingAmount]);
 
   const updateTransactionStatus = useCallback((status: TransactionStatus, txHash?: string, error?: string) => {
     setState(prev => ({
@@ -340,7 +340,7 @@ export const useStaking = () => {
 
       toast({
         title: "🟡 Unstaking Initiated",
-        description: `Unstaking ${state.unstakingForm.amount} stYLDS. Available in 20 days.`,
+        description: `Unstaking ${state.unstakingForm.amount} swYLDS. Available in 20 days.`,
         className: "toast-action-warning",
       });
 

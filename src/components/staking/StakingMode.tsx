@@ -111,7 +111,7 @@ const StakingMode: React.FC = () => {
                 <div className="flex items-center space-x-2">
                   <TrendingUp className="h-4 w-4 text-amber-warm" />
                   <span className="text-sm font-medium text-amber-warm">
-                    ~{formatStakingAmount(stakingForm.estimatedOutput)} stYLDS
+                    ~{formatStakingAmount(stakingForm.estimatedOutput)} swYLDS
                   </span>
                 </div>
               </div>
@@ -120,14 +120,14 @@ const StakingMode: React.FC = () => {
                 <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                   <span>{formatStakingAmount(stakingForm.amount)} wYLDS</span>
                   <ArrowRight className="h-4 w-4" />
-                  <span>{formatStakingAmount(stakingForm.estimatedOutput)} stYLDS</span>
+                  <span>{formatStakingAmount(stakingForm.estimatedOutput)} swYLDS</span>
                 </div>
               </div>
 
               <div className="border-t border-border/30 pt-3 space-y-2">
                 <div className="flex justify-between text-xs">
                   <span className="text-muted-foreground">Exchange Rate</span>
-                  <span className="font-medium">1 wYLDS = {protocolData.exchangeRate} stYLDS</span>
+                  <span className="font-medium">1 wYLDS = {protocolData.exchangeRate} swYLDS</span>
                 </div>
                 <div className="flex justify-between text-xs">
                   <span className="text-muted-foreground">Estimated Gas Fee</span>

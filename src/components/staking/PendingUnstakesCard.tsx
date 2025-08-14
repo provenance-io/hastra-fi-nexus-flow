@@ -68,7 +68,7 @@ const PendingUnstakesCard: React.FC = () => {
             {/* Summary Stats */}
             <div className="text-right space-y-1">
               <div className="text-sm font-semibold text-foreground">
-                {formatStakingAmount(pendingUnstakes.totalPending)} stYLDS
+                {formatStakingAmount(pendingUnstakes.totalPending)} swYLDS
               </div>
               <div className="text-xs text-muted-foreground">
                 Total Pending
@@ -152,7 +152,7 @@ const PendingUnstakesCard: React.FC = () => {
                     )}
                     <div>
                       <p className="font-medium text-foreground">
-                        {formatStakingAmount(unstake.amount)} stYLDS
+                        {formatStakingAmount(unstake.amount)} swYLDS
                       </p>
                       <p className="text-xs text-muted-foreground">
                         Initiated {formatTimestamp(unstake.initiatedAt)}
