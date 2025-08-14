@@ -90,24 +90,6 @@ const SwYLDSLeveragedLooping = () => {
 
         {/* Yield Enhancement Examples */}
         <div className="grid gap-8 md:grid-cols-2 mb-12">
-          <Card className="p-8 bg-background/30 border-border/20 backdrop-blur-sm">
-            <div className="text-center">
-              <h4 className="text-xl font-bold text-foreground/90 mb-4">
-                Conservative Strategy
-              </h4>
-              <div className="space-y-4">
-                <div className="text-3xl font-bold text-crypto-accent">~12% APY</div>
-                <p className="text-platinum/80">
-                  2x leverage with lower risk exposure
-                </p>
-                <ul className="text-sm text-platinum/70 space-y-2 text-left">
-                  <li>• Base 9% yield on swYLDS</li>
-                  <li>• Conservative borrowing ratio</li>
-                  <li>• Reduced liquidation risk</li>
-                </ul>
-              </div>
-            </div>
-          </Card>
 
           <Card className="p-8 bg-background/30 border-border/20 backdrop-blur-sm">
             <div className="text-center">
