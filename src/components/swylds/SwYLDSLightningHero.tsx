@@ -45,75 +45,131 @@ const SwYLDSLightningHero = () => {
     <div className="relative w-64 h-64 md:w-80 md:h-80 mx-auto">
       {/* Lightning bolt */}
       {showLightning && (
-        <div className={`absolute top-0 left-0 z-20 ${
+        <div className={`absolute -top-12 left-8 z-20 ${
           animationPhase === 2 ? 'animate-lightning-flash' : 'animate-lightning-buildup'
         }`}>
           <svg 
-            width="80" 
-            height="120" 
-            viewBox="0 0 80 120" 
+            width="160" 
+            height="240" 
+            viewBox="0 0 160 240" 
             className="lightning-bolt"
             style={{
-              filter: 'drop-shadow(0 0 15px hsl(var(--premium-gold))) drop-shadow(0 0 25px hsl(var(--hastra-teal))) drop-shadow(0 0 35px hsl(var(--electric-blue)))',
-              transform: 'rotate(-60deg)',
-              transformOrigin: 'top left'
+              filter: 'drop-shadow(0 0 20px hsl(var(--premium-gold))) drop-shadow(0 0 30px hsl(var(--hastra-teal))) drop-shadow(0 0 40px hsl(var(--electric-blue)))',
+              transform: 'rotate(-45deg)',
+              transformOrigin: 'center'
             }}
           >
-            {/* Main lightning channel */}
+            {/* Main lightning channel - organic curved path */}
             <path 
-              d="M15 0 L12 8 L18 8 L10 20 L16 20 L8 35 L14 35 L6 50 L12 50 L4 65 L10 65 L2 80 L8 80 L0 95 L25 60 L20 60 L28 45 L22 45 L30 30 L24 30 L32 15 L26 15 L34 0 Z" 
-              fill="url(#mainLightningGradient)"
+              d="M80 0 Q78 15 85 30 Q82 45 90 60 Q85 75 95 90 Q88 105 98 120 Q92 135 102 150 Q95 165 105 180 Q98 195 108 210 Q100 225 110 240" 
+              stroke="url(#mainLightningGradient)"
+              strokeWidth="4"
+              fill="none"
               className="lightning-path-main"
+            />
+            
+            {/* Main lightning core - brighter center */}
+            <path 
+              d="M80 0 Q78 15 85 30 Q82 45 90 60 Q85 75 95 90 Q88 105 98 120 Q92 135 102 150 Q95 165 105 180 Q98 195 108 210 Q100 225 110 240" 
+              stroke="url(#coreLightningGradient)"
+              strokeWidth="1.5"
+              fill="none"
+              className="lightning-path-core"
+            />
+            
+            {/* Primary branch 1 - curves naturally */}
+            <path 
+              d="M85 45 Q88 55 82 65 Q86 75 78 85 Q82 95 74 105" 
+              stroke="url(#branchGradient1)"
+              strokeWidth="2.5"
+              fill="none"
+              opacity="0.8"
+              className="lightning-path-branch"
+            />
+            
+            {/* Primary branch 2 - flows organically */}
+            <path 
+              d="M95 90 Q102 100 108 110 Q115 120 122 130 Q128 140 135 150" 
+              stroke="url(#branchGradient2)"
+              strokeWidth="2"
+              fill="none"
+              opacity="0.7"
+              className="lightning-path-branch"
             />
             
             {/* Secondary branch 1 */}
             <path 
-              d="M20 25 L18 30 L22 30 L16 40 L20 40 L14 50 L18 50 L12 60" 
-              fill="url(#branchGradient1)"
+              d="M90 120 Q95 130 88 140 Q92 150 85 160" 
+              stroke="url(#branchGradient3)"
+              strokeWidth="1.5"
+              fill="none"
+              opacity="0.6"
               className="lightning-path-branch"
-              opacity="0.8"
             />
             
             {/* Secondary branch 2 */}
             <path 
-              d="M25 40 L23 45 L27 45 L21 55 L25 55 L19 65" 
-              fill="url(#branchGradient2)"
-              className="lightning-path-branch"
-              opacity="0.6"
-            />
-            
-            {/* Small tertiary branches */}
-            <path 
-              d="M14 15 L12 18 L16 18 L10 25 M26 55 L24 58 L28 58 L22 65" 
+              d="M102 165 Q108 175 115 185 Q120 195 127 205" 
               stroke="url(#branchGradient3)"
               strokeWidth="1.5"
               fill="none"
-              opacity="0.4"
+              opacity="0.5"
+              className="lightning-path-branch"
             />
             
+            {/* Tertiary micro-branches */}
+            <path 
+              d="M82 60 Q85 65 80 70 M108 135 Q112 140 118 145 M88 180 Q92 185 86 190" 
+              stroke="url(#microBranchGradient)"
+              strokeWidth="1"
+              fill="none"
+              opacity="0.4"
+              className="lightning-path-micro"
+            />
+            
+            {/* Electric sparks around main channel */}
+            <circle cx="82" cy="30" r="1" fill="hsl(var(--premium-gold))" opacity="0.8" className="animate-pulse" />
+            <circle cx="92" cy="75" r="0.8" fill="hsl(var(--electric-blue))" opacity="0.6" className="animate-pulse" style={{animationDelay: "0.2s"}} />
+            <circle cx="100" cy="135" r="1.2" fill="hsl(var(--hastra-teal))" opacity="0.7" className="animate-pulse" style={{animationDelay: "0.4s"}} />
+            <circle cx="105" cy="195" r="0.9" fill="hsl(var(--premium-gold))" opacity="0.9" className="animate-pulse" style={{animationDelay: "0.1s"}} />
+            
             <defs>
-              {/* Main lightning gradient - brightest */}
+              {/* Main lightning gradient - most intense */}
               <linearGradient id="mainLightningGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="hsl(var(--background))" stopOpacity="1" />
-                <stop offset="15%" stopColor="hsl(var(--electric-blue))" stopOpacity="1" />
-                <stop offset="40%" stopColor="hsl(var(--hastra-teal))" stopOpacity="0.98" />
-                <stop offset="70%" stopColor="hsl(var(--premium-gold))" stopOpacity="0.95" />
+                <stop offset="0%" stopColor="hsl(var(--background))" stopOpacity="0.9" />
+                <stop offset="10%" stopColor="hsl(var(--electric-blue))" stopOpacity="1" />
+                <stop offset="30%" stopColor="hsl(var(--hastra-teal))" stopOpacity="0.98" />
+                <stop offset="60%" stopColor="hsl(var(--premium-gold))" stopOpacity="0.95" />
                 <stop offset="100%" stopColor="hsl(var(--premium-gold))" stopOpacity="0.9" />
               </linearGradient>
               
-              {/* Branch gradients - dimmer */}
+              {/* Core lightning - brightest center */}
+              <linearGradient id="coreLightningGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="white" stopOpacity="0.8" />
+                <stop offset="20%" stopColor="hsl(var(--premium-gold))" stopOpacity="1" />
+                <stop offset="50%" stopColor="white" stopOpacity="0.9" />
+                <stop offset="80%" stopColor="hsl(var(--premium-gold))" stopOpacity="1" />
+                <stop offset="100%" stopColor="white" stopOpacity="0.8" />
+              </linearGradient>
+              
+              {/* Branch gradients - progressively dimmer */}
               <linearGradient id="branchGradient1" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop offset="0%" stopColor="hsl(var(--electric-blue))" stopOpacity="0.8" />
-                <stop offset="50%" stopColor="hsl(var(--hastra-teal))" stopOpacity="0.6" />
-                <stop offset="100%" stopColor="hsl(var(--premium-gold))" stopOpacity="0.4" />
+                <stop offset="50%" stopColor="hsl(var(--hastra-teal))" stopOpacity="0.7" />
+                <stop offset="100%" stopColor="hsl(var(--premium-gold))" stopOpacity="0.5" />
               </linearGradient>
               
               <linearGradient id="branchGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="hsl(var(--electric-blue))" stopOpacity="0.7" />
+                <stop offset="100%" stopColor="hsl(var(--hastra-teal))" stopOpacity="0.4" />
+              </linearGradient>
+              
+              <linearGradient id="branchGradient3" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop offset="0%" stopColor="hsl(var(--electric-blue))" stopOpacity="0.6" />
                 <stop offset="100%" stopColor="hsl(var(--hastra-teal))" stopOpacity="0.3" />
               </linearGradient>
               
-              <linearGradient id="branchGradient3" x1="0%" y1="0%" x2="0%" y2="100%">
+              <linearGradient id="microBranchGradient" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop offset="0%" stopColor="hsl(var(--electric-blue))" stopOpacity="0.5" />
                 <stop offset="100%" stopColor="hsl(var(--hastra-teal))" stopOpacity="0.2" />
               </linearGradient>
