@@ -45,7 +45,9 @@ const TokenLineItem = ({
     
     toast({
       title: "Interest Claimed",
-      description: `Successfully claimed ${unclaimedInterest.toFixed(4)} ${token} tokens`,
+      description: token === 'swYLDS' 
+        ? `Successfully claimed ${unclaimedInterest.toFixed(4)} wYLDS tokens from swYLDS staking rewards`
+        : `Successfully claimed ${unclaimedInterest.toFixed(4)} ${token} tokens`,
     });
     
     setIsClaiming(false);

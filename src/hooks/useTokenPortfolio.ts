@@ -87,9 +87,9 @@ export const useTokenPortfolioQuery = (
                    address === import.meta.env.VITE_SOLANA_YIELD_MINT ? "wYLDS" : "sHASH",
             amount: amount,
             value: value,
-            apy: address === import.meta.env.VITE_SOLANA_YIELD_MINT ? 4.5 : 0, // Default APY for wYLDS
+            apy: address === import.meta.env.VITE_SOLANA_YIELD_MINT ? 4.5 : 0, // Default APY for wYLDS only
             totalInterestEarned: 0,
-            unclaimedInterest: address === import.meta.env.VITE_SOLANA_YIELD_MINT ? (amount * 0.001) : 0, // Mock unclaimed interest
+            unclaimedInterest: address === import.meta.env.VITE_SOLANA_YIELD_MINT ? (amount * 0.001) : 0, // Only wYLDS has claimable yield
             icon: address === import.meta.env.VITE_SOLANA_USDC_MINT ? "/lovable-uploads/4a374512-469e-4932-9bfc-215e5dd3591d.png" :
                   address === import.meta.env.VITE_SOLANA_YIELD_MINT ? "/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png" : "",
             mint: mint.toBase58(),
@@ -143,11 +143,27 @@ export const useTokenPortfolio = () => {
     (tokenSymbol: string, claimedAmount: number) => {
       setTokens((prevTokens) =>
         prevTokens.map((token) => {
-          if (token.token === tokenSymbol) {
+          // For swYLDS claims, add wYLDS instead of swYLDS
+          if (tokenSymbol === 'swYLDS') {
+            if (token.token === 'wYLDS') {
+              return {
+                ...token,
+                amount: token.amount + claimedAmount,
+                value: token.value + claimedAmount,
+                totalInterestEarned: token.totalInterestEarned + claimedAmount,
+              };
+            } else if (token.token === 'swYLDS') {
+              return {
+                ...token,
+                totalInterestEarned: token.totalInterestEarned + claimedAmount,
+                unclaimedInterest: 0,
+              };
+            }
+          } else if (token.token === tokenSymbol) {
             return {
               ...token,
               amount: token.amount + claimedAmount,
-              value: token.value + claimedAmount, // Assuming 1:1 for simplicity
+              value: token.value + claimedAmount,
               totalInterestEarned: token.totalInterestEarned + claimedAmount,
               unclaimedInterest: 0,
             };
