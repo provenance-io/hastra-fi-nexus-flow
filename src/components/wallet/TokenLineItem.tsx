@@ -36,12 +36,13 @@ const TokenLineItem = ({
   const handleClaim = async () => {
     if (unclaimedInterest <= 0) return;
     
+    console.log(`Claiming ${unclaimedInterest} ${token} interest`);
     setIsClaiming(true);
     
     // Simulate claim transaction
     await new Promise(resolve => setTimeout(resolve, 2000));
     
-    onClaim(unclaimedInterest);
+    onClaim?.(unclaimedInterest);
     
     toast({
       title: "Interest Claimed",
@@ -65,7 +66,7 @@ const TokenLineItem = ({
   // Calculate dollar values for interest
   const tokenPrice = value / amount; // Price per token
   const totalInterestEarnedUSD = isNaN(totalInterestEarned * tokenPrice) ? 0 : (totalInterestEarned * tokenPrice);
-  const unclaimedInterestUSD = isNaN(unclaimedInterest * tokenPrice) ? 0 : (totalInterestEarned * tokenPrice);
+  const unclaimedInterestUSD = isNaN(unclaimedInterest * tokenPrice) ? 0 : (unclaimedInterest * tokenPrice);
 
   return (
     <div className="bg-background/30 rounded-2xl border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)] max-w-4xl mx-auto">
