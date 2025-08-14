@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getAssociatedTokenAddress } from "@solana/spl-token";
 import { Metaplex } from "@metaplex-foundation/js";
 import { useSolBalanceQuery } from "@/hooks/useSolanaQuery.ts";
+import { useStaking } from "@/hooks/useStaking.ts";
 
 export interface TokenData {
   address: string;
@@ -110,11 +111,33 @@ export const useTokenPortfolio = () => {
 
   const { data: solBalance } = useSolBalanceQuery(new PublicKey(address));
 
+  // Get swYLDS balance from staking
+  const { userBalance } = useStaking();
+
   useEffect(() => {
     if (tokenData) {
-      setTokens(tokenData);
+      // Add swYLDS token from staking balance
+      const swYLDSBalance = parseFloat(userBalance?.swYLDS || '0');
+      const tokensWithSwYLDS = [...tokenData];
+      
+      if (swYLDSBalance > 0) {
+        tokensWithSwYLDS.push({
+          address: 'swYLDS',
+          token: 'swYLDS',
+          amount: swYLDSBalance,
+          value: swYLDSBalance, // 1:1 with USD for now
+          apy: 8.5, // Higher APY for staked tokens
+          totalInterestEarned: swYLDSBalance * 0.002, // Mock earned interest
+          unclaimedInterest: swYLDSBalance * 0.001, // Mock unclaimed interest
+          icon: '/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png',
+          mint: 'swYLDS-mint',
+          tokenAddress: 'swYLDS-address',
+        });
+      }
+      
+      setTokens(tokensWithSwYLDS);
     }
-  }, [tokenData, setTokens]);
+  }, [tokenData, userBalance?.swYLDS]);
 
   const claimInterest = useCallback(
     (tokenSymbol: string, claimedAmount: number) => {
@@ -165,7 +188,7 @@ export const useTokenPortfolio = () => {
   }, [tokens]);
 
   return {
-    tokens: tokenData,
+    tokens: tokens, // Return the tokens with swYLDS included
     claimInterest,
     claimAllInterest,
     getTotalPortfolioValue,
