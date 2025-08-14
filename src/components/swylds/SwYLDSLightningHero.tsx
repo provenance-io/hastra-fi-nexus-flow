@@ -57,9 +57,9 @@ const SwYLDSLightningHero = () => {
               filter: 'drop-shadow(0 0 20px hsl(var(--premium-gold))) drop-shadow(0 0 30px hsl(var(--hastra-teal))) drop-shadow(0 0 40px hsl(var(--electric-blue)))'
             }}
           >
-            {/* Main lightning channel - organic curved path */}
+            {/* Main lightning channel - diagonal angle from top-left to bottom-right */}
             <path 
-              d="M80 0 Q78 15 85 30 Q82 45 90 60 Q85 75 95 90 Q88 105 98 120 Q92 135 102 150 Q95 165 105 180 Q98 195 108 210 Q100 225 110 240" 
+              d="M20 0 Q25 20 40 35 Q35 55 55 70 Q50 90 70 105 Q65 125 85 140 Q80 160 100 175 Q95 195 115 210 Q110 230 140 240" 
               stroke="url(#mainLightningGradient)"
               strokeWidth="4"
               fill="none"
@@ -68,16 +68,16 @@ const SwYLDSLightningHero = () => {
             
             {/* Main lightning core - brighter center */}
             <path 
-              d="M80 0 Q78 15 85 30 Q82 45 90 60 Q85 75 95 90 Q88 105 98 120 Q92 135 102 150 Q95 165 105 180 Q98 195 108 210 Q100 225 110 240" 
+              d="M20 0 Q25 20 40 35 Q35 55 55 70 Q50 90 70 105 Q65 125 85 140 Q80 160 100 175 Q95 195 115 210 Q110 230 140 240" 
               stroke="url(#coreLightningGradient)"
               strokeWidth="1.5"
               fill="none"
               className="lightning-path-core"
             />
             
-            {/* Primary branch 1 - curves naturally */}
+            {/* Primary branch 1 - flows from diagonal path */}
             <path 
-              d="M85 45 Q88 55 82 65 Q86 75 78 85 Q82 95 74 105" 
+              d="M40 55 Q35 65 25 75 Q20 85 10 95 Q5 105 0 115" 
               stroke="url(#branchGradient1)"
               strokeWidth="2.5"
               fill="none"
@@ -85,9 +85,9 @@ const SwYLDSLightningHero = () => {
               className="lightning-path-branch"
             />
             
-            {/* Primary branch 2 - flows organically */}
+            {/* Primary branch 2 - flows right from diagonal */}
             <path 
-              d="M95 90 Q102 100 108 110 Q115 120 122 130 Q128 140 135 150" 
+              d="M70 105 Q80 115 90 125 Q100 135 110 145 Q120 155 130 165" 
               stroke="url(#branchGradient2)"
               strokeWidth="2"
               fill="none"
@@ -95,9 +95,9 @@ const SwYLDSLightningHero = () => {
               className="lightning-path-branch"
             />
             
-            {/* Secondary branch 1 */}
+            {/* Secondary branch 1 - left flowing */}
             <path 
-              d="M90 120 Q95 130 88 140 Q92 150 85 160" 
+              d="M55 140 Q50 150 40 160 Q35 170 25 180" 
               stroke="url(#branchGradient3)"
               strokeWidth="1.5"
               fill="none"
@@ -105,9 +105,9 @@ const SwYLDSLightningHero = () => {
               className="lightning-path-branch"
             />
             
-            {/* Secondary branch 2 */}
+            {/* Secondary branch 2 - right flowing */}
             <path 
-              d="M102 165 Q108 175 115 185 Q120 195 127 205" 
+              d="M100 175 Q110 185 120 195 Q130 205 140 215" 
               stroke="url(#branchGradient3)"
               strokeWidth="1.5"
               fill="none"
@@ -115,9 +115,9 @@ const SwYLDSLightningHero = () => {
               className="lightning-path-branch"
             />
             
-            {/* Tertiary micro-branches */}
+            {/* Tertiary micro-branches flowing from diagonal */}
             <path 
-              d="M82 60 Q85 65 80 70 M108 135 Q112 140 118 145 M88 180 Q92 185 86 190" 
+              d="M30 35 Q25 40 20 45 M75 125 Q80 130 85 135 M95 195 Q100 200 105 205" 
               stroke="url(#microBranchGradient)"
               strokeWidth="1"
               fill="none"
@@ -125,11 +125,11 @@ const SwYLDSLightningHero = () => {
               className="lightning-path-micro"
             />
             
-            {/* Electric sparks around main channel */}
-            <circle cx="82" cy="30" r="1" fill="hsl(var(--premium-gold))" opacity="0.8" className="animate-pulse" />
-            <circle cx="92" cy="75" r="0.8" fill="hsl(var(--electric-blue))" opacity="0.6" className="animate-pulse" style={{animationDelay: "0.2s"}} />
-            <circle cx="100" cy="135" r="1.2" fill="hsl(var(--hastra-teal))" opacity="0.7" className="animate-pulse" style={{animationDelay: "0.4s"}} />
-            <circle cx="105" cy="195" r="0.9" fill="hsl(var(--premium-gold))" opacity="0.9" className="animate-pulse" style={{animationDelay: "0.1s"}} />
+            {/* Electric sparks along diagonal path */}
+            <circle cx="30" cy="25" r="1" fill="hsl(var(--premium-gold))" opacity="0.8" className="animate-pulse" />
+            <circle cx="60" cy="85" r="0.8" fill="hsl(var(--electric-blue))" opacity="0.6" className="animate-pulse" style={{animationDelay: "0.2s"}} />
+            <circle cx="85" cy="155" r="1.2" fill="hsl(var(--hastra-teal))" opacity="0.7" className="animate-pulse" style={{animationDelay: "0.4s"}} />
+            <circle cx="120" cy="220" r="0.9" fill="hsl(var(--premium-gold))" opacity="0.9" className="animate-pulse" style={{animationDelay: "0.1s"}} />
             
             <defs>
               {/* Main lightning gradient - most intense */}
