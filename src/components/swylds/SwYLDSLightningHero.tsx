@@ -45,31 +45,77 @@ const SwYLDSLightningHero = () => {
     <div className="relative w-64 h-64 md:w-80 md:h-80 mx-auto">
       {/* Lightning bolt */}
       {showLightning && (
-        <div className={`absolute top-2 left-2 z-20 ${
+        <div className={`absolute top-0 left-0 z-20 ${
           animationPhase === 2 ? 'animate-lightning-flash' : 'animate-lightning-buildup'
         }`}>
           <svg 
-            width="20" 
-            height="95" 
-            viewBox="0 0 20 95" 
+            width="80" 
+            height="120" 
+            viewBox="0 0 80 120" 
             className="lightning-bolt"
             style={{
-              filter: 'drop-shadow(0 0 15px hsl(var(--premium-gold))) drop-shadow(0 0 25px hsl(var(--hastra-teal)))',
-              transform: 'rotate(45deg)',
+              filter: 'drop-shadow(0 0 15px hsl(var(--premium-gold))) drop-shadow(0 0 25px hsl(var(--hastra-teal))) drop-shadow(0 0 35px hsl(var(--electric-blue)))',
+              transform: 'rotate(-60deg)',
               transformOrigin: 'top left'
             }}
           >
+            {/* Main lightning channel */}
             <path 
-              d="M10 0 L6 25 L8 25 L4 45 L6 45 L2 70 L4 70 L0 95 L12 55 L10 55 L14 35 L12 35 L16 15 L14 15 L18 0 Z" 
-              fill="url(#lightningGradient)"
-              className="lightning-path"
+              d="M15 0 L12 8 L18 8 L10 20 L16 20 L8 35 L14 35 L6 50 L12 50 L4 65 L10 65 L2 80 L8 80 L0 95 L25 60 L20 60 L28 45 L22 45 L30 30 L24 30 L32 15 L26 15 L34 0 Z" 
+              fill="url(#mainLightningGradient)"
+              className="lightning-path-main"
             />
+            
+            {/* Secondary branch 1 */}
+            <path 
+              d="M20 25 L18 30 L22 30 L16 40 L20 40 L14 50 L18 50 L12 60" 
+              fill="url(#branchGradient1)"
+              className="lightning-path-branch"
+              opacity="0.8"
+            />
+            
+            {/* Secondary branch 2 */}
+            <path 
+              d="M25 40 L23 45 L27 45 L21 55 L25 55 L19 65" 
+              fill="url(#branchGradient2)"
+              className="lightning-path-branch"
+              opacity="0.6"
+            />
+            
+            {/* Small tertiary branches */}
+            <path 
+              d="M14 15 L12 18 L16 18 L10 25 M26 55 L24 58 L28 58 L22 65" 
+              stroke="url(#branchGradient3)"
+              strokeWidth="1.5"
+              fill="none"
+              opacity="0.4"
+            />
+            
             <defs>
-              <linearGradient id="lightningGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              {/* Main lightning gradient - brightest */}
+              <linearGradient id="mainLightningGradient" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop offset="0%" stopColor="hsl(var(--background))" stopOpacity="1" />
-                <stop offset="20%" stopColor="hsl(var(--hastra-teal))" stopOpacity="0.98" />
-                <stop offset="60%" stopColor="hsl(var(--premium-gold))" stopOpacity="0.95" />
+                <stop offset="15%" stopColor="hsl(var(--electric-blue))" stopOpacity="1" />
+                <stop offset="40%" stopColor="hsl(var(--hastra-teal))" stopOpacity="0.98" />
+                <stop offset="70%" stopColor="hsl(var(--premium-gold))" stopOpacity="0.95" />
                 <stop offset="100%" stopColor="hsl(var(--premium-gold))" stopOpacity="0.9" />
+              </linearGradient>
+              
+              {/* Branch gradients - dimmer */}
+              <linearGradient id="branchGradient1" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="hsl(var(--electric-blue))" stopOpacity="0.8" />
+                <stop offset="50%" stopColor="hsl(var(--hastra-teal))" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="hsl(var(--premium-gold))" stopOpacity="0.4" />
+              </linearGradient>
+              
+              <linearGradient id="branchGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="hsl(var(--electric-blue))" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="hsl(var(--hastra-teal))" stopOpacity="0.3" />
+              </linearGradient>
+              
+              <linearGradient id="branchGradient3" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="hsl(var(--electric-blue))" stopOpacity="0.5" />
+                <stop offset="100%" stopColor="hsl(var(--hastra-teal))" stopOpacity="0.2" />
               </linearGradient>
             </defs>
           </svg>
