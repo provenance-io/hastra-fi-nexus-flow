@@ -35,7 +35,7 @@ const StakingMode: React.FC = () => {
         </div>
         <div className="text-center p-3 bg-secondary/20 rounded-lg border border-border/20">
           <div className="text-lg font-semibold text-foreground">
-            {formatStakingAmount(protocolData.totalStaked)}
+            {formatStakingAmount(userBalance.swYLDS)}
           </div>
           <div className="text-xs text-muted-foreground">
             Total Staked
