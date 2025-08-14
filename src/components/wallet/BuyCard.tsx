@@ -127,6 +127,7 @@ const BuyCard = () => {
   const symbol = (address: string) => {
     if (address === 'swYLDS') return 'swYLDS';
     const t = tokens.find(t => t.address === address);
+    if (t && t.token === 'YIELD') return 'wYLDS';
     return t ? t.token : '';
   }
 

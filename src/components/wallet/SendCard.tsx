@@ -69,6 +69,7 @@ const SendCard = () => {
 
   const symbol = (token: string) => {
     const t = tokens.find(t => t.address === token);
+    if (t && t.token === 'YIELD') return 'wYLDS';
     return t ? t.token : token;
   }
 
@@ -179,7 +180,7 @@ const SendCard = () => {
                   <div className="flex items-center justify-between w-full py-1 md:py-1">
                     <div className="flex items-center gap-3">
                       <img src={icon(token.icon)} alt={token.token} className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover" />
-                      <span className="text-sm md:text-sm font-medium font-sans">{token.token}</span>
+                      <span className="text-sm md:text-sm font-medium font-sans">{symbol(token.address)}</span>
                     </div>
                     <span className="text-xs md:text-xs text-muted-foreground font-mono ml-4">{token.amount}</span>
                   </div>
