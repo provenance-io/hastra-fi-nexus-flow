@@ -45,28 +45,29 @@ const SwYLDSLightningHero = () => {
     <div className="relative w-64 h-64 md:w-80 md:h-80 mx-auto">
       {/* Lightning bolt */}
       {showLightning && (
-        <div className={`absolute top-8 left-8 transform rotate-45 origin-bottom-right z-20 ${
+        <div className={`absolute top-4 left-4 transform rotate-45 origin-top-left z-20 ${
           animationPhase === 2 ? 'animate-lightning-flash' : 'animate-lightning-buildup'
         }`}>
           <svg 
-            width="8" 
-            height="180" 
-            viewBox="0 0 8 180" 
+            width="12" 
+            height="65" 
+            viewBox="0 0 12 65" 
             className="lightning-bolt"
             style={{
-              filter: 'drop-shadow(0 0 10px #00d4ff) drop-shadow(0 0 20px #ffffff)',
+              filter: 'drop-shadow(0 0 10px hsl(var(--premium-gold))) drop-shadow(0 0 20px hsl(var(--hastra-teal)))',
             }}
           >
             <path 
-              d="M4 0 L1 60 L5 60 L2 180 L7 80 L3 80 L4 0 Z" 
+              d="M6 0 L2 20 L4 20 L1 40 L3 40 L0 65 L8 35 L6 35 L9 20 L7 20 L10 0 Z" 
               fill="url(#lightningGradient)"
               className="lightning-path"
             />
             <defs>
               <linearGradient id="lightningGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
-                <stop offset="50%" stopColor="#00d4ff" stopOpacity="0.9" />
-                <stop offset="100%" stopColor="#0066cc" stopOpacity="0.7" />
+                <stop offset="0%" stopColor="hsl(var(--background))" stopOpacity="1" />
+                <stop offset="30%" stopColor="hsl(var(--hastra-teal))" stopOpacity="0.95" />
+                <stop offset="70%" stopColor="hsl(var(--premium-gold))" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="hsl(var(--premium-gold))" stopOpacity="0.8" />
               </linearGradient>
             </defs>
           </svg>
