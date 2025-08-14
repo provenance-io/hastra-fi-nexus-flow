@@ -45,20 +45,20 @@ const SwYLDSLightningHero = () => {
     <div className="relative w-64 h-64 md:w-80 md:h-80 mx-auto">
       {/* Lightning bolt */}
       {showLightning && (
-        <div className={`absolute top-0 left-0 transform rotate-45 origin-bottom-right z-20 ${
+        <div className={`absolute top-8 left-8 transform rotate-45 origin-bottom-right z-20 ${
           animationPhase === 2 ? 'animate-lightning-flash' : 'animate-lightning-buildup'
         }`}>
           <svg 
             width="8" 
-            height="140" 
-            viewBox="0 0 8 140" 
+            height="180" 
+            viewBox="0 0 8 180" 
             className="lightning-bolt"
             style={{
               filter: 'drop-shadow(0 0 10px #00d4ff) drop-shadow(0 0 20px #ffffff)',
             }}
           >
             <path 
-              d="M4 0 L1 50 L5 50 L2 140 L7 60 L3 60 L4 0 Z" 
+              d="M4 0 L1 60 L5 60 L2 180 L7 80 L3 80 L4 0 Z" 
               fill="url(#lightningGradient)"
               className="lightning-path"
             />
