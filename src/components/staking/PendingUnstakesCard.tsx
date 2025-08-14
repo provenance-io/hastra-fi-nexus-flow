@@ -99,7 +99,7 @@ const PendingUnstakesCard: React.FC = () => {
                 <CheckCircle className="h-4 w-4 text-green-500" />
                 <div>
                   <p className="text-sm font-medium text-green-500">
-                    {formatStakingAmount(pendingUnstakes.totalReadyToClaim)} wYLDS
+                    {formatStakingAmount(pendingUnstakes.totalReadyToClaim)} swYLDS
                   </p>
                   <p className="text-xs text-muted-foreground">
                     {readyToClaim.length} unstake{readyToClaim.length !== 1 ? 's' : ''} completed cooldown
