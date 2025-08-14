@@ -43,10 +43,8 @@
 }
 
 @keyframes particle-dance {
-  0%, 100% { transform: scale(1.1) translateY(-5px) rotate(0deg); }
-  25% { transform: scale(1.12) translateY(-10px) rotate(90deg); }
-  50% { transform: scale(1.15) translateY(-15px) rotate(180deg); }
-  75% { transform: scale(1.12) translateY(-10px) rotate(270deg); }
+  0%, 100% { transform: scale(1.1) translateY(-5px); }
+  50% { transform: scale(1.15) translateY(-15px); }
 }
 
 @keyframes particle-float {
