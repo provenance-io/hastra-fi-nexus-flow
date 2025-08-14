@@ -114,17 +114,17 @@ const PendingUnstakesCard: React.FC = () => {
                 variant="secondary"
                 className="px-4 py-2 text-sm font-medium font-sans rounded-lg"
               >
-                {isTransacting ? (
-                  <>
-                    <div className="animate-spin rounded-full h-3 w-3 border-2 border-white border-t-transparent mr-2" />
-                    Claiming...
-                  </>
-                ) : (
-                  <>
-                    Unstake to wYLDS
-                    <ArrowRight className="ml-2 h-3 w-3" />
-                  </>
-                )}
+                      {isTransacting ? (
+                        <>
+                          <div className="animate-spin rounded-full h-3 w-3 border-2 border-white border-t-transparent mr-2" />
+                          Unstaking...
+                        </>
+                      ) : (
+                        <>
+                          Unstake to wYLDS
+                          <ArrowRight className="ml-2 h-3 w-3" />
+                        </>
+                      )}
               </Button>
             </div>
           </div>
@@ -200,11 +200,11 @@ const PendingUnstakesCard: React.FC = () => {
                       {isTransacting ? (
                         <>
                           <div className="animate-spin rounded-full h-3 w-3 border-2 border-white border-t-transparent mr-1" />
-                          Claiming...
+                          Unstaking...
                         </>
                       ) : (
                         <>
-                          Claim
+                          Unstake to wYLDS
                           <ArrowRight className="ml-1 h-3 w-3" />
                         </>
                       )}

@@ -55,7 +55,7 @@ const INITIAL_STATE: StakingState = {
 
 export const useStaking = () => {
   const [state, setState] = useState<StakingState>(INITIAL_STATE);
-  const { isConnected, address, yieldBalance } = useWallet();
+  const { isConnected, address, yieldBalance, refreshBalance } = useWallet();
   const { toast } = useToast();
 
   // Mock data for development - replace with actual API calls
@@ -373,6 +373,10 @@ export const useStaking = () => {
     try {
       updateTransactionStatus('preparing');
       
+      // Calculate total amount being claimed
+      const unstakesToClaim = state.pendingUnstakes.list.filter(u => unstakeIds.includes(u.id));
+      const totalClaimedAmount = unstakesToClaim.reduce((sum, u) => sum + parseFloat(u.amount), 0);
+      
       // Mock claim execution
       await new Promise(resolve => setTimeout(resolve, 1000));
       updateTransactionStatus('signing');
@@ -388,28 +392,58 @@ export const useStaking = () => {
       const mockTxHash = 'mock_claim_tx_' + Date.now();
       updateTransactionStatus('success', mockTxHash);
 
-      const claimedAmount = state.pendingUnstakes.totalReadyToClaim;
+      // Update balances: decrease swYLDS, increase wYLDS
+      setState(prev => {
+        const currentSwYLDS = parseFloat(prev.userBalance.swYLDS);
+        const newSwYLDS = Math.max(0, currentSwYLDS - totalClaimedAmount);
+        
+        // Remove claimed unstakes from pending list
+        const remainingUnstakes = prev.pendingUnstakes.list.filter(u => !unstakeIds.includes(u.id));
+        
+        return {
+          ...prev,
+          userBalance: {
+            ...prev.userBalance,
+            swYLDS: newSwYLDS.toString(),
+          },
+          pendingUnstakes: {
+            ...prev.pendingUnstakes,
+            list: remainingUnstakes,
+            totalPending: remainingUnstakes
+              .filter(u => u.status === 'pending')
+              .reduce((sum, u) => sum + parseFloat(u.amount), 0)
+              .toString(),
+            totalReadyToClaim: remainingUnstakes
+              .filter(u => u.status === 'ready')
+              .reduce((sum, u) => sum + parseFloat(u.amount), 0)
+              .toString(),
+          },
+        };
+      });
+
+      // Refresh wYLDS balance from wallet context
+      refreshBalance();
       
       toast({
-        title: "🟢 Claim Successful",
-        description: `Successfully claimed ${claimedAmount} wYLDS`,
+        title: "🟢 Unstaked to wYLDS",
+        description: `Successfully unstaked ${totalClaimedAmount} swYLDS to wYLDS`,
         className: "toast-action-success",
       });
 
       return { success: true, txHash: mockTxHash };
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Claim failed';
+      const errorMessage = error instanceof Error ? error.message : 'Unstaking failed';
       updateTransactionStatus('error', undefined, errorMessage);
       
       toast({
-        title: "❌ Claim Failed",
+        title: "❌ Unstaking Failed",
         description: errorMessage,
         variant: "destructive",
       });
 
       return { success: false, error: errorMessage };
     }
-  }, [isConnected, updateTransactionStatus, toast, state.pendingUnstakes.totalReadyToClaim]);
+  }, [isConnected, updateTransactionStatus, toast, state.pendingUnstakes.list]);
 
   const resetTransaction = useCallback(() => {
     setState(prev => ({
