@@ -51,15 +51,7 @@ const SwYLDSLightningHero = () => {
         <div className={`absolute -left-12 z-0 ${
           animationPhase === 2 ? 'animate-lightning-flash' : 'animate-lightning-buildup'
         }`} style={{ top: '-160px' }}>
-          
-          {/* Atmospheric background glow */}
-          <div 
-            className="absolute inset-0 w-96 h-80 opacity-30"
-            style={{
-              background: 'radial-gradient(ellipse 240px 320px at 20% 30%, rgba(147, 197, 253, 0.2) 0%, rgba(59, 130, 246, 0.1) 30%, rgba(79, 70, 229, 0.05) 70%, transparent 100%)',
-              filter: 'blur(20px)',
-            }}
-          />
+          {/* Removed atmospheric background glow that was creating rectangular box */}
           
           {/* Main Lightning Structure */}
           <svg 
