@@ -222,13 +222,13 @@
   animation: gentle-glow 6s ease-in-out infinite;
 }
 
-/* Circular glow utilities */
+/* Circular glow utilities matching about page soft gold */
 .circular-glow-primary {
   background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, rgba(139, 92, 246, 0.1) 40%, transparent 70%);
 }
 
 .circular-glow-golden {
-  background: radial-gradient(circle, rgba(255, 215, 0, 0.4) 0%, rgba(255, 193, 7, 0.2) 40%, transparent 70%);
+  background: radial-gradient(circle, rgba(229, 218, 194, 0.4) 0%, rgba(229, 218, 194, 0.2) 40%, transparent 70%);
 }
 
 /* Accessibility - Reduced motion */
