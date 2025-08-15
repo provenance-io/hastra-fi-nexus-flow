@@ -447,20 +447,6 @@ const SwYLDSLightningHero = () => {
             <div className="absolute inset-0 bg-white/20 rounded-full animate-flash" />
           )}
           
-          {/* Soft circular glow pulses after lightning strikes */}
-          {animationPhase >= 3 && (
-            <>
-              <div className="absolute inset-0 flex items-center justify-center -z-10">
-                <div className="w-48 h-48 rounded-full animate-soft-glow-pulse circular-glow-primary"></div>
-              </div>
-              <div className="absolute inset-0 flex items-center justify-center -z-10">
-                <div className="w-32 h-32 rounded-full animate-gentle-glow circular-glow-golden" style={{ animationDelay: '2s' }}></div>
-              </div>
-              <div className="absolute inset-0 flex items-center justify-center -z-10">
-                <div className="w-24 h-24 rounded-full animate-soft-glow-pulse circular-glow-primary" style={{ animationDelay: '4s' }}></div>
-              </div>
-            </>
-          )}
           
           {/* Subtle pulsating golden energy aura */}
           {isTransformed && (
