@@ -449,12 +449,7 @@ const SwYLDSLightningHero = () => {
           )}
           
           
-          {/* Subtle pulsating golden energy aura */}
-          {isTransformed && (
-            <div className="absolute inset-0 -z-10">
-              <div className="absolute inset-0 bg-gradient-radial from-[rgba(229,218,194,0.08)] via-[rgba(229,218,194,0.04)] to-transparent rounded-full animate-subtle-golden-pulse" />
-            </div>
-          )}
+          {/* Removed glowing box that was creating rectangular shapes */}
         </div>
       </div>
       
