@@ -2,43 +2,54 @@ import { useState, useEffect } from 'react'
 
 const SwYLDSLightningHero = () => {
   const [animationPhase, setAnimationPhase] = useState(0)
-  const [hasAnimationRun, setHasAnimationRun] = useState(false)
   
   useEffect(() => {
-    console.log('SwYLDSLightningHero useEffect triggered, hasAnimationRun:', hasAnimationRun)
+    console.log('SwYLDSLightningHero useEffect triggered, current phase:', animationPhase)
     
-    // Prevent animation from running multiple times
-    if (hasAnimationRun) {
-      console.log('Animation already run, skipping')
+    // Only start animation if we're in the initial phase (0)
+    if (animationPhase !== 0) {
+      console.log('Not in initial phase, skipping animation setup')
       return
     }
     
     console.log('Starting single animation sequence')
-    setHasAnimationRun(true)
     
-    // Single sequence animation that runs once: peaceful -> buildup -> strike -> explosion -> transformation -> perpetual glow
-    const phases = [
-      { phase: 1, delay: 3000 },  // buildup after 3s
-      { phase: 2, delay: 4000 },  // strike after 4s  
-      { phase: 3, delay: 4300 },  // explosion after 4.3s
-      { phase: 4, delay: 5300 },  // transformation after 5.3s
-      { phase: 5, delay: 6300 },  // perpetual glow after 6.3s
-    ]
+    // Single sequence animation that runs once
+    const timer1 = setTimeout(() => {
+      console.log('Phase 1: Energy buildup')
+      setAnimationPhase(1)
+    }, 3000)
     
-    const timers = phases.map(({ phase, delay }) => {
-      console.log(`Setting timer for phase ${phase} at ${delay}ms`)
-      return setTimeout(() => {
-        console.log(`Transitioning to phase ${phase}`)
-        setAnimationPhase(phase)
-      }, delay)
-    })
+    const timer2 = setTimeout(() => {
+      console.log('Phase 2: Lightning strike')
+      setAnimationPhase(2)
+    }, 4000)
+    
+    const timer3 = setTimeout(() => {
+      console.log('Phase 3: Explosion')
+      setAnimationPhase(3)
+    }, 4300)
+    
+    const timer4 = setTimeout(() => {
+      console.log('Phase 4: Transformation')
+      setAnimationPhase(4)
+    }, 5300)
+    
+    const timer5 = setTimeout(() => {
+      console.log('Phase 5: Perpetual glow - FINAL STATE')
+      setAnimationPhase(5)
+    }, 6300)
     
     // Cleanup timers on unmount
     return () => {
       console.log('Cleaning up timers')
-      timers.forEach(timer => clearTimeout(timer))
+      clearTimeout(timer1)
+      clearTimeout(timer2)
+      clearTimeout(timer3)
+      clearTimeout(timer4)
+      clearTimeout(timer5)
     }
-  }, [hasAnimationRun])
+  }, [])
   
   const getTokenImage = () => {
     return animationPhase >= 4 
