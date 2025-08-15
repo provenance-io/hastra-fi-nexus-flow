@@ -98,14 +98,41 @@
   50% { transform: scale(1.1); opacity: 0.6; }
 }
 
-@keyframes lightning-fade-left-to-right {
+@keyframes lightning-strike-down {
   0% { 
-    mask: linear-gradient(90deg, transparent 0%, transparent 100%);
-    -webkit-mask: linear-gradient(90deg, transparent 0%, transparent 100%);
+    mask: linear-gradient(135deg, transparent 0%, transparent 20%, transparent 100%);
+    -webkit-mask: linear-gradient(135deg, transparent 0%, transparent 20%, transparent 100%);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.3;
   }
   100% { 
-    mask: linear-gradient(90deg, white 0%, white 100%);
-    -webkit-mask: linear-gradient(90deg, white 0%, white 100%);
+    mask: linear-gradient(135deg, white 0%, white 80%, white 100%);
+    -webkit-mask: linear-gradient(135deg, white 0%, white 80%, white 100%);
+    opacity: 1;
+  }
+}
+
+@keyframes ethereal-glow {
+  0%, 100% { 
+    filter: blur(8px) brightness(1.2);
+    opacity: 0.4;
+  }
+  50% { 
+    filter: blur(12px) brightness(1.5);
+    opacity: 0.7;
+  }
+}
+
+@keyframes atmospheric-drift {
+  0%, 100% { 
+    transform: translateX(0px) translateY(0px);
+    opacity: 0.3;
+  }
+  50% { 
+    transform: translateX(-5px) translateY(-3px);
+    opacity: 0.6;
   }
 }
 
@@ -191,8 +218,16 @@
   animation: golden-aura 3s ease-in-out infinite;
 }
 
-.animate-lightning-fade-left-to-right {
-  animation: lightning-fade-left-to-right 1.2s ease-out forwards;
+.animate-lightning-strike-down {
+  animation: lightning-strike-down 0.7s ease-out forwards;
+}
+
+.animate-ethereal-glow {
+  animation: ethereal-glow 4s ease-in-out infinite;
+}
+
+.animate-atmospheric-drift {
+  animation: atmospheric-drift 6s ease-in-out infinite;
 }
 
 .animate-lightning-draw {

@@ -58,163 +58,166 @@ const SwYLDSLightningHero = () => {
             }}
           />
           
+          {/* Main Lightning Structure */}
           <svg 
             width="240" 
             height="280" 
             viewBox="0 0 240 280"
-            className={`lightning-bolt ${animationPhase === 1 ? 'animate-lightning-fade-left-to-right' : ''}`}
+            className={`lightning-bolt ${animationPhase === 1 ? 'animate-lightning-strike-down' : ''}`}
             style={{
-              filter: 'blur(0.5px) drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 25px rgba(147, 197, 253, 0.6)) drop-shadow(0 0 35px rgba(59, 130, 246, 0.4))'
+              filter: 'drop-shadow(0 0 30px rgba(139, 92, 246, 0.4))'
             }}
           >
-            {/* Atmospheric outer glow layers */}
+            <defs>
+              {/* Enhanced Ethereal Gradients */}
+              <linearGradient id="lightning-main-ethereal" x1="15%" y1="20%" x2="85%" y2="80%">
+                <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0.8"/>
+                <stop offset="20%" stopColor="#3B82F6" stopOpacity="0.9"/>
+                <stop offset="40%" stopColor="#60A5FA" stopOpacity="1"/>
+                <stop offset="60%" stopColor="#FFFFFF" stopOpacity="1"/>
+                <stop offset="75%" stopColor="#FCD34D" stopOpacity="1"/>
+                <stop offset="90%" stopColor="#FFD700" stopOpacity="0.9"/>
+                <stop offset="100%" stopColor="#F59E0B" stopOpacity="0.8"/>
+              </linearGradient>
+              
+              <linearGradient id="lightning-atmosphere" x1="15%" y1="20%" x2="85%" y2="80%">
+                <stop offset="0%" stopColor="#C4B5FD" stopOpacity="0.4"/>
+                <stop offset="30%" stopColor="#93C5FD" stopOpacity="0.6"/>
+                <stop offset="60%" stopColor="#FFFFFF" stopOpacity="0.7"/>
+                <stop offset="100%" stopColor="#FEF3C7" stopOpacity="0.4"/>
+              </linearGradient>
+              
+              <linearGradient id="lightning-core" x1="15%" y1="20%" x2="85%" y2="80%">
+                <stop offset="0%" stopColor="#E0E7FF" stopOpacity="0.6"/>
+                <stop offset="40%" stopColor="#FFFFFF" stopOpacity="0.9"/>
+                <stop offset="70%" stopColor="#FFFFFF" stopOpacity="1"/>
+                <stop offset="100%" stopColor="#FEF3C7" stopOpacity="0.6"/>
+              </linearGradient>
+            </defs>
+            {/* Deep Atmospheric Layer (Blur 24px) */}
             <path 
               d="M25 15 L32 28 L38 35 L45 52 L52 49 L63 64 L58 78 L71 85 L78 98 L85 103 L92 115 L98 108 L105 125 L115 132 L128 145 L135 158 L145 162 L152 175 L158 182 L168 188 L175 205 L185 212 L195 228 L200 235 L210 252 L220 258 L225 275 L235 280"
-              stroke="url(#atmosphericGlow)"
-              strokeWidth="12"
+              stroke="url(#lightning-atmosphere)"
+              strokeWidth="35"
               fill="none"
-              opacity="0.3"
-              className="lightning-atmosphere"
-              style={{ filter: 'blur(8px)' }}
+              opacity="0.25"
+              filter="blur(24px)"
             />
             
+            {/* Medium Atmospheric Layer (Blur 12px) */}
             <path 
               d="M25 15 L32 28 L38 35 L45 52 L52 49 L63 64 L58 78 L71 85 L78 98 L85 103 L92 115 L98 108 L105 125 L115 132 L128 145 L135 158 L145 162 L152 175 L158 182 L168 188 L175 205 L185 212 L195 228 L200 235 L210 252 L220 258 L225 275 L235 280"
-              stroke="url(#atmosphericGlow2)"
-              strokeWidth="8"
-              fill="none"
-              opacity="0.5"
-              className="lightning-atmosphere"
-              style={{ filter: 'blur(4px)' }}
-            />
-            
-            {/* Main lightning channel with jagged segments */}
-            <path 
-              d="M25 15 L32 28 L38 35 L45 52 L52 49 L63 64 L58 78 L71 85 L78 98 L85 103 L92 115 L98 108 L105 125 L115 132 L128 145 L135 158 L145 162 L152 175 L158 182 L168 188 L175 205 L185 212 L195 228 L200 235 L210 252 L220 258 L225 275 L235 280"
-              stroke="url(#mainLightningGradient)"
-              strokeWidth="4"
-              fill="none"
-              className="lightning-path-main"
-            />
-            
-            {/* Medium blue-white layer */}
-            <path 
-              d="M25 15 L32 28 L38 35 L45 52 L52 49 L63 64 L58 78 L71 85 L78 98 L85 103 L92 115 L98 108 L105 125 L115 132 L128 145 L135 158 L145 162 L152 175 L158 182 L168 188 L175 205 L185 212 L195 228 L200 235 L210 252 L220 258 L225 275 L235 280"
-              stroke="url(#mediumLightningGradient)"
-              strokeWidth="2"
-              fill="none"
-              className="lightning-path-medium"
-            />
-            
-            {/* Bright white core */}
-            <path 
-              d="M25 15 L32 28 L38 35 L45 52 L52 49 L63 64 L58 78 L71 85 L78 98 L85 103 L92 115 L98 108 L105 125 L115 132 L128 145 L135 158 L145 162 L152 175 L158 182 L168 188 L175 205 L185 212 L195 228 L200 235 L210 252 L220 258 L225 275 L235 280"
-              stroke="url(#coreLightningGradient)"
-              strokeWidth="0.8"
-              fill="none"
-              className="lightning-path-core"
-            />
-            
-            {/* Jagged branching patterns with realistic angles */}
-            {/* Upper left branch - sharp split */}
-            <path 
-              d="M63 64 L55 72 L48 68 L42 76 L35 82 L28 78 L20 88 L12 94 L5 108"
-              stroke="url(#branchGradient1)"
-              strokeWidth="2"
-              fill="none"
-              opacity="0.8"
-              className="lightning-path-branch"
-            />
-            
-            {/* Core for upper left branch */}
-            <path 
-              d="M63 64 L55 72 L48 68 L42 76 L35 82 L28 78 L20 88 L12 94 L5 108"
-              stroke="url(#coreLightningGradient)"
-              strokeWidth="0.5"
-              fill="none"
-              opacity="0.9"
-              className="lightning-path-branch"
-            />
-            
-            {/* Upper right branch - multiple splits */}
-            <path 
-              d="M71 85 L78 92 L85 88 L92 96 L98 103 L105 98 L112 108 L118 115"
-              stroke="url(#branchGradient1)"
-              strokeWidth="1.5"
-              fill="none"
-              opacity="0.7"
-              className="lightning-path-branch"
-            />
-            
-            {/* Sub-branch from upper right */}
-            <path 
-              d="M92 96 L88 102 L82 108 L78 115"
-              stroke="url(#branchGradient1)"
-              strokeWidth="1"
-              fill="none"
-              opacity="0.6"
-              className="lightning-path-branch"
-            />
-            
-            {/* Middle left branch - irregular zigzag */}
-            <path 
-              d="M105 125 L98 132 L88 138 L82 145 L75 152 L68 148 L58 158 L52 165 L42 172"
-              stroke="url(#branchGradient2)"
-              strokeWidth="1.8"
-              fill="none"
-              opacity="0.6"
-              className="lightning-path-branch"
-            />
-            
-            {/* Middle right branch - sharp turns */}
-            <path 
-              d="M145 162 L152 168 L158 175 L165 172 L172 182 L178 188 L185 195 L192 202"
-              stroke="url(#branchGradient2)"
-              strokeWidth="1.5"
-              fill="none"
-              opacity="0.5"
-              className="lightning-path-branch"
-            />
-            
-            {/* Lower left branch - forked ending */}
-            <path 
-              d="M175 205 L168 212 L162 218 L155 225 L148 232 L142 238 L135 245"
-              stroke="url(#branchGradient3)"
-              strokeWidth="1.2"
+              stroke="url(#lightning-atmosphere)"
+              strokeWidth="20"
               fill="none"
               opacity="0.4"
-              className="lightning-path-branch"
+              filter="blur(12px)"
             />
             
-            {/* Lower left fork */}
+            {/* Soft Glow Layer (Blur 6px) */}
             <path 
-              d="M155 225 L148 232 L142 240 L135 248"
-              stroke="url(#branchGradient3)"
-              strokeWidth="0.8"
+              d="M25 15 L32 28 L38 35 L45 52 L52 49 L63 64 L58 78 L71 85 L78 98 L85 103 L92 115 L98 108 L105 125 L115 132 L128 145 L135 158 L145 162 L152 175 L158 182 L168 188 L175 205 L185 212 L195 228 L200 235 L210 252 L220 258 L225 275 L235 280"
+              stroke="url(#lightning-main-ethereal)"
+              strokeWidth="12"
+              fill="none"
+              opacity="0.6"
+              filter="blur(6px)"
+            />
+            
+            {/* Main Lightning Channel */}
+            <path 
+              d="M25 15 L32 28 L38 35 L45 52 L52 49 L63 64 L58 78 L71 85 L78 98 L85 103 L92 115 L98 108 L105 125 L115 132 L128 145 L135 158 L145 162 L152 175 L158 182 L168 188 L175 205 L185 212 L195 228 L200 235 L210 252 L220 258 L225 275 L235 280"
+              stroke="url(#lightning-main-ethereal)"
+              strokeWidth="4"
+              fill="none"
+              opacity="0.9"
+              filter="blur(1px)"
+            />
+            
+            {/* Brilliant Core */}
+            <path 
+              d="M25 15 L32 28 L38 35 L45 52 L52 49 L63 64 L58 78 L71 85 L78 98 L85 103 L92 115 L98 108 L105 125 L115 132 L128 145 L135 158 L145 162 L152 175 L158 182 L168 188 L175 205 L185 212 L195 228 L200 235 L210 252 L220 258 L225 275 L235 280"
+              stroke="url(#lightning-core)"
+              strokeWidth="2"
+              fill="none"
+              opacity="1"
+            />
+            
+            {/* Organic Branch 1 */}
+            <path 
+              d="M63 64 L55 72 L48 68 L42 76 L35 82 L28 78 L20 88 L12 94 L5 108"
+              stroke="url(#lightning-atmosphere)"
+              strokeWidth="8"
               fill="none"
               opacity="0.3"
-              className="lightning-path-branch"
+              filter="blur(4px)"
+            />
+            <path 
+              d="M63 64 L55 72 L48 68 L42 76 L35 82 L28 78 L20 88 L12 94 L5 108"
+              stroke="url(#lightning-main-ethereal)"
+              strokeWidth="2"
+              fill="none"
+              opacity="0.7"
             />
             
-            {/* Micro-branches and electrical tendrils */}
+            {/* Organic Branch 2 */}
             <path 
-              d="M32 28 L28 32 L25 38 M38 35 L34 38 L30 42 M78 98 L82 102 L85 108 M92 115 L88 118 L84 122 M128 145 L124 148 L120 152 M152 175 L148 178 L144 182 M200 235 L204 238 L208 242 M210 252 L214 255 L218 259"
-              stroke="url(#microBranchGradient)"
-              strokeWidth="0.6"
+              d="M105 125 L98 132 L88 138 L82 145 L75 152 L68 148 L58 158 L52 165 L42 172"
+              stroke="url(#lightning-atmosphere)"
+              strokeWidth="8"
               fill="none"
               opacity="0.3"
-              className="lightning-path-micro"
+              filter="blur(4px)"
+            />
+            <path 
+              d="M105 125 L98 132 L88 138 L82 145 L75 152 L68 148 L58 158 L52 165 L42 172"
+              stroke="url(#lightning-main-ethereal)"
+              strokeWidth="2"
+              fill="none"
+              opacity="0.7"
             />
             
-            {/* Secondary micro-tendrils */}
+            {/* Organic Branch 3 */}
             <path 
-              d="M45 52 L42 48 L38 45 M63 64 L68 62 L72 58 M105 125 L108 122 L112 118 M168 188 L172 185 L176 182 M185 212 L188 208 L192 205"
-              stroke="url(#microBranchGradient)"
-              strokeWidth="0.4"
+              d="M145 162 L152 168 L158 175 L165 172 L172 182 L178 188 L185 195 L192 202"
+              stroke="url(#lightning-atmosphere)"
+              strokeWidth="8"
               fill="none"
-              opacity="0.2"
-              className="lightning-path-micro"
+              opacity="0.3"
+              filter="blur(4px)"
             />
+            <path 
+              d="M145 162 L152 168 L158 175 L165 172 L172 182 L178 188 L185 195 L192 202"
+              stroke="url(#lightning-main-ethereal)"
+              strokeWidth="2"
+              fill="none"
+              opacity="0.7"
+            />
+            
+            {/* Micro Tendrils with Delayed Opacity */}
+            <g opacity="0.4">
+              <path 
+                d="M32 28 L28 32 L25 38 M38 35 L34 38 L30 42 M78 98 L82 102 L85 108"
+                stroke="url(#lightning-core)"
+                strokeWidth="1"
+                fill="none"
+                filter="blur(0.5px)"
+              />
+              <path 
+                d="M92 115 L88 118 L84 122 M128 145 L124 148 L120 152 M152 175 L148 178 L144 182"
+                stroke="url(#lightning-core)"
+                strokeWidth="1"
+                fill="none"
+                filter="blur(0.5px)"
+              />
+              <path 
+                d="M200 235 L204 238 L208 242 M210 252 L214 255 L218 259"
+                stroke="url(#lightning-core)"
+                strokeWidth="1"
+                fill="none"
+                filter="blur(0.5px)"
+              />
+            </g>
             
             {/* Energy nodes at key electrical junctions */}
             <circle cx="63" cy="64" r="1.8" fill="url(#nodeGradient)" opacity="0.9" className="animate-pulse" />
