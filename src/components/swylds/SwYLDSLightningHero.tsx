@@ -4,25 +4,21 @@ const SwYLDSLightningHero = () => {
   const [animationPhase, setAnimationPhase] = useState(0)
   
   useEffect(() => {
-    // Single sequence: peaceful (3s) -> buildup (1s) -> lightning flash (0.3s) -> explosion (1s) -> transformation (1s) -> final glow (permanent)
-    const phaseDurations = [3000, 1000, 300, 1000, 1000]
-    let currentPhase = 0
+    // Single sequence animation that runs once: peaceful -> buildup -> strike -> explosion -> transformation -> perpetual glow
+    const phases = [
+      { phase: 1, delay: 3000 },  // buildup after 3s
+      { phase: 2, delay: 4000 },  // strike after 4s  
+      { phase: 3, delay: 4300 },  // explosion after 4.3s
+      { phase: 4, delay: 5300 },  // transformation after 5.3s
+      { phase: 5, delay: 6300 },  // perpetual glow after 6.3s
+    ]
     
-    const advancePhase = () => {
-      currentPhase = currentPhase + 1
-      if (currentPhase < phaseDurations.length) {
-        setAnimationPhase(currentPhase)
-        if (currentPhase < phaseDurations.length - 1) {
-          setTimeout(advancePhase, phaseDurations[currentPhase])
-        } else {
-          // Final phase - stay in transformed state permanently
-          setTimeout(() => setAnimationPhase(5), phaseDurations[currentPhase]) // Phase 5 = perpetual glow
-        }
-      }
-    }
+    const timers = phases.map(({ phase, delay }) => 
+      setTimeout(() => setAnimationPhase(phase), delay)
+    )
     
-    const timer = setTimeout(advancePhase, phaseDurations[0])
-    return () => clearTimeout(timer)
+    // Cleanup timers on unmount
+    return () => timers.forEach(timer => clearTimeout(timer))
   }, [])
   
   const getTokenImage = () => {
