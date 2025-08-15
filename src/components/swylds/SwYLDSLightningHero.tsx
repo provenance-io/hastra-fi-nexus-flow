@@ -411,47 +411,6 @@ const SwYLDSLightningHero = () => {
         </div>
       )}
       
-      {/* Magical Transformation Aura */}
-      {animationPhase === 4 && (
-        <div className="absolute inset-0 z-5">
-          {/* Swirling energy particles */}
-          {[...Array(12)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 rounded-full animate-particle-dance"
-              style={{
-                background: `linear-gradient(45deg, #FFD700, #FF8C00, #DC143C)`,
-                left: `${50 + 40 * Math.cos((i * 30) * Math.PI / 180)}%`,
-                top: `${50 + 40 * Math.sin((i * 30) * Math.PI / 180)}%`,
-                animationDelay: `${i * 0.1}s`,
-                filter: 'drop-shadow(0 0 4px rgba(255, 215, 0, 0.8))',
-              }}
-            />
-          ))}
-          
-          {/* Central energy burst */}
-          <div 
-            className="absolute inset-0 rounded-full animate-ping"
-            style={{
-              background: 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 215, 0, 0.4) 50%, transparent 70%)',
-              animationDuration: '1.5s',
-            }}
-          />
-          
-          {/* Mystical aura rings */}
-          {[...Array(3)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute inset-0 rounded-full border border-amber-400/30 animate-pulse"
-              style={{
-                transform: `scale(${1 + i * 0.3})`,
-                animationDelay: `${i * 0.2}s`,
-                animationDuration: '2s',
-              }}
-            />
-          ))}
-        </div>
-      )}
 
       {/* Main token */}
       <div className="absolute inset-0 flex items-center justify-center z-10">
