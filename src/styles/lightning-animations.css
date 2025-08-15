@@ -68,6 +68,57 @@
   }
 }
 
+@keyframes ember-drift {
+  0% {
+    transform: translateX(0) translateY(0) scale(1);
+    opacity: 0;
+    filter: brightness(1.5) blur(0px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(calc(var(--ember-drift-x) * 0.1)) translateY(calc(var(--ember-drift-y) * -0.1)) scale(1.2);
+  }
+  25% {
+    opacity: 0.9;
+    filter: brightness(1.3) blur(0.5px);
+    transform: translateX(calc(var(--ember-drift-x) * 0.3)) translateY(calc(var(--ember-drift-y) * -0.3)) scale(1.1);
+  }
+  50% {
+    opacity: 0.7;
+    filter: brightness(1.1) blur(1px);
+    transform: translateX(calc(var(--ember-drift-x) * 0.6)) translateY(calc(var(--ember-drift-y) * -0.6)) scale(0.9);
+  }
+  75% {
+    opacity: 0.4;
+    filter: brightness(0.9) blur(1.5px);
+    transform: translateX(calc(var(--ember-drift-x) * 0.8)) translateY(calc(var(--ember-drift-y) * -0.8)) scale(0.7);
+  }
+  100% {
+    opacity: 0;
+    filter: brightness(0.6) blur(2px);
+    transform: translateX(var(--ember-drift-x)) translateY(var(--ember-drift-y)) scale(0.5);
+  }
+}
+
+@keyframes ember-flicker {
+  0%, 100% { 
+    opacity: var(--ember-flicker);
+    transform: scale(1);
+  }
+  25% { 
+    opacity: calc(var(--ember-flicker) * 1.2);
+    transform: scale(1.1);
+  }
+  50% { 
+    opacity: calc(var(--ember-flicker) * 0.8);
+    transform: scale(0.95);
+  }
+  75% { 
+    opacity: calc(var(--ember-flicker) * 1.1);
+    transform: scale(1.05);
+  }
+}
+
 @keyframes flash {
   0%, 100% { opacity: 0; }
   50% { opacity: 0.4; }
@@ -215,6 +266,10 @@
 
 .animate-particle-float {
   animation: particle-float 2s ease-out infinite;
+}
+
+.animate-ember-drift {
+  animation: ember-drift 5s ease-out infinite, ember-flicker 1.5s ease-in-out infinite;
 }
 
 .animate-flash {

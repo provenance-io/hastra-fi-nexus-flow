@@ -366,22 +366,48 @@ const SwYLDSLightningHero = () => {
         </div>
       )}
       
-      {/* Golden particles - only after transformation */}
+      {/* Smoldering Gold Embers - only after transformation */}
       {isTransformed && (
         <div className="absolute inset-0 z-10">
-          {[...Array(12)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 rounded-full animate-particle-float"
-              style={{
-                left: `${20 + (i * 5)}%`,
-                top: `${30 + (i * 3)}%`,
-                animationDelay: `${i * 0.1}s`,
-                background: 'rgba(229, 218, 194, 0.8)',
-                filter: 'drop-shadow(0 0 4px rgba(229, 218, 194, 0.6))',
-              }}
-            />
-          ))}
+          {[...Array(8)].map((_, i) => {
+            // Generate random position around token center
+            const angle = (Math.PI * 2 * i) / 8 + (Math.random() - 0.5) * 1.2
+            const distance = 60 + Math.random() * 80
+            const centerX = 50
+            const centerY = 50
+            const x = centerX + (Math.cos(angle) * distance) / 3.2
+            const y = centerY + (Math.sin(angle) * distance) / 3.2
+            
+            // Vary ember characteristics
+            const size = Math.random() < 0.3 ? 1 : Math.random() < 0.7 ? 2 : 3
+            const opacity = 0.6 + Math.random() * 0.4
+            const delay = Math.random() * 2
+            const duration = 4 + Math.random() * 3
+            
+            return (
+              <div
+                key={i}
+                className={`absolute rounded-full animate-ember-drift`}
+                style={{
+                  width: `${size}px`,
+                  height: `${size}px`,
+                  left: `${Math.max(10, Math.min(90, x))}%`,
+                  top: `${Math.max(10, Math.min(90, y))}%`,
+                  background: `radial-gradient(circle, 
+                    rgba(255, 235, 59, ${opacity}) 0%, 
+                    rgba(229, 218, 194, ${opacity * 0.8}) 40%, 
+                    rgba(255, 193, 7, ${opacity * 0.6}) 70%, 
+                    transparent 100%)`,
+                  filter: `drop-shadow(0 0 ${size * 2}px rgba(255, 215, 0, 0.4))`,
+                  animationDelay: `${delay}s`,
+                  animationDuration: `${duration}s`,
+                  '--ember-drift-x': `${(Math.random() - 0.5) * 40}px`,
+                  '--ember-drift-y': `${20 + Math.random() * 40}px`,
+                  '--ember-flicker': Math.random().toString(),
+                } as React.CSSProperties}
+              />
+            )
+          })}
         </div>
       )}
       
