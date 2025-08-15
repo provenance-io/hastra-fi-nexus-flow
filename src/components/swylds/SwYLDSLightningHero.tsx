@@ -387,16 +387,30 @@ const SwYLDSLightningHero = () => {
       {/* Main token */}
       <div className="absolute inset-0 flex items-center justify-center z-10">
         <div className={`relative ${getAnimationClasses()}`}>
-          <img
-            src={getTokenImage()}
-            alt={isTransformed ? "swYLDS Token" : "wYLDS Token"}
-            className="w-48 h-48 md:w-56 md:h-56 object-contain"
-            style={{
-              filter: isTransformed 
-                ? 'drop-shadow(0 0 12px rgba(229, 218, 194, 0.4)) drop-shadow(0 0 24px rgba(229, 218, 194, 0.2))'
-                : 'drop-shadow(0 0 15px #64748b) drop-shadow(0 0 30px #475569)',
-            }}
-          />
+          <div className="relative w-48 h-48 md:w-56 md:h-56">
+            {/* wYLDS Token */}
+            <img 
+              src="/lovable-uploads/cb96356b-822d-4dc0-963a-96ef43bfedbd.png" 
+              alt="wYLDS Token"
+              className="absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 ease-in-out"
+              style={{
+                opacity: isTransformed ? 0 : 1,
+                filter: 'drop-shadow(0 0 15px #64748b) drop-shadow(0 0 30px #475569)',
+              }}
+            />
+            
+            {/* swYLDS Token */}
+            <img 
+              src="/lovable-uploads/cb25764a-a760-4bdf-9502-6b82befb91eb.png" 
+              alt="swYLDS Token"
+              className="absolute inset-0 w-full h-full object-contain transition-all duration-1000 ease-in-out"
+              style={{
+                opacity: isTransformed ? 1 : 0,
+                transform: isTransformed ? 'scale(1)' : 'scale(0.95)',
+                filter: 'drop-shadow(0 0 12px rgba(229, 218, 194, 0.4)) drop-shadow(0 0 24px rgba(229, 218, 194, 0.2))',
+              }}
+            />
+          </div>
           
           {/* Lightning strike flash overlay */}
           {animationPhase === 2 && (
