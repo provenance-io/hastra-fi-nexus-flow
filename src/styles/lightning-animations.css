@@ -88,13 +88,19 @@
 }
 
 @keyframes golden-pulse {
-  0%, 100% { transform: scale(1.1) translateY(-5px); }
+  0%, 100% { transform: scale(1.05) translateY(-5px); }
   50% { transform: scale(1.15) translateY(-15px); }
 }
 
-@keyframes particle-dance {
-  0%, 100% { transform: scale(1.1) translateY(-5px); }
-  50% { transform: scale(1.15) translateY(-15px); }
+@keyframes perpetual-glow {
+  0%, 100% { 
+    transform: scale(1);
+    filter: brightness(1.2) saturate(1.1) drop-shadow(0 0 15px rgba(255, 215, 0, 0.4)); 
+  }
+  50% { 
+    transform: scale(1.02);
+    filter: brightness(1.4) saturate(1.2) drop-shadow(0 0 25px rgba(255, 215, 0, 0.6)); 
+  }
 }
 
 @keyframes particle-float {
@@ -324,6 +330,10 @@
 
 .animate-particle-float {
   animation: particle-float 2s ease-out infinite;
+}
+
+.animate-perpetual-glow {
+  animation: perpetual-glow 3s ease-in-out infinite;
 }
 
 .animate-ember-drift {

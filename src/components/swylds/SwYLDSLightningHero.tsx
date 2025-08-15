@@ -4,7 +4,7 @@ const SwYLDSLightningHero = () => {
   const [animationPhase, setAnimationPhase] = useState(0)
   
   useEffect(() => {
-    // Single sequence: peaceful (3s) -> buildup (1s) -> lightning flash (0.3s) -> explosion (1s) -> transformation (1s) -> final state
+    // Single sequence: peaceful (3s) -> buildup (1s) -> lightning flash (0.3s) -> explosion (1s) -> transformation (1s) -> final glow (permanent)
     const phaseDurations = [3000, 1000, 300, 1000, 1000]
     let currentPhase = 0
     
@@ -12,9 +12,13 @@ const SwYLDSLightningHero = () => {
       currentPhase = currentPhase + 1
       if (currentPhase < phaseDurations.length) {
         setAnimationPhase(currentPhase)
-        setTimeout(advancePhase, phaseDurations[currentPhase])
+        if (currentPhase < phaseDurations.length - 1) {
+          setTimeout(advancePhase, phaseDurations[currentPhase])
+        } else {
+          // Final phase - stay in transformed state permanently
+          setTimeout(() => setAnimationPhase(5), phaseDurations[currentPhase]) // Phase 5 = perpetual glow
+        }
       }
-      // Animation sequence ends at phase 4 (transformation complete)
     }
     
     const timer = setTimeout(advancePhase, phaseDurations[0])
@@ -34,8 +38,7 @@ const SwYLDSLightningHero = () => {
       case 2: return 'animate-lightning-strike' // strike
       case 3: return 'animate-explosion' // explosion
       case 4: return 'animate-magical-transformation' // magical transformation
-      case 5: return 'animate-golden-pulse' // golden pulse
-      case 6: return 'animate-particle-dance' // particle dance
+      case 5: return 'animate-perpetual-glow' // perpetual glow state
       default: return 'animate-float'
     }
   }
