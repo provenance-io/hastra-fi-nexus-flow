@@ -4,8 +4,8 @@ const SwYLDSLightningHero = () => {
   const [animationPhase, setAnimationPhase] = useState(0)
   
   useEffect(() => {
-    // 7-phase animation cycle: peaceful (3s) -> buildup (1s) -> strike (0.3s) -> explosion (1s) -> morph (1s) -> pulse (3s) -> particles (2s)
-    const phaseDurations = [3000, 1000, 300, 1000, 1000, 3000, 2000]
+    // Single sequence: peaceful (3s) -> buildup (1s) -> lightning flash (0.3s) -> explosion (1s) -> transformation (1s) -> final state
+    const phaseDurations = [3000, 1000, 300, 1000, 1000]
     let currentPhase = 0
     
     const advancePhase = () => {
@@ -14,6 +14,7 @@ const SwYLDSLightningHero = () => {
         setAnimationPhase(currentPhase)
         setTimeout(advancePhase, phaseDurations[currentPhase])
       }
+      // Animation sequence ends at phase 4 (transformation complete)
     }
     
     const timer = setTimeout(advancePhase, phaseDurations[0])
@@ -40,7 +41,7 @@ const SwYLDSLightningHero = () => {
   }
   
   const showLightning = animationPhase === 1 || animationPhase === 2
-  const showParticles = animationPhase === 3 || animationPhase === 6
+  const showParticles = animationPhase === 3
   const isTransformed = animationPhase >= 4
   
   return (
