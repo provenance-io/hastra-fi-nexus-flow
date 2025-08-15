@@ -393,7 +393,7 @@ const SwYLDSLightningHero = () => {
             className="w-48 h-48 md:w-56 md:h-56 object-contain"
             style={{
               filter: isTransformed 
-                ? 'drop-shadow(0 0 20px rgba(229, 218, 194, 0.6)) drop-shadow(0 0 40px rgba(229, 218, 194, 0.3))'
+                ? 'drop-shadow(0 0 12px rgba(229, 218, 194, 0.4)) drop-shadow(0 0 24px rgba(229, 218, 194, 0.2))'
                 : 'drop-shadow(0 0 15px #64748b) drop-shadow(0 0 30px #475569)',
             }}
           />
@@ -418,10 +418,10 @@ const SwYLDSLightningHero = () => {
             </>
           )}
           
-          {/* Soft golden energy aura matching about page style */}
+          {/* Subtle pulsating golden energy aura */}
           {isTransformed && (
             <div className="absolute inset-0 -z-10">
-              <div className="absolute inset-0 bg-gradient-radial from-[rgba(229,218,194,0.15)] via-[rgba(229,218,194,0.08)] to-transparent rounded-full animate-gentle-glow" />
+              <div className="absolute inset-0 bg-gradient-radial from-[rgba(229,218,194,0.08)] via-[rgba(229,218,194,0.04)] to-transparent rounded-full animate-subtle-golden-pulse" />
             </div>
           )}
         </div>

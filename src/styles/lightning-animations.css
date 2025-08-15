@@ -151,12 +151,23 @@
 
 @keyframes gentle-glow {
   0%, 100% { 
-    opacity: 0.4;
+    opacity: 0.3;
     transform: scale(1);
   }
   50% { 
-    opacity: 0.6;
-    transform: scale(1.05);
+    opacity: 0.4;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes subtle-golden-pulse {
+  0%, 100% { 
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.35;
+    transform: scale(1.03);
   }
 }
 
@@ -222,13 +233,17 @@
   animation: gentle-glow 6s ease-in-out infinite;
 }
 
+.animate-subtle-golden-pulse {
+  animation: subtle-golden-pulse 4s ease-in-out infinite;
+}
+
 /* Circular glow utilities matching about page soft gold */
 .circular-glow-primary {
   background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, rgba(139, 92, 246, 0.1) 40%, transparent 70%);
 }
 
 .circular-glow-golden {
-  background: radial-gradient(circle, rgba(229, 218, 194, 0.4) 0%, rgba(229, 218, 194, 0.2) 40%, transparent 70%);
+  background: radial-gradient(circle, rgba(229, 218, 194, 0.25) 0%, rgba(229, 218, 194, 0.12) 40%, transparent 70%);
 }
 
 /* Accessibility - Reduced motion */
