@@ -27,10 +27,10 @@ const SwYLDSLightningHero = () => {
   const getAnimationClasses = () => {
     switch (animationPhase) {
       case 0: return 'animate-float' // peaceful floating
-      case 1: return 'animate-pulse-subtle' // buildup
+      case 1: return 'animate-energy-buildup' // elevated energy buildup
       case 2: return 'animate-lightning-strike' // strike
       case 3: return 'animate-explosion' // explosion
-      case 4: return 'animate-morph' // transformation
+      case 4: return 'animate-magical-transformation' // magical transformation
       case 5: return 'animate-golden-pulse' // golden pulse
       case 6: return 'animate-particle-dance' // particle dance
       default: return 'animate-float'
@@ -411,6 +411,48 @@ const SwYLDSLightningHero = () => {
         </div>
       )}
       
+      {/* Magical Transformation Aura */}
+      {animationPhase === 4 && (
+        <div className="absolute inset-0 z-5">
+          {/* Swirling energy particles */}
+          {[...Array(12)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-1 h-1 rounded-full animate-particle-dance"
+              style={{
+                background: `linear-gradient(45deg, #FFD700, #FF8C00, #DC143C)`,
+                left: `${50 + 40 * Math.cos((i * 30) * Math.PI / 180)}%`,
+                top: `${50 + 40 * Math.sin((i * 30) * Math.PI / 180)}%`,
+                animationDelay: `${i * 0.1}s`,
+                filter: 'drop-shadow(0 0 4px rgba(255, 215, 0, 0.8))',
+              }}
+            />
+          ))}
+          
+          {/* Central energy burst */}
+          <div 
+            className="absolute inset-0 rounded-full animate-ping"
+            style={{
+              background: 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 215, 0, 0.4) 50%, transparent 70%)',
+              animationDuration: '1.5s',
+            }}
+          />
+          
+          {/* Mystical aura rings */}
+          {[...Array(3)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute inset-0 rounded-full border border-amber-400/30 animate-pulse"
+              style={{
+                transform: `scale(${1 + i * 0.3})`,
+                animationDelay: `${i * 0.2}s`,
+                animationDuration: '2s',
+              }}
+            />
+          ))}
+        </div>
+      )}
+
       {/* Main token */}
       <div className="absolute inset-0 flex items-center justify-center z-10">
         <div className={`relative ${getAnimationClasses()}`}>
@@ -422,7 +464,7 @@ const SwYLDSLightningHero = () => {
               className="absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 ease-in-out"
               style={{
                 opacity: isTransformed ? 0 : 1,
-                filter: 'drop-shadow(0 0 15px #64748b) drop-shadow(0 0 30px #475569)',
+                filter: animationPhase === 1 ? 'drop-shadow(0 0 20px rgba(139, 69, 19, 0.6)) brightness(1.2)' : 'drop-shadow(0 0 15px #64748b) drop-shadow(0 0 30px #475569)',
               }}
             />
             
@@ -434,7 +476,7 @@ const SwYLDSLightningHero = () => {
               style={{
                 opacity: isTransformed ? 1 : 0,
                 transform: isTransformed ? 'scale(1)' : 'scale(0.95)',
-                filter: 'drop-shadow(0 0 12px rgba(229, 218, 194, 0.4)) drop-shadow(0 0 24px rgba(229, 218, 194, 0.2))',
+                filter: animationPhase === 4 ? 'brightness(1.3) saturate(1.2) drop-shadow(0 0 20px rgba(255, 215, 0, 0.6))' : 'drop-shadow(0 0 12px rgba(229, 218, 194, 0.4)) drop-shadow(0 0 24px rgba(229, 218, 194, 0.2))',
               }}
             />
           </div>
