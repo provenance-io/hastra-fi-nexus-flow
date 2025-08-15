@@ -106,7 +106,7 @@ export const useTokenPortfolioQuery = (
 export const useTokenPortfolio = () => {
   const [tokens, setTokens] = useState<TokenData[]>([]);
 
-  const { address } = useWallet();
+  const { address, isConnected } = useWallet();
 
   const { data: tokenData } = useTokenPortfolioQuery(new PublicKey(address));
 
@@ -115,36 +115,78 @@ export const useTokenPortfolio = () => {
   // Get swYLDS balance from staking
   const { userBalance } = useStaking();
 
-  useEffect(() => {
-    if (tokenData) {
-      // Add swYLDS token from staking balance
-      const swYLDSBalance = parseFloat(userBalance?.swYLDS || '0');
-      let tokensWithSwYLDS = [...tokenData];
-      
-      
-      // Always add swYLDS token, even if balance is 0
-      tokensWithSwYLDS.push({
+  // Mock data for testing when wallet is connected
+  const getMockTokenData = (): TokenData[] => {
+    if (!isConnected) return [];
+    
+    return [
+      {
+        address: import.meta.env.VITE_SOLANA_USDC_MINT || 'usdc-mock',
+        token: 'USDC',
+        amount: 2547.83,
+        value: 2547.83,
+        apy: 0,
+        totalInterestEarned: 0,
+        unclaimedInterest: 0,
+        icon: '/lovable-uploads/4a374512-469e-4932-9bfc-215e5dd3591d.png',
+        mint: 'usdc-mint',
+        tokenAddress: 'usdc-address',
+      },
+      {
+        address: import.meta.env.VITE_SOLANA_YIELD_MINT || 'wylds-mock',
+        token: 'wYLDS',
+        amount: 1234.56,
+        value: 1234.56,
+        apy: 4.5,
+        totalInterestEarned: 89.23,
+        unclaimedInterest: 12.45,
+        icon: '/lovable-uploads/49dceb8c-5ccf-4ceb-97e6-9447aa7fc33d.png',
+        mint: 'wylds-mint',
+        tokenAddress: 'wylds-address',
+      },
+      {
         address: 'swYLDS',
         token: 'swYLDS',
-        amount: swYLDSBalance,
-        value: swYLDSBalance, // 1:1 with USD for now
-        apy: 8.5, // Higher APY for staked tokens
-        totalInterestEarned: swYLDSBalance * 0.002, // Mock earned interest
-        unclaimedInterest: swYLDSBalance > 0 ? swYLDSBalance * 0.001 : 0, // Mock unclaimed interest only when balance > 0
+        amount: 856.12,
+        value: 856.12,
+        apy: 8.5,
+        totalInterestEarned: 67.89,
+        unclaimedInterest: 15.78,
         icon: '/lovable-uploads/49dceb8c-5ccf-4ceb-97e6-9447aa7fc33d.png',
         mint: 'swYLDS-mint',
         tokenAddress: 'swYLDS-address',
-      });
+      },
+      {
+        address: 'hash-mock',
+        token: 'HASH',
+        amount: 45678.90,
+        value: 1067.04, // At ~$0.0234 per HASH
+        apy: 18.5,
+        totalInterestEarned: 234.56,
+        unclaimedInterest: 45.67,
+        icon: '/src/assets/hash-icon.png',
+        mint: 'hash-mint',
+        tokenAddress: 'hash-address',
+      }
+    ];
+  };
+
+  useEffect(() => {
+    if (isConnected) {
+      // Use mock data for testing
+      const mockTokens = getMockTokenData();
+      setTokens(mockTokens);
       
-      console.log('Final tokens with claim amounts:', tokensWithSwYLDS.map(t => ({ 
+      console.log('Using mock portfolio data for testing:', mockTokens.map(t => ({ 
         token: t.token, 
         amount: t.amount,
+        value: t.value,
         unclaimedInterest: t.unclaimedInterest 
       })));
-      
-      setTokens(tokensWithSwYLDS);
+    } else {
+      setTokens([]);
     }
-  }, [tokenData, userBalance?.swYLDS]);
+  }, [isConnected]);
 
   const claimInterest = useCallback(
     (tokenSymbol: string, claimedAmount: number) => {
@@ -196,8 +238,8 @@ export const useTokenPortfolio = () => {
   }, []);
 
   const getTotalPortfolioValue = useCallback(() => {
-    return tokenData.reduce((total, token) => total + token.value, 0);
-  }, [tokenData]);
+    return tokens.reduce((total, token) => total + token.value, 0);
+  }, [tokens]);
 
   const getTotalInterestEarned = useCallback(() => {
     return tokens.reduce(
