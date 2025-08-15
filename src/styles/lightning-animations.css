@@ -73,10 +73,6 @@
   50% { opacity: 0.8; }
 }
 
-@keyframes screen-flash {
-  0%, 90%, 100% { opacity: 0; }
-  95% { opacity: 0.3; }
-}
 
 
 @keyframes golden-aura {
@@ -144,22 +140,29 @@
 
 @keyframes soft-glow-pulse {
   0%, 100% { 
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.2), 0 0 40px rgba(59, 130, 246, 0.1);
-    filter: brightness(1);
+    opacity: 0.3;
+    transform: scale(1);
   }
   50% { 
-    box-shadow: 0 0 30px rgba(139, 92, 246, 0.4), 0 0 60px rgba(59, 130, 246, 0.3), 0 0 80px rgba(255, 255, 255, 0.1);
-    filter: brightness(1.1);
+    opacity: 0.5;
+    transform: scale(1.1);
   }
 }
 
 @keyframes gentle-glow {
   0%, 100% { 
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    opacity: 0.4;
+    transform: scale(1);
   }
   50% { 
-    box-shadow: 0 0 25px rgba(255, 215, 0, 0.5), 0 0 40px rgba(255, 193, 7, 0.2);
+    opacity: 0.6;
+    transform: scale(1.05);
   }
+}
+
+@keyframes screen-flash {
+  0%, 90%, 100% { opacity: 0; }
+  95% { opacity: 0.1; }
 }
 
 /* Animation classes */
@@ -212,11 +215,31 @@
 }
 
 .animate-soft-glow-pulse {
-  animation: soft-glow-pulse 2.5s ease-in-out infinite;
+  animation: soft-glow-pulse 5s ease-in-out infinite;
 }
 
 .animate-gentle-glow {
-  animation: gentle-glow 3s ease-in-out infinite;
+  animation: gentle-glow 6s ease-in-out infinite;
+}
+
+/* Circular glow utilities */
+.circular-glow-primary {
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, rgba(139, 92, 246, 0.1) 40%, transparent 70%);
+}
+
+.circular-glow-golden {
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.4) 0%, rgba(255, 193, 7, 0.2) 40%, transparent 70%);
+}
+
+/* Accessibility - Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-soft-glow-pulse,
+  .animate-gentle-glow,
+  .animate-lightning-draw,
+  .animate-lightning-draw-branch,
+  .animate-lightning-draw-micro {
+    animation: none;
+  }
 }
 
 .animate-golden-aura {

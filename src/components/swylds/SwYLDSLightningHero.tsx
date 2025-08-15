@@ -403,14 +403,19 @@ const SwYLDSLightningHero = () => {
             <div className="absolute inset-0 bg-white/20 rounded-full animate-flash" />
           )}
           
-          {/* Soft glow pulses */}
-          {animationPhase === 3 && (
-            <div className="absolute inset-0 animate-soft-glow-pulse" />
-          )}
-          
-          {/* Post-transformation gentle glow */}
-          {isTransformed && (
-            <div className="absolute inset-0 animate-gentle-glow" />
+          {/* Soft circular glow pulses after lightning strikes */}
+          {animationPhase >= 3 && (
+            <>
+              <div className="absolute inset-0 flex items-center justify-center -z-10">
+                <div className="w-48 h-48 rounded-full animate-soft-glow-pulse circular-glow-primary"></div>
+              </div>
+              <div className="absolute inset-0 flex items-center justify-center -z-10">
+                <div className="w-32 h-32 rounded-full animate-gentle-glow circular-glow-golden" style={{ animationDelay: '2s' }}></div>
+              </div>
+              <div className="absolute inset-0 flex items-center justify-center -z-10">
+                <div className="w-24 h-24 rounded-full animate-soft-glow-pulse circular-glow-primary" style={{ animationDelay: '4s' }}></div>
+              </div>
+            </>
           )}
           
           {/* Golden energy aura for swYLDS */}
@@ -422,9 +427,9 @@ const SwYLDSLightningHero = () => {
         </div>
       </div>
       
-      {/* Screen flash effect during lightning strike */}
+      {/* Gentle screen flash during lightning strike */}
       {animationPhase === 2 && (
-        <div className="absolute inset-0 bg-white/10 animate-screen-flash z-30 pointer-events-none" />
+        <div className="absolute inset-0 bg-white/5 animate-screen-flash z-30 pointer-events-none" />
       )}
     </div>
   )
