@@ -9,9 +9,11 @@ const SwYLDSLightningHero = () => {
     let currentPhase = 0
     
     const advancePhase = () => {
-      currentPhase = (currentPhase + 1) % phaseDurations.length
-      setAnimationPhase(currentPhase)
-      setTimeout(advancePhase, phaseDurations[currentPhase])
+      currentPhase = currentPhase + 1
+      if (currentPhase < phaseDurations.length) {
+        setAnimationPhase(currentPhase)
+        setTimeout(advancePhase, phaseDurations[currentPhase])
+      }
     }
     
     const timer = setTimeout(advancePhase, phaseDurations[0])
@@ -37,7 +39,7 @@ const SwYLDSLightningHero = () => {
     }
   }
   
-  const showLightning = animationPhase >= 1 && animationPhase <= 3
+  const showLightning = animationPhase === 1 || animationPhase === 2
   const showParticles = animationPhase === 3 || animationPhase === 6
   const isTransformed = animationPhase >= 4
   
