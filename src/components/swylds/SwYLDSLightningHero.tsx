@@ -2,8 +2,20 @@ import { useState, useEffect } from 'react'
 
 const SwYLDSLightningHero = () => {
   const [animationPhase, setAnimationPhase] = useState(0)
+  const [hasAnimationRun, setHasAnimationRun] = useState(false)
   
   useEffect(() => {
+    console.log('SwYLDSLightningHero useEffect triggered, hasAnimationRun:', hasAnimationRun)
+    
+    // Prevent animation from running multiple times
+    if (hasAnimationRun) {
+      console.log('Animation already run, skipping')
+      return
+    }
+    
+    console.log('Starting single animation sequence')
+    setHasAnimationRun(true)
+    
     // Single sequence animation that runs once: peaceful -> buildup -> strike -> explosion -> transformation -> perpetual glow
     const phases = [
       { phase: 1, delay: 3000 },  // buildup after 3s
@@ -13,13 +25,20 @@ const SwYLDSLightningHero = () => {
       { phase: 5, delay: 6300 },  // perpetual glow after 6.3s
     ]
     
-    const timers = phases.map(({ phase, delay }) => 
-      setTimeout(() => setAnimationPhase(phase), delay)
-    )
+    const timers = phases.map(({ phase, delay }) => {
+      console.log(`Setting timer for phase ${phase} at ${delay}ms`)
+      return setTimeout(() => {
+        console.log(`Transitioning to phase ${phase}`)
+        setAnimationPhase(phase)
+      }, delay)
+    })
     
     // Cleanup timers on unmount
-    return () => timers.forEach(timer => clearTimeout(timer))
-  }, [])
+    return () => {
+      console.log('Cleaning up timers')
+      timers.forEach(timer => clearTimeout(timer))
+    }
+  }, [hasAnimationRun])
   
   const getTokenImage = () => {
     return animationPhase >= 4 
