@@ -366,18 +366,19 @@ const SwYLDSLightningHero = () => {
         </div>
       )}
       
-      {/* Electric particles */}
-      {showParticles && (
+      {/* Golden particles - only after transformation */}
+      {isTransformed && (
         <div className="absolute inset-0 z-10">
           {[...Array(12)].map((_, i) => (
             <div
               key={i}
-              className="absolute w-1 h-1 bg-electric-blue rounded-full animate-particle-float"
+              className="absolute w-1 h-1 rounded-full animate-particle-float"
               style={{
                 left: `${20 + (i * 5)}%`,
                 top: `${30 + (i * 3)}%`,
                 animationDelay: `${i * 0.1}s`,
-                filter: 'drop-shadow(0 0 4px #00d4ff)',
+                background: 'rgba(229, 218, 194, 0.8)',
+                filter: 'drop-shadow(0 0 4px rgba(229, 218, 194, 0.6))',
               }}
             />
           ))}
