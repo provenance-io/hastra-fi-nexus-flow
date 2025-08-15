@@ -132,6 +132,8 @@ const SwYLDSLightningHero = () => {
               fill="none"
               opacity="0.9"
               filter="blur(1px)"
+              strokeDasharray="600"
+              className={animationPhase === 1 ? 'animate-lightning-draw' : ''}
             />
             
             {/* Brilliant Core */}
@@ -141,6 +143,9 @@ const SwYLDSLightningHero = () => {
               strokeWidth="2"
               fill="none"
               opacity="1"
+              strokeDasharray="600"
+              className={animationPhase === 1 ? 'animate-lightning-draw' : ''}
+              style={{animationDelay: '0.1s'}}
             />
             
             {/* Organic Branch 1 */}
@@ -151,6 +156,9 @@ const SwYLDSLightningHero = () => {
               fill="none"
               opacity="0.3"
               filter="blur(4px)"
+              strokeDasharray="120"
+              className={animationPhase === 1 ? 'animate-lightning-draw-branch' : ''}
+              style={{animationDelay: '0.4s'}}
             />
             <path 
               d="M63 64 L55 72 L48 68 L42 76 L35 82 L28 78 L20 88 L12 94 L5 108"
@@ -158,6 +166,9 @@ const SwYLDSLightningHero = () => {
               strokeWidth="2"
               fill="none"
               opacity="0.7"
+              strokeDasharray="120"
+              className={animationPhase === 1 ? 'animate-lightning-draw-branch' : ''}
+              style={{animationDelay: '0.5s'}}
             />
             
             {/* Organic Branch 2 */}
@@ -168,6 +179,9 @@ const SwYLDSLightningHero = () => {
               fill="none"
               opacity="0.3"
               filter="blur(4px)"
+              strokeDasharray="120"
+              className={animationPhase === 1 ? 'animate-lightning-draw-branch' : ''}
+              style={{animationDelay: '0.6s'}}
             />
             <path 
               d="M105 125 L98 132 L88 138 L82 145 L75 152 L68 148 L58 158 L52 165 L42 172"
@@ -175,6 +189,9 @@ const SwYLDSLightningHero = () => {
               strokeWidth="2"
               fill="none"
               opacity="0.7"
+              strokeDasharray="120"
+              className={animationPhase === 1 ? 'animate-lightning-draw-branch' : ''}
+              style={{animationDelay: '0.7s'}}
             />
             
             {/* Organic Branch 3 */}
@@ -185,6 +202,9 @@ const SwYLDSLightningHero = () => {
               fill="none"
               opacity="0.3"
               filter="blur(4px)"
+              strokeDasharray="120"
+              className={animationPhase === 1 ? 'animate-lightning-draw-branch' : ''}
+              style={{animationDelay: '0.8s'}}
             />
             <path 
               d="M145 162 L152 168 L158 175 L165 172 L172 182 L178 188 L185 195 L192 202"
@@ -192,6 +212,9 @@ const SwYLDSLightningHero = () => {
               strokeWidth="2"
               fill="none"
               opacity="0.7"
+              strokeDasharray="120"
+              className={animationPhase === 1 ? 'animate-lightning-draw-branch' : ''}
+              style={{animationDelay: '0.9s'}}
             />
             
             {/* Micro Tendrils with Delayed Opacity */}
@@ -202,6 +225,9 @@ const SwYLDSLightningHero = () => {
                 strokeWidth="1"
                 fill="none"
                 filter="blur(0.5px)"
+                strokeDasharray="50"
+                className={animationPhase === 1 ? 'animate-lightning-draw-micro' : ''}
+                style={{animationDelay: '1s'}}
               />
               <path 
                 d="M92 115 L88 118 L84 122 M128 145 L124 148 L120 152 M152 175 L148 178 L144 182"
@@ -209,6 +235,9 @@ const SwYLDSLightningHero = () => {
                 strokeWidth="1"
                 fill="none"
                 filter="blur(0.5px)"
+                strokeDasharray="50"
+                className={animationPhase === 1 ? 'animate-lightning-draw-micro' : ''}
+                style={{animationDelay: '1.1s'}}
               />
               <path 
                 d="M200 235 L204 238 L208 242 M210 252 L214 255 L218 259"
@@ -216,6 +245,9 @@ const SwYLDSLightningHero = () => {
                 strokeWidth="1"
                 fill="none"
                 filter="blur(0.5px)"
+                strokeDasharray="50"
+                className={animationPhase === 1 ? 'animate-lightning-draw-micro' : ''}
+                style={{animationDelay: '1.2s'}}
               />
             </g>
             
@@ -371,13 +403,14 @@ const SwYLDSLightningHero = () => {
             <div className="absolute inset-0 bg-white/20 rounded-full animate-flash" />
           )}
           
-          {/* Transformation energy waves */}
+          {/* Soft glow pulses */}
           {animationPhase === 3 && (
-            <div className="absolute inset-0">
-              <div className="absolute inset-0 border-4 border-electric-blue rounded-full animate-energy-wave-1" />
-              <div className="absolute inset-0 border-4 border-white rounded-full animate-energy-wave-2" />
-              <div className="absolute inset-0 border-4 border-yellow-400 rounded-full animate-energy-wave-3" />
-            </div>
+            <div className="absolute inset-0 animate-soft-glow-pulse" />
+          )}
+          
+          {/* Post-transformation gentle glow */}
+          {isTransformed && (
+            <div className="absolute inset-0 animate-gentle-glow" />
           )}
           
           {/* Golden energy aura for swYLDS */}
