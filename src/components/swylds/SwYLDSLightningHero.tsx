@@ -347,17 +347,7 @@ const SwYLDSLightningHero = () => {
             </defs>
           </svg>
           
-          {/* Impact spark effect at strike point */}
-          {animationPhase === 2 && (
-            <div 
-              className="absolute w-2 h-2 bg-premium-gold rounded-full animate-ping"
-              style={{
-                bottom: '-20px',
-                right: '-40px',
-                filter: 'drop-shadow(0 0 8px hsl(var(--premium-gold)))',
-              }}
-            />
-          )}
+          {/* Removed impact spark effect that was creating glowing box */}
         </div>
       )}
       
@@ -435,20 +425,14 @@ const SwYLDSLightningHero = () => {
             />
           </div>
           
-          {/* Lightning strike flash overlay */}
-          {animationPhase === 2 && (
-            <div className="absolute inset-0 bg-white/20 rounded-full animate-flash" />
-          )}
+          {/* Removed lightning strike flash overlay that was creating glowing box */}
           
           
           {/* Removed glowing box that was creating rectangular shapes */}
         </div>
       </div>
       
-      {/* Gentle screen flash during lightning strike */}
-      {animationPhase === 2 && (
-        <div className="absolute inset-0 bg-white/5 animate-screen-flash z-30 pointer-events-none" />
-      )}
+      {/* Removed gentle screen flash that was creating glowing box */}
     </div>
   )
 }
