@@ -15,12 +15,12 @@ const features = [
   {
     icon: Zap,
     title: "DeFi Compatible",
-    description: "Use your swYLDS as collateral in DeFi protocols while continuing to earn your 9% base yield. Maximum capital efficiency."
+    description: "Use your sYLDS as collateral in DeFi protocols while continuing to earn your 9% base yield. Maximum capital efficiency."
   },
   {
     icon: Droplets,
     title: "Instant Liquidity",
-    description: "Trade swYLDS on DEXs or use in leverage strategies on Kamino. No lock-up periods, full flexibility."
+    description: "Trade sYLDS on DEXs or use in leverage strategies on Kamino. No lock-up periods, full flexibility."
   },
   {
     icon: Eye,
@@ -38,12 +38,12 @@ const SwYLDSValueProposition = () => {
   return (
     <section className="py-16 px-4 relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 relative z-10">
-        {/* Combined Dashboard Box - Why Choose swYLDS */}
+        {/* Combined Dashboard Box - Why Choose sYLDS */}
         <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
           <div className="relative z-10">
             <div className="text-center mb-16">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground/90 mb-4">
-                Why Choose swYLDS?
+                Why Choose sYLDS?
               </h2>
               <p className="text-lg text-foreground/70 max-w-3xl mx-auto">
                 Sustainable yield backed by real-world assets, not speculation
