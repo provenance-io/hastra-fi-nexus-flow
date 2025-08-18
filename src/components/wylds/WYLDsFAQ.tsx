@@ -45,7 +45,7 @@ const WYLDsFAQ = () => {
              style={{ 
                textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' 
              }}>
-            Get answers to common questions about wYLDS tokens and how they work
+            Get answers to common questions about wyLDS tokens and how they work
           </p>
         </div>
 
