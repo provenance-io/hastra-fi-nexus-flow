@@ -127,7 +127,7 @@ export const useTokenPortfolio = () => {
         value: 2547.83,
         apy: 0,
         totalInterestEarned: 0,
-        unclaimedInterest: 0,
+        unclaimedInterest: 0, // USDC has no claimable interest
         icon: '/lovable-uploads/4a374512-469e-4932-9bfc-215e5dd3591d.png',
         mint: 'usdc-mint',
         tokenAddress: 'usdc-address',
@@ -163,7 +163,7 @@ export const useTokenPortfolio = () => {
         value: 1067.04, // At ~$0.0234 per HASH
         apy: 18.5,
         totalInterestEarned: 234.56,
-        unclaimedInterest: 45.67,
+        unclaimedInterest: 0, // HASH has no claimable interest
         icon: '/src/assets/hash-icon.png',
         mint: 'hash-mint',
         tokenAddress: 'hash-address',
@@ -192,6 +192,11 @@ export const useTokenPortfolio = () => {
     (tokenSymbol: string, claimedAmount: number) => {
       setTokens((prevTokens) =>
         prevTokens.map((token) => {
+          // Only allow claiming for wYLDS and sYLDS tokens
+          if (token.token === 'USDC' || token.token === 'HASH') {
+            return token; // No claiming for USDC or HASH
+          }
+          
           // For sYLDS claims, add wYLDS instead of sYLDS
           if (tokenSymbol === 'sYLDS') {
             if (token.token === 'wYLDS') {
@@ -226,14 +231,21 @@ export const useTokenPortfolio = () => {
 
   const claimAllInterest = useCallback(() => {
     setTokens((prevTokens) =>
-      prevTokens.map((token) => ({
-        ...token,
-        amount: token.amount + token.unclaimedInterest,
-        value: token.value + token.unclaimedInterest, // Assuming 1:1 for simplicity
-        totalInterestEarned:
-          token.totalInterestEarned + token.unclaimedInterest,
-        unclaimedInterest: 0,
-      }))
+      prevTokens.map((token) => {
+        // Only allow claiming for tokens that have claimable interest (not USDC or HASH)
+        if (token.token === 'USDC' || token.token === 'HASH') {
+          return token; // No claiming for USDC or HASH
+        }
+        
+        return {
+          ...token,
+          amount: token.amount + token.unclaimedInterest,
+          value: token.value + token.unclaimedInterest, // Assuming 1:1 for simplicity
+          totalInterestEarned:
+            token.totalInterestEarned + token.unclaimedInterest,
+          unclaimedInterest: 0,
+        };
+      })
     );
   }, []);
 
