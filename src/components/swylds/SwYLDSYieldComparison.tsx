@@ -13,7 +13,7 @@ const SwYLDSLeveragedLooping = () => {
             Leveraged Looping with Kamino
           </h2>
           <p className="text-lg text-foreground/70 max-w-3xl mx-auto">
-            Maximize your swYLDS potential through leverage strategies while maintaining your base 9% yield
+            Maximize your sYLDS potential through leverage strategies while maintaining your base 9% yield
           </p>
         </div>
 
@@ -35,20 +35,20 @@ const SwYLDSLeveragedLooping = () => {
               {[
                 {
                   icon: Zap,
-                  title: "Deposit swYLDS",
-                  description: "Use your swYLDS as collateral on Kamino lending pools",
+                  title: "Deposit sYLDS",
+                  description: "Use your sYLDS as collateral on Kamino lending pools",
                   step: "1"
                 },
                 {
                   icon: Repeat,
                   title: "Borrow & Loop",
-                  description: "Borrow against your swYLDS and use proceeds to acquire more swYLDS",
+                  description: "Borrow against your sYLDS and use proceeds to acquire more sYLDS",
                   step: "2"
                 },
                 {
                   icon: TrendingUp,
                   title: "Enhanced Yield",
-                  description: "Amplify your position while maintaining base 9% yield on all swYLDS holdings",
+                  description: "Amplify your position while maintaining base 9% yield on all sYLDS holdings",
                   step: "3"
                 }
               ].map((step, index) => (
