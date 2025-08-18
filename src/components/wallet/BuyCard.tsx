@@ -135,7 +135,13 @@ const BuyCard = () => {
         {/* Sell Asset Selection */}
         <div className="space-y-4">
           <Label className="text-base md:text-sm font-semibold text-foreground">You're selling</Label>
-          <Select value={sellAsset} onValueChange={value => setSellAsset(value)}>
+          <Select value={sellAsset} onValueChange={value => {
+            setSellAsset(value);
+            // Auto-switch buy asset if it's the same as sell asset
+            if (value === buyAsset) {
+              setBuyAsset(value === USDC ? wYLDS : USDC);
+            }
+          }}>
             <SelectTrigger className="bg-muted/50 h-12 md:h-auto font-sans">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center gap-3">
@@ -179,18 +185,22 @@ const BuyCard = () => {
               </div>
             </SelectTrigger>
             <SelectContent className="bg-card/90 backdrop-blur-sm border border-border/20 z-50">
-              <SelectItem value={USDC} className="py-3 md:py-2">
-                <div className="flex items-center gap-3 py-1 md:py-1">
-                  <img src={icon(USDC)} alt={symbol(USDC)} className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover" />
-                  <span className="text-sm md:text-sm font-medium font-sans">{symbol(USDC)}</span>
-                </div>
-              </SelectItem>
-              <SelectItem value={wYLDS} className="py-3 md:py-2">
-                <div className="flex items-center gap-3 py-1 md:py-1">
-                  <img src={icon(wYLDS)} alt="wYLDS" className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover" />
-                  <span className="text-sm md:text-sm font-medium font-sans">wYLDS</span>
-                </div>
-              </SelectItem>
+              {USDC !== sellAsset && (
+                <SelectItem value={USDC} className="py-3 md:py-2">
+                  <div className="flex items-center gap-3 py-1 md:py-1">
+                    <img src={icon(USDC)} alt={symbol(USDC)} className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover" />
+                    <span className="text-sm md:text-sm font-medium font-sans">{symbol(USDC)}</span>
+                  </div>
+                </SelectItem>
+              )}
+              {wYLDS !== sellAsset && (
+                <SelectItem value={wYLDS} className="py-3 md:py-2">
+                  <div className="flex items-center gap-3 py-1 md:py-1">
+                    <img src={icon(wYLDS)} alt="wYLDS" className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover" />
+                    <span className="text-sm md:text-sm font-medium font-sans">wYLDS</span>
+                  </div>
+                </SelectItem>
+              )}
             </SelectContent>
           </Select>
         </div>
@@ -208,6 +218,16 @@ const BuyCard = () => {
                 <Button variant={denomination === 'token' ? 'default' : 'ghost'} size="sm" onClick={() => setDenomination('token')} className={`h-7 text-xs px-2 min-w-[50px] ${denomination === 'token' ? 'btn-hastra' : 'text-muted-foreground hover:text-auburn-primary'}`}>
                   {symbol(sellAsset)}
                 </Button>
+              </div>
+              <Button variant="ghost" size="sm" onClick={handleMaxClick} className="h-7 px-3 text-xs font-medium text-auburn-light hover:bg-auburn-primary/20 hover:text-auburn-light transition-all duration-200 bg-muted/30 rounded-md min-w-[50px]">
+                Max
+              </Button>
+            </div>
+          </div>
+          <Input type="number" min="0" step="any" placeholder={`Enter amount in ${denomination === 'usd' ? 'USD' : symbol(sellAsset)}`} value={amount} onChange={e => {
+          setAmount(e.target.value);
+          setTxId("");
+        }} className="bg-muted/50 h-12 md:h-auto text-base md:text-sm [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&]:[-moz-appearance:textfield]" />
         </div>
 
         {/* wYLDS to USDC Warning */}
@@ -224,34 +244,30 @@ const BuyCard = () => {
             </div>
           </div>
         )}
-              <Button variant="ghost" size="sm" onClick={handleMaxClick} className="h-7 px-3 text-xs font-medium text-auburn-light hover:bg-auburn-primary/20 hover:text-auburn-light transition-all duration-200 bg-muted/30 rounded-md min-w-[50px]">
-                Max
-              </Button>
-            </div>
-          </div>
-          <Input type="number" min="0" step="any" placeholder={`Enter amount in ${denomination === 'usd' ? 'USD' : symbol(sellAsset)}`} value={amount} onChange={e => {
-          setAmount(e.target.value);
-          setTxId("");
-        }} className="bg-muted/50 h-12 md:h-auto text-base md:text-sm [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&]:[-moz-appearance:textfield]" />
-        </div>
 
         {/* Receive Amount Display */}
-        {amount && receiveAmount.tokens > 0 && <div className="bg-background/30 border border-orange-800/30 rounded-xl p-4 md:p-6">
+        {amount && receiveAmount.tokens > 0 && (
+          <div className="bg-background/30 border border-orange-800/30 rounded-xl p-4 md:p-6">
             <div className="text-sm md:text-sm text-muted-foreground mb-2">You'll receive</div>
             <div className="font-semibold text-lg md:text-base text-[hsl(34_100%_84%)]">{receiveAmount.tokens.toFixed(2)} {symbol(buyAsset)}</div>
             <div className="text-xs md:text-xs text-muted-foreground">${receiveAmount.usd.toFixed(2)} USD</div>
-            {txId && <div className="text-xs text-muted-foreground font-mono mt-1">
-              <a href={`${import.meta.env.VITE_EXPLORER_URL}/tx/${txId}?cluster=${import.meta.env.VITE_SOLANA_CLUSTER_NAME}`} target="_blank" className={"underline"} rel="noopener noreferrer">
-                View {txId.slice(0, 8)}...{txId.slice(-8)} on Explorer
-              </a>
-            </div>}
-          </div>}
+            {txId && (
+              <div className="text-xs text-muted-foreground font-mono mt-1">
+                <a href={`${import.meta.env.VITE_EXPLORER_URL}/tx/${txId}?cluster=${import.meta.env.VITE_SOLANA_CLUSTER_NAME}`} target="_blank" className="underline" rel="noopener noreferrer">
+                  View {txId.slice(0, 8)}...{txId.slice(-8)} on Explorer
+                </a>
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Swap Button */}
         <Button onClick={handleSwap} size="lg" className="w-full px-6 py-4 md:py-3 text-base md:text-sm font-medium rounded-xl min-w-[200px] group" variant="secondary" disabled={!amount || receiveAmount.tokens === 0}>
           Swap {symbol(sellAsset)} for {symbol(buyAsset)}
         </Button>
-        </div>
-    </div>;
+      </div>
+    </div>
+  );
 };
+
 export default BuyCard;
