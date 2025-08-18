@@ -116,12 +116,7 @@ const SwYLDSHowItWorks = () => {
           ))}
         </div>
         
-        <div className="text-center mt-12">
-          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-500/10 to-blue-500/10 rounded-full px-6 py-3">
-            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium">Start earning in under 5 minutes</span>
-          </div>
-        </div>
+        
           </div>
         </div>
       </div>
