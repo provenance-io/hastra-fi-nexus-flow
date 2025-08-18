@@ -259,7 +259,10 @@ const BuyCard = () => {
               <div>
                 <div className="text-sm font-medium text-amber-500 mb-1">Processing Time Notice</div>
                 <div className="text-xs text-amber-500/80">
-                  When swapping wYLDS to USDC, it may take 1-2 business days for USDC to appear in your wallet balance.
+                  When swapping wYLDS to USDC, it may take 1-2 business days for USDC to appear in your wallet balance.{" "}
+                  <a href="https://help.hastra.io/wylds/collection/offramping-your-wylds" target="_blank" rel="noopener noreferrer" className="underline hover:text-amber-400 transition-colors">
+                    Learn more
+                  </a>
                 </div>
               </div>
             </div>
