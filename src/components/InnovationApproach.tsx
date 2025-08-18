@@ -5,7 +5,7 @@ const InnovationApproach = () => {
     <section className="pt-0 pb-8 sm:pb-12">
       <div className="container">
         <div className="max-w-5xl mx-auto">
-          <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
+          <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-12 relative">
             <div className="relative z-10">
               <div className="text-center mb-12">
                 <p
