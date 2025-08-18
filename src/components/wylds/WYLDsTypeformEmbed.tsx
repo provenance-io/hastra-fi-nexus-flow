@@ -66,7 +66,7 @@ const WYLDsTypeformEmbed = () => {
                 "0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)",
             }}
           >
-            Want to bring sYLDS to your platform or chain? Fill out our form to
+            Want to bring wYLDS to your platform or chain? Fill out our form to
             get started.
           </p>
         </div>
