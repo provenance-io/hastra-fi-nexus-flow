@@ -24,7 +24,7 @@ import { formatNumber } from "./WYLDsStatsDashboard";
 const YieldTokenIcon = ({ className }: { className?: string }) => (
   <img
     src={yieldIcon}
-    alt="sYLDS Token"
+    alt="wYLDS Token"
     className={`${className} object-contain`}
   />
 );
@@ -66,8 +66,8 @@ const WYLDsYieldExplanation = () => {
     {
       number: 1,
       icon: YieldTokenIcon,
-      title: "Hold sYLDS tokens",
-      description: "Simply hold sYLDS tokens in any compatible Solana wallet",
+      title: "Hold wYLDS tokens",
+      description: "Simply hold wYLDS tokens in any compatible Solana wallet",
       color: "from-header-glow to-crypto-accent",
       bgPattern: "bg-header-glow/10",
     },
@@ -85,7 +85,7 @@ const WYLDsYieldExplanation = () => {
       icon: Calendar,
       title: "Monthly Distributions",
       description:
-        "Claim your yield on hastra.io on a monthly basis in sYLDS tokens",
+        "Claim your yield on hastra.io on a monthly basis in wYLDS tokens",
       color: "from-header-glow to-crypto-accent",
       bgPattern: "bg-header-glow/10",
     },
@@ -94,7 +94,7 @@ const WYLDsYieldExplanation = () => {
       icon: Repeat,
       title: "Use daily, or redeem for USDC",
       description:
-        "Easily redeem your sYLDS through Raydium and Kamino protocols",
+        "Easily redeem your wYLDS through Raydium and Kamino protocols",
       color: "from-crypto-accent to-header-glow",
       bgPattern: "bg-crypto-accent/10",
     },
@@ -440,7 +440,7 @@ const WYLDsYieldExplanation = () => {
                 "0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)",
             }}
           >
-            Watch sYLDS as it Grows
+            Watch wYLDS as it Grows
           </p>
         </div>
 
@@ -460,7 +460,7 @@ const WYLDsYieldExplanation = () => {
                   className="text-xs md:text-sm font-medium leading-tight"
                   style={{ color: "hsl(34, 100%, 84%)" }}
                 >
-                  Total sYLDS in Circulation
+                  Total wYLDS in Circulation
                 </div>
                 <div className="text-2xl md:text-3xl lg:text-4xl font-bold flex items-center justify-center gap-1 md:gap-2">
                   <span
