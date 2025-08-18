@@ -64,10 +64,15 @@ const SwYLDSHero = () => {
           
           {/* Hero CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button asChild size="lg" className="bg-gradient-to-r from-crypto-accent to-auburn-primary hover:from-crypto-accent/90 hover:to-auburn-primary/90 text-white px-8 py-4 rounded-xl font-semibold">
-              <Link to="/earn">
+            <Button 
+              asChild 
+              size="lg" 
+              variant="secondary"
+              className="min-w-[200px] group"
+            >
+              <Link to="/earn" className="flex items-center justify-center">
                 Start Earning {displayApy}% APY
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
             <Button variant="outline" size="lg" className="border-border/40 bg-background/50 backdrop-blur-sm px-8 py-4 rounded-xl">
