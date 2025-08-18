@@ -1,36 +1,38 @@
-import {useWallet} from '@/contexts/WalletContext';
+import { useWallet } from '@/contexts/WalletContext';
 import WalletOverview from './WalletOverview';
 import BuyCard from './BuyCard';
 import SendCard from './SendCard';
 import TradingPlatformsSection from '../start-earning/TradingPlatformsSection';
 import StakingSection from '../staking/StakingSection';
-import {useTokenPortfolio} from "@/hooks/useTokenPortfolio.ts";
-
+import { useTokenPortfolio } from "@/hooks/useTokenPortfolio.ts";
 const HastraDashboard = () => {
-  const { isConnected } = useWallet();
-  const { tokens } = useTokenPortfolio();
+  const {
+    isConnected
+  } = useWallet();
+  const {
+    tokens
+  } = useTokenPortfolio();
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       const elementPosition = element.offsetTop;
       const offsetPosition = elementPosition - 100; // Offset to keep title visible
-      
+
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
       });
     }
   };
-
   if (!isConnected) {
     return null;
   }
-
-  return (
-    <div className="w-full">
+  return <div className="w-full">
       {/* Header */}
       <div className="mb-6 md:mb-8 text-center">
-        <p className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}>
+        <p className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed" style={{
+        textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)'
+      }}>
           Your decentralized finance command center
         </p>
       </div>
@@ -45,20 +47,16 @@ const HastraDashboard = () => {
 
 
       {/* Buy and Send Interfaces */}
-        { (tokens && tokens.length > 0) &&
-            <div id="buy-send-section" className="mb-8 md:mb-12">
+        {tokens && tokens.length > 0 && <div id="buy-send-section" className="mb-8 md:mb-12">
                 <div className="card-gradient rounded-3xl border border-border/30 shadow-lg p-6 md:p-12">
-                    <h2 className="text-lg md:text-xl font-semibold text-foreground mb-6 md:mb-8">
-                        Buy & Send
-                    </h2>
+                    <h2 className="text-lg md:text-xl font-semibold text-foreground mb-6 md:mb-8">Buy (Swap) & Send</h2>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
                         <BuyCard />
                         <SendCard />
                     </div>
                 </div>
-            </div>
-        }
+            </div>}
 
       {/* Staking Section */}
       <StakingSection />
@@ -76,8 +74,6 @@ const HastraDashboard = () => {
           Always verify transactions before confirming
         </p>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default HastraDashboard;
