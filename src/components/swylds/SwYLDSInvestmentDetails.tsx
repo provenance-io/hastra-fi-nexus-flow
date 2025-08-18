@@ -5,13 +5,13 @@ const SwYLDSInvestmentDetails = () => {
   return (
     <section className="py-16 px-4 relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 relative z-10">
-        {/* Combined Dashboard Box - What swYLDS Invests In */}
+        {/* Combined Dashboard Box - What sYLDS Invests In */}
         <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
           <div className="relative z-10">
             {/* Section Header */}
             <div className="mb-8 text-center">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">
-                What swYLDS Invests In
+                What sYLDS Invests In
               </h2>
             </div>
 
@@ -78,7 +78,7 @@ const SwYLDSInvestmentDetails = () => {
             {/* Description */}
             <div className="mt-12 mb-16">
               <p className="text-lg text-foreground/90 leading-relaxed mb-4">
-                swYLDS generates yield through Democratized Prime, Figure Markets' lending platform that 
+                sYLDS generates yield through Democratized Prime, Figure Markets' lending platform that 
                 originates Home Equity Lines of Credit (HELOCs) to prime borrowers. These loans are backed 
                 by real estate collateral and provide sustainable, real-world returns.
               </p>

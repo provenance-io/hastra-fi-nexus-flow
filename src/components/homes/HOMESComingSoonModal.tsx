@@ -46,7 +46,7 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-header-glow/20 to-crypto-accent/10 mb-3">
                 <img src="/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png" alt="HOMES Token" className="h-12 w-12 rounded-full object-cover" />
               </div>
-              <h2 className="text-xl font-bold text-foreground mb-2">Earn Up to 8% APY with swYLDS</h2>
+              <h2 className="text-xl font-bold text-foreground mb-2">Earn Up to 8% APY with sYLDS</h2>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Stake wYLDS to earn sustainable yield backed by real-world HELOC lending operations.
               </p>

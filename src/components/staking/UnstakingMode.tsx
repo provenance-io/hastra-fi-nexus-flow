@@ -32,10 +32,10 @@ const UnstakingMode: React.FC = () => {
         </div>
         <div className="text-right">
           <div className="font-semibold text-foreground">
-            {formatStakingAmount(userBalance.swYLDS)} swYLDS
+            {formatStakingAmount(userBalance.sYLDS)} sYLDS
           </div>
           <div className="text-xs text-muted-foreground">
-            ${(parseFloat(userBalance.swYLDS) * 1.0).toFixed(2)}
+            ${(parseFloat(userBalance.sYLDS) * 1.0).toFixed(2)}
           </div>
         </div>
       </div>
@@ -78,7 +78,7 @@ const UnstakingMode: React.FC = () => {
               disabled={isTransacting}
             />
             <div className="absolute right-3 top-1/2 -translate-y-1/2">
-              <span className="text-sm text-muted-foreground">swYLDS</span>
+              <span className="text-sm text-muted-foreground">sYLDS</span>
             </div>
           </div>
           
@@ -110,7 +110,7 @@ const UnstakingMode: React.FC = () => {
               
               <div className="flex items-center justify-center py-2">
                 <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                  <span>{formatStakingAmount(unstakingForm.amount)} swYLDS</span>
+                  <span>{formatStakingAmount(unstakingForm.amount)} sYLDS</span>
                   <ArrowRight className="h-4 w-4" />
                   <span>{formatStakingAmount(unstakingForm.estimatedOutput)} wYLDS</span>
                 </div>
@@ -119,7 +119,7 @@ const UnstakingMode: React.FC = () => {
               <div className="border-t border-border/30 pt-3 space-y-2">
                 <div className="flex justify-between text-xs">
                   <span className="text-muted-foreground">Exchange Rate</span>
-                  <span className="font-medium">1 swYLDS = {protocolData.exchangeRate} wYLDS</span>
+                  <span className="font-medium">1 sYLDS = {protocolData.exchangeRate} wYLDS</span>
                 </div>
                 <div className="flex justify-between text-xs">
                   <span className="text-muted-foreground">Unstaking Fee</span>
@@ -156,7 +156,7 @@ const UnstakingMode: React.FC = () => {
             </>
           ) : (
             <>
-              Unstake {unstakingForm.amount || '0'} swYLDS
+              Unstake {unstakingForm.amount || '0'} sYLDS
               <ArrowRight className="ml-2 h-4 w-4 text-[hsl(48_100%_67%)]" />
             </>
           )}

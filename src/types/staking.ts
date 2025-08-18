@@ -2,7 +2,7 @@ export interface StakingState {
   // User Data
   userBalance: {
     wYLDS: string;
-    swYLDS: string;
+    sYLDS: string;
     isLoading: boolean;
   };
   
@@ -125,7 +125,7 @@ export type TransactionStatus =
 
 export interface UserBalance {
   wYLDS: string;
-  swYLDS: string;
+  sYLDS: string;
   isLoading: boolean;
 }
 

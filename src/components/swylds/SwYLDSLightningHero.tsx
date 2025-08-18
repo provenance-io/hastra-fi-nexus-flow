@@ -53,7 +53,7 @@ const SwYLDSLightningHero = () => {
   
   const getTokenImage = () => {
     return animationPhase >= 4 
-      ? '/lovable-uploads/cb25764a-a760-4bdf-9502-6b82befb91eb.png' // swYLDS
+      ? '/lovable-uploads/fa075607-859f-443d-828d-52aff1ecade8.png' // sYLDS
       : '/lovable-uploads/cb96356b-822d-4dc0-963a-96ef43bfedbd.png'  // wYLDS
   }
   
@@ -441,10 +441,10 @@ const SwYLDSLightningHero = () => {
               }}
             />
             
-            {/* swYLDS Token */}
+            {/* sYLDS Token */}
             <img 
-              src="/lovable-uploads/cb25764a-a760-4bdf-9502-6b82befb91eb.png" 
-              alt="swYLDS Token"
+              src="/lovable-uploads/fa075607-859f-443d-828d-52aff1ecade8.png" 
+              alt="sYLDS Token"
               className="absolute inset-0 w-full h-full object-contain transition-all duration-1000 ease-in-out"
               style={{
                 opacity: isTransformed ? 1 : 0,

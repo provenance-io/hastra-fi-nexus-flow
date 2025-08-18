@@ -8,16 +8,16 @@ import {
 const HOMESFAQ = () => {
   const faqData = [
     {
-      question: "What is swYLDS?",
-      answer: "swYLDS is a staked yield-bearing token that represents staked wYLDS. When you stake wYLDS tokens, you receive swYLDS in return, which automatically earns yield through various DeFi protocols. swYLDS provides enhanced yield opportunities while maintaining complete transparency and liquidity through blockchain technology."
+      question: "What is sYLDS?",
+      answer: "sYLDS is a staked yield-bearing token that represents staked wYLDS. When you stake wYLDS tokens, you receive sYLDS in return, which automatically earns yield through various DeFi protocols. sYLDS provides enhanced yield opportunities while maintaining complete transparency and liquidity through blockchain technology."
     },
     {
-      question: "How does swYLDS earn yield and what are the Rewards options?",
-      answer: "swYLDS generates yield through multiple DeFi strategies including lending protocols, liquidity provision, and yield farming (8-15% annual yield). Rewards are automatically compounded and distributed through smart contracts. Token holders can stake, trade, or convert their rewards to stablecoins while earning continuous yield from the underlying wYLDS tokens."
+      question: "How does sYLDS earn yield and what are the Rewards options?",
+      answer: "sYLDS generates yield through multiple DeFi strategies including lending protocols, liquidity provision, and yield farming (8-15% annual yield). Rewards are automatically compounded and distributed through smart contracts. Token holders can stake, trade, or convert their rewards to stablecoins while earning continuous yield from the underlying wYLDS tokens."
     },
     {
-      question: "What is swYLDS and Rewards?",
-      answer: "swYLDS is a yield-bearing wrapper token that automatically compounds returns from multiple DeFi protocols. Rewards are distributed through smart contracts that allocate yield based on your token holdings. swYLDS tokens earn continuous yield that can be claimed at any time or automatically compounded for maximum returns."
+      question: "What is sYLDS and Rewards?",
+      answer: "sYLDS is a yield-bearing wrapper token that automatically compounds returns from multiple DeFi protocols. Rewards are distributed through smart contracts that allocate yield based on your token holdings. sYLDS tokens earn continuous yield that can be claimed at any time or automatically compounded for maximum returns."
     },
     {
       question: "How is wYLDS earned and distributed?",
@@ -41,7 +41,7 @@ const HOMESFAQ = () => {
             Frequently Asked Questions
           </h2>
           <p className="text-xl text-muted-foreground">
-            Everything you need to know about swYLDS staking and our yield optimization platform
+            Everything you need to know about sYLDS staking and our yield optimization platform
           </p>
         </div>
 

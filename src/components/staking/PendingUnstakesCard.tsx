@@ -68,7 +68,7 @@ const PendingUnstakesCard: React.FC = () => {
             {/* Summary Stats */}
             <div className="text-right space-y-1">
               <div className="text-sm font-semibold text-foreground">
-                {formatStakingAmount(pendingUnstakes.totalPending)} swYLDS
+                {formatStakingAmount(pendingUnstakes.totalPending)} sYLDS
               </div>
               <div className="text-xs text-muted-foreground">
                 Total Pending
@@ -99,7 +99,7 @@ const PendingUnstakesCard: React.FC = () => {
                  <CheckCircle className="h-4 w-4 text-[hsl(48_100%_67%)]" />
                 <div>
                   <p className="text-sm font-medium text-[hsl(48_100%_67%)]">
-                    {formatStakingAmount(pendingUnstakes.totalReadyToClaim)} swYLDS
+                    {formatStakingAmount(pendingUnstakes.totalReadyToClaim)} sYLDS
                   </p>
                   <p className="text-xs text-muted-foreground">
                     {readyToClaim.length} unstake{readyToClaim.length !== 1 ? 's' : ''} completed cooldown
@@ -157,7 +157,7 @@ const PendingUnstakesCard: React.FC = () => {
                     )}
                     <div>
                       <p className="font-medium text-foreground">
-                        {formatStakingAmount(unstake.amount)} swYLDS
+                        {formatStakingAmount(unstake.amount)} sYLDS
                       </p>
                       <p className="text-xs text-muted-foreground">
                         Initiated {formatTimestamp(unstake.initiatedAt)}

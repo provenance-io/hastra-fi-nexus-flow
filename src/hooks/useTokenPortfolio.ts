@@ -31,8 +31,8 @@ export const useTokenPortfolioQuery = (
   tokenMintAddresses: string[] = [
     `${import.meta.env.VITE_SOLANA_USDC_MINT}`,
     `${import.meta.env.VITE_SOLANA_YIELD_MINT}`,
-    // Add swYLDS mint address when available
-    // `${import.meta.env.VITE_SOLANA_SWYLDS_MINT}`,
+    // Add sYLDS mint address when available
+    // `${import.meta.env.VITE_SOLANA_SYLDS_MINT}`,
   ]
 ) => {
   return useQuery<TokenData[], Error>({
@@ -112,7 +112,7 @@ export const useTokenPortfolio = () => {
 
   const { data: solBalance } = useSolBalanceQuery(new PublicKey(address));
 
-  // Get swYLDS balance from staking
+  // Get sYLDS balance from staking
   const { userBalance } = useStaking();
 
   // Mock data for testing when wallet is connected
@@ -145,16 +145,16 @@ export const useTokenPortfolio = () => {
         tokenAddress: 'wylds-address',
       },
       {
-        address: 'swYLDS',
-        token: 'swYLDS',
+        address: 'sYLDS',
+        token: 'sYLDS',
         amount: 856.12,
         value: 856.12,
         apy: 8.5,
         totalInterestEarned: 67.89,
         unclaimedInterest: 15.78,
-        icon: '/lovable-uploads/49dceb8c-5ccf-4ceb-97e6-9447aa7fc33d.png',
-        mint: 'swYLDS-mint',
-        tokenAddress: 'swYLDS-address',
+        icon: '/lovable-uploads/fa075607-859f-443d-828d-52aff1ecade8.png',
+        mint: 'sYLDS-mint',
+        tokenAddress: 'sYLDS-address',
       },
       {
         address: 'hash-mock',
@@ -192,8 +192,8 @@ export const useTokenPortfolio = () => {
     (tokenSymbol: string, claimedAmount: number) => {
       setTokens((prevTokens) =>
         prevTokens.map((token) => {
-          // For swYLDS claims, add wYLDS instead of swYLDS
-          if (tokenSymbol === 'swYLDS') {
+          // For sYLDS claims, add wYLDS instead of sYLDS
+          if (tokenSymbol === 'sYLDS') {
             if (token.token === 'wYLDS') {
               return {
                 ...token,
@@ -201,7 +201,7 @@ export const useTokenPortfolio = () => {
                 value: token.value + claimedAmount,
                 totalInterestEarned: token.totalInterestEarned + claimedAmount,
               };
-            } else if (token.token === 'swYLDS') {
+            } else if (token.token === 'sYLDS') {
               return {
                 ...token,
                 totalInterestEarned: token.totalInterestEarned + claimedAmount,
@@ -253,7 +253,7 @@ export const useTokenPortfolio = () => {
   }, [tokens]);
 
   return {
-    tokens: tokens, // Return the tokens with swYLDS included
+    tokens: tokens, // Return the tokens with sYLDS included
     claimInterest,
     claimAllInterest,
     getTotalPortfolioValue,

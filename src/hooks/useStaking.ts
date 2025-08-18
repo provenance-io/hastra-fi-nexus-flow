@@ -15,7 +15,7 @@ import {
 const INITIAL_STATE: StakingState = {
   userBalance: {
     wYLDS: '0',
-    swYLDS: '0',
+    sYLDS: '0',
     isLoading: false,
   },
   widgetMode: 'stake',
@@ -138,7 +138,7 @@ export const useStaking = () => {
         ...prev,
         userBalance: {
           wYLDS: yieldBalance?.toString() || '0',
-          swYLDS: '200.0', // Mock swYLDS balance (reflects pending unstakes)
+          sYLDS: '200.0', // Mock sYLDS balance (reflects pending unstakes)
           isLoading: false,
         },
       }));

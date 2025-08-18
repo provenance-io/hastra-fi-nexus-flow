@@ -35,7 +35,7 @@ const StakingMode: React.FC = () => {
         </div>
         <div className="text-center p-3 bg-secondary/20 rounded-lg border border-border/20">
           <div className="text-lg font-semibold text-foreground">
-            {formatStakingAmount(userBalance.swYLDS)}
+            {formatStakingAmount(userBalance.sYLDS)}
           </div>
           <div className="text-xs text-muted-foreground">
             Total Staked
@@ -113,7 +113,7 @@ const StakingMode: React.FC = () => {
                 <div className="flex items-center space-x-2">
                   <TrendingUp className="h-4 w-4 text-amber-warm" />
                   <span className="text-sm font-medium text-amber-warm">
-                    ~{formatStakingAmount(stakingForm.estimatedOutput)} swYLDS
+                    ~{formatStakingAmount(stakingForm.estimatedOutput)} sYLDS
                   </span>
                 </div>
               </div>
@@ -122,14 +122,14 @@ const StakingMode: React.FC = () => {
                 <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                   <span>{formatStakingAmount(stakingForm.amount)} wYLDS</span>
                   <ArrowRight className="h-4 w-4" />
-                  <span>{formatStakingAmount(stakingForm.estimatedOutput)} swYLDS</span>
+                  <span>{formatStakingAmount(stakingForm.estimatedOutput)} sYLDS</span>
                 </div>
               </div>
 
               <div className="border-t border-border/30 pt-3 space-y-2">
                 <div className="flex justify-between text-xs">
                   <span className="text-muted-foreground">Exchange Rate</span>
-                  <span className="font-medium">1 wYLDS = {protocolData.exchangeRate} swYLDS</span>
+                  <span className="font-medium">1 wYLDS = {protocolData.exchangeRate} sYLDS</span>
                 </div>
                 <div className="flex justify-between text-xs">
                   <span className="text-muted-foreground">Estimated Gas Fee</span>

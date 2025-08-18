@@ -36,7 +36,7 @@ const SwYLDSHero = () => {
             <span className="text-hastra-gradient">
               {displayApy}% APY
             </span>{' '}
-            with swYLDS
+            with sYLDS
           </h1>
           
           {/* Subheadline */}

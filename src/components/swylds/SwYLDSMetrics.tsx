@@ -83,10 +83,10 @@ const SwYLDSMetrics = () => {
       <div className="container">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Live swYLDS Metrics
+            Live sYLDS Metrics
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Real-time data showing the performance and growth of the swYLDS ecosystem
+            Real-time data showing the performance and growth of the sYLDS ecosystem
           </p>
         </div>
         

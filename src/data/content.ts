@@ -50,7 +50,7 @@ export const products = (apy?: number) => ({
     // ],
   },
   swylds: {
-    name: "swYLDS",
+    name: "sYLDS",
     tagline: "Staked wYLDS Token",
     description:
       "Stake your wYLDS tokens to earn enhanced yields. Access professional-grade DeFi strategies with automated compounding and additional HASH token rewards.",
@@ -96,7 +96,7 @@ export const footerLinks = {
   ],
   products: [
     { label: "wYLDS", href: "/yield" },
-    { label: "swYLDS", href: "/swylds" },
+    { label: "sYLDS", href: "/swylds" },
   ],
   legal: [
     { label: "Terms", href: "/terms" },
