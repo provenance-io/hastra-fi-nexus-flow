@@ -87,7 +87,7 @@ const SwYLDSHowItWorks = () => {
           {steps.map((step, index) => (
             <Card key={index} className="p-6 bg-card/50 backdrop-blur-sm border-border/40">
               <div className="flex items-start space-x-4">
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-crypto-accent to-auburn-primary text-white font-bold text-lg flex-shrink-0">
+                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 text-white font-bold text-lg flex-shrink-0">
                   {step.number}
                 </div>
                 
