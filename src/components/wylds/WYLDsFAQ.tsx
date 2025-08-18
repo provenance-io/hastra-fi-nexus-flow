@@ -8,28 +8,28 @@ import {
 const WYLDsFAQ = () => {
   const faqs = [
     {
-      question: "What is sYLDS?",
-      answer: "sYLDS is a token representing a vault of the YLDS token - the first SEC-registered, yield-bearing stablecoin. It combines the liquidity of traditional stablecoins with the earning power of a money market fund, automatically generating returns for holders."
+      question: "What is wYLDS?",
+      answer: "wYLDS is a token representing a vault of the YLDS token - the first SEC-registered, yield-bearing stablecoin. It combines the liquidity of traditional stablecoins with the earning power of a money market fund, automatically generating returns for holders."
     },
     {
-      question: "Do I need to stake sYLDS in order to earn?",
-      answer: "No, you don't need to stake sYLDS to earn returns. Simply holding sYLDS tokens in any compatible Solana wallet automatically makes you eligible for yield distributions. The earning process is completely passive - no additional actions required."
+      question: "Do I need to stake wYLDS in order to earn?",
+      answer: "No, you don't need to stake wYLDS to earn returns. Simply holding wYLDS tokens in any compatible Solana wallet automatically makes you eligible for yield distributions. The earning process is completely passive - no additional actions required."
     },
     {
-      question: "What happens if I send sYLDS to a friend?",
-      answer: "When you send sYLDS tokens to a friend, they become the new holder and will start earning yield on those tokens from the next distribution cycle. You will no longer earn yield on the tokens you've transferred, as earnings are tied to current token ownership."
+      question: "What happens if I send wYLDS to a friend?",
+      answer: "When you send wYLDS tokens to a friend, they become the new holder and will start earning yield on those tokens from the next distribution cycle. You will no longer earn yield on the tokens you've transferred, as earnings are tied to current token ownership."
     },
     {
       question: "How is my yield calculated?",
-      answer: "Your yield is calculated based on the number of sYLDS tokens you hold and the overall performance of the underlying YLDS vault. The calculation is automatic and proportional to your token holdings relative to the total supply."
+      answer: "Your yield is calculated based on the number of wYLDS tokens you hold and the overall performance of the underlying YLDS vault. The calculation is automatic and proportional to your token holdings relative to the total supply."
     },
     {
       question: "Where can I see the yield I've earned?",
-      answer: "You can view your accruing yield on the Hastra Protocol Page. You can track your distributed yield directly in your Solana wallet balance. The yield is distributed as additional sYLDS tokens, so your wallet balance will reflect both your original holdings and any earned yield up through the previous month. Additionally, you can monitor distributions through supported DeFi platforms."
+      answer: "You can view your accruing yield on the Hastra Protocol Page. You can track your distributed yield directly in your Solana wallet balance. The yield is distributed as additional wYLDS tokens, so your wallet balance will reflect both your original holdings and any earned yield up through the previous month. Additionally, you can monitor distributions through supported DeFi platforms."
     },
     {
       question: "When do I receive my yield?",
-      answer: "sYLDS distributions occur on a monthly basis. The exact distribution date may vary slightly each month, but you can expect to see your earned yield reflected in your wallet balance consistently every month as long as you hold sYLDS tokens."
+      answer: "wYLDS distributions occur on a monthly basis. The exact distribution date may vary slightly each month, but you can expect to see your earned yield reflected in your wallet balance consistently every month as long as you hold wYLDS tokens."
     }
   ];
 
@@ -45,7 +45,7 @@ const WYLDsFAQ = () => {
              style={{ 
                textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' 
              }}>
-            Get answers to common questions about sYLDS tokens and how they work
+            Get answers to common questions about wYLDS tokens and how they work
           </p>
         </div>
 
@@ -84,7 +84,7 @@ const WYLDsFAQ = () => {
                         >
                           Hastra Protocol Page
                         </a>
-                        . You can track your <strong>distributed yield</strong> directly in your Solana wallet balance. The yield is distributed as additional sYLDS tokens, so your wallet balance will reflect both your original holdings and any earned yield up through the previous month. Additionally, you can monitor distributions through supported DeFi platforms.
+                        . You can track your <strong>distributed yield</strong> directly in your Solana wallet balance. The yield is distributed as additional wYLDS tokens, so your wallet balance will reflect both your original holdings and any earned yield up through the previous month. Additionally, you can monitor distributions through supported DeFi platforms.
                       </span>
                     ) : (
                       faq.answer
