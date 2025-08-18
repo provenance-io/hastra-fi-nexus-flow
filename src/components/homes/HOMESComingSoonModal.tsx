@@ -44,7 +44,7 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({
             {/* Header Section */}
             <div className="text-center mb-6">
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-header-glow/20 to-crypto-accent/10 mb-3">
-                <img src="/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png" alt="HOMES Token" className="h-12 w-12 rounded-full object-cover" />
+                <img src="/lovable-uploads/fa075607-859f-443d-828d-52aff1ecade8.png" alt="sYLDS Token" className="h-12 w-12 rounded-full object-cover" />
               </div>
               <h2 className="text-xl font-bold text-foreground mb-2">Earn Up to 8% APY with sYLDS</h2>
               <p className="text-muted-foreground text-sm leading-relaxed">
