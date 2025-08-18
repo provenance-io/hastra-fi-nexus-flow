@@ -74,8 +74,11 @@ const SendCard = () => {
   }
 
   const icon = (address: string, defaultIcon: string = hastraIcon) => {
-    if (address === USDC) return '/lovable-uploads/4bfd88a4-fef5-42d3-81d9-236145936adc.png';
+    if (address === 'swYLDS') return '/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png';
     if (address === wYLDS) return '/lovable-uploads/d73baf3a-34c8-4ad7-8378-e419bb8268ff.png';
+    if (address === USDC) return '/lovable-uploads/4bfd88a4-fef5-42d3-81d9-236145936adc.png';
+    if (address === 'sYLDS') return '/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png';
+    if (address === 'hash-mock') return '/src/assets/hash-icon.png';
     const t = tokens.find(t => t.address === address);
     return t?.icon ? t.icon : defaultIcon;
   }
@@ -188,10 +191,10 @@ const SendCard = () => {
             </SelectTrigger>
             <SelectContent className="bg-card/90 backdrop-blur-sm border border-border/20 z-50">
               {tokens.map((token) => (
-                <SelectItem value={token.address} className="py-3 md:py-2">
+                <SelectItem key={token.address} value={token.address} className="py-3 md:py-2">
                   <div className="flex items-center justify-between w-full py-1 md:py-1">
                     <div className="flex items-center gap-3">
-                      <img src={icon(token.icon)} alt={token.token} className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover" />
+                      <img src={icon(token.address)} alt={token.token} className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover" />
                       <span className="text-sm md:text-sm font-medium font-sans">{symbol(token.address)}</span>
                     </div>
                     <span className="text-xs md:text-xs text-muted-foreground font-mono ml-4">{token.amount}</span>
