@@ -133,7 +133,7 @@ const WYLDsYieldExplanation = () => {
   }, []);
 
   return (
-    <section className="py-16 px-4 relative overflow-hidden">
+    <section className="pt-16 pb-8 px-4 relative overflow-hidden">
       {/* Background gradient */}
       {/* Unified seamless background - removed conflicting gradient */}
 
