@@ -450,7 +450,7 @@ const WYLDsYieldExplanation = () => {
             {/* Section Header - Matching About page AnimatedCard style */}
             <div className="mb-8 text-center">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">
-                By the Numbers
+                Watch wYLDS as it Grows
               </h2>
             </div>
 
