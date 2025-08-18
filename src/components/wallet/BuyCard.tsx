@@ -129,7 +129,7 @@ const BuyCard = () => {
   return <div className="space-y-8">
       <div className="flex items-center gap-4 mb-8">
         <ArrowUpDown className="w-6 h-6 md:w-5 md:h-5 text-header-glow" />
-        <h3 className="text-xl md:text-xl font-bold">Buy (Swap) Tokens</h3>
+        <h3 className="text-xl md:text-xl font-bold">Buy Tokens</h3>
       </div>
       <div className="bg-background/30 rounded-2xl border border-border/20 p-6 space-y-6">
         {/* Sell Asset Selection */}
