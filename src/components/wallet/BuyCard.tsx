@@ -149,10 +149,19 @@ const BuyCard = () => {
               <SelectItem value={USDC} className="py-3 md:py-2">
                 <div className="flex items-center justify-between w-full py-1 md:py-1">
                   <div className="flex items-center gap-3">
-                    <img src={icon(sellAsset)} alt={symbol(sellAsset)} className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover" />
-                    <span className="text-sm md:text-sm font-medium font-sans">{symbol(sellAsset)}</span>
+                    <img src={icon(USDC)} alt={symbol(USDC)} className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover" />
+                    <span className="text-sm md:text-sm font-medium font-sans">{symbol(USDC)}</span>
                   </div>
                   <span className="text-xs md:text-xs text-muted-foreground font-mono ml-4">{balance(USDC)}</span>
+                </div>
+              </SelectItem>
+              <SelectItem value={wYLDS} className="py-3 md:py-2">
+                <div className="flex items-center justify-between w-full py-1 md:py-1">
+                  <div className="flex items-center gap-3">
+                    <img src={icon(wYLDS)} alt={symbol(wYLDS)} className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover" />
+                    <span className="text-sm md:text-sm font-medium font-sans">{symbol(wYLDS)}</span>
+                  </div>
+                  <span className="text-xs md:text-xs text-muted-foreground font-mono ml-4">{balance(wYLDS)}</span>
                 </div>
               </SelectItem>
             </SelectContent>
@@ -170,6 +179,12 @@ const BuyCard = () => {
               </div>
             </SelectTrigger>
             <SelectContent className="bg-card/90 backdrop-blur-sm border border-border/20 z-50">
+              <SelectItem value={USDC} className="py-3 md:py-2">
+                <div className="flex items-center gap-3 py-1 md:py-1">
+                  <img src={icon(USDC)} alt={symbol(USDC)} className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover" />
+                  <span className="text-sm md:text-sm font-medium font-sans">{symbol(USDC)}</span>
+                </div>
+              </SelectItem>
               <SelectItem value={wYLDS} className="py-3 md:py-2">
                 <div className="flex items-center gap-3 py-1 md:py-1">
                   <img src={icon(wYLDS)} alt="wYLDS" className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover" />
