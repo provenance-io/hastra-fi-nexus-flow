@@ -11,6 +11,7 @@ import { useCoinGeckoPrice } from "@/hooks/useSolanaQuery.ts";
 import { USDC, wYLDS } from "@/types/tokens";
 import { useDepositAndMint } from "@/hooks/use-solana-tx.ts";
 import { AnchorError } from "@coral-xyz/anchor";
+
 const BuyCard = () => {
   const [exchangeRate, setExchangeRate] = useState<object>({});
   const [sellAsset, setSellAsset] = useState<string>(USDC);
@@ -18,18 +19,12 @@ const BuyCard = () => {
   const [amount, setAmount] = useState('');
   const [denomination, setDenomination] = useState<'token' | 'usd'>('usd');
   const [txId, setTxId] = useState('');
-  const {
-    toast
-  } = useToast();
-  const {
-    data: geckoPrice
-  } = useCoinGeckoPrice();
-  const {
-    tokens
-  } = useTokenPortfolio();
-  const {
-    invoke
-  } = useDepositAndMint();
+  
+  const { toast } = useToast();
+  const { data: geckoPrice } = useCoinGeckoPrice();
+  const { tokens } = useTokenPortfolio();
+  const { invoke } = useDepositAndMint();
+
   useEffect(() => {
     const o = {};
     o['SOL'] = geckoPrice?.solana?.usd as number || 0; // SOL to USD
@@ -41,6 +36,7 @@ const BuyCard = () => {
     setExchangeRate(o);
     console.dir(tokens);
   }, [setExchangeRate, geckoPrice, tokens]);
+
   const calculateReceiveAmount = () => {
     if (!amount || isNaN(parseFloat(amount))) return {
       tokens: 0,
@@ -59,6 +55,7 @@ const BuyCard = () => {
       usd: usdValue
     };
   };
+
   const handleMaxClick = () => {
     const maxBalance = tokens.find(t => t.address === sellAsset);
     const gasBuffer = sellAsset === 'SOL' ? 0.01 : 0; // Reserve SOL for gas
@@ -69,6 +66,7 @@ const BuyCard = () => {
       setAmount(maxAmount.toFixed(6));
     }
   };
+
   const handleSwap = () => {
     setTxId("");
     const receiveAmount = calculateReceiveAmount();
@@ -108,16 +106,19 @@ const BuyCard = () => {
       });
     });
   };
+
   const balance = (address: string) => {
     const t = tokens.find(t => t.address === address);
     return t ? t.amount : 0;
   };
+
   const symbol = (address: string) => {
     if (address === 'swYLDS') return 'swYLDS';
     const t = tokens.find(t => t.address === address);
     if (t && t.token === 'YIELD') return 'wYLDS';
     return t ? t.token : '';
   };
+
   const icon = (address: string, defaultIcon: string = hastraIcon) => {
     if (address === 'swYLDS') return '/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png';
     if (address === wYLDS) return '/lovable-uploads/d73baf3a-34c8-4ad7-8378-e419bb8268ff.png';
@@ -125,12 +126,16 @@ const BuyCard = () => {
     const t = tokens.find(t => t.address === address);
     return t?.icon ? t.icon : defaultIcon;
   };
+
   const receiveAmount = calculateReceiveAmount();
-  return <div className="space-y-8">
+
+  return (
+    <div className="space-y-8">
       <div className="flex items-center gap-4 mb-8">
         <ArrowUpDown className="w-6 h-6 md:w-5 md:h-5 text-header-glow" />
         <h3 className="text-xl md:text-xl font-bold">Buy Tokens</h3>
       </div>
+      
       <div className="bg-background/30 rounded-2xl border border-border/20 p-6 space-y-6">
         {/* Sell Asset Selection */}
         <div className="space-y-4">
@@ -225,25 +230,10 @@ const BuyCard = () => {
             </div>
           </div>
           <Input type="number" min="0" step="any" placeholder={`Enter amount in ${denomination === 'usd' ? 'USD' : symbol(sellAsset)}`} value={amount} onChange={e => {
-          setAmount(e.target.value);
-          setTxId("");
-        }} className="bg-muted/50 h-12 md:h-auto text-base md:text-sm [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&]:[-moz-appearance:textfield]" />
+            setAmount(e.target.value);
+            setTxId("");
+          }} className="bg-muted/50 h-12 md:h-auto text-base md:text-sm [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&]:[-moz-appearance:textfield]" />
         </div>
-
-        {/* wYLDS to USDC Warning */}
-        {sellAsset === wYLDS && buyAsset === USDC && (
-          <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-4">
-            <div className="flex items-start gap-3">
-              <div className="text-amber-500 mt-0.5">⚠️</div>
-              <div>
-                <div className="text-sm font-medium text-amber-500 mb-1">Processing Time Notice</div>
-                <div className="text-xs text-amber-500/80">
-                  When swapping wYLDS to USDC, it may take 1-2 business days for USDC to appear in your wallet balance.
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
 
         {/* Receive Amount Display */}
         {amount && receiveAmount.tokens > 0 && (
@@ -258,6 +248,21 @@ const BuyCard = () => {
                 </a>
               </div>
             )}
+          </div>
+        )}
+
+        {/* wYLDS to USDC Warning - moved to after receive amount */}
+        {sellAsset === wYLDS && buyAsset === USDC && (
+          <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-4">
+            <div className="flex items-start gap-3">
+              <div className="text-amber-500 mt-0.5">⚠️</div>
+              <div>
+                <div className="text-sm font-medium text-amber-500 mb-1">Processing Time Notice</div>
+                <div className="text-xs text-amber-500/80">
+                  When swapping wYLDS to USDC, it may take 1-2 business days for USDC to appear in your wallet balance.
+                </div>
+              </div>
+            </div>
           </div>
         )}
 
