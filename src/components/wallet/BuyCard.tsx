@@ -208,7 +208,22 @@ const BuyCard = () => {
                 <Button variant={denomination === 'token' ? 'default' : 'ghost'} size="sm" onClick={() => setDenomination('token')} className={`h-7 text-xs px-2 min-w-[50px] ${denomination === 'token' ? 'btn-hastra' : 'text-muted-foreground hover:text-auburn-primary'}`}>
                   {symbol(sellAsset)}
                 </Button>
+        </div>
+
+        {/* wYLDS to USDC Warning */}
+        {sellAsset === wYLDS && buyAsset === USDC && (
+          <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-4">
+            <div className="flex items-start gap-3">
+              <div className="text-amber-500 mt-0.5">⚠️</div>
+              <div>
+                <div className="text-sm font-medium text-amber-500 mb-1">Processing Time Notice</div>
+                <div className="text-xs text-amber-500/80">
+                  When swapping wYLDS to USDC, it may take 1-2 business days for USDC to appear in your wallet balance.
+                </div>
               </div>
+            </div>
+          </div>
+        )}
               <Button variant="ghost" size="sm" onClick={handleMaxClick} className="h-7 px-3 text-xs font-medium text-auburn-light hover:bg-auburn-primary/20 hover:text-auburn-light transition-all duration-200 bg-muted/30 rounded-md min-w-[50px]">
                 Max
               </Button>
