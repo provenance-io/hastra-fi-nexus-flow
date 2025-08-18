@@ -138,14 +138,14 @@ const WYLDsYieldExplanation = () => {
       {/* Unified seamless background - removed conflicting gradient */}
 
       <div className="max-w-5xl mx-auto px-4 relative z-10">
-        {/* Combined Dashboard Box - What is sYLDS? + How It Works */}
+        {/* Combined Dashboard Box - What is wYLDS? + How It Works */}
         <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
           <div className="relative z-10">
-            {/* What is sYLDS Section */}
+            {/* What is wYLDS Section */}
             {/* Section Header - Matching About page AnimatedCard style */}
             <div className="mb-8 text-center">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">
-                What is sYLDS?
+                What is wYLDS?
               </h2>
             </div>
             {/* Feature Cards */}
@@ -155,13 +155,13 @@ const WYLDsYieldExplanation = () => {
                   icon: Building2,
                   title: "Backed by RWAs",
                   description:
-                    "sYLDS token is backed by reserves of YLDS - the first SEC-registered, yield-bearing stablecoin backed by real world assets.",
+                    "wYLDS token is backed by reserves of YLDS - the first SEC-registered, yield-bearing stablecoin backed by real world assets.",
                 },
                 {
                   icon: Zap,
                   title: "Automatic Yield",
                   description:
-                    "Earn yield automatically just by holding sYLDS in your wallet - no staking required.",
+                    "Earn yield automatically just by holding wYLDS in your wallet - no staking required.",
                 },
                 {
                   icon: Link2,
@@ -211,14 +211,14 @@ const WYLDsYieldExplanation = () => {
             {/* Description - Matching About page style */}
             <div className="mt-12 mb-16">
               <p className="text-lg text-foreground/90 leading-relaxed mb-4">
-                sYLDS is a token representing a portion of a pool of reserves
+                wYLDS is a token representing a portion of a pool of reserves
                 holding the YLDS token - the first SEC-registered, yield-bearing
                 stablecoin combining the liquidity of traditional stablecoins
                 with the earning power of a money market fund.*
               </p>
               <p className="text-lg text-foreground/90 leading-relaxed">
                 As users deposit USDC, Hastra purchases and holds YLDS, and
-                distributes interest in sYLDS to token holders. Because{" "}
+                distributes interest in wYLDS to token holders. Because{" "}
                 <span className="text-header-glow font-semibold">
                   earning yield shouldn't require complex strategies—it should
                   just work
@@ -248,7 +248,7 @@ const WYLDsYieldExplanation = () => {
             {/* Disclaimer */}
             <div className="text-center mb-16">
               <p className="text-sm italic text-white/80 max-w-2xl mx-auto leading-relaxed">
-                *sYLDS is not registered with the SEC or any securities
+                *wYLDS is not registered with the SEC or any securities
                 regulator. YLDS is issued by a third party independent of
                 Hastra.
               </p>
