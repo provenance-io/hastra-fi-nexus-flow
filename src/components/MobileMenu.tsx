@@ -55,7 +55,7 @@ const MobileMenu = () => {
     const items = [
       { label: 'About', href: '/about' },
       { label: 'wYLDS', href: '/yield' },
-      { label: 'swYLDS', href: '/swylds' },
+      { label: 'sYLDS', href: '/swylds' },
       { label: 'Earn', href: '/earn' },
       { label: '(L)earn', href: '/learn' },
     ];

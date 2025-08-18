@@ -164,13 +164,13 @@ const Header = () => {
                   >
                     <div className="flex items-center gap-3">
                       <img
-                        src="/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png"
-                        alt="swYLDS Token"
+                        src="/lovable-uploads/fa075607-859f-443d-828d-52aff1ecade8.png"
+                        alt="sYLDS Token"
                         className="w-10 h-10 rounded-lg object-cover group-hover:scale-105 transition-transform"
                       />
                       <div>
                         <div className="font-semibold text-platinum/90 mb-1">
-                          swYLDS
+                          sYLDS
                         </div>
                         <div className="text-sm text-platinum/70">
                           COMING SOON

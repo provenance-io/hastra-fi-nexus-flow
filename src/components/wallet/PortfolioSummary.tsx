@@ -27,13 +27,13 @@ const PortfolioSummary = ({
   const [prevClaimAmount, setPrevClaimAmount] = useState(totalUnclaimedInterest);
 
   // Calculate staking data
-  const stakedBalance = parseFloat(userBalance.swYLDS);
+  const stakedBalance = parseFloat(userBalance.sYLDS);
   const pendingBalance = parseFloat(pendingUnstakes.totalPending);
   const totalInStaking = stakedBalance + pendingBalance;
   const stakingValue = totalInStaking * 1.0; // Assuming 1:1 USD value
 
   const dailyRewards = calculateStakingRewards(
-    userBalance.swYLDS, 
+    userBalance.sYLDS,
     protocolData.currentAPR,
     'daily'
   );
@@ -156,7 +156,7 @@ const PortfolioSummary = ({
                 <p className="text-sm text-muted-foreground font-medium">Active Staking</p>
               </div>
               <p className="text-3xl lg:text-4xl font-bold text-white mb-1">
-                {formatStakingAmount(userBalance.swYLDS)}
+                {formatStakingAmount(userBalance.sYLDS)}
               </p>
               <p className="text-xs text-muted-foreground">
                 {protocolData.currentAPR}% APR
@@ -188,18 +188,18 @@ const PortfolioSummary = ({
                 <p className="text-sm text-muted-foreground font-medium">Available to Unstake</p>
               </div>
               <p className="text-3xl lg:text-4xl font-bold text-white mb-3">
-                {formatStakingAmount(userBalance.swYLDS)}
+                {formatStakingAmount(userBalance.sYLDS)}
               </p>
               <Button
                 size="sm"
                 variant="secondary"
                 className="w-full"
-                disabled={parseFloat(userBalance.swYLDS) <= 0}
+                disabled={parseFloat(userBalance.sYLDS) <= 0}
                 onClick={() => {
                   // TODO: Implement unstake all functionality
                   toast({
                     title: "Unstaking All",
-                    description: `Unstaking ${formatStakingAmount(userBalance.swYLDS)} swYLDS to wYLDS`,
+                    description: `Unstaking ${formatStakingAmount(userBalance.sYLDS)} sYLDS to wYLDS`,
                   });
                 }}
               >

@@ -259,7 +259,7 @@ const Products = () => {
             </div>
           </div>
 
-          {/* swYLDS Product */}
+          {/* sYLDS Product */}
           <div
             className="card-gradient rounded-3xl p-8 md:p-12 space-y-8 animate-fade-in-up relative mt-16"
             style={{ animationDelay: "0.2s" }}
@@ -269,8 +269,8 @@ const Products = () => {
               <div className="flex items-center gap-4">
                 <div className="relative">
                   <img
-                    src="/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png"
-                    alt="swYLDS Token"
+                    src="/lovable-uploads/fa075607-859f-443d-828d-52aff1ecade8.png"
+                    alt="sYLDS Token"
                     className="w-16 h-16 rounded-full object-cover"
                   />
                 </div>
