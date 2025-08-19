@@ -40,7 +40,7 @@ const WYLDsHero = () => {
           <FlashingText phrases={flashingPhrases} className="block" />
         </h2>
 
-        <div className="mb-4 md:mb-6 flex justify-center">
+        <div className="mb-4 md:mb-6 flex flex-col items-center justify-center">
           <img
             src="/lovable-uploads/cb96356b-822d-4dc0-963a-96ef43bfedbd.png"
             alt="sYLDS Token"
@@ -53,6 +53,9 @@ const WYLDsHero = () => {
                 "logoGlow 3s ease-in-out infinite, float 6s ease-in-out infinite",
             }}
           />
+          <div className="text-white text-lg md:text-xl font-semibold mt-3">
+            wYLDS
+          </div>
         </div>
 
         <p
