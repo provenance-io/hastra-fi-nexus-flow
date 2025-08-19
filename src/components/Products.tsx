@@ -125,7 +125,7 @@ const Products = () => {
   return (
     <section
       id="products"
-      className="py-24 md:py-32 relative"
+      className="pt-24 md:pt-32 pb-12 md:pb-16 relative"
       role="region"
       aria-labelledby="products-heading"
     >
