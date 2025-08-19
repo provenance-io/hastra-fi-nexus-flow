@@ -75,24 +75,17 @@ const TokenLineItem = ({
       <div className="hidden lg:flex items-center p-4">
         {/* Token Info - Compact */}
         <div className="flex items-center gap-3 w-36 flex-shrink-0">
-          <div className="flex flex-col items-center">
-            {isImage ? (
-              <img 
-                src={token === 'wYLDS' || token === 'YIELD' ? '/lovable-uploads/d73baf3a-34c8-4ad7-8378-e419bb8268ff.png' : token === 'USDC' ? '/lovable-uploads/4bfd88a4-fef5-42d3-81d9-236145936adc.png' : icon}
-                alt={`${token} Token`}
-                className="w-10 h-10 rounded-full object-cover shadow-sm flex-shrink-0"
-              />
-            ) : (
-              <div className="w-10 h-10 rounded-xl bg-hastra-teal/10 flex items-center justify-center shadow-sm flex-shrink-0">
-                <span className="text-hastra-teal font-bold text-base">{icon}</span>
-              </div>
-            )}
-            {(token === 'wYLDS' || token === 'YIELD') && (
-              <div className="text-white text-xs font-semibold mt-1">
-                wYLDS
-              </div>
-            )}
-          </div>
+          {isImage ? (
+            <img 
+              src={token === 'wYLDS' || token === 'YIELD' ? '/lovable-uploads/d73baf3a-34c8-4ad7-8378-e419bb8268ff.png' : token === 'USDC' ? '/lovable-uploads/4bfd88a4-fef5-42d3-81d9-236145936adc.png' : icon}
+              alt={`${token} Token`}
+              className="w-10 h-10 rounded-full object-cover shadow-sm flex-shrink-0"
+            />
+          ) : (
+            <div className="w-10 h-10 rounded-xl bg-hastra-teal/10 flex items-center justify-center shadow-sm flex-shrink-0">
+              <span className="text-hastra-teal font-bold text-base">{icon}</span>
+            </div>
+          )}
           <div className="min-w-0">
             <h4 className="font-medium text-foreground text-sm leading-tight">{token.replace(' (Sol)', '').replace('YIELD', 'wYLDS')}</h4>
             <p className="text-xs text-muted-foreground hover:cursor-pointer" onClick={copyToClipboard}>Token</p>
@@ -170,24 +163,17 @@ const TokenLineItem = ({
       <div className="hidden md:block lg:hidden p-5">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
-            <div className="flex flex-col items-center">
-              {isImage ? (
-                <img 
-                  src={token === 'wYLDS' || token === 'YIELD' ? '/lovable-uploads/d73baf3a-34c8-4ad7-8378-e419bb8268ff.png' : token === 'USDC' ? '/lovable-uploads/4bfd88a4-fef5-42d3-81d9-236145936adc.png' : icon}
-                  alt={`${token} Token`}
-                  className="w-10 h-10 rounded-full object-cover shadow-sm"
-                />
-              ) : (
-                <div className="w-10 h-10 rounded-xl bg-hastra-teal/10 flex items-center justify-center shadow-sm">
-                  <span className="text-hastra-teal font-bold text-base">{icon}</span>
-                </div>
-              )}
-              {(token === 'wYLDS' || token === 'YIELD') && (
-                <div className="text-white text-xs font-semibold mt-1">
-                  wYLDS
-                </div>
-              )}
-            </div>
+            {isImage ? (
+              <img 
+                src={token === 'wYLDS' || token === 'YIELD' ? '/lovable-uploads/d73baf3a-34c8-4ad7-8378-e419bb8268ff.png' : token === 'USDC' ? '/lovable-uploads/4bfd88a4-fef5-42d3-81d9-236145936adc.png' : icon}
+                alt={`${token} Token`}
+                className="w-10 h-10 rounded-full object-cover shadow-sm"
+              />
+            ) : (
+              <div className="w-10 h-10 rounded-xl bg-hastra-teal/10 flex items-center justify-center shadow-sm">
+                <span className="text-hastra-teal font-bold text-base">{icon}</span>
+              </div>
+            )}
             <div>
               <h4 className="font-semibold text-foreground text-base">{token.replace(' (Sol)', '').replace('YIELD', 'wYLDS')}</h4>
               <p className="text-sm text-muted-foreground">Token</p>
@@ -245,7 +231,7 @@ const TokenLineItem = ({
       <div className="md:hidden p-4 space-y-4">
         {/* Token Header */}
         <div className="flex items-center gap-3">
-          <div className="flex flex-col items-center flex-shrink-0">
+          <div className="flex-shrink-0">
             {isImage ? (
               <img 
                 src={token === 'wYLDS' || token === 'YIELD' ? '/lovable-uploads/d73baf3a-34c8-4ad7-8378-e419bb8268ff.png' : token === 'USDC' ? '/lovable-uploads/4bfd88a4-fef5-42d3-81d9-236145936adc.png' : icon} 
@@ -255,11 +241,6 @@ const TokenLineItem = ({
             ) : (
               <div className="w-10 h-10 rounded-xl bg-hastra-teal/10 flex items-center justify-center shadow-sm">
                 <span className="text-hastra-teal font-bold text-base">{icon}</span>
-              </div>
-            )}
-            {(token === 'wYLDS' || token === 'YIELD') && (
-              <div className="text-white text-xs font-semibold mt-1">
-                wYLDS
               </div>
             )}
           </div>
