@@ -22,11 +22,16 @@ import { useQuery } from "@tanstack/react-query";
 import { formatNumber } from "./WYLDsStatsDashboard";
 
 const YieldTokenIcon = ({ className }: { className?: string }) => (
-  <img
-    src={yieldIcon}
-    alt="wYLDS Token"
-    className={`${className} object-contain`}
-  />
+  <div className="flex flex-col items-center">
+    <img
+      src={yieldIcon}
+      alt="wYLDS Token"
+      className={`${className} object-contain`}
+    />
+    <div className="text-white text-sm font-semibold mt-2">
+      wYLDS
+    </div>
+  </div>
 );
 
 const WYLDsYieldExplanation = () => {
