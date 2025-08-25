@@ -6,6 +6,7 @@ import { Separator } from '@/components/ui/separator';
 import { Code, Database, Zap, Bug, TestTube, Settings, AlertTriangle, CheckCircle } from 'lucide-react';
 import { useWallet } from '@/contexts/WalletContext';
 import { getFeatureFlags, toggleAdminFeature, type FeatureFlags } from '@/utils/featureFlags';
+import FeatureDisabledBanner from '@/components/test/FeatureDisabledBanner';
 
 const TestDebug = () => {
   const { isConnected, address } = useWallet();
@@ -46,6 +47,8 @@ const TestDebug = () => {
     toggleAdminFeature(feature, enabled);
   };
 
+  const shouldShowBanner = isLovablePreview && !getProductionFeatureState('testPagesEnabled');
+
   const environmentInfo = {
     NODE_ENV: import.meta.env.MODE,
     CLUSTER: import.meta.env.VITE_SOLANA_CLUSTER_NAME,
@@ -63,6 +66,12 @@ const TestDebug = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {shouldShowBanner && (
+        <FeatureDisabledBanner 
+          featureName="testPagesEnabled" 
+          displayName="Test Debug" 
+        />
+      )}
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-6xl mx-auto space-y-6">
           {/* Header */}

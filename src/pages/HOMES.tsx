@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { isFeatureEnabled } from '@/utils/featureFlags';
+import FeatureDisabledBanner from '@/components/test/FeatureDisabledBanner';
 import HOMESHero from '@/components/homes/HOMESHero';
 import HOMESAbout from '@/components/homes/HOMESAbout';
 import HOMESPortfolio from '@/components/homes/HOMESPortfolio';
@@ -15,6 +16,27 @@ const HOMESPage = () => {
   
   // Check if HOMES feature is enabled
   const isHOMESEnabled = isFeatureEnabled('homesEnabled');
+
+  // Check if we're in Lovable preview mode
+  const isLovablePreview = window.location.hostname.includes('lovable.app') || 
+                          window.location.hostname.includes('lovable.dev') ||
+                          window.location.hostname === 'localhost';
+
+  // Check production feature state
+  const getProductionFeatureState = (): boolean => {
+    try {
+      const adminSettings = localStorage.getItem('admin_feature_flags');
+      if (adminSettings) {
+        const settings = JSON.parse(adminSettings);
+        if (settings.homesEnabled !== undefined) return settings.homesEnabled;
+      }
+    } catch (error) {
+      // Ignore localStorage errors
+    }
+    return import.meta.env.VITE_FEATURE_HOMES_ENABLED === 'true';
+  };
+
+  const shouldShowBanner = isLovablePreview && !getProductionFeatureState();
   
   // If feature is not enabled, show 404
   if (!isHOMESEnabled) {
@@ -32,6 +54,12 @@ const HOMESPage = () => {
 
   return (
     <div className="relative">
+      {shouldShowBanner && (
+        <FeatureDisabledBanner 
+          featureName="homesEnabled" 
+          displayName="HOMES" 
+        />
+      )}
       {/* Extended gradient background to match homepage */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
       <div className="relative z-10">
