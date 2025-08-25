@@ -1,14 +1,50 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { Switch } from '@/components/ui/switch';
 import { Separator } from '@/components/ui/separator';
-import { Code, Database, Zap, Bug, TestTube, Settings } from 'lucide-react';
+import { Code, Database, Zap, Bug, TestTube, Settings, AlertTriangle, CheckCircle } from 'lucide-react';
 import { useWallet } from '@/contexts/WalletContext';
-import { getFeatureFlags } from '@/utils/featureFlags';
+import { getFeatureFlags, toggleAdminFeature, type FeatureFlags } from '@/utils/featureFlags';
 
 const TestDebug = () => {
   const { isConnected, address } = useWallet();
   const featureFlags = getFeatureFlags();
+
+  // Check if we're in Lovable preview mode
+  const isLovablePreview = window.location.hostname.includes('lovable.app') || 
+                          window.location.hostname.includes('lovable.dev') ||
+                          window.location.hostname === 'localhost';
+
+  // Get feature states as they would appear in production (without Lovable preview auto-enable)
+  const getProductionFeatureState = (feature: keyof FeatureFlags): boolean => {
+    // Check localStorage overrides first
+    try {
+      const adminSettings = localStorage.getItem('admin_feature_flags');
+      if (adminSettings) {
+        const settings = JSON.parse(adminSettings);
+        if (settings[feature] !== undefined) return settings[feature];
+      }
+    } catch (error) {
+      // Ignore localStorage errors
+    }
+
+    // Check environment variables (what would be used in production)
+    switch (feature) {
+      case 'homesEnabled':
+        return import.meta.env.VITE_FEATURE_HOMES_ENABLED === 'true';
+      case 'testPagesEnabled':
+        return import.meta.env.VITE_FEATURE_TEST_PAGES_ENABLED === 'true';
+      case 'debugComponentsEnabled':
+        return import.meta.env.VITE_FEATURE_DEBUG_COMPONENTS_ENABLED === 'true';
+      default:
+        return false;
+    }
+  };
+
+  const handleFeatureToggle = (feature: keyof FeatureFlags, enabled: boolean) => {
+    toggleAdminFeature(feature, enabled);
+  };
 
   const environmentInfo = {
     NODE_ENV: import.meta.env.MODE,
@@ -73,18 +109,74 @@ const TestDebug = () => {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Settings className="h-5 w-5" />
-                  Feature Flags
+                  Feature Flags Control
                 </CardTitle>
+                {isLovablePreview && (
+                  <p className="text-sm text-muted-foreground">
+                    Control feature availability in test/production environments
+                  </p>
+                )}
               </CardHeader>
-              <CardContent className="space-y-3">
-                {Object.entries(featureFlags).map(([key, value]) => (
-                  <div key={key} className="flex justify-between">
-                    <span className="capitalize">{key.replace('Enabled', '')}:</span>
-                    <Badge variant={value ? "default" : "secondary"}>
-                      {value ? "Enabled" : "Disabled"}
-                    </Badge>
+              <CardContent className="space-y-4">
+                {Object.keys(featureFlags).map((key) => {
+                  const featureKey = key as keyof FeatureFlags;
+                  const currentState = featureFlags[featureKey];
+                  const productionState = getProductionFeatureState(featureKey);
+                  const featureName = key.replace('Enabled', '');
+                  
+                  return (
+                    <div key={key} className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="font-medium">{featureName}:</span>
+                        <div className="flex items-center gap-2">
+                          <Badge 
+                            variant={currentState ? "default" : "secondary"}
+                            className="text-xs"
+                          >
+                            Current: {currentState ? "On" : "Off"}
+                          </Badge>
+                          {isLovablePreview && (
+                            <Badge 
+                              variant={productionState ? "default" : "destructive"}
+                              className="text-xs"
+                            >
+                              Prod: {productionState ? "On" : "Off"}
+                            </Badge>
+                          )}
+                        </div>
+                      </div>
+                      
+                      {isLovablePreview && (
+                        <div className="flex items-center justify-between bg-muted/50 p-2 rounded">
+                          <span className="text-sm">Enable in test/production:</span>
+                          <Switch
+                            checked={productionState}
+                            onCheckedChange={(enabled) => handleFeatureToggle(featureKey, enabled)}
+                          />
+                        </div>
+                      )}
+                      
+                      {!productionState && isLovablePreview && (
+                        <div className="flex items-center gap-2 text-sm text-destructive">
+                          <AlertTriangle className="h-3 w-3" />
+                          This feature would show a banner in test/production
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+                
+                {isLovablePreview && (
+                  <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-950/20 rounded border border-blue-200 dark:border-blue-800">
+                    <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 text-sm">
+                      <CheckCircle className="h-4 w-4" />
+                      <strong>Lovable Preview Mode Active</strong>
+                    </div>
+                    <p className="text-blue-600 dark:text-blue-400 text-sm mt-1">
+                      Test pages are automatically enabled. Use the switches above to control production behavior.
+                    </p>
                   </div>
-                ))}
+                )}
               </CardContent>
             </Card>
 
