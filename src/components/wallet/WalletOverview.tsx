@@ -5,7 +5,7 @@ import TokenLineItem from './TokenLineItem';
 import WalletHeader from './WalletHeader';
 import PortfolioSummary from './PortfolioSummary';
 import { useState } from 'react';
-import {wYLDS} from "@/types/tokens.ts";
+import {sYLDS, wYLDS} from "@/types/tokens.ts";
 
 const WalletOverview = () => {
   const { refreshBalance, address, walletType } = useWallet();
@@ -69,7 +69,6 @@ const WalletOverview = () => {
             { (tokens && tokens.length > 0) &&
             <div className="space-y-4">
               {tokens.map((token) => {
-                console.log(`Rendering token: ${token.token}, onClaim condition: ${token.token === 'wYLDS' || token.token === 'YIELD' || token.token === 'swYLDS'}`);
                 return (
                   <TokenLineItem
                     key={token.token}
@@ -81,14 +80,14 @@ const WalletOverview = () => {
                     unclaimedInterest={token.unclaimedInterest}
                     icon={token.icon}
                     tokenAddress={token.tokenAddress}
-                    onClaim={token.token === 'wYLDS' || token.token === 'YIELD' || token.token === 'sYLDS' ? handleTokenClaim(token.token) : undefined}
+                    onClaim={token.address === wYLDS || token.address == sYLDS ? handleTokenClaim(token.token) : undefined}
                   />
                 );
               })}
             </div>
             }
               {(!tokens || tokens.length === 0) &&
-                <div className="flex items-center justify-between">You must have SOL and USDC in your wallet to buy wYLDS and sYLDS tokens.</div>
+                <div className="flex items-center justify-between">You must have SOL and USDC in your wallet to buy wYLDS or stake wYLDS.</div>
               }
           </div>
         )}

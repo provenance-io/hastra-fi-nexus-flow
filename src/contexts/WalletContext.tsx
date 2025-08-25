@@ -21,7 +21,8 @@ export interface WalletState {
   totalBalance: number;
   solBalance: number;
   usdcBalance: number;
-  yieldBalance: number;
+  wyldsBalance: number;
+  syldsBalance: number;
   hashBalance: number;
   networkError: string | null;
   walletType: string | null;
@@ -55,7 +56,8 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     totalBalance: 0,
     solBalance: 0,
     usdcBalance: 0,
-    yieldBalance: 0,
+    wyldsBalance: 0,
+    syldsBalance: 0,
     hashBalance: 0,
     networkError: null,
     walletType: null,
@@ -81,9 +83,14 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   } = useSolBalanceQuery(publicKey);
 
   const {
-    data: yieldBalance,
-    refetch: refetchYieldBalanceQuery,
-  } = useAtaQuery(publicKey, import.meta.env.VITE_SOLANA_YIELD_MINT);
+    data: wyldsBalance,
+    refetch: refetchWyldsBalanceQuery,
+  } = useAtaQuery(publicKey, import.meta.env.VITE_SOLANA_WYLDS_MINT);
+
+  const {
+    data: syldsBalance,
+    refetch: refetchSyldsBalanceQuery,
+  } = useAtaQuery(publicKey, import.meta.env.VITE_SOLANA_SYLDS_MINT);
 
   const {
     data: usdcBalance,
@@ -108,7 +115,8 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     const previouslyConnected = walletState.isConnected;
     const portfolioBalance = () => {
       return (valueOrZero(geckoPrice?.solana?.usd) * valueOrZero(solBalance)) +
-          valueOrZero(yieldBalance) +
+          valueOrZero(wyldsBalance) +
+          valueOrZero(syldsBalance) +
           valueOrZero(usdcBalance);
     }
 
@@ -121,7 +129,8 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       totalBalance: connected ? portfolioBalance() : 0,
       solBalance: solBalance || 0,
       usdcBalance: Number(usdcBalance) || 0,
-      yieldBalance: Number(yieldBalance) || 0,
+      wyldsBalance: Number(wyldsBalance) || 0,
+      syldsBalance: Number(syldsBalance) || 0,
       networkError: null,
     }));
 
@@ -133,7 +142,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         className: "bg-background/30 backdrop-blur-md border border-border/20 hover:border-orange-300/20 shadow-2xl",
       });
     }
-  }, [connected, connecting, publicKey, wallet, toast, walletState.isConnected, solBalance, usdcBalance, yieldBalance, geckoPrice?.solana?.usd]);
+  }, [connected, connecting, publicKey, wallet, toast, walletState.isConnected, solBalance, usdcBalance, wyldsBalance, syldsBalance, geckoPrice?.solana?.usd]);
 
   const connectWallet = async (): Promise<void> => {
     // Opening Solana wallet selection modal
@@ -171,7 +180,8 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         address: null,
         totalBalance: 0,
         usdcBalance: 0,
-        yieldBalance: 0,
+        wyldsBalance: 0,
+        syldsBalance: 0,
         solBalance: 0,
         hashBalance: 0,
         networkError: null,
@@ -193,7 +203,8 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         address: null,
         totalBalance: 0,
         usdcBalance: 0,
-        yieldBalance: 0,
+        wyldsBalance: 0,
+        syldsBalance: 0,
         solBalance: 0,
         hashBalance: 0,
         networkError: null,
@@ -205,7 +216,8 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const refreshBalance = async (): Promise<void> => {
     if (!walletState.isConnected) return;
     
-    await refetchYieldBalanceQuery();
+    await refetchWyldsBalanceQuery();
+    await refetchSyldsBalanceQuery();
     await refetchSolBalanceQuery();
     await refetchUSDCBalanceQuery();
   };

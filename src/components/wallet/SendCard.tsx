@@ -14,7 +14,7 @@ import {useCoinGeckoPrice} from "@/hooks/useSolanaQuery.ts";
 import {USDC, wYLDS} from "@/types/tokens.ts";
 import {PublicKey} from "@solana/web3.js";
 import hastraIcon
-  from '/lovable-uploads/9da758ec-2299-4fe7-82e4-e7fb95e9cdb8.png';
+  from '/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png';
 
 import {useTokenPortfolio} from "@/hooks/useTokenPortfolio.ts";
 import {useTransfer} from "@/hooks/use-solana-tx.ts";
@@ -69,7 +69,6 @@ const SendCard = () => {
 
   const symbol = (token: string) => {
     const t = tokens.find(t => t.address === token);
-    if (t && t.token === 'YIELD') return 'wYLDS';
     return t ? t.token : token;
   }
 

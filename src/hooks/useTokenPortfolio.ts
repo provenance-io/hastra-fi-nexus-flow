@@ -6,6 +6,8 @@ import { getAssociatedTokenAddress } from "@solana/spl-token";
 import { Metaplex } from "@metaplex-foundation/js";
 import { useSolBalanceQuery } from "@/hooks/useSolanaQuery.ts";
 import { useStaking } from "@/hooks/useStaking.ts";
+import hastraIcon
+  from '/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png';
 
 export interface TokenData {
   address: string;
@@ -26,13 +28,24 @@ const connection = new Connection(
 );
 const metaplex = Metaplex.make(connection);
 
+const token = (address: string) => {
+    switch (address) {
+        case import.meta.env.VITE_SOLANA_USDC_MINT:
+            return "USDC";
+        case import.meta.env.VITE_SOLANA_WYLDS_MINT:
+            return "wYLDS";
+        case import.meta.env.VITE_SOLANA_SYLDS_MINT:
+            return "sYLDS";
+        default:
+            return "UNKNOWN";
+    }
+}
 export const useTokenPortfolioQuery = (
   publicKey: PublicKey,
   tokenMintAddresses: string[] = [
     `${import.meta.env.VITE_SOLANA_USDC_MINT}`,
-    `${import.meta.env.VITE_SOLANA_YIELD_MINT}`,
-    // Add sYLDS mint address when available
-    // `${import.meta.env.VITE_SOLANA_SYLDS_MINT}`,
+    `${import.meta.env.VITE_SOLANA_WYLDS_MINT}`,
+    `${import.meta.env.VITE_SOLANA_SYLDS_MINT}`,
   ]
 ) => {
   return useQuery<TokenData[], Error>({
@@ -79,19 +92,17 @@ export const useTokenPortfolioQuery = (
               } as TokenData;
             }
           } catch (e) {
-            console.error(`No metaplex info for mint address ${mint.toBase58()}`);
+            console.warn(`No metaplex info for mint address ${mint.toBase58()}`);
           }
           return {
             address: address,
-            token: address === import.meta.env.VITE_SOLANA_USDC_MINT ? "USDC" : 
-                   address === import.meta.env.VITE_SOLANA_YIELD_MINT ? "wYLDS" : "sHASH",
+            token: token(address),
             amount: amount,
             value: value,
-            apy: address === import.meta.env.VITE_SOLANA_YIELD_MINT ? 4.5 : 0, // Default APY for wYLDS only
+            apy: address === import.meta.env.VITE_SOLANA_WYLDS_MINT ? 4.5 : 0, // Default APY for wYLDS only
             totalInterestEarned: 0,
-            unclaimedInterest: address === import.meta.env.VITE_SOLANA_YIELD_MINT ? (amount > 0 ? amount * 0.001 : 0) : 0, // Only wYLDS has claimable yield when balance > 0
-            icon: address === import.meta.env.VITE_SOLANA_USDC_MINT ? "/lovable-uploads/4a374512-469e-4932-9bfc-215e5dd3591d.png" :
-                  address === import.meta.env.VITE_SOLANA_YIELD_MINT ? "/lovable-uploads/49dceb8c-5ccf-4ceb-97e6-9447aa7fc33d.png" : "",
+            unclaimedInterest: address === import.meta.env.VITE_SOLANA_WYLDS_MINT ? (amount > 0 ? amount * 0.001 : 0) : 0, // Only wYLDS has claimable yield when balance > 0
+            icon: hastraIcon,
             mint: mint.toBase58(),
             tokenAddress: ta.toBase58(),
           } as TokenData;
@@ -115,78 +126,14 @@ export const useTokenPortfolio = () => {
   // Get sYLDS balance from staking
   const { userBalance } = useStaking();
 
-  // Mock data for testing when wallet is connected
-  const getMockTokenData = (): TokenData[] => {
-    if (!isConnected) return [];
-    
-    return [
-      {
-        address: import.meta.env.VITE_SOLANA_USDC_MINT || 'usdc-mock',
-        token: 'USDC',
-        amount: 2547.83,
-        value: 2547.83,
-        apy: 0,
-        totalInterestEarned: 0,
-        unclaimedInterest: 0, // USDC has no claimable interest
-        icon: '/lovable-uploads/4a374512-469e-4932-9bfc-215e5dd3591d.png',
-        mint: 'usdc-mint',
-        tokenAddress: 'usdc-address',
-      },
-      {
-        address: import.meta.env.VITE_SOLANA_YIELD_MINT || 'wylds-mock',
-        token: 'wYLDS',
-        amount: 1234.56,
-        value: 1234.56,
-        apy: 4.5,
-        totalInterestEarned: 89.23,
-        unclaimedInterest: 12.45,
-        icon: '/lovable-uploads/49dceb8c-5ccf-4ceb-97e6-9447aa7fc33d.png',
-        mint: 'wylds-mint',
-        tokenAddress: 'wylds-address',
-      },
-      {
-        address: 'sYLDS',
-        token: 'sYLDS',
-        amount: 856.12,
-        value: 856.12,
-        apy: 8.5,
-        totalInterestEarned: 67.89,
-        unclaimedInterest: 15.78,
-        icon: '/lovable-uploads/fa075607-859f-443d-828d-52aff1ecade8.png',
-        mint: 'sYLDS-mint',
-        tokenAddress: 'sYLDS-address',
-      },
-      {
-        address: 'hash-mock',
-        token: 'HASH',
-        amount: 45678.90,
-        value: 1067.04, // At ~$0.0234 per HASH
-        apy: 18.5,
-        totalInterestEarned: 234.56,
-        unclaimedInterest: 0, // HASH has no claimable interest
-        icon: '/src/assets/hash-icon.png',
-        mint: 'hash-mint',
-        tokenAddress: 'hash-address',
-      }
-    ];
-  };
-
   useEffect(() => {
+      console.dir(tokenData);
     if (isConnected) {
-      // Use mock data for testing
-      const mockTokens = getMockTokenData();
-      setTokens(mockTokens);
-      
-      console.log('Using mock portfolio data for testing:', mockTokens.map(t => ({ 
-        token: t.token, 
-        amount: t.amount,
-        value: t.value,
-        unclaimedInterest: t.unclaimedInterest 
-      })));
+      setTokens(tokenData);
     } else {
       setTokens([]);
     }
-  }, [isConnected]);
+  }, [isConnected, tokenData]);
 
   const claimInterest = useCallback(
     (tokenSymbol: string, claimedAmount: number) => {

@@ -77,7 +77,7 @@ const TokenLineItem = ({
         <div className="flex items-center gap-3 w-36 flex-shrink-0">
           {isImage ? (
             <img 
-              src={token === 'wYLDS' || token === 'YIELD' ? '/lovable-uploads/d73baf3a-34c8-4ad7-8378-e419bb8268ff.png' : token === 'USDC' ? '/lovable-uploads/4bfd88a4-fef5-42d3-81d9-236145936adc.png' : icon}
+              src={icon}
               alt={`${token} Token`}
               className="w-10 h-10 rounded-full object-cover shadow-sm flex-shrink-0"
             />
@@ -87,7 +87,7 @@ const TokenLineItem = ({
             </div>
           )}
           <div className="min-w-0">
-            <h4 className="font-medium text-foreground text-sm leading-tight">{token.replace(' (Sol)', '').replace('YIELD', 'wYLDS')}</h4>
+            <h4 className="font-medium text-foreground text-sm leading-tight">{token}</h4>
             <p className="text-xs text-muted-foreground hover:cursor-pointer" onClick={copyToClipboard}>Token</p>
           </div>
         </div>
@@ -152,7 +152,7 @@ const TokenLineItem = ({
               </div>
             ) : (
               <>
-                Claim {token === 'swYLDS' ? 'wYLDS' : token.replace(' (Sol)', '').replace('YIELD', 'wYLDS')}
+                Claim {token}
               </>
             )}
           </Button> }
@@ -165,7 +165,7 @@ const TokenLineItem = ({
           <div className="flex items-center gap-3">
             {isImage ? (
               <img 
-                src={token === 'wYLDS' || token === 'YIELD' ? '/lovable-uploads/d73baf3a-34c8-4ad7-8378-e419bb8268ff.png' : token === 'USDC' ? '/lovable-uploads/4bfd88a4-fef5-42d3-81d9-236145936adc.png' : icon}
+                src={icon}
                 alt={`${token} Token`}
                 className="w-10 h-10 rounded-full object-cover shadow-sm"
               />
@@ -175,7 +175,7 @@ const TokenLineItem = ({
               </div>
             )}
             <div>
-              <h4 className="font-semibold text-foreground text-base">{token.replace(' (Sol)', '').replace('YIELD', 'wYLDS')}</h4>
+              <h4 className="font-semibold text-foreground text-base">{token}</h4>
               <p className="text-sm text-muted-foreground">Token</p>
             </div>
           </div>
@@ -221,7 +221,7 @@ const TokenLineItem = ({
                 <span>Claiming...</span>
               </div>
             ) : (
-              <span>Claim {token === 'swYLDS' ? 'wYLDS' : token.replace(' (Sol)', '').replace('YIELD', 'wYLDS')} - ${unclaimedInterestUSD.toFixed(2)}</span>
+              <span>Claim {token} - ${unclaimedInterestUSD.toFixed(2)}</span>
             )}
           </Button>
         )}
@@ -234,7 +234,7 @@ const TokenLineItem = ({
           <div className="flex-shrink-0">
             {isImage ? (
               <img 
-                src={token === 'wYLDS' || token === 'YIELD' ? '/lovable-uploads/d73baf3a-34c8-4ad7-8378-e419bb8268ff.png' : token === 'USDC' ? '/lovable-uploads/4bfd88a4-fef5-42d3-81d9-236145936adc.png' : icon} 
+                src={icon}
                 alt={`${token} Token`}
                 className="w-10 h-10 rounded-full object-cover shadow-sm"
               />
@@ -245,7 +245,7 @@ const TokenLineItem = ({
             )}
           </div>
           <div className="flex-1 min-w-0">
-            <h4 className="font-semibold text-foreground text-base leading-tight">{token.replace(' (Sol)', '').replace('YIELD', 'wYLDS')}</h4>
+            <h4 className="font-semibold text-foreground text-base leading-tight">{token}</h4>
             <p className="text-sm text-muted-foreground">Token</p>
           </div>
           <div className="text-right flex-shrink-0">
@@ -295,7 +295,7 @@ const TokenLineItem = ({
                 <span>Claiming...</span>
               </div>
             ) : (
-              <span>Claim {token === 'swYLDS' ? 'wYLDS' : token.replace(' (Sol)', '').replace('YIELD', 'wYLDS')} - ${unclaimedInterestUSD.toFixed(2)}</span>
+              <span>Claim {token} - ${unclaimedInterestUSD.toFixed(2)}</span>
             )}
           </Button>
         )}

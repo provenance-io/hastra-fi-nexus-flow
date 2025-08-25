@@ -5,10 +5,10 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger } from '@/components/ui/select';
 import { ArrowUpDown, DollarSign } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import hastraIcon from '/lovable-uploads/9da758ec-2299-4fe7-82e4-e7fb95e9cdb8.png';
+import hastraIcon from '/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png';
 import { useTokenPortfolio } from "@/hooks/useTokenPortfolio.ts";
 import { useCoinGeckoPrice } from "@/hooks/useSolanaQuery.ts";
-import { USDC, wYLDS } from "@/types/tokens";
+import {sYLDS, USDC, wYLDS} from "@/types/tokens";
 import { useDepositAndMint } from "@/hooks/use-solana-tx.ts";
 import { AnchorError } from "@coral-xyz/anchor";
 
@@ -30,7 +30,7 @@ const BuyCard = () => {
     o['SOL'] = geckoPrice?.solana?.usd as number || 0; // SOL to USD
     o[USDC] = 1; // USDC to USD
     o[wYLDS] = 1; // wYLDS to USD
-    o['sYLDS'] = 1; // sYLDS to USD (1:1 with USD for now)
+    o[sYLDS] = 1; // sYLDS to wYLDS (1:1 with USD for now)
     o['HASH'] = geckoPrice?.['hash-2']?.usd as number || 0; // HASH to USD
 
     setExchangeRate(o);
@@ -113,16 +113,11 @@ const BuyCard = () => {
   };
 
   const symbol = (address: string) => {
-    if (address === 'sYLDS') return 'sYLDS';
     const t = tokens.find(t => t.address === address);
-    if (t && t.token === 'YIELD') return 'wYLDS';
-    return t ? t.token : '';
+    return t ? t.token : 'Unknown';
   };
 
   const icon = (address: string, defaultIcon: string = hastraIcon) => {
-    if (address === 'sYLDS') return '/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png';
-    if (address === wYLDS) return '/lovable-uploads/d73baf3a-34c8-4ad7-8378-e419bb8268ff.png';
-    if (address === USDC) return '/lovable-uploads/4bfd88a4-fef5-42d3-81d9-236145936adc.png';
     const t = tokens.find(t => t.address === address);
     return t?.icon ? t.icon : defaultIcon;
   };
@@ -197,7 +192,7 @@ const BuyCard = () => {
                     <span className="text-sm md:text-sm font-medium font-sans">{symbol(USDC)}</span>
                   </div>
                 </SelectItem>
-              )}
+            )}
               {wYLDS !== sellAsset && (
                 <SelectItem value={wYLDS} className="py-3 md:py-2">
                   <div className="flex items-center gap-3 py-1 md:py-1">

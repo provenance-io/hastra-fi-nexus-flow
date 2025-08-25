@@ -1,6 +1,7 @@
 // Feature flag utility system
 export interface FeatureFlags {
   homesEnabled: boolean;
+  ofacCheckEnabled: boolean;
   testPagesEnabled: boolean;
   debugComponentsEnabled: boolean;
 }
@@ -71,6 +72,8 @@ export const isFeatureEnabled = (feature: keyof FeatureFlags): boolean => {
   switch (feature) {
     case 'homesEnabled':
       return getEnvFlag('VITE_FEATURE_HOMES_ENABLED', false);
+    case 'ofacCheckEnabled':
+      return getEnvFlag('VITE_FEATURE_OFAC_ENABLED', false);
     case 'testPagesEnabled':
       return isLovablePreview() || getEnvFlag('VITE_FEATURE_TEST_PAGES_ENABLED', false);
     case 'debugComponentsEnabled':
@@ -103,4 +106,5 @@ export const getFeatureFlags = (): FeatureFlags => ({
   homesEnabled: isFeatureEnabled('homesEnabled'),
   testPagesEnabled: isFeatureEnabled('testPagesEnabled'),
   debugComponentsEnabled: isFeatureEnabled('debugComponentsEnabled'),
+  ofacCheckEnabled: isFeatureEnabled('ofacCheckEnabled'),
 });

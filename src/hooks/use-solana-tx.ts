@@ -13,7 +13,7 @@ import {
   type Wallet as AnchorWallet,
 } from "@coral-xyz/anchor";
 import { SolanaResponse } from "../types/solana-tx";
-import { solVaultMintIdl } from "../types/idl/solana";
+import {solVaultMintIdl, solVaultStakeIdl} from "../types/idl/solana";
 import { useCallback } from "react";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import {
@@ -23,7 +23,7 @@ import {
   TOKEN_PROGRAM_ID,
 } from "@solana/spl-token";
 import BN from "bn.js";
-import { USDC, wYLDS } from "@/types/tokens.ts";
+import {sYLDS, USDC, wYLDS} from "@/types/tokens.ts";
 
 const RPC_ENDPOINT = import.meta.env.VITE_SOLANA_RPC_URL;
 
@@ -44,6 +44,19 @@ const confirmTransaction = async (
   );
   return new SolanaResponse(confirmation.value.err === null, confirmation, sig);
 };
+
+const ataInstruction = async (connection: Connection, signer: PublicKey, to: PublicKey, mint: PublicKey) => {
+    const toTokenAccountInfo = await connection.getAccountInfo(to);
+    return  toTokenAccountInfo ? [] : [
+        createAssociatedTokenAccountInstruction(
+            signer,
+            to,
+            signer,
+            mint
+        )
+    ];
+
+}
 export const useAnchorWallet = (): AnchorWallet | undefined => {
   const { publicKey, signAllTransactions, signTransaction } = useWallet();
   if (publicKey && signTransaction && signAllTransactions) {
@@ -89,21 +102,13 @@ export const useDepositAndMint = () => {
       const yieldMint = new PublicKey(wYLDS);
       const vault = new PublicKey(import.meta.env.VITE_SOLANA_USDC_VAULT);
       const configPda = new PublicKey(
-        import.meta.env.VITE_SOLANA_USDC_YIELD_CONFIG_PDA
+        import.meta.env.VITE_SOLANA_USDC_WYLDS_CONFIG_PDA
       );
       const mintAuthorityPda = new PublicKey(
-        import.meta.env.VITE_SOLANA_USDC_YIELD_MINT_AUTHORITY_PDA
+        import.meta.env.VITE_SOLANA_USDC_WYLDS_MINT_AUTHORITY_PDA
       );
 
-      const toTokenAccountInfo = await connection.getAccountInfo(toTokenAccount);
-      const createAtaInstructions = toTokenAccountInfo ? [] : [
-        createAssociatedTokenAccountInstruction(
-          signer,
-          toTokenAccount,
-          signer,
-          yieldMint
-        )
-      ];
+      const createAtaInstructions = await ataInstruction(connection, signer, toTokenAccount, yieldMint);
 
       console.log(`signer:        ${signer.toBase58()}`);
       console.log(`swapToken:     ${swapTokenAccount.toBase58()}`);
@@ -292,3 +297,78 @@ export const useTransfer = () => {
     invoke: transfer,
   };
 };
+
+export const useStake = () => {
+    const { connection } = useConnection();
+    const { publicKey } = useWallet();
+    const wallet = useAnchorWallet();
+
+    const deposit = useCallback(
+        async (amount: number) => {
+            if (!wallet) {
+                console.error("No wallet found. Please connect your wallet.");
+                return;
+            }
+            if (!publicKey) {
+                console.error("No public key found. Please connect your wallet.");
+                return;
+            }
+            const provider = new AnchorProvider(connection, wallet, {
+                preflightCommitment: "confirmed",
+            });
+            const program = new Program(solVaultStakeIdl() as Idl, provider);
+
+            // program accounts
+            const signer = publicKey;
+            const swapTokenAccount: PublicKey = await getAssociatedTokenAddress(
+                new PublicKey(wYLDS),
+                signer
+            );
+            const toTokenAccount: PublicKey = await getAssociatedTokenAddress(
+                new PublicKey(sYLDS),
+                signer
+            );
+            const syldMint = new PublicKey(sYLDS);
+            const vault = new PublicKey(import.meta.env.VITE_SOLANA_SYLDS_VAULT);
+            const configPda = new PublicKey(
+                import.meta.env.VITE_SOLANA_SYLDS_CONFIG_PDA
+            );
+            const mintAuthorityPda = new PublicKey(
+                import.meta.env.VITE_SOLANA_SYLDS_MINT_AUTHORITY_PDA
+            );
+
+            const createAtaInstructions = await ataInstruction(connection, signer, toTokenAccount, syldMint);
+
+            console.log(`signer:        ${signer.toBase58()}`);
+            console.log(`swapToken:     ${swapTokenAccount.toBase58()}`);
+            console.log(`toAccount:     ${toTokenAccount.toBase58()}`);
+            console.log(`vault:         ${vault.toBase58()}`);
+            console.log(`mint:          ${syldMint.toBase58()}`);
+            console.log(`configPda:     ${configPda.toBase58()}`);
+            console.log(`mintAuthority: ${mintAuthorityPda.toBase58()}`);
+            console.log(`tokenProgram:  ${TOKEN_PROGRAM_ID.toBase58()}`);
+            return await confirmTransaction(connection, () =>
+                program?.methods
+                    .deposit(new BN(amount * 1_000_000))
+                    .accounts({
+                        signer: signer,
+                        swapToken: swapTokenAccount,
+                        toAccount: toTokenAccount,
+                        vault: vault,
+                        mint: syldMint,
+                        config: configPda,
+                        mintAuthority: mintAuthorityPda,
+                        tokenProgram: TOKEN_PROGRAM_ID,
+                    })
+                    .preInstructions(createAtaInstructions)
+                    .rpc()
+            );
+        },
+        [connection, wallet, publicKey]
+    );
+
+    return {
+        invoke: deposit,
+    };
+};
+

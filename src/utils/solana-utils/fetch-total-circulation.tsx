@@ -25,7 +25,7 @@ export const fetchTotalCirculation = async (): Promise<number> => {
       jsonrpc: "2.0",
       id: 1,
       method: "getTokenSupply",
-      params: [import.meta.env.VITE_SOLANA_YIELD_MINT],
+      params: [import.meta.env.VITE_SOLANA_WYLDS_MINT],
     }),
   });
   if (!response.ok) {

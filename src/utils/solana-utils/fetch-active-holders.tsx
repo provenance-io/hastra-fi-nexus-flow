@@ -53,7 +53,7 @@ export const fetchActiveHolders = async (): Promise<string> => {
             {
               memcmp: {
                 offset: 0,
-                bytes: import.meta.env.VITE_SOLANA_YIELD_MINT,
+                bytes: import.meta.env.VITE_SOLANA_WYLDS_MINT,
               },
             },
           ],
