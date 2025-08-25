@@ -1,6 +1,6 @@
 import { Rocket, DollarSign, Clock } from 'lucide-react';
 
-const SwYLDSFinalCTA = () => {
+const SYLDSFinalCTA = () => {
   return (
     <section className="py-16 px-4 relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 relative z-10">
@@ -31,4 +31,4 @@ const SwYLDSFinalCTA = () => {
   );
 };
 
-export default SwYLDSFinalCTA;
+export default SYLDSFinalCTA;

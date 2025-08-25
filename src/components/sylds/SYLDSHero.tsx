@@ -4,9 +4,9 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { fetchCurrentAPY } from '@/utils/solana-utils';
-import SwYLDSAnimatedHero from './SwYLDSAnimatedHero';
+import SYLDSAnimatedHero from './SYLDSAnimatedHero';
 
-const SwYLDSHero = () => {
+const SYLDSHero = () => {
   const [displayApy, setDisplayApy] = useState("9.2");
 
   const { data: currentAPY, isLoading, error } = useQuery({
@@ -27,7 +27,7 @@ const SwYLDSHero = () => {
         <div className="max-w-4xl mx-auto">
           {/* Animated Hero Graphic */}
           <div className="mb-8">
-            <SwYLDSAnimatedHero />
+            <SYLDSAnimatedHero />
           </div>
           
           {/* Main headline */}
@@ -57,33 +57,33 @@ const SwYLDSHero = () => {
               <span className="text-sm font-medium text-muted-foreground">Live Rate</span>
             </div>
             <div className="text-2xl font-bold text-foreground">
-              {isLoading ? "Loading..." : error ? "9.2%" : `${displayApy}%`}
+              {isLoading ? '...' : `${displayApy}%`} APY
             </div>
-            <TrendingUp className="h-5 w-5 text-green-500" />
           </div>
           
-          {/* Hero CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button 
-              asChild 
-              size="lg" 
-              variant="secondary"
-              className="min-w-[200px] group"
-            >
-              <Link to="/earn" className="flex items-center justify-center">
-                Start Earning {displayApy}% APY
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
-            <Button variant="outline" size="lg" className="border-border/40 bg-background/50 backdrop-blur-sm px-8 py-4 rounded-xl">
-              Learn How It Works
-            </Button>
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+            <Link to="/earn" className="inline-block">
+              <Button size="lg" className="text-lg px-8 py-4 h-auto font-semibold">
+                Start Earning Now
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            
+            <div className="inline-flex items-center space-x-2 text-muted-foreground">
+              <TrendingUp className="h-4 w-4" />
+              <span className="text-sm">Real-time yield calculation</span>
+            </div>
           </div>
           
+          {/* Trust indicators */}
+          <div className="text-sm text-muted-foreground">
+            <span className="font-medium">Secured by:</span> SEC-registered protocols • Real asset backing • Multi-sig security
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-export default SwYLDSHero;
+export default SYLDSHero;

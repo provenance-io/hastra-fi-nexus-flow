@@ -16,7 +16,7 @@ const formatHolders = (holders: string): string => {
   return holders;
 };
 
-const SwYLDSMetrics = () => {
+const SYLDSMetrics = () => {
   const { data: currentAPY, isLoading: apyLoading } = useQuery({
     queryKey: ['currentAPY'],
     queryFn: fetchCurrentAPY,
@@ -100,14 +100,15 @@ const SwYLDSMetrics = () => {
                   <h3 className="font-medium text-muted-foreground text-sm">
                     {metric.title}
                   </h3>
-                  <TrendIcon className={`h-4 w-4 ${getTrendColor(metric.trend.direction)}`} />
+                  <metric.icon className="h-4 w-4 text-muted-foreground" />
                 </div>
                 
                 <div className="space-y-2">
-                  <div className="text-2xl md:text-3xl font-bold text-foreground">
+                  <p className="text-2xl font-bold text-foreground">
                     {metric.value}
-                  </div>
-                  <div className={`text-xs ${getTrendColor(metric.trend.direction)} flex items-center space-x-1`}>
+                  </p>
+                  
+                  <div className={`flex items-center space-x-1 text-sm ${getTrendColor(metric.trend.direction)}`}>
                     <TrendIcon className="h-3 w-3" />
                     <span>{metric.trend.value}</span>
                   </div>
@@ -121,4 +122,4 @@ const SwYLDSMetrics = () => {
   );
 };
 
-export default SwYLDSMetrics;
+export default SYLDSMetrics;

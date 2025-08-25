@@ -61,10 +61,36 @@ const AdminFeatureToggle = () => {
             onCheckedChange={(enabled) => handleToggle('homesEnabled', enabled)}
           />
         </div>
+
+        <div className="flex items-center justify-between">
+          <label htmlFor="test-pages-toggle" className="text-sm font-medium">
+            Test Pages
+          </label>
+          <Switch
+            id="test-pages-toggle"
+            checked={features.testPagesEnabled}
+            onCheckedChange={(enabled) => handleToggle('testPagesEnabled', enabled)}
+          />
+        </div>
+
+        <div className="flex items-center justify-between">
+          <label htmlFor="debug-components-toggle" className="text-sm font-medium">
+            Debug Components
+          </label>
+          <Switch
+            id="debug-components-toggle"
+            checked={features.debugComponentsEnabled}
+            onCheckedChange={(enabled) => handleToggle('debugComponentsEnabled', enabled)}
+          />
+        </div>
         
         <div className="text-xs text-muted-foreground">
           <p>Toggle features on/off. Changes are saved to localStorage and require a page refresh.</p>
-          <p className="mt-1">URL override: <code>?admin=true&feature=homesEnabled</code></p>
+          <p className="mt-1">URL override examples:</p>
+          <div className="mt-1 space-y-1">
+            <code className="block">?admin=true&feature=homesEnabled</code>
+            <code className="block">?admin=true&feature=testPagesEnabled</code>
+          </div>
         </div>
       </CardContent>
     </Card>
