@@ -12,6 +12,13 @@ export const solVaultMintIdl = () => {
   return SolVaultMintDev;
 };
 
+export const solVaultStakeIdl = () => {
+  if (import.meta.env.PROD) {
+    return SolVaultStake;  //TODO need two of these?
+  }
+  return SolVaultStake;
+};
+
 export const SolVaultMintDev = {
   address: "3vz4uKCMKxFhb9DPf72Csk3HLT5ST8itiviArMSjqCc4",
   metadata: {
@@ -799,3 +806,910 @@ export const SolVaultMintProd = {
     },
   ],
 };
+
+/**
+ *
+ * SOL Vault and Stake IDL
+ *
+ * Program IDL in camelCase format in order to be used in JS/TS.
+ *
+ * Note that this is only a type helper and is not the actual IDL. The original
+ * IDL can be found at `target/idl/sol_vault_stake.json`.
+ */
+export const SolVaultStake = {
+  "address": "G9cajZ82LeEpLT9RubWtHR5rixUnBHuJYRMarHKkvnRp",
+  "metadata": {
+    "name": "solVaultStake",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Vault, Mint, and Stake Contract for Hastra"
+  },
+  "instructions": [
+    {
+      "name": "deposit",
+      "discriminator": [
+        242,
+        35,
+        198,
+        137,
+        82,
+        225,
+        242,
+        182
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "vaultTokenAccount",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint",
+          "writable": true
+        },
+        {
+          "name": "mintAuthority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "userVaultTokenAccount",
+          "writable": true
+        },
+        {
+          "name": "userMintTokenAccount",
+          "writable": true
+        },
+        {
+          "name": "tokenProgram",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "initialize",
+      "discriminator": [
+        175,
+        175,
+        109,
+        31,
+        13,
+        152,
+        155,
+        237
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "writable": true
+        },
+        {
+          "name": "vaultTokenAccount",
+          "writable": true
+        },
+        {
+          "name": "vaultMint"
+        },
+        {
+          "name": "vaultAuthority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  97,
+                  117,
+                  108,
+                  116,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "tokenProgram",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        },
+        {
+          "name": "signer",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "vaultMint",
+          "type": "pubkey"
+        },
+        {
+          "name": "stakeMint",
+          "type": "pubkey"
+        },
+        {
+          "name": "unbondingMint",
+          "type": "pubkey"
+        },
+        {
+          "name": "unbondingPeriod",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "queryUnbondingStatus",
+      "discriminator": [
+        233,
+        179,
+        144,
+        12,
+        218,
+        176,
+        206,
+        13
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "unbondingRecord",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  117,
+                  110,
+                  98,
+                  111,
+                  110,
+                  100,
+                  105,
+                  110,
+                  103,
+                  95,
+                  114,
+                  101,
+                  99,
+                  111,
+                  114,
+                  100
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "signer"
+              }
+            ]
+          }
+        },
+        {
+          "name": "signer",
+          "signer": true
+        }
+      ],
+      "args": [],
+      "returns": "i64"
+    },
+    {
+      "name": "redeem",
+      "discriminator": [
+        184,
+        12,
+        86,
+        149,
+        70,
+        196,
+        97,
+        225
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "unbondingMint",
+          "writable": true
+        },
+        {
+          "name": "vaultTokenAccount",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "userUnbondingMintTokenAccount",
+          "writable": true
+        },
+        {
+          "name": "userVaultTokenAccount",
+          "writable": true
+        },
+        {
+          "name": "unbondingRecord",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  117,
+                  110,
+                  98,
+                  111,
+                  110,
+                  100,
+                  105,
+                  110,
+                  103,
+                  95,
+                  114,
+                  101,
+                  99,
+                  111,
+                  114,
+                  100
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "signer"
+              }
+            ]
+          }
+        },
+        {
+          "name": "vaultAuthority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  97,
+                  117,
+                  108,
+                  116,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "tokenProgram",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "setMintAuthority",
+      "discriminator": [
+        67,
+        127,
+        155,
+        187,
+        100,
+        174,
+        103,
+        121
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint",
+          "writable": true
+        },
+        {
+          "name": "unbondingMint",
+          "writable": true
+        },
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "mintAuthority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "unbondingMintAuthority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  117,
+                  110,
+                  98,
+                  111,
+                  110,
+                  100,
+                  105,
+                  110,
+                  103,
+                  95,
+                  109,
+                  105,
+                  110,
+                  116,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "tokenProgram",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": [
+        {
+          "name": "targetMintType",
+          "type": {
+            "defined": {
+              "name": "mintType"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "unbond",
+      "discriminator": [
+        151,
+        129,
+        36,
+        46,
+        102,
+        195,
+        111,
+        122
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "burnMint",
+          "writable": true
+        },
+        {
+          "name": "userMintTokenAccount",
+          "writable": true
+        },
+        {
+          "name": "unbondingMint",
+          "writable": true
+        },
+        {
+          "name": "userUnbondingMintTokenAccount",
+          "writable": true
+        },
+        {
+          "name": "unbondingMintAuthority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  117,
+                  110,
+                  98,
+                  111,
+                  110,
+                  100,
+                  105,
+                  110,
+                  103,
+                  95,
+                  109,
+                  105,
+                  110,
+                  116,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "tokenProgram",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "unbondingRecord",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  117,
+                  110,
+                  98,
+                  111,
+                  110,
+                  100,
+                  105,
+                  110,
+                  103,
+                  95,
+                  114,
+                  101,
+                  99,
+                  111,
+                  114,
+                  100
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "signer"
+              }
+            ]
+          }
+        },
+        {
+          "name": "systemProgram",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "updateConfig",
+      "discriminator": [
+        29,
+        158,
+        252,
+        191,
+        10,
+        83,
+        219,
+        99
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "writable": true
+        },
+        {
+          "name": "vaultTokenAccount",
+          "writable": true
+        },
+        {
+          "name": "vaultMint"
+        },
+        {
+          "name": "vaultAuthority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  97,
+                  117,
+                  108,
+                  116,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "tokenProgram",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "newVault",
+          "type": "pubkey"
+        },
+        {
+          "name": "newMint",
+          "type": "pubkey"
+        },
+        {
+          "name": "newUnbondingMint",
+          "type": "pubkey"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "config",
+      "discriminator": [
+        155,
+        12,
+        170,
+        224,
+        30,
+        250,
+        204,
+        130
+      ]
+    },
+    {
+      "name": "unbondingRecord",
+      "discriminator": [
+        45,
+        152,
+        135,
+        60,
+        197,
+        167,
+        52,
+        252
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6001,
+      "name": "invalidAmount",
+      "msg": "Invalid amount"
+    },
+    {
+      "code": 6002,
+      "name": "invalidTokenReceived",
+      "msg": "Invalid token received"
+    },
+    {
+      "code": 6003,
+      "name": "invalidVault",
+      "msg": "Invalid vault"
+    },
+    {
+      "code": 6004,
+      "name": "invalidAuthority",
+      "msg": "Invalid authority"
+    },
+    {
+      "code": 6005,
+      "name": "insufficientBalance",
+      "msg": "Insufficient balance"
+    },
+    {
+      "code": 6006,
+      "name": "unbondingPeriodNotElapsed",
+      "msg": "Unbonding period not elapsed"
+    },
+    {
+      "code": 6007,
+      "name": "insufficientUnbondingBalance",
+      "msg": "Insufficient unbonding balance"
+    },
+    {
+      "code": 6008,
+      "name": "unbondingInProgress",
+      "msg": "Unbonding is currently in progress"
+    },
+    {
+      "code": 6009,
+      "name": "invalidMint",
+      "msg": "Invalid mint provided"
+    },
+    {
+      "code": 6010,
+      "name": "invalidVaultMint",
+      "msg": "Invalid vault mint provided"
+    },
+    {
+      "code": 6011,
+      "name": "invalidUnbondingMint",
+      "msg": "Invalid unbonding mint provided"
+    },
+    {
+      "code": 6012,
+      "name": "invalidMintAuthority",
+      "msg": "Invalid mint authority"
+    },
+    {
+      "code": 6013,
+      "name": "invalidUnbondingMintAuthority",
+      "msg": "Invalid unbonding mint authority"
+    },
+    {
+      "code": 6014,
+      "name": "invalidVaultAuthority",
+      "msg": "Invalid vault authority"
+    }
+  ],
+  "types": [
+    {
+      "name": "config",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "vault",
+            "type": "pubkey"
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "unbondingMint",
+            "type": "pubkey"
+          },
+          {
+            "name": "unbondingPeriod",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "mintType",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "mint"
+          },
+          {
+            "name": "unbondingMint"
+          }
+        ]
+      }
+    },
+    {
+      "name": "unbondingRecord",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "startTime",
+            "type": "i64"
+          }
+        ]
+      }
+    }
+  ]
+};
+

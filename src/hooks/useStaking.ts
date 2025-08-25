@@ -11,6 +11,8 @@ import {
   StakingTransaction,
   RewardsData
 } from '@/types/staking';
+import {PublicKey} from "@solana/web3.js";
+import {useTokenPortfolio} from "@/hooks/useTokenPortfolio.ts";
 
 const INITIAL_STATE: StakingState = {
   userBalance: {
@@ -55,7 +57,7 @@ const INITIAL_STATE: StakingState = {
 
 export const useStaking = () => {
   const [state, setState] = useState<StakingState>(INITIAL_STATE);
-  const { isConnected, address, yieldBalance, refreshBalance } = useWallet();
+  const { isConnected, address, wyldsBalance, syldsBalance, refreshBalance } = useWallet();
   const { toast } = useToast();
 
   // Mock data for development - replace with actual API calls
@@ -137,13 +139,13 @@ export const useStaking = () => {
       setState(prev => ({
         ...prev,
         userBalance: {
-          wYLDS: yieldBalance?.toString() || '0',
-          sYLDS: '200.0', // Mock sYLDS balance (reflects pending unstakes)
+          wYLDS: wyldsBalance?.toString() || '0',
+          sYLDS: syldsBalance?.toString() || '0',
           isLoading: false,
         },
       }));
     }
-  }, [isConnected, address, yieldBalance]);
+  }, [isConnected, address, wyldsBalance, syldsBalance]);
 
   const validateStakingAmount = useCallback((amount: string): ValidationError[] => {
     const errors: ValidationError[] = [];

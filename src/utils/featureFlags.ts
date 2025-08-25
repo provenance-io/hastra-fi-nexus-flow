@@ -1,6 +1,7 @@
 // Feature flag utility system
 export interface FeatureFlags {
   homesEnabled: boolean;
+  ofacCheckEnabled: boolean;
 }
 
 // Get feature flag value from environment variables
@@ -55,6 +56,8 @@ export const isFeatureEnabled = (feature: keyof FeatureFlags): boolean => {
   switch (feature) {
     case 'homesEnabled':
       return getEnvFlag('VITE_FEATURE_HOMES_ENABLED', false);
+    case 'ofacCheckEnabled':
+      return getEnvFlag('VITE_FEATURE_OFAC_ENABLED', false);
     default:
       return false;
   }
@@ -81,4 +84,5 @@ export const toggleAdminFeature = (feature: keyof FeatureFlags, enabled: boolean
 // Get all current feature flag states
 export const getFeatureFlags = (): FeatureFlags => ({
   homesEnabled: isFeatureEnabled('homesEnabled'),
+  ofacCheckEnabled: isFeatureEnabled('ofacCheckEnabled'),
 });

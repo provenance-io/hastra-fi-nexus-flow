@@ -30,7 +30,7 @@ const PortfolioSummary = ({
   const stakedBalance = parseFloat(userBalance.sYLDS);
   const pendingBalance = parseFloat(pendingUnstakes.totalPending);
   const totalInStaking = stakedBalance + pendingBalance;
-  const stakingValue = totalInStaking * 1.0; // Assuming 1:1 USD value
+  const stakingValue = totalInStaking; // Assuming 1:1 USD value
 
   const dailyRewards = calculateStakingRewards(
     userBalance.sYLDS,
