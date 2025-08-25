@@ -14,9 +14,6 @@ const HOMESPage = () => {
   const [showModal, setShowModal] = useState(false);
   const [pageAccessible, setPageAccessible] = useState(false);
   
-  // Check if HOMES feature is enabled
-  const isHOMESEnabled = isFeatureEnabled('homesEnabled');
-
   // Check if we're in Lovable preview mode
   const isLovablePreview = window.location.hostname.includes('lovable.app') || 
                           window.location.hostname.includes('lovable.dev') ||
@@ -38,8 +35,9 @@ const HOMESPage = () => {
 
   const shouldShowBanner = isLovablePreview && !getProductionFeatureState();
   
-  // If feature is not enabled, show 404
-  if (!isHOMESEnabled) {
+  // In Lovable preview, always show the page
+  // In production/test, only show if feature is enabled
+  if (!isLovablePreview && !isFeatureEnabled('homesEnabled')) {
     return <NotFound />;
   }
 
