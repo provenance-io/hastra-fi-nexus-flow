@@ -86,7 +86,7 @@ const AdminFeatureToggle = () => {
         
         <div className="text-xs text-muted-foreground">
           <p>Toggle features on/off. Changes are saved to localStorage and require a page refresh.</p>
-          <p className="mt-1">URL override examples:</p>
+          <p className="mt-1">Test features are automatically enabled in Lovable preview mode.</p>
           <div className="mt-1 space-y-1">
             <code className="block">?admin=true&feature=homesEnabled</code>
             <code className="block">?admin=true&feature=testPagesEnabled</code>

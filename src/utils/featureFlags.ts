@@ -13,6 +13,20 @@ const getEnvFlag = (key: string, defaultValue: boolean = false): boolean => {
   return value === 'true' || value === '1';
 };
 
+// Check if we're in Lovable preview mode (development environment)
+const isLovablePreview = (): boolean => {
+  if (typeof window === 'undefined') return false;
+  
+  // Check if we're in development mode
+  const isDev = import.meta.env.MODE === 'development' || import.meta.env.DEV;
+  
+  // Check if we're running on lovable domains
+  const isLovableDomain = window.location.hostname.includes('lovable.app') || 
+                         window.location.hostname.includes('lovable.dev') ||
+                         window.location.hostname === 'localhost';
+  
+  return isDev && isLovableDomain;
+};
 // Check URL parameters for admin overrides
 const getUrlOverride = (feature: string): boolean | null => {
   if (typeof window === 'undefined') return null;
@@ -54,16 +68,16 @@ export const isFeatureEnabled = (feature: keyof FeatureFlags): boolean => {
   const localOverride = getLocalStorageOverride(feature);
   if (localOverride !== null) return localOverride;
   
-  // Fall back to environment variables
+  // Fall back to environment variables and Lovable preview detection
   switch (feature) {
     case 'homesEnabled':
       return getEnvFlag('VITE_FEATURE_HOMES_ENABLED', false);
     case 'ofacCheckEnabled':
       return getEnvFlag('VITE_FEATURE_OFAC_ENABLED', false);
     case 'testPagesEnabled':
-      return getEnvFlag('VITE_FEATURE_TEST_PAGES_ENABLED', false);
+      return isLovablePreview() || getEnvFlag('VITE_FEATURE_TEST_PAGES_ENABLED', false);
     case 'debugComponentsEnabled':
-      return getEnvFlag('VITE_FEATURE_DEBUG_COMPONENTS_ENABLED', false);
+      return isLovablePreview() || getEnvFlag('VITE_FEATURE_DEBUG_COMPONENTS_ENABLED', false);
     default:
       return false;
   }
