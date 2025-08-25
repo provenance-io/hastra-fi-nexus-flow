@@ -81,14 +81,14 @@ const WalletOverview = () => {
                     unclaimedInterest={token.unclaimedInterest}
                     icon={token.icon}
                     tokenAddress={token.tokenAddress}
-                    onClaim={token.token === 'wYLDS' || token.token === 'YIELD' || token.token === 'swYLDS' ? handleTokenClaim(token.token) : undefined}
+                    onClaim={token.token === 'wYLDS' || token.token === 'YIELD' || token.token === 'sYLDS' ? handleTokenClaim(token.token) : undefined}
                   />
                 );
               })}
             </div>
             }
               {(!tokens || tokens.length === 0) &&
-                <div className="flex items-center justify-between">You must have SOL and USDC in your wallet to buy wYLDS and swYLDS tokens.</div>
+                <div className="flex items-center justify-between">You must have SOL and USDC in your wallet to buy wYLDS and sYLDS tokens.</div>
               }
           </div>
         )}

@@ -30,7 +30,7 @@ const BuyCard = () => {
     o['SOL'] = geckoPrice?.solana?.usd as number || 0; // SOL to USD
     o[USDC] = 1; // USDC to USD
     o[wYLDS] = 1; // wYLDS to USD
-    o['swYLDS'] = 1; // swYLDS to USD (1:1 with USD for now)
+    o['sYLDS'] = 1; // sYLDS to USD (1:1 with USD for now)
     o['HASH'] = geckoPrice?.['hash-2']?.usd as number || 0; // HASH to USD
 
     setExchangeRate(o);
@@ -113,14 +113,14 @@ const BuyCard = () => {
   };
 
   const symbol = (address: string) => {
-    if (address === 'swYLDS') return 'swYLDS';
+    if (address === 'sYLDS') return 'sYLDS';
     const t = tokens.find(t => t.address === address);
     if (t && t.token === 'YIELD') return 'wYLDS';
     return t ? t.token : '';
   };
 
   const icon = (address: string, defaultIcon: string = hastraIcon) => {
-    if (address === 'swYLDS') return '/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png';
+    if (address === 'sYLDS') return '/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png';
     if (address === wYLDS) return '/lovable-uploads/d73baf3a-34c8-4ad7-8378-e419bb8268ff.png';
     if (address === USDC) return '/lovable-uploads/4bfd88a4-fef5-42d3-81d9-236145936adc.png';
     const t = tokens.find(t => t.address === address);

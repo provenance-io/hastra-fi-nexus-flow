@@ -34,7 +34,7 @@ const features = [
   }
 ];
 
-const SwYLDSValueProposition = () => {
+const SYLDSValueProposition = () => {
   return (
     <section className="py-16 px-4 relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 relative z-10">
@@ -49,33 +49,46 @@ const SwYLDSValueProposition = () => {
                 Sustainable yield backed by real-world assets, not speculation
               </p>
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <Card key={index} className="p-6 bg-card/50 backdrop-blur-sm border-border/40 hover:bg-card/70 transition-all duration-300 group">
-              <div className="flex flex-col items-start space-y-4">
-                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r from-crypto-accent/20 to-auburn-primary/20 group-hover:from-crypto-accent/30 group-hover:to-auburn-primary/30 transition-all duration-300">
-                  <feature.icon className="h-6 w-6 text-crypto-accent group-hover:text-auburn-primary transition-colors duration-300" />
-                </div>
-                
-                <div className="space-y-2">
-                  <h3 className="text-xl font-semibold text-foreground">
+
+            {/* Feature Grid */}
+            <div className="grid gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {features.map((feature, index) => (
+                <Card 
+                  key={feature.title} 
+                  className="p-6 bg-background/30 backdrop-blur-sm border-border/40 hover:bg-background/50 transition-all duration-300 group"
+                >
+                  {/* Icon */}
+                  <div className="w-12 h-12 bg-gradient-to-br from-crypto-accent/20 to-auburn-primary/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <feature.icon className="h-6 w-6 text-crypto-accent" />
+                  </div>
+
+                  {/* Content */}
+                  <h3 className="font-bold text-foreground mb-3">
                     {feature.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     {feature.description}
                   </p>
+                </Card>
+              ))}
+            </div>
+
+            {/* Bottom Stats */}
+            <div className="mt-16 pt-8 border-t border-border/20">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div>
+                  <div className="text-2xl font-bold text-crypto-accent mb-1">9.2%</div>
+                  <div className="text-sm text-muted-foreground">Current APY</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-crypto-accent mb-1">$12.4M</div>
+                  <div className="text-sm text-muted-foreground">Total Value Locked</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-crypto-accent mb-1">2,847</div>
+                  <div className="text-sm text-muted-foreground">Active Stakers</div>
                 </div>
               </div>
-            </Card>
-          ))}
-        </div>
-        
-        <div className="text-center mt-12">
-          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-crypto-accent/10 to-auburn-primary/10 rounded-full px-6 py-3">
-            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium">Real assets generating real yield since 2024</span>
-          </div>
             </div>
           </div>
         </div>
@@ -84,4 +97,4 @@ const SwYLDSValueProposition = () => {
   );
 };
 
-export default SwYLDSValueProposition;
+export default SYLDSValueProposition;

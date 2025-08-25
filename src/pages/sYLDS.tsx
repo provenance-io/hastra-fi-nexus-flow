@@ -1,16 +1,16 @@
 
 import { useState, useEffect } from 'react';
-import SwYLDSHero from '@/components/swylds/SwYLDSHero';
-import SwYLDSMetrics from '@/components/swylds/SwYLDSMetrics';
-import SwYLDSHowItWorks from '@/components/swylds/SwYLDSHowItWorks';
-import SwYLDSValueProposition from '@/components/swylds/SwYLDSValueProposition';
-import SwYLDSInvestmentDetails from '@/components/swylds/SwYLDSInvestmentDetails';
-import SwYLDSLeveragedLooping from '@/components/swylds/SwYLDSYieldComparison';
-import SwYLDSFinalCTA from '@/components/swylds/SwYLDSFinalCTA';
+import SYLDSHero from '@/components/sylds/SYLDSHero';
+import SYLDSMetrics from '@/components/sylds/SYLDSMetrics';
+import SYLDSHowItWorks from '@/components/sylds/SYLDSHowItWorks';
+import SYLDSValueProposition from '@/components/sylds/SYLDSValueProposition';
+import SYLDSInvestmentDetails from '@/components/sylds/SYLDSInvestmentDetails';
+import SYLDSLeveragedLooping from '@/components/sylds/SYLDSYieldComparison';
+import SYLDSFinalCTA from '@/components/sylds/SYLDSFinalCTA';
 import HOMESComingSoonModal from '@/components/homes/HOMESComingSoonModal';
 import ProvenanceBranding from '@/components/ProvenanceBranding';
 
-const SwYLDSPage = () => {
+const SYLDSPage = () => {
   const [showModal, setShowModal] = useState(false);
   
   // Start with page accessible for now to avoid blocking content
@@ -38,13 +38,13 @@ const SwYLDSPage = () => {
           }} 
         />
         <div className={`${!pageAccessible ? 'content-protection' : 'content-accessible'}`}>
-          <SwYLDSHero />
-          <SwYLDSHowItWorks />
-          <SwYLDSValueProposition />
-          <SwYLDSInvestmentDetails />
-          <SwYLDSLeveragedLooping />
-          <SwYLDSFinalCTA />
-          <SwYLDSMetrics />
+          <SYLDSHero />
+          <SYLDSHowItWorks />
+          <SYLDSValueProposition />
+          <SYLDSInvestmentDetails />
+          <SYLDSLeveragedLooping />
+          <SYLDSFinalCTA />
+          <SYLDSMetrics />
           <ProvenanceBranding />
         </div>
       </div>
@@ -52,4 +52,4 @@ const SwYLDSPage = () => {
   );
 };
 
-export default SwYLDSPage;
+export default SYLDSPage;

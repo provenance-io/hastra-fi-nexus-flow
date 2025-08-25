@@ -17,7 +17,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import WYLDsPage from "./pages/wYLDs";
-import SwYLDSPage from "./pages/swYLDS";
+import SYLDSPage from "./pages/sYLDS";
 import HOMESPage from "./pages/HOMES";
 import SendIt from "./pages/SendIt";
 import Learn from "./pages/Learn";
@@ -58,7 +58,7 @@ const App = () => (
                 <Route path="/brand-guide" element={<BrandGuidePage />} />
 
                 <Route path="/yield" element={<WYLDsPage />} />
-                <Route path="/swylds" element={<SwYLDSPage />} />
+                <Route path="/sylds" element={<SYLDSPage />} />
                 <Route path="/homes" element={<HOMESPage />} />
                 <Route path="/sendit" element={<SendIt />} />
                 {isFeatureEnabled('testPagesEnabled') && (
