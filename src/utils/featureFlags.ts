@@ -1,6 +1,8 @@
 // Feature flag utility system
 export interface FeatureFlags {
   homesEnabled: boolean;
+  testPagesEnabled: boolean;
+  debugComponentsEnabled: boolean;
 }
 
 // Get feature flag value from environment variables
@@ -55,6 +57,10 @@ export const isFeatureEnabled = (feature: keyof FeatureFlags): boolean => {
   switch (feature) {
     case 'homesEnabled':
       return getEnvFlag('VITE_FEATURE_HOMES_ENABLED', false);
+    case 'testPagesEnabled':
+      return getEnvFlag('VITE_FEATURE_TEST_PAGES_ENABLED', false);
+    case 'debugComponentsEnabled':
+      return getEnvFlag('VITE_FEATURE_DEBUG_COMPONENTS_ENABLED', false);
     default:
       return false;
   }
@@ -81,4 +87,6 @@ export const toggleAdminFeature = (feature: keyof FeatureFlags, enabled: boolean
 // Get all current feature flag states
 export const getFeatureFlags = (): FeatureFlags => ({
   homesEnabled: isFeatureEnabled('homesEnabled'),
+  testPagesEnabled: isFeatureEnabled('testPagesEnabled'),
+  debugComponentsEnabled: isFeatureEnabled('debugComponentsEnabled'),
 });
