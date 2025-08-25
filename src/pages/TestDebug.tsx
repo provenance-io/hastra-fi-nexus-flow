@@ -141,12 +141,6 @@ const TestDebug = () => {
                       <div className="flex justify-between items-center">
                         <span className="font-medium">{featureName}:</span>
                         <div className="flex items-center gap-2">
-                          <Badge 
-                            variant={currentState ? "default" : "secondary"}
-                            className="text-xs"
-                          >
-                            Current: {currentState ? "On" : "Off"}
-                          </Badge>
                           {isLovablePreview && (
                             <Badge 
                               variant={productionState ? "default" : "destructive"}
