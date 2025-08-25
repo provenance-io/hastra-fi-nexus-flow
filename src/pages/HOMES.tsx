@@ -53,10 +53,13 @@ const HOMESPage = () => {
   return (
     <div className="relative">
       {shouldShowBanner && (
-        <FeatureDisabledBanner 
-          featureName="homesEnabled" 
-          displayName="HOMES" 
-        />
+        <>
+          <FeatureDisabledBanner 
+            featureName="homesEnabled" 
+            displayName="HOMES" 
+          />
+          <div className="h-[52px]" />
+        </>
       )}
       {/* Extended gradient background to match homepage */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
