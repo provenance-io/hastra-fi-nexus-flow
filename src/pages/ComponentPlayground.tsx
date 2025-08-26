@@ -11,6 +11,8 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Separator } from '@/components/ui/separator';
 import { Palette, Play, Code2, Zap, TestTube2 } from 'lucide-react';
 import { toast } from 'sonner';
+import { isFeatureEnabled } from '@/utils/featureFlags';
+import FeatureDisabledBanner from '@/components/test/FeatureDisabledBanner';
 
 const ComponentPlayground = () => {
   const [sliderValue, setSliderValue] = useState([50]);
@@ -37,8 +39,38 @@ const ComponentPlayground = () => {
     }
   };
 
+  // Check if we're in Lovable preview mode
+  const isLovablePreview = window.location.hostname.includes('lovable.app') || 
+                          window.location.hostname.includes('lovable.dev') ||
+                          window.location.hostname === 'localhost';
+
+  // Check production feature state
+  const getProductionFeatureState = (): boolean => {
+    try {
+      const adminSettings = localStorage.getItem('admin_feature_flags');
+      if (adminSettings) {
+        const settings = JSON.parse(adminSettings);
+        if (settings.testPagesEnabled !== undefined) return settings.testPagesEnabled;
+      }
+    } catch (error) {
+      // Ignore localStorage errors
+    }
+    return import.meta.env.VITE_FEATURE_TEST_PAGES_ENABLED === 'true';
+  };
+
+  const shouldShowBanner = isLovablePreview && !getProductionFeatureState();
+
   return (
     <div className="min-h-screen bg-background">
+      {shouldShowBanner && (
+        <>
+          <FeatureDisabledBanner 
+            featureName="testPagesEnabled" 
+            displayName="Component Playground" 
+          />
+          <div className="h-[52px]" />
+        </>
+      )}
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-6xl mx-auto space-y-6">
           {/* Header */}

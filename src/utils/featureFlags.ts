@@ -1,9 +1,26 @@
 // Feature flag utility system
 export interface FeatureFlags {
+  // Core pages
+  indexEnabled: boolean;
+  aboutEnabled: boolean;
+  learnEnabled: boolean;
+  earnEnabled: boolean;
+  termsEnabled: boolean;
+  privacyEnabled: boolean;
+  brandGuideEnabled: boolean;
+  
+  // Product pages
+  wyldsEnabled: boolean;
+  syldsEnabled: boolean;
   homesEnabled: boolean;
-  ofacCheckEnabled: boolean;
+  senditEnabled: boolean;
+  
+  // Development/admin pages
   testPagesEnabled: boolean;
   debugComponentsEnabled: boolean;
+  
+  // System features
+  ofacCheckEnabled: boolean;
 }
 
 // Get feature flag value from environment variables
@@ -70,14 +87,42 @@ export const isFeatureEnabled = (feature: keyof FeatureFlags): boolean => {
   
   // Fall back to environment variables and Lovable preview detection
   switch (feature) {
+    // Core pages - default enabled
+    case 'indexEnabled':
+      return getEnvFlag('VITE_FEATURE_INDEX_ENABLED', true);
+    case 'aboutEnabled':
+      return getEnvFlag('VITE_FEATURE_ABOUT_ENABLED', true);
+    case 'learnEnabled':
+      return getEnvFlag('VITE_FEATURE_LEARN_ENABLED', true);
+    case 'earnEnabled':
+      return getEnvFlag('VITE_FEATURE_EARN_ENABLED', true);
+    case 'termsEnabled':
+      return getEnvFlag('VITE_FEATURE_TERMS_ENABLED', true);
+    case 'privacyEnabled':
+      return getEnvFlag('VITE_FEATURE_PRIVACY_ENABLED', true);
+    case 'brandGuideEnabled':
+      return getEnvFlag('VITE_FEATURE_BRAND_GUIDE_ENABLED', true);
+    
+    // Product pages - default disabled
+    case 'wyldsEnabled':
+      return getEnvFlag('VITE_FEATURE_WYLDS_ENABLED', true);
+    case 'syldsEnabled':
+      return getEnvFlag('VITE_FEATURE_SYLDS_ENABLED', true);
     case 'homesEnabled':
       return getEnvFlag('VITE_FEATURE_HOMES_ENABLED', false);
-    case 'ofacCheckEnabled':
-      return getEnvFlag('VITE_FEATURE_OFAC_ENABLED', false);
+    case 'senditEnabled':
+      return getEnvFlag('VITE_FEATURE_SENDIT_ENABLED', true);
+    
+    // Development/admin pages - default disabled in production
     case 'testPagesEnabled':
       return isLovablePreview() || getEnvFlag('VITE_FEATURE_TEST_PAGES_ENABLED', false);
     case 'debugComponentsEnabled':
       return isLovablePreview() || getEnvFlag('VITE_FEATURE_DEBUG_COMPONENTS_ENABLED', false);
+    
+    // System features
+    case 'ofacCheckEnabled':
+      return getEnvFlag('VITE_FEATURE_OFAC_ENABLED', false);
+    
     default:
       return false;
   }
@@ -103,8 +148,42 @@ export const toggleAdminFeature = (feature: keyof FeatureFlags, enabled: boolean
 
 // Get all current feature flag states
 export const getFeatureFlags = (): FeatureFlags => ({
+  // Core pages
+  indexEnabled: isFeatureEnabled('indexEnabled'),
+  aboutEnabled: isFeatureEnabled('aboutEnabled'),
+  learnEnabled: isFeatureEnabled('learnEnabled'),
+  earnEnabled: isFeatureEnabled('earnEnabled'),
+  termsEnabled: isFeatureEnabled('termsEnabled'),
+  privacyEnabled: isFeatureEnabled('privacyEnabled'),
+  brandGuideEnabled: isFeatureEnabled('brandGuideEnabled'),
+  
+  // Product pages
+  wyldsEnabled: isFeatureEnabled('wyldsEnabled'),
+  syldsEnabled: isFeatureEnabled('syldsEnabled'),
   homesEnabled: isFeatureEnabled('homesEnabled'),
+  senditEnabled: isFeatureEnabled('senditEnabled'),
+  
+  // Development/admin pages
   testPagesEnabled: isFeatureEnabled('testPagesEnabled'),
   debugComponentsEnabled: isFeatureEnabled('debugComponentsEnabled'),
+  
+  // System features
   ofacCheckEnabled: isFeatureEnabled('ofacCheckEnabled'),
 });
+
+// Page route mapping for display
+export const pageRoutes = {
+  indexEnabled: { path: '/', name: 'Home' },
+  aboutEnabled: { path: '/about', name: 'About' },
+  learnEnabled: { path: '/learn', name: 'Learn' },
+  earnEnabled: { path: '/earn', name: 'Earn' },
+  termsEnabled: { path: '/terms', name: 'Terms' },
+  privacyEnabled: { path: '/privacy', name: 'Privacy' },
+  brandGuideEnabled: { path: '/brand-guide', name: 'Brand Guide' },
+  wyldsEnabled: { path: '/yield', name: 'WYLDs' },
+  syldsEnabled: { path: '/sylds', name: 'sYLDs' },
+  homesEnabled: { path: '/homes', name: 'HOMES' },
+  senditEnabled: { path: '/sendit', name: 'Send It' },
+  testPagesEnabled: { path: '/test-debug', name: 'Test Debug' },
+  debugComponentsEnabled: { path: '/components', name: 'Components' },
+} as const;
