@@ -1,18 +1,17 @@
-import { useState, useCallback, useEffect } from 'react';
-import { useWallet } from '@/contexts/WalletContext';
-import { useToast } from '@/hooks/use-toast';
+import {useCallback, useEffect, useState} from 'react';
+import {useWallet} from '@/contexts/WalletContext';
+import {useToast} from '@/hooks/use-toast';
 import {
-  StakingState,
-  ValidationError,
   PendingUnstake,
-  TransactionResult,
   ProtocolMetrics,
+  StakingState,
+  TransactionResult,
   TransactionStatus,
-  StakingTransaction,
-  RewardsData
+  ValidationError
 } from '@/types/staking';
-import {PublicKey} from "@solana/web3.js";
 import {useTokenPortfolio} from "@/hooks/useTokenPortfolio.ts";
+import {sYLDS, wYLDS} from "@/types/tokens.ts";
+import {useStake} from "@/hooks/use-solana-tx.ts";
 
 const INITIAL_STATE: StakingState = {
   userBalance: {
@@ -57,7 +56,10 @@ const INITIAL_STATE: StakingState = {
 
 export const useStaking = () => {
   const [state, setState] = useState<StakingState>(INITIAL_STATE);
-  const { isConnected, address, wyldsBalance, syldsBalance, refreshBalance } = useWallet();
+  const { isConnected, address } = useWallet();
+  const { tokens } = useTokenPortfolio();
+  const { invoke: invokeStake } = useStake();
+
   const { toast } = useToast();
 
   // Mock data for development - replace with actual API calls
@@ -100,6 +102,11 @@ export const useStaking = () => {
     },
   ];
 
+  const balance = (mintAddress: string): string => {
+    const token = tokens.find(t => t.mint === mintAddress);
+    return token ? token.amount.toString() : '0';
+  }
+
   // Initialize protocol data
   useEffect(() => {
     const fetchProtocolData = async () => {
@@ -135,17 +142,17 @@ export const useStaking = () => {
 
   // Update user balance
   useEffect(() => {
-    if (isConnected && address) {
+    if(tokens && address) {
       setState(prev => ({
         ...prev,
         userBalance: {
-          wYLDS: wyldsBalance?.toString() || '0',
-          sYLDS: syldsBalance?.toString() || '0',
+          wYLDS: tokens.find(t => t.mint === wYLDS)?.amount.toString() || '0',
+          sYLDS: tokens.find(t => t.mint === sYLDS)?.amount.toString() || '0',
           isLoading: false,
         },
       }));
     }
-  }, [isConnected, address, wyldsBalance, syldsBalance]);
+  }, [tokens, address]);
 
   const validateStakingAmount = useCallback((amount: string): ValidationError[] => {
     const errors: ValidationError[] = [];
@@ -279,50 +286,35 @@ export const useStaking = () => {
       return { success: false, error: 'Invalid form or wallet not connected' };
     }
 
-    try {
-      updateTransactionStatus('preparing');
-      
-      // Mock transaction execution - replace with actual Solana transaction
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      updateTransactionStatus('signing');
-      
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      updateTransactionStatus('broadcasting');
-      
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      updateTransactionStatus('confirming');
-      
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      const mockTxHash = 'mock_tx_hash_' + Date.now();
-      updateTransactionStatus('success', mockTxHash);
+      invokeStake(parseFloat(state.stakingForm.amount)).then(tx => {
+        updateTransactionStatus('success', tx.txId);
+        toast({
+          title: tx.success ? "🟢 Staking Successful" : "❌ Staking Failed",
+          description: tx.success ? `Successfully staked ${state.stakingForm.amount} wYLDS` : `Staking of ${state.stakingForm.amount} wYLDS failed: ${tx.error}`,
+          className: tx.success ? "toast-action-success" : "toast-action-error",
+        });
+        if (!tx.success) {
+          console.error(JSON.stringify(tx));
+        }
 
-      toast({
-        title: "🟢 Staking Successful",
-        description: `Successfully staked ${state.stakingForm.amount} wYLDS`,
-        className: "toast-action-success",
+        // Reset form
+        setState(prev => ({
+          ...prev,
+          stakingForm: { ...prev.stakingForm, amount: '', errors: [] },
+        }));
+        return { success: tx.success, txHash: tx.txId };
+      }).catch(error => {
+        updateTransactionStatus('error', undefined, error.message);
+        console.error(error);
+        toast({
+          title: "❌ Staking Exception",
+          description: error.message,
+          variant: "destructive",
+        });
+        return { success: false, error: JSON.stringify(error) };
       });
 
-      // Reset form
-      setState(prev => ({
-        ...prev,
-        stakingForm: { ...prev.stakingForm, amount: '', errors: [] },
-      }));
-
-      return { success: true, txHash: mockTxHash };
-    } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Transaction failed';
-      updateTransactionStatus('error', undefined, errorMessage);
-      
-      toast({
-        title: "❌ Staking Failed",
-        description: errorMessage,
-        variant: "destructive",
-      });
-
-      return { success: false, error: errorMessage };
-    }
-  }, [state.stakingForm, isConnected, updateTransactionStatus, toast]);
+  }, [state.stakingForm.isValid, state.stakingForm.amount, isConnected, invokeStake, updateTransactionStatus, toast]);
 
   const executeUnstaking = useCallback(async (): Promise<TransactionResult> => {
     if (!state.unstakingForm.isValid || !isConnected) {
@@ -430,9 +422,6 @@ export const useStaking = () => {
         };
       });
 
-      // Refresh wYLDS balance from wallet context
-      refreshBalance();
-      
       toast({
         title: "🟢 Unstaked to wYLDS",
         description: `Successfully unstaked ${totalClaimedAmount} sYLDS to wYLDS`,

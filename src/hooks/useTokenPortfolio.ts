@@ -123,9 +123,6 @@ export const useTokenPortfolio = () => {
 
   const { data: solBalance } = useSolBalanceQuery(new PublicKey(address));
 
-  // Get sYLDS balance from staking
-  const { userBalance } = useStaking();
-
   useEffect(() => {
       console.dir(tokenData);
     if (isConnected) {

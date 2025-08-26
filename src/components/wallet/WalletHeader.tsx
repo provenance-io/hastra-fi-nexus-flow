@@ -6,7 +6,6 @@ interface WalletHeaderProps {
   walletType: string | null;
   isRefreshing: boolean;
   showTokenHoldings: boolean;
-  onRefresh: () => void;
   onToggleHoldings: () => void;
 }
 
@@ -15,7 +14,6 @@ const WalletHeader = ({
   walletType,
   isRefreshing,
   showTokenHoldings,
-  onRefresh,
   onToggleHoldings,
 }: WalletHeaderProps) => {
   const formatAddress = (addr: string) => {
@@ -109,20 +107,6 @@ const WalletHeader = ({
             ) : (
               <ChevronDown className="w-4 h-4 text-foreground" />
             )}
-          </Button>
-
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={onRefresh}
-            disabled={isRefreshing}
-            className="text-muted-foreground hover:text-auburn-primary p-3 rounded-xl hover:bg-auburn-primary/10 transition-all duration-200 disabled:opacity-50"
-          >
-            <RefreshCw
-              className={`w-4 h-4 text-foreground ${
-                isRefreshing ? "animate-spin" : ""
-              }`}
-            />
           </Button>
         </div>
       </div>

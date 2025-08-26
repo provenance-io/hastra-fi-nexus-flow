@@ -8,7 +8,7 @@ import { useState } from 'react';
 import {sYLDS, wYLDS} from "@/types/tokens.ts";
 
 const WalletOverview = () => {
-  const { refreshBalance, address, walletType } = useWallet();
+  const { address, walletType } = useWallet();
   const {
     tokens,
     claimInterest,
@@ -20,12 +20,6 @@ const WalletOverview = () => {
 
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [showTokenHoldings, setShowTokenHoldings] = useState(true);
-
-  const handleRefreshBalance = async () => {
-    setIsRefreshing(true);
-    await refreshBalance();
-    setIsRefreshing(false);
-  };
 
   const handleTokenClaim = (tokenSymbol: string) => (claimedAmount: number) => {
     claimInterest(tokenSymbol, claimedAmount);
@@ -46,7 +40,6 @@ const WalletOverview = () => {
         walletType={walletType}
         isRefreshing={isRefreshing}
         showTokenHoldings={showTokenHoldings}
-        onRefresh={handleRefreshBalance}
         onToggleHoldings={() => setShowTokenHoldings(!showTokenHoldings)}
       />
 

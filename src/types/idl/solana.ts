@@ -827,6 +827,11 @@ export const SolVaultStake = {
   "instructions": [
     {
       "name": "deposit",
+      "docs": [
+        "Handles user deposits of vault tokens (e.g., wYLDS):",
+        "- Transfers vault tokens to program vault account",
+        "- Mints equivalent amount of stake tokens (e.g., sYLDS) to user"
+      ],
       "discriminator": [
         242,
         35,
@@ -858,21 +863,7 @@ export const SolVaultStake = {
         },
         {
           "name": "vaultTokenAccount",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  118,
-                  97,
-                  117,
-                  108,
-                  116
-                ]
-              }
-            ]
-          }
+          "writable": true
         },
         {
           "name": "mint",
@@ -931,6 +922,13 @@ export const SolVaultStake = {
     },
     {
       "name": "initialize",
+      "docs": [
+        "Initializes the vault program with the required token configurations:",
+        "- vault_mint: The token that users deposit (e.g., wYLDS)",
+        "- stake_mint: The token users receive when staking (e.g., sYLDS)",
+        "- unbonding_mint: The token received during unbonding period (e.g., uwYLDS)",
+        "- unbonding_period: Time in seconds users must wait before redeeming"
+      ],
       "discriminator": [
         175,
         175,
@@ -945,13 +943,6 @@ export const SolVaultStake = {
         {
           "name": "config",
           "writable": true
-        },
-        {
-          "name": "vaultTokenAccount",
-          "writable": true
-        },
-        {
-          "name": "vaultMint"
         },
         {
           "name": "vaultAuthority",
@@ -979,6 +970,13 @@ export const SolVaultStake = {
               }
             ]
           }
+        },
+        {
+          "name": "vaultTokenAccount",
+          "writable": true
+        },
+        {
+          "name": "vaultMint"
         },
         {
           "name": "tokenProgram",
@@ -1014,6 +1012,10 @@ export const SolVaultStake = {
     },
     {
       "name": "queryUnbondingStatus",
+      "docs": [
+        "Checks the status of an unbonding position",
+        "Returns the time remaining in the unbonding period"
+      ],
       "discriminator": [
         233,
         179,
@@ -1085,6 +1087,11 @@ export const SolVaultStake = {
     },
     {
       "name": "redeem",
+      "docs": [
+        "Completes the unbonding process after period expires:",
+        "- Burns unbonding tokens (e.g., uwYLDS)",
+        "- Returns vault tokens (e.g., wYLDS) to user"
+      ],
       "discriminator": [
         184,
         12,
@@ -1120,21 +1127,7 @@ export const SolVaultStake = {
         },
         {
           "name": "vaultTokenAccount",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  118,
-                  97,
-                  117,
-                  108,
-                  116
-                ]
-              }
-            ]
-          }
+          "writable": true
         },
         {
           "name": "signer",
@@ -1218,6 +1211,10 @@ export const SolVaultStake = {
     },
     {
       "name": "setMintAuthority",
+      "docs": [
+        "Sets the mint authority for a specified token type",
+        "Used to configure program control over token minting"
+      ],
       "discriminator": [
         67,
         127,
@@ -1340,6 +1337,12 @@ export const SolVaultStake = {
     },
     {
       "name": "unbond",
+      "docs": [
+        "Initiates the unbonding process:",
+        "- Burns user's stake tokens (e.g., sYLDS)",
+        "- Mints unbonding tokens (e.g., uwYLDS)",
+        "- Starts unbonding period timer"
+      ],
       "discriminator": [
         151,
         129,
@@ -1477,6 +1480,12 @@ export const SolVaultStake = {
     },
     {
       "name": "updateConfig",
+      "docs": [
+        "Updates the program configuration with new token addresses:",
+        "- new_vault: New vault token address",
+        "- new_mint: New stake token address",
+        "- new_unbonding_mint: New unbonding token address"
+      ],
       "discriminator": [
         29,
         158,
@@ -1712,4 +1721,3 @@ export const SolVaultStake = {
     }
   ]
 };
-

@@ -320,11 +320,11 @@ export const useStake = () => {
 
             // program accounts
             const signer = publicKey;
-            const swapTokenAccount: PublicKey = await getAssociatedTokenAddress(
+            const userVaultTokenAccount: PublicKey = await getAssociatedTokenAddress(
                 new PublicKey(wYLDS),
                 signer
             );
-            const toTokenAccount: PublicKey = await getAssociatedTokenAddress(
+            const userMintTokenAccount: PublicKey = await getAssociatedTokenAddress(
                 new PublicKey(sYLDS),
                 signer
             );
@@ -336,13 +336,17 @@ export const useStake = () => {
             const mintAuthorityPda = new PublicKey(
                 import.meta.env.VITE_SOLANA_SYLDS_MINT_AUTHORITY_PDA
             );
+            const vaultTokenAccount = new PublicKey(
+                import.meta.env.VITE_SOLANA_SYLDS_VAULT_TOKEN_ACCOUNT,
+            )
 
-            const createAtaInstructions = await ataInstruction(connection, signer, toTokenAccount, syldMint);
+            const createAtaInstructions = await ataInstruction(connection, signer, userMintTokenAccount, syldMint);
 
             console.log(`signer:        ${signer.toBase58()}`);
-            console.log(`swapToken:     ${swapTokenAccount.toBase58()}`);
-            console.log(`toAccount:     ${toTokenAccount.toBase58()}`);
+            console.log(`userVaultTokenAccount:     ${userVaultTokenAccount.toBase58()}`);
+            console.log(`userMintTokenAccount:     ${userMintTokenAccount.toBase58()}`);
             console.log(`vault:         ${vault.toBase58()}`);
+            console.log(`vault TA:      ${vaultTokenAccount.toBase58()}`);
             console.log(`mint:          ${syldMint.toBase58()}`);
             console.log(`configPda:     ${configPda.toBase58()}`);
             console.log(`mintAuthority: ${mintAuthorityPda.toBase58()}`);
@@ -351,14 +355,14 @@ export const useStake = () => {
                 program?.methods
                     .deposit(new BN(amount * 1_000_000))
                     .accounts({
-                        signer: signer,
-                        swapToken: swapTokenAccount,
-                        toAccount: toTokenAccount,
-                        vault: vault,
-                        mint: syldMint,
                         config: configPda,
+                        vaultTokenAccount: vaultTokenAccount,
+                        mint: syldMint,
                         mintAuthority: mintAuthorityPda,
-                        tokenProgram: TOKEN_PROGRAM_ID,
+                        signer: signer,
+                        userVaultTokenAccount: userVaultTokenAccount,
+                        userMintTokenAccount: userMintTokenAccount,
+                        tokenProgram: TOKEN_PROGRAM_ID
                     })
                     .preInstructions(createAtaInstructions)
                     .rpc()

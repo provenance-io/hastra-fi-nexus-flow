@@ -18,12 +18,6 @@ export interface WalletState {
   isConnected: boolean;
   isConnecting: boolean;
   address: string | null;
-  totalBalance: number;
-  solBalance: number;
-  usdcBalance: number;
-  wyldsBalance: number;
-  syldsBalance: number;
-  hashBalance: number;
   networkError: string | null;
   walletType: string | null;
 }
@@ -31,7 +25,6 @@ export interface WalletState {
 export interface WalletContextType extends WalletState {
   connectWallet: () => Promise<void>;
   disconnectWallet: () => void;
-  refreshBalance: () => Promise<void>;
 }
 
 const WalletContext = createContext<WalletContextType | undefined>(undefined);
@@ -53,12 +46,6 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     isConnected: false,
     isConnecting: false,
     address: null,
-    totalBalance: 0,
-    solBalance: 0,
-    usdcBalance: 0,
-    wyldsBalance: 0,
-    syldsBalance: 0,
-    hashBalance: 0,
     networkError: null,
     walletType: null,
   });
@@ -178,12 +165,6 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         isConnected: false,
         isConnecting: false,
         address: null,
-        totalBalance: 0,
-        usdcBalance: 0,
-        wyldsBalance: 0,
-        syldsBalance: 0,
-        solBalance: 0,
-        hashBalance: 0,
         networkError: null,
         walletType: null,
       });
@@ -201,32 +182,16 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         isConnected: false,
         isConnecting: false,
         address: null,
-        totalBalance: 0,
-        usdcBalance: 0,
-        wyldsBalance: 0,
-        syldsBalance: 0,
-        solBalance: 0,
-        hashBalance: 0,
         networkError: null,
         walletType: null,
       });
     }
   };
 
-  const refreshBalance = async (): Promise<void> => {
-    if (!walletState.isConnected) return;
-    
-    await refetchWyldsBalanceQuery();
-    await refetchSyldsBalanceQuery();
-    await refetchSolBalanceQuery();
-    await refetchUSDCBalanceQuery();
-  };
-
   const contextValue: WalletContextType = {
     ...walletState,
     connectWallet,
     disconnectWallet,
-    refreshBalance,
   };
 
   return (

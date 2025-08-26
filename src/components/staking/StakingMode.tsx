@@ -54,7 +54,7 @@ const StakingMode: React.FC = () => {
             {formatStakingAmount(userBalance.wYLDS)} wYLDS
           </div>
           <div className="text-xs text-muted-foreground">
-            ${(parseFloat(userBalance.wYLDS) * 1.0).toFixed(2)}
+            ${(parseFloat(userBalance.wYLDS)).toFixed(2)}
           </div>
         </div>
       </div>
