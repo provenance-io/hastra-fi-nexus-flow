@@ -816,10 +816,16 @@ export const SolVaultMintProd = {
  * Note that this is only a type helper and is not the actual IDL. The original
  * IDL can be found at `target/idl/sol_vault_stake.json`.
  */
+/**
+ * Program IDL in camelCase format in order to be used in JS/TS.
+ *
+ * Note that this is only a type helper and is not the actual IDL. The original
+ * IDL can be found at `target/idl/sol_vault_stake.json`.
+ */
 export const SolVaultStake = {
   "address": "G9cajZ82LeEpLT9RubWtHR5rixUnBHuJYRMarHKkvnRp",
   "metadata": {
-    "name": "solVaultStake",
+    "name": "sol_vault_stake",
     "version": "0.1.0",
     "spec": "0.1.0",
     "description": "Vault, Mint, and Stake Contract for Hastra"
@@ -862,7 +868,7 @@ export const SolVaultStake = {
           }
         },
         {
-          "name": "vaultTokenAccount",
+          "name": "vault_token_account",
           "writable": true
         },
         {
@@ -870,7 +876,7 @@ export const SolVaultStake = {
           "writable": true
         },
         {
-          "name": "mintAuthority",
+          "name": "mint_authority",
           "pda": {
             "seeds": [
               {
@@ -901,15 +907,15 @@ export const SolVaultStake = {
           "signer": true
         },
         {
-          "name": "userVaultTokenAccount",
+          "name": "user_vault_token_account",
           "writable": true
         },
         {
-          "name": "userMintTokenAccount",
+          "name": "user_mint_token_account",
           "writable": true
         },
         {
-          "name": "tokenProgram",
+          "name": "token_program",
           "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         }
       ],
@@ -926,7 +932,6 @@ export const SolVaultStake = {
         "Initializes the vault program with the required token configurations:",
         "- vault_mint: The token that users deposit (e.g., wYLDS)",
         "- stake_mint: The token users receive when staking (e.g., sYLDS)",
-        "- unbonding_mint: The token received during unbonding period (e.g., uwYLDS)",
         "- unbonding_period: Time in seconds users must wait before redeeming"
       ],
       "discriminator": [
@@ -945,7 +950,7 @@ export const SolVaultStake = {
           "writable": true
         },
         {
-          "name": "vaultAuthority",
+          "name": "vault_authority",
           "pda": {
             "seeds": [
               {
@@ -972,14 +977,14 @@ export const SolVaultStake = {
           }
         },
         {
-          "name": "vaultTokenAccount",
+          "name": "vault_token_account",
           "writable": true
         },
         {
-          "name": "vaultMint"
+          "name": "vault_mint"
         },
         {
-          "name": "tokenProgram",
+          "name": "token_program",
           "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         },
         {
@@ -993,97 +998,18 @@ export const SolVaultStake = {
       ],
       "args": [
         {
-          "name": "vaultMint",
+          "name": "vault_mint",
           "type": "pubkey"
         },
         {
-          "name": "stakeMint",
+          "name": "stake_mint",
           "type": "pubkey"
         },
         {
-          "name": "unbondingMint",
-          "type": "pubkey"
-        },
-        {
-          "name": "unbondingPeriod",
+          "name": "unbonding_period",
           "type": "i64"
         }
       ]
-    },
-    {
-      "name": "queryUnbondingStatus",
-      "docs": [
-        "Checks the status of an unbonding position",
-        "Returns the time remaining in the unbonding period"
-      ],
-      "discriminator": [
-        233,
-        179,
-        144,
-        12,
-        218,
-        176,
-        206,
-        13
-      ],
-      "accounts": [
-        {
-          "name": "config",
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  99,
-                  111,
-                  110,
-                  102,
-                  105,
-                  103
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "name": "unbondingRecord",
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  117,
-                  110,
-                  98,
-                  111,
-                  110,
-                  100,
-                  105,
-                  110,
-                  103,
-                  95,
-                  114,
-                  101,
-                  99,
-                  111,
-                  114,
-                  100
-                ]
-              },
-              {
-                "kind": "account",
-                "path": "signer"
-              }
-            ]
-          }
-        },
-        {
-          "name": "signer",
-          "signer": true
-        }
-      ],
-      "args": [],
-      "returns": "i64"
     },
     {
       "name": "redeem",
@@ -1122,61 +1048,11 @@ export const SolVaultStake = {
           }
         },
         {
-          "name": "unbondingMint",
+          "name": "vault_token_account",
           "writable": true
         },
         {
-          "name": "vaultTokenAccount",
-          "writable": true
-        },
-        {
-          "name": "signer",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "userUnbondingMintTokenAccount",
-          "writable": true
-        },
-        {
-          "name": "userVaultTokenAccount",
-          "writable": true
-        },
-        {
-          "name": "unbondingRecord",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  117,
-                  110,
-                  98,
-                  111,
-                  110,
-                  100,
-                  105,
-                  110,
-                  103,
-                  95,
-                  114,
-                  101,
-                  99,
-                  111,
-                  114,
-                  100
-                ]
-              },
-              {
-                "kind": "account",
-                "path": "signer"
-              }
-            ]
-          }
-        },
-        {
-          "name": "vaultAuthority",
+          "name": "vault_authority",
           "pda": {
             "seeds": [
               {
@@ -1203,14 +1079,54 @@ export const SolVaultStake = {
           }
         },
         {
-          "name": "tokenProgram",
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "ticket",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  105,
+                  99,
+                  107,
+                  101,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "signer"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user_vault_token_account",
+          "writable": true
+        },
+        {
+          "name": "user_mint_token_account",
+          "writable": true
+        },
+        {
+          "name": "mint",
+          "writable": true
+        },
+        {
+          "name": "token_program",
           "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         }
       ],
       "args": []
     },
     {
-      "name": "setMintAuthority",
+      "name": "set_mint_authority",
       "docs": [
         "Sets the mint authority for a specified token type",
         "Used to configure program control over token minting"
@@ -1249,16 +1165,12 @@ export const SolVaultStake = {
           "writable": true
         },
         {
-          "name": "unbondingMint",
-          "writable": true
-        },
-        {
           "name": "signer",
           "writable": true,
           "signer": true
         },
         {
-          "name": "mintAuthority",
+          "name": "mint_authority",
           "pda": {
             "seeds": [
               {
@@ -1284,64 +1196,18 @@ export const SolVaultStake = {
           }
         },
         {
-          "name": "unbondingMintAuthority",
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  117,
-                  110,
-                  98,
-                  111,
-                  110,
-                  100,
-                  105,
-                  110,
-                  103,
-                  95,
-                  109,
-                  105,
-                  110,
-                  116,
-                  95,
-                  97,
-                  117,
-                  116,
-                  104,
-                  111,
-                  114,
-                  105,
-                  116,
-                  121
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "name": "tokenProgram",
+          "name": "token_program",
           "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         }
       ],
-      "args": [
-        {
-          "name": "targetMintType",
-          "type": {
-            "defined": {
-              "name": "mintType"
-            }
-          }
-        }
-      ]
+      "args": []
     },
     {
       "name": "unbond",
       "docs": [
         "Initiates the unbonding process:",
         "- Burns user's stake tokens (e.g., sYLDS)",
-        "- Mints unbonding tokens (e.g., uwYLDS)",
-        "- Starts unbonding period timer"
+        "- Starts unbonding period timer via user ticket"
       ],
       "discriminator": [
         151,
@@ -1378,85 +1244,27 @@ export const SolVaultStake = {
           "signer": true
         },
         {
-          "name": "burnMint",
+          "name": "mint",
           "writable": true
         },
         {
-          "name": "userMintTokenAccount",
+          "name": "user_mint_token_account",
           "writable": true
         },
         {
-          "name": "unbondingMint",
-          "writable": true
-        },
-        {
-          "name": "userUnbondingMintTokenAccount",
-          "writable": true
-        },
-        {
-          "name": "unbondingMintAuthority",
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  117,
-                  110,
-                  98,
-                  111,
-                  110,
-                  100,
-                  105,
-                  110,
-                  103,
-                  95,
-                  109,
-                  105,
-                  110,
-                  116,
-                  95,
-                  97,
-                  117,
-                  116,
-                  104,
-                  111,
-                  114,
-                  105,
-                  116,
-                  121
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "name": "tokenProgram",
-          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
-        },
-        {
-          "name": "unbondingRecord",
+          "name": "ticket",
           "writable": true,
           "pda": {
             "seeds": [
               {
                 "kind": "const",
                 "value": [
-                  117,
-                  110,
-                  98,
-                  111,
-                  110,
-                  100,
+                  116,
                   105,
-                  110,
-                  103,
-                  95,
-                  114,
-                  101,
                   99,
-                  111,
-                  114,
-                  100
+                  107,
+                  101,
+                  116
                 ]
               },
               {
@@ -1467,7 +1275,7 @@ export const SolVaultStake = {
           }
         },
         {
-          "name": "systemProgram",
+          "name": "system_program",
           "address": "11111111111111111111111111111111"
         }
       ],
@@ -1479,12 +1287,11 @@ export const SolVaultStake = {
       ]
     },
     {
-      "name": "updateConfig",
+      "name": "update_config",
       "docs": [
         "Updates the program configuration with new token addresses:",
         "- new_vault: New vault token address",
-        "- new_mint: New stake token address",
-        "- new_unbonding_mint: New unbonding token address"
+        "- new_mint: New stake token address"
       ],
       "discriminator": [
         29,
@@ -1502,14 +1309,14 @@ export const SolVaultStake = {
           "writable": true
         },
         {
-          "name": "vaultTokenAccount",
+          "name": "vault_token_account",
           "writable": true
         },
         {
-          "name": "vaultMint"
+          "name": "vault_mint"
         },
         {
-          "name": "vaultAuthority",
+          "name": "vault_authority",
           "pda": {
             "seeds": [
               {
@@ -1536,7 +1343,7 @@ export const SolVaultStake = {
           }
         },
         {
-          "name": "tokenProgram",
+          "name": "token_program",
           "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         },
         {
@@ -1546,15 +1353,11 @@ export const SolVaultStake = {
       ],
       "args": [
         {
-          "name": "newVault",
+          "name": "new_vault",
           "type": "pubkey"
         },
         {
-          "name": "newMint",
-          "type": "pubkey"
-        },
-        {
-          "name": "newUnbondingMint",
+          "name": "new_mint",
           "type": "pubkey"
         }
       ]
@@ -1562,7 +1365,7 @@ export const SolVaultStake = {
   ],
   "accounts": [
     {
-      "name": "config",
+      "name": "Config",
       "discriminator": [
         155,
         12,
@@ -1575,94 +1378,94 @@ export const SolVaultStake = {
       ]
     },
     {
-      "name": "unbondingRecord",
+      "name": "UnbondingTicket",
       "discriminator": [
-        45,
-        152,
-        135,
-        60,
-        197,
-        167,
-        52,
-        252
+        213,
+        129,
+        239,
+        0,
+        7,
+        4,
+        215,
+        83
       ]
     }
   ],
   "errors": [
     {
       "code": 6001,
-      "name": "invalidAmount",
+      "name": "InvalidAmount",
       "msg": "Invalid amount"
     },
     {
       "code": 6002,
-      "name": "invalidTokenReceived",
+      "name": "InvalidTokenReceived",
       "msg": "Invalid token received"
     },
     {
       "code": 6003,
-      "name": "invalidVault",
+      "name": "InvalidVault",
       "msg": "Invalid vault"
     },
     {
       "code": 6004,
-      "name": "invalidAuthority",
+      "name": "InvalidAuthority",
       "msg": "Invalid authority"
     },
     {
       "code": 6005,
-      "name": "insufficientBalance",
+      "name": "InsufficientBalance",
       "msg": "Insufficient balance"
     },
     {
       "code": 6006,
-      "name": "unbondingPeriodNotElapsed",
+      "name": "UnbondingPeriodNotElapsed",
       "msg": "Unbonding period not elapsed"
     },
     {
       "code": 6007,
-      "name": "insufficientUnbondingBalance",
+      "name": "InsufficientUnbondingBalance",
       "msg": "Insufficient unbonding balance"
     },
     {
       "code": 6008,
-      "name": "unbondingInProgress",
+      "name": "UnbondingInProgress",
       "msg": "Unbonding is currently in progress"
     },
     {
       "code": 6009,
-      "name": "invalidMint",
+      "name": "InvalidMint",
       "msg": "Invalid mint provided"
     },
     {
       "code": 6010,
-      "name": "invalidVaultMint",
+      "name": "InvalidVaultMint",
       "msg": "Invalid vault mint provided"
     },
     {
       "code": 6011,
-      "name": "invalidUnbondingMint",
-      "msg": "Invalid unbonding mint provided"
+      "name": "InvalidTicketOwner",
+      "msg": "Invalid ticket owner"
     },
     {
       "code": 6012,
-      "name": "invalidMintAuthority",
+      "name": "InvalidMintAuthority",
       "msg": "Invalid mint authority"
     },
     {
       "code": 6013,
-      "name": "invalidUnbondingMintAuthority",
-      "msg": "Invalid unbonding mint authority"
+      "name": "InsufficientVaultBalance",
+      "msg": "Insufficient vault balance"
     },
     {
       "code": 6014,
-      "name": "invalidVaultAuthority",
+      "name": "InvalidVaultAuthority",
       "msg": "Invalid vault authority"
     }
   ],
   "types": [
     {
-      "name": "config",
+      "name": "Config",
       "type": {
         "kind": "struct",
         "fields": [
@@ -1675,32 +1478,18 @@ export const SolVaultStake = {
             "type": "pubkey"
           },
           {
-            "name": "unbondingMint",
+            "name": "unbonding_mint",
             "type": "pubkey"
           },
           {
-            "name": "unbondingPeriod",
+            "name": "unbonding_period",
             "type": "i64"
           }
         ]
       }
     },
     {
-      "name": "mintType",
-      "type": {
-        "kind": "enum",
-        "variants": [
-          {
-            "name": "mint"
-          },
-          {
-            "name": "unbondingMint"
-          }
-        ]
-      }
-    },
-    {
-      "name": "unbondingRecord",
+      "name": "UnbondingTicket",
       "type": {
         "kind": "struct",
         "fields": [
@@ -1709,11 +1498,15 @@ export const SolVaultStake = {
             "type": "pubkey"
           },
           {
-            "name": "amount",
+            "name": "requested_amount",
             "type": "u64"
           },
           {
-            "name": "startTime",
+            "name": "start_balance",
+            "type": "u64"
+          },
+          {
+            "name": "start_ts",
             "type": "i64"
           }
         ]

@@ -11,7 +11,8 @@ import {
 } from '@/types/staking';
 import {useTokenPortfolio} from "@/hooks/useTokenPortfolio.ts";
 import {sYLDS, wYLDS} from "@/types/tokens.ts";
-import {useStake} from "@/hooks/use-solana-tx.ts";
+import {useAnchorWallet, useStake, useUnbond} from "@/hooks/use-solana-tx.ts";
+import {usePendingUnstakeQuery} from "@/hooks/useSolanaQuery.ts";
 
 const INITIAL_STATE: StakingState = {
   userBalance: {
@@ -34,10 +35,8 @@ const INITIAL_STATE: StakingState = {
     availableDate: new Date(),
     cooldownWarning: '',
   },
-  pendingUnstakes: {
-    list: [],
-    totalPending: '0',
-    totalReadyToClaim: '0',
+  pendingUnstake: {
+    data: null,
     isLoading: false,
   },
   transaction: {
@@ -59,48 +58,10 @@ export const useStaking = () => {
   const { isConnected, address } = useWallet();
   const { tokens } = useTokenPortfolio();
   const { invoke: invokeStake } = useStake();
+  const { invoke: invokeUnbond } = useUnbond();
+  const { data: unbondingData, isLoading: unbondingLoading } = usePendingUnstakeQuery()
 
   const { toast } = useToast();
-
-  // Mock data for development - replace with actual API calls
-  const mockProtocolData: ProtocolMetrics = {
-    currentAPR: '9.2',
-    totalStaked: '1,247,893',
-    exchangeRate: '1.0',
-    unstakingCooldown: '20 days',
-    unstakingFee: '0',
-    totalUsers: 3420,
-  };
-
-  const mockPendingUnstakes: PendingUnstake[] = [
-    {
-      id: '1',
-      amount: '50.0',
-      initiatedAt: new Date(Date.now() - 22 * 24 * 60 * 60 * 1000), // 22 days ago
-      availableAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000), // 2 days ago (ready)
-      status: 'ready',
-      canClaim: true,
-      canCancel: false,
-    },
-    {
-      id: '2',
-      amount: '50.0',
-      initiatedAt: new Date(Date.now() - 21 * 24 * 60 * 60 * 1000), // 21 days ago
-      availableAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000), // 1 day ago (ready)
-      status: 'ready',
-      canClaim: true,
-      canCancel: false,
-    },
-    {
-      id: '3',
-      amount: '100.0',
-      initiatedAt: new Date(Date.now() - 15 * 24 * 60 * 60 * 1000), // 15 days ago
-      availableAt: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000), // 5 days from now
-      status: 'pending',
-      canClaim: false,
-      canCancel: true,
-    },
-  ];
 
   const balance = (mintAddress: string): string => {
     const token = tokens.find(t => t.mint === mintAddress);
@@ -116,29 +77,17 @@ export const useStaking = () => {
         
         setState(prev => ({
           ...prev,
-          protocolData: {
-            ...mockProtocolData,
-            lastUpdated: new Date(),
-          },
-          pendingUnstakes: {
-            ...prev.pendingUnstakes,
-            list: mockPendingUnstakes,
-            totalPending: mockPendingUnstakes
-              .reduce((sum, u) => sum + parseFloat(u.amount), 0)
-              .toString(),
-            totalReadyToClaim: mockPendingUnstakes
-              .filter(u => u.status === 'ready')
-              .reduce((sum, u) => sum + parseFloat(u.amount), 0)
-              .toString(),
+          pendingUnstake: {
+            data: unbondingData || null,
+            isLoading: unbondingLoading,
           },
         }));
       } catch (error) {
         console.error('Failed to fetch protocol data:', error);
       }
     };
-
     fetchProtocolData();
-  }, []);
+  }, [unbondingData, unbondingLoading]);
 
   // Update user balance
   useEffect(() => {
@@ -321,53 +270,37 @@ export const useStaking = () => {
       return { success: false, error: 'Invalid form or wallet not connected' };
     }
 
-    try {
-      updateTransactionStatus('preparing');
-      
-      // Mock transaction execution
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      updateTransactionStatus('signing');
-      
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      updateTransactionStatus('broadcasting');
-      
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      updateTransactionStatus('confirming');
-      
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      const mockTxHash = 'mock_unstake_tx_' + Date.now();
-      const mockUnstakeId = 'unstake_' + Date.now();
-      updateTransactionStatus('success', mockTxHash);
-
+    invokeUnbond(parseFloat(state.unstakingForm.amount)).then(tx => {
+      updateTransactionStatus('success', tx.txId);
       toast({
-        title: "🟡 Unstaking Initiated",
-        description: `Unstaking ${state.unstakingForm.amount} sYLDS. Available in 20 days.`,
-        className: "toast-action-warning",
+        title: tx.success ? "🟢 Unstaking Successful" : "❌ Staking Failed",
+        description: tx.success ? `Successfully initiated unstake ${state.unstakingForm.amount} sYLDS` : `Unstake of ${state.unstakingForm.amount} sYLDS failed: ${tx.error}`,
+        className: tx.success ? "toast-action-success" : "toast-action-error",
       });
+      if (!tx.success) {
+        console.error(JSON.stringify(tx));
+      }
 
       // Reset form
       setState(prev => ({
         ...prev,
         unstakingForm: { ...prev.unstakingForm, amount: '', errors: [] },
       }));
-
-      return { success: true, txHash: mockTxHash, unstakeId: mockUnstakeId };
-    } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Transaction failed';
-      updateTransactionStatus('error', undefined, errorMessage);
-      
+      return { success: tx.success, txHash: tx.txId };
+    }).catch(error => {
+      updateTransactionStatus('error', undefined, error.message);
+      console.error(error);
       toast({
-        title: "❌ Unstaking Failed",
-        description: errorMessage,
+        title: "❌ Unstaking Exception",
+        description: error.message,
         variant: "destructive",
       });
+      return { success: false, error: JSON.stringify(error) };
+    });
 
-      return { success: false, error: errorMessage };
-    }
-  }, [state.unstakingForm, isConnected, updateTransactionStatus, toast]);
+  }, [state.unstakingForm, isConnected, updateTransactionStatus, invokeUnbond, toast]);
 
-  const executeClaim = useCallback(async (unstakeIds: string[]): Promise<TransactionResult> => {
+  const executeClaim = useCallback(async (): Promise<TransactionResult> => {
     if (!isConnected) {
       return { success: false, error: 'Wallet not connected' };
     }
@@ -376,8 +309,8 @@ export const useStaking = () => {
       updateTransactionStatus('preparing');
       
       // Calculate total amount being claimed
-      const unstakesToClaim = state.pendingUnstakes.list.filter(u => unstakeIds.includes(u.id));
-      const totalClaimedAmount = unstakesToClaim.reduce((sum, u) => sum + parseFloat(u.amount), 0);
+      const unstakesToClaim = state.pendingUnstake;
+      const totalClaimedAmount = unstakesToClaim.data.amount;
       
       // Mock claim execution
       await new Promise(resolve => setTimeout(resolve, 1000));
@@ -394,13 +327,10 @@ export const useStaking = () => {
       const mockTxHash = 'mock_claim_tx_' + Date.now();
       updateTransactionStatus('success', mockTxHash);
 
-      // Update balances: decrease swYLDS, increase wYLDS
+      // Update balances: decrease sYLDS, increase wYLDS
       setState(prev => {
         const currentSYLDS = parseFloat(prev.userBalance.sYLDS);
-        const newSYLDS = Math.max(0, currentSYLDS - totalClaimedAmount);
-        
-        // Remove claimed unstakes from pending list
-        const remainingUnstakes = prev.pendingUnstakes.list.filter(u => !unstakeIds.includes(u.id));
+        const newSYLDS = Math.max(0, currentSYLDS - Number(totalClaimedAmount));
         
         return {
           ...prev,
@@ -409,15 +339,8 @@ export const useStaking = () => {
             sYLDS: newSYLDS.toString(),
           },
           pendingUnstakes: {
-            ...prev.pendingUnstakes,
-            list: remainingUnstakes,
-            totalPending: remainingUnstakes
-              .reduce((sum, u) => sum + parseFloat(u.amount), 0)
-              .toString(),
-            totalReadyToClaim: remainingUnstakes
-              .filter(u => u.status === 'ready')
-              .reduce((sum, u) => sum + parseFloat(u.amount), 0)
-              .toString(),
+            data: null,
+            isLoading: false,
           },
         };
       });
@@ -441,7 +364,7 @@ export const useStaking = () => {
 
       return { success: false, error: errorMessage };
     }
-  }, [isConnected, updateTransactionStatus, toast, state.pendingUnstakes.list]);
+  }, [isConnected, updateTransactionStatus, toast, state.pendingUnstake]);
 
   const resetTransaction = useCallback(() => {
     setState(prev => ({
@@ -461,7 +384,7 @@ export const useStaking = () => {
     
     // Computed values
     isTransacting: state.transaction.status !== 'idle',
-    hasReadyToClaim: parseFloat(state.pendingUnstakes.totalReadyToClaim) > 0,
+    hasReadyToClaim: state.pendingUnstake.data && state.pendingUnstake.data.canClaim,
     
     // Actions
     setStakingAmount,

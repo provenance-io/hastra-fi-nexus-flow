@@ -27,13 +27,11 @@ export interface StakingState {
     cooldownWarning: string;
   };
   
-  // Pending Unstakes
-  pendingUnstakes: {
-    list: PendingUnstake[];
-    totalPending: string;
-    totalReadyToClaim: string;
+  // Pending Unstake
+  pendingUnstake: {
+    data: PendingUnstake | null,
     isLoading: boolean;
-  };
+  }
   
   // Transaction
   transaction: {

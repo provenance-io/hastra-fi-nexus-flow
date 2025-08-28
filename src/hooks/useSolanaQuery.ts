@@ -2,6 +2,11 @@ import { clusterApiUrl, Connection, PublicKey } from "@solana/web3.js";
 import { getAssociatedTokenAddress } from "@solana/spl-token";
 import { useQuery } from "@tanstack/react-query";
 import type { CoinGeckoPrice } from "../types/coin-gecko";
+import {AnchorProvider, type Idl, Program, Wallet} from "@coral-xyz/anchor";
+import {SolVaultStake} from "@/types/sol-vault-stake.ts";
+import {solVaultStakeIdl} from "@/types/idl/solana.ts";
+import {useAnchorWallet} from "@/hooks/use-solana-tx.ts";
+import {PendingUnstake} from "@/types/staking.ts";
 
 const connection = new Connection(
   clusterApiUrl(import.meta.env.VITE_SOLANA_CLUSTER_NAME),
@@ -111,3 +116,42 @@ export const useAtaBalanceQuery = (
     refetchInterval: 5000, // Refetch every minute
   });
 };
+
+export function usePendingUnstakeQuery() {
+  const wallet = useAnchorWallet();
+  const provider = new AnchorProvider(connection, wallet, {
+    preflightCommitment: "confirmed",
+  });
+  const program = new Program(solVaultStakeIdl() as Idl, provider) as Program<SolVaultStake>;
+
+  return useQuery<PendingUnstake | null, Error>({
+    queryKey: ["unbonding-ticket", program.programId.toBase58(), wallet.publicKey?.toBase58()],
+    enabled: !!program && !!wallet && !!wallet.publicKey,
+    queryFn: async () => {
+      const [pda] = PublicKey.findProgramAddressSync(
+          [Buffer.from("ticket"), wallet.publicKey!.toBuffer()],
+          program.programId
+      );
+      const ticket = await program.account.unbondingTicket.fetchNullable(pda);
+      if (!ticket) return null;
+
+      console.dir(ticket);
+      const endTs: number = ((ticket?.startTs.toNumber() || 0) + 1814400) * 1000; // TODO: fetch from config, assuming 21 days for now
+      const startTs: number = (ticket?.startTs.toNumber() || 0) * 1000;
+      const now = Date.now();
+      const status = (endTs < now) ? 'ready' : 'pending';
+
+      console.log({endTs, startTs, now, status});
+      return {
+        id: pda.toBase58(),
+        amount: ((ticket?.requestedAmount.toNumber() || 0) / 1e6).toString(),
+        initiatedAt: new Date(startTs),
+        availableAt: new Date(endTs),
+        status: status,
+        canClaim: status === 'ready',
+        canCancel: status === 'pending',
+      } as PendingUnstake;
+    },
+    refetchInterval: 15_000, // optional
+  });
+}

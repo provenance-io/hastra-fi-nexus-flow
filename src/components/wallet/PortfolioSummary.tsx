@@ -21,14 +21,14 @@ const PortfolioSummary = ({
 }: PortfolioSummaryProps) => {
   const { toast } = useToast();
   const { isConnected } = useWallet();
-  const { userBalance, protocolData, pendingUnstakes } = useStaking();
+  const { userBalance, protocolData, pendingUnstake } = useStaking();
   
   const [isClaimAnimating, setIsClaimAnimating] = useState(false);
   const [prevClaimAmount, setPrevClaimAmount] = useState(totalUnclaimedInterest);
 
   // Calculate staking data
   const stakedBalance = parseFloat(userBalance.sYLDS);
-  const pendingBalance = parseFloat(pendingUnstakes.totalPending);
+  const pendingBalance = parseFloat(pendingUnstake?.data?.amount || '0');
   const totalInStaking = stakedBalance + pendingBalance;
   const stakingValue = totalInStaking; // Assuming 1:1 USD value
 
