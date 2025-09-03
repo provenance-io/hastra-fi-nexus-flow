@@ -17,6 +17,7 @@ const StakingMode: React.FC = () => {
     setMaxStakeAmount,
     executeStaking,
     isTransacting,
+      transactionStatus,
   } = useStaking();
 
   const estimatedGas = estimateGasFee('stake');
@@ -164,7 +165,6 @@ const StakingMode: React.FC = () => {
             </>
           )}
         </Button>
-
       </div>
     </div>
   );

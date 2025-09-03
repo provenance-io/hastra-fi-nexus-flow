@@ -26,6 +26,7 @@ const PendingUnstakesCard: React.FC = () => {
         executeClaim,
         hasReadyToClaim,
         isTransacting,
+        protocolData,
     } = useStaking();
 
     if (!pendingUnstake || !pendingUnstake.data) {
@@ -240,7 +241,7 @@ const PendingUnstakesCard: React.FC = () => {
                 {/* Info Footer - Always visible */}
                 <div
                     className="text-center text-xs text-muted-foreground border-t border-border/30 pt-4">
-                    Tokens become claimable after the 20-day cooldown period
+                    Tokens become claimable after the {protocolData.unstakingCooldown} cooldown period
                 </div>
             </div>
         </Card>

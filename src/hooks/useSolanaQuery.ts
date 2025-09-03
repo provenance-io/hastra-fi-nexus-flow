@@ -117,6 +117,26 @@ export const useAtaBalanceQuery = (
   });
 };
 
+export function useUnbondingPeriodConfigQuery() {
+    const wallet = useAnchorWallet();
+    const provider = new AnchorProvider(connection, wallet, {
+        preflightCommitment: "confirmed",
+    });
+    const program = new Program(solVaultStakeIdl() as Idl, provider) as Program<SolVaultStake>;
+    return useQuery<number, Error>({
+        queryKey: ["staking-config", program.programId.toBase58()],
+        enabled: !!program,
+        queryFn: async () => {
+            const [pda] = PublicKey.findProgramAddressSync(
+                [Buffer.from("config")],
+                program.programId
+            );
+            const config = await program.account.config.fetch(pda);
+            return config?.unbondingPeriod.toNumber() || 0;
+        },
+        refetchInterval: 60_000,
+    });
+}
 export function usePendingUnstakeQuery() {
   const wallet = useAnchorWallet();
   const provider = new AnchorProvider(connection, wallet, {

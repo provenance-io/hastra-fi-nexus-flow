@@ -190,7 +190,13 @@ const PortfolioSummary = ({
               <p className="text-3xl lg:text-4xl font-bold text-white mb-3">
                 {formatStakingAmount(userBalance.sYLDS)}
               </p>
-              <Button
+
+              { (pendingUnstake?.data) ? (
+                <div className="text-xs text-muted-foreground mb-2">
+                  Pending Unstake: {formatStakingAmount(pendingBalance)} sYLDS
+                    (Available on {new Date(pendingUnstake.data.availableAt).toLocaleDateString()})
+                </div>) :
+                  (<Button
                 size="sm"
                 variant="secondary"
                 className="w-full"
@@ -204,7 +210,7 @@ const PortfolioSummary = ({
                 }}
               >
                 Unstake All to wYLDS
-              </Button>
+              </Button>)}
             </div>
           </div>
         </div>
