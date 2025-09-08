@@ -1290,8 +1290,7 @@ export const SolVaultStake = {
       "name": "update_config",
       "docs": [
         "Updates the program configuration with new token addresses:",
-        "- new_vault: New vault token address",
-        "- new_mint: New stake token address"
+        "- new_unbonding_period: New unbonding period in seconds"
       ],
       "discriminator": [
         29,
@@ -1306,37 +1305,18 @@ export const SolVaultStake = {
       "accounts": [
         {
           "name": "config",
-          "writable": true
-        },
-        {
-          "name": "vault_token_account",
-          "writable": true
-        },
-        {
-          "name": "vault_mint"
-        },
-        {
-          "name": "vault_authority",
+          "writable": true,
           "pda": {
             "seeds": [
               {
                 "kind": "const",
                 "value": [
-                  118,
-                  97,
-                  117,
-                  108,
-                  116,
-                  95,
-                  97,
-                  117,
-                  116,
-                  104,
+                  99,
                   111,
-                  114,
+                  110,
+                  102,
                   105,
-                  116,
-                  121
+                  103
                 ]
               }
             ]
@@ -1353,12 +1333,8 @@ export const SolVaultStake = {
       ],
       "args": [
         {
-          "name": "new_vault",
-          "type": "pubkey"
-        },
-        {
-          "name": "new_mint",
-          "type": "pubkey"
+          "name": "new_unbonding_period",
+          "type": "i64"
         }
       ]
     }
@@ -1475,10 +1451,6 @@ export const SolVaultStake = {
           },
           {
             "name": "mint",
-            "type": "pubkey"
-          },
-          {
-            "name": "unbonding_mint",
             "type": "pubkey"
           },
           {
