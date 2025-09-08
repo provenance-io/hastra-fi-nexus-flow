@@ -441,3 +441,86 @@ export const useUnbond = () => {
         invoke: unbond,
     };
 };
+
+export const useRedeem = () => {
+    const { connection } = useConnection();
+    const { publicKey } = useWallet();
+    const wallet = useAnchorWallet();
+
+    const redeem = useCallback(
+        async () => {
+            if (!wallet) {
+                console.error("No wallet found. Please connect your wallet.");
+                return;
+            }
+            if (!publicKey) {
+                console.error("No public key found. Please connect your wallet.");
+                return;
+            }
+            const provider = new AnchorProvider(connection, wallet, {
+                preflightCommitment: "confirmed",
+            });
+            const program = new Program(solVaultStakeIdl() as Idl, provider);
+
+            const syldsMint = new PublicKey(sYLDS);
+
+            const signer = publicKey;
+            const userMintTokenAccount: PublicKey = await getAssociatedTokenAddress(
+                new PublicKey(sYLDS),
+                signer
+            );
+            const userVaultTokenAccount: PublicKey = await getAssociatedTokenAddress(
+                new PublicKey(wYLDS),
+                signer
+            );
+
+            const vaultTokenAccount = new PublicKey(
+                import.meta.env.VITE_SOLANA_SYLDS_VAULT_TOKEN_ACCOUNT,
+            )
+
+            const configPda = new PublicKey(
+                import.meta.env.VITE_SOLANA_SYLDS_CONFIG_PDA
+            );
+            const [ticketPda] = web3.PublicKey.findProgramAddressSync(
+                [Buffer.from("ticket"), signer.toBuffer()],
+                program.programId
+            );
+            const [vaultAuthorityPda] = web3.PublicKey.findProgramAddressSync(
+                [Buffer.from("vault_authority")],
+                program.programId
+            );
+
+            console.log(`config:                        ${configPda.toBase58()}`);
+            console.log(`vaultTokenAccount:             ${vaultTokenAccount.toBase58()}`);
+            console.log(`vaultAuthority:                ${vaultAuthorityPda.toBase58()}`);
+            console.log(`signer:                        ${signer.toBase58()}`);
+            console.log(`userMintTokenAccount:          ${userMintTokenAccount.toBase58()}`);
+            console.log(`userVaultTokenAccount:         ${userVaultTokenAccount.toBase58()}`);
+            console.log(`mint:                          ${syldsMint.toBase58()}`);
+            console.log(`ticketPda:                     ${ticketPda.toBase58()}`);
+            console.log(`tokenProgram:                  ${TOKEN_PROGRAM_ID.toBase58()}`);
+            return await confirmTransaction(connection, () =>
+                program?.methods
+                    .redeem()
+                    .accounts({
+                        config: configPda,
+                        vaultTokenAccount: vaultTokenAccount,
+                        vaultAuthority: vaultAuthorityPda,
+                        signer: signer,
+                        userMintTokenAccount: userMintTokenAccount,
+                        userVaultTokenAccount: userVaultTokenAccount,
+                        mint: syldsMint,
+                        tokenProgram: TOKEN_PROGRAM_ID,
+                        ticket: ticketPda,
+                        systemProgram: SystemProgram.programId
+                    })
+                    .rpc()
+            );
+        },
+        [connection, wallet, publicKey]
+    );
+
+    return {
+        invoke: redeem,
+    };
+};

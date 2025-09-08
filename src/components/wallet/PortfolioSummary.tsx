@@ -1,10 +1,12 @@
 import { DollarSign, TrendingUp, Gift, Coins, BarChart3 } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { useWallet } from "@/contexts/WalletContext.tsx";
 import { useStaking } from '@/hooks/useStaking';
 import { formatStakingAmount, calculateStakingRewards } from '@/utils/stakingUtils';
+import {useUnbond} from "@/hooks/use-solana-tx.ts";
+import {TransactionResult} from "@/types/staking.ts";
 
 interface PortfolioSummaryProps {
   totalPortfolioValue: number;
@@ -22,9 +24,11 @@ const PortfolioSummary = ({
   const { toast } = useToast();
   const { isConnected } = useWallet();
   const { userBalance, protocolData, pendingUnstake } = useStaking();
-  
+  const { invoke: invokeUnbond } = useUnbond();
+
   const [isClaimAnimating, setIsClaimAnimating] = useState(false);
   const [prevClaimAmount, setPrevClaimAmount] = useState(totalUnclaimedInterest);
+  const [isUnstaking, setIsUnstaking] = useState(false);
 
   // Calculate staking data
   const stakedBalance = parseFloat(userBalance.sYLDS);
@@ -56,6 +60,28 @@ const PortfolioSummary = ({
         description: `Claimed $${totalUnclaimedInterest.toFixed(2)} in total rewards`,
       });
     }
+  };
+
+  const executeUnstakeAll = () => {
+    setIsUnstaking(true);
+    invokeUnbond(parseFloat(userBalance.sYLDS)).then(tx => {
+      toast({
+        title: tx.success ? "🟢 Unstaking Successful" : "❌ Staking Failed",
+        description: tx.success ? `Successfully initiated unstake ${userBalance.sYLDS} sYLDS` : `Unstake of ${userBalance.sYLDS} sYLDS failed: ${tx.error}`,
+        className: tx.success ? "toast-action-success" : "toast-action-error",
+      });
+      return { success: tx.success, txHash: tx.txId };
+    }).catch(error => {
+      console.error(error);
+      toast({
+        title: "❌ Unstaking Exception",
+        description: error.message,
+        variant: "destructive",
+      });
+      return { success: false, error: JSON.stringify(error) };
+    }).finally(() => {
+        setIsUnstaking(false);
+    });
   };
 
   return (
@@ -201,15 +227,19 @@ const PortfolioSummary = ({
                 variant="secondary"
                 className="w-full"
                 disabled={parseFloat(userBalance.sYLDS) <= 0}
-                onClick={() => {
-                  // TODO: Implement unstake all functionality
-                  toast({
-                    title: "Unstaking All",
-                    description: `Unstaking ${formatStakingAmount(userBalance.sYLDS)} sYLDS to wYLDS`,
-                  });
-                }}
+                onClick={executeUnstakeAll}
               >
-                Unstake All to wYLDS
+                        {isUnstaking ? (
+                            <>
+                              <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent mr-2" />
+                              Processing...
+                            </>
+
+                        ): (
+                          <>
+                            Unstake All to wYLDS
+                          </>
+                        )}
               </Button>)}
             </div>
           </div>

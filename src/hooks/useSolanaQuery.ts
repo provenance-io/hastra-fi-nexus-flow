@@ -117,6 +117,15 @@ export const useAtaBalanceQuery = (
   });
 };
 
+const unbondingConfig = async (program: Program<SolVaultStake>): Promise<number> => {
+  const [pda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("config")],
+      program.programId
+  );
+  const config = await program.account.config.fetch(pda);
+  return config?.unbondingPeriod.toNumber() || 0;
+}
+
 export function useUnbondingPeriodConfigQuery() {
     const wallet = useAnchorWallet();
     const provider = new AnchorProvider(connection, wallet, {
@@ -127,12 +136,7 @@ export function useUnbondingPeriodConfigQuery() {
         queryKey: ["staking-config", program.programId.toBase58()],
         enabled: !!program,
         queryFn: async () => {
-            const [pda] = PublicKey.findProgramAddressSync(
-                [Buffer.from("config")],
-                program.programId
-            );
-            const config = await program.account.config.fetch(pda);
-            return config?.unbondingPeriod.toNumber() || 0;
+          return await unbondingConfig(program);
         },
         refetchInterval: 60_000,
     });
@@ -155,8 +159,13 @@ export function usePendingUnstakeQuery() {
       const ticket = await program.account.unbondingTicket.fetchNullable(pda);
       if (!ticket) return null;
 
-      console.dir(ticket);
-      const endTs: number = ((ticket?.startTs.toNumber() || 0) + 1814400) * 1000; // TODO: fetch from config, assuming 21 days for now
+      const ubConfig = await unbondingConfig(program);
+
+      if(ubConfig === 0) {
+        throw new Error("Invalid unbonding config found - cannot calculate pending unstake");
+      }
+
+      const endTs: number = ((ticket?.startTs.toNumber() || 0) + ubConfig) * 1000;
       const startTs: number = (ticket?.startTs.toNumber() || 0) * 1000;
       const now = Date.now();
       const status = (endTs < now) ? 'ready' : 'pending';

@@ -11,7 +11,12 @@ import {
 } from '@/types/staking';
 import {useTokenPortfolio} from "@/hooks/useTokenPortfolio.ts";
 import {sYLDS, wYLDS} from "@/types/tokens.ts";
-import {useAnchorWallet, useStake, useUnbond} from "@/hooks/use-solana-tx.ts";
+import {
+  useAnchorWallet,
+  useRedeem,
+  useStake,
+  useUnbond
+} from "@/hooks/use-solana-tx.ts";
 import {
   usePendingUnstakeQuery,
   useUnbondingPeriodConfigQuery
@@ -62,6 +67,7 @@ export const useStaking = () => {
   const { tokens } = useTokenPortfolio();
   const { invoke: invokeStake } = useStake();
   const { invoke: invokeUnbond } = useUnbond();
+  const { invoke: invokeRedeem } = useRedeem();
   const { data: unbondingData, isLoading: unbondingLoading } = usePendingUnstakeQuery()
   const { data: unbondingPeriod } = useUnbondingPeriodConfigQuery();
 
@@ -318,66 +324,47 @@ export const useStaking = () => {
       return { success: false, error: 'Wallet not connected' };
     }
 
-    try {
-      updateTransactionStatus('preparing');
-
-      // Calculate total amount being claimed
-      const unstakesToClaim = state.pendingUnstake;
-      const totalClaimedAmount = unstakesToClaim.data.amount;
-
-      // Mock claim execution
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      updateTransactionStatus('signing');
-
-      await new Promise(resolve => setTimeout(resolve, 1500));
       updateTransactionStatus('broadcasting');
 
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      updateTransactionStatus('confirming');
+      invokeRedeem().then(tx => {
+        updateTransactionStatus('success', tx.txId);
+        toast({
+          title: "🟢 Unstaked to wYLDS",
+          description: `Successfully unstaked sYLDS to wYLDS`,
+          className: "toast-action-success",
+        });
+        if (!tx.success) {
+          console.error(JSON.stringify(tx));
+        }
 
-      await new Promise(resolve => setTimeout(resolve, 1500));
+        // Update balances: decrease sYLDS, increase wYLDS
+        setState(prev => {
+          const newSYLDS = 0;
+          return {
+            ...prev,
+            userBalance: {
+              ...prev.userBalance,
+              sYLDS: newSYLDS.toString(),
+            },
+            pendingUnstakes: {
+              data: null,
+              isLoading: false,
+            },
+          };
+        });
 
-      const mockTxHash = 'mock_claim_tx_' + Date.now();
-      updateTransactionStatus('success', mockTxHash);
-
-      // Update balances: decrease sYLDS, increase wYLDS
-      setState(prev => {
-        const currentSYLDS = parseFloat(prev.userBalance.sYLDS);
-        const newSYLDS = Math.max(0, currentSYLDS - Number(totalClaimedAmount));
-
-        return {
-          ...prev,
-          userBalance: {
-            ...prev.userBalance,
-            sYLDS: newSYLDS.toString(),
-          },
-          pendingUnstakes: {
-            data: null,
-            isLoading: false,
-          },
-        };
+        return { success: tx.success, txHash: tx.txId };
+      }).catch(error => {
+        updateTransactionStatus('error', undefined, error.message);
+        console.error(error);
+        toast({
+          title: "❌ Claim Exception",
+          description: error.message,
+          variant: "destructive",
+        });
+        return { success: false, error: JSON.stringify(error) };
       });
-
-      toast({
-        title: "🟢 Unstaked to wYLDS",
-        description: `Successfully unstaked ${totalClaimedAmount} sYLDS to wYLDS`,
-        className: "toast-action-success",
-      });
-
-      return { success: true, txHash: mockTxHash };
-    } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Unstaking failed';
-      updateTransactionStatus('error', undefined, errorMessage);
-
-      toast({
-        title: "❌ Unstaking Failed",
-        description: errorMessage,
-        variant: "destructive",
-      });
-
-      return { success: false, error: errorMessage };
-    }
-  }, [isConnected, updateTransactionStatus, toast, state.pendingUnstake]);
+    }, [isConnected, updateTransactionStatus, invokeRedeem, toast]);
 
   const resetTransaction = useCallback(() => {
     setState(prev => ({
