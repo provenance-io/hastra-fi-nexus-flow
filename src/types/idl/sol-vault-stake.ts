@@ -1,13 +1,7 @@
-/**
- * Program IDL in camelCase format in order to be used in JS/TS.
- *
- * Note that this is only a type helper and is not the actual IDL. The original
- * IDL can be found at `target/idl/sol_vault_stake.json`.
- */
-export type SolVaultStake = {
+export const SolVaultStake = {
   "address": "G9cajZ82LeEpLT9RubWtHR5rixUnBHuJYRMarHKkvnRp",
   "metadata": {
-    "name": "solVaultStake",
+    "name": "sol_vault_stake",
     "version": "0.1.0",
     "spec": "0.1.0",
     "description": "Vault, Mint, and Stake Contract for Hastra"
@@ -50,7 +44,7 @@ export type SolVaultStake = {
           }
         },
         {
-          "name": "vaultTokenAccount",
+          "name": "vault_token_account",
           "writable": true
         },
         {
@@ -58,7 +52,7 @@ export type SolVaultStake = {
           "writable": true
         },
         {
-          "name": "mintAuthority",
+          "name": "mint_authority",
           "pda": {
             "seeds": [
               {
@@ -89,15 +83,15 @@ export type SolVaultStake = {
           "signer": true
         },
         {
-          "name": "userVaultTokenAccount",
+          "name": "user_vault_token_account",
           "writable": true
         },
         {
-          "name": "userMintTokenAccount",
+          "name": "user_mint_token_account",
           "writable": true
         },
         {
-          "name": "tokenProgram",
+          "name": "token_program",
           "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         }
       ],
@@ -132,7 +126,7 @@ export type SolVaultStake = {
           "writable": true
         },
         {
-          "name": "vaultAuthority",
+          "name": "vault_authority",
           "pda": {
             "seeds": [
               {
@@ -159,14 +153,14 @@ export type SolVaultStake = {
           }
         },
         {
-          "name": "vaultTokenAccount",
+          "name": "vault_token_account",
           "writable": true
         },
         {
-          "name": "vaultMint"
+          "name": "vault_mint"
         },
         {
-          "name": "tokenProgram",
+          "name": "token_program",
           "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         },
         {
@@ -180,15 +174,15 @@ export type SolVaultStake = {
       ],
       "args": [
         {
-          "name": "vaultMint",
+          "name": "vault_mint",
           "type": "pubkey"
         },
         {
-          "name": "stakeMint",
+          "name": "stake_mint",
           "type": "pubkey"
         },
         {
-          "name": "unbondingPeriod",
+          "name": "unbonding_period",
           "type": "i64"
         }
       ]
@@ -230,11 +224,11 @@ export type SolVaultStake = {
           }
         },
         {
-          "name": "vaultTokenAccount",
+          "name": "vault_token_account",
           "writable": true
         },
         {
-          "name": "vaultAuthority",
+          "name": "vault_authority",
           "pda": {
             "seeds": [
               {
@@ -289,11 +283,11 @@ export type SolVaultStake = {
           }
         },
         {
-          "name": "userVaultTokenAccount",
+          "name": "user_vault_token_account",
           "writable": true
         },
         {
-          "name": "userMintTokenAccount",
+          "name": "user_mint_token_account",
           "writable": true
         },
         {
@@ -301,14 +295,14 @@ export type SolVaultStake = {
           "writable": true
         },
         {
-          "name": "tokenProgram",
+          "name": "token_program",
           "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         }
       ],
       "args": []
     },
     {
-      "name": "setMintAuthority",
+      "name": "set_mint_authority",
       "docs": [
         "Sets the mint authority for a specified token type",
         "Used to configure program control over token minting"
@@ -352,7 +346,7 @@ export type SolVaultStake = {
           "signer": true
         },
         {
-          "name": "mintAuthority",
+          "name": "mint_authority",
           "pda": {
             "seeds": [
               {
@@ -378,7 +372,7 @@ export type SolVaultStake = {
           }
         },
         {
-          "name": "tokenProgram",
+          "name": "token_program",
           "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         }
       ],
@@ -430,7 +424,7 @@ export type SolVaultStake = {
           "writable": true
         },
         {
-          "name": "userMintTokenAccount",
+          "name": "user_mint_token_account",
           "writable": true
         },
         {
@@ -457,7 +451,7 @@ export type SolVaultStake = {
           }
         },
         {
-          "name": "systemProgram",
+          "name": "system_program",
           "address": "11111111111111111111111111111111"
         }
       ],
@@ -469,7 +463,7 @@ export type SolVaultStake = {
       ]
     },
     {
-      "name": "updateConfig",
+      "name": "update_config",
       "docs": [
         "Updates the program configuration with new token addresses:",
         "- new_unbonding_period: New unbonding period in seconds"
@@ -505,7 +499,7 @@ export type SolVaultStake = {
           }
         },
         {
-          "name": "tokenProgram",
+          "name": "token_program",
           "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         },
         {
@@ -515,7 +509,7 @@ export type SolVaultStake = {
       ],
       "args": [
         {
-          "name": "newUnbondingPeriod",
+          "name": "new_unbonding_period",
           "type": "i64"
         }
       ]
@@ -523,7 +517,7 @@ export type SolVaultStake = {
   ],
   "accounts": [
     {
-      "name": "config",
+      "name": "Config",
       "discriminator": [
         155,
         12,
@@ -536,7 +530,7 @@ export type SolVaultStake = {
       ]
     },
     {
-      "name": "unbondingTicket",
+      "name": "UnbondingTicket",
       "discriminator": [
         213,
         129,
@@ -552,78 +546,78 @@ export type SolVaultStake = {
   "errors": [
     {
       "code": 6001,
-      "name": "invalidAmount",
+      "name": "InvalidAmount",
       "msg": "Invalid amount"
     },
     {
       "code": 6002,
-      "name": "invalidTokenReceived",
+      "name": "InvalidTokenReceived",
       "msg": "Invalid token received"
     },
     {
       "code": 6003,
-      "name": "invalidVault",
+      "name": "InvalidVault",
       "msg": "Invalid vault"
     },
     {
       "code": 6004,
-      "name": "invalidAuthority",
+      "name": "InvalidAuthority",
       "msg": "Invalid authority"
     },
     {
       "code": 6005,
-      "name": "insufficientBalance",
+      "name": "InsufficientBalance",
       "msg": "Insufficient balance"
     },
     {
       "code": 6006,
-      "name": "unbondingPeriodNotElapsed",
+      "name": "UnbondingPeriodNotElapsed",
       "msg": "Unbonding period not elapsed"
     },
     {
       "code": 6007,
-      "name": "insufficientUnbondingBalance",
+      "name": "InsufficientUnbondingBalance",
       "msg": "Insufficient unbonding balance"
     },
     {
       "code": 6008,
-      "name": "unbondingInProgress",
+      "name": "UnbondingInProgress",
       "msg": "Unbonding is currently in progress"
     },
     {
       "code": 6009,
-      "name": "invalidMint",
+      "name": "InvalidMint",
       "msg": "Invalid mint provided"
     },
     {
       "code": 6010,
-      "name": "invalidVaultMint",
+      "name": "InvalidVaultMint",
       "msg": "Invalid vault mint provided"
     },
     {
       "code": 6011,
-      "name": "invalidTicketOwner",
+      "name": "InvalidTicketOwner",
       "msg": "Invalid ticket owner"
     },
     {
       "code": 6012,
-      "name": "invalidMintAuthority",
+      "name": "InvalidMintAuthority",
       "msg": "Invalid mint authority"
     },
     {
       "code": 6013,
-      "name": "insufficientVaultBalance",
+      "name": "InsufficientVaultBalance",
       "msg": "Insufficient vault balance"
     },
     {
       "code": 6014,
-      "name": "invalidVaultAuthority",
+      "name": "InvalidVaultAuthority",
       "msg": "Invalid vault authority"
     }
   ],
   "types": [
     {
-      "name": "config",
+      "name": "Config",
       "type": {
         "kind": "struct",
         "fields": [
@@ -636,14 +630,14 @@ export type SolVaultStake = {
             "type": "pubkey"
           },
           {
-            "name": "unbondingPeriod",
+            "name": "unbonding_period",
             "type": "i64"
           }
         ]
       }
     },
     {
-      "name": "unbondingTicket",
+      "name": "UnbondingTicket",
       "type": {
         "kind": "struct",
         "fields": [
@@ -652,19 +646,19 @@ export type SolVaultStake = {
             "type": "pubkey"
           },
           {
-            "name": "requestedAmount",
+            "name": "requested_amount",
             "type": "u64"
           },
           {
-            "name": "startBalance",
+            "name": "start_balance",
             "type": "u64"
           },
           {
-            "name": "startTs",
+            "name": "start_ts",
             "type": "i64"
           }
         ]
       }
     }
   ]
-};
+}

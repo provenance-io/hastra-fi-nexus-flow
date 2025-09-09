@@ -13,7 +13,8 @@ import {
     type Wallet as AnchorWallet, web3, workspace,
 } from "@coral-xyz/anchor";
 import { SolanaResponse } from "../types/solana-tx";
-import {solVaultMintIdl, solVaultStakeIdl} from "../types/idl/solana";
+import {solVaultMintIdl } from "../types/idl/solana";
+import { SolVaultStake as solVaultStakeIdl } from "../types/idl/sol-vault-stake";
 import { useCallback } from "react";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import {
@@ -316,7 +317,7 @@ export const useStake = () => {
             const provider = new AnchorProvider(connection, wallet, {
                 preflightCommitment: "confirmed",
             });
-            const program = new Program(solVaultStakeIdl() as Idl, provider);
+            const program = new Program(solVaultStakeIdl as Idl, provider);
 
             // program accounts
             const signer = publicKey;
@@ -394,7 +395,7 @@ export const useUnbond = () => {
             const provider = new AnchorProvider(connection, wallet, {
                 preflightCommitment: "confirmed",
             });
-            const program = new Program(solVaultStakeIdl() as Idl, provider);
+            const program = new Program(solVaultStakeIdl as Idl, provider);
 
             // program accounts
             const signer = publicKey;
@@ -460,7 +461,7 @@ export const useRedeem = () => {
             const provider = new AnchorProvider(connection, wallet, {
                 preflightCommitment: "confirmed",
             });
-            const program = new Program(solVaultStakeIdl() as Idl, provider);
+            const program = new Program(solVaultStakeIdl as Idl, provider);
 
             const syldsMint = new PublicKey(sYLDS);
 
