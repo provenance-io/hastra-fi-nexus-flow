@@ -8,11 +8,9 @@
 export const solVaultMintIdl = () => {
   console.dir(import.meta.env);
 
-  if (import.meta.env.PROD) {
-    console.log("I think we're in PROD!");
+  if (import.meta.env.VITE_SOLANA_CLUSTER_NAME === "mainnet-beta") {
     return SolVaultMintProd;
   }
-  console.log("I think we're NOT in PROD!");
   return SolVaultMintDev;
 };
 
