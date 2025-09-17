@@ -6,9 +6,13 @@
  */
 
 export const solVaultMintIdl = () => {
+  console.dir(import.meta.env);
+
   if (import.meta.env.PROD) {
+    console.log("I think we're in PROD!");
     return SolVaultMintProd;
   }
+  console.log("I think we're NOT in PROD!");
   return SolVaultMintDev;
 };
 

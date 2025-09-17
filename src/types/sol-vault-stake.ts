@@ -308,6 +308,95 @@ export type SolVaultStake = {
       "args": []
     },
     {
+      "name": "setFreezeAuthority",
+      "docs": [
+        "Sets the freeze authority for a specified token type",
+        "Used to configure program control over token minting"
+      ],
+      "discriminator": [
+        159,
+        131,
+        149,
+        192,
+        109,
+        186,
+        68,
+        227
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint",
+          "writable": true
+        },
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "mintAuthority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "program",
+          "address": "G9cajZ82LeEpLT9RubWtHR5rixUnBHuJYRMarHKkvnRp"
+        },
+        {
+          "name": "programData"
+        },
+        {
+          "name": "tokenProgram",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": [
+        {
+          "name": "newAuthority",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
       "name": "setMintAuthority",
       "docs": [
         "Sets the mint authority for a specified token type",
@@ -378,11 +467,23 @@ export type SolVaultStake = {
           }
         },
         {
+          "name": "program",
+          "address": "G9cajZ82LeEpLT9RubWtHR5rixUnBHuJYRMarHKkvnRp"
+        },
+        {
+          "name": "programData"
+        },
+        {
           "name": "tokenProgram",
           "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         }
       ],
-      "args": []
+      "args": [
+        {
+          "name": "newAuthority",
+          "type": "pubkey"
+        }
+      ]
     },
     {
       "name": "unbond",
@@ -505,12 +606,19 @@ export type SolVaultStake = {
           }
         },
         {
-          "name": "tokenProgram",
-          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+          "name": "signer",
+          "signer": true
         },
         {
-          "name": "rent",
-          "address": "SysvarRent111111111111111111111111111111111"
+          "name": "program",
+          "address": "G9cajZ82LeEpLT9RubWtHR5rixUnBHuJYRMarHKkvnRp"
+        },
+        {
+          "name": "programData"
+        },
+        {
+          "name": "tokenProgram",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         }
       ],
       "args": [
@@ -619,6 +727,31 @@ export type SolVaultStake = {
       "code": 6014,
       "name": "invalidVaultAuthority",
       "msg": "Invalid vault authority"
+    },
+    {
+      "code": 6015,
+      "name": "invalidFreezeAuthority",
+      "msg": "Invalid freeze authority"
+    },
+    {
+      "code": 6016,
+      "name": "invalidProgramData",
+      "msg": "ProgramData account did not match expected PDA."
+    },
+    {
+      "code": 6017,
+      "name": "noUpgradeAuthority",
+      "msg": "Program has no upgrade authority (set to None)."
+    },
+    {
+      "code": 6018,
+      "name": "invalidUpgradeAuthority",
+      "msg": "Signer is not the upgrade authority."
+    },
+    {
+      "code": 6019,
+      "name": "missingSigner",
+      "msg": "Signer account missing."
     }
   ],
   "types": [
