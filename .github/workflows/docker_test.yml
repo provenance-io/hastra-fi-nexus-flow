@@ -36,7 +36,11 @@ jobs:
           node-version: "20"
 
       - name: Install npm Packages
-        run: npm ci
+        run: |
+          if [ -e package-lock.json ]; then
+          npm ci
+          else
+          npm i
 
       - name: Build
         run: node --max-old-space-size=4096 ./node_modules/.bin/tsc -b && node --max-old-space-size=4096 ./node_modules/.bin/vite build --mode test
