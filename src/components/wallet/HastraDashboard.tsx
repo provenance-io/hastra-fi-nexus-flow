@@ -179,7 +179,7 @@ const HastraDashboard = () => {
         {tabSections.map((t) =>
           match(t)
             .with("Buy", () => (
-              <TabsContent value={t}>
+              <TabsContent value={t} key={t}>
                 {ofacPass() ? (
                   <div id="buy-section" className="mb-8 md:mb-12">
                     <div id="buy-section" className="mb-8 md:mb-12 relative">
@@ -192,17 +192,17 @@ const HastraDashboard = () => {
               </TabsContent>
             ))
             .with("Holdings", () => (
-              <TabsContent value={t}>
+              <TabsContent value={t} key={t}>
                 <TokenHoldings />
               </TabsContent>
             ))
             .with("Portfolio", () => (
-              <TabsContent value={t}>
+              <TabsContent value={t} key={t}>
                 <WalletOverview />
               </TabsContent>
             ))
             .with("Send", () => (
-              <TabsContent value={t}>
+              <TabsContent value={t} key={t}>
                 {ofacPass() ? (
                   <div id="buy-section" className="mb-8 md:mb-12">
                     <div id="buy-section" className="mb-8 md:mb-12 relative">
@@ -215,7 +215,7 @@ const HastraDashboard = () => {
               </TabsContent>
             ))
             .with("Stake", () => (
-              <TabsContent value={t}>
+              <TabsContent value={t} key={t}>
                 {ofacPass() ? (
                   <StakingSection />
                 ) : (
@@ -224,7 +224,7 @@ const HastraDashboard = () => {
               </TabsContent>
             ))
             .with("Trade", () => (
-              <TabsContent value={t}>
+              <TabsContent value={t} key={t}>
                 <div id="trade-lend-section" className="mb-8 md:mb-12">
                   <div className="card-gradient rounded-3xl border border-border/30 shadow-lg p-4 md:p-6">
                     <TradingPlatformsSection />

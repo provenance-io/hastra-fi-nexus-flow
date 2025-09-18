@@ -53,7 +53,7 @@ const INITIAL_STATE: StakingState = {
     status: "idle",
   },
   protocolData: {
-    currentAPR: "9.2",
+    currentAPR: "",
     exchangeRate: "1.0",
     totalStaked: "0",
     unstakingCooldown: "20 days",
@@ -90,7 +90,13 @@ export const useStaking = () => {
             isLoading: unbondingLoading,
           },
           protocolData: {
-            currentAPR: aprLoading ? "Loading..." : String(rate) || aprError,
+            currentAPR: aprLoading
+              ? "Loading..."
+              : rate
+              ? `${rate}%`
+              : aprError
+              ? "Error"
+              : "--",
             exchangeRate: "1.0",
             totalStaked: "5000000",
             unstakingCooldown: unbondingPeriod

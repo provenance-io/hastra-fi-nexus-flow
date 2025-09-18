@@ -1,12 +1,12 @@
-import React from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Card } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { useStaking } from '@/hooks/useStaking';
-import { formatStakingAmount, estimateGasFee } from '@/utils/stakingUtils';
-import { ArrowRight, Wallet, TrendingUp } from 'lucide-react';
+import React from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { useStaking } from "@/hooks/useStaking";
+import { formatStakingAmount, estimateGasFee } from "@/utils/stakingUtils";
+import { ArrowRight, Wallet, TrendingUp } from "lucide-react";
 
 const StakingMode: React.FC = () => {
   const {
@@ -17,10 +17,9 @@ const StakingMode: React.FC = () => {
     setMaxStakeAmount,
     executeStaking,
     isTransacting,
-      transactionStatus,
   } = useStaking();
 
-  const estimatedGas = estimateGasFee('stake');
+  const estimatedGas = estimateGasFee("stake");
 
   return (
     <div className="space-y-6">
@@ -28,19 +27,15 @@ const StakingMode: React.FC = () => {
       <div className="grid grid-cols-2 gap-4">
         <div className="text-center p-3 bg-secondary/20 rounded-lg border border-border/20">
           <div className="text-lg font-semibold text-amber-warm">
-            {protocolData.currentAPR}%
+            {protocolData.currentAPR || "--"}
           </div>
-          <div className="text-xs text-muted-foreground">
-            Current APR
-          </div>
+          <div className="text-xs text-muted-foreground">Current APR</div>
         </div>
         <div className="text-center p-3 bg-secondary/20 rounded-lg border border-border/20">
           <div className="text-lg font-semibold text-foreground">
             {formatStakingAmount(userBalance.sYLDS)}
           </div>
-          <div className="text-xs text-muted-foreground">
-            Total Staked
-          </div>
+          <div className="text-xs text-muted-foreground">Total Staked</div>
         </div>
       </div>
 
@@ -48,14 +43,16 @@ const StakingMode: React.FC = () => {
       <div className="flex items-center justify-between p-4 bg-secondary/30 rounded-lg border border-border/30">
         <div className="flex items-center space-x-2">
           <Wallet className="h-4 w-4 text-muted-foreground" />
-          <span className="text-sm text-muted-foreground">Available Balance</span>
+          <span className="text-sm text-muted-foreground">
+            Available Balance
+          </span>
         </div>
         <div className="text-right">
           <div className="font-semibold text-foreground">
             {formatStakingAmount(userBalance.wYLDS)} wYLDS
           </div>
           <div className="text-xs text-muted-foreground">
-            ${(parseFloat(userBalance.wYLDS)).toFixed(2)}
+            ${parseFloat(userBalance.wYLDS).toFixed(2)}
           </div>
         </div>
       </div>
@@ -64,7 +61,10 @@ const StakingMode: React.FC = () => {
       <div className="bg-background/30 rounded-2xl border border-border/20 p-6 space-y-6">
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <Label htmlFor="stake-amount" className="text-base md:text-sm font-semibold text-foreground font-sans">
+            <Label
+              htmlFor="stake-amount"
+              className="text-base md:text-sm font-semibold text-foreground font-sans"
+            >
               Amount to Stake
             </Label>
             <Button
@@ -92,7 +92,7 @@ const StakingMode: React.FC = () => {
               <span className="text-sm text-muted-foreground">wYLDS</span>
             </div>
           </div>
-          
+
           {/* Error Messages */}
           {stakingForm.errors.length > 0 && (
             <div className="space-y-1">
@@ -110,7 +110,9 @@ const StakingMode: React.FC = () => {
           <Card className="p-4 bg-secondary/20 border border-border/30">
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">You will receive</span>
+                <span className="text-sm text-muted-foreground">
+                  You will receive
+                </span>
                 <div className="flex items-center space-x-2">
                   <TrendingUp className="h-4 w-4 text-amber-warm" />
                   <span className="text-sm font-medium text-amber-warm">
@@ -118,27 +120,35 @@ const StakingMode: React.FC = () => {
                   </span>
                 </div>
               </div>
-              
+
               <div className="flex items-center justify-center py-2">
                 <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                   <span>{formatStakingAmount(stakingForm.amount)} wYLDS</span>
                   <ArrowRight className="h-4 w-4" />
-                  <span>{formatStakingAmount(stakingForm.estimatedOutput)} sYLDS</span>
+                  <span>
+                    {formatStakingAmount(stakingForm.estimatedOutput)} sYLDS
+                  </span>
                 </div>
               </div>
 
               <div className="border-t border-border/30 pt-3 space-y-2">
                 <div className="flex justify-between text-xs">
                   <span className="text-muted-foreground">Exchange Rate</span>
-                  <span className="font-medium">1 wYLDS = {protocolData.exchangeRate} sYLDS</span>
+                  <span className="font-medium">
+                    1 wYLDS = {protocolData.exchangeRate} sYLDS
+                  </span>
                 </div>
                 <div className="flex justify-between text-xs">
-                  <span className="text-muted-foreground">Estimated Gas Fee</span>
+                  <span className="text-muted-foreground">
+                    Estimated Gas Fee
+                  </span>
                   <span className="font-medium">~{estimatedGas} SOL</span>
                 </div>
                 <div className="flex justify-between text-xs">
                   <span className="text-muted-foreground">APR</span>
-                  <span className="font-medium text-amber-warm">{protocolData.currentAPR}%</span>
+                  <span className="font-medium text-amber-warm">
+                    {protocolData.currentAPR}%
+                  </span>
                 </div>
               </div>
             </div>
@@ -160,7 +170,7 @@ const StakingMode: React.FC = () => {
             </>
           ) : (
             <>
-              Stake {stakingForm.amount || '0'} wYLDS
+              Stake {stakingForm.amount || "0"} wYLDS
               <ArrowRight className="ml-2 h-4 w-4" />
             </>
           )}
