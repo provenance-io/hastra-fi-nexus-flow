@@ -16,7 +16,6 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
@@ -28,6 +27,7 @@ import {
   TrendingUp,
   Wallet,
 } from "lucide-react";
+import { TokenHoldings } from "./TokenHoldings";
 
 const tabSections = [
   "Portfolio",
@@ -192,16 +192,13 @@ const HastraDashboard = () => {
               </TabsContent>
             ))
             .with("Holdings", () => (
-              <TabsContent value={t}>Coming soon</TabsContent>
+              <TabsContent value={t}>
+                <TokenHoldings />
+              </TabsContent>
             ))
             .with("Portfolio", () => (
               <TabsContent value={t}>
-                <div className="mb-8 md:mb-12 relative">
-                  <WalletOverview />
-                  <h2 className="absolute top-6 left-6 text-lg md:text-xl font-semibold text-foreground z-10">
-                    Portfolio Overview
-                  </h2>
-                </div>
+                <WalletOverview />
               </TabsContent>
             ))
             .with("Send", () => (
@@ -240,7 +237,7 @@ const HastraDashboard = () => {
       </Tabs>
 
       {/* Additional Info */}
-      <div className="text-center text-muted-foreground">
+      <div className="text-center text-muted-foreground mt-8">
         <p className="text-sm">Always verify transactions before confirming</p>
       </div>
     </div>

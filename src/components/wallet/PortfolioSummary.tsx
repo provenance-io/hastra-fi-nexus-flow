@@ -1,5 +1,5 @@
 import { DollarSign, TrendingUp, Gift, Coins, BarChart3 } from "lucide-react";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { useWallet } from "@/contexts/WalletContext.tsx";
@@ -38,7 +38,6 @@ const PortfolioSummary = ({
   const stakedBalance = parseFloat(userBalance.sYLDS);
   const pendingBalance = parseFloat(pendingUnstake?.data?.amount || "0");
   const totalInStaking = stakedBalance + pendingBalance;
-  const stakingValue = totalInStaking; // Assuming 1:1 USD value
 
   const dailyRewards = calculateStakingRewards(
     userBalance.sYLDS,

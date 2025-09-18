@@ -1,51 +1,53 @@
 import { Button } from "@/components/ui/button";
-import { RefreshCw, ChevronDown, ChevronUp, Wallet } from "lucide-react";
+import { toast } from "@/hooks/use-toast";
+import { Wallet, FolderOpen } from "lucide-react";
 
 interface WalletHeaderProps {
   address: string | null;
   walletType: string | null;
-  isRefreshing: boolean;
-  showTokenHoldings: boolean;
-  onToggleHoldings: () => void;
 }
 
-const WalletHeader = ({
-  address,
-  walletType,
-  isRefreshing,
-  showTokenHoldings,
-  onToggleHoldings,
-}: WalletHeaderProps) => {
+const WalletHeader = ({ address, walletType }: WalletHeaderProps) => {
   const formatAddress = (addr: string) => {
     return `${addr.slice(0, 6)}...${addr.slice(-4)}`;
+  };
+
+  const copyAddress = async () => {
+    if (address) {
+      await navigator.clipboard.writeText(address);
+      toast({
+        title: "Address Copied",
+        description: "Wallet address copied to clipboard",
+      });
+    }
   };
 
   const getWalletIcon = (type: string | null) => {
     switch (type) {
       case "MetaMask":
-        return <Wallet className="w-6 h-6 text-[hsl(34_100%_84%)]" />;
+        return <Wallet className="size-8 text-[hsl(34_100%_84%)]" />;
       case "Phantom":
         return (
           <img
             src="/lovable-uploads/a4d8da02-50c5-4552-bfd9-bd18932e737c.png"
             alt="Phantom Wallet"
-            className="w-6 h-6 rounded-lg"
+            className="size-8 rounded-lg"
           />
         );
       case "Solflare":
-        return <Wallet className="w-6 h-6 text-[hsl(34_100%_84%)]" />;
+        return <Wallet className="size-8 text-[hsl(34_100%_84%)]" />;
       case "Coinbase":
-        return <Wallet className="w-6 h-6 text-blue-400" />;
+        return <Wallet className="size-8 text-blue-400" />;
       case "WalletConnect":
-        return <Wallet className="w-6 h-6 text-blue-400" />;
+        return <Wallet className="size-8 text-blue-400" />;
       case "Backpack":
-        return <Wallet className="w-6 h-6 text-purple-400" />;
+        return <Wallet className="size-8 text-purple-400" />;
       case "Slope":
-        return <Wallet className="w-6 h-6 text-green-400" />;
+        return <Wallet className="size-8 text-green-400" />;
       case "Glow":
-        return <Wallet className="w-6 h-6 text-yellow-400" />;
+        return <Wallet className="size-8 text-yellow-400" />;
       default:
-        return <Wallet className="w-6 h-6 text-hastra-teal" />;
+        return <Wallet className="size-8 text-hastra-teal" />;
     }
   };
 
@@ -73,11 +75,21 @@ const WalletHeader = ({
   };
 
   return (
-    <div className="bg-background/20 rounded-t-3xl px-8 pt-6 pb-0">
+    <div className="bg-background/20 rounded-t-3xl p-4 lg:p-6">
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-6 mt-6">
+        <h2 className="text-lg md:text-xl font-semibold text-foreground flex items-center gap-4">
+          <FolderOpen className="size-6 md:size-5 text-header-glow" />
+          Portfolio Overview
+        </h2>
+      </div>
+      <Button
+        variant="ghost"
+        className="flex items-center justify-between my-4 py-6"
+        onClick={copyAddress}
+      >
+        <div className="flex items-center gap-4">
           <div
-            className={`w-14 h-14 rounded-xl ${getWalletBrandColor(
+            className={`rounded-xl ${getWalletBrandColor(
               walletType
             )} flex items-center justify-center shadow-sm`}
           >
@@ -94,22 +106,7 @@ const WalletHeader = ({
             </p>
           </div>
         </div>
-
-        <div className="flex items-center gap-2">
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={onToggleHoldings}
-            className="text-muted-foreground hover:text-auburn-primary p-3 rounded-xl hover:bg-auburn-primary/10 transition-all duration-200"
-          >
-            {showTokenHoldings ? (
-              <ChevronUp className="w-4 h-4 text-foreground" />
-            ) : (
-              <ChevronDown className="w-4 h-4 text-foreground" />
-            )}
-          </Button>
-        </div>
-      </div>
+      </Button>
     </div>
   );
 };

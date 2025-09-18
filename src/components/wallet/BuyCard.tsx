@@ -404,7 +404,10 @@ const BuyCard = () => {
             </Button>
           </div>
         ) : (
-          <div>Get tokens in your connected wallet to access this feature</div>
+          <div className="flex items-center justify-between">
+            You must have SOL and USDC in your wallet to buy wYLDS or stake
+            wYLDS.
+          </div>
         )}
       </div>
     </div>
