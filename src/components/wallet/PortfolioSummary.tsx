@@ -1,12 +1,14 @@
-import { DollarSign, TrendingUp, Gift, Coins, BarChart3 } from 'lucide-react';
-import React, {useState, useEffect, useCallback} from 'react';
-import { Button } from '@/components/ui/button';
-import { useToast } from '@/hooks/use-toast';
+import { DollarSign, TrendingUp, Gift, Coins, BarChart3 } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 import { useWallet } from "@/contexts/WalletContext.tsx";
-import { useStaking } from '@/hooks/useStaking';
-import { formatStakingAmount, calculateStakingRewards } from '@/utils/stakingUtils';
-import {useUnbond} from "@/hooks/use-solana-tx.ts";
-import {TransactionResult} from "@/types/staking.ts";
+import { useStaking } from "@/hooks/useStaking";
+import {
+  formatStakingAmount,
+  calculateStakingRewards,
+} from "@/utils/stakingUtils";
+import { useUnbond } from "@/hooks/use-solana-tx.ts";
 
 interface PortfolioSummaryProps {
   totalPortfolioValue: number;
@@ -19,7 +21,7 @@ const PortfolioSummary = ({
   totalPortfolioValue,
   totalInterestEarned,
   totalUnclaimedInterest,
-  onClaimAll
+  onClaimAll,
 }: PortfolioSummaryProps) => {
   const { toast } = useToast();
   const { isConnected } = useWallet();
@@ -27,19 +29,21 @@ const PortfolioSummary = ({
   const { invoke: invokeUnbond } = useUnbond();
 
   const [isClaimAnimating, setIsClaimAnimating] = useState(false);
-  const [prevClaimAmount, setPrevClaimAmount] = useState(totalUnclaimedInterest);
+  const [prevClaimAmount, setPrevClaimAmount] = useState(
+    totalUnclaimedInterest
+  );
   const [isUnstaking, setIsUnstaking] = useState(false);
 
   // Calculate staking data
   const stakedBalance = parseFloat(userBalance.sYLDS);
-  const pendingBalance = parseFloat(pendingUnstake?.data?.amount || '0');
+  const pendingBalance = parseFloat(pendingUnstake?.data?.amount || "0");
   const totalInStaking = stakedBalance + pendingBalance;
   const stakingValue = totalInStaking; // Assuming 1:1 USD value
 
   const dailyRewards = calculateStakingRewards(
     userBalance.sYLDS,
     protocolData.currentAPR,
-    'daily'
+    "daily"
   );
 
   // Trigger animation when unclaimed interest increases
@@ -57,65 +61,78 @@ const PortfolioSummary = ({
       onClaimAll();
       toast({
         title: "Successfully Claimed!",
-        description: `Claimed $${totalUnclaimedInterest.toFixed(2)} in total rewards`,
+        description: `Claimed $${totalUnclaimedInterest.toFixed(
+          2
+        )} in total rewards`,
       });
     }
   };
 
   const executeUnstakeAll = () => {
     setIsUnstaking(true);
-    invokeUnbond(parseFloat(userBalance.sYLDS)).then(tx => {
-      toast({
-        title: tx.success ? "🟢 Unstaking Successful" : "❌ Staking Failed",
-        description: tx.success ? `Successfully initiated unstake ${userBalance.sYLDS} sYLDS` : `Unstake of ${userBalance.sYLDS} sYLDS failed: ${tx.error}`,
-        className: tx.success ? "toast-action-success" : "toast-action-error",
-      });
-      return { success: tx.success, txHash: tx.txId };
-    }).catch(error => {
-      console.error(error);
-      toast({
-        title: "❌ Unstaking Exception",
-        description: error.message,
-        variant: "destructive",
-      });
-      return { success: false, error: JSON.stringify(error) };
-    }).finally(() => {
+    invokeUnbond(parseFloat(userBalance.sYLDS))
+      .then((tx) => {
+        toast({
+          title: tx.success ? "🟢 Unstaking Successful" : "❌ Staking Failed",
+          description: tx.success
+            ? `Successfully initiated unstake ${userBalance.sYLDS} sYLDS`
+            : `Unstake of ${userBalance.sYLDS} sYLDS failed: ${tx.error}`,
+          className: tx.success ? "toast-action-success" : "toast-action-error",
+        });
+        return { success: tx.success, txHash: tx.txId };
+      })
+      .catch((error) => {
+        console.error(error);
+        toast({
+          title: "❌ Unstaking Exception",
+          description: error.message,
+          variant: "destructive",
+        });
+        return { success: false, error: JSON.stringify(error) };
+      })
+      .finally(() => {
         setIsUnstaking(false);
-    });
+      });
   };
 
   return (
-    <div className="px-6 pt-0 pb-6 space-y-6">
+    <div className="px-2 lg:px-6 pt-0 pb-6 space-y-6">
       {/* Main Portfolio Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {/* Total Portfolio Value */}
         <div className="bg-background/30 rounded-xl p-4 border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)]">
           <div className="flex items-center gap-2 mb-3">
             <div className="w-8 h-8 rounded-lg bg-hastra-teal/10 flex items-center justify-center">
               <DollarSign className="w-4 h-4 text-hastra-teal" />
             </div>
-            <p className="text-sm text-muted-foreground font-medium">Total Portfolio Value</p>
+            <p className="text-sm text-muted-foreground font-medium">
+              Total Portfolio Value
+            </p>
           </div>
           <p className="text-3xl lg:text-4xl font-bold text-white mb-1">
-            ${totalPortfolioValue.toLocaleString('en-US', { 
+            $
+            {totalPortfolioValue.toLocaleString("en-US", {
               minimumFractionDigits: 2,
-              maximumFractionDigits: 2 
+              maximumFractionDigits: 2,
             })}
           </p>
         </div>
-        
+
         {/* Total Interest Earned */}
         <div className="bg-background/30 rounded-xl p-4 border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)]">
           <div className="flex items-center gap-2 mb-3">
             <div className="w-8 h-8 rounded-lg bg-green-400/10 flex items-center justify-center">
               <TrendingUp className="w-4 h-4 text-green-400" />
             </div>
-            <p className="text-sm text-muted-foreground font-medium">Total Interest Earned</p>
+            <p className="text-sm text-muted-foreground font-medium">
+              Total Interest Earned
+            </p>
           </div>
           <p className="text-3xl lg:text-4xl font-bold text-white mb-1">
-            ${totalInterestEarned.toLocaleString('en-US', { 
+            $
+            {totalInterestEarned.toLocaleString("en-US", {
               minimumFractionDigits: 2,
-              maximumFractionDigits: 2 
+              maximumFractionDigits: 2,
             })}
           </p>
           <p className="text-xs text-muted-foreground">
@@ -124,25 +141,42 @@ const PortfolioSummary = ({
         </div>
 
         {/* Available to Claim */}
-        <div className={`bg-background/30 rounded-xl p-4 border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)] ${
-          isClaimAnimating ? 'animate-claim-flash border-crypto-accent/50 bg-crypto-accent/20' : ''
-        }`}>
+        <div
+          className={`bg-background/30 rounded-xl p-4 border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)] ${
+            isClaimAnimating
+              ? "animate-claim-flash border-crypto-accent/50 bg-crypto-accent/20"
+              : ""
+          }`}
+        >
           <div className="flex items-center gap-2 mb-3">
-            <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 ${
-              isClaimAnimating ? 'bg-crypto-accent/20' : 'bg-auburn-primary/10'
-            }`}>
-              <Gift className={`w-4 h-4 transition-colors duration-300 ${
-                isClaimAnimating ? 'text-crypto-accent' : 'text-[hsl(34_100%_84%)]'
-              }`} />
+            <div
+              className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 ${
+                isClaimAnimating
+                  ? "bg-crypto-accent/20"
+                  : "bg-auburn-primary/10"
+              }`}
+            >
+              <Gift
+                className={`w-4 h-4 transition-colors duration-300 ${
+                  isClaimAnimating
+                    ? "text-crypto-accent"
+                    : "text-[hsl(34_100%_84%)]"
+                }`}
+              />
             </div>
-            <p className="text-sm text-muted-foreground font-medium">Available to Claim</p>
+            <p className="text-sm text-muted-foreground font-medium">
+              Available to Claim
+            </p>
           </div>
-          <p className={`text-3xl lg:text-4xl font-bold transition-all duration-300 mb-1 ${
-            isClaimAnimating ? 'text-crypto-accent scale-105' : 'text-white'
-          }`}>
-            ${totalUnclaimedInterest.toLocaleString('en-US', { 
+          <p
+            className={`text-3xl lg:text-4xl font-bold transition-all duration-300 mb-1 ${
+              isClaimAnimating ? "text-crypto-accent scale-105" : "text-white"
+            }`}
+          >
+            $
+            {totalUnclaimedInterest.toLocaleString("en-US", {
               minimumFractionDigits: 2,
-              maximumFractionDigits: 2 
+              maximumFractionDigits: 2,
             })}
           </p>
           <p className="text-xs text-muted-foreground mb-3">
@@ -168,18 +202,22 @@ const PortfolioSummary = ({
             <div className="w-6 h-6 rounded-lg bg-amber-warm/10 flex items-center justify-center">
               <BarChart3 className="w-4 h-4 text-amber-warm" />
             </div>
-            <h4 className="text-lg font-semibold text-foreground">Staking Overview</h4>
+            <h4 className="text-lg font-semibold text-foreground">
+              Staking Overview
+            </h4>
             <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent flex-1 ml-4"></div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {/* Active Staking */}
             <div className="bg-background/30 rounded-xl p-4 border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)]">
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-8 h-8 rounded-lg bg-hastra-teal/10 flex items-center justify-center">
                   <TrendingUp className="w-4 h-4 text-hastra-teal" />
                 </div>
-                <p className="text-sm text-muted-foreground font-medium">Active Staking</p>
+                <p className="text-sm text-muted-foreground font-medium">
+                  Active Staking
+                </p>
               </div>
               <p className="text-3xl lg:text-4xl font-bold text-white mb-1">
                 {formatStakingAmount(userBalance.sYLDS)}
@@ -195,14 +233,14 @@ const PortfolioSummary = ({
                 <div className="w-8 h-8 rounded-lg bg-green-400/10 flex items-center justify-center">
                   <Gift className="w-4 h-4 text-green-400" />
                 </div>
-                <p className="text-sm text-muted-foreground font-medium">Daily Earnings</p>
+                <p className="text-sm text-muted-foreground font-medium">
+                  Daily Earnings
+                </p>
               </div>
               <p className="text-3xl lg:text-4xl font-bold text-white mb-1">
                 {formatStakingAmount(dailyRewards)}
               </p>
-              <p className="text-xs text-muted-foreground">
-                wYLDS per day
-              </p>
+              <p className="text-xs text-muted-foreground">wYLDS per day</p>
             </div>
 
             {/* Total Available to Unstake */}
@@ -211,41 +249,45 @@ const PortfolioSummary = ({
                 <div className="w-8 h-8 rounded-lg bg-auburn-primary/10 flex items-center justify-center">
                   <Coins className="w-4 h-4 text-[hsl(34_100%_84%)]" />
                 </div>
-                <p className="text-sm text-muted-foreground font-medium">Available to Unstake</p>
+                <p className="text-sm text-muted-foreground font-medium">
+                  Available to Unstake
+                </p>
               </div>
               <p className="text-3xl lg:text-4xl font-bold text-white mb-3">
                 {formatStakingAmount(userBalance.sYLDS)}
               </p>
 
-              { (pendingUnstake?.data) ? (
+              {pendingUnstake?.data ? (
                 <div className="text-xs text-muted-foreground mb-2">
                   Pending Unstake: {formatStakingAmount(pendingBalance)} sYLDS
-                    (Available on {new Date(pendingUnstake.data.availableAt).toLocaleDateString()})
-                </div>) :
-                  (<Button
-                size="sm"
-                variant="secondary"
-                className="w-full"
-                disabled={parseFloat(userBalance.sYLDS) <= 0}
-                onClick={executeUnstakeAll}
-              >
-                        {isUnstaking ? (
-                            <>
-                              <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent mr-2" />
-                              Processing...
-                            </>
-
-                        ): (
-                          <>
-                            Unstake All to wYLDS
-                          </>
-                        )}
-              </Button>)}
+                  (Available on{" "}
+                  {new Date(
+                    pendingUnstake.data.availableAt
+                  ).toLocaleDateString()}
+                  )
+                </div>
+              ) : (
+                <Button
+                  size="sm"
+                  variant="secondary"
+                  className="w-full"
+                  disabled={parseFloat(userBalance.sYLDS) <= 0}
+                  onClick={executeUnstakeAll}
+                >
+                  {isUnstaking ? (
+                    <>
+                      <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent mr-2" />
+                      Processing...
+                    </>
+                  ) : (
+                    <>Unstake All to wYLDS</>
+                  )}
+                </Button>
+              )}
             </div>
           </div>
         </div>
       )}
-      
     </div>
   );
 };

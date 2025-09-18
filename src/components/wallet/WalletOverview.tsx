@@ -1,11 +1,10 @@
-
-import { useWallet } from '@/contexts/WalletContext';
-import { useTokenPortfolio } from '@/hooks/useTokenPortfolio';
-import TokenLineItem from './TokenLineItem';
-import WalletHeader from './WalletHeader';
-import PortfolioSummary from './PortfolioSummary';
-import { useState } from 'react';
-import {sYLDS, wYLDS} from "@/types/tokens.ts";
+import { useWallet } from "@/contexts/WalletContext";
+import { useTokenPortfolio } from "@/hooks/useTokenPortfolio";
+import TokenLineItem from "./TokenLineItem";
+import WalletHeader from "./WalletHeader";
+import PortfolioSummary from "./PortfolioSummary";
+import { useState } from "react";
+import { sYLDS, wYLDS } from "@/types/tokens.ts";
 
 const WalletOverview = () => {
   const { address, walletType } = useWallet();
@@ -15,7 +14,7 @@ const WalletOverview = () => {
     claimAllInterest,
     getTotalPortfolioValue,
     getTotalInterestEarned,
-    getTotalUnclaimedInterest
+    getTotalUnclaimedInterest,
   } = useTokenPortfolio();
 
   const [isRefreshing, setIsRefreshing] = useState(false);
@@ -54,34 +53,43 @@ const WalletOverview = () => {
 
         {/* Token Holdings */}
         {showTokenHoldings && (
-          <div className="px-8 pb-6 space-y-4">
+          <div className="px-2 lg:px-8 pb-6 space-y-4">
             <div className="flex items-center justify-between">
-              <h3 className="text-xl font-semibold text-foreground">Token Holdings</h3>
+              <h3 className="text-xl font-semibold text-foreground">
+                Token Holdings
+              </h3>
               <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent flex-1 ml-6"></div>
             </div>
-            { (tokens && tokens.length > 0) &&
-            <div className="space-y-4">
-              {tokens.map((token) => {
-                return (
-                  <TokenLineItem
-                    key={token.token}
-                    token={token.token}
-                    amount={token.amount}
-                    value={token.value}
-                    apy={token.apy}
-                    totalInterestEarned={token.totalInterestEarned}
-                    unclaimedInterest={token.unclaimedInterest}
-                    icon={token.icon}
-                    tokenAddress={token.tokenAddress}
-                    onClaim={token.address === wYLDS || token.address == sYLDS ? handleTokenClaim(token.token) : undefined}
-                  />
-                );
-              })}
-            </div>
-            }
-              {(!tokens || tokens.length === 0) &&
-                <div className="flex items-center justify-between">You must have SOL and USDC in your wallet to buy wYLDS or stake wYLDS.</div>
-              }
+            {tokens && tokens.length > 0 && (
+              <div className="space-y-4">
+                {tokens.map((token) => {
+                  return (
+                    <TokenLineItem
+                      key={token.token}
+                      token={token.token}
+                      amount={token.amount}
+                      value={token.value}
+                      apy={token.apy}
+                      totalInterestEarned={token.totalInterestEarned}
+                      unclaimedInterest={token.unclaimedInterest}
+                      icon={token.icon}
+                      tokenAddress={token.tokenAddress}
+                      onClaim={
+                        token.address === wYLDS || token.address == sYLDS
+                          ? handleTokenClaim(token.token)
+                          : undefined
+                      }
+                    />
+                  );
+                })}
+              </div>
+            )}
+            {(!tokens || tokens.length === 0) && (
+              <div className="flex items-center justify-between">
+                You must have SOL and USDC in your wallet to buy wYLDS or stake
+                wYLDS.
+              </div>
+            )}
           </div>
         )}
       </div>

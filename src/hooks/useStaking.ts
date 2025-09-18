@@ -1,62 +1,63 @@
-import {useCallback, useEffect, useState} from 'react';
-import {useWallet} from '@/contexts/WalletContext';
-import {useToast} from '@/hooks/use-toast';
+import { useCallback, useEffect, useState } from "react";
+import { useWallet } from "@/contexts/WalletContext";
+import { useToast } from "@/hooks/use-toast";
 import {
   PendingUnstake,
   ProtocolMetrics,
   StakingState,
   TransactionResult,
   TransactionStatus,
-  ValidationError
-} from '@/types/staking';
-import {useTokenPortfolio} from "@/hooks/useTokenPortfolio.ts";
-import {sYLDS, wYLDS} from "@/types/tokens.ts";
+  ValidationError,
+} from "@/types/staking";
+import { useTokenPortfolio } from "@/hooks/useTokenPortfolio.ts";
+import { sYLDS, wYLDS } from "@/types/tokens.ts";
 import {
   useAnchorWallet,
   useRedeem,
   useStake,
-  useUnbond
+  useUnbond,
 } from "@/hooks/use-solana-tx.ts";
 import {
   usePendingUnstakeQuery,
-  useUnbondingPeriodConfigQuery
+  useUnbondingPeriodConfigQuery,
 } from "@/hooks/useSolanaQuery.ts";
+import { useSYLDSAPR } from "./use-sylds-apr";
 
 const INITIAL_STATE: StakingState = {
   userBalance: {
-    wYLDS: '0',
-    sYLDS: '0',
+    wYLDS: "0",
+    sYLDS: "0",
     isLoading: false,
   },
-  widgetMode: 'stake',
+  widgetMode: "stake",
   stakingForm: {
-    amount: '',
+    amount: "",
     isValid: false,
     errors: [],
-    estimatedOutput: '0',
+    estimatedOutput: "0",
   },
   unstakingForm: {
-    amount: '',
+    amount: "",
     isValid: false,
     errors: [],
-    estimatedOutput: '0',
+    estimatedOutput: "0",
     availableDate: new Date(),
-    cooldownWarning: '',
+    cooldownWarning: "",
   },
   pendingUnstake: {
     data: null,
     isLoading: false,
   },
   transaction: {
-    type: 'stake',
-    status: 'idle',
+    type: "stake",
+    status: "idle",
   },
   protocolData: {
-    currentAPR: '9.2',
-    exchangeRate: '1.0',
-    totalStaked: '0',
-    unstakingCooldown: '20 days',
-    unstakingFee: '0',
+    currentAPR: "9.2",
+    exchangeRate: "1.0",
+    totalStaked: "0",
+    unstakingCooldown: "20 days",
+    unstakingFee: "0",
     lastUpdated: new Date(),
   },
 };
@@ -64,167 +65,195 @@ const INITIAL_STATE: StakingState = {
 export const useStaking = () => {
   const [state, setState] = useState<StakingState>(INITIAL_STATE);
   const { isConnected, address } = useWallet();
+  const { rate, loading: aprLoading, error: aprError } = useSYLDSAPR();
   const { tokens } = useTokenPortfolio();
   const { invoke: invokeStake } = useStake();
   const { invoke: invokeUnbond } = useUnbond();
   const { invoke: invokeRedeem } = useRedeem();
-  const { data: unbondingData, isLoading: unbondingLoading } = usePendingUnstakeQuery()
+  const { data: unbondingData, isLoading: unbondingLoading } =
+    usePendingUnstakeQuery();
   const { data: unbondingPeriod } = useUnbondingPeriodConfigQuery();
 
   const { toast } = useToast();
-
-  const balance = (mintAddress: string): string => {
-    const token = tokens.find(t => t.mint === mintAddress);
-    return token ? token.amount.toString() : '0';
-  }
 
   // Initialize protocol data
   useEffect(() => {
     const fetchProtocolData = async () => {
       try {
         // Mock API call - replace with actual implementation
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise((resolve) => setTimeout(resolve, 1000));
 
-        setState(prev => ({
+        setState((prev) => ({
           ...prev,
           pendingUnstake: {
             data: unbondingData || null,
             isLoading: unbondingLoading,
           },
-            protocolData: {
-                currentAPR: '9.2',
-                exchangeRate: '1.0',
-                totalStaked: '5000000',
-                unstakingCooldown: unbondingPeriod ? `${Math.floor(unbondingPeriod / 86400)} days` : 'UNKNOWN',
-                unstakingFee: '0',
-                lastUpdated: new Date(),
-            },
+          protocolData: {
+            currentAPR: aprLoading ? "Loading..." : String(rate) || aprError,
+            exchangeRate: "1.0",
+            totalStaked: "5000000",
+            unstakingCooldown: unbondingPeriod
+              ? `${Math.floor(unbondingPeriod / 86400)} days`
+              : "UNKNOWN",
+            unstakingFee: "0",
+            lastUpdated: new Date(),
+          },
         }));
       } catch (error) {
-        console.error('Failed to fetch protocol data:', error);
+        console.error("Failed to fetch protocol data:", error);
       }
     };
     fetchProtocolData();
-  }, [unbondingData, unbondingLoading, unbondingPeriod]);
+  }, [
+    unbondingData,
+    unbondingLoading,
+    unbondingPeriod,
+    rate,
+    aprLoading,
+    aprError,
+  ]);
 
   // Update user balance
   useEffect(() => {
-    if(tokens && address) {
-      setState(prev => ({
+    if (tokens && address) {
+      setState((prev) => ({
         ...prev,
         userBalance: {
-          wYLDS: tokens.find(t => t.mint === wYLDS)?.amount.toString() || '0',
-          sYLDS: tokens.find(t => t.mint === sYLDS)?.amount.toString() || '0',
+          wYLDS: tokens.find((t) => t.mint === wYLDS)?.amount.toString() || "0",
+          sYLDS: tokens.find((t) => t.mint === sYLDS)?.amount.toString() || "0",
           isLoading: false,
         },
       }));
     }
   }, [tokens, address]);
 
-  const validateStakingAmount = useCallback((amount: string): ValidationError[] => {
-    const errors: ValidationError[] = [];
-    const numAmount = parseFloat(amount);
-    const balance = parseFloat(state.userBalance.wYLDS);
+  const validateStakingAmount = useCallback(
+    (amount: string): ValidationError[] => {
+      const errors: ValidationError[] = [];
+      const numAmount = parseFloat(amount);
+      const balance = parseFloat(state.userBalance.wYLDS);
 
-    if (!amount || isNaN(numAmount) || numAmount <= 0) {
-      errors.push({
-        field: 'amount',
-        message: 'Please enter a valid amount',
-        type: 'invalid_input',
-      });
-    }
+      if (!amount || isNaN(numAmount) || numAmount <= 0) {
+        errors.push({
+          field: "amount",
+          message: "Please enter a valid amount",
+          type: "invalid_input",
+        });
+      }
 
-    if (numAmount > balance) {
-      errors.push({
-        field: 'amount',
-        message: 'Insufficient wYLDS balance',
-        type: 'insufficient_balance',
-      });
-    }
+      if (numAmount > balance) {
+        errors.push({
+          field: "amount",
+          message: "Insufficient wYLDS balance",
+          type: "insufficient_balance",
+        });
+      }
 
-    if (numAmount < 0.01) {
-      errors.push({
-        field: 'amount',
-        message: 'Minimum stake amount is 0.01 wYLDS',
-        type: 'min_amount',
-      });
-    }
+      if (numAmount < 0.01) {
+        errors.push({
+          field: "amount",
+          message: "Minimum stake amount is 0.01 wYLDS",
+          type: "min_amount",
+        });
+      }
 
-    return errors;
-  }, [state.userBalance.wYLDS]);
+      return errors;
+    },
+    [state.userBalance.wYLDS]
+  );
 
-  const validateUnstakingAmount = useCallback((amount: string): ValidationError[] => {
-    const errors: ValidationError[] = [];
-    const numAmount = parseFloat(amount);
-    const balance = parseFloat(state.userBalance.sYLDS);
+  const validateUnstakingAmount = useCallback(
+    (amount: string): ValidationError[] => {
+      const errors: ValidationError[] = [];
+      const numAmount = parseFloat(amount);
+      const balance = parseFloat(state.userBalance.sYLDS);
 
-    if (!amount || isNaN(numAmount) || numAmount <= 0) {
-      errors.push({
-        field: 'amount',
-        message: 'Please enter a valid amount',
-        type: 'invalid_input',
-      });
-    }
+      if (!amount || isNaN(numAmount) || numAmount <= 0) {
+        errors.push({
+          field: "amount",
+          message: "Please enter a valid amount",
+          type: "invalid_input",
+        });
+      }
 
-    if (numAmount > balance) {
-      errors.push({
-        field: 'amount',
-        message: 'Insufficient sYLDS balance',
-        type: 'insufficient_balance',
-      });
-    }
+      if (numAmount > balance) {
+        errors.push({
+          field: "amount",
+          message: "Insufficient sYLDS balance",
+          type: "insufficient_balance",
+        });
+      }
 
-    if (numAmount < 0.01) {
-      errors.push({
-        field: 'amount',
-        message: 'Minimum unstake amount is 0.01 sYLDS',
-        type: 'min_amount',
-      });
-    }
+      if (numAmount < 0.01) {
+        errors.push({
+          field: "amount",
+          message: "Minimum unstake amount is 0.01 sYLDS",
+          type: "min_amount",
+        });
+      }
 
-    return errors;
-  }, [state.userBalance.sYLDS]);
+      return errors;
+    },
+    [state.userBalance.sYLDS]
+  );
 
-  const setStakingAmount = useCallback((amount: string) => {
-    const errors = validateStakingAmount(amount);
-    const estimatedOutput = amount ? (parseFloat(amount) * parseFloat(state.protocolData.exchangeRate)).toString() : '0';
+  const setStakingAmount = useCallback(
+    (amount: string) => {
+      const errors = validateStakingAmount(amount);
+      const estimatedOutput = amount
+        ? (
+            parseFloat(amount) * parseFloat(state.protocolData.exchangeRate)
+          ).toString()
+        : "0";
 
-    setState(prev => ({
-      ...prev,
-      stakingForm: {
-        amount,
-        isValid: errors.length === 0 && parseFloat(amount) > 0,
-        errors,
-        estimatedOutput,
-      },
-    }));
-  }, [validateStakingAmount, state.protocolData.exchangeRate]);
+      setState((prev) => ({
+        ...prev,
+        stakingForm: {
+          amount,
+          isValid: errors.length === 0 && parseFloat(amount) > 0,
+          errors,
+          estimatedOutput,
+        },
+      }));
+    },
+    [validateStakingAmount, state.protocolData.exchangeRate]
+  );
 
-  const setUnstakingAmount = useCallback((amount: string) => {
-    const errors = validateUnstakingAmount(amount);
-    const estimatedOutput = amount ? (parseFloat(amount) * parseFloat(state.protocolData.exchangeRate)).toString() : '0';
-    const cooldownDays = 20; // Updated to 20 days
-    const availableDate = new Date(Date.now() + cooldownDays * 24 * 60 * 60 * 1000);
+  const setUnstakingAmount = useCallback(
+    (amount: string) => {
+      const errors = validateUnstakingAmount(amount);
+      const estimatedOutput = amount
+        ? (
+            parseFloat(amount) * parseFloat(state.protocolData.exchangeRate)
+          ).toString()
+        : "0";
+      const cooldownDays = 20; // Updated to 20 days
+      const availableDate = new Date(
+        Date.now() + cooldownDays * 24 * 60 * 60 * 1000
+      );
 
-    setState(prev => ({
-      ...prev,
-      unstakingForm: {
-        amount,
-        isValid: errors.length === 0 && parseFloat(amount) > 0,
-        errors,
-        estimatedOutput,
-        availableDate,
-        cooldownWarning: `Your tokens will be available to claim in ${cooldownDays} days`,
-      },
-    }));
-  }, [validateUnstakingAmount, state.protocolData.exchangeRate]);
+      setState((prev) => ({
+        ...prev,
+        unstakingForm: {
+          amount,
+          isValid: errors.length === 0 && parseFloat(amount) > 0,
+          errors,
+          estimatedOutput,
+          availableDate,
+          cooldownWarning: `Your tokens will be available to claim in ${cooldownDays} days`,
+        },
+      }));
+    },
+    [validateUnstakingAmount, state.protocolData.exchangeRate]
+  );
 
-  const setWidgetMode = useCallback((mode: 'stake' | 'unstake') => {
-    setState(prev => ({
+  const setWidgetMode = useCallback((mode: "stake" | "unstake") => {
+    setState((prev) => ({
       ...prev,
       widgetMode: mode,
-      stakingForm: { ...prev.stakingForm, amount: '', errors: [] },
-      unstakingForm: { ...prev.unstakingForm, amount: '', errors: [] },
+      stakingForm: { ...prev.stakingForm, amount: "", errors: [] },
+      unstakingForm: { ...prev.unstakingForm, amount: "", errors: [] },
     }));
   }, []);
 
@@ -236,28 +265,34 @@ export const useStaking = () => {
     setUnstakingAmount(state.userBalance.sYLDS);
   }, [state.userBalance.sYLDS, setUnstakingAmount]);
 
-  const updateTransactionStatus = useCallback((status: TransactionStatus, txHash?: string, error?: string) => {
-    setState(prev => ({
-      ...prev,
-      transaction: {
-        ...prev.transaction,
-        status,
-        hash: txHash,
-        error,
-      },
-    }));
-  }, []);
+  const updateTransactionStatus = useCallback(
+    (status: TransactionStatus, txHash?: string, error?: string) => {
+      setState((prev) => ({
+        ...prev,
+        transaction: {
+          ...prev.transaction,
+          status,
+          hash: txHash,
+          error,
+        },
+      }));
+    },
+    []
+  );
 
   const executeStaking = useCallback(async (): Promise<TransactionResult> => {
     if (!state.stakingForm.isValid || !isConnected) {
-      return { success: false, error: 'Invalid form or wallet not connected' };
+      return { success: false, error: "Invalid form or wallet not connected" };
     }
-      updateTransactionStatus('broadcasting');
-      invokeStake(parseFloat(state.stakingForm.amount)).then(tx => {
-        updateTransactionStatus('success', tx.txId);
+    updateTransactionStatus("broadcasting");
+    invokeStake(parseFloat(state.stakingForm.amount))
+      .then((tx) => {
+        updateTransactionStatus("success", tx.txId);
         toast({
           title: tx.success ? "🟢 Staking Successful" : "❌ Staking Failed",
-          description: tx.success ? `Successfully staked ${state.stakingForm.amount} wYLDS` : `Staking of ${state.stakingForm.amount} wYLDS failed: ${tx.error}`,
+          description: tx.success
+            ? `Successfully staked ${state.stakingForm.amount} wYLDS`
+            : `Staking of ${state.stakingForm.amount} wYLDS failed: ${tx.error}`,
           className: tx.success ? "toast-action-success" : "toast-action-error",
         });
         if (!tx.success) {
@@ -265,13 +300,14 @@ export const useStaking = () => {
         }
 
         // Reset form
-        setState(prev => ({
+        setState((prev) => ({
           ...prev,
-          stakingForm: { ...prev.stakingForm, amount: '', errors: [] },
+          stakingForm: { ...prev.stakingForm, amount: "", errors: [] },
         }));
         return { success: tx.success, txHash: tx.txId };
-      }).catch(error => {
-        updateTransactionStatus('error', undefined, error.message);
+      })
+      .catch((error) => {
+        updateTransactionStatus("error", undefined, error.message);
         console.error(error);
         toast({
           title: "❌ Staking Exception",
@@ -280,54 +316,70 @@ export const useStaking = () => {
         });
         return { success: false, error: JSON.stringify(error) };
       });
-
-  }, [ state.stakingForm.isValid, state.stakingForm.amount, isConnected, invokeStake, updateTransactionStatus, toast]);
+  }, [
+    state.stakingForm.isValid,
+    state.stakingForm.amount,
+    isConnected,
+    invokeStake,
+    updateTransactionStatus,
+    toast,
+  ]);
 
   const executeUnstaking = useCallback(async (): Promise<TransactionResult> => {
     if (!state.unstakingForm.isValid || !isConnected) {
-      return { success: false, error: 'Invalid form or wallet not connected' };
+      return { success: false, error: "Invalid form or wallet not connected" };
     }
 
-    updateTransactionStatus('broadcasting');
-    invokeUnbond(parseFloat(state.unstakingForm.amount)).then(tx => {
-      updateTransactionStatus('success', tx.txId);
-      toast({
-        title: tx.success ? "🟢 Unstaking Successful" : "❌ Staking Failed",
-        description: tx.success ? `Successfully initiated unstake ${state.unstakingForm.amount} sYLDS` : `Unstake of ${state.unstakingForm.amount} sYLDS failed: ${tx.error}`,
-        className: tx.success ? "toast-action-success" : "toast-action-error",
-      });
-      if (!tx.success) {
-        console.error(JSON.stringify(tx));
-      }
+    updateTransactionStatus("broadcasting");
+    invokeUnbond(parseFloat(state.unstakingForm.amount))
+      .then((tx) => {
+        updateTransactionStatus("success", tx.txId);
+        toast({
+          title: tx.success ? "🟢 Unstaking Successful" : "❌ Staking Failed",
+          description: tx.success
+            ? `Successfully initiated unstake ${state.unstakingForm.amount} sYLDS`
+            : `Unstake of ${state.unstakingForm.amount} sYLDS failed: ${tx.error}`,
+          className: tx.success ? "toast-action-success" : "toast-action-error",
+        });
+        if (!tx.success) {
+          console.error(JSON.stringify(tx));
+        }
 
-      // Reset form
-      setState(prev => ({
-        ...prev,
-        unstakingForm: { ...prev.unstakingForm, amount: '', errors: [] },
-      }));
-      return { success: tx.success, txHash: tx.txId };
-    }).catch(error => {
-      updateTransactionStatus('error', undefined, error.message);
-      console.error(error);
-      toast({
-        title: "❌ Unstaking Exception",
-        description: error.message,
-        variant: "destructive",
+        // Reset form
+        setState((prev) => ({
+          ...prev,
+          unstakingForm: { ...prev.unstakingForm, amount: "", errors: [] },
+        }));
+        return { success: tx.success, txHash: tx.txId };
+      })
+      .catch((error) => {
+        updateTransactionStatus("error", undefined, error.message);
+        console.error(error);
+        toast({
+          title: "❌ Unstaking Exception",
+          description: error.message,
+          variant: "destructive",
+        });
+        return { success: false, error: JSON.stringify(error) };
       });
-      return { success: false, error: JSON.stringify(error) };
-    });
-
-  }, [state.unstakingForm, isConnected, updateTransactionStatus, invokeUnbond, toast]);
+  }, [
+    state.unstakingForm,
+    isConnected,
+    updateTransactionStatus,
+    invokeUnbond,
+    toast,
+  ]);
 
   const executeClaim = useCallback(async (): Promise<TransactionResult> => {
     if (!isConnected) {
-      return { success: false, error: 'Wallet not connected' };
+      return { success: false, error: "Wallet not connected" };
     }
 
-      updateTransactionStatus('broadcasting');
+    updateTransactionStatus("broadcasting");
 
-      invokeRedeem().then(tx => {
-        updateTransactionStatus('success', tx.txId);
+    invokeRedeem()
+      .then((tx) => {
+        updateTransactionStatus("success", tx.txId);
         toast({
           title: "🟢 Unstaked to wYLDS",
           description: `Successfully unstaked sYLDS to wYLDS`,
@@ -338,7 +390,7 @@ export const useStaking = () => {
         }
 
         // Update balances: decrease sYLDS, increase wYLDS
-        setState(prev => {
+        setState((prev) => {
           const newSYLDS = 0;
           return {
             ...prev,
@@ -354,8 +406,9 @@ export const useStaking = () => {
         });
 
         return { success: tx.success, txHash: tx.txId };
-      }).catch(error => {
-        updateTransactionStatus('error', undefined, error.message);
+      })
+      .catch((error) => {
+        updateTransactionStatus("error", undefined, error.message);
         console.error(error);
         toast({
           title: "❌ Claim Exception",
@@ -364,14 +417,14 @@ export const useStaking = () => {
         });
         return { success: false, error: JSON.stringify(error) };
       });
-    }, [isConnected, updateTransactionStatus, invokeRedeem, toast]);
+  }, [isConnected, updateTransactionStatus, invokeRedeem, toast]);
 
   const resetTransaction = useCallback(() => {
-    setState(prev => ({
+    setState((prev) => ({
       ...prev,
       transaction: {
         ...prev.transaction,
-        status: 'idle',
+        status: "idle",
         hash: undefined,
         error: undefined,
       },
@@ -383,8 +436,12 @@ export const useStaking = () => {
     ...state,
 
     // Computed values
-    isTransacting: (state.transaction.status === 'signing' || state.transaction.status === 'broadcasting' || state.transaction.status === 'confirming'),
-    hasReadyToClaim: state.pendingUnstake.data && state.pendingUnstake.data.canClaim,
+    isTransacting:
+      state.transaction.status === "signing" ||
+      state.transaction.status === "broadcasting" ||
+      state.transaction.status === "confirming",
+    hasReadyToClaim:
+      state.pendingUnstake.data && state.pendingUnstake.data.canClaim,
 
     transactionStatus: state.transaction.status,
     // Actions

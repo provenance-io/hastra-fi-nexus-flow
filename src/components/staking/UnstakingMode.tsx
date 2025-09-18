@@ -1,14 +1,16 @@
-import React from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Card } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { useStaking } from '@/hooks/useStaking';
-import { formatStakingAmount, estimateGasFee, formatTimestamp } from '@/utils/stakingUtils';
-import { ArrowRight, Wallet, Clock, AlertTriangle } from 'lucide-react';
-import {useUnbond} from "@/hooks/use-solana-tx.ts";
+import React from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Card } from "@/components/ui/card";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { useStaking } from "@/hooks/useStaking";
+import {
+  formatStakingAmount,
+  estimateGasFee,
+  formatTimestamp,
+} from "@/utils/stakingUtils";
+import { ArrowRight, Wallet, Clock, AlertTriangle } from "lucide-react";
 
 const UnstakingMode: React.FC = () => {
   const {
@@ -21,7 +23,7 @@ const UnstakingMode: React.FC = () => {
     isTransacting,
   } = useStaking();
 
-  const estimatedGas = estimateGasFee('unstake');
+  const estimatedGas = estimateGasFee("unstake");
 
   return (
     <div className="space-y-6">
@@ -45,8 +47,9 @@ const UnstakingMode: React.FC = () => {
       <Alert className="border-[hsl(48_100%_67%)]/30 bg-[hsl(48_100%_67%)]/10">
         <AlertTriangle className="h-4 w-4 text-[hsl(48_100%_67%)]" />
         <AlertDescription className="text-white">
-          <strong>Unstaking Period:</strong> {protocolData.unstakingCooldown} cooldown period applies. 
-          Your tokens will be available to claim after the cooldown period ends.
+          <strong>Unstaking Period:</strong> {protocolData.unstakingCooldown}{" "}
+          cooldown period applies. Your tokens will be available to claim after
+          the cooldown period ends.
         </AlertDescription>
       </Alert>
 
@@ -54,7 +57,10 @@ const UnstakingMode: React.FC = () => {
       <div className="bg-background/30 rounded-2xl border border-border/20 p-6 space-y-6">
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <Label htmlFor="unstake-amount" className="text-base md:text-sm font-semibold text-foreground font-sans">
+            <Label
+              htmlFor="unstake-amount"
+              className="text-base md:text-sm font-semibold text-foreground font-sans"
+            >
               Amount to Unstake
             </Label>
             <Button
@@ -82,7 +88,7 @@ const UnstakingMode: React.FC = () => {
               <span className="text-sm text-muted-foreground">sYLDS</span>
             </div>
           </div>
-          
+
           {/* Error Messages */}
           {unstakingForm.errors.length > 0 && (
             <div className="space-y-1">
@@ -100,7 +106,9 @@ const UnstakingMode: React.FC = () => {
           <Card className="p-4 bg-secondary/20 border border-border/30">
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">You will receive</span>
+                <span className="text-sm text-muted-foreground">
+                  You will receive
+                </span>
                 <div className="flex items-center space-x-2">
                   <Clock className="h-4 w-4 text-[hsl(48_100%_67%)]" />
                   <span className="text-sm font-medium text-[hsl(48_100%_67%)]">
@@ -108,26 +116,32 @@ const UnstakingMode: React.FC = () => {
                   </span>
                 </div>
               </div>
-              
+
               <div className="flex items-center justify-center py-2">
                 <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                   <span>{formatStakingAmount(unstakingForm.amount)} sYLDS</span>
                   <ArrowRight className="h-4 w-4" />
-                  <span>{formatStakingAmount(unstakingForm.estimatedOutput)} wYLDS</span>
+                  <span>
+                    {formatStakingAmount(unstakingForm.estimatedOutput)} wYLDS
+                  </span>
                 </div>
               </div>
 
               <div className="border-t border-border/30 pt-3 space-y-2">
                 <div className="flex justify-between text-xs">
                   <span className="text-muted-foreground">Exchange Rate</span>
-                  <span className="font-medium">1 sYLDS = {protocolData.exchangeRate} wYLDS</span>
+                  <span className="font-medium">
+                    1 sYLDS = {protocolData.exchangeRate} wYLDS
+                  </span>
                 </div>
                 <div className="flex justify-between text-xs">
                   <span className="text-muted-foreground">Unstaking Fee</span>
                   <span className="font-medium text-green-500">No Fee</span>
                 </div>
                 <div className="flex justify-between text-xs">
-                  <span className="text-muted-foreground">Estimated Gas Fee</span>
+                  <span className="text-muted-foreground">
+                    Estimated Gas Fee
+                  </span>
                   <span className="font-medium">~{estimatedGas} SOL</span>
                 </div>
                 <div className="flex justify-between text-xs">
@@ -140,7 +154,6 @@ const UnstakingMode: React.FC = () => {
             </div>
           </Card>
         )}
-
 
         {/* Unstake Button */}
         <Button
@@ -157,13 +170,11 @@ const UnstakingMode: React.FC = () => {
             </>
           ) : (
             <>
-              Unstake {unstakingForm.amount || '0'} sYLDS
+              Unstake {unstakingForm.amount || "0"} sYLDS
               <ArrowRight className="ml-2 h-4 w-4 text-[hsl(48_100%_67%)]" />
             </>
           )}
         </Button>
-
-
       </div>
     </div>
   );
