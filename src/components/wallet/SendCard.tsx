@@ -175,8 +175,6 @@ const SendCard = () => {
 
   const equivalent = calculateEquivalent();
 
-  console.log("Am I here", tokensLoading || (tokens && tokens.length > 0));
-
   return (
     <div className="space-y-8">
       <div className="flex items-center gap-4 mb-8">

@@ -60,18 +60,6 @@ const Hero = () => {
   );
 
   useEffect(() => {
-    // Debug coin configurations
-    console.log(
-      "Coin configurations:",
-      coinConfigs.current.map((c) => ({
-        id: c.id,
-        coinSize: c.coinSize,
-        startX: c.startX.toFixed(1) + "%",
-        section:
-          Math.floor(c.id * 16.67) + "-" + Math.floor((c.id + 1) * 16.67) + "%",
-      }))
-    );
-
     // Preload and initialize animations
     const timer = setTimeout(() => {
       setIsLoaded(true);
