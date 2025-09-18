@@ -151,7 +151,7 @@ const HastraDashboard = () => {
           {displayedTabs.map((t) => (
             <TabsTrigger
               key={t}
-              className="w-full flex items-center gap-2"
+              className="w-full flex items-center gap-2 text-orange-300"
               value={t}
             >
               {getTabLogo(t)}
