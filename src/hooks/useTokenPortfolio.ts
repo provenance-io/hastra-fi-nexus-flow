@@ -4,10 +4,7 @@ import { clusterApiUrl, Connection, PublicKey } from "@solana/web3.js";
 import { useQuery } from "@tanstack/react-query";
 import { getAssociatedTokenAddress } from "@solana/spl-token";
 import { Metaplex } from "@metaplex-foundation/js";
-import { useSolBalanceQuery } from "@/hooks/useSolanaQuery.ts";
-import { useStaking } from "@/hooks/useStaking.ts";
-import hastraIcon
-  from '/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png';
+import hastraIcon from "/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png";
 
 export interface TokenData {
   address: string;
@@ -29,17 +26,17 @@ const connection = new Connection(
 const metaplex = Metaplex.make(connection);
 
 const token = (address: string) => {
-    switch (address) {
-        case import.meta.env.VITE_SOLANA_USDC_MINT:
-            return "USDC";
-        case import.meta.env.VITE_SOLANA_WYLDS_MINT:
-            return "wYLDS";
-        case import.meta.env.VITE_SOLANA_SYLDS_MINT:
-            return "sYLDS";
-        default:
-            return "UNKNOWN";
-    }
-}
+  switch (address) {
+    case import.meta.env.VITE_SOLANA_USDC_MINT:
+      return "USDC";
+    case import.meta.env.VITE_SOLANA_WYLDS_MINT:
+      return "wYLDS";
+    case import.meta.env.VITE_SOLANA_SYLDS_MINT:
+      return "sYLDS";
+    default:
+      return "UNKNOWN";
+  }
+};
 export const useTokenPortfolioQuery = (
   publicKey: PublicKey,
   tokenMintAddresses: string[] = [
@@ -92,7 +89,9 @@ export const useTokenPortfolioQuery = (
               } as TokenData;
             }
           } catch (e) {
-            console.warn(`No metaplex info for mint address ${mint.toBase58()}`);
+            console.warn(
+              `No metaplex info for mint address ${mint.toBase58()}`
+            );
           }
           return {
             address: address,
@@ -101,7 +100,12 @@ export const useTokenPortfolioQuery = (
             value: value,
             apy: address === import.meta.env.VITE_SOLANA_WYLDS_MINT ? 4.5 : 0, // Default APY for wYLDS only
             totalInterestEarned: 0,
-            unclaimedInterest: address === import.meta.env.VITE_SOLANA_WYLDS_MINT ? (amount > 0 ? amount * 0.001 : 0) : 0, // Only wYLDS has claimable yield when balance > 0
+            unclaimedInterest:
+              address === import.meta.env.VITE_SOLANA_WYLDS_MINT
+                ? amount > 0
+                  ? amount * 0.001
+                  : 0
+                : 0, // Only wYLDS has claimable yield when balance > 0
             icon: hastraIcon,
             mint: mint.toBase58(),
             tokenAddress: ta.toBase58(),
@@ -115,16 +119,15 @@ export const useTokenPortfolioQuery = (
 };
 
 export const useTokenPortfolio = () => {
-  const [tokens, setTokens] = useState<TokenData[]>([]);
-
   const { address, isConnected } = useWallet();
-
-  const { data: tokenData } = useTokenPortfolioQuery(new PublicKey(address));
-
-  const { data: solBalance } = useSolBalanceQuery(new PublicKey(address));
+  const { data: tokenData, isLoading: tokensLoading } = useTokenPortfolioQuery(
+    new PublicKey(address)
+  );
+  const [tokens, setTokens] = useState<TokenData[]>(
+    isConnected ? tokenData : []
+  );
 
   useEffect(() => {
-      console.dir(tokenData);
     if (isConnected) {
       setTokens(tokenData);
     } else {
@@ -137,20 +140,20 @@ export const useTokenPortfolio = () => {
       setTokens((prevTokens) =>
         prevTokens.map((token) => {
           // Only allow claiming for wYLDS and sYLDS tokens
-          if (token.token === 'USDC' || token.token === 'HASH') {
+          if (token.token === "USDC" || token.token === "HASH") {
             return token; // No claiming for USDC or HASH
           }
-          
+
           // For sYLDS claims, add wYLDS instead of sYLDS
-          if (tokenSymbol === 'sYLDS') {
-            if (token.token === 'wYLDS') {
+          if (tokenSymbol === "sYLDS") {
+            if (token.token === "wYLDS") {
               return {
                 ...token,
                 amount: token.amount + claimedAmount,
                 value: token.value + claimedAmount,
                 totalInterestEarned: token.totalInterestEarned + claimedAmount,
               };
-            } else if (token.token === 'sYLDS') {
+            } else if (token.token === "sYLDS") {
               return {
                 ...token,
                 totalInterestEarned: token.totalInterestEarned + claimedAmount,
@@ -177,10 +180,10 @@ export const useTokenPortfolio = () => {
     setTokens((prevTokens) =>
       prevTokens.map((token) => {
         // Only allow claiming for tokens that have claimable interest (not USDC or HASH)
-        if (token.token === 'USDC' || token.token === 'HASH') {
+        if (token.token === "USDC" || token.token === "HASH") {
           return token; // No claiming for USDC or HASH
         }
-        
+
         return {
           ...token,
           amount: token.amount + token.unclaimedInterest,
@@ -210,6 +213,7 @@ export const useTokenPortfolio = () => {
 
   return {
     tokens: tokens, // Return the tokens with sYLDS included
+    tokensLoading,
     claimInterest,
     claimAllInterest,
     getTotalPortfolioValue,

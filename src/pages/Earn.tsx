@@ -1,10 +1,9 @@
-
-import EarnHero from '@/components/start-earning/EarnHero';
-import BuyEarnSection from '@/components/start-earning/BuyEarnSection';
-import WalletConnectionSection from '@/components/start-earning/WalletConnectionSection';
-import EnhancedWalletConnection from '@/components/wallet/EnhancedWalletConnection';
-import ProvenanceBranding from '@/components/ProvenanceBranding';
-import { useWallet } from '@/contexts/WalletContext';
+import EarnHero from "@/components/start-earning/EarnHero";
+import BuyEarnSection from "@/components/start-earning/BuyEarnSection";
+import WalletConnectionSection from "@/components/start-earning/WalletConnectionSection";
+import EnhancedWalletConnection from "@/components/wallet/EnhancedWalletConnection";
+import ProvenanceBranding from "@/components/ProvenanceBranding";
+import { useWallet } from "@/contexts/WalletContext";
 
 const Earn = () => {
   const { isConnected } = useWallet();
@@ -22,8 +21,8 @@ const Earn = () => {
             </div>
           </section>
         )}
-        {!isConnected && <BuyEarnSection />}
-        {!isConnected && <WalletConnectionSection />}
+        {/* {!isConnected && <BuyEarnSection />}
+        {!isConnected && <WalletConnectionSection />} */}
         <ProvenanceBranding />
       </div>
     </div>

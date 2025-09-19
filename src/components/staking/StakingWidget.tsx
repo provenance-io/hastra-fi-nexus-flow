@@ -1,21 +1,17 @@
-import React from 'react';
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { useStaking } from '@/hooks/useStaking';
-import { useWallet } from '@/contexts/WalletContext';
-import StakingMode from './StakingMode';
-import UnstakingMode from './UnstakingMode';
-import TransactionProgress from './TransactionProgress';
-import APRDisplay from './APRDisplay';
-import { Coins, TrendingUp } from 'lucide-react';
+import React from "react";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { useStaking } from "@/hooks/useStaking";
+import { useWallet } from "@/contexts/WalletContext";
+import StakingMode from "./StakingMode";
+import UnstakingMode from "./UnstakingMode";
+import TransactionProgress from "./TransactionProgress";
+import APRDisplay from "./APRDisplay";
+import { Coins, TrendingUp } from "lucide-react";
 
 const StakingWidget: React.FC = () => {
   const { isConnected, connectWallet } = useWallet();
-  const {
-    protocolData,
-    transaction,
-    resetTransaction,
-  } = useStaking();
+  const { protocolData, transaction, resetTransaction } = useStaking();
 
   if (!isConnected) {
     return (
@@ -23,20 +19,21 @@ const StakingWidget: React.FC = () => {
         <div className="text-center space-y-6">
           <div className="flex items-center justify-center">
             <div className="p-4 rounded-full bg-amber-warm/10 border border-amber-warm/20">
-              <Coins className="h-8 w-8 text-amber-warm" />
+              <Coins className="size-8 text-header-glow" />
             </div>
           </div>
-          
+
           <div className="space-y-3">
             <h3 className="text-xl font-semibold text-foreground">
               Connect Wallet to Stake
             </h3>
             <p className="text-muted-foreground max-w-md mx-auto">
-              Connect your wallet to start earning {protocolData.currentAPR}% APR by staking wYLDS tokens
+              Connect your wallet to start earning {protocolData.currentAPR}%
+              APR by staking wYLDS tokens
             </p>
           </div>
-          
-          <Button 
+
+          <Button
             onClick={connectWallet}
             size="lg"
             variant="secondary"
@@ -56,7 +53,7 @@ const StakingWidget: React.FC = () => {
         {/* Stake Section */}
         <div className="space-y-4">
           <div className="flex items-center space-x-2">
-            <TrendingUp className="h-5 w-5 text-amber-warm" />
+            <TrendingUp className="size-6 md:size-5 text-header-glow" />
             <h4 className="text-lg font-semibold text-foreground">Stake</h4>
           </div>
           <Card className="bg-background/30 rounded-xl border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)] p-6 animate-fade-in">
@@ -67,7 +64,7 @@ const StakingWidget: React.FC = () => {
         {/* Unstake Section */}
         <div className="space-y-4">
           <div className="flex items-center space-x-2">
-            <Coins className="h-5 w-5 text-[hsl(34_100%_84%)]" />
+            <Coins className="size-6 md:size-5 text-header-glow" />
             <h4 className="text-lg font-semibold text-foreground">Unstake</h4>
           </div>
           <Card className="bg-background/30 rounded-xl border border-border/20 hover:border-amber-glow/15 transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,218,194,0.1),0_0_15px_rgba(229,218,194,0.05)] p-6 animate-fade-in">
@@ -78,7 +75,7 @@ const StakingWidget: React.FC = () => {
 
       {/* Transaction Progress */}
       <TransactionProgress
-        isVisible={transaction.status !== 'idle'}
+        isVisible={transaction.status !== "idle"}
         mode={transaction.type}
         stage={transaction.status}
         txHash={transaction.hash}
