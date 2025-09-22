@@ -29,20 +29,11 @@ import {
 } from "lucide-react";
 import { TokenHoldings } from "./TokenHoldings";
 
-const tabSections = [
-  "Portfolio",
-  "Holdings",
-  "Buy",
-  "Send",
-  "Stake",
-  "Trade",
-] as const;
+const tabSections = ["Buy", "Send", "Stake", "Trade"] as const;
 
 const getTabLogo = (section: (typeof tabSections)[number]) => {
   return match(section)
     .with("Buy", () => <ArrowUpDown className="size-4" />)
-    .with("Holdings", () => <Wallet className="size-4" />)
-    .with("Portfolio", () => <FolderOpen className="size-4" />)
     .with("Send", () => <Send className="size-4" />)
     .with("Stake", () => <TrendingUp className="size-4" />)
     .with("Trade", () => <ChartCandlestick className="size-4" />)
@@ -54,7 +45,7 @@ const ofacLimitedSections = ["Buy", "Send", "Stake"];
 const HastraDashboard = () => {
   const { isConnected, address } = useWallet();
   const { tokens } = useTokenPortfolio();
-  const [tabsValue, setTabsValue] = useState("Portfolio");
+  const [tabsValue, setTabsValue] = useState("Buy");
 
   const {
     isLoading: ofacLoading,
@@ -138,11 +129,15 @@ const HastraDashboard = () => {
           </div>
         ))
         .otherwise(() => undefined)}
+      <div className="space-y-4 md:space-y-8">
+        <WalletOverview />
+        <TokenHoldings />
+      </div>
 
       <Tabs value={tabsValue} onValueChange={(val) => setTabsValue(val)}>
         <TabsList
           className={cn(
-            "hidden md:flex w-full mb-8 overflow-x-scroll no-scrollbar",
+            "hidden md:flex w-full my-8",
             displayedTabs.length === tabSections.length
               ? "justify-between"
               : "space-x-10"
@@ -160,7 +155,7 @@ const HastraDashboard = () => {
           ))}
         </TabsList>
         <Select value={tabsValue} onValueChange={(val) => setTabsValue(val)}>
-          <SelectTrigger className="w-full md:hidden mb-4">
+          <SelectTrigger className="w-full md:hidden my-4">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -189,16 +184,6 @@ const HastraDashboard = () => {
                     </div>
                   </div>
                 ) : undefined}
-              </TabsContent>
-            ))
-            .with("Holdings", () => (
-              <TabsContent value={t} key={t}>
-                <TokenHoldings />
-              </TabsContent>
-            ))
-            .with("Portfolio", () => (
-              <TabsContent value={t} key={t}>
-                <WalletOverview />
               </TabsContent>
             ))
             .with("Send", () => (
