@@ -95,6 +95,8 @@ const BuyCard = () => {
       className:
         "border-l-4 border-l-hastra-teal bg-hastra-teal/10 shadow-hastra",
     });
+
+    //FIXME - this is called for both USDC -> wYLDS and wYLDS -> USDC, but the latter is not implemented in the program yet
     invoke(Number(amount))
       .then((response) => {
         setTxId(response.txId);

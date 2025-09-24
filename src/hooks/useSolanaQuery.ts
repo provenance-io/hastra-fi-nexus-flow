@@ -3,10 +3,10 @@ import { getAssociatedTokenAddress } from "@solana/spl-token";
 import { useQuery } from "@tanstack/react-query";
 import type { CoinGeckoPrice } from "../types/coin-gecko";
 import {AnchorProvider, type Idl, Program, Wallet} from "@coral-xyz/anchor";
-import {SolVaultStake as solVaultStakeIdl } from "@/types/idl/sol-vault-stake.ts";
 import {useAnchorWallet} from "@/hooks/use-solana-tx.ts";
 import {PendingUnstake} from "@/types/staking.ts";
-import {SolVaultStake} from "@/types/sol-vault-stake.ts";
+import {HastraSolVaultStake} from "@/types/hastra-sol-vault-stake.ts";
+import {HastraSolVaultStake as HastraSolVaultStakeIdl} from "@/types/idl/hastra-sol-vault-stake.ts";
 
 const connection = new Connection(
   clusterApiUrl(import.meta.env.VITE_SOLANA_CLUSTER_NAME),
@@ -117,7 +117,7 @@ export const useAtaBalanceQuery = (
   });
 };
 
-const unbondingConfig = async (program: Program<SolVaultStake>): Promise<number> => {
+const unbondingConfig = async (program: Program<HastraSolVaultStake>): Promise<number> => {
   const [pda] = PublicKey.findProgramAddressSync(
       [Buffer.from("config")],
       program.programId
@@ -131,7 +131,7 @@ export function useUnbondingPeriodConfigQuery() {
     const provider = new AnchorProvider(connection, wallet, {
         preflightCommitment: "confirmed",
     });
-    const program = new Program(solVaultStakeIdl as Idl, provider) as Program<SolVaultStake>;
+    const program = new Program(HastraSolVaultStakeIdl as Idl, provider) as Program<HastraSolVaultStake>;
     return useQuery<number, Error>({
         queryKey: ["staking-config", program.programId.toBase58()],
         enabled: !!program,
@@ -146,7 +146,7 @@ export function usePendingUnstakeQuery() {
   const provider = new AnchorProvider(connection, wallet, {
     preflightCommitment: "confirmed",
   });
-  const program = new Program(solVaultStakeIdl as Idl, provider) as Program<SolVaultStake>;
+  const program = new Program(HastraSolVaultStakeIdl as Idl, provider) as Program<HastraSolVaultStake>;
 
   return useQuery<PendingUnstake | null, Error>({
     queryKey: ["unbonding-ticket", program.programId.toBase58(), wallet.publicKey?.toBase58()],

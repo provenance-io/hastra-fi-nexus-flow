@@ -1,12 +1,236 @@
-export const SolVaultStake = {
-  "address": "G9cajZ82LeEpLT9RubWtHR5rixUnBHuJYRMarHKkvnRp",
+export const HastraSolVaultStake = {
+  "address": "AixEL5nihPVirtmPki2m1bS2a2eVeMY22hxyihYWXrBL",
   "metadata": {
-    "name": "sol_vault_stake",
+    "name": "hastra_sol_vault_stake",
     "version": "0.1.0",
     "spec": "0.1.0",
     "description": "Vault, Mint, and Stake Contract for Hastra"
   },
   "instructions": [
+    {
+      "name": "claim_rewards",
+      "docs": [
+        "This is the classic “airdrop/claim per epoch” design",
+        "High-level idea:",
+        "1.\tOff-chain (admin does this each epoch):",
+        "•\tCalculate each user’s reward for this epoch.",
+        "•\tBuild a Merkle tree of (user, amount, epoch_index).",
+        "•\tPublish the Merkle root on-chain with create_rewards_epoch function above.",
+        "",
+        "2.\tOn-chain:",
+        "•\tStore each epoch’s Merkle root in a PDA.",
+        "•\tWhen a user claims, they present (amount, proof) for their pubkey.",
+        "•\tThe program verifies the Merkle proof against the root.",
+        "•\tIf valid, transfer reward tokens (sYLDS) from the rewards vault to the user's staking mint token account.",
+        "•\tMark the claim as redeemed so they can’t double-claim."
+      ],
+      "discriminator": [
+        4,
+        144,
+        132,
+        71,
+        116,
+        23,
+        151,
+        80
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "epoch"
+        },
+        {
+          "name": "claim_record",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  108,
+                  97,
+                  105,
+                  109
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "epoch"
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint",
+          "writable": true
+        },
+        {
+          "name": "mint_authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "user_stake_token_account",
+          "writable": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        },
+        {
+          "name": "proof",
+          "type": {
+            "vec": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "create_rewards_epoch",
+      "discriminator": [
+        64,
+        195,
+        84,
+        28,
+        247,
+        167,
+        132,
+        46
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "epoch",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  101,
+                  112,
+                  111,
+                  99,
+                  104
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "index"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "index",
+          "type": "u64"
+        },
+        {
+          "name": "merkle_root",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
+        },
+        {
+          "name": "total",
+          "type": "u64"
+        }
+      ]
+    },
     {
       "name": "deposit",
       "docs": [
@@ -103,6 +327,83 @@ export const SolVaultStake = {
       ]
     },
     {
+      "name": "freeze_token_account",
+      "discriminator": [
+        138,
+        168,
+        178,
+        109,
+        205,
+        224,
+        209,
+        93
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_account",
+          "writable": true
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "freeze_authority_pda",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  114,
+                  101,
+                  101,
+                  122,
+                  101,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "signer",
+          "signer": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": []
+    },
+    {
       "name": "initialize",
       "docs": [
         "Initializes the vault program with the required token configurations:",
@@ -123,10 +424,32 @@ export const SolVaultStake = {
       "accounts": [
         {
           "name": "config",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
         },
         {
           "name": "vault_authority",
+          "docs": [
+            "This PDA will be set as the owner of the vault_token_account in the config",
+            "The vault token account holds the deposited vault tokens (e.g., wYLDS)",
+            "and is controlled by this program via the vault_authority PDA",
+            "This ensures that only this program can move tokens out of the vault",
+            "and prevents unauthorized access."
+          ],
           "pda": {
             "seeds": [
               {
@@ -154,22 +477,33 @@ export const SolVaultStake = {
         },
         {
           "name": "vault_token_account",
+          "docs": [
+            "The vault token account that should be owned by vault_authority"
+          ],
           "writable": true
         },
         {
           "name": "vault_mint"
         },
         {
+          "name": "mint"
+        },
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        },
+        {
           "name": "token_program",
           "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         },
         {
-          "name": "rent",
-          "address": "SysvarRent111111111111111111111111111111111"
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         },
         {
-          "name": "signer",
-          "signer": true
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
         }
       ],
       "args": [
@@ -184,13 +518,25 @@ export const SolVaultStake = {
         {
           "name": "unbonding_period",
           "type": "i64"
+        },
+        {
+          "name": "freeze_administrators",
+          "type": {
+            "vec": "pubkey"
+          }
+        },
+        {
+          "name": "rewards_administrators",
+          "type": {
+            "vec": "pubkey"
+          }
         }
       ]
     },
     {
       "name": "redeem",
       "docs": [
-        "Completes the unbonding process after period expires:",
+        "Completes the unbonding process after the period expires:",
         "- Burns unbonding tokens (e.g., uwYLDS)",
         "- Returns vault tokens (e.g., wYLDS) to user"
       ],
@@ -302,95 +648,6 @@ export const SolVaultStake = {
       "args": []
     },
     {
-      "name": "set_freeze_authority",
-      "docs": [
-        "Sets the freeze authority for a specified token type",
-        "Used to configure program control over token minting"
-      ],
-      "discriminator": [
-        159,
-        131,
-        149,
-        192,
-        109,
-        186,
-        68,
-        227
-      ],
-      "accounts": [
-        {
-          "name": "config",
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  99,
-                  111,
-                  110,
-                  102,
-                  105,
-                  103
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "name": "mint",
-          "writable": true
-        },
-        {
-          "name": "signer",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "mint_authority",
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  109,
-                  105,
-                  110,
-                  116,
-                  95,
-                  97,
-                  117,
-                  116,
-                  104,
-                  111,
-                  114,
-                  105,
-                  116,
-                  121
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "name": "program",
-          "address": "G9cajZ82LeEpLT9RubWtHR5rixUnBHuJYRMarHKkvnRp"
-        },
-        {
-          "name": "program_data"
-        },
-        {
-          "name": "token_program",
-          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
-        }
-      ],
-      "args": [
-        {
-          "name": "new_authority",
-          "type": "pubkey"
-        }
-      ]
-    },
-    {
       "name": "set_mint_authority",
       "docs": [
         "Sets the mint authority for a specified token type",
@@ -430,9 +687,7 @@ export const SolVaultStake = {
           "writable": true
         },
         {
-          "name": "signer",
-          "writable": true,
-          "signer": true
+          "name": "program_data"
         },
         {
           "name": "mint_authority",
@@ -461,11 +716,8 @@ export const SolVaultStake = {
           }
         },
         {
-          "name": "program",
-          "address": "G9cajZ82LeEpLT9RubWtHR5rixUnBHuJYRMarHKkvnRp"
-        },
-        {
-          "name": "program_data"
+          "name": "signer",
+          "signer": true
         },
         {
           "name": "token_program",
@@ -478,6 +730,83 @@ export const SolVaultStake = {
           "type": "pubkey"
         }
       ]
+    },
+    {
+      "name": "thaw_token_account",
+      "discriminator": [
+        199,
+        172,
+        96,
+        93,
+        244,
+        252,
+        137,
+        171
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_account",
+          "writable": true
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "freeze_authority_pda",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  114,
+                  101,
+                  101,
+                  122,
+                  101,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "signer",
+          "signer": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": []
     },
     {
       "name": "unbond",
@@ -600,19 +929,15 @@ export const SolVaultStake = {
           }
         },
         {
-          "name": "signer",
-          "signer": true
-        },
-        {
-          "name": "program",
-          "address": "G9cajZ82LeEpLT9RubWtHR5rixUnBHuJYRMarHKkvnRp"
-        },
-        {
           "name": "program_data"
         },
         {
-          "name": "token_program",
-          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        },
+        {
+          "name": "signer",
+          "signer": true
         }
       ],
       "args": [
@@ -621,9 +946,120 @@ export const SolVaultStake = {
           "type": "i64"
         }
       ]
+    },
+    {
+      "name": "update_freeze_administrators",
+      "discriminator": [
+        169,
+        194,
+        112,
+        142,
+        80,
+        94,
+        72,
+        189
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "program_data"
+        },
+        {
+          "name": "signer",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "new_administrators",
+          "type": {
+            "vec": "pubkey"
+          }
+        }
+      ]
+    },
+    {
+      "name": "update_rewards_administrators",
+      "discriminator": [
+        152,
+        46,
+        142,
+        129,
+        7,
+        137,
+        219,
+        237
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "program_data"
+        },
+        {
+          "name": "signer",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "new_administrators",
+          "type": {
+            "vec": "pubkey"
+          }
+        }
+      ]
     }
   ],
   "accounts": [
+    {
+      "name": "ClaimRecord",
+      "discriminator": [
+        57,
+        229,
+        0,
+        9,
+        65,
+        62,
+        96,
+        7
+      ]
+    },
     {
       "name": "Config",
       "discriminator": [
@@ -635,6 +1071,19 @@ export const SolVaultStake = {
         250,
         204,
         130
+      ]
+    },
+    {
+      "name": "RewardsEpoch",
+      "discriminator": [
+        19,
+        164,
+        140,
+        222,
+        83,
+        245,
+        249,
+        74
       ]
     },
     {
@@ -746,9 +1195,46 @@ export const SolVaultStake = {
       "code": 6019,
       "name": "MissingSigner",
       "msg": "Signer account missing."
+    },
+    {
+      "code": 6020,
+      "name": "TooManyAdministrators",
+      "msg": "Too many freeze administrators."
+    },
+    {
+      "code": 6021,
+      "name": "UnauthorizedFreezeAdministrator",
+      "msg": "Unauthorized freeze administrator"
+    },
+    {
+      "code": 6022,
+      "name": "InvalidRewardsEpoch",
+      "msg": "Invalid rewards epoch"
+    },
+    {
+      "code": 6023,
+      "name": "InvalidMerkleProof",
+      "msg": "Invalid merkle proof"
+    },
+    {
+      "code": 6024,
+      "name": "RewardsAlreadyClaimed",
+      "msg": "Rewards already claimed for this epoch"
+    },
+    {
+      "code": 6025,
+      "name": "InvalidRewardsAdministrator",
+      "msg": "Invalid rewards administrator"
     }
   ],
   "types": [
+    {
+      "name": "ClaimRecord",
+      "type": {
+        "kind": "struct",
+        "fields": []
+      }
+    },
     {
       "name": "Config",
       "type": {
@@ -764,6 +1250,51 @@ export const SolVaultStake = {
           },
           {
             "name": "unbonding_period",
+            "type": "i64"
+          },
+          {
+            "name": "freeze_administrators",
+            "type": {
+              "vec": "pubkey"
+            }
+          },
+          {
+            "name": "rewards_administrators",
+            "type": {
+              "vec": "pubkey"
+            }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RewardsEpoch",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "index",
+            "type": "u64"
+          },
+          {
+            "name": "merkle_root",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "total",
+            "type": "u64"
+          },
+          {
+            "name": "created_ts",
             "type": "i64"
           }
         ]

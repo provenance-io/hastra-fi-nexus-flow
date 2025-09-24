@@ -13,8 +13,6 @@ import {
     type Wallet as AnchorWallet, web3, workspace,
 } from "@coral-xyz/anchor";
 import { SolanaResponse } from "../types/solana-tx";
-import {solVaultMintIdl } from "../types/idl/solana";
-import { SolVaultStake as solVaultStakeIdl } from "../types/idl/sol-vault-stake";
 import { useCallback } from "react";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import {
@@ -25,6 +23,8 @@ import {
 } from "@solana/spl-token";
 import BN from "bn.js";
 import {sYLDS, USDC, wYLDS} from "@/types/tokens.ts";
+import {HastraSolVaultStake as HastraSolVaultStakeIdl} from "@/types/idl/hastra-sol-vault-stake.ts";
+import {HastraSolVaultMint as HastraSolVaultMintIdl} from "@/types/idl/hastra-sol-vault-mint.ts";
 
 const RPC_ENDPOINT = import.meta.env.VITE_SOLANA_RPC_URL;
 
@@ -88,19 +88,19 @@ export const useDepositAndMint = () => {
       const provider = new AnchorProvider(connection, wallet, {
         preflightCommitment: "confirmed",
       });
-      const program = new Program(solVaultMintIdl() as Idl, provider);
+      const program = new Program(HastraSolVaultMintIdl as Idl, provider);
 
       // program accounts
       const signer = publicKey;
-      const swapTokenAccount: PublicKey = await getAssociatedTokenAddress(
+      const userVaultTokenAccount: PublicKey = await getAssociatedTokenAddress(
         new PublicKey(USDC),
         signer
       );
-      const toTokenAccount: PublicKey = await getAssociatedTokenAddress(
+      const userMintTokenAccount: PublicKey = await getAssociatedTokenAddress(
         new PublicKey(wYLDS),
         signer
       );
-      const yieldMint = new PublicKey(wYLDS);
+      const mint = new PublicKey(wYLDS);
       const vault = new PublicKey(import.meta.env.VITE_SOLANA_USDC_VAULT);
       const configPda = new PublicKey(
         import.meta.env.VITE_SOLANA_USDC_WYLDS_CONFIG_PDA
@@ -109,27 +109,27 @@ export const useDepositAndMint = () => {
         import.meta.env.VITE_SOLANA_USDC_WYLDS_MINT_AUTHORITY_PDA
       );
 
-      const createAtaInstructions = await ataInstruction(connection, signer, toTokenAccount, yieldMint);
+      const createAtaInstructions = await ataInstruction(connection, signer, userMintTokenAccount, mint);
 
       console.log(`signer:        ${signer.toBase58()}`);
-      console.log(`swapToken:     ${swapTokenAccount.toBase58()}`);
-      console.log(`toAccount:     ${toTokenAccount.toBase58()}`);
-      console.log(`vault:         ${vault.toBase58()}`);
-      console.log(`mint:          ${yieldMint.toBase58()}`);
+      console.log(`swapToken:     ${userVaultTokenAccount.toBase58()}`);
+      console.log(`toAccount:     ${userMintTokenAccount.toBase58()}`);
+      console.log(`vault TA:      ${vault.toBase58()}`);
+      console.log(`mint:          ${mint.toBase58()}`);
       console.log(`configPda:     ${configPda.toBase58()}`);
       console.log(`mintAuthority: ${mintAuthorityPda.toBase58()}`);
       console.log(`tokenProgram:  ${TOKEN_PROGRAM_ID.toBase58()}`);
       return await confirmTransaction(connection, () =>
         program?.methods
-          .depositAndMint(new BN(amount * 1_000_000))
+          .deposit(new BN(amount * 1_000_000))
           .accounts({
             signer: signer,
-            swapToken: swapTokenAccount,
-            toAccount: toTokenAccount,
-            vault: vault,
-            mint: yieldMint,
             config: configPda,
+            vaultTokenAccount: vault,
+            mint: mint,
             mintAuthority: mintAuthorityPda,
+            userVaultTokenAccount: userVaultTokenAccount,
+            userMintTokenAccount: userMintTokenAccount,
             tokenProgram: TOKEN_PROGRAM_ID,
           })
           .preInstructions(createAtaInstructions)
@@ -317,7 +317,7 @@ export const useStake = () => {
             const provider = new AnchorProvider(connection, wallet, {
                 preflightCommitment: "confirmed",
             });
-            const program = new Program(solVaultStakeIdl as Idl, provider);
+            const program = new Program(HastraSolVaultStakeIdl as Idl, provider);
 
             // program accounts
             const signer = publicKey;
@@ -395,7 +395,7 @@ export const useUnbond = () => {
             const provider = new AnchorProvider(connection, wallet, {
                 preflightCommitment: "confirmed",
             });
-            const program = new Program(solVaultStakeIdl as Idl, provider);
+            const program = new Program(HastraSolVaultStakeIdl as Idl, provider);
 
             // program accounts
             const signer = publicKey;
@@ -461,7 +461,7 @@ export const useRedeem = () => {
             const provider = new AnchorProvider(connection, wallet, {
                 preflightCommitment: "confirmed",
             });
-            const program = new Program(solVaultStakeIdl as Idl, provider);
+            const program = new Program(HastraSolVaultStakeIdl as Idl, provider);
 
             const syldsMint = new PublicKey(sYLDS);
 
