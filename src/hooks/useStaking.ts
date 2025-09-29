@@ -369,13 +369,15 @@ export const useStaking = () => {
           variant: "destructive",
         });
         return { success: false, error: JSON.stringify(error) };
-      });
+      })
+      .finally(() => refetchTokens());
   }, [
     state.unstakingForm,
     isConnected,
     updateTransactionStatus,
     invokeUnbond,
     toast,
+    refetchTokens,
   ]);
 
   const executeClaim = useCallback(async (): Promise<TransactionResult> => {
