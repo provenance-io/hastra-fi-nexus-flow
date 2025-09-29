@@ -426,8 +426,15 @@ export const useStaking = () => {
           variant: "destructive",
         });
         return { success: false, error: JSON.stringify(error) };
-      });
-  }, [isConnected, updateTransactionStatus, invokeRedeem, toast]);
+      })
+      .finally(() => refetchTokens());
+  }, [
+    isConnected,
+    updateTransactionStatus,
+    invokeRedeem,
+    toast,
+    refetchTokens,
+  ]);
 
   const resetTransaction = useCallback(() => {
     setState((prev) => ({
