@@ -27,7 +27,7 @@ const BuyCard = () => {
 
   const { toast } = useToast();
   const { data: geckoPrice } = useCoinGeckoPrice();
-  const { tokens } = useTokenPortfolio();
+  const { tokens, refetchTokens } = useTokenPortfolio();
   const { invoke } = useDepositAndMint();
 
   useEffect(() => {
@@ -123,7 +123,8 @@ const BuyCard = () => {
           description: response,
           variant: "destructive",
         });
-      });
+      })
+      .finally(() => refetchTokens());
   };
 
   const balance = (address: string) => {

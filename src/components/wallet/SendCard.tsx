@@ -27,7 +27,7 @@ const SendCard = () => {
   const [amount, setAmount] = useState("");
   const [denomination, setDenomination] = useState<"token" | "usd">("token");
   const { toast } = useToast();
-  const { tokens, tokensLoading } = useTokenPortfolio();
+  const { tokens, tokensLoading, refetchTokens } = useTokenPortfolio();
   const { data: geckoPrice } = useCoinGeckoPrice();
   const { invoke } = useTransfer();
 
@@ -160,7 +160,8 @@ const SendCard = () => {
           description: response,
           variant: "destructive",
         });
-      });
+      })
+      .finally(() => refetchTokens());
   };
 
   const handleMaxClick = () => {
