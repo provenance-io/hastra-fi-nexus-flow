@@ -3,16 +3,17 @@ import React, {
   ReactNode,
   useContext,
   useEffect,
-  useState
-} from 'react';
-import {useToast} from '@/hooks/use-toast';
-import {useWallet as useSolanaWallet} from '@solana/wallet-adapter-react';
-import {useWalletModal} from '@solana/wallet-adapter-react-ui';
+  useState,
+} from "react";
+import { useToast } from "@/hooks/use-toast";
+import { useWallet as useSolanaWallet } from "@solana/wallet-adapter-react";
+import { useWalletModal } from "@solana/wallet-adapter-react-ui";
 import {
+  useAtaBalanceQuery,
   useAtaQuery,
   useCoinGeckoPrice,
-  useSolBalanceQuery
-} from '../hooks/useSolanaQuery';
+  useSolBalanceQuery,
+} from "../hooks/useSolanaQuery";
 
 export interface WalletState {
   isConnected: boolean;
@@ -20,6 +21,11 @@ export interface WalletState {
   address: string | null;
   networkError: string | null;
   walletType: string | null;
+  totalBalance: number;
+  solBalance: number;
+  usdcBalance: number;
+  wyldsBalance: number;
+  syldsBalance: number;
 }
 
 export interface WalletContextType extends WalletState {
@@ -32,7 +38,7 @@ const WalletContext = createContext<WalletContextType | undefined>(undefined);
 export const useWallet = () => {
   const context = useContext(WalletContext);
   if (context === undefined) {
-    throw new Error('useWallet must be used within a WalletProvider');
+    throw new Error("useWallet must be used within a WalletProvider");
   }
   return context;
 };
@@ -48,52 +54,47 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     address: null,
     networkError: null,
     walletType: null,
+    totalBalance: 0,
+    solBalance: 0,
+    usdcBalance: 0,
+    wyldsBalance: 0,
+    syldsBalance: 0,
   });
 
   const { toast } = useToast();
-  const { 
-    wallet, 
-    publicKey, 
-    connected, 
-    connecting, 
+  const {
+    wallet,
+    publicKey,
+    connected,
+    connecting,
     disconnect: solanaDisconnect,
   } = useSolanaWallet();
   const { setVisible } = useWalletModal();
 
-  const {
-    data: geckoPrice,
-  } = useCoinGeckoPrice();
+  const { data: geckoPrice } = useCoinGeckoPrice();
 
-  const {
-    data: solBalance,
-    refetch: refetchSolBalanceQuery,
-  } = useSolBalanceQuery(publicKey);
+  const { data: solBalance, refetch: refetchSolBalanceQuery } =
+    useSolBalanceQuery(publicKey);
 
-  const {
-    data: wyldsBalance,
-    refetch: refetchWyldsBalanceQuery,
-  } = useAtaQuery(publicKey, import.meta.env.VITE_SOLANA_WYLDS_MINT);
+  const { data: wyldsBalance, refetch: refetchWyldsBalanceQuery } =
+    useAtaBalanceQuery(publicKey, import.meta.env.VITE_SOLANA_WYLDS_MINT);
 
-  const {
-    data: syldsBalance,
-    refetch: refetchSyldsBalanceQuery,
-  } = useAtaQuery(publicKey, import.meta.env.VITE_SOLANA_SYLDS_MINT);
+  const { data: syldsBalance, refetch: refetchSyldsBalanceQuery } =
+    useAtaBalanceQuery(publicKey, import.meta.env.VITE_SOLANA_SYLDS_MINT);
 
-  const {
-    data: usdcBalance,
-    refetch: refetchUSDCBalanceQuery,
-  } = useAtaQuery(publicKey, import.meta.env.VITE_SOLANA_USDC_MINT);
+  const { data: usdcBalance, refetch: refetchUSDCBalanceQuery } =
+    useAtaBalanceQuery(publicKey, import.meta.env.VITE_SOLANA_USDC_MINT);
 
-  const valueOrZero = (v : number | string | undefined | null) => {
-    if(v) {
-      if (typeof v === 'string') {
+  const valueOrZero = (v: number | string | undefined | null) => {
+    if (v) {
+      if (typeof v === "string") {
         const parsed = parseFloat(v);
         return isNaN(parsed) ? 0 : parsed;
       }
       return v;
     }
     return 0;
-  }
+  };
 
   // Update our state based on Solana wallet adapter state
   useEffect(() => {
@@ -101,13 +102,15 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
 
     const previouslyConnected = walletState.isConnected;
     const portfolioBalance = () => {
-      return (valueOrZero(geckoPrice?.solana?.usd) * valueOrZero(solBalance)) +
-          valueOrZero(wyldsBalance) +
-          valueOrZero(syldsBalance) +
-          valueOrZero(usdcBalance);
-    }
+      return (
+        valueOrZero(geckoPrice?.solana?.usd) * valueOrZero(solBalance) +
+        valueOrZero(wyldsBalance) +
+        valueOrZero(syldsBalance) +
+        valueOrZero(usdcBalance)
+      );
+    };
 
-    setWalletState(prev => ({
+    setWalletState((prev) => ({
       ...prev,
       isConnected: connected,
       isConnecting: connecting,
@@ -125,29 +128,47 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     if (connected && publicKey && !previouslyConnected) {
       toast({
         title: "🟢 Wallet Connected",
-        description: `Successfully connected ${wallet?.adapter?.name || 'wallet'}`,
-        className: "bg-background/30 backdrop-blur-md border border-border/20 hover:border-orange-300/20 shadow-2xl",
+        description: `Successfully connected ${
+          wallet?.adapter?.name || "wallet"
+        }`,
+        className:
+          "bg-background/30 backdrop-blur-md border border-border/20 hover:border-orange-300/20 shadow-2xl",
       });
     }
-  }, [connected, connecting, publicKey, wallet, toast, walletState.isConnected, solBalance, usdcBalance, wyldsBalance, syldsBalance, geckoPrice?.solana?.usd]);
+  }, [
+    connected,
+    connecting,
+    publicKey,
+    wallet,
+    toast,
+    walletState.isConnected,
+    solBalance,
+    usdcBalance,
+    wyldsBalance,
+    syldsBalance,
+    geckoPrice?.solana?.usd,
+  ]);
 
   const connectWallet = async (): Promise<void> => {
     // Opening Solana wallet selection modal
-    
+
     try {
-      setWalletState(prev => ({ ...prev, isConnecting: true, networkError: null }));
-      
+      setWalletState((prev) => ({
+        ...prev,
+        isConnecting: true,
+        networkError: null,
+      }));
+
       // Open the wallet selection modal
       setVisible(true);
-      
     } catch (error) {
       // Error opening wallet modal - could be connected to error tracking service
-      setWalletState(prev => ({
+      setWalletState((prev) => ({
         ...prev,
         isConnecting: false,
-        networkError: 'Failed to open wallet selection. Please try again.',
+        networkError: "Failed to open wallet selection. Please try again.",
       }));
-      
+
       toast({
         title: "Connection Error",
         description: "Could not open wallet selection. Please try again.",
@@ -160,21 +181,26 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     try {
       // Disconnecting wallet
       solanaDisconnect();
-      
+
       setWalletState({
         isConnected: false,
         isConnecting: false,
         address: null,
         networkError: null,
         walletType: null,
+        totalBalance: 0,
+        solBalance: 0,
+        usdcBalance: 0,
+        wyldsBalance: 0,
+        syldsBalance: 0,
       });
-      
+
       toast({
         title: "🔴 Wallet Disconnected",
         description: "Your wallet has been disconnected",
-        className: "border-l-4 border-l-auburn-primary bg-auburn-primary/10 shadow-auburn",
+        className:
+          "border-l-4 border-l-auburn-primary bg-auburn-primary/10 shadow-auburn",
       });
-      
     } catch (error) {
       // Error disconnecting wallet - could be connected to error tracking service
       // Force reset state even if disconnect fails
@@ -184,6 +210,11 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         address: null,
         networkError: null,
         walletType: null,
+        totalBalance: 0,
+        solBalance: 0,
+        usdcBalance: 0,
+        wyldsBalance: 0,
+        syldsBalance: 0,
       });
     }
   };

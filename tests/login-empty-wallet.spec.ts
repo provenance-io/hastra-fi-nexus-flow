@@ -1,20 +1,11 @@
 import { test, expect } from "@playwright/test";
 import {
-  airdropSol,
   exportWalletForBrowser,
   generateTestWallet,
 } from "./utils/solana-helpers";
 import { getPhantomInjectionScript } from "./utils/mock-phantom";
 
-test("Landing page loads", async ({ page }) => {
-  await page.goto("/");
-
-  await expect(page).toHaveTitle(
-    "Hastra-Fi | Pushing Forward the Future of Finance"
-  );
-});
-
-test("Connect unfunded wallet", async ({ page }) => {
+test("Login with empty wallet", async ({ page }) => {
   // Generate a test wallet
   const wallet = generateTestWallet();
 
@@ -51,19 +42,33 @@ test("Connect unfunded wallet", async ({ page }) => {
     .first();
 
   await expect(phantomOption).toBeVisible({ timeout: 5000 });
-  console.log("✓ Phantom wallet detected in modal");
 
   // Click on Phantom to connect
   await phantomOption.click();
-  console.log("✓ Clicked Phantom wallet option");
-  await expect(page.getByText("Your decentralized finance")).toBeVisible();
-  await expect(
-    page.getByText(
-      "You must have SOL and USDC in your wallet to buy wYLDS or stake wYLDS"
-    )
-  ).toBeVisible();
 
-  // await page.getByRole("button", { name: "Phantom", exact: true }).click();
-  // await page.getByText("Disconnect Wallet").click();
-  // await expect(page.getByText("Start Earning Immediately")).toBeVisible();
+  // Login page loads
+  await expect(page.getByText("Your decentralized finance")).toBeVisible();
+  // User cannot buy
+  await expect(
+    page
+      .getByText(
+        "You must have SOL and USDC in your wallet to buy wYLDS or stake wYLDS."
+      )
+      .first()
+  ).toBeVisible();
+  // User cannot spend
+  await page.getByRole("tab", { name: "Send" }).click();
+  await expect(
+    page
+      .locator("div")
+      .filter({
+        hasText:
+          /^You must have SOL and USDC, WYLDS, or SYLDS in your wallet to send\.$/,
+      })
+      .first()
+  ).toBeVisible();
+  // User cannot stake
+  await page.getByRole("tab", { name: "Stake" }).click();
+  await expect(page.getByText("You must have SOL and wYLDS")).toBeVisible();
+  await expect(page.getByText("You must have SOL and sYLDS")).toBeVisible();
 });

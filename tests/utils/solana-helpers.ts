@@ -11,7 +11,6 @@ import {
   createMint,
   getOrCreateAssociatedTokenAccount,
   mintTo,
-  TOKEN_PROGRAM_ID,
   getAccount,
 } from "@solana/spl-token";
 import bs58 from "bs58";
@@ -48,37 +47,24 @@ export function loadWallet(secretKeyBase58: string): Keypair {
  * @param generateIfMissing - If true, generates new wallet if env var not found
  */
 export function getTestWallet(
-  envVarName?: string,
+  secretKey?: string,
   generateIfMissing: boolean = true
 ): Keypair {
-  if (envVarName) {
-    const secretKey = process.env[envVarName];
-
+  if (secretKey) {
     if (secretKey) {
-      console.log(`✓ Loaded wallet from ${envVarName}`);
       const wallet = loadWallet(secretKey);
       console.log("  Address:", wallet.publicKey.toBase58());
       return wallet;
     }
 
     if (!generateIfMissing) {
-      throw new Error(
-        `Environment variable ${envVarName} not found. ` +
-          `Add to .env:\n${envVarName}=<base58_secret_key>`
-      );
+      throw new Error(`Secret key not provided. `);
     }
 
-    console.log(`⚠️  ${envVarName} not found, generating new wallet`);
+    console.log(`⚠️  No secret key provided, generating new wallet`);
   }
 
   const wallet = generateTestWallet();
-
-  if (envVarName) {
-    console.log("");
-    console.log("To reuse this wallet, add to .env:");
-    console.log(`${envVarName}=${bs58.encode(wallet.secretKey)}`);
-    console.log("");
-  }
 
   return wallet;
 }
@@ -202,8 +188,12 @@ export async function airdropSol(
     await connection.confirmTransaction(signature);
     console.log(`✓ Airdrop confirmed via RPC: ${signature}`);
     return signature;
-  } catch (error: any) {
-    console.log(`RPC airdrop failed: ${error.message}`);
+  } catch (error: unknown) {
+    console.log(
+      `RPC airdrop failed: ${
+        (error as Error).message ? (error as Error).message : "Unknown"
+      }`
+    );
   }
 
   // Fallback 1: Try transferring from funder wallet
@@ -219,8 +209,12 @@ export async function airdropSol(
         `Funder wallet has insufficient balance: ${funderBalance} SOL`
       );
     }
-  } catch (error: any) {
-    console.log(`Funder transfer failed: ${error.message}`);
+  } catch (error: unknown) {
+    console.log(
+      `Funder transfer failed: ${
+        (error as Error).message ? (error as Error).message : "Unknown"
+      }`
+    );
   }
 
   // Fallback 2: Try smaller amounts multiple times
@@ -241,8 +235,12 @@ export async function airdropSol(
       await connection.confirmTransaction(signature);
       successCount++;
       console.log(`✓ Small airdrop ${i + 1}/${iterations}: ${signature}`);
-    } catch (error: any) {
-      console.log(`Small airdrop ${i + 1} failed: ${error.message}`);
+    } catch (error: unknown) {
+      console.log(
+        `Small airdrop ${i + 1} failed: ${
+          (error as Error).message ? (error as Error).message : "Unknown"
+        }`
+      );
     }
   }
 
@@ -314,8 +312,12 @@ export async function airdropSolWithRetry(
     try {
       console.log(`Funding attempt ${attempt}/${maxRetries}...`);
       return await airdropSol(publicKey, amount);
-    } catch (error: any) {
-      console.log(`Attempt ${attempt} failed: ${error.message}`);
+    } catch (error: unknown) {
+      console.log(
+        `Attempt ${attempt} failed: ${
+          (error as Error).message ? (error as Error).message : "Unknown"
+        }`
+      );
 
       if (attempt < maxRetries) {
         const waitTime = Math.pow(2, attempt) * 1000; // Exponential backoff

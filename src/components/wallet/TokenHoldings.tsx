@@ -41,14 +41,6 @@ export const TokenHoldings = () => {
             })}
           </div>
         )}
-        {(!tokens ||
-          tokens.length === 0 ||
-          tokens.find((t) => t.token === "USDC")?.amount === 0) && (
-          <div className="flex items-center justify-between">
-            You must have SOL and USDC in your wallet to buy wYLDS or stake
-            wYLDS.
-          </div>
-        )}
       </div>
     </div>
   );

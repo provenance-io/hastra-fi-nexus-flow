@@ -9,6 +9,7 @@ import {
   calculateStakingRewards,
 } from "@/utils/stakingUtils";
 import { useUnbond } from "@/hooks/use-solana-tx.ts";
+import { useSolBalanceQuery } from "@/hooks/useSolanaQuery";
 
 interface PortfolioSummaryProps {
   totalPortfolioValue: number;

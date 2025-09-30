@@ -18,8 +18,9 @@ import hastraIcon from "/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.pn
 import { useTokenPortfolio } from "@/hooks/useTokenPortfolio.ts";
 import { useTransfer } from "@/hooks/use-solana-tx.ts";
 import { AnchorError } from "@coral-xyz/anchor";
+import { match } from "ts-pattern";
 
-const SendCard = () => {
+const SendCard = ({ canSend }: { canSend: boolean }) => {
   const [exchangeRate, setExchangeRate] = useState<object>({});
   const [selectedToken, setSelectedToken] = useState<string>(wYLDS);
   const [txId, setTxId] = useState<string>("");
@@ -182,198 +183,200 @@ const SendCard = () => {
         <h3 className="text-xl md:text-xl font-bold">Send Tokens</h3>
       </div>
       <div className="w-full flex justify-center">
-        {tokensLoading || (tokens && tokens.length > 0) ? (
-          <div className="bg-background/30 rounded-2xl border border-border/20 p-4 md:p-6 space-y-6 max-w-3xl w-full">
-            {/* Token Selection */}
-            <div className="space-y-4">
-              <Label className="text-base md:text-sm font-semibold text-foreground">
-                Select token to send
-              </Label>
-              <Select
-                value={selectedToken}
-                onValueChange={(value) => setSelectedToken(value)}
-              >
-                <SelectTrigger className="bg-muted/50 h-12 md:h-auto font-sans">
-                  {tokensLoading ? (
-                    "Loading..."
-                  ) : (
-                    <div className="flex items-center justify-between w-full">
-                      <div className="flex items-center gap-3">
-                        <img
-                          src={icon(selectedToken)}
-                          alt={symbol(selectedToken)}
-                          className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover"
-                        />
-                        <span className="text-sm md:text-sm font-medium font-sans">
-                          {symbol(selectedToken)}
-                        </span>
-                      </div>
-                      <span className="text-xs md:text-xs text-muted-foreground font-mono">
-                        {balance(selectedToken)}
-                      </span>
-                    </div>
-                  )}
-                </SelectTrigger>
-                <SelectContent className="bg-card/90 backdrop-blur-sm border border-border/20 z-50">
-                  {tokens.map((token) => (
-                    <SelectItem
-                      key={token.address}
-                      value={token.address}
-                      className="py-3 md:py-2"
-                    >
-                      <div className="flex items-center justify-between w-full py-1 md:py-1">
+        {match(canSend)
+          .with(true, () => (
+            <div className="bg-background/30 rounded-2xl border border-border/20 p-4 md:p-6 space-y-6 max-w-3xl w-full">
+              {/* Token Selection */}
+              <div className="space-y-4">
+                <Label className="text-base md:text-sm font-semibold text-foreground">
+                  Select token to send
+                </Label>
+                <Select
+                  value={selectedToken}
+                  onValueChange={(value) => setSelectedToken(value)}
+                >
+                  <SelectTrigger className="bg-muted/50 h-12 md:h-auto font-sans">
+                    {tokensLoading ? (
+                      "Loading..."
+                    ) : (
+                      <div className="flex items-center justify-between w-full">
                         <div className="flex items-center gap-3">
                           <img
-                            src={icon(token.address)}
-                            alt={token.token}
+                            src={icon(selectedToken)}
+                            alt={symbol(selectedToken)}
                             className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover"
                           />
                           <span className="text-sm md:text-sm font-medium font-sans">
-                            {symbol(token.address)}
+                            {symbol(selectedToken)}
                           </span>
                         </div>
-                        <span className="text-xs md:text-xs text-muted-foreground font-mono ml-4">
-                          {token.amount}
+                        <span className="text-xs md:text-xs text-muted-foreground font-mono">
+                          {balance(selectedToken)}
                         </span>
                       </div>
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
+                    )}
+                  </SelectTrigger>
+                  <SelectContent className="bg-card/90 backdrop-blur-sm border border-border/20 z-50">
+                    {tokens.map((token) => (
+                      <SelectItem
+                        key={token.address}
+                        value={token.address}
+                        className="py-3 md:py-2"
+                      >
+                        <div className="flex items-center justify-between w-full py-1 md:py-1">
+                          <div className="flex items-center gap-3">
+                            <img
+                              src={icon(token.address)}
+                              alt={token.token}
+                              className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover"
+                            />
+                            <span className="text-sm md:text-sm font-medium font-sans">
+                              {symbol(token.address)}
+                            </span>
+                          </div>
+                          <span className="text-xs md:text-xs text-muted-foreground font-mono ml-4">
+                            {token.amount}
+                          </span>
+                        </div>
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
 
-            {/* Recipient Address */}
-            <div className="space-y-4">
-              <Label className="text-base md:text-sm font-semibold text-foreground font-sans">
-                Recipient wallet address
-              </Label>
-              <Input
-                placeholder="Enter recipient address..."
-                value={recipientAddress}
-                onChange={(e) => setRecipientAddress(e.target.value)}
-                className="bg-muted/50 h-12 md:h-auto text-base md:text-sm font-sans"
-              />
-            </div>
-
-            {/* Amount Input */}
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
+              {/* Recipient Address */}
+              <div className="space-y-4">
                 <Label className="text-base md:text-sm font-semibold text-foreground font-sans">
-                  Amount to send
+                  Recipient wallet address
                 </Label>
-                <div className="flex items-center gap-2">
-                  <div className="flex items-center bg-muted/30 rounded-md p-1">
+                <Input
+                  placeholder="Enter recipient address..."
+                  value={recipientAddress}
+                  onChange={(e) => setRecipientAddress(e.target.value)}
+                  className="bg-muted/50 h-12 md:h-auto text-base md:text-sm font-sans"
+                />
+              </div>
+
+              {/* Amount Input */}
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <Label className="text-base md:text-sm font-semibold text-foreground font-sans">
+                    Amount to send
+                  </Label>
+                  <div className="flex items-center gap-2">
+                    <div className="flex items-center bg-muted/30 rounded-md p-1">
+                      <Button
+                        variant={denomination === "token" ? "default" : "ghost"}
+                        size="sm"
+                        onClick={() => setDenomination("token")}
+                        className={`h-8 md:h-7 text-sm md:text-xs px-3 md:px-2 font-sans ${
+                          denomination === "token"
+                            ? "btn-hastra"
+                            : "text-muted-foreground hover:text-auburn-primary"
+                        }`}
+                      >
+                        {symbol(selectedToken)}
+                      </Button>
+                      <Button
+                        variant={denomination === "usd" ? "default" : "ghost"}
+                        size="sm"
+                        onClick={() => setDenomination("usd")}
+                        className={`h-8 md:h-7 text-sm md:text-xs px-3 md:px-2 font-sans ${
+                          denomination === "usd"
+                            ? "btn-hastra"
+                            : "text-muted-foreground hover:text-auburn-primary"
+                        }`}
+                      >
+                        <DollarSign className="w-4 h-4 md:w-3 md:h-3 mr-1" />
+                        USD
+                      </Button>
+                    </div>
                     <Button
-                      variant={denomination === "token" ? "default" : "ghost"}
+                      variant="ghost"
                       size="sm"
-                      onClick={() => setDenomination("token")}
-                      className={`h-8 md:h-7 text-sm md:text-xs px-3 md:px-2 font-sans ${
-                        denomination === "token"
-                          ? "btn-hastra"
-                          : "text-muted-foreground hover:text-auburn-primary"
-                      }`}
+                      onClick={handleMaxClick}
+                      className="h-7 px-3 text-xs font-medium text-auburn-light hover:bg-auburn-primary/20 hover:text-auburn-light transition-all duration-200 bg-muted/30 rounded-md min-w-[50px]"
                     >
-                      {symbol(selectedToken)}
-                    </Button>
-                    <Button
-                      variant={denomination === "usd" ? "default" : "ghost"}
-                      size="sm"
-                      onClick={() => setDenomination("usd")}
-                      className={`h-8 md:h-7 text-sm md:text-xs px-3 md:px-2 font-sans ${
-                        denomination === "usd"
-                          ? "btn-hastra"
-                          : "text-muted-foreground hover:text-auburn-primary"
-                      }`}
-                    >
-                      <DollarSign className="w-4 h-4 md:w-3 md:h-3 mr-1" />
-                      USD
+                      Max
                     </Button>
                   </div>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={handleMaxClick}
-                    className="h-7 px-3 text-xs font-medium text-auburn-light hover:bg-auburn-primary/20 hover:text-auburn-light transition-all duration-200 bg-muted/30 rounded-md min-w-[50px]"
-                  >
-                    Max
-                  </Button>
                 </div>
-              </div>
-              <Input
-                type="number"
-                min="0"
-                step="any"
-                placeholder={`Enter amount in ${
-                  denomination === "token" ? symbol(selectedToken) : "USD"
-                }`}
-                value={amount}
-                onChange={(e) => {
-                  setAmount(e.target.value);
-                  setTxId("");
-                }}
-                className="bg-muted/50 h-12 md:h-auto text-base md:text-sm font-sans [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&]:[-moz-appearance:textfield]"
-              />
-              {amount && equivalent > 0 && (
-                <div className="text-xs text-muted-foreground">
-                  ≈{" "}
-                  {denomination === "token"
-                    ? `$${equivalent.toFixed(2)} USD`
-                    : `${equivalent.toFixed(6)} ${symbol(selectedToken)}`}
-                </div>
-              )}
-            </div>
-
-            {/* Transaction Summary */}
-            {amount && recipientAddress && (
-              <div className="bg-background/30 border border-hastra-teal/30 rounded-xl p-4 md:p-6">
-                <div className="text-sm text-muted-foreground mb-2">
-                  Transaction Summary
-                </div>
-                <div className="font-semibold text-lg md:text-base text-hastra-teal">
-                  Send{" "}
-                  {denomination === "token" ? amount : equivalent.toFixed(6)}{" "}
-                  {symbol(selectedToken)}
-                </div>
-                <div className="text-xs text-muted-foreground font-mono mt-1">
-                  To: {recipientAddress.slice(0, 8)}...
-                  {recipientAddress.slice(-8)}
-                </div>
-                {txId && (
-                  <div className="text-xs text-muted-foreground font-mono mt-1">
-                    <a
-                      href={`${
-                        import.meta.env.VITE_EXPLORER_URL
-                      }/tx/${txId}?cluster=${
-                        import.meta.env.VITE_SOLANA_CLUSTER_NAME
-                      }`}
-                      target="_blank"
-                      className={"underline"}
-                      rel="noopener noreferrer"
-                    >
-                      View {txId.slice(0, 8)}...{txId.slice(-8)} on Explorer
-                    </a>
+                <Input
+                  type="number"
+                  min="0"
+                  step="any"
+                  placeholder={`Enter amount in ${
+                    denomination === "token" ? symbol(selectedToken) : "USD"
+                  }`}
+                  value={amount}
+                  onChange={(e) => {
+                    setAmount(e.target.value);
+                    setTxId("");
+                  }}
+                  className="bg-muted/50 h-12 md:h-auto text-base md:text-sm font-sans [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&]:[-moz-appearance:textfield]"
+                />
+                {amount && equivalent > 0 && (
+                  <div className="text-xs text-muted-foreground">
+                    ≈{" "}
+                    {denomination === "token"
+                      ? `$${equivalent.toFixed(2)} USD`
+                      : `${equivalent.toFixed(6)} ${symbol(selectedToken)}`}
                   </div>
                 )}
               </div>
-            )}
 
-            {/* Send Button */}
-            <Button
-              onClick={handleSend}
-              size="lg"
-              className="w-full px-6 py-4 md:py-3 text-base md:text-sm font-medium font-sans rounded-xl min-w-[200px] group"
-              variant="secondary"
-              disabled={!amount || !recipientAddress}
-            >
-              Send {symbol(selectedToken)}
-            </Button>
-          </div>
-        ) : (
-          <div className="flex items-center justify-between">
-            You must have SOL and USDC in your wallet to buy wYLDS or stake
-            wYLDS.
-          </div>
-        )}
+              {/* Transaction Summary */}
+              {amount && recipientAddress && (
+                <div className="bg-background/30 border border-hastra-teal/30 rounded-xl p-4 md:p-6">
+                  <div className="text-sm text-muted-foreground mb-2">
+                    Transaction Summary
+                  </div>
+                  <div className="font-semibold text-lg md:text-base text-hastra-teal">
+                    Send{" "}
+                    {denomination === "token" ? amount : equivalent.toFixed(6)}{" "}
+                    {symbol(selectedToken)}
+                  </div>
+                  <div className="text-xs text-muted-foreground font-mono mt-1">
+                    To: {recipientAddress.slice(0, 8)}...
+                    {recipientAddress.slice(-8)}
+                  </div>
+                  {txId && (
+                    <div className="text-xs text-muted-foreground font-mono mt-1">
+                      <a
+                        href={`${
+                          import.meta.env.VITE_EXPLORER_URL
+                        }/tx/${txId}?cluster=${
+                          import.meta.env.VITE_SOLANA_CLUSTER_NAME
+                        }`}
+                        target="_blank"
+                        className={"underline"}
+                        rel="noopener noreferrer"
+                      >
+                        View {txId.slice(0, 8)}...{txId.slice(-8)} on Explorer
+                      </a>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Send Button */}
+              <Button
+                onClick={handleSend}
+                size="lg"
+                className="w-full px-6 py-4 md:py-3 text-base md:text-sm font-medium font-sans rounded-xl min-w-[200px] group"
+                variant="secondary"
+                disabled={!amount || !recipientAddress}
+              >
+                Send {symbol(selectedToken)}
+              </Button>
+            </div>
+          ))
+          .otherwise(() => (
+            <div className="flex items-center justify-between">
+              You must have SOL and USDC, WYLDS, or SYLDS in your wallet to
+              send.
+            </div>
+          ))}
       </div>
     </div>
   );

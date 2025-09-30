@@ -2,18 +2,18 @@ import { clusterApiUrl, Connection, PublicKey } from "@solana/web3.js";
 import { getAssociatedTokenAddress } from "@solana/spl-token";
 import { useQuery } from "@tanstack/react-query";
 import type { CoinGeckoPrice } from "../types/coin-gecko";
-import {AnchorProvider, type Idl, Program, Wallet} from "@coral-xyz/anchor";
-import {useAnchorWallet} from "@/hooks/use-solana-tx.ts";
-import {PendingUnstake} from "@/types/staking.ts";
-import {HastraSolVaultStake} from "@/types/hastra-sol-vault-stake.ts";
-import {HastraSolVaultStake as HastraSolVaultStakeIdl} from "@/types/idl/hastra-sol-vault-stake.ts";
+import { AnchorProvider, type Idl, Program, Wallet } from "@coral-xyz/anchor";
+import { useAnchorWallet } from "@/hooks/use-solana-tx.ts";
+import { PendingUnstake } from "@/types/staking.ts";
+import { HastraSolVaultStake } from "@/types/hastra-sol-vault-stake.ts";
+import { HastraSolVaultStake as HastraSolVaultStakeIdl } from "@/types/idl/hastra-sol-vault-stake.ts";
 
 const connection = new Connection(
   clusterApiUrl(import.meta.env.VITE_SOLANA_CLUSTER_NAME),
   "confirmed"
 );
 
-export const useSolBalanceQuery = (publicKey: PublicKey | null) => {
+export const useSolBalanceQuery = (publicKey: PublicKey | null | undefined) => {
   return useQuery<number, Error>({
     queryKey: ["solBalance", publicKey],
     enabled: !!publicKey,
@@ -117,68 +117,83 @@ export const useAtaBalanceQuery = (
   });
 };
 
-const unbondingConfig = async (program: Program<HastraSolVaultStake>): Promise<number> => {
+const unbondingConfig = async (
+  program: Program<HastraSolVaultStake>
+): Promise<number> => {
   const [pda] = PublicKey.findProgramAddressSync(
-      [Buffer.from("config")],
-      program.programId
+    [Buffer.from("config")],
+    program.programId
   );
   const config = await program.account.config.fetch(pda);
   return config?.unbondingPeriod.toNumber() || 0;
-}
+};
 
 export function useUnbondingPeriodConfigQuery() {
-    const wallet = useAnchorWallet();
-    const provider = new AnchorProvider(connection, wallet, {
-        preflightCommitment: "confirmed",
-    });
-    const program = new Program(HastraSolVaultStakeIdl as Idl, provider) as Program<HastraSolVaultStake>;
-    return useQuery<number, Error>({
-        queryKey: ["staking-config", program.programId.toBase58()],
-        enabled: !!program,
-        queryFn: async () => {
-          return await unbondingConfig(program);
-        },
-        refetchInterval: 60_000,
-    });
+  const wallet = useAnchorWallet();
+  const provider = new AnchorProvider(connection, wallet, {
+    preflightCommitment: "confirmed",
+  });
+  const program = new Program(
+    HastraSolVaultStakeIdl as Idl,
+    provider
+  ) as Program<HastraSolVaultStake>;
+  return useQuery<number, Error>({
+    queryKey: ["staking-config", program.programId.toBase58()],
+    enabled: !!program,
+    queryFn: async () => {
+      return await unbondingConfig(program);
+    },
+    refetchInterval: 60_000,
+  });
 }
 export function usePendingUnstakeQuery() {
   const wallet = useAnchorWallet();
   const provider = new AnchorProvider(connection, wallet, {
     preflightCommitment: "confirmed",
   });
-  const program = new Program(HastraSolVaultStakeIdl as Idl, provider) as Program<HastraSolVaultStake>;
+  const program = new Program(
+    HastraSolVaultStakeIdl as Idl,
+    provider
+  ) as Program<HastraSolVaultStake>;
 
   return useQuery<PendingUnstake | null, Error>({
-    queryKey: ["unbonding-ticket", program.programId.toBase58(), wallet.publicKey?.toBase58()],
+    queryKey: [
+      "unbonding-ticket",
+      program.programId.toBase58(),
+      ...(wallet && wallet.publicKey ? [wallet.publicKey.toBase58()] : []),
+    ],
     enabled: !!program && !!wallet && !!wallet.publicKey,
     queryFn: async () => {
       const [pda] = PublicKey.findProgramAddressSync(
-          [Buffer.from("ticket"), wallet.publicKey!.toBuffer()],
-          program.programId
+        [Buffer.from("ticket"), wallet.publicKey!.toBuffer()],
+        program.programId
       );
       const ticket = await program.account.unbondingTicket.fetchNullable(pda);
       if (!ticket) return null;
 
       const ubConfig = await unbondingConfig(program);
 
-      if(ubConfig === 0) {
-        throw new Error("Invalid unbonding config found - cannot calculate pending unstake");
+      if (ubConfig === 0) {
+        throw new Error(
+          "Invalid unbonding config found - cannot calculate pending unstake"
+        );
       }
 
-      const endTs: number = ((ticket?.startTs.toNumber() || 0) + ubConfig) * 1000;
+      const endTs: number =
+        ((ticket?.startTs.toNumber() || 0) + ubConfig) * 1000;
       const startTs: number = (ticket?.startTs.toNumber() || 0) * 1000;
       const now = Date.now();
-      const status = (endTs < now) ? 'ready' : 'pending';
+      const status = endTs < now ? "ready" : "pending";
 
-      console.log({endTs, startTs, now, status});
+      console.log({ endTs, startTs, now, status });
       return {
         id: pda.toBase58(),
         amount: ((ticket?.requestedAmount.toNumber() || 0) / 1e6).toString(),
         initiatedAt: new Date(startTs),
         availableAt: new Date(endTs),
         status: status,
-        canClaim: status === 'ready',
-        canCancel: status === 'pending',
+        canClaim: status === "ready",
+        canCancel: status === "pending",
       } as PendingUnstake;
     },
     refetchInterval: 15_000, // optional

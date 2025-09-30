@@ -157,7 +157,7 @@ const Header = () => {
                     </div>
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem asChild>
+                <DropdownMenuItem asChild disabled>
                   <Link
                     to="/swylds"
                     className="flex items-center w-full cursor-pointer p-3 hover:bg-orange-300/10 hover:text-orange-300 rounded-lg transition-all duration-200 group focus:outline-none focus:ring-0"
@@ -179,7 +179,7 @@ const Header = () => {
                     </div>
                   </Link>
                 </DropdownMenuItem>
-                {isFeatureEnabled('homesEnabled') && (
+                {isFeatureEnabled("homesEnabled") && (
                   <DropdownMenuItem asChild>
                     <Link
                       to="/homes"
