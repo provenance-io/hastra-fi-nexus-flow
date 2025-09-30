@@ -92,7 +92,7 @@ const Products = () => {
     "First Mover": ExternalLink,
   };
 
-  // Create dynamic stats for wYLDS product
+  // Create dynamic stats for PRIME product
   const yieldStats = [
     {
       label: "Current APY",
@@ -152,15 +152,15 @@ const Products = () => {
         </div>
 
         <div className="max-w-6xl mx-auto space-y-8">
-          {/* wYLDS Product */}
+          {/* PRIME Product */}
           <div className="card-gradient rounded-3xl p-8 md:p-12 space-y-8 animate-fade-in-up">
             {/* Product header */}
             <div className="space-y-8">
               <div className="flex items-center gap-4">
-                {/* wYLDS Token Icon */}
+                {/* PRIME Token Icon */}
                 <img
                   src="/lovable-uploads/08452a7b-6782-4b0a-900e-0f0c99a4fc4e.png"
-                  alt="wYLDS Token"
+                  alt="PRIME Token"
                   className="w-16 h-16 rounded-full"
                 />
                 <div className="flex-1">
@@ -278,21 +278,16 @@ const Products = () => {
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div className="flex flex-col">
                       <h3 className="text-3xl md:text-4xl font-bold text-foreground transition-colors">
-                        {products(apy).swylds.name}
+                        {products(apy).sylds.name}
                       </h3>
                       <div className="flex items-center mt-1">
                         <div className="w-2 h-2 bg-orange-400 rounded-full mr-2 animate-pulse"></div>
                         <span className="text-sm font-medium text-orange-300 animate-pulse-light">
-                          {products(apy).swylds.status}
+                          {products(apy).sylds.status}
                         </span>
                       </div>
                     </div>
-                    <Link
-                      to="/swylds"
-                      onClick={() => {
-                        // Navigation handled by Link component
-                      }}
-                    >
+                    <Link to="/sylds">
                       <Button
                         size="lg"
                         variant="secondary"
@@ -309,14 +304,14 @@ const Products = () => {
                 className="text-xl md:text-2xl font-semibold"
                 style={{ color: "hsl(var(--mint-green))" }}
               >
-                {products(apy).swylds.tagline}
+                {products(apy).sylds.tagline}
               </p>
             </div>
 
             {/* Product description */}
             <div className="space-y-8">
               <p className="text-lg md:text-xl text-foreground/90 leading-relaxed">
-                {products(apy).swylds.description}
+                {products(apy).sylds.description}
               </p>
 
               <div className="flex items-start space-x-3 p-4 rounded-xl bg-orange-900/10 border border-orange-800/20">
@@ -326,7 +321,7 @@ const Products = () => {
                     Innovation:
                   </span>{" "}
                   <span className="text-foreground/90">
-                    {products(apy).swylds.innovation}
+                    {products(apy).sylds.innovation}
                   </span>
                 </p>
               </div>
@@ -334,7 +329,7 @@ const Products = () => {
 
             {/* Stats grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {products(apy).swylds.stats.map((stat, index) => {
+              {products(apy).sylds.stats.map((stat, index) => {
                 const IconComponent =
                   statIcons[stat.label as keyof typeof statIcons] || Building;
                 return (

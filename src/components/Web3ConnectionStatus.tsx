@@ -1,21 +1,20 @@
-
-import { Button } from '@/components/ui/button';
-import { Wallet, AlertCircle, CheckCircle } from 'lucide-react';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { useWallet } from '@/contexts/WalletContext';
-import { getWalletIcon } from '@/utils/walletIcons';
+import { Button } from "@/components/ui/button";
+import { Wallet, AlertCircle, CheckCircle } from "lucide-react";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { useWallet } from "@/contexts/WalletContext";
+import { getWalletIcon } from "@/utils/walletIcons";
 
 const Web3ConnectionStatus = () => {
-  const { 
-    isConnected, 
-    isConnecting, 
-    address, 
-    networkError, 
-    connectWallet, 
+  const {
+    isConnected,
+    isConnecting,
+    address,
+    networkError,
+    connectWallet,
     disconnectWallet,
-    walletType 
+    walletType,
   } = useWallet();
-  
+
   const WalletIcon = getWalletIcon(walletType);
 
   const formatAddress = (addr: string) => {
@@ -33,7 +32,7 @@ const Web3ConnectionStatus = () => {
             </AlertDescription>
           </Alert>
         )}
-        
+
         <Button
           onClick={connectWallet}
           disabled={isConnecting}
@@ -52,9 +51,9 @@ const Web3ConnectionStatus = () => {
             </>
           )}
         </Button>
-        
+
         <p className="text-sm text-muted-foreground text-center">
-          Connect your wallet to start earning yield with wYLDS
+          Connect your wallet to start earning yield with PRIME
         </p>
       </div>
     );
@@ -70,10 +69,12 @@ const Web3ConnectionStatus = () => {
           </div>
           <div>
             <p className="font-medium text-foreground">Wallet Connected</p>
-            <p className="text-sm text-muted-foreground">{address ? formatAddress(address) : 'Unknown'}</p>
+            <p className="text-sm text-muted-foreground">
+              {address ? formatAddress(address) : "Unknown"}
+            </p>
           </div>
         </div>
-        
+
         <Button
           onClick={disconnectWallet}
           variant="outline"
@@ -83,10 +84,10 @@ const Web3ConnectionStatus = () => {
           Disconnect
         </Button>
       </div>
-      
+
       <div className="text-center">
         <p className="text-sm text-muted-foreground">
-          Ready to interact with wYLDS protocol
+          Ready to interact with PRIME protocol
         </p>
       </div>
     </div>

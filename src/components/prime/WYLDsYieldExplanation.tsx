@@ -24,7 +24,7 @@ import { formatNumber } from "./WYLDsStatsDashboard";
 const YieldTokenIcon = ({ className }: { className?: string }) => (
   <img
     src={yieldIcon}
-    alt="wYLDS Token"
+    alt="PRIME Token"
     className={`${className} object-contain`}
   />
 );
@@ -66,8 +66,8 @@ const WYLDsYieldExplanation = () => {
     {
       number: 1,
       icon: YieldTokenIcon,
-      title: "Hold wYLDS tokens",
-      description: "Simply hold wYLDS tokens in any compatible Solana wallet",
+      title: "Hold PRIME tokens",
+      description: "Simply hold PRIME tokens in any compatible Solana wallet",
       color: "from-header-glow to-crypto-accent",
       bgPattern: "bg-header-glow/10",
     },
@@ -85,7 +85,7 @@ const WYLDsYieldExplanation = () => {
       icon: Calendar,
       title: "Monthly Distributions",
       description:
-        "Claim your yield on hastra.io on a monthly basis in wYLDS tokens",
+        "Claim your yield on hastra.io on a monthly basis in PRIME tokens",
       color: "from-header-glow to-crypto-accent",
       bgPattern: "bg-header-glow/10",
     },
@@ -94,7 +94,7 @@ const WYLDsYieldExplanation = () => {
       icon: Repeat,
       title: "Use daily, or redeem for USDC",
       description:
-        "Easily redeem your wYLDS through Raydium and Kamino protocols",
+        "Easily redeem your PRIME through Raydium and Kamino protocols",
       color: "from-crypto-accent to-header-glow",
       bgPattern: "bg-crypto-accent/10",
     },
@@ -138,14 +138,14 @@ const WYLDsYieldExplanation = () => {
       {/* Unified seamless background - removed conflicting gradient */}
 
       <div className="max-w-5xl mx-auto px-4 relative z-10">
-        {/* Combined Dashboard Box - What is wYLDS? + How It Works */}
+        {/* Combined Dashboard Box - What is PRIME? + How It Works */}
         <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
           <div className="relative z-10">
-            {/* What is wYLDS Section */}
+            {/* What is PRIME Section */}
             {/* Section Header - Matching About page AnimatedCard style */}
             <div className="mb-8 text-center">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">
-                What is wYLDS?
+                What is PRIME?
               </h2>
             </div>
             {/* Feature Cards */}
@@ -155,13 +155,13 @@ const WYLDsYieldExplanation = () => {
                   icon: Building2,
                   title: "Backed by RWAs",
                   description:
-                    "wYLDS token is backed by reserves of YLDS - the first SEC-registered, yield-bearing stablecoin backed by real world assets.",
+                    "PRIME token is backed by reserves of YLDS - the first SEC-registered, yield-bearing stablecoin backed by real world assets.",
                 },
                 {
                   icon: Zap,
                   title: "Automatic Yield",
                   description:
-                    "Earn yield automatically just by holding wYLDS in your wallet - no staking required.",
+                    "Earn yield automatically just by holding PRIME in your wallet - no staking required.",
                 },
                 {
                   icon: Link2,
@@ -211,14 +211,14 @@ const WYLDsYieldExplanation = () => {
             {/* Description - Matching About page style */}
             <div className="mt-12 mb-16">
               <p className="text-lg text-foreground/90 leading-relaxed mb-4">
-                wYLDS is a token representing a portion of a pool of reserves
+                PRIME is a token representing a portion of a pool of reserves
                 holding the YLDS token - the first SEC-registered, yield-bearing
                 stablecoin combining the liquidity of traditional stablecoins
                 with the earning power of a money market fund.*
               </p>
               <p className="text-lg text-foreground/90 leading-relaxed">
                 As users deposit USDC, Hastra purchases and holds YLDS, and
-                distributes interest in wYLDS to token holders. Because{" "}
+                distributes interest in PRIME to token holders. Because{" "}
                 <span className="text-header-glow font-semibold">
                   earning yield shouldn't require complex strategies—it should
                   just work
@@ -248,7 +248,7 @@ const WYLDsYieldExplanation = () => {
             {/* Disclaimer */}
             <div className="text-center mb-16">
               <p className="text-sm italic text-white/80 max-w-2xl mx-auto leading-relaxed">
-                *wYLDS is not registered with the SEC or any securities
+                *PRIME is not registered with the SEC or any securities
                 regulator. YLDS is issued by a third party independent of
                 Hastra.
               </p>
@@ -432,7 +432,6 @@ const WYLDsYieldExplanation = () => {
         </div>
 
         {/* Watch sYLDS as it Grows text section */}
-        
 
         {/* By the Numbers Dashboard Box */}
         <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
@@ -440,7 +439,7 @@ const WYLDsYieldExplanation = () => {
             {/* Section Header - Matching About page AnimatedCard style */}
             <div className="mb-8 text-center">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">
-                Watch wYLDS as it Grows
+                Watch PRIME as it Grows
               </h2>
             </div>
 
@@ -450,7 +449,7 @@ const WYLDsYieldExplanation = () => {
                   className="text-xs md:text-sm font-medium leading-tight"
                   style={{ color: "hsl(34, 100%, 84%)" }}
                 >
-                  Total wYLDS in Circulation
+                  Total PRIME in Circulation
                 </div>
                 <div className="text-2xl md:text-3xl lg:text-4xl font-bold flex items-center justify-center gap-1 md:gap-2">
                   <span

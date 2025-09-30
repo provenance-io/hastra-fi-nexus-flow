@@ -1,8 +1,7 @@
-
-import { Button } from '@/components/ui/button';
-import { BookOpen, ArrowRight } from 'lucide-react';
-import { scrollToSection } from '@/utils/scrollUtils';
-import { SECTION_DATA_ATTRIBUTES } from '@/constants/sections';
+import { Button } from "@/components/ui/button";
+import { BookOpen, ArrowRight } from "lucide-react";
+import { scrollToSection } from "@/utils/scrollUtils";
+import { SECTION_DATA_ATTRIBUTES } from "@/constants/sections";
 
 /**
  * Hero section constants
@@ -10,7 +9,8 @@ import { SECTION_DATA_ATTRIBUTES } from '@/constants/sections';
 const HERO_CONTENT = {
   MAIN_TITLE: "Learn DeFi",
   SUBTITLE: "Start Earning",
-  DESCRIPTION: "Master DeFi fundamentals and start earning with wYLDS and swYLDS tokens.",
+  DESCRIPTION:
+    "Master DeFi fundamentals and start earning with PRIME and sYLDS tokens.",
   CTA_PRIMARY: "Start Learning",
   CTA_SECONDARY: "Skip to Earning",
 } as const;
@@ -28,15 +28,12 @@ const handleScrollToLearning = (): void => {
   scrollToSection(SECTION_DATA_ATTRIBUTES.LEARNING);
 };
 
-
 /**
  * Main hero heading with gradient text effects
  */
 const HeroHeading = () => (
   <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight">
-    <span className="block text-gradient">
-      {HERO_CONTENT.MAIN_TITLE}
-    </span>
+    <span className="block text-gradient">{HERO_CONTENT.MAIN_TITLE}</span>
     <span className="block bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
       {HERO_CONTENT.SUBTITLE}
     </span>
@@ -48,13 +45,16 @@ const HeroHeading = () => (
  */
 const HeroDescription = () => (
   <div>
-    <p 
-      className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed" 
-      style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)' }}
+    <p
+      className="text-xl md:text-2xl text-foreground/90 max-w-4xl mx-auto leading-relaxed"
+      style={{
+        textShadow:
+          "0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)",
+      }}
     >
-      Master DeFi fundamentals and start earning with{' '}
-      <span className="font-semibold">wYLDS</span> and{' '}
-      <span className="font-semibold">swYLDS</span> tokens.
+      Master DeFi fundamentals and start earning with{" "}
+      <span className="font-semibold">PRIME</span> and{" "}
+      <span className="font-semibold">sYLDS</span> tokens.
     </p>
   </div>
 );
@@ -64,7 +64,7 @@ const HeroDescription = () => (
  */
 const HeroCTAButtons = () => (
   <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
-    <Button 
+    <Button
       size={BUTTON_STYLES.SIZE}
       variant={BUTTON_STYLES.VARIANT}
       className={BUTTON_STYLES.BASE}
@@ -73,7 +73,7 @@ const HeroCTAButtons = () => (
       {HERO_CONTENT.CTA_PRIMARY}
       <BookOpen className="ml-2 h-5 w-5 transition-transform group-hover:scale-110" />
     </Button>
-    <Button 
+    <Button
       size={BUTTON_STYLES.SIZE}
       variant={BUTTON_STYLES.VARIANT}
       className={BUTTON_STYLES.BASE}

@@ -117,7 +117,7 @@ const UnstakingMode: React.FC<{ canUnstake: boolean }> = ({ canUnstake }) => {
                     <Clock className="h-4 w-4 text-[hsl(48_100%_67%)]" />
                     <span className="text-sm font-medium text-[hsl(48_100%_67%)]">
                       ~{formatStakingAmount(unstakingForm.estimatedOutput)}{" "}
-                      wYLDS
+                      PRIME
                     </span>
                   </div>
                 </div>
@@ -129,7 +129,7 @@ const UnstakingMode: React.FC<{ canUnstake: boolean }> = ({ canUnstake }) => {
                     </span>
                     <ArrowRight className="h-4 w-4" />
                     <span>
-                      {formatStakingAmount(unstakingForm.estimatedOutput)} wYLDS
+                      {formatStakingAmount(unstakingForm.estimatedOutput)} PRIME
                     </span>
                   </div>
                 </div>
@@ -138,7 +138,7 @@ const UnstakingMode: React.FC<{ canUnstake: boolean }> = ({ canUnstake }) => {
                   <div className="flex justify-between text-xs">
                     <span className="text-muted-foreground">Exchange Rate</span>
                     <span className="font-medium">
-                      1 sYLDS = {protocolData.exchangeRate} wYLDS
+                      1 sYLDS = {protocolData.exchangeRate} PRIME
                     </span>
                   </div>
                   <div className="flex justify-between text-xs">

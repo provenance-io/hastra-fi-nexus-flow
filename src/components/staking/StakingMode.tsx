@@ -51,10 +51,10 @@ const StakingMode: React.FC<{ canStake: boolean }> = ({ canStake }) => {
           </div>
           <div className="text-right">
             <div className="font-semibold text-foreground">
-              {formatStakingAmount(userBalance.wYLDS)} wYLDS
+              {formatStakingAmount(userBalance.PRIME)} PRIME
             </div>
             <div className="text-xs text-muted-foreground">
-              ${parseFloat(userBalance.wYLDS).toFixed(2)}
+              ${parseFloat(userBalance.PRIME).toFixed(2)}
             </div>
           </div>
         </div>
@@ -91,7 +91,7 @@ const StakingMode: React.FC<{ canStake: boolean }> = ({ canStake }) => {
                 disabled={isTransacting}
               />
               <div className="absolute right-3 top-1/2 -translate-y-1/2">
-                <span className="text-sm text-muted-foreground">wYLDS</span>
+                <span className="text-sm text-muted-foreground">PRIME</span>
               </div>
             </div>
 
@@ -125,7 +125,7 @@ const StakingMode: React.FC<{ canStake: boolean }> = ({ canStake }) => {
 
                 <div className="flex items-center justify-center py-2">
                   <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                    <span>{formatStakingAmount(stakingForm.amount)} wYLDS</span>
+                    <span>{formatStakingAmount(stakingForm.amount)} PRIME</span>
                     <ArrowRight className="h-4 w-4" />
                     <span>
                       {formatStakingAmount(stakingForm.estimatedOutput)} sYLDS
@@ -137,7 +137,7 @@ const StakingMode: React.FC<{ canStake: boolean }> = ({ canStake }) => {
                   <div className="flex justify-between text-xs">
                     <span className="text-muted-foreground">Exchange Rate</span>
                     <span className="font-medium">
-                      1 wYLDS = {protocolData.exchangeRate} sYLDS
+                      1 PRIME = {protocolData.exchangeRate} sYLDS
                     </span>
                   </div>
                   <div className="flex justify-between text-xs">
@@ -172,7 +172,7 @@ const StakingMode: React.FC<{ canStake: boolean }> = ({ canStake }) => {
               </>
             ) : (
               <>
-                Stake {stakingForm.amount || "0"} wYLDS
+                Stake {stakingForm.amount || "0"} PRIME
                 <ArrowRight className="ml-2 h-4 w-4" />
               </>
             )}
@@ -182,7 +182,7 @@ const StakingMode: React.FC<{ canStake: boolean }> = ({ canStake }) => {
     ))
     .otherwise(() => (
       <div className="flex items-center justify-between">
-        You must have SOL and wYLDS in your wallet to stake.
+        You must have SOL and PRIME in your wallet to stake.
       </div>
     ));
 };

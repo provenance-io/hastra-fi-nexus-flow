@@ -1,6 +1,6 @@
 import { useTokenPortfolio } from "@/hooks/useTokenPortfolio";
 import TokenLineItem from "./TokenLineItem";
-import { sYLDS, wYLDS } from "@/types/tokens.ts";
+import { sYLDS, PRIME } from "@/types/tokens.ts";
 import { Wallet } from "lucide-react";
 
 export const TokenHoldings = () => {
@@ -32,7 +32,7 @@ export const TokenHoldings = () => {
                   icon={token.icon}
                   tokenAddress={token.tokenAddress}
                   onClaim={
-                    token.address === wYLDS || token.address == sYLDS
+                    token.address === PRIME || token.address == sYLDS
                       ? handleTokenClaim(token.token)
                       : undefined
                   }

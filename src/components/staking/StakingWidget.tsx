@@ -30,7 +30,7 @@ const StakingWidget: React.FC = () => {
             </h3>
             <p className="text-muted-foreground max-w-md mx-auto">
               Connect your wallet to start earning {protocolData.currentAPR}%
-              APR by staking wYLDS tokens
+              APR by staking PRIME tokens
             </p>
           </div>
 

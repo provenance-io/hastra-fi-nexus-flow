@@ -182,7 +182,7 @@ const Hero = () => {
               asChild
             >
               <Link to="/yield">
-                Get wYLDS
+                Get PRIME
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
@@ -192,7 +192,7 @@ const Hero = () => {
               className="min-w-[200px] group"
               asChild
             >
-              <Link to="/swylds">
+              <Link to="/sylds">
                 Explore sYLDS
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>

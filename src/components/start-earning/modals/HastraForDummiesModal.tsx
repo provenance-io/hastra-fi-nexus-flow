@@ -1,8 +1,29 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Target, Wallet, Play, ArrowRight, ExternalLink, Hash, TrendingUp, Clock, Sparkles } from 'lucide-react';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+  Target,
+  Wallet,
+  Play,
+  ArrowRight,
+  ExternalLink,
+  Hash,
+  TrendingUp,
+  Clock,
+  Sparkles,
+} from "lucide-react";
 
 interface HastraForDummiesModalProps {
   isOpen: boolean;
@@ -12,35 +33,48 @@ interface HastraForDummiesModalProps {
 /**
  * Module card component for Hastra content
  */
-const ModuleCard = ({ 
-  title, 
-  description, 
-  duration, 
+const ModuleCard = ({
+  title,
+  description,
+  duration,
   status,
   topics,
-  tokenType 
+  tokenType,
 }: {
   title: string;
   description: string;
   duration: string;
-  status: 'Available' | 'Coming Soon';
+  status: "Available" | "Coming Soon";
   topics: string[];
-  tokenType: 'wYLDS' | 'HASH';
+  tokenType: "PRIME" | "HASH";
 }) => (
-  <Card className={`group transition-all duration-300 ${status === 'Available' ? 'hover:shadow-lg hover:border-header-glow/40' : 'opacity-75'}`}>
+  <Card
+    className={`group transition-all duration-300 ${
+      status === "Available"
+        ? "hover:shadow-lg hover:border-header-glow/40"
+        : "opacity-75"
+    }`}
+  >
     <CardHeader className="pb-3">
       <div className="flex items-start justify-between mb-2">
         <div className="flex items-center gap-2">
-          <Badge variant={tokenType === 'wYLDS' ? 'default' : 'secondary'}>
+          <Badge variant={tokenType === "PRIME" ? "default" : "secondary"}>
             {tokenType}
           </Badge>
-          <Badge variant={status === 'Available' ? 'outline' : 'secondary'} className="text-xs">
+          <Badge
+            variant={status === "Available" ? "outline" : "secondary"}
+            className="text-xs"
+          >
             {status}
           </Badge>
         </div>
         <span className="text-sm text-muted-foreground">{duration}</span>
       </div>
-      <CardTitle className={`text-lg transition-colors ${status === 'Available' ? 'group-hover:text-header-glow' : ''}`}>
+      <CardTitle
+        className={`text-lg transition-colors ${
+          status === "Available" ? "group-hover:text-header-glow" : ""
+        }`}
+      >
         {title}
       </CardTitle>
       <CardDescription className="text-sm leading-relaxed">
@@ -50,23 +84,28 @@ const ModuleCard = ({
     <CardContent className="pt-0">
       <div className="space-y-3">
         <div>
-          <h4 className="text-sm font-medium mb-2 text-foreground/90">What you'll learn:</h4>
+          <h4 className="text-sm font-medium mb-2 text-foreground/90">
+            What you'll learn:
+          </h4>
           <ul className="space-y-1">
             {topics.map((topic, index) => (
-              <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
+              <li
+                key={index}
+                className="flex items-start gap-2 text-sm text-muted-foreground"
+              >
                 <div className="w-1 h-1 rounded-full bg-header-glow mt-2 flex-shrink-0" />
                 <span>{topic}</span>
               </li>
             ))}
           </ul>
         </div>
-        <Button 
-          size="sm" 
-          className="w-full group/btn" 
+        <Button
+          size="sm"
+          className="w-full group/btn"
           variant="secondary"
-          disabled={status === 'Coming Soon'}
+          disabled={status === "Coming Soon"}
         >
-          {status === 'Available' ? (
+          {status === "Available" ? (
             <>
               Start Module
               <Play className="ml-2 h-3 w-3 transition-transform group-hover/btn:scale-110" />
@@ -84,52 +123,59 @@ const ModuleCard = ({
 );
 
 /**
- * Track 3: Hastra for Dummies Modal - Platform-specific content for wYLDS and HASH
+ * Track 3: Hastra for Dummies Modal - Platform-specific content for PRIME and HASH
  */
-const HastraForDummiesModal = ({ isOpen, onClose }: HastraForDummiesModalProps) => {
+const HastraForDummiesModal = ({
+  isOpen,
+  onClose,
+}: HastraForDummiesModalProps) => {
   const modules = [
     {
-      title: "What is wYLDS?",
-      description: "Complete introduction to the wYLDS token, its purpose, and core functionality within the Hastra ecosystem.",
+      title: "What is PRIME?",
+      description:
+        "Complete introduction to the PRIME token, its purpose, and core functionality within the Hastra ecosystem.",
       duration: "8 min",
       status: "Available" as const,
-      tokenType: "wYLDS" as const,
+      tokenType: "PRIME" as const,
       topics: [
-        "wYLDS token fundamentals",
+        "PRIME token fundamentals",
         "Role in the Hastra ecosystem",
         "Utility and use cases",
-        "Token mechanics and features"
-      ]
+        "Token mechanics and features",
+      ],
     },
     {
-      title: "How to Get wYLDS",
-      description: "Step-by-step guide to acquiring wYLDS tokens through various methods and platforms.",
+      title: "How to Get PRIME",
+      description:
+        "Step-by-step guide to acquiring PRIME tokens through various methods and platforms.",
       duration: "12 min",
       status: "Available" as const,
-      tokenType: "wYLDS" as const,
+      tokenType: "PRIME" as const,
       topics: [
-        "Where to buy wYLDS tokens",
-        "Wallet setup for wYLDS",
+        "Where to buy PRIME tokens",
+        "Wallet setup for PRIME",
         "Transaction walkthrough",
-        "Best practices for acquisition"
-      ]
+        "Best practices for acquisition",
+      ],
     },
     {
-      title: "Using wYLDS on Hastra",
-      description: "Comprehensive guide to utilizing wYLDS tokens effectively within the Hastra platform.",
+      title: "Using PRIME on Hastra",
+      description:
+        "Comprehensive guide to utilizing PRIME tokens effectively within the Hastra platform.",
       duration: "15 min",
       status: "Available" as const,
-      tokenType: "wYLDS" as const,
+      tokenType: "PRIME" as const,
       topics: [
         "Platform navigation",
         "Staking and earning mechanisms",
         "Yield optimization strategies",
-        "Portfolio management tools"
-      ]
+        "Portfolio management tools",
+      ],
     },
     {
       title: "What is HASH?",
-      description: "Understanding the HASH token and its critical role in strengthening the Provenance ecosystem.",
+      description:
+        "Understanding the HASH token and its critical role in strengthening the Provenance ecosystem.",
       duration: "8 min",
       status: "Available" as const,
       tokenType: "HASH" as const,
@@ -137,12 +183,13 @@ const HastraForDummiesModal = ({ isOpen, onClose }: HastraForDummiesModalProps) 
         "HASH token overview",
         "Connection to Provenance blockchain",
         "Ecosystem strengthening role",
-        "Long-term value proposition"
-      ]
+        "Long-term value proposition",
+      ],
     },
     {
       title: "Why Focus on HASH?",
-      description: "Deep dive into the strategic importance of HASH and why it's central to our mission.",
+      description:
+        "Deep dive into the strategic importance of HASH and why it's central to our mission.",
       duration: "10 min",
       status: "Available" as const,
       tokenType: "HASH" as const,
@@ -150,12 +197,13 @@ const HastraForDummiesModal = ({ isOpen, onClose }: HastraForDummiesModalProps) 
         "Strategic ecosystem benefits",
         "Network security contributions",
         "Community governance role",
-        "Investment thesis"
-      ]
+        "Investment thesis",
+      ],
     },
     {
       title: "How to Buy HASH",
-      description: "Complete walkthrough for purchasing HASH tokens and joining the Provenance ecosystem.",
+      description:
+        "Complete walkthrough for purchasing HASH tokens and joining the Provenance ecosystem.",
       duration: "12 min",
       status: "Available" as const,
       tokenType: "HASH" as const,
@@ -163,12 +211,13 @@ const HastraForDummiesModal = ({ isOpen, onClose }: HastraForDummiesModalProps) 
         "Where to purchase HASH",
         "Provenance wallet setup",
         "Transaction process",
-        "Security considerations"
-      ]
+        "Security considerations",
+      ],
     },
     {
       title: "Using HASH (Coming Soon)",
-      description: "Advanced strategies and use cases for HASH tokens within the expanding Provenance ecosystem.",
+      description:
+        "Advanced strategies and use cases for HASH tokens within the expanding Provenance ecosystem.",
       duration: "18 min",
       status: "Coming Soon" as const,
       tokenType: "HASH" as const,
@@ -176,9 +225,9 @@ const HastraForDummiesModal = ({ isOpen, onClose }: HastraForDummiesModalProps) 
         "Staking and delegation",
         "Governance participation",
         "DeFi opportunities",
-        "Ecosystem rewards"
-      ]
-    }
+        "Ecosystem rewards",
+      ],
+    },
   ];
 
   return (
@@ -196,12 +245,12 @@ const HastraForDummiesModal = ({ isOpen, onClose }: HastraForDummiesModalProps) 
                   Track 3: Hastra for Dummies
                 </DialogTitle>
                 <p className="text-muted-foreground mt-1">
-                  Master wYLDS and HASH tokens in the Provenance ecosystem
+                  Master PRIME and HASH tokens in the Provenance ecosystem
                 </p>
               </div>
             </div>
           </DialogHeader>
-          
+
           {/* Quick Stats */}
           <div className="grid grid-cols-4 gap-4 mt-6">
             <div className="text-center">
@@ -217,7 +266,9 @@ const HastraForDummiesModal = ({ isOpen, onClose }: HastraForDummiesModalProps) 
               <div className="text-sm text-muted-foreground">Tokens</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-header-glow">Beginner</div>
+              <div className="text-2xl font-bold text-header-glow">
+                Beginner
+              </div>
               <div className="text-sm text-muted-foreground">Level</div>
             </div>
           </div>
@@ -232,24 +283,27 @@ const HastraForDummiesModal = ({ isOpen, onClose }: HastraForDummiesModalProps) 
               Platform-Specific Mastery
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              Get hands-on with the Hastra platform and Provenance ecosystem. This practical track covers 
-              everything from understanding wYLDS and HASH tokens to actually using them effectively. 
-              Perfect for those ready to start earning with our specific tools and tokens.
+              Get hands-on with the Hastra platform and Provenance ecosystem.
+              This practical track covers everything from understanding PRIME
+              and HASH tokens to actually using them effectively. Perfect for
+              those ready to start earning with our specific tools and tokens.
             </p>
           </div>
 
           {/* Token Sections */}
           <div className="space-y-8">
-            {/* wYLDS Section */}
+            {/* PRIME Section */}
             <div className="space-y-4">
               <h3 className="text-xl font-semibold flex items-center gap-2">
                 <TrendingUp className="w-5 h-5 text-header-glow" />
-                wYLDS Token Mastery
+                PRIME Token Mastery
               </h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {modules.filter(module => module.tokenType === 'wYLDS').map((module, index) => (
-                  <ModuleCard key={index} {...module} />
-                ))}
+                {modules
+                  .filter((module) => module.tokenType === "PRIME")
+                  .map((module, index) => (
+                    <ModuleCard key={index} {...module} />
+                  ))}
               </div>
             </div>
 
@@ -260,9 +314,11 @@ const HastraForDummiesModal = ({ isOpen, onClose }: HastraForDummiesModalProps) 
                 Strengthening Provenance Ecosystem
               </h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {modules.filter(module => module.tokenType === 'HASH').map((module, index) => (
-                  <ModuleCard key={index} {...module} />
-                ))}
+                {modules
+                  .filter((module) => module.tokenType === "HASH")
+                  .map((module, index) => (
+                    <ModuleCard key={index} {...module} />
+                  ))}
               </div>
             </div>
           </div>
@@ -272,7 +328,7 @@ const HastraForDummiesModal = ({ isOpen, onClose }: HastraForDummiesModalProps) 
             <Card className="border-header-glow/20">
               <CardHeader>
                 <CardTitle className="text-lg flex items-center gap-2">
-                  <Badge>wYLDS</Badge>
+                  <Badge>PRIME</Badge>
                   Platform Features
                 </CardTitle>
               </CardHeader>
@@ -338,9 +394,10 @@ const HastraForDummiesModal = ({ isOpen, onClose }: HastraForDummiesModalProps) 
             </CardHeader>
             <CardContent>
               <p className="text-sm text-purple-700/90 leading-relaxed">
-                We're continuously expanding the Hastra platform and HASH token utility. 
-                Stay tuned for advanced staking mechanisms, governance features, and new 
-                ways to participate in the growing Provenance ecosystem.
+                We're continuously expanding the Hastra platform and HASH token
+                utility. Stay tuned for advanced staking mechanisms, governance
+                features, and new ways to participate in the growing Provenance
+                ecosystem.
               </p>
             </CardContent>
           </Card>
@@ -348,14 +405,19 @@ const HastraForDummiesModal = ({ isOpen, onClose }: HastraForDummiesModalProps) 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t">
             <Button size="lg" className="flex-1 group">
-              Start with wYLDS
+              Start with PRIME
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button size="lg" variant="secondary" className="flex-1 group">
               Explore HASH
               <Hash className="ml-2 h-4 w-4 transition-transform group-hover:scale-110" />
             </Button>
-            <Button size="lg" variant="outline" className="flex-1 group" asChild>
+            <Button
+              size="lg"
+              variant="outline"
+              className="flex-1 group"
+              asChild
+            >
               <a href="/earn">
                 Start Earning
                 <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover:scale-110" />

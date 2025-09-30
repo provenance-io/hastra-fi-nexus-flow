@@ -20,7 +20,7 @@ const tradingPlatforms = [
     description: "Trade tokens and provide liquidity on Solana's leading AMM",
     type: "Trading & Liquidity",
     features: [
-      "wYLDS/USDC Trading",
+      "PRIME/USDC Trading",
       "HASH/USDC Pool",
       "Low fees",
       "High liquidity",

@@ -10,7 +10,7 @@ test("Landing page loads", async ({ page }) => {
   await expect(page.getByText("Elite DeFi Products for the")).toBeVisible();
 
   await expect(page.getByText("Liquid Yield. No staking.")).toBeVisible();
-  await expect(page.getByText("Staked wYLDS Token")).toBeVisible();
+  await expect(page.getByText("Staked PRIME Token")).toBeVisible();
   await expect(page.getByText("Our Innovation Approach")).toBeVisible();
 
   // About page loads with main sections
@@ -35,30 +35,30 @@ test("Landing page loads", async ({ page }) => {
     page.getByRole("heading", { name: "Join Our Mission" })
   ).toBeVisible();
 
-  // wYLDS product page loads with main sections
+  // PRIME product page loads with main sections
   await page.getByRole("button", { name: "Products" }).click();
   await page
-    .getByRole("menuitem", { name: "wYLDS Token wYLDS Earn Up to" })
+    .getByRole("menuitem", { name: "PRIME Token PRIME Earn Up to" })
     .click();
   await expect(page.getByText("Earn yield on-the-go and")).toBeVisible();
   await expect(
-    page.locator("h2").filter({ hasText: "What is wYLDS?" })
+    page.locator("h2").filter({ hasText: "What is PRIME?" })
   ).toBeVisible();
   await expect(
     page.getByRole("heading", { name: "How It Works" })
   ).toBeVisible();
   await expect(
-    page.getByRole("heading", { name: "Watch wYLDS as it Grows" })
+    page.getByRole("heading", { name: "Watch PRIME as it Grows" })
   ).toBeVisible();
   await expect(page.getByRole("heading", { name: "FAQ" })).toBeVisible();
   // Click into one FAQ
-  await page.getByRole("button", { name: "What is wYLDS?" }).click();
+  await page.getByRole("button", { name: "What is PRIME?" }).click();
   await expect(
     page.getByText(
-      "wYLDS is a token representing a vault of the YLDS token - the first SEC-"
+      "PRIME is a token representing a vault of the YLDS token - the first SEC-"
     )
   ).toBeVisible();
-  await expect(page.getByText("Want to bring wYLDS to your")).toBeVisible();
+  await expect(page.getByText("Want to bring PRIME to your")).toBeVisible();
   await expect(
     page.getByRole("heading", { name: "Documentation & Resources" })
   ).toBeVisible();

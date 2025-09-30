@@ -52,7 +52,7 @@ test("Login with empty wallet", async ({ page }) => {
   await expect(
     page
       .getByText(
-        "You must have SOL and USDC in your wallet to buy wYLDS or stake wYLDS."
+        "You must have SOL and USDC in your wallet to buy PRIME or stake PRIME."
       )
       .first()
   ).toBeVisible();
@@ -69,6 +69,6 @@ test("Login with empty wallet", async ({ page }) => {
   ).toBeVisible();
   // User cannot stake
   await page.getByRole("tab", { name: "Stake" }).click();
-  await expect(page.getByText("You must have SOL and wYLDS")).toBeVisible();
+  await expect(page.getByText("You must have SOL and PRIME")).toBeVisible();
   await expect(page.getByText("You must have SOL and sYLDS")).toBeVisible();
 });

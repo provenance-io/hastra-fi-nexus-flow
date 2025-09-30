@@ -12,8 +12,8 @@ import { useWallet } from "@/contexts/WalletContext";
 
 const tokens = [
   {
-    symbol: "wYLDS",
-    name: "wYLDS Token",
+    symbol: "PRIME",
+    name: "PRIME Token",
     description: "Yield-bearing stablecoin offering consistent returns",
     apy: "Up to 4%",
     risk: "Low",
@@ -56,10 +56,10 @@ const BuyEarnSection = () => {
                   className="bg-background/30 rounded-2xl p-6 border border-border/10 hover:border-border/20 transition-all duration-300 group"
                 >
                   <div className="flex items-center gap-4 mb-6">
-                    {token.symbol === "wYLDS" ? (
+                    {token.symbol === "PRIME" ? (
                       <img
                         src="/lovable-uploads/08452a7b-6782-4b0a-900e-0f0c99a4fc4e.png"
-                        alt="wYLDS Token"
+                        alt="PRIME Token"
                         className="w-16 h-16 rounded-xl group-hover:scale-110 transition-transform duration-300"
                       />
                     ) : (

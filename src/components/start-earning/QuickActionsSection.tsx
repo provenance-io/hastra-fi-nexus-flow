@@ -1,13 +1,19 @@
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { ExternalLink, Coins, Play, ChevronRight } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { ExternalLink, Coins, Play, ChevronRight } from "lucide-react";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from '@/components/ui/collapsible';
-import { useState } from 'react';
+} from "@/components/ui/collapsible";
+import { useState } from "react";
 
 const platforms = [
   {
@@ -16,16 +22,16 @@ const platforms = [
     logo: "/lovable-uploads/4e1e9873-a987-4561-9c94-bac0340e4c37.png",
     link: "https://app.kamino.finance",
     apy: "Up to 8%",
-    color: "blue"
+    color: "blue",
   },
   {
     name: "Raydium",
     description: "AMM and liquidity farming on Solana",
-    logo: "/lovable-uploads/30e0a19d-182e-4457-b5e0-58c467109e2f.png", 
+    logo: "/lovable-uploads/30e0a19d-182e-4457-b5e0-58c467109e2f.png",
     link: "https://raydium.io",
     apy: "Varies",
-    color: "purple"
-  }
+    color: "purple",
+  },
 ];
 
 const quickGuides = [
@@ -33,20 +39,20 @@ const quickGuides = [
     title: "DeFi Fundamentals",
     description: "Your first $100 in DeFi",
     duration: "15 min",
-    level: "Beginner"
+    level: "Beginner",
   },
   {
     title: "Token Swapping",
     description: "How to safely exchange tokens",
     duration: "8 min",
-    level: "Beginner"
+    level: "Beginner",
   },
   {
     title: "Yield Strategies",
     description: "Maximizing your returns",
     duration: "12 min",
-    level: "Intermediate"
-  }
+    level: "Intermediate",
+  },
 ];
 
 const QuickActionsSection = () => {
@@ -68,45 +74,66 @@ const QuickActionsSection = () => {
                 Start Earning Today
               </h2>
               <p className="text-muted-foreground text-lg">
-                Get wYLDS and wHASH tokens on these trusted platforms
+                Get PRIME and wHASH tokens on these trusted platforms
               </p>
             </div>
 
             <div className="space-y-4">
-              {platforms.slice(0, showAllPlatforms ? platforms.length : 2).map((platform, index) => (
-                <Card key={index} className="glass-effect border-border/50 hover:border-crypto-accent/30 transition-all duration-300">
-                  <CardContent className="p-6">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-4">
-                        <img 
-                          src={platform.logo} 
-                          alt={platform.name}
-                          className="w-10 h-10 rounded-full"
-                        />
-                        <div>
-                          <h3 className="font-semibold">{platform.name}</h3>
-                          <p className="text-sm text-muted-foreground">{platform.description}</p>
-                          <Badge variant="outline" className="mt-1 text-xs">
-                            {platform.apy} APY
-                          </Badge>
+              {platforms
+                .slice(0, showAllPlatforms ? platforms.length : 2)
+                .map((platform, index) => (
+                  <Card
+                    key={index}
+                    className="glass-effect border-border/50 hover:border-crypto-accent/30 transition-all duration-300"
+                  >
+                    <CardContent className="p-6">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-4">
+                          <img
+                            src={platform.logo}
+                            alt={platform.name}
+                            className="w-10 h-10 rounded-full"
+                          />
+                          <div>
+                            <h3 className="font-semibold">{platform.name}</h3>
+                            <p className="text-sm text-muted-foreground">
+                              {platform.description}
+                            </p>
+                            <Badge variant="outline" className="mt-1 text-xs">
+                              {platform.apy} APY
+                            </Badge>
+                          </div>
                         </div>
+                        <Button asChild size="sm" className="btn-gradient">
+                          <a
+                            href={platform.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Trade
+                            <ExternalLink className="ml-2 h-3 w-3" />
+                          </a>
+                        </Button>
                       </div>
-                      <Button asChild size="sm" className="btn-gradient">
-                        <a href={platform.link} target="_blank" rel="noopener noreferrer">
-                          Trade
-                          <ExternalLink className="ml-2 h-3 w-3" />
-                        </a>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+                    </CardContent>
+                  </Card>
+                ))}
 
-              <Collapsible open={showAllPlatforms} onOpenChange={setShowAllPlatforms}>
+              <Collapsible
+                open={showAllPlatforms}
+                onOpenChange={setShowAllPlatforms}
+              >
                 <CollapsibleTrigger asChild>
-                  <Button variant="ghost" className="w-full text-crypto-accent hover:bg-crypto-accent/10">
-                    {showAllPlatforms ? 'Show Less' : 'View All Platforms'}
-                    <ChevronRight className={`ml-2 h-4 w-4 transition-transform ${showAllPlatforms ? 'rotate-90' : ''}`} />
+                  <Button
+                    variant="ghost"
+                    className="w-full text-crypto-accent hover:bg-crypto-accent/10"
+                  >
+                    {showAllPlatforms ? "Show Less" : "View All Platforms"}
+                    <ChevronRight
+                      className={`ml-2 h-4 w-4 transition-transform ${
+                        showAllPlatforms ? "rotate-90" : ""
+                      }`}
+                    />
                   </Button>
                 </CollapsibleTrigger>
                 <CollapsibleContent>
@@ -132,33 +159,49 @@ const QuickActionsSection = () => {
             </div>
 
             <div className="space-y-4">
-              {quickGuides.slice(0, showAllGuides ? quickGuides.length : 3).map((guide, index) => (
-                <Card key={index} className="glass-effect border-border/50 hover:border-header-glow/30 transition-all duration-300 cursor-pointer group">
-                  <CardContent className="p-6">
-                    <div className="flex items-center justify-between">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
-                          <h3 className="font-semibold">{guide.title}</h3>
-                          <Badge variant="outline" className="text-xs">
-                            {guide.level}
-                          </Badge>
+              {quickGuides
+                .slice(0, showAllGuides ? quickGuides.length : 3)
+                .map((guide, index) => (
+                  <Card
+                    key={index}
+                    className="glass-effect border-border/50 hover:border-header-glow/30 transition-all duration-300 cursor-pointer group"
+                  >
+                    <CardContent className="p-6">
+                      <div className="flex items-center justify-between">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2 mb-2">
+                            <h3 className="font-semibold">{guide.title}</h3>
+                            <Badge variant="outline" className="text-xs">
+                              {guide.level}
+                            </Badge>
+                          </div>
+                          <p className="text-sm text-muted-foreground mb-1">
+                            {guide.description}
+                          </p>
+                          <p className="text-xs text-muted-foreground">
+                            {guide.duration}
+                          </p>
                         </div>
-                        <p className="text-sm text-muted-foreground mb-1">{guide.description}</p>
-                        <p className="text-xs text-muted-foreground">{guide.duration}</p>
+                        <div className="w-12 h-12 bg-header-glow/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                          <Play className="w-5 h-5 text-header-glow ml-0.5" />
+                        </div>
                       </div>
-                      <div className="w-12 h-12 bg-header-glow/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <Play className="w-5 h-5 text-header-glow ml-0.5" />
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+                    </CardContent>
+                  </Card>
+                ))}
 
               <Collapsible open={showAllGuides} onOpenChange={setShowAllGuides}>
                 <CollapsibleTrigger asChild>
-                  <Button variant="ghost" className="w-full text-header-glow hover:bg-header-glow/10">
-                    {showAllGuides ? 'Show Less' : 'View All Guides'}
-                    <ChevronRight className={`ml-2 h-4 w-4 transition-transform ${showAllGuides ? 'rotate-90' : ''}`} />
+                  <Button
+                    variant="ghost"
+                    className="w-full text-header-glow hover:bg-header-glow/10"
+                  >
+                    {showAllGuides ? "Show Less" : "View All Guides"}
+                    <ChevronRight
+                      className={`ml-2 h-4 w-4 transition-transform ${
+                        showAllGuides ? "rotate-90" : ""
+                      }`}
+                    />
                   </Button>
                 </CollapsibleTrigger>
                 <CollapsibleContent>

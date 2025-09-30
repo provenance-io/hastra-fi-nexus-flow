@@ -10,7 +10,7 @@ interface FigureYieldResponse {
   rate: number;
 }
 
-const WYLDsHero = () => {
+const PRIMEHero = () => {
   const {
     data: apy,
     isLoading: apyLoading,
@@ -107,7 +107,7 @@ const WYLDsHero = () => {
               asChild
             >
               <Link to="/earn" className="flex items-center justify-center">
-                Get wYLDS
+                Get PRIME
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
@@ -131,4 +131,4 @@ const WYLDsHero = () => {
   );
 };
 
-export default WYLDsHero;
+export default PRIMEHero;

@@ -11,7 +11,7 @@ import {
 import { DollarSign, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useCoinGeckoPrice } from "@/hooks/useSolanaQuery.ts";
-import { USDC, wYLDS } from "@/types/tokens.ts";
+import { USDC, PRIME } from "@/types/tokens.ts";
 import { PublicKey } from "@solana/web3.js";
 import hastraIcon from "/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png";
 
@@ -22,7 +22,7 @@ import { match } from "ts-pattern";
 
 const SendCard = ({ canSend }: { canSend: boolean }) => {
   const [exchangeRate, setExchangeRate] = useState<object>({});
-  const [selectedToken, setSelectedToken] = useState<string>(wYLDS);
+  const [selectedToken, setSelectedToken] = useState<string>(PRIME);
   const [txId, setTxId] = useState<string>("");
   const [recipientAddress, setRecipientAddress] = useState("");
   const [amount, setAmount] = useState("");
@@ -36,7 +36,7 @@ const SendCard = ({ canSend }: { canSend: boolean }) => {
     const o = {};
     o["SOL"] = (geckoPrice?.solana?.usd as number) || 0; // SOL to USD
     o[USDC] = 1; // USDC to USD
-    o[wYLDS] = 1; // wYLDS to USD
+    o[PRIME] = 1; // PRIME to USD
     setExchangeRate(o);
   }, [setExchangeRate, geckoPrice]);
 
@@ -73,9 +73,9 @@ const SendCard = ({ canSend }: { canSend: boolean }) => {
   };
 
   const icon = (address: string, defaultIcon: string = hastraIcon) => {
-    if (address === "swYLDS")
+    if (address === "sYLDS")
       return "/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png";
-    if (address === wYLDS)
+    if (address === PRIME)
       return "/lovable-uploads/d73baf3a-34c8-4ad7-8378-e419bb8268ff.png";
     if (address === USDC)
       return "/lovable-uploads/4bfd88a4-fef5-42d3-81d9-236145936adc.png";
