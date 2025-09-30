@@ -12,24 +12,24 @@ import {
   Loader2,
 } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
-import yieldIcon from "/lovable-uploads/1d678c0f-09c8-4451-a9a6-3e635e0fef72.png";
+import primeIcon from "/lovable-uploads/1d678c0f-09c8-4451-a9a6-3e635e0fef72.png";
 import {
   fetchCurrentAPY,
   fetchActiveHolders,
   fetchTotalCirculation,
 } from "@/utils/solana-utils";
 import { useQuery } from "@tanstack/react-query";
-import { formatNumber } from "./WYLDsStatsDashboard";
+import { formatNumber } from "./PRIMEStatsDashboard";
 
-const YieldTokenIcon = ({ className }: { className?: string }) => (
+const PRIMETokenIcon = ({ className }: { className?: string }) => (
   <img
-    src={yieldIcon}
+    src={primeIcon}
     alt="PRIME Token"
     className={`${className} object-contain`}
   />
 );
 
-const WYLDsYieldExplanation = () => {
+const PRIMEYieldExplanation = () => {
   const {
     data: apy,
     isLoading: apyLoading,
@@ -65,7 +65,7 @@ const WYLDsYieldExplanation = () => {
   const steps = [
     {
       number: 1,
-      icon: YieldTokenIcon,
+      icon: PRIMETokenIcon,
       title: "Hold PRIME tokens",
       description: "Simply hold PRIME tokens in any compatible Solana wallet",
       color: "from-header-glow to-crypto-accent",
@@ -582,4 +582,4 @@ const WYLDsYieldExplanation = () => {
   );
 };
 
-export default WYLDsYieldExplanation;
+export default PRIMEYieldExplanation;

@@ -383,7 +383,7 @@ const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
                         When swapping PRIME to USDC, it may take 1-2 business
                         days for USDC to appear in your wallet balance.{" "}
                         <a
-                          href="https://help.hastra.io/wylds/collection/offramping-your-wylds"
+                          href="https://help.hastra.io/prime/collection/offramping-your-wylds"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="underline hover:text-amber-400 transition-colors"

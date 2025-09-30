@@ -25,7 +25,7 @@ const formatHolders = (holders: string): string => {
   return holders;
 };
 
-const WYLDsStatsDashboard = () => {
+const PRIMEStatsDashboard = () => {
   const {
     data: apy,
     isLoading: apyLoading,
@@ -164,4 +164,4 @@ const WYLDsStatsDashboard = () => {
   );
 };
 
-export default WYLDsStatsDashboard;
+export default PRIMEStatsDashboard;

@@ -14,7 +14,7 @@ const formSchema = z.object({
   honeypot: z.string().optional(),
 });
 
-const WYLDsTypeformEmbed = () => {
+const PRIMETypeformEmbed = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
@@ -145,4 +145,4 @@ const WYLDsTypeformEmbed = () => {
   );
 };
 
-export default WYLDsTypeformEmbed;
+export default PRIMETypeformEmbed;

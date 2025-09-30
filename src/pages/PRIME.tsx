@@ -1,10 +1,10 @@
-import PRIMEHero from "@/components/prime/WYLDsHero";
-import PRIMEYieldExplanation from "@/components/prime/WYLDsYieldExplanation";
+import PRIMEHero from "@/components/prime/PRIMEHero";
+import PRIMEYieldExplanation from "@/components/prime/PRIMEYieldExplanation";
 import PRIMEAbout from "@/components/prime/PRIMEAbout";
-import PRIMEStatsDashboard from "@/components/prime/WYLDsStatsDashboard";
-import PRIMEResources from "@/components/prime/WYLDsResources";
+import PRIMEStatsDashboard from "@/components/prime/PRIMEStatsDashboard";
+import PRIMEResources from "@/components/prime/PRIMEResources";
 import PRIMEFAQ from "@/components/prime/PRIMEFAQ";
-import PRIMETypeformEmbed from "@/components/prime/WYLDsTypeformEmbed";
+import PRIMETypeformEmbed from "@/components/prime/PRIMETypeformEmbed";
 import ProvenanceBranding from "@/components/ProvenanceBranding";
 
 const PRIMEPage = () => {

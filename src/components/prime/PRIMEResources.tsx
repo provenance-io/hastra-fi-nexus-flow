@@ -17,7 +17,7 @@ const resources = [
   },
 ];
 
-const WYLDsResources = () => {
+const PRIMEResources = () => {
   return (
     <section className="py-20 border-t border-border/40">
       <div className="max-w-5xl mx-auto px-4">
@@ -58,4 +58,4 @@ const WYLDsResources = () => {
   );
 };
 
-export default WYLDsResources;
+export default PRIMEResources;
