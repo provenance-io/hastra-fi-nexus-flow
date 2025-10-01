@@ -45,10 +45,10 @@ const TokenLineItem = ({
     toast({
       title: "Interest Claimed",
       description:
-        token === "sYLDS"
+        token === "sPRIME"
           ? `Successfully claimed ${unclaimedInterest.toFixed(
               4
-            )} PRIME tokens from sYLDS staking rewards`
+            )} PRIME tokens from sPRIME staking rewards`
           : `Successfully claimed ${unclaimedInterest.toFixed(
               4
             )} ${token} tokens`,

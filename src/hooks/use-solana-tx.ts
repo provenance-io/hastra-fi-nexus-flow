@@ -25,7 +25,7 @@ import {
   TOKEN_PROGRAM_ID,
 } from "@solana/spl-token";
 import BN from "bn.js";
-import { sYLDS, USDC, PRIME } from "@/types/tokens.ts";
+import { sPRIME, USDC, PRIME } from "@/types/tokens.ts";
 import { HastraSolVaultStake as HastraSolVaultStakeIdl } from "@/types/idl/hastra-sol-vault-stake.ts";
 import { HastraSolVaultMint as HastraSolVaultMintIdl } from "@/types/idl/hastra-sol-vault-mint.ts";
 
@@ -334,26 +334,26 @@ export const useStake = () => {
         signer
       );
       const userMintTokenAccount: PublicKey = await getAssociatedTokenAddress(
-        new PublicKey(sYLDS),
+        new PublicKey(sPRIME),
         signer
       );
-      const syldsMint = new PublicKey(sYLDS);
-      const vault = new PublicKey(import.meta.env.VITE_SOLANA_SYLDS_VAULT);
+      const sPRIMEMint = new PublicKey(sPRIME);
+      const vault = new PublicKey(import.meta.env.VITE_SOLANA_SPRIME_VAULT);
       const configPda = new PublicKey(
-        import.meta.env.VITE_SOLANA_SYLDS_CONFIG_PDA
+        import.meta.env.VITE_SOLANA_SPRIME_CONFIG_PDA
       );
       const mintAuthorityPda = new PublicKey(
-        import.meta.env.VITE_SOLANA_SYLDS_MINT_AUTHORITY_PDA
+        import.meta.env.VITE_SOLANA_SPRIME_MINT_AUTHORITY_PDA
       );
       const vaultTokenAccount = new PublicKey(
-        import.meta.env.VITE_SOLANA_SYLDS_VAULT_TOKEN_ACCOUNT
+        import.meta.env.VITE_SOLANA_SPRIME_VAULT_TOKEN_ACCOUNT
       );
 
       const createAtaInstructions = await ataInstruction(
         connection,
         signer,
         userMintTokenAccount,
-        syldsMint
+        sPRIMEMint
       );
 
       console.log(`signer:        ${signer.toBase58()}`);
@@ -365,7 +365,7 @@ export const useStake = () => {
       );
       console.log(`vault:         ${vault.toBase58()}`);
       console.log(`vault TA:      ${vaultTokenAccount.toBase58()}`);
-      console.log(`mint:          ${syldsMint.toBase58()}`);
+      console.log(`mint:          ${sPRIMEMint.toBase58()}`);
       console.log(`configPda:     ${configPda.toBase58()}`);
       console.log(`mintAuthority: ${mintAuthorityPda.toBase58()}`);
       console.log(`tokenProgram:  ${TOKEN_PROGRAM_ID.toBase58()}`);
@@ -375,7 +375,7 @@ export const useStake = () => {
           .accounts({
             config: configPda,
             vaultTokenAccount: vaultTokenAccount,
-            mint: syldsMint,
+            mint: sPRIMEMint,
             mintAuthority: mintAuthorityPda,
             signer: signer,
             userVaultTokenAccount: userVaultTokenAccount,
@@ -417,14 +417,14 @@ export const useUnbond = () => {
       // program accounts
       const signer = publicKey;
       const userMintTokenAccount: PublicKey = await getAssociatedTokenAddress(
-        new PublicKey(sYLDS),
+        new PublicKey(sPRIME),
         signer
       );
 
-      const syldsMint = new PublicKey(sYLDS);
+      const sPRIMEMint = new PublicKey(sPRIME);
 
       const configPda = new PublicKey(
-        import.meta.env.VITE_SOLANA_SYLDS_CONFIG_PDA
+        import.meta.env.VITE_SOLANA_SPRIME_CONFIG_PDA
       );
       const [ticketPda] = web3.PublicKey.findProgramAddressSync(
         [Buffer.from("ticket"), signer.toBuffer()],
@@ -436,7 +436,7 @@ export const useUnbond = () => {
         `userMintTokenAccount:          ${userMintTokenAccount.toBase58()}`
       );
       console.log(`ticketPda:                     ${ticketPda.toBase58()}`);
-      console.log(`mint:                          ${syldsMint.toBase58()}`);
+      console.log(`mint:                          ${sPRIMEMint.toBase58()}`);
       console.log(`configPda:                     ${configPda.toBase58()}`);
       console.log(
         `tokenProgram:                  ${TOKEN_PROGRAM_ID.toBase58()}`
@@ -447,7 +447,7 @@ export const useUnbond = () => {
           .accounts({
             config: configPda,
             signer: signer,
-            mint: syldsMint,
+            mint: sPRIMEMint,
             userMintTokenAccount: userMintTokenAccount,
             tokenProgram: TOKEN_PROGRAM_ID,
             ticket: ticketPda,
@@ -483,11 +483,11 @@ export const useRedeem = () => {
     });
     const program = new Program(HastraSolVaultStakeIdl as Idl, provider);
 
-    const syldsMint = new PublicKey(sYLDS);
+    const sPRIMEMint = new PublicKey(sPRIME);
 
     const signer = publicKey;
     const userMintTokenAccount: PublicKey = await getAssociatedTokenAddress(
-      new PublicKey(sYLDS),
+      new PublicKey(sPRIME),
       signer
     );
     const userVaultTokenAccount: PublicKey = await getAssociatedTokenAddress(
@@ -496,11 +496,11 @@ export const useRedeem = () => {
     );
 
     const vaultTokenAccount = new PublicKey(
-      import.meta.env.VITE_SOLANA_SYLDS_VAULT_TOKEN_ACCOUNT
+      import.meta.env.VITE_SOLANA_SPRIME_VAULT_TOKEN_ACCOUNT
     );
 
     const configPda = new PublicKey(
-      import.meta.env.VITE_SOLANA_SYLDS_CONFIG_PDA
+      import.meta.env.VITE_SOLANA_SPRIME_CONFIG_PDA
     );
     const [ticketPda] = web3.PublicKey.findProgramAddressSync(
       [Buffer.from("ticket"), signer.toBuffer()],
@@ -525,7 +525,7 @@ export const useRedeem = () => {
     console.log(
       `userVaultTokenAccount:         ${userVaultTokenAccount.toBase58()}`
     );
-    console.log(`mint:                          ${syldsMint.toBase58()}`);
+    console.log(`mint:                          ${sPRIMEMint.toBase58()}`);
     console.log(`ticketPda:                     ${ticketPda.toBase58()}`);
     console.log(
       `tokenProgram:                  ${TOKEN_PROGRAM_ID.toBase58()}`
@@ -540,7 +540,7 @@ export const useRedeem = () => {
           signer: signer,
           userMintTokenAccount: userMintTokenAccount,
           userVaultTokenAccount: userVaultTokenAccount,
-          mint: syldsMint,
+          mint: sPRIMEMint,
           tokenProgram: TOKEN_PROGRAM_ID,
           ticket: ticketPda,
           systemProgram: SystemProgram.programId,

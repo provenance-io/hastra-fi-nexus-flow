@@ -13,7 +13,7 @@ import { useToast } from "@/hooks/use-toast";
 import hastraIcon from "/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png";
 import { useTokenPortfolio } from "@/hooks/useTokenPortfolio.ts";
 import { useCoinGeckoPrice } from "@/hooks/useSolanaQuery.ts";
-import { sYLDS, USDC, PRIME } from "@/types/tokens";
+import { sPRIME, USDC, PRIME } from "@/types/tokens";
 import { useDepositAndMint } from "@/hooks/use-solana-tx.ts";
 import { AnchorError } from "@coral-xyz/anchor";
 import { match } from "ts-pattern";
@@ -36,7 +36,7 @@ const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
     o["SOL"] = (geckoPrice?.solana?.usd as number) || 0; // SOL to USD
     o[USDC] = 1; // USDC to USD
     o[PRIME] = 1; // PRIME to USD
-    o[sYLDS] = 1; // sYLDS to PRIME (1:1 with USD for now)
+    o[sPRIME] = 1; // sPRIME to PRIME (1:1 with USD for now)
     o["HASH"] = (geckoPrice?.["hash-2"]?.usd as number) || 0; // HASH to USD
 
     setExchangeRate(o);

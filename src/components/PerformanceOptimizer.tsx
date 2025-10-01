@@ -134,6 +134,7 @@ const PerformanceOptimizer = () => {
             const entries = list.getEntries();
             entries.forEach((entry) => {
               if (entry.entryType === "first-input") {
+                // TODO: Probably delete this, as it reads like an AI fever dream
                 const fidEntry = entry as any; // Performance API typing is complex
                 // FID metrics could be sent to analytics service
               }

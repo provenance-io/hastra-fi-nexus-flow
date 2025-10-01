@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import SYLDSHero from "@/components/sprime/SYLDSHero";
-import SYLDSMetrics from "@/components/sprime/SYLDSMetrics";
-import SYLDSHowItWorks from "@/components/sprime/SYLDSHowItWorks";
-import SYLDSValueProposition from "@/components/sprime/SYLDSValueProposition";
-import SYLDSInvestmentDetails from "@/components/sprime/SYLDSInvestmentDetails";
-import SYLDSLeveragedLooping from "@/components/sprime/SYLDSYieldComparison";
-import SYLDSFinalCTA from "@/components/sprime/SYLDSFinalCTA";
+import SPRIMEHero from "@/components/sprime/SPRIMEHero";
+import SPRIMEMetrics from "@/components/sprime/SPRIMEMetrics";
+import SPRIMEHowItWorks from "@/components/sprime/SPRIMEHowItWorks";
+import SPRIMEValueProposition from "@/components/sprime/SPRIMEValueProposition";
+import SPRIMEInvestmentDetails from "@/components/sprime/SPRIMEInvestmentDetails";
+import SPRIMELeveragedLooping from "@/components/sprime/SPRIMEYieldComparison";
+import SPRIMEFinalCTA from "@/components/sprime/SPRIMEFinalCTA";
 import HOMESComingSoonModal from "@/components/homes/HOMESComingSoonModal";
 import ProvenanceBranding from "@/components/ProvenanceBranding";
 
@@ -41,13 +41,13 @@ const SPRIMEPage = () => {
             !pageAccessible ? "content-protection" : "content-accessible"
           }`}
         >
-          <SYLDSHero />
-          <SYLDSHowItWorks />
-          <SYLDSValueProposition />
-          <SYLDSInvestmentDetails />
-          <SYLDSLeveragedLooping />
-          <SYLDSFinalCTA />
-          <SYLDSMetrics />
+          <SPRIMEHero />
+          <SPRIMEHowItWorks />
+          <SPRIMEValueProposition />
+          <SPRIMEInvestmentDetails />
+          <SPRIMELeveragedLooping />
+          <SPRIMEFinalCTA />
+          <SPRIMEMetrics />
           <ProvenanceBranding />
         </div>
       </div>
