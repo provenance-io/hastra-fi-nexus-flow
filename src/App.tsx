@@ -16,7 +16,7 @@ import TestOnlyBadge from "@/components/test/TestOnlyBadge";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
-import WyldsPage from "./pages/wYLDs";
+import WyldsPage from "./pages/Wylds";
 import PRIMEPage from "./pages/PRIME";
 import HOMESPage from "./pages/HOMES";
 import SendIt from "./pages/SendIt";
