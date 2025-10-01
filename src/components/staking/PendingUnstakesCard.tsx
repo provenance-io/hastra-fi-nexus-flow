@@ -125,7 +125,7 @@ const PendingUnstakesCard: React.FC = () => {
                   </>
                 ) : (
                   <>
-                    Unstake all to PRIME
+                    Unstake all to wYLDS
                     <ArrowRight className="ml-2 h-3 w-3 text-[hsl(48_100%_67%)]" />
                   </>
                 )}
@@ -203,7 +203,7 @@ const PendingUnstakesCard: React.FC = () => {
                       </>
                     ) : (
                       <>
-                        Unstake to PRIME
+                        Unstake to wYLDS
                         <ArrowRight className="ml-1 h-2.5 w-2.5 text-[hsl(48_100%_67%)]" />
                       </>
                     )}

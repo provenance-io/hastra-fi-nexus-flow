@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
-import SPRIMEHero from "@/components/sprime/SPRIMEHero";
-import SPRIMEMetrics from "@/components/sprime/SPRIMEMetrics";
-import SPRIMEHowItWorks from "@/components/sprime/SPRIMEHowItWorks";
-import SPRIMEValueProposition from "@/components/sprime/SPRIMEValueProposition";
-import SPRIMEInvestmentDetails from "@/components/sprime/SPRIMEInvestmentDetails";
-import SPRIMELeveragedLooping from "@/components/sprime/SPRIMEYieldComparison";
-import SPRIMEFinalCTA from "@/components/sprime/SPRIMEFinalCTA";
-import HOMESComingSoonModal from "@/components/homes/HOMESComingSoonModal";
-import ProvenanceBranding from "@/components/ProvenanceBranding";
+import SPRIMEHero from "../components/prime/SPRIMEHero";
+import SPRIMEMetrics from "../components/prime/SPRIMEMetrics";
+import SPRIMEHowItWorks from "../components/prime/SPRIMEHowItWorks";
+import SPRIMEValueProposition from "../components/prime/SPRIMEValueProposition";
+import SPRIMEInvestmentDetails from "../components/prime/SPRIMEInvestmentDetails";
+import SPRIMELeveragedLooping from "../components/prime/SPRIMEYieldComparison";
+import SPRIMEFinalCTA from "../components/prime/SPRIMEFinalCTA";
+import HOMESComingSoonModal from "../components/homes/HOMESComingSoonModal";
+import ProvenanceBranding from "../components/ProvenanceBranding";
 
 const SPRIMEPage = () => {
   const [showModal, setShowModal] = useState(false);

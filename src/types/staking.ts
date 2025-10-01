@@ -1,7 +1,7 @@
 export interface StakingState {
   // User Data
   userBalance: {
-    PRIME: string;
+    wYLDS: string;
     sPRIME: string;
     isLoading: boolean;
   };
@@ -126,7 +126,7 @@ export type TransactionStatus =
   | "error";
 
 export interface UserBalance {
-  PRIME: string;
+  wYLDS: string;
   sPRIME: string;
   isLoading: boolean;
 }

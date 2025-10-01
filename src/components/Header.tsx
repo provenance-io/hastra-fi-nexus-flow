@@ -132,18 +132,18 @@ const Header = () => {
               >
                 <DropdownMenuItem asChild>
                   <Link
-                    to="/prime"
+                    to="/wylds"
                     className="flex items-center w-full cursor-pointer p-3 hover:bg-orange-300/10 hover:text-orange-300 rounded-lg transition-all duration-200 group focus:outline-none focus:ring-0"
                   >
                     <div className="flex items-center gap-3">
                       <img
                         src="/lovable-uploads/08452a7b-6782-4b0a-900e-0f0c99a4fc4e.png"
-                        alt="PRIME Token"
+                        alt="wYLDS Token"
                         className="w-10 h-10 rounded-lg group-hover:scale-105 transition-transform"
                       />
                       <div>
                         <div className="font-semibold text-platinum/90 mb-1">
-                          PRIME
+                          wYLDS
                         </div>
                         <div className="text-sm text-platinum/70 flex items-center gap-1">
                           {apyLoading && (

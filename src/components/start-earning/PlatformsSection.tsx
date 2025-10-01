@@ -13,7 +13,7 @@ const platforms = [
     name: "Raydium",
     description: "Automated Market Maker for liquidity pools and swaps",
     features: [
-      "PRIME/USDC Pool",
+      "wYLDS/USDC Pool",
       "HASH/USDC Pool",
       "Low fees",
       "High liquidity",

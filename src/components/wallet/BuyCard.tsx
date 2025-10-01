@@ -13,7 +13,7 @@ import { useToast } from "@/hooks/use-toast";
 import hastraIcon from "/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png";
 import { useTokenPortfolio } from "@/hooks/useTokenPortfolio.ts";
 import { useCoinGeckoPrice } from "@/hooks/useSolanaQuery.ts";
-import { sPRIME, USDC, PRIME } from "@/types/tokens";
+import { sPRIME, USDC, wYLDS } from "@/types/tokens";
 import { useDepositAndMint } from "@/hooks/use-solana-tx.ts";
 import { AnchorError } from "@coral-xyz/anchor";
 import { match } from "ts-pattern";
@@ -21,7 +21,7 @@ import { match } from "ts-pattern";
 const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
   const [exchangeRate, setExchangeRate] = useState<object>({});
   const [sellAsset, setSellAsset] = useState<string>(USDC);
-  const [buyAsset, setBuyAsset] = useState<string>(PRIME);
+  const [buyAsset, setBuyAsset] = useState<string>(wYLDS);
   const [amount, setAmount] = useState("");
   const [denomination, setDenomination] = useState<"token" | "usd">("usd");
   const [txId, setTxId] = useState("");
@@ -35,8 +35,8 @@ const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
     const o = {};
     o["SOL"] = (geckoPrice?.solana?.usd as number) || 0; // SOL to USD
     o[USDC] = 1; // USDC to USD
-    o[PRIME] = 1; // PRIME to USD
-    o[sPRIME] = 1; // sPRIME to PRIME (1:1 with USD for now)
+    o[wYLDS] = 1; // wYLDS to USD
+    o[sPRIME] = 1; // sPRIME to wYLDS (1:1 with USD for now)
     o["HASH"] = (geckoPrice?.["hash-2"]?.usd as number) || 0; // HASH to USD
 
     setExchangeRate(o);
@@ -97,7 +97,7 @@ const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
         "border-l-4 border-l-hastra-teal bg-hastra-teal/10 shadow-hastra",
     });
 
-    //FIXME - this is called for both USDC -> PRIME and PRIME -> USDC, but the latter is not implemented in the program yet
+    //FIXME - this is called for both USDC -> wYLDS and wYLDS -> USDC, but the latter is not implemented in the program yet
     invoke(Number(amount))
       .then((response) => {
         setTxId(response.txId);
@@ -166,7 +166,7 @@ const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
                     setSellAsset(value);
                     // Auto-switch buy asset if it's the same as sell asset
                     if (value === buyAsset) {
-                      setBuyAsset(value === USDC ? PRIME : USDC);
+                      setBuyAsset(value === USDC ? wYLDS : USDC);
                     }
                   }}
                 >
@@ -205,20 +205,20 @@ const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
                         </span>
                       </div>
                     </SelectItem>
-                    <SelectItem value={PRIME} className="py-3 md:py-2">
+                    <SelectItem value={wYLDS} className="py-3 md:py-2">
                       <div className="flex items-center justify-between w-full py-1 md:py-1">
                         <div className="flex items-center gap-3">
                           <img
-                            src={icon(PRIME)}
-                            alt={symbol(PRIME)}
+                            src={icon(wYLDS)}
+                            alt={symbol(wYLDS)}
                             className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover"
                           />
                           <span className="text-sm md:text-sm font-medium font-sans">
-                            {symbol(PRIME)}
+                            {symbol(wYLDS)}
                           </span>
                         </div>
                         <span className="text-xs md:text-xs text-muted-foreground font-mono ml-4">
-                          {balance(PRIME)}
+                          {balance(wYLDS)}
                         </span>
                       </div>
                     </SelectItem>
@@ -262,16 +262,16 @@ const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
                         </div>
                       </SelectItem>
                     )}
-                    {PRIME !== sellAsset && (
-                      <SelectItem value={PRIME} className="py-3 md:py-2">
+                    {wYLDS !== sellAsset && (
+                      <SelectItem value={wYLDS} className="py-3 md:py-2">
                         <div className="flex items-center gap-3 py-1 md:py-1">
                           <img
-                            src={icon(PRIME)}
-                            alt="PRIME"
+                            src={icon(wYLDS)}
+                            alt="wYLDS"
                             className="w-6 h-6 md:w-5 md:h-5 rounded-full flex-shrink-0 object-cover"
                           />
                           <span className="text-sm md:text-sm font-medium font-sans">
-                            PRIME
+                            wYLDS
                           </span>
                         </div>
                       </SelectItem>
@@ -371,8 +371,8 @@ const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
                 </div>
               )}
 
-              {/* PRIME to USDC Warning - moved to after receive amount */}
-              {sellAsset === PRIME && buyAsset === USDC && (
+              {/* wYLDS to USDC Warning - moved to after receive amount */}
+              {sellAsset === wYLDS && buyAsset === USDC && (
                 <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-4">
                   <div className="flex items-start gap-3">
                     <div className="text-amber-500 mt-0.5">⚠️</div>
@@ -381,7 +381,7 @@ const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
                         Processing Time Notice
                       </div>
                       <div className="text-xs text-amber-500/80">
-                        When swapping PRIME to USDC, it may take 1-2 business
+                        When swapping wYLDS to USDC, it may take 1-2 business
                         days for USDC to appear in your wallet balance.{" "}
                         <a
                           href="https://help.hastra.io/prime/collection/offramping-your-wylds"
@@ -411,7 +411,7 @@ const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
           ))
           .otherwise(() => (
             <div className="flex items-center justify-between">
-              You must have SOL and USDC in your wallet to buy PRIME or stake
+              You must have SOL and USDC in your wallet to buy wYLDS or stake
               sPRIME.
             </div>
           ))}

@@ -51,7 +51,7 @@ const WalletConnectionSection = () => {
               >
                 {isConnected
                   ? "Wallet connected! View your dashboard above to start trading."
-                  : "Connect your wallet to start earning yield with PRIME and wHASH tokens in a secure, premium DeFi environment"}
+                  : "Connect your wallet to start earning yield with wYLDS and wHASH tokens in a secure, premium DeFi environment"}
               </p>
             </div>
           </div>

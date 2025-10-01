@@ -21,7 +21,7 @@ export const HastraSolVaultMint = {
         "•\tStore each epoch’s Merkle root in a PDA.",
         "•\tWhen a user claims, they present (amount, proof) for their pubkey.",
         "•\tThe program verifies the Merkle proof against the root.",
-        "•\tIf valid, transfer reward tokens (PRIME) from the rewards vault to the user's mint token account.",
+        "•\tIf valid, transfer reward tokens (wYLDS) from the rewards vault to the user's mint token account.",
         "•\tMark the claim as redeemed so they can’t double-claim.",
       ],
       discriminator: [4, 144, 132, 71, 116, 23, 151, 80],
@@ -174,7 +174,7 @@ export const HastraSolVaultMint = {
       docs: [
         "Handles user deposits of vault tokens (e.g., USDC):",
         "- Transfers vault tokens to program vault account",
-        "- Mints equivalent amount of mint tokens (e.g., PRIME) to user",
+        "- Mints equivalent amount of mint tokens (e.g., wYLDS) to user",
       ],
       discriminator: [242, 35, 198, 137, 82, 225, 242, 182],
       accounts: [
@@ -288,7 +288,7 @@ export const HastraSolVaultMint = {
       docs: [
         "Initializes the vault program with the required token configurations:",
         "- vault_mint: The token that users deposit (e.g., USDC)",
-        "- mint: The token users receive when deposit received (e.g., PRIME)",
+        "- mint: The token users receive when deposit received (e.g., wYLDS)",
       ],
       discriminator: [175, 175, 109, 31, 13, 152, 155, 237],
       accounts: [
@@ -360,7 +360,7 @@ export const HastraSolVaultMint = {
       docs: [
         "The redeem function allows users to withdraw their original vault tokens:",
         "- Transfers vault tokens from a program vault account to user",
-        "- Burns the corresponding amount of mint tokens (e.g., PRIME) from user",
+        "- Burns the corresponding amount of mint tokens (e.g., wYLDS) from user",
       ],
       discriminator: [184, 12, 86, 149, 70, 196, 97, 225],
       accounts: [

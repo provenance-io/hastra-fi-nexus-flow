@@ -239,7 +239,7 @@ const DefiBasiscsModal = memo<LearningModalProps>(({ isOpen, onClose }) => {
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <div className="w-1 h-1 rounded-full bg-header-glow mt-2 flex-shrink-0" />
-                    <span>Platform-specific guides for PRIME and sPRIME</span>
+                    <span>Platform-specific guides for wYLDS and sPRIME</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <div className="w-1 h-1 rounded-full bg-header-glow mt-2 flex-shrink-0" />

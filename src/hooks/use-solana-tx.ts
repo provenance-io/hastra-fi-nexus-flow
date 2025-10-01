@@ -25,7 +25,7 @@ import {
   TOKEN_PROGRAM_ID,
 } from "@solana/spl-token";
 import BN from "bn.js";
-import { sPRIME, USDC, PRIME } from "@/types/tokens.ts";
+import { sPRIME, USDC, wYLDS } from "@/types/tokens.ts";
 import { HastraSolVaultStake as HastraSolVaultStakeIdl } from "@/types/idl/hastra-sol-vault-stake.ts";
 import { HastraSolVaultMint as HastraSolVaultMintIdl } from "@/types/idl/hastra-sol-vault-mint.ts";
 
@@ -100,10 +100,10 @@ export const useDepositAndMint = () => {
         signer
       );
       const userMintTokenAccount: PublicKey = await getAssociatedTokenAddress(
-        new PublicKey(PRIME),
+        new PublicKey(wYLDS),
         signer
       );
-      const mint = new PublicKey(PRIME);
+      const mint = new PublicKey(wYLDS);
       const vault = new PublicKey(import.meta.env.VITE_SOLANA_USDC_VAULT);
       const configPda = new PublicKey(
         import.meta.env.VITE_SOLANA_USDC_PRIME_CONFIG_PDA
@@ -330,7 +330,7 @@ export const useStake = () => {
       // program accounts
       const signer = publicKey;
       const userVaultTokenAccount: PublicKey = await getAssociatedTokenAddress(
-        new PublicKey(PRIME),
+        new PublicKey(wYLDS),
         signer
       );
       const userMintTokenAccount: PublicKey = await getAssociatedTokenAddress(
@@ -491,7 +491,7 @@ export const useRedeem = () => {
       signer
     );
     const userVaultTokenAccount: PublicKey = await getAssociatedTokenAddress(
-      new PublicKey(PRIME),
+      new PublicKey(wYLDS),
       signer
     );
 

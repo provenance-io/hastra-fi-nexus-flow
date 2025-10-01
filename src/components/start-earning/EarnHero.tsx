@@ -39,7 +39,7 @@ const EarnHero = () => {
                 "0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)",
             }}
           >
-            Buy PRIME on Hastra. Start earning from day one with proven
+            Buy wYLDS on Hastra. Start earning from day one with proven
             strategies backed by real-world assets.
           </p>
         </div>

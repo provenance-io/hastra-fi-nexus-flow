@@ -16,7 +16,7 @@ import TestOnlyBadge from "@/components/test/TestOnlyBadge";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
-import PRIMEPage from "./pages/PRIME";
+import WyldsPage from "./pages/wYLDs";
 import SPRIMEPage from "./pages/sPRIME";
 import HOMESPage from "./pages/HOMES";
 import SendIt from "./pages/SendIt";
@@ -66,7 +66,7 @@ const App = () => (
                   <Route path="/privacy" element={<Privacy />} />
                   <Route path="/brand-guide" element={<BrandGuidePage />} />
 
-                  <Route path="/prime" element={<PRIMEPage />} />
+                  <Route path="/wylds" element={<WyldsPage />} />
                   <Route path="/sprime" element={<SPRIMEPage />} />
                   <Route path="/homes" element={<HOMESPage />} />
                   <Route path="/sendit" element={<SendIt />} />

@@ -3,7 +3,7 @@ import { Suspense, useEffect, useState } from "react";
 import * as THREE from "three";
 import Spinning3DYieldToken from "./Spinning3DYieldToken";
 
-const PRIMEToken3DContainer = () => {
+const WyldsToken3DContainer = () => {
   const [texture, setTexture] = useState<THREE.Texture | null>(null);
 
   useEffect(() => {
@@ -42,4 +42,4 @@ const PRIMEToken3DContainer = () => {
   );
 };
 
-export default PRIMEToken3DContainer;
+export default WyldsToken3DContainer;

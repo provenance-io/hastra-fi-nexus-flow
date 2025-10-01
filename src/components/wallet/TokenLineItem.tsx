@@ -48,7 +48,7 @@ const TokenLineItem = ({
         token === "sPRIME"
           ? `Successfully claimed ${unclaimedInterest.toFixed(
               4
-            )} PRIME tokens from sPRIME staking rewards`
+            )} wYLDS tokens from sPRIME staking rewards`
           : `Successfully claimed ${unclaimedInterest.toFixed(
               4
             )} ${token} tokens`,

@@ -193,7 +193,7 @@ export const pageRoutes = {
   termsEnabled: { path: "/terms", name: "Terms" },
   privacyEnabled: { path: "/privacy", name: "Privacy" },
   brandGuideEnabled: { path: "/brand-guide", name: "Brand Guide" },
-  primeEnabled: { path: "/prime", name: "PRIME" },
+  primeEnabled: { path: "/wylds", name: "wYLDS" },
   sPrimeEnabled: { path: "/sprime", name: "sPRIME" },
   homesEnabled: { path: "/homes", name: "HOMES" },
   senditEnabled: { path: "/sendit", name: "Send It" },

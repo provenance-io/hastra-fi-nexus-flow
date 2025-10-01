@@ -76,14 +76,14 @@ const SimplifiedStartEarningHero = () => {
 
                 <h3 className="text-2xl font-bold mb-4">Buy & Earn Now</h3>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Jump straight into earning with PRIME and wHASH tokens on our
+                  Jump straight into earning with wYLDS and wHASH tokens on our
                   partner platforms
                 </p>
 
                 <div className="space-y-3 mb-6">
                   <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
                     <div className="w-2 h-2 bg-header-glow rounded-full"></div>
-                    <span>PRIME token - Up to 8% APY</span>
+                    <span>wYLDS token - Up to 8% APY</span>
                   </div>
                   <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
                     <div className="w-2 h-2 bg-header-glow rounded-full"></div>

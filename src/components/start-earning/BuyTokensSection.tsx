@@ -10,7 +10,7 @@ import { ExternalLink, Coins } from "lucide-react";
 
 const buyOptions = [
   {
-    token: "PRIME",
+    token: "wYLDS",
     description: "Yield-bearing stablecoin earning up to 8% APY",
     platform: "Raydium",
     link: "https://raydium.io",
@@ -32,7 +32,7 @@ const BuyTokensSection = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">Buy Tokens</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Get started with PRIME and sHASH tokens to participate in our DeFi
+            Get started with wYLDS and sHASH tokens to participate in our DeFi
             ecosystem
           </p>
         </div>
@@ -45,10 +45,10 @@ const BuyTokensSection = () => {
             >
               <CardHeader>
                 <CardTitle className="flex items-center gap-3">
-                  {option.token === "PRIME" ? (
+                  {option.token === "wYLDS" ? (
                     <img
                       src="/lovable-uploads/08452a7b-6782-4b0a-900e-0f0c99a4fc4e.png"
-                      alt="PRIME Token"
+                      alt="wYLDS Token"
                       className="w-10 h-10 rounded-lg"
                     />
                   ) : (

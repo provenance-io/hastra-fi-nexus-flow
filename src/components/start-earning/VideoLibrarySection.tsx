@@ -22,9 +22,9 @@ const videoCategories = [
 const videos = [
   {
     id: 1,
-    title: "Getting Started with PRIME Token",
+    title: "Getting Started with wYLDS Token",
     description:
-      "Learn how to acquire and use PRIME tokens for earning stable yields",
+      "Learn how to acquire and use wYLDS tokens for earning stable yields",
     duration: "12:45",
     difficulty: "Beginner",
     category: "basics",

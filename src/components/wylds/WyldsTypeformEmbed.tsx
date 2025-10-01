@@ -14,7 +14,7 @@ const formSchema = z.object({
   honeypot: z.string().optional(),
 });
 
-const PRIMETypeformEmbed = () => {
+const WyldsTypeformEmbed = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
@@ -69,7 +69,7 @@ const PRIMETypeformEmbed = () => {
                   "0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)",
               }}
             >
-              Want to bring PRIME to your platform or chain? Fill out our form
+              Want to bring wYLDS to your platform or chain? Fill out our form
               to get started.
             </p>
           </div>
@@ -145,4 +145,4 @@ const PRIMETypeformEmbed = () => {
   );
 };
 
-export default PRIMETypeformEmbed;
+export default WyldsTypeformEmbed;

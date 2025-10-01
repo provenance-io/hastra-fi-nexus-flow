@@ -172,7 +172,7 @@ export const HastraSolVaultStake = {
     {
       name: "deposit",
       docs: [
-        "Handles user deposits of vault tokens (e.g., PRIME):",
+        "Handles user deposits of vault tokens (e.g., wYLDS):",
         "- Transfers vault tokens to program vault account",
         "- Mints equivalent amount of stake tokens (e.g., sPRIME) to user",
       ],
@@ -287,7 +287,7 @@ export const HastraSolVaultStake = {
       name: "initialize",
       docs: [
         "Initializes the vault program with the required token configurations:",
-        "- vault_mint: The token that users deposit (e.g., PRIME)",
+        "- vault_mint: The token that users deposit (e.g., wYLDS)",
         "- stake_mint: The token users receive when staking (e.g., sPRIME)",
         "- unbonding_period: Time in seconds users must wait before redeeming",
       ],
@@ -309,7 +309,7 @@ export const HastraSolVaultStake = {
           name: "vault_authority",
           docs: [
             "This PDA will be set as the owner of the vault_token_account in the config",
-            "The vault token account holds the deposited vault tokens (e.g., PRIME)",
+            "The vault token account holds the deposited vault tokens (e.g., wYLDS)",
             "and is controlled by this program via the vault_authority PDA",
             "This ensures that only this program can move tokens out of the vault",
             "and prevents unauthorized access.",
@@ -389,7 +389,7 @@ export const HastraSolVaultStake = {
       docs: [
         "Completes the unbonding process after the period expires:",
         "- Burns unbonding tokens (e.g., uPRIME)",
-        "- Returns vault tokens (e.g., PRIME) to user",
+        "- Returns vault tokens (e.g., wYLDS) to user",
       ],
       discriminator: [184, 12, 86, 149, 70, 196, 97, 225],
       accounts: [

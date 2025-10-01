@@ -11,7 +11,7 @@ export const LEARNING_CATEGORIES: LearningCategory[] = [
     icon: Target,
     title: "Hastra",
     description:
-      "Master our platform, PRIME and HASH tokens, and the Provenance ecosystem.",
+      "Master our platform, wYLDS and HASH tokens, and the Provenance ecosystem.",
     trackCount: 1,
     level: LEARNING_LEVELS.BEGINNER,
     tracks: [
@@ -19,12 +19,12 @@ export const LEARNING_CATEGORIES: LearningCategory[] = [
         icon: Target,
         title: "Hastra for Dummies",
         description:
-          "Complete guide to PRIME and HASH tokens within the Provenance ecosystem.",
+          "Complete guide to wYLDS and HASH tokens within the Provenance ecosystem.",
         articles: [
           {
-            title: "What is PRIME and how to use it",
+            title: "What is wYLDS and how to use it",
             description:
-              "Complete overview of PRIME tokens, their purpose, and practical usage within the Provenance ecosystem.",
+              "Complete overview of wYLDS tokens, their purpose, and practical usage within the Provenance ecosystem.",
             readTime: "8 min read",
             difficulty: "Beginner",
           },
@@ -38,7 +38,7 @@ export const LEARNING_CATEGORIES: LearningCategory[] = [
           {
             title: "Strengthening Provenance ecosystem",
             description:
-              "How PRIME and HASH tokens contribute to and strengthen the broader Provenance blockchain ecosystem.",
+              "How wYLDS and HASH tokens contribute to and strengthen the broader Provenance blockchain ecosystem.",
             readTime: "10 min read",
             difficulty: "Intermediate",
           },

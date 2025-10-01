@@ -10,7 +10,7 @@ export const innovationFocusAreas = [
     description:
       "Reimagining how stable assets generate yield through regulatory-compliant mechanisms.",
     product:
-      "Current Product: PRIME - First SEC-registered yield-bearing stablecoin",
+      "Current Product: wYLDS - First SEC-registered yield-bearing stablecoin",
     innovation:
       "Bridging traditional finance regulations with DeFi accessibility.",
   },
@@ -34,7 +34,7 @@ export const innovationFocusAreas = [
 
 export const products = (apy?: number) => ({
   live: {
-    name: "PRIME",
+    name: "wYLDS",
     tagline: "Earn Yield on Your Stable",
     description: `TradFi Yields meets DeFi Velocity. Earn up to ${
       apy || 4
@@ -51,9 +51,9 @@ export const products = (apy?: number) => ({
   },
   sprime: {
     name: "sPRIME",
-    tagline: "Staked PRIME Token",
+    tagline: "Staked wYLDS Token",
     description:
-      "Stake your PRIME tokens to earn enhanced yields. Access professional-grade DeFi strategies with automated compounding and additional HASH token rewards.",
+      "Stake your wYLDS tokens to earn enhanced yields. Access professional-grade DeFi strategies with automated compounding and additional HASH token rewards.",
     innovation:
       "Professional-grade DeFi product with rigorous risk management and transparent operations.",
     status: "Coming Soon",
@@ -95,7 +95,7 @@ export const footerLinks = {
     { label: "(L)earn", href: "/learn" },
   ],
   products: [
-    { label: "PRIME", href: "/prime" },
+    { label: "wYLDS", href: "/wylds" },
     { label: "sPRIME", href: "/sprime" },
   ],
   legal: [

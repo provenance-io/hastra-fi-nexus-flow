@@ -64,7 +64,7 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({
                 Earn Up to 8% APY with sPRIME
               </h2>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                Stake PRIME to earn sustainable yield backed by real-world HELOC
+                Stake wYLDS to earn sustainable yield backed by real-world HELOC
                 lending operations.
               </p>
             </div>

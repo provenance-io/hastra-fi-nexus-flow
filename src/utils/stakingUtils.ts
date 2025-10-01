@@ -89,12 +89,12 @@ export const calculateExchangeRate = (
   primeAmount: string,
   sPrimeAmount: string
 ): string => {
-  const PRIME = parseFloat(primeAmount);
+  const wYLDS = parseFloat(primeAmount);
   const sPRIME = parseFloat(sPrimeAmount);
 
-  if (isNaN(PRIME) || isNaN(sPRIME) || PRIME === 0) return "1.0";
+  if (isNaN(wYLDS) || isNaN(sPRIME) || wYLDS === 0) return "1.0";
 
-  return (sPRIME / PRIME).toFixed(6);
+  return (sPRIME / wYLDS).toFixed(6);
 };
 
 export const estimateGasFee = (

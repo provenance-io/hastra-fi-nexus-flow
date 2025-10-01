@@ -30,7 +30,7 @@ const token = (address: string) => {
     case import.meta.env.VITE_SOLANA_USDC_MINT:
       return "USDC";
     case import.meta.env.VITE_SOLANA_PRIME_MINT:
-      return "PRIME";
+      return "wYLDS";
     case import.meta.env.VITE_SOLANA_SPRIME_MINT:
       return "sPRIME";
     default:
@@ -98,14 +98,14 @@ export const useTokenPortfolioQuery = (
             token: token(address),
             amount: amount,
             value: value,
-            apy: address === import.meta.env.VITE_SOLANA_PRIME_MINT ? 4.5 : 0, // Default APY for PRIME only
+            apy: address === import.meta.env.VITE_SOLANA_PRIME_MINT ? 4.5 : 0, // Default APY for wYLDS only
             totalInterestEarned: 0,
             unclaimedInterest:
               address === import.meta.env.VITE_SOLANA_PRIME_MINT
                 ? amount > 0
                   ? amount * 0.001
                   : 0
-                : 0, // Only PRIME has claimable yield when balance > 0
+                : 0, // Only wYLDS has claimable yield when balance > 0
             icon: hastraIcon,
             mint: mint.toBase58(),
             tokenAddress: ta.toBase58(),
@@ -139,14 +139,14 @@ export const useTokenPortfolio = () => {
     (tokenSymbol: string, claimedAmount: number) => {
       setTokens((prevTokens) =>
         prevTokens.map((token) => {
-          // Only allow claiming for PRIME and sPRIME tokens
+          // Only allow claiming for wYLDS and sPRIME tokens
           if (token.token === "USDC" || token.token === "HASH") {
             return token; // No claiming for USDC or HASH
           }
 
-          // For sPRIME claims, add PRIME instead of sPRIME
+          // For sPRIME claims, add wYLDS instead of sPRIME
           if (tokenSymbol === "sPRIME") {
-            if (token.token === "PRIME") {
+            if (token.token === "wYLDS") {
               return {
                 ...token,
                 amount: token.amount + claimedAmount,

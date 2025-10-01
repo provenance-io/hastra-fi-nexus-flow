@@ -10,7 +10,7 @@ const HERO_CONTENT = {
   MAIN_TITLE: "Learn DeFi",
   SUBTITLE: "Start Earning",
   DESCRIPTION:
-    "Master DeFi fundamentals and start earning with PRIME and sPRIME tokens.",
+    "Master DeFi fundamentals and start earning with wYLDS and sPRIME tokens.",
   CTA_PRIMARY: "Start Learning",
   CTA_SECONDARY: "Skip to Earning",
 } as const;
@@ -53,7 +53,7 @@ const HeroDescription = () => (
       }}
     >
       Master DeFi fundamentals and start earning with{" "}
-      <span className="font-semibold">PRIME</span> and{" "}
+      <span className="font-semibold">wYLDS</span> and{" "}
       <span className="font-semibold">sPRIME</span> tokens.
     </p>
   </div>

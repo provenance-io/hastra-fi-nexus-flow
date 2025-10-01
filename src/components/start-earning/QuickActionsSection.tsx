@@ -74,7 +74,7 @@ const QuickActionsSection = () => {
                 Start Earning Today
               </h2>
               <p className="text-muted-foreground text-lg">
-                Get PRIME and wHASH tokens on these trusted platforms
+                Get wYLDS and wHASH tokens on these trusted platforms
               </p>
             </div>
 

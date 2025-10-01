@@ -261,7 +261,7 @@ const MasteringDefiModal = ({ isOpen, onClose }: MasteringDefiModalProps) => {
                   </li>
                   <li className="flex items-start gap-2">
                     <div className="w-1 h-1 rounded-full bg-header-glow mt-2 flex-shrink-0" />
-                    <span>Explore PRIME and HASH tokens</span>
+                    <span>Explore wYLDS and HASH tokens</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <div className="w-1 h-1 rounded-full bg-header-glow mt-2 flex-shrink-0" />

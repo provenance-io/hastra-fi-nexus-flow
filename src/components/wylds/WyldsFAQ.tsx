@@ -5,37 +5,37 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const PRIMEFAQ = () => {
+const WyldsFAQ = () => {
   const faqs = [
     {
-      question: "What is PRIME?",
+      question: "What is wYLDS?",
       answer:
-        "PRIME is a token representing a vault of the YLDS token - the first SEC-registered, yield-bearing stablecoin. It combines the liquidity of traditional stablecoins with the earning power of a money market fund, automatically generating returns for holders.",
+        "wYLDS is a token representing a vault of the YLDS token - the first SEC-registered, yield-bearing stablecoin. It combines the liquidity of traditional stablecoins with the earning power of a money market fund, automatically generating returns for holders.",
     },
     {
-      question: "Do I need to stake PRIME in order to earn?",
+      question: "Do I need to stake wYLDS in order to earn?",
       answer:
-        "No, you don't need to stake PRIME to earn returns. Simply holding PRIME tokens in any compatible Solana wallet automatically makes you eligible for yield distributions. The earning process is completely passive - no additional actions required.",
+        "No, you don't need to stake wYLDS to earn returns. Simply holding wYLDS tokens in any compatible Solana wallet automatically makes you eligible for yield distributions. The earning process is completely passive - no additional actions required.",
     },
     {
-      question: "What happens if I send PRIME to a friend?",
+      question: "What happens if I send wYLDS to a friend?",
       answer:
-        "When you send PRIME tokens to a friend, they become the new holder and will start earning yield on those tokens from the next distribution cycle. You will no longer earn yield on the tokens you've transferred, as earnings are tied to current token ownership.",
+        "When you send wYLDS tokens to a friend, they become the new holder and will start earning yield on those tokens from the next distribution cycle. You will no longer earn yield on the tokens you've transferred, as earnings are tied to current token ownership.",
     },
     {
       question: "How is my yield calculated?",
       answer:
-        "Your yield is calculated based on the number of PRIME tokens you hold and the overall performance of the underlying YLDS vault. The calculation is automatic and proportional to your token holdings relative to the total supply.",
+        "Your yield is calculated based on the number of wYLDS tokens you hold and the overall performance of the underlying YLDS vault. The calculation is automatic and proportional to your token holdings relative to the total supply.",
     },
     {
       question: "Where can I see the yield I've earned?",
       answer:
-        "You can view your accruing yield on the Hastra Protocol Page. You can track your distributed yield directly in your Solana wallet balance. The yield is distributed as additional PRIME tokens, so your wallet balance will reflect both your original holdings and any earned yield up through the previous month. Additionally, you can monitor distributions through supported DeFi platforms.",
+        "You can view your accruing yield on the Hastra Protocol Page. You can track your distributed yield directly in your Solana wallet balance. The yield is distributed as additional wYLDS tokens, so your wallet balance will reflect both your original holdings and any earned yield up through the previous month. Additionally, you can monitor distributions through supported DeFi platforms.",
     },
     {
       question: "When do I receive my yield?",
       answer:
-        "PRIME distributions occur on a monthly basis. The exact distribution date may vary slightly each month, but you can expect to see your earned yield reflected in your wallet balance consistently every month as long as you hold PRIME tokens.",
+        "wYLDS distributions occur on a monthly basis. The exact distribution date may vary slightly each month, but you can expect to see your earned yield reflected in your wallet balance consistently every month as long as you hold wYLDS tokens.",
     },
   ];
 
@@ -90,7 +90,7 @@ const PRIMEFAQ = () => {
                           . You can track your{" "}
                           <strong>distributed yield</strong> directly in your
                           Solana wallet balance. The yield is distributed as
-                          additional PRIME tokens, so your wallet balance will
+                          additional wYLDS tokens, so your wallet balance will
                           reflect both your original holdings and any earned
                           yield up through the previous month. Additionally, you
                           can monitor distributions through supported DeFi
@@ -111,4 +111,4 @@ const PRIMEFAQ = () => {
   );
 };
 
-export default PRIMEFAQ;
+export default WyldsFAQ;

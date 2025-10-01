@@ -44,7 +44,7 @@ export const portfolioCards = [
   },
   {
     id: "yield-redeem",
-    title: "Redeem PRIME",
+    title: "Redeem wYLDS",
     subtitle: "Convert to USDC",
     icon: TrendingUp,
     accentIcon: Activity,
