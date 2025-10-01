@@ -20,7 +20,7 @@ export const tokenPoolData = {
 export const portfolioCards = [
   {
     id: "homes-pool",
-    title: "sPRIME Token Pool",
+    title: "PRIME Token Pool",
     subtitle: "Join the RWA Revolution",
     icon: Home,
     accentIcon: BarChart3,

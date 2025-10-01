@@ -21,7 +21,7 @@ export const HastraSolVaultStake = {
         "•\tStore each epoch’s Merkle root in a PDA.",
         "•\tWhen a user claims, they present (amount, proof) for their pubkey.",
         "•\tThe program verifies the Merkle proof against the root.",
-        "•\tIf valid, transfer reward tokens (sPRIME) from the rewards vault to the user's staking mint token account.",
+        "•\tIf valid, transfer reward tokens (PRIME) from the rewards vault to the user's staking mint token account.",
         "•\tMark the claim as redeemed so they can’t double-claim.",
       ],
       discriminator: [4, 144, 132, 71, 116, 23, 151, 80],
@@ -174,7 +174,7 @@ export const HastraSolVaultStake = {
       docs: [
         "Handles user deposits of vault tokens (e.g., wYLDS):",
         "- Transfers vault tokens to program vault account",
-        "- Mints equivalent amount of stake tokens (e.g., sPRIME) to user",
+        "- Mints equivalent amount of stake tokens (e.g., PRIME) to user",
       ],
       discriminator: [242, 35, 198, 137, 82, 225, 242, 182],
       accounts: [
@@ -288,7 +288,7 @@ export const HastraSolVaultStake = {
       docs: [
         "Initializes the vault program with the required token configurations:",
         "- vault_mint: The token that users deposit (e.g., wYLDS)",
-        "- stake_mint: The token users receive when staking (e.g., sPRIME)",
+        "- stake_mint: The token users receive when staking (e.g., PRIME)",
         "- unbonding_period: Time in seconds users must wait before redeeming",
       ],
       discriminator: [175, 175, 109, 31, 13, 152, 155, 237],
@@ -569,7 +569,7 @@ export const HastraSolVaultStake = {
       name: "unbond",
       docs: [
         "Initiates the unbonding process:",
-        "- Burns user's stake tokens (e.g., sPRIME)",
+        "- Burns user's stake tokens (e.g., PRIME)",
         "- Starts unbonding period timer via user ticket",
       ],
       discriminator: [151, 129, 36, 46, 102, 195, 111, 122],

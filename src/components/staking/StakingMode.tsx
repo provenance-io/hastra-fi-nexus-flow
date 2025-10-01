@@ -34,7 +34,7 @@ const StakingMode: React.FC<{ canStake: boolean }> = ({ canStake }) => {
           </div>
           <div className="text-center p-3 bg-secondary/20 rounded-lg border border-border/20">
             <div className="text-lg font-semibold text-foreground">
-              {formatStakingAmount(userBalance.sPRIME)}
+              {formatStakingAmount(userBalance.PRIME)}
             </div>
             <div className="text-xs text-muted-foreground">Total Staked</div>
           </div>
@@ -117,7 +117,7 @@ const StakingMode: React.FC<{ canStake: boolean }> = ({ canStake }) => {
                   <div className="flex items-center space-x-2">
                     <TrendingUp className="h-4 w-4 text-amber-warm" />
                     <span className="text-sm font-medium text-amber-warm">
-                      ~{formatStakingAmount(stakingForm.estimatedOutput)} sPRIME
+                      ~{formatStakingAmount(stakingForm.estimatedOutput)} PRIME
                     </span>
                   </div>
                 </div>
@@ -127,7 +127,7 @@ const StakingMode: React.FC<{ canStake: boolean }> = ({ canStake }) => {
                     <span>{formatStakingAmount(stakingForm.amount)} wYLDS</span>
                     <ArrowRight className="h-4 w-4" />
                     <span>
-                      {formatStakingAmount(stakingForm.estimatedOutput)} sPRIME
+                      {formatStakingAmount(stakingForm.estimatedOutput)} PRIME
                     </span>
                   </div>
                 </div>
@@ -136,7 +136,7 @@ const StakingMode: React.FC<{ canStake: boolean }> = ({ canStake }) => {
                   <div className="flex justify-between text-xs">
                     <span className="text-muted-foreground">Exchange Rate</span>
                     <span className="font-medium">
-                      1 wYLDS = {protocolData.exchangeRate} sPRIME
+                      1 wYLDS = {protocolData.exchangeRate} PRIME
                     </span>
                   </div>
                   <div className="flex justify-between text-xs">

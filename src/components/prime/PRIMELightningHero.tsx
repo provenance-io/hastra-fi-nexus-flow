@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Sphere, MeshDistortMaterial } from "@react-three/drei";
-import SPRIMETransformationToken from "./SPRIMETransformationToken";
+import PRIMETransformationToken from "./PRIMETransformationToken";
 
 function LightningOrb() {
   const meshRef = useRef<THREE.Mesh>(null!);
@@ -59,7 +59,7 @@ function ElectricField() {
   );
 }
 
-const SPRIMELightningHero = () => {
+const PRIMELightningHero = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -157,7 +157,7 @@ const SPRIMELightningHero = () => {
 
           <ElectricField />
           <LightningOrb />
-          <SPRIMETransformationToken />
+          <PRIMETransformationToken />
         </Canvas>
       </div>
 
@@ -167,4 +167,4 @@ const SPRIMELightningHero = () => {
   );
 };
 
-export default SPRIMELightningHero;
+export default PRIMELightningHero;

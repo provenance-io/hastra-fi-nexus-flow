@@ -83,16 +83,16 @@ const Terms = () => {
                       <li>Connect a compatible digital wallet;</li>
                       <li>Lock up USDC (a U.S. dollar–backed stablecoin);</li>
                       <li>
-                        Receive in return a Solana-based token, sPRIME,
+                        Receive in return a Solana-based token, PRIME,
                         representing a claim against fully collateralized assets
                         held by Hastra.
                       </li>
                     </ul>
                     <p>
-                      The sPRIME token is backed 1:1 by YLDS, a yield-bearing
+                      The PRIME token is backed 1:1 by YLDS, a yield-bearing
                       stablecoin issued by Figure and registered with the U.S.
                       Securities and Exchange Commission (SEC). Hastra holds
-                      YLDS as collateral for sPRIME, but does not issue YLDS and
+                      YLDS as collateral for PRIME, but does not issue YLDS and
                       makes no representations or warranties whatsoever
                       regarding the nature, risk profile, regulatory status, or
                       performance of YLDS or any associated parties.
@@ -104,7 +104,7 @@ const Terms = () => {
                       2A. Yield Mechanism
                     </h3>
                     <p>
-                      Holders of sPRIME may accrue yield over time, which is
+                      Holders of PRIME may accrue yield over time, which is
                       distributed based on the underlying performance of the
                       collateralized YLDS tokens. Yield is accumulated and held
                       in a designated smart contract. Users who wish to claim
@@ -112,7 +112,7 @@ const Terms = () => {
                     </p>
                     <ul className="list-disc pl-6 space-y-2">
                       <li>Visit the Site at https://hastra.io;</li>
-                      <li>Connect their wallet holding sPRIME;</li>
+                      <li>Connect their wallet holding PRIME;</li>
                       <li>
                         Follow on-screen prompts to initiate a claim
                         transaction.
@@ -136,7 +136,7 @@ const Terms = () => {
                       3. No Custodial Relationship
                     </h2>
                     <p>
-                      While Hastra facilitates the exchange of USDC for sPRIME
+                      While Hastra facilitates the exchange of USDC for PRIME
                       through its interfaces and smart contracts, Hastra does
                       not act as a custodian of user funds. Users retain full
                       control of their wallets and initiate all transactions
@@ -341,7 +341,7 @@ const Terms = () => {
                       </li>
                       <li>
                         You understand that your participation in any
-                        distribution of sPRIME is entirely at your own risk;
+                        distribution of PRIME is entirely at your own risk;
                       </li>
                       <li>
                         You will not interfere with, disrupt, or harm the
@@ -400,7 +400,7 @@ const Terms = () => {
                     </h3>
                     <p>
                       By using the Site, including but not limited to
-                      participating in any distribution of sPRIME, you represent
+                      participating in any distribution of PRIME, you represent
                       and warrant that you are not:
                     </p>
                     <ul className="list-disc pl-6 space-y-2">

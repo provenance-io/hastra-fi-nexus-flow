@@ -10,8 +10,8 @@ const resources = [
     icon: ExternalLink,
   },
   {
-    title: "sPRIME Whitepaper",
-    description: "Read the full technical details and vision for sPRIME.",
+    title: "PRIME Whitepaper",
+    description: "Read the full technical details and vision for PRIME.",
     href: "#",
     icon: File,
   },

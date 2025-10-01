@@ -20,7 +20,7 @@ const formatHolders = (holders: string): string => {
   return holders;
 };
 
-const SPRIMEMetrics = () => {
+const PRIMEMetrics = () => {
   const { data: currentAPR, isLoading: apyLoading } = useQuery({
     queryKey: ["currentAPR"],
     queryFn: fetchCurrentAPR,
@@ -105,10 +105,10 @@ const SPRIMEMetrics = () => {
       <div className="container">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Live sPRIME Metrics
+            Live PRIME Metrics
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Real-time data showing the performance and growth of the sPRIME
+            Real-time data showing the performance and growth of the PRIME
             ecosystem
           </p>
         </div>
@@ -152,4 +152,4 @@ const SPRIMEMetrics = () => {
   );
 };
 
-export default SPRIMEMetrics;
+export default PRIMEMetrics;

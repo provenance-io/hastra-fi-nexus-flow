@@ -85,7 +85,7 @@ const comprehensiveGuides = [
   },
   {
     id: 3,
-    title: "sPRIME Staking Investment",
+    title: "PRIME Staking Investment",
     description: "Real World Asset pools and yield optimization",
     difficulty: "Intermediate",
     duration: "20 min read",

@@ -17,7 +17,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import WyldsPage from "./pages/wYLDs";
-import SPRIMEPage from "./pages/sPRIME";
+import PRIMEPage from "./pages/PRIME";
 import HOMESPage from "./pages/HOMES";
 import SendIt from "./pages/SendIt";
 import Learn from "./pages/Learn";
@@ -67,7 +67,7 @@ const App = () => (
                   <Route path="/brand-guide" element={<BrandGuidePage />} />
 
                   <Route path="/wylds" element={<WyldsPage />} />
-                  <Route path="/sprime" element={<SPRIMEPage />} />
+                  <Route path="/prime" element={<PRIMEPage />} />
                   <Route path="/homes" element={<HOMESPage />} />
                   <Route path="/sendit" element={<SendIt />} />
                   {isFeatureEnabled("testPagesEnabled") && (

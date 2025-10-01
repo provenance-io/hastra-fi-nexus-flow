@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
-import SPRIMEHero from "../components/prime/SPRIMEHero";
-import SPRIMEMetrics from "../components/prime/SPRIMEMetrics";
-import SPRIMEHowItWorks from "../components/prime/SPRIMEHowItWorks";
-import SPRIMEValueProposition from "../components/prime/SPRIMEValueProposition";
-import SPRIMEInvestmentDetails from "../components/prime/SPRIMEInvestmentDetails";
-import SPRIMELeveragedLooping from "../components/prime/SPRIMEYieldComparison";
-import SPRIMEFinalCTA from "../components/prime/SPRIMEFinalCTA";
+import PRIMEHero from "../components/prime/PRIMEHero";
+import PRIMEMetrics from "../components/prime/PRIMEMetrics";
+import PRIMEHowItWorks from "../components/prime/PRIMEHowItWorks";
+import PRIMEValueProposition from "../components/prime/PRIMEValueProposition";
+import PRIMEInvestmentDetails from "../components/prime/PRIMEInvestmentDetails";
+import PRIMELeveragedLooping from "../components/prime/PRIMEYieldComparison";
+import PRIMEFinalCTA from "../components/prime/PRIMEFinalCTA";
 import HOMESComingSoonModal from "../components/homes/HOMESComingSoonModal";
 import ProvenanceBranding from "../components/ProvenanceBranding";
 
-const SPRIMEPage = () => {
+const PRIMEPage = () => {
   const [showModal, setShowModal] = useState(false);
 
   // Start with page accessible for now to avoid blocking content
@@ -41,13 +41,13 @@ const SPRIMEPage = () => {
             !pageAccessible ? "content-protection" : "content-accessible"
           }`}
         >
-          <SPRIMEHero />
-          <SPRIMEHowItWorks />
-          <SPRIMEValueProposition />
-          <SPRIMEInvestmentDetails />
-          <SPRIMELeveragedLooping />
-          <SPRIMEFinalCTA />
-          <SPRIMEMetrics />
+          <PRIMEHero />
+          <PRIMEHowItWorks />
+          <PRIMEValueProposition />
+          <PRIMEInvestmentDetails />
+          <PRIMELeveragedLooping />
+          <PRIMEFinalCTA />
+          <PRIMEMetrics />
           <ProvenanceBranding />
         </div>
       </div>
@@ -55,4 +55,4 @@ const SPRIMEPage = () => {
   );
 };
 
-export default SPRIMEPage;
+export default PRIMEPage;

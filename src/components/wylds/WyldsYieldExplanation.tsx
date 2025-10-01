@@ -430,8 +430,6 @@ const WyldsYieldExplanation = () => {
           </div>
         </div>
 
-        {/* Watch sPRIME as it Grows text section */}
-
         {/* By the Numbers Dashboard Box */}
         <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
           <div className="relative z-10">

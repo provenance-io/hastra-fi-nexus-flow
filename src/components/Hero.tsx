@@ -192,8 +192,8 @@ const Hero = () => {
               className="min-w-[200px] group"
               asChild
             >
-              <Link to="/sprime">
-                Explore sPRIME
+              <Link to="/prime">
+                Explore PRIME
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>

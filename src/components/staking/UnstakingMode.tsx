@@ -39,10 +39,10 @@ const UnstakingMode: React.FC<{ canUnstake: boolean }> = ({ canUnstake }) => {
           </div>
           <div className="text-right">
             <div className="font-semibold text-foreground">
-              {formatStakingAmount(userBalance.sPRIME)} sPRIME
+              {formatStakingAmount(userBalance.PRIME)} PRIME
             </div>
             <div className="text-xs text-muted-foreground">
-              ${(parseFloat(userBalance.sPRIME) * 1.0).toFixed(2)}
+              ${(parseFloat(userBalance.PRIME) * 1.0).toFixed(2)}
             </div>
           </div>
         </div>
@@ -89,7 +89,7 @@ const UnstakingMode: React.FC<{ canUnstake: boolean }> = ({ canUnstake }) => {
                 disabled={isTransacting}
               />
               <div className="absolute right-3 top-1/2 -translate-y-1/2">
-                <span className="text-sm text-muted-foreground">sPRIME</span>
+                <span className="text-sm text-muted-foreground">PRIME</span>
               </div>
             </div>
 
@@ -125,7 +125,7 @@ const UnstakingMode: React.FC<{ canUnstake: boolean }> = ({ canUnstake }) => {
                 <div className="flex items-center justify-center py-2">
                   <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                     <span>
-                      {formatStakingAmount(unstakingForm.amount)} sPRIME
+                      {formatStakingAmount(unstakingForm.amount)} PRIME
                     </span>
                     <ArrowRight className="h-4 w-4" />
                     <span>
@@ -138,7 +138,7 @@ const UnstakingMode: React.FC<{ canUnstake: boolean }> = ({ canUnstake }) => {
                   <div className="flex justify-between text-xs">
                     <span className="text-muted-foreground">Exchange Rate</span>
                     <span className="font-medium">
-                      1 sPRIME = {protocolData.exchangeRate} wYLDS
+                      1 PRIME = {protocolData.exchangeRate} wYLDS
                     </span>
                   </div>
                   <div className="flex justify-between text-xs">
@@ -177,7 +177,7 @@ const UnstakingMode: React.FC<{ canUnstake: boolean }> = ({ canUnstake }) => {
               </>
             ) : (
               <>
-                Unstake {unstakingForm.amount || "0"} sPRIME
+                Unstake {unstakingForm.amount || "0"} PRIME
                 <ArrowRight className="ml-2 h-4 w-4 text-[hsl(48_100%_67%)]" />
               </>
             )}
@@ -187,7 +187,7 @@ const UnstakingMode: React.FC<{ canUnstake: boolean }> = ({ canUnstake }) => {
     ))
     .otherwise(() => (
       <div className="flex items-center justify-between">
-        You must have SOL and sPRIME in your wallet to unstake.
+        You must have SOL and PRIME in your wallet to unstake.
       </div>
     ));
 };

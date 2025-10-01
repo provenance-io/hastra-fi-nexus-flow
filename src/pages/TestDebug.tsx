@@ -70,10 +70,10 @@ const TestDebug = () => {
         return import.meta.env.VITE_FEATURE_BRAND_GUIDE_ENABLED !== "false";
 
       // Product pages
+      case "wyldsEnabled":
+        return import.meta.env.VITE_FEATURE_WYLDS_ENABLED !== "false";
       case "primeEnabled":
         return import.meta.env.VITE_FEATURE_PRIME_ENABLED !== "false";
-      case "sPrimeEnabled":
-        return import.meta.env.VITE_FEATURE_SPRIME_ENABLED !== "false";
       case "homesEnabled":
         return import.meta.env.VITE_FEATURE_HOMES_ENABLED === "true";
       case "senditEnabled":

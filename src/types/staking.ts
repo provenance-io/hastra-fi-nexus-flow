@@ -1,10 +1,6 @@
 export interface StakingState {
   // User Data
-  userBalance: {
-    wYLDS: string;
-    sPRIME: string;
-    isLoading: boolean;
-  };
+  userBalance: UserBalance;
 
   // Widget Mode
   widgetMode: "stake" | "unstake";
@@ -127,7 +123,7 @@ export type TransactionStatus =
 
 export interface UserBalance {
   wYLDS: string;
-  sPRIME: string;
+  PRIME: string;
   isLoading: boolean;
 }
 

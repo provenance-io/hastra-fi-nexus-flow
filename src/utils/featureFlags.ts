@@ -10,8 +10,8 @@ export interface FeatureFlags {
   brandGuideEnabled: boolean;
 
   // Product pages
+  wyldsEnabled: boolean;
   primeEnabled: boolean;
-  sPrimeEnabled: boolean;
   homesEnabled: boolean;
   senditEnabled: boolean;
 
@@ -108,10 +108,10 @@ export const isFeatureEnabled = (feature: keyof FeatureFlags): boolean => {
       return getEnvFlag("VITE_FEATURE_BRAND_GUIDE_ENABLED", true);
 
     // Product pages - default disabled
+    case "wyldsEnabled":
+      return getEnvFlag("VITE_FEATURE_WYLDS_ENABLED", true);
     case "primeEnabled":
       return getEnvFlag("VITE_FEATURE_PRIME_ENABLED", true);
-    case "sPrimeEnabled":
-      return getEnvFlag("VITE_FEATURE_SPRIME_ENABLED", true);
     case "homesEnabled":
       return getEnvFlag("VITE_FEATURE_HOMES_ENABLED", false);
     case "senditEnabled":
@@ -171,8 +171,8 @@ export const getFeatureFlags = (): FeatureFlags => ({
   brandGuideEnabled: isFeatureEnabled("brandGuideEnabled"),
 
   // Product pages
+  wyldsEnabled: isFeatureEnabled("wyldsEnabled"),
   primeEnabled: isFeatureEnabled("primeEnabled"),
-  sPrimeEnabled: isFeatureEnabled("sPrimeEnabled"),
   homesEnabled: isFeatureEnabled("homesEnabled"),
   senditEnabled: isFeatureEnabled("senditEnabled"),
 
@@ -193,8 +193,8 @@ export const pageRoutes = {
   termsEnabled: { path: "/terms", name: "Terms" },
   privacyEnabled: { path: "/privacy", name: "Privacy" },
   brandGuideEnabled: { path: "/brand-guide", name: "Brand Guide" },
-  primeEnabled: { path: "/wylds", name: "wYLDS" },
-  sPrimeEnabled: { path: "/sprime", name: "sPRIME" },
+  wyldsEnabled: { path: "/wylds", name: "wYLDS" },
+  primeEnabled: { path: "/prime", name: "PRIME" },
   homesEnabled: { path: "/homes", name: "HOMES" },
   senditEnabled: { path: "/sendit", name: "Send It" },
   testPagesEnabled: { path: "/test-debug", name: "Test Debug" },

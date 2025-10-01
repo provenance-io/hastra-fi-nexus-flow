@@ -7,7 +7,7 @@ interface LeveragePool {
 
 /**
  * TODO: Update this with hastra endpoint
- * @returns sPRIME current APR
+ * @returns PRIME current APR
  */
 export const fetchCurrentAPR = async (): Promise<number> => {
   const response = await fetch(

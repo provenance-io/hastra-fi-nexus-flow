@@ -1,6 +1,6 @@
 import { Rocket, DollarSign, Clock } from "lucide-react";
 
-const SPRIMEFinalCTA = () => {
+const PRIMEFinalCTA = () => {
   return (
     <section className="py-16 px-4 relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 relative z-10">
@@ -37,4 +37,4 @@ const SPRIMEFinalCTA = () => {
   );
 };
 
-export default SPRIMEFinalCTA;
+export default PRIMEFinalCTA;

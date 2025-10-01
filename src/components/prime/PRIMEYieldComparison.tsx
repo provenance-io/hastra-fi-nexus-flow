@@ -5,7 +5,7 @@ import { ExternalLink, Repeat, TrendingUp, Zap } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchCurrentAPR } from "@/utils/solana-utils";
 
-const SPRIMELeveragedLooping = () => {
+const PRIMELeveragedLooping = () => {
   // TODO: Replace this with a single hook
   const { data: currentAPR, isLoading: apyLoading } = useQuery({
     queryKey: ["currentAPR"],
@@ -21,7 +21,7 @@ const SPRIMELeveragedLooping = () => {
             Leveraged Looping with Kamino
           </h2>
           <p className="text-lg text-foreground/70 max-w-3xl mx-auto">
-            Maximize your sPRIME potential through leverage strategies while
+            Maximize your PRIME potential through leverage strategies while
             maintaining your base{" "}
             {currentAPR ? currentAPR.toFixed(1) : "Loading..."}% yield
           </p>
@@ -48,16 +48,16 @@ const SPRIMELeveragedLooping = () => {
               {[
                 {
                   icon: Zap,
-                  title: "Deposit sPRIME",
+                  title: "Deposit PRIME",
                   description:
-                    "Use your sPRIME as collateral on Kamino lending pools",
+                    "Use your PRIME as collateral on Kamino lending pools",
                   step: "1",
                 },
                 {
                   icon: Repeat,
                   title: "Borrow & Loop",
                   description:
-                    "Borrow against your sPRIME and use proceeds to acquire more sPRIME",
+                    "Borrow against your PRIME and use proceeds to acquire more PRIME",
                   step: "2",
                 },
                 {
@@ -102,7 +102,7 @@ const SPRIMELeveragedLooping = () => {
             <div className="grid gap-6 md:grid-cols-3">
               {[
                 {
-                  title: "Base sPRIME",
+                  title: "Base PRIME",
                   apy: "9.2%",
                   description: "Standard staking yield from HELOC operations",
                   risk: "Low",
@@ -207,4 +207,4 @@ const SPRIMELeveragedLooping = () => {
   );
 };
 
-export default SPRIMELeveragedLooping;
+export default PRIMELeveragedLooping;

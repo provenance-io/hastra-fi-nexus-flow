@@ -23,8 +23,8 @@ export interface WalletState {
   totalBalance: number;
   solBalance: number;
   usdcBalance: number;
+  wyldsBalance: number;
   primeBalance: number;
-  sPrimeBalance: number;
 }
 
 export interface WalletContextType extends WalletState {
@@ -56,8 +56,8 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     totalBalance: 0,
     solBalance: 0,
     usdcBalance: 0,
+    wyldsBalance: 0,
     primeBalance: 0,
-    sPrimeBalance: 0,
   });
 
   const { toast } = useToast();
@@ -75,11 +75,11 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const { data: solBalance, refetch: refetchSolBalanceQuery } =
     useSolBalanceQuery(publicKey);
 
+  const { data: wyldsBalance, refetch: refetchWyldsBalanceQuery } =
+    useAtaBalanceQuery(publicKey, import.meta.env.VITE_SOLANA_WYLDS_MINT);
+
   const { data: primeBalance, refetch: refetchPrimeBalanceQuery } =
     useAtaBalanceQuery(publicKey, import.meta.env.VITE_SOLANA_PRIME_MINT);
-
-  const { data: sPrimeBalance, refetch: refetchSPrimeBalanceQuery } =
-    useAtaBalanceQuery(publicKey, import.meta.env.VITE_SOLANA_SPRIME_MINT);
 
   const { data: usdcBalance, refetch: refetchUSDCBalanceQuery } =
     useAtaBalanceQuery(publicKey, import.meta.env.VITE_SOLANA_USDC_MINT);
@@ -103,8 +103,8 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     const portfolioBalance = () => {
       return (
         valueOrZero(geckoPrice?.solana?.usd) * valueOrZero(solBalance) +
+        valueOrZero(wyldsBalance) +
         valueOrZero(primeBalance) +
-        valueOrZero(sPrimeBalance) +
         valueOrZero(usdcBalance)
       );
     };
@@ -118,8 +118,8 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       totalBalance: connected ? portfolioBalance() : 0,
       solBalance: solBalance || 0,
       usdcBalance: Number(usdcBalance) || 0,
-      primeBalance: Number(primeBalance) || 0,
-      sPrimeBalance: Number(sPrimeBalance) || 0,
+      primeBalance: Number(wyldsBalance) || 0,
+      sPrimeBalance: Number(primeBalance) || 0,
       networkError: null,
     }));
 
@@ -143,8 +143,8 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     walletState.isConnected,
     solBalance,
     usdcBalance,
+    wyldsBalance,
     primeBalance,
-    sPrimeBalance,
     geckoPrice?.solana?.usd,
   ]);
 
@@ -190,8 +190,8 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         totalBalance: 0,
         solBalance: 0,
         usdcBalance: 0,
+        wyldsBalance: 0,
         primeBalance: 0,
-        sPrimeBalance: 0,
       });
 
       toast({
@@ -212,8 +212,8 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         totalBalance: 0,
         solBalance: 0,
         usdcBalance: 0,
+        wyldsBalance: 0,
         primeBalance: 0,
-        sPrimeBalance: 0,
       });
     }
   };

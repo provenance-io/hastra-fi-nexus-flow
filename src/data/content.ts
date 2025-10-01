@@ -49,8 +49,8 @@ export const products = (apy?: number) => ({
     //   { label: "Active Users", value: "12,403" },
     // ],
   },
-  sprime: {
-    name: "sPRIME",
+  PRIME: {
+    name: "PRIME",
     tagline: "Staked wYLDS Token",
     description:
       "Stake your wYLDS tokens to earn enhanced yields. Access professional-grade DeFi strategies with automated compounding and additional HASH token rewards.",
@@ -96,7 +96,7 @@ export const footerLinks = {
   ],
   products: [
     { label: "wYLDS", href: "/wylds" },
-    { label: "sPRIME", href: "/sprime" },
+    { label: "PRIME", href: "/prime" },
   ],
   legal: [
     { label: "Terms", href: "/terms" },

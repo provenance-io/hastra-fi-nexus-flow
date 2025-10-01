@@ -3,7 +3,7 @@ import { useFrame, useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three";
 import * as THREE from "three";
 
-const SPRIMETransformationToken = () => {
+const PRIMETransformationToken = () => {
   const meshRef = useRef<THREE.Mesh>(null!);
   const [hovered, setHovered] = useState(false);
 
@@ -12,13 +12,13 @@ const SPRIMETransformationToken = () => {
     TextureLoader,
     "/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png"
   );
-  // Load sPRIME texture
+  // Load PRIME texture
   const textureFallback: THREE.Texture | null = useLoader(
     TextureLoader,
     "/lovable-uploads/cb25764a-a760-4bdf-9502-6b82befb91eb.png"
   );
   if (!texture && !textureFallback) {
-    console.error("Failed to load sPRIME texture");
+    console.error("Failed to load PRIME texture");
   }
 
   useFrame((state) => {
@@ -69,4 +69,4 @@ const SPRIMETransformationToken = () => {
   );
 };
 
-export default SPRIMETransformationToken;
+export default PRIMETransformationToken;

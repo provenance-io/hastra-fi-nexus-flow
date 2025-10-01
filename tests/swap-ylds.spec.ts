@@ -53,4 +53,7 @@ test("Swap YLDS", async ({ page }) => {
   await page.getByPlaceholder("Enter amount in USD").click();
   await page.getByPlaceholder("Enter amount in USD").fill("1");
   await page.getByRole("button", { name: "Swap USDC for wYLDSdevnet" }).click();
+  await expect(
+    page.getByText("Swapped 1 USD for 1.000000 wYLDSdevnet", { exact: true })
+  ).toBeVisible();
 });

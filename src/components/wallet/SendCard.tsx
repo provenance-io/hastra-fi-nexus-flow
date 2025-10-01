@@ -73,13 +73,13 @@ const SendCard = ({ canSend }: { canSend: boolean }) => {
   };
 
   const icon = (address: string, defaultIcon: string = hastraIcon) => {
-    if (address === "sPRIME")
+    if (address === "PRIME")
       return "/lovable-uploads/e7aaba79-32ba-4351-820f-5388f7bed1c2.png";
     if (address === wYLDS)
       return "/lovable-uploads/d73baf3a-34c8-4ad7-8378-e419bb8268ff.png";
     if (address === USDC)
       return "/lovable-uploads/4bfd88a4-fef5-42d3-81d9-236145936adc.png";
-    if (address === "sPRIME")
+    if (address === "PRIME")
       return "/lovable-uploads/fa075607-859f-443d-828d-52aff1ecade8.png";
     if (address === "hash-mock") return "/src/assets/hash-icon.png";
     const t = tokens.find((t) => t.address === address);
@@ -373,7 +373,7 @@ const SendCard = ({ canSend }: { canSend: boolean }) => {
           ))
           .otherwise(() => (
             <div className="flex items-center justify-between">
-              You must have SOL and USDC, wYLDS, or sPRIME in your wallet to
+              You must have SOL and USDC, wYLDS, or PRIME in your wallet to
               send.
             </div>
           ))}

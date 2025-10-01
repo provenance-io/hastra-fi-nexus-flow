@@ -1,7 +1,7 @@
-import SPRIMELightningHero from "./SPRIMELightningHero";
+import PRIMELightningHero from "./PRIMELightningHero";
 
-const SPRIMEAnimatedHero = () => {
-  return <SPRIMELightningHero />;
+const PRIMEAnimatedHero = () => {
+  return <PRIMELightningHero />;
 };
 
-export default SPRIMEAnimatedHero;
+export default PRIMEAnimatedHero;

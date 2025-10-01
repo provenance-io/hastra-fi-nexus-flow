@@ -13,7 +13,7 @@ import { useToast } from "@/hooks/use-toast";
 import hastraIcon from "/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png";
 import { useTokenPortfolio } from "@/hooks/useTokenPortfolio.ts";
 import { useCoinGeckoPrice } from "@/hooks/useSolanaQuery.ts";
-import { sPRIME, USDC, wYLDS } from "@/types/tokens";
+import { PRIME, USDC, wYLDS } from "@/types/tokens";
 import { useDepositAndMint } from "@/hooks/use-solana-tx.ts";
 import { AnchorError } from "@coral-xyz/anchor";
 import { match } from "ts-pattern";
@@ -36,7 +36,7 @@ const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
     o["SOL"] = (geckoPrice?.solana?.usd as number) || 0; // SOL to USD
     o[USDC] = 1; // USDC to USD
     o[wYLDS] = 1; // wYLDS to USD
-    o[sPRIME] = 1; // sPRIME to wYLDS (1:1 with USD for now)
+    o[PRIME] = 1; // PRIME to wYLDS (1:1 with USD for now)
     o["HASH"] = (geckoPrice?.["hash-2"]?.usd as number) || 0; // HASH to USD
 
     setExchangeRate(o);
@@ -101,7 +101,6 @@ const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
     invoke(Number(amount))
       .then((response) => {
         setTxId(response.txId);
-        console.log("MY RESPONSE TX ID", response.txId);
         toast({
           title: "Success",
           description: `Swapped ${amount} ${
@@ -412,7 +411,7 @@ const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
           .otherwise(() => (
             <div className="flex items-center justify-between">
               You must have SOL and USDC in your wallet to buy wYLDS or stake
-              sPRIME.
+              PRIME.
             </div>
           ))}
       </div>

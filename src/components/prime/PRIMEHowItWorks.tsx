@@ -7,25 +7,25 @@ const steps = (rate: string) => [
   {
     number: "1",
     icon: Coins,
-    title: "Get PRIME",
+    title: "Get wYLDS",
     description:
-      "Acquire PRIME tokens backed by Figure Markets' SEC-registered YLDS stablecoin",
+      "Acquire wYLDS tokens backed by Figure Markets' SEC-registered YLDS stablecoin",
     details:
-      "Purchase PRIME on supported exchanges or mint directly through Hastra Protocol",
+      "Purchase wYLDS on supported exchanges or mint directly through Hastra Protocol",
   },
   {
     number: "2",
     icon: Layers,
-    title: "Stake for sPRIME",
-    description: `Stake your PRIME on Hastra to receive sPRIME and start earning ${rate}% APY immediately`,
-    details: "Simple one-click staking process with instant sPRIME receipt",
+    title: "Stake for PRIME",
+    description: `Stake your PRIME on Hastra to receive PRIME and start earning ${rate}% APY immediately`,
+    details: "Simple one-click staking process with instant PRIME receipt",
   },
   {
     number: "3",
     icon: TrendingUp,
     title: "Earn Real Yield",
     description:
-      "Your sPRIME earns yield from DemoPrime's HELOC lending operations - real assets, real returns",
+      "Your PRIME earns yield from DemoPrime's HELOC lending operations - real assets, real returns",
     details:
       "Yield is automatically compounded and distributed based on real lending performance",
   },
@@ -33,13 +33,13 @@ const steps = (rate: string) => [
     number: "4",
     icon: Zap,
     title: "Use in DeFi",
-    description: `Leverage your sPRIME on Kamino for enhanced yields while maintaining your base ${rate}% earnings`,
+    description: `Leverage your PRIME on Kamino for enhanced yields while maintaining your base ${rate}% earnings`,
     details:
-      "Collateralize sPRIME for loans or use in leverage strategies for up to 12% total yield",
+      "Collateralize PRIME for loans or use in leverage strategies for up to 12% total yield",
   },
 ];
 
-const SPRIMEHowItWorks = () => {
+const PRIMEHowItWorks = () => {
   // TODO: Replace this with a single hook
   const { data: currentAPR, isLoading: apyLoading } = useQuery({
     queryKey: ["currentAPR"],
@@ -49,12 +49,12 @@ const SPRIMEHowItWorks = () => {
   return (
     <section className="py-16 px-4 relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 relative z-10">
-        {/* Combined Dashboard Box - How sPRIME Works */}
+        {/* Combined Dashboard Box - How PRIME Works */}
         <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
           <div className="relative z-10">
             <div className="text-center mb-16">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground/90 mb-4">
-                How sPRIME Works
+                How PRIME Works
               </h2>
               <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
                 Simple staking, powerful yields
@@ -104,7 +104,7 @@ const SPRIMEHowItWorks = () => {
             {/* Bottom CTA */}
             <div className="text-center mt-12">
               <p className="text-muted-foreground mb-4">
-                Ready to start earning with sPRIME?
+                Ready to start earning with PRIME?
               </p>
               <div className="inline-flex items-center space-x-2 text-sm text-crypto-accent">
                 <span>Simple • Secure • Sustainable</span>
@@ -117,4 +117,4 @@ const SPRIMEHowItWorks = () => {
   );
 };
 
-export default SPRIMEHowItWorks;
+export default PRIMEHowItWorks;

@@ -26,13 +26,13 @@ const features = (rate: string) => [
   {
     icon: Zap,
     title: "DeFi Compatible",
-    description: `Use your sPRIME as collateral in DeFi protocols while continuing to earn your ${rate}% base yield. Maximum capital efficiency.`,
+    description: `Use your PRIME as collateral in DeFi protocols while continuing to earn your ${rate}% base yield. Maximum capital efficiency.`,
   },
   {
     icon: Droplets,
     title: "Instant Liquidity",
     description:
-      "Trade sPRIME on DEXs or use in leverage strategies on Kamino. No lock-up periods, full flexibility.",
+      "Trade PRIME on DEXs or use in leverage strategies on Kamino. No lock-up periods, full flexibility.",
   },
   {
     icon: Eye,
@@ -48,7 +48,7 @@ const features = (rate: string) => [
   },
 ];
 
-const SPRIMEValueProposition = () => {
+const PRIMEValueProposition = () => {
   // TODO: Replace this with a single hook
   const { data: currentAPR, isLoading: apyLoading } = useQuery({
     queryKey: ["currentAPR"],
@@ -58,12 +58,12 @@ const SPRIMEValueProposition = () => {
   return (
     <section className="py-16 px-4 relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 relative z-10">
-        {/* Combined Dashboard Box - Why Choose sPRIME */}
+        {/* Combined Dashboard Box - Why Choose PRIME */}
         <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
           <div className="relative z-10">
             <div className="text-center mb-16">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground/90 mb-4">
-                Why Choose sPRIME?
+                Why Choose PRIME?
               </h2>
               <p className="text-lg text-foreground/70 max-w-3xl mx-auto">
                 Sustainable yield backed by real-world assets, not speculation
@@ -131,4 +131,4 @@ const SPRIMEValueProposition = () => {
   );
 };
 
-export default SPRIMEValueProposition;
+export default PRIMEValueProposition;

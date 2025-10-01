@@ -1,7 +1,3 @@
-// e2e/scripts/inject-wallet.browser.js
-// This file runs IN THE BROWSER context
-// Plain JavaScript for maximum compatibility
-
 (function injectTestWallet() {
   console.log("[DIRECT] Injecting test keypair into app...");
 
@@ -84,10 +80,31 @@
       },
 
       signTransaction: async (transaction) => {
-        console.log("[DIRECT] Signing with real keypair...");
-        transaction.partialSign(keypair);
-        console.log("[DIRECT] Signed successfully");
-        return transaction;
+        console.log("[DIRECT] Signing transaction...");
+        console.log(
+          "[DIRECT] Transaction type:",
+          transaction.constructor?.name
+        );
+        console.log(
+          "[DIRECT] Has recentBlockhash:",
+          !!transaction.recentBlockhash
+        );
+        console.log("[DIRECT] Has feePayer:", !!transaction.feePayer);
+        console.log(
+          "[DIRECT] Num instructions:",
+          transaction.instructions?.length
+        );
+
+        try {
+          transaction.partialSign(keypair);
+          console.log("[DIRECT] Signed successfully");
+          return transaction;
+        } catch (error) {
+          console.error("[DIRECT] Signing failed:", error);
+          console.error("[DIRECT] Error message:", error.message);
+          console.error("[DIRECT] Error stack:", error.stack);
+          throw error;
+        }
       },
 
       signAllTransactions: async (transactions) => {

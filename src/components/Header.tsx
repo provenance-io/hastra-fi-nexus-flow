@@ -159,18 +159,18 @@ const Header = () => {
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <Link
-                    to="/sprime"
+                    to="/prime"
                     className="flex items-center w-full cursor-pointer p-3 hover:bg-orange-300/10 hover:text-orange-300 rounded-lg transition-all duration-200 group focus:outline-none focus:ring-0"
                   >
                     <div className="flex items-center gap-3">
                       <img
                         src="/lovable-uploads/fa075607-859f-443d-828d-52aff1ecade8.png"
-                        alt="sPRIME Token"
+                        alt="PRIME Token"
                         className="w-10 h-10 rounded-lg object-cover group-hover:scale-105 transition-transform"
                       />
                       <div>
                         <div className="font-semibold text-platinum/90 mb-1">
-                          sPRIME
+                          PRIME
                         </div>
                         <div className="text-sm text-platinum/70">
                           COMING SOON

@@ -29,10 +29,10 @@ const token = (address: string) => {
   switch (address) {
     case import.meta.env.VITE_SOLANA_USDC_MINT:
       return "USDC";
-    case import.meta.env.VITE_SOLANA_PRIME_MINT:
+    case import.meta.env.VITE_SOLANA_WYLDS_MINT:
       return "wYLDS";
-    case import.meta.env.VITE_SOLANA_SPRIME_MINT:
-      return "sPRIME";
+    case import.meta.env.VITE_SOLANA_PRIME_MINT:
+      return "PRIME";
     default:
       return "UNKNOWN";
   }
@@ -41,8 +41,8 @@ export const useTokenPortfolioQuery = (
   publicKey: PublicKey,
   tokenMintAddresses: string[] = [
     `${import.meta.env.VITE_SOLANA_USDC_MINT}`,
+    `${import.meta.env.VITE_SOLANA_WYLDS_MINT}`,
     `${import.meta.env.VITE_SOLANA_PRIME_MINT}`,
-    `${import.meta.env.VITE_SOLANA_SPRIME_MINT}`,
   ]
 ) => {
   return useQuery<TokenData[], Error>({
@@ -98,10 +98,10 @@ export const useTokenPortfolioQuery = (
             token: token(address),
             amount: amount,
             value: value,
-            apy: address === import.meta.env.VITE_SOLANA_PRIME_MINT ? 4.5 : 0, // Default APY for wYLDS only
+            apy: address === import.meta.env.VITE_SOLANA_WYLDS_MINT ? 4.5 : 0, // Default APY for wYLDS only
             totalInterestEarned: 0,
             unclaimedInterest:
-              address === import.meta.env.VITE_SOLANA_PRIME_MINT
+              address === import.meta.env.VITE_SOLANA_WYLDS_MINT
                 ? amount > 0
                   ? amount * 0.001
                   : 0
@@ -139,13 +139,13 @@ export const useTokenPortfolio = () => {
     (tokenSymbol: string, claimedAmount: number) => {
       setTokens((prevTokens) =>
         prevTokens.map((token) => {
-          // Only allow claiming for wYLDS and sPRIME tokens
+          // Only allow claiming for wYLDS and PRIME tokens
           if (token.token === "USDC" || token.token === "HASH") {
             return token; // No claiming for USDC or HASH
           }
 
-          // For sPRIME claims, add wYLDS instead of sPRIME
-          if (tokenSymbol === "sPRIME") {
+          // For PRIME claims, add wYLDS instead of PRIME
+          if (tokenSymbol === "PRIME") {
             if (token.token === "wYLDS") {
               return {
                 ...token,
@@ -153,7 +153,7 @@ export const useTokenPortfolio = () => {
                 value: token.value + claimedAmount,
                 totalInterestEarned: token.totalInterestEarned + claimedAmount,
               };
-            } else if (token.token === "sPRIME") {
+            } else if (token.token === "PRIME") {
               return {
                 ...token,
                 totalInterestEarned: token.totalInterestEarned + claimedAmount,
@@ -212,7 +212,7 @@ export const useTokenPortfolio = () => {
   }, [tokens]);
 
   return {
-    tokens: tokens, // Return the tokens with sPRIME included
+    tokens: tokens, // Return the tokens with PRIME included
     tokensLoading,
     claimInterest,
     claimAllInterest,

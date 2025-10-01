@@ -58,8 +58,8 @@ const videos = [
   },
   {
     id: 4,
-    title: "sPRIME Staking Pool Participation",
-    description: "How to participate in staking pools through sPRIME",
+    title: "PRIME Staking Pool Participation",
+    description: "How to participate in staking pools through PRIME",
     duration: "22:15",
     difficulty: "Advanced",
     category: "advanced",
