@@ -118,8 +118,8 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       totalBalance: connected ? portfolioBalance() : 0,
       solBalance: solBalance || 0,
       usdcBalance: Number(usdcBalance) || 0,
-      primeBalance: Number(wyldsBalance) || 0,
-      sPrimeBalance: Number(primeBalance) || 0,
+      wyldsBalance: Number(wyldsBalance) || 0,
+      primeBalance: Number(primeBalance) || 0,
       networkError: null,
     }));
 

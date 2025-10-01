@@ -5,15 +5,15 @@ import { useWallet } from "@/contexts/WalletContext";
  * connected wallet account balances
  */
 export const useAvailableActions = () => {
-  const { solBalance, usdcBalance, primeBalance, sPrimeBalance } = useWallet();
+  const { solBalance, usdcBalance, primeBalance, wyldsBalance } = useWallet();
   const hasSOL = solBalance > 0;
   const hasUSDC = usdcBalance > 0;
+  const hasWYLDS = wyldsBalance > 0;
   const hasPrime = primeBalance > 0;
-  const hasSPrime = sPrimeBalance > 0;
   return {
     canBuy: hasSOL && hasUSDC,
-    canSend: hasSOL && (hasUSDC || hasPrime || hasSPrime),
-    canStake: hasSOL && hasPrime,
-    canUnstake: hasSOL && hasSPrime,
+    canSend: hasSOL && (hasUSDC || hasWYLDS || hasPrime),
+    canStake: hasSOL && hasWYLDS,
+    canUnstake: hasSOL && hasPrime,
   };
 };
