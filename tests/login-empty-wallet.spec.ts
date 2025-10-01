@@ -52,7 +52,7 @@ test("Login with empty wallet", async ({ page }) => {
   await expect(
     page
       .getByText(
-        "You must have SOL and USDC in your wallet to buy PRIME or stake PRIME."
+        "You must have SOL and USDC in your wallet to buy PRIME or stake sPRIME."
       )
       .first()
   ).toBeVisible();
@@ -63,12 +63,12 @@ test("Login with empty wallet", async ({ page }) => {
       .locator("div")
       .filter({
         hasText:
-          /^You must have SOL and USDC, WYLDS, or SYLDS in your wallet to send\.$/,
+          /^You must have SOL and USDC, PRIME, or sPRIME in your wallet to send\.$/,
       })
       .first()
   ).toBeVisible();
   // User cannot stake
   await page.getByRole("tab", { name: "Stake" }).click();
   await expect(page.getByText("You must have SOL and PRIME")).toBeVisible();
-  await expect(page.getByText("You must have SOL and sYLDS")).toBeVisible();
+  await expect(page.getByText("You must have SOL and sPRIME")).toBeVisible();
 });

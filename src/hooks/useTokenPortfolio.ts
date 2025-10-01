@@ -29,9 +29,9 @@ const token = (address: string) => {
   switch (address) {
     case import.meta.env.VITE_SOLANA_USDC_MINT:
       return "USDC";
-    case import.meta.env.VITE_SOLANA_WYLDS_MINT:
+    case import.meta.env.VITE_SOLANA_PRIME_MINT:
       return "PRIME";
-    case import.meta.env.VITE_SOLANA_SYLDS_MINT:
+    case import.meta.env.VITE_SOLANA_SPRIME_MINT:
       return "sYLDS";
     default:
       return "UNKNOWN";
@@ -41,8 +41,8 @@ export const useTokenPortfolioQuery = (
   publicKey: PublicKey,
   tokenMintAddresses: string[] = [
     `${import.meta.env.VITE_SOLANA_USDC_MINT}`,
-    `${import.meta.env.VITE_SOLANA_WYLDS_MINT}`,
-    `${import.meta.env.VITE_SOLANA_SYLDS_MINT}`,
+    `${import.meta.env.VITE_SOLANA_PRIME_MINT}`,
+    `${import.meta.env.VITE_SOLANA_SPRIME_MINT}`,
   ]
 ) => {
   return useQuery<TokenData[], Error>({
@@ -98,10 +98,10 @@ export const useTokenPortfolioQuery = (
             token: token(address),
             amount: amount,
             value: value,
-            apy: address === import.meta.env.VITE_SOLANA_WYLDS_MINT ? 4.5 : 0, // Default APY for PRIME only
+            apy: address === import.meta.env.VITE_SOLANA_PRIME_MINT ? 4.5 : 0, // Default APY for PRIME only
             totalInterestEarned: 0,
             unclaimedInterest:
-              address === import.meta.env.VITE_SOLANA_WYLDS_MINT
+              address === import.meta.env.VITE_SOLANA_PRIME_MINT
                 ? amount > 0
                   ? amount * 0.001
                   : 0

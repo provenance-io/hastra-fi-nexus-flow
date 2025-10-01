@@ -106,10 +106,10 @@ export const useDepositAndMint = () => {
       const mint = new PublicKey(PRIME);
       const vault = new PublicKey(import.meta.env.VITE_SOLANA_USDC_VAULT);
       const configPda = new PublicKey(
-        import.meta.env.VITE_SOLANA_USDC_WYLDS_CONFIG_PDA
+        import.meta.env.VITE_SOLANA_USDC_PRIME_CONFIG_PDA
       );
       const mintAuthorityPda = new PublicKey(
-        import.meta.env.VITE_SOLANA_USDC_WYLDS_MINT_AUTHORITY_PDA
+        import.meta.env.VITE_SOLANA_USDC_PRIME_MINT_AUTHORITY_PDA
       );
 
       const createAtaInstructions = await ataInstruction(

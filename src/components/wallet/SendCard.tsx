@@ -373,7 +373,7 @@ const SendCard = ({ canSend }: { canSend: boolean }) => {
           ))
           .otherwise(() => (
             <div className="flex items-center justify-between">
-              You must have SOL and USDC, WYLDS, or SYLDS in your wallet to
+              You must have SOL and USDC, PRIME, or sPRIME in your wallet to
               send.
             </div>
           ))}

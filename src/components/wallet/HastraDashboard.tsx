@@ -35,14 +35,7 @@ const getTabLogo = (section: (typeof tabSections)[number]) => {
 const ofacLimitedSections = ["Buy", "Send", "Stake"];
 
 const HastraDashboard = () => {
-  const {
-    isConnected,
-    address,
-    solBalance,
-    usdcBalance,
-    wyldsBalance,
-    syldsBalance,
-  } = useWallet();
+  const { isConnected, address } = useWallet();
   const [tabsValue, setTabsValue] = useState("Buy");
   const actions = useAvailableActions();
 

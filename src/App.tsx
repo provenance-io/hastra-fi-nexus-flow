@@ -16,7 +16,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import PRIMEPage from "./pages/PRIME";
-import SYLDSPage from "./pages/sPRIME";
+import SPRIMEPage from "./pages/sPRIME";
 import HOMESPage from "./pages/HOMES";
 import SendIt from "./pages/SendIt";
 import Learn from "./pages/Learn";

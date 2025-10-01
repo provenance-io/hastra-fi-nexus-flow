@@ -86,15 +86,15 @@ export const validateMinimumAmount = (
 };
 
 export const calculateExchangeRate = (
-  wyldsAmount: string,
-  syldsAmount: string
+  primeAmount: string,
+  sPrimeAmount: string
 ): string => {
-  const wylds = parseFloat(wyldsAmount);
-  const sylds = parseFloat(syldsAmount);
+  const PRIME = parseFloat(primeAmount);
+  const sPRIME = parseFloat(sPrimeAmount);
 
-  if (isNaN(wylds) || isNaN(sylds) || wylds === 0) return "1.0";
+  if (isNaN(PRIME) || isNaN(sPRIME) || PRIME === 0) return "1.0";
 
-  return (sylds / wylds).toFixed(6);
+  return (sPRIME / PRIME).toFixed(6);
 };
 
 export const estimateGasFee = (
