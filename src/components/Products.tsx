@@ -184,7 +184,7 @@ const Products = () => {
                       className="group sm:ml-4 cursor-pointer"
                       asChild
                     >
-                      <Link to="/yield">
+                      <Link to="/prime">
                         Learn More
                         <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </Link>
@@ -259,7 +259,7 @@ const Products = () => {
             </div>
           </div>
 
-          {/* sYLDS Product */}
+          {/* sPRIME Product */}
           <div
             className="card-gradient rounded-3xl p-8 md:p-12 space-y-8 animate-fade-in-up relative mt-16"
             style={{ animationDelay: "0.2s" }}
@@ -270,7 +270,7 @@ const Products = () => {
                 <div className="relative">
                   <img
                     src="/lovable-uploads/fa075607-859f-443d-828d-52aff1ecade8.png"
-                    alt="sYLDS Token"
+                    alt="sPRIME Token"
                     className="w-16 h-16 rounded-full object-cover"
                   />
                 </div>
@@ -278,16 +278,16 @@ const Products = () => {
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div className="flex flex-col">
                       <h3 className="text-3xl md:text-4xl font-bold text-foreground transition-colors">
-                        {products(apy).sylds.name}
+                        {products(apy).sprime.name}
                       </h3>
                       <div className="flex items-center mt-1">
                         <div className="w-2 h-2 bg-orange-400 rounded-full mr-2 animate-pulse"></div>
                         <span className="text-sm font-medium text-orange-300 animate-pulse-light">
-                          {products(apy).sylds.status}
+                          {products(apy).sprime.status}
                         </span>
                       </div>
                     </div>
-                    <Link to="/sylds">
+                    <Link to="/sprime">
                       <Button
                         size="lg"
                         variant="secondary"
@@ -304,14 +304,14 @@ const Products = () => {
                 className="text-xl md:text-2xl font-semibold"
                 style={{ color: "hsl(var(--mint-green))" }}
               >
-                {products(apy).sylds.tagline}
+                {products(apy).sprime.tagline}
               </p>
             </div>
 
             {/* Product description */}
             <div className="space-y-8">
               <p className="text-lg md:text-xl text-foreground/90 leading-relaxed">
-                {products(apy).sylds.description}
+                {products(apy).sprime.description}
               </p>
 
               <div className="flex items-start space-x-3 p-4 rounded-xl bg-orange-900/10 border border-orange-800/20">
@@ -321,7 +321,7 @@ const Products = () => {
                     Innovation:
                   </span>{" "}
                   <span className="text-foreground/90">
-                    {products(apy).sylds.innovation}
+                    {products(apy).sprime.innovation}
                   </span>
                 </p>
               </div>
@@ -329,7 +329,7 @@ const Products = () => {
 
             {/* Stats grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {products(apy).sylds.stats.map((stat, index) => {
+              {products(apy).sprime.stats.map((stat, index) => {
                 const IconComponent =
                   statIcons[stat.label as keyof typeof statIcons] || Building;
                 return (

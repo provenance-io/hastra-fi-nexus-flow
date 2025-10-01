@@ -1,7 +1,7 @@
-import SYLDSLightningHero from './SYLDSLightningHero'
+import SPRIMELightningHero from "./SPRIMELightningHero";
 
-const SYLDSAnimatedHero = () => {
-  return <SYLDSLightningHero />
-}
+const SPRIMEAnimatedHero = () => {
+  return <SPRIMELightningHero />;
+};
 
-export default SYLDSAnimatedHero
+export default SPRIMEAnimatedHero;

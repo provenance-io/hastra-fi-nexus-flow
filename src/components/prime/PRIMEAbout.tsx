@@ -14,8 +14,8 @@ const benefits = [
 const howItWorks = [
   {
     step: "1",
-    title: "Hold sYLDS tokens",
-    description: "Simply hold sYLDS tokens in any compatible wallet",
+    title: "Hold sPRIME tokens",
+    description: "Simply hold sPRIME tokens in any compatible wallet",
   },
   {
     step: "2",
@@ -31,7 +31,7 @@ const howItWorks = [
     step: "4",
     title: "Redeem via key Solana partners",
     description:
-      "Easily redeem your sYLDS through Raydium and Kamino protocols",
+      "Easily redeem your sPRIME through Raydium and Kamino protocols",
   },
 ];
 

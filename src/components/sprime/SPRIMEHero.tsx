@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { fetchCurrentAPR } from "@/utils/solana-utils";
-import SYLDSAnimatedHero from "./SPRIMEAnimatedHero";
+import SPRIMEAnimatedHero from "./SPRIMEAnimatedHero";
 
 const SPRIMEHero = () => {
   const [displayApr, setDisplayApr] = useState("");
@@ -31,7 +31,7 @@ const SPRIMEHero = () => {
         <div className="max-w-4xl mx-auto">
           {/* Animated Hero Graphic */}
           <div className="mb-8">
-            <SYLDSAnimatedHero />
+            <SPRIMEAnimatedHero />
           </div>
 
           {/* Main headline */}

@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Sphere, MeshDistortMaterial } from "@react-three/drei";
-import SYLDSTransformationToken from "./SYLDSTransformationToken";
+import SPRIMETransformationToken from "./SPRIMETransformationToken";
 
 function LightningOrb() {
   const meshRef = useRef<THREE.Mesh>(null!);
@@ -157,7 +157,7 @@ const SPRIMELightningHero = () => {
 
           <ElectricField />
           <LightningOrb />
-          <SYLDSTransformationToken />
+          <SPRIMETransformationToken />
         </Canvas>
       </div>
 

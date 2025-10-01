@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 // Performance optimization component for better load times and user experience
 const PerformanceOptimizer = () => {
@@ -9,36 +9,36 @@ const PerformanceOptimizer = () => {
     const preloadCriticalResources = () => {
       // Preload fonts
       const fontLinks = [
-        'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap'
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap",
       ];
 
-      fontLinks.forEach(href => {
-        const link = document.createElement('link');
-        link.rel = 'preload';
-        link.as = 'style';
+      fontLinks.forEach((href) => {
+        const link = document.createElement("link");
+        link.rel = "preload";
+        link.as = "style";
         link.href = href;
         document.head.appendChild(link);
       });
 
       // Optimize images with lazy loading attributes
-      const images = document.querySelectorAll('img');
-      images.forEach(img => {
-        if (!img.hasAttribute('loading')) {
-          img.setAttribute('loading', 'lazy');
+      const images = document.querySelectorAll("img");
+      images.forEach((img) => {
+        if (!img.hasAttribute("loading")) {
+          img.setAttribute("loading", "lazy");
         }
-        if (!img.hasAttribute('decoding')) {
-          img.setAttribute('decoding', 'async');
+        if (!img.hasAttribute("decoding")) {
+          img.setAttribute("decoding", "async");
         }
       });
     };
 
     // Service worker registration for caching
     const registerServiceWorker = async () => {
-      if ('serviceWorker' in navigator) {
+      if ("serviceWorker" in navigator) {
         try {
           // Only register in production
           if (import.meta.env.PROD) {
-            await navigator.serviceWorker.register('/sw.js');
+            await navigator.serviceWorker.register("/sw.js");
           }
         } catch (error) {
           // Service worker registration failed - could be connected to error tracking
@@ -54,16 +54,16 @@ const PerformanceOptimizer = () => {
         .hero-section { display: block; }
         .nav-header { display: flex; }
       `;
-      
-      const style = document.createElement('style');
+
+      const style = document.createElement("style");
       style.textContent = criticalCSS;
       document.head.appendChild(style);
 
       // Defer non-critical JavaScript
-      const scripts = document.querySelectorAll('script[src]');
-      scripts.forEach(script => {
-        if (!script.hasAttribute('async') && !script.hasAttribute('defer')) {
-          script.setAttribute('defer', '');
+      const scripts = document.querySelectorAll("script[src]");
+      scripts.forEach((script) => {
+        if (!script.hasAttribute("async") && !script.hasAttribute("defer")) {
+          script.setAttribute("defer", "");
         }
       });
     };
@@ -72,13 +72,13 @@ const PerformanceOptimizer = () => {
     const optimizeConnections = () => {
       // DNS prefetch for external domains
       const domains = [
-        'https://fonts.googleapis.com',
-        'https://fonts.gstatic.com'
+        "https://fonts.googleapis.com",
+        "https://fonts.gstatic.com",
       ];
 
-      domains.forEach(domain => {
-        const link = document.createElement('link');
-        link.rel = 'dns-prefetch';
+      domains.forEach((domain) => {
+        const link = document.createElement("link");
+        link.rel = "dns-prefetch";
         link.href = domain;
         document.head.appendChild(link);
       });
@@ -87,11 +87,11 @@ const PerformanceOptimizer = () => {
     // Resource hints for better performance
     const addResourceHints = () => {
       // Prefetch likely next pages
-      const routes = ['/yield'];
-      
-      routes.forEach(route => {
-        const link = document.createElement('link');
-        link.rel = 'prefetch';
+      const routes = ["/prime"];
+
+      routes.forEach((route) => {
+        const link = document.createElement("link");
+        link.rel = "prefetch";
         link.href = route;
         document.head.appendChild(link);
       });
@@ -108,8 +108,8 @@ const PerformanceOptimizer = () => {
     };
 
     // Run optimizations when DOM is ready
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initOptimizations);
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initOptimizations);
     } else {
       initOptimizations();
     }
@@ -117,28 +117,28 @@ const PerformanceOptimizer = () => {
     // Performance monitoring
     const monitorPerformance = () => {
       // Web Vitals monitoring
-      if ('PerformanceObserver' in window) {
+      if ("PerformanceObserver" in window) {
         try {
           // Largest Contentful Paint
           new PerformanceObserver((list) => {
             const entries = list.getEntries();
             entries.forEach((entry) => {
-              if (entry.entryType === 'largest-contentful-paint') {
+              if (entry.entryType === "largest-contentful-paint") {
                 // LCP metrics could be sent to analytics service
               }
             });
-          }).observe({ entryTypes: ['largest-contentful-paint'] });
+          }).observe({ entryTypes: ["largest-contentful-paint"] });
 
           // First Input Delay
           new PerformanceObserver((list) => {
             const entries = list.getEntries();
             entries.forEach((entry) => {
-              if (entry.entryType === 'first-input') {
+              if (entry.entryType === "first-input") {
                 const fidEntry = entry as any; // Performance API typing is complex
                 // FID metrics could be sent to analytics service
               }
             });
-          }).observe({ entryTypes: ['first-input'] });
+          }).observe({ entryTypes: ["first-input"] });
         } catch (error) {
           // Performance monitoring not supported in this browser
         }
@@ -148,7 +148,7 @@ const PerformanceOptimizer = () => {
     monitorPerformance();
 
     return () => {
-      document.removeEventListener('DOMContentLoaded', initOptimizations);
+      document.removeEventListener("DOMContentLoaded", initOptimizations);
     };
   }, []);
 

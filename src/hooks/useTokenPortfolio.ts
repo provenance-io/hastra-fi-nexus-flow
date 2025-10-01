@@ -32,7 +32,7 @@ const token = (address: string) => {
     case import.meta.env.VITE_SOLANA_PRIME_MINT:
       return "PRIME";
     case import.meta.env.VITE_SOLANA_SPRIME_MINT:
-      return "sYLDS";
+      return "sPRIME";
     default:
       return "UNKNOWN";
   }
@@ -139,13 +139,13 @@ export const useTokenPortfolio = () => {
     (tokenSymbol: string, claimedAmount: number) => {
       setTokens((prevTokens) =>
         prevTokens.map((token) => {
-          // Only allow claiming for PRIME and sYLDS tokens
+          // Only allow claiming for PRIME and sPRIME tokens
           if (token.token === "USDC" || token.token === "HASH") {
             return token; // No claiming for USDC or HASH
           }
 
-          // For sYLDS claims, add PRIME instead of sYLDS
-          if (tokenSymbol === "sYLDS") {
+          // For sPRIME claims, add PRIME instead of sPRIME
+          if (tokenSymbol === "sPRIME") {
             if (token.token === "PRIME") {
               return {
                 ...token,
@@ -153,7 +153,7 @@ export const useTokenPortfolio = () => {
                 value: token.value + claimedAmount,
                 totalInterestEarned: token.totalInterestEarned + claimedAmount,
               };
-            } else if (token.token === "sYLDS") {
+            } else if (token.token === "sPRIME") {
               return {
                 ...token,
                 totalInterestEarned: token.totalInterestEarned + claimedAmount,
@@ -212,7 +212,7 @@ export const useTokenPortfolio = () => {
   }, [tokens]);
 
   return {
-    tokens: tokens, // Return the tokens with sYLDS included
+    tokens: tokens, // Return the tokens with sPRIME included
     tokensLoading,
     claimInterest,
     claimAllInterest,

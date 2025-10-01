@@ -55,8 +55,8 @@ const App = () => (
                   <Route path="/privacy" element={<Privacy />} />
                   <Route path="/brand-guide" element={<BrandGuidePage />} />
 
-                  <Route path="/yield" element={<PRIMEPage />} />
-                  <Route path="/sylds" element={<SYLDSPage />} />
+                  <Route path="/prime" element={<PRIMEPage />} />
+                  <Route path="/sprime" element={<SPRIMEPage />} />
                   <Route path="/homes" element={<HOMESPage />} />
                   <Route path="/sendit" element={<SendIt />} />
                   {isFeatureEnabled("testPagesEnabled") && (

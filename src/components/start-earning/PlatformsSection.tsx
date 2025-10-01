@@ -26,7 +26,7 @@ const platforms = [
     features: [
       "Lending pools",
       "Automated strategies",
-      "sYLDS participation",
+      "sPRIME participation",
       "Yield farming",
     ],
     link: "https://kamino.finance",

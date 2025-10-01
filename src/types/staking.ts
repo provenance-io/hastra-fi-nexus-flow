@@ -2,7 +2,7 @@ export interface StakingState {
   // User Data
   userBalance: {
     PRIME: string;
-    sYLDS: string;
+    sPRIME: string;
     isLoading: boolean;
   };
 
@@ -127,7 +127,7 @@ export type TransactionStatus =
 
 export interface UserBalance {
   PRIME: string;
-  sYLDS: string;
+  sPRIME: string;
   isLoading: boolean;
 }
 

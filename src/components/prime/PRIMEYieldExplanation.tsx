@@ -431,7 +431,7 @@ const PRIMEYieldExplanation = () => {
           </div>
         </div>
 
-        {/* Watch sYLDS as it Grows text section */}
+        {/* Watch sPRIME as it Grows text section */}
 
         {/* By the Numbers Dashboard Box */}
         <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">

@@ -56,12 +56,12 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-header-glow/20 to-crypto-accent/10 mb-3">
                 <img
                   src="/lovable-uploads/fa075607-859f-443d-828d-52aff1ecade8.png"
-                  alt="sYLDS Token"
+                  alt="sPRIME Token"
                   className="h-12 w-12 rounded-full object-cover"
                 />
               </div>
               <h2 className="text-xl font-bold text-foreground mb-2">
-                Earn Up to 8% APY with sYLDS
+                Earn Up to 8% APY with sPRIME
               </h2>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Stake PRIME to earn sustainable yield backed by real-world HELOC

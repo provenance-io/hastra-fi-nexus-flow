@@ -58,8 +58,8 @@ const videos = [
   },
   {
     id: 4,
-    title: "sYLDS Staking Pool Participation",
-    description: "How to participate in staking pools through sYLDS",
+    title: "sPRIME Staking Pool Participation",
+    description: "How to participate in staking pools through sPRIME",
     duration: "22:15",
     difficulty: "Advanced",
     category: "advanced",

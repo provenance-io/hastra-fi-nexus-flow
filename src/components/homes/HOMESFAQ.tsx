@@ -8,19 +8,19 @@ import {
 const HOMESFAQ = () => {
   const faqData = [
     {
-      question: "What is sYLDS?",
+      question: "What is sPRIME?",
       answer:
-        "sYLDS is a staked yield-bearing token that represents staked PRIME. When you stake PRIME tokens, you receive sYLDS in return, which automatically earns yield through various DeFi protocols. sYLDS provides enhanced yield opportunities while maintaining complete transparency and liquidity through blockchain technology.",
+        "sPRIME is a staked yield-bearing token that represents staked PRIME. When you stake PRIME tokens, you receive sPRIME in return, which automatically earns yield through various DeFi protocols. sPRIME provides enhanced yield opportunities while maintaining complete transparency and liquidity through blockchain technology.",
     },
     {
-      question: "How does sYLDS earn yield and what are the Rewards options?",
+      question: "How does sPRIME earn yield and what are the Rewards options?",
       answer:
-        "sYLDS generates yield through multiple DeFi strategies including lending protocols, liquidity provision, and yield farming (8-15% annual yield). Rewards are automatically compounded and distributed through smart contracts. Token holders can stake, trade, or convert their rewards to stablecoins while earning continuous yield from the underlying PRIME tokens.",
+        "sPRIME generates yield through multiple DeFi strategies including lending protocols, liquidity provision, and yield farming (8-15% annual yield). Rewards are automatically compounded and distributed through smart contracts. Token holders can stake, trade, or convert their rewards to stablecoins while earning continuous yield from the underlying PRIME tokens.",
     },
     {
-      question: "What is sYLDS and Rewards?",
+      question: "What is sPRIME and Rewards?",
       answer:
-        "sYLDS is a yield-bearing wrapper token that automatically compounds returns from multiple DeFi protocols. Rewards are distributed through smart contracts that allocate yield based on your token holdings. sYLDS tokens earn continuous yield that can be claimed at any time or automatically compounded for maximum returns.",
+        "sPRIME is a yield-bearing wrapper token that automatically compounds returns from multiple DeFi protocols. Rewards are distributed through smart contracts that allocate yield based on your token holdings. sPRIME tokens earn continuous yield that can be claimed at any time or automatically compounded for maximum returns.",
     },
     {
       question: "How is PRIME earned and distributed?",
@@ -47,7 +47,7 @@ const HOMESFAQ = () => {
             Frequently Asked Questions
           </h2>
           <p className="text-xl text-muted-foreground">
-            Everything you need to know about sYLDS staking and our yield
+            Everything you need to know about sPRIME staking and our yield
             optimization platform
           </p>
         </div>

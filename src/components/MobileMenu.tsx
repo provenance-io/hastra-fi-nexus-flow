@@ -63,8 +63,8 @@ const MobileMenu = () => {
   const getNavItems = () => {
     const items = [
       { label: "About", href: "/about" },
-      { label: "PRIME", href: "/yield" },
-      { label: "sYLDS", href: "/sylds" },
+      { label: "PRIME", href: "/prime" },
+      { label: "sPRIME", href: "/sprime" },
       { label: "Earn", href: "/earn" },
       { label: "(L)earn", href: "/learn" },
     ];

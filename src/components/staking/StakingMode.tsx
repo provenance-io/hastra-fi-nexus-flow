@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { useStaking } from "@/hooks/useStaking";
 import { formatStakingAmount, estimateGasFee } from "@/utils/stakingUtils";
 import { ArrowRight, Wallet, TrendingUp } from "lucide-react";
@@ -35,7 +34,7 @@ const StakingMode: React.FC<{ canStake: boolean }> = ({ canStake }) => {
           </div>
           <div className="text-center p-3 bg-secondary/20 rounded-lg border border-border/20">
             <div className="text-lg font-semibold text-foreground">
-              {formatStakingAmount(userBalance.sYLDS)}
+              {formatStakingAmount(userBalance.sPRIME)}
             </div>
             <div className="text-xs text-muted-foreground">Total Staked</div>
           </div>
@@ -118,7 +117,7 @@ const StakingMode: React.FC<{ canStake: boolean }> = ({ canStake }) => {
                   <div className="flex items-center space-x-2">
                     <TrendingUp className="h-4 w-4 text-amber-warm" />
                     <span className="text-sm font-medium text-amber-warm">
-                      ~{formatStakingAmount(stakingForm.estimatedOutput)} sYLDS
+                      ~{formatStakingAmount(stakingForm.estimatedOutput)} sPRIME
                     </span>
                   </div>
                 </div>
@@ -128,7 +127,7 @@ const StakingMode: React.FC<{ canStake: boolean }> = ({ canStake }) => {
                     <span>{formatStakingAmount(stakingForm.amount)} PRIME</span>
                     <ArrowRight className="h-4 w-4" />
                     <span>
-                      {formatStakingAmount(stakingForm.estimatedOutput)} sYLDS
+                      {formatStakingAmount(stakingForm.estimatedOutput)} sPRIME
                     </span>
                   </div>
                 </div>
@@ -137,7 +136,7 @@ const StakingMode: React.FC<{ canStake: boolean }> = ({ canStake }) => {
                   <div className="flex justify-between text-xs">
                     <span className="text-muted-foreground">Exchange Rate</span>
                     <span className="font-medium">
-                      1 PRIME = {protocolData.exchangeRate} sYLDS
+                      1 PRIME = {protocolData.exchangeRate} sPRIME
                     </span>
                   </div>
                   <div className="flex justify-between text-xs">
