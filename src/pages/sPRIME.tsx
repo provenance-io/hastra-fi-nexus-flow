@@ -1,18 +1,17 @@
+import { useState, useEffect } from "react";
+import SYLDSHero from "@/components/sprime/SYLDSHero";
+import SYLDSMetrics from "@/components/sprime/SYLDSMetrics";
+import SYLDSHowItWorks from "@/components/sprime/SYLDSHowItWorks";
+import SYLDSValueProposition from "@/components/sprime/SYLDSValueProposition";
+import SYLDSInvestmentDetails from "@/components/sprime/SYLDSInvestmentDetails";
+import SYLDSLeveragedLooping from "@/components/sprime/SYLDSYieldComparison";
+import SYLDSFinalCTA from "@/components/sprime/SYLDSFinalCTA";
+import HOMESComingSoonModal from "@/components/homes/HOMESComingSoonModal";
+import ProvenanceBranding from "@/components/ProvenanceBranding";
 
-import { useState, useEffect } from 'react';
-import SYLDSHero from '@/components/sylds/SYLDSHero';
-import SYLDSMetrics from '@/components/sylds/SYLDSMetrics';
-import SYLDSHowItWorks from '@/components/sylds/SYLDSHowItWorks';
-import SYLDSValueProposition from '@/components/sylds/SYLDSValueProposition';
-import SYLDSInvestmentDetails from '@/components/sylds/SYLDSInvestmentDetails';
-import SYLDSLeveragedLooping from '@/components/sylds/SYLDSYieldComparison';
-import SYLDSFinalCTA from '@/components/sylds/SYLDSFinalCTA';
-import HOMESComingSoonModal from '@/components/homes/HOMESComingSoonModal';
-import ProvenanceBranding from '@/components/ProvenanceBranding';
-
-const SYLDSPage = () => {
+const SPRIMEPage = () => {
   const [showModal, setShowModal] = useState(false);
-  
+
   // Start with page accessible for now to avoid blocking content
   const [pageAccessible, setPageAccessible] = useState(true);
 
@@ -30,14 +29,18 @@ const SYLDSPage = () => {
       {/* Unified gradient background to match other pages */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5"></div>
       <div className="relative z-10">
-        <HOMESComingSoonModal 
-          isOpen={showModal} 
+        <HOMESComingSoonModal
+          isOpen={showModal}
           onClose={() => {
             setShowModal(false);
             setPageAccessible(true);
-          }} 
+          }}
         />
-        <div className={`${!pageAccessible ? 'content-protection' : 'content-accessible'}`}>
+        <div
+          className={`${
+            !pageAccessible ? "content-protection" : "content-accessible"
+          }`}
+        >
           <SYLDSHero />
           <SYLDSHowItWorks />
           <SYLDSValueProposition />
@@ -52,4 +55,4 @@ const SYLDSPage = () => {
   );
 };
 
-export default SYLDSPage;
+export default SPRIMEPage;

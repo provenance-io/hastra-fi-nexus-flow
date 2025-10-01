@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { fetchCurrentAPR } from "@/utils/solana-utils";
-import SYLDSAnimatedHero from "./SYLDSAnimatedHero";
+import SYLDSAnimatedHero from "./SPRIMEAnimatedHero";
 
-const SYLDSHero = () => {
+const SPRIMEHero = () => {
   const [displayApr, setDisplayApr] = useState("");
 
   const {
@@ -37,7 +37,7 @@ const SYLDSHero = () => {
           {/* Main headline */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
             Earn <span className="text-hastra-gradient">{displayApr}% APY</span>{" "}
-            with sYLDS
+            with sPRIME
           </h1>
 
           {/* Subheadline */}
@@ -94,4 +94,4 @@ const SYLDSHero = () => {
   );
 };
 
-export default SYLDSHero;
+export default SPRIMEHero;

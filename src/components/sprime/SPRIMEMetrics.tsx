@@ -20,7 +20,7 @@ const formatHolders = (holders: string): string => {
   return holders;
 };
 
-const SYLDSMetrics = () => {
+const SPRIMEMetrics = () => {
   const { data: currentAPR, isLoading: apyLoading } = useQuery({
     queryKey: ["currentAPR"],
     queryFn: fetchCurrentAPR,
@@ -105,10 +105,10 @@ const SYLDSMetrics = () => {
       <div className="container">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Live sYLDS Metrics
+            Live sPRIME Metrics
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Real-time data showing the performance and growth of the sYLDS
+            Real-time data showing the performance and growth of the sPRIME
             ecosystem
           </p>
         </div>
@@ -152,4 +152,4 @@ const SYLDSMetrics = () => {
   );
 };
 
-export default SYLDSMetrics;
+export default SPRIMEMetrics;

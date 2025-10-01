@@ -16,16 +16,16 @@ const steps = (rate: string) => [
   {
     number: "2",
     icon: Layers,
-    title: "Stake for sYLDS",
-    description: `Stake your PRIME on Hastra to receive sYLDS and start earning ${rate}% APY immediately`,
-    details: "Simple one-click staking process with instant sYLDS receipt",
+    title: "Stake for sPRIME",
+    description: `Stake your PRIME on Hastra to receive sPRIME and start earning ${rate}% APY immediately`,
+    details: "Simple one-click staking process with instant sPRIME receipt",
   },
   {
     number: "3",
     icon: TrendingUp,
     title: "Earn Real Yield",
     description:
-      "Your sYLDS earns yield from DemoPrime's HELOC lending operations - real assets, real returns",
+      "Your sPRIME earns yield from DemoPrime's HELOC lending operations - real assets, real returns",
     details:
       "Yield is automatically compounded and distributed based on real lending performance",
   },
@@ -33,13 +33,13 @@ const steps = (rate: string) => [
     number: "4",
     icon: Zap,
     title: "Use in DeFi",
-    description: `Leverage your sYLDS on Kamino for enhanced yields while maintaining your base ${rate}% earnings`,
+    description: `Leverage your sPRIME on Kamino for enhanced yields while maintaining your base ${rate}% earnings`,
     details:
-      "Collateralize sYLDS for loans or use in leverage strategies for up to 12% total yield",
+      "Collateralize sPRIME for loans or use in leverage strategies for up to 12% total yield",
   },
 ];
 
-const SYLDSHowItWorks = () => {
+const SPRIMEHowItWorks = () => {
   // TODO: Replace this with a single hook
   const { data: currentAPR, isLoading: apyLoading } = useQuery({
     queryKey: ["currentAPR"],
@@ -49,12 +49,12 @@ const SYLDSHowItWorks = () => {
   return (
     <section className="py-16 px-4 relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 relative z-10">
-        {/* Combined Dashboard Box - How sYLDS Works */}
+        {/* Combined Dashboard Box - How sPRIME Works */}
         <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
           <div className="relative z-10">
             <div className="text-center mb-16">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground/90 mb-4">
-                How sYLDS Works
+                How sPRIME Works
               </h2>
               <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
                 Simple staking, powerful yields
@@ -104,7 +104,7 @@ const SYLDSHowItWorks = () => {
             {/* Bottom CTA */}
             <div className="text-center mt-12">
               <p className="text-muted-foreground mb-4">
-                Ready to start earning with sYLDS?
+                Ready to start earning with sPRIME?
               </p>
               <div className="inline-flex items-center space-x-2 text-sm text-crypto-accent">
                 <span>Simple • Secure • Sustainable</span>
@@ -117,4 +117,4 @@ const SYLDSHowItWorks = () => {
   );
 };
 
-export default SYLDSHowItWorks;
+export default SPRIMEHowItWorks;

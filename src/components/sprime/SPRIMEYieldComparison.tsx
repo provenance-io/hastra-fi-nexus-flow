@@ -5,7 +5,7 @@ import { ExternalLink, Repeat, TrendingUp, Zap } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchCurrentAPR } from "@/utils/solana-utils";
 
-const SYLDSLeveragedLooping = () => {
+const SPRIMELeveragedLooping = () => {
   // TODO: Replace this with a single hook
   const { data: currentAPR, isLoading: apyLoading } = useQuery({
     queryKey: ["currentAPR"],
@@ -21,7 +21,7 @@ const SYLDSLeveragedLooping = () => {
             Leveraged Looping with Kamino
           </h2>
           <p className="text-lg text-foreground/70 max-w-3xl mx-auto">
-            Maximize your sYLDS potential through leverage strategies while
+            Maximize your sPRIME potential through leverage strategies while
             maintaining your base{" "}
             {currentAPR ? currentAPR.toFixed(1) : "Loading..."}% yield
           </p>
@@ -48,16 +48,16 @@ const SYLDSLeveragedLooping = () => {
               {[
                 {
                   icon: Zap,
-                  title: "Deposit sYLDS",
+                  title: "Deposit sPRIME",
                   description:
-                    "Use your sYLDS as collateral on Kamino lending pools",
+                    "Use your sPRIME as collateral on Kamino lending pools",
                   step: "1",
                 },
                 {
                   icon: Repeat,
                   title: "Borrow & Loop",
                   description:
-                    "Borrow against your sYLDS and use proceeds to acquire more sYLDS",
+                    "Borrow against your sPRIME and use proceeds to acquire more sPRIME",
                   step: "2",
                 },
                 {
@@ -102,7 +102,7 @@ const SYLDSLeveragedLooping = () => {
             <div className="grid gap-6 md:grid-cols-3">
               {[
                 {
-                  title: "Base sYLDS",
+                  title: "Base sPRIME",
                   apy: "9.2%",
                   description: "Standard staking yield from HELOC operations",
                   risk: "Low",
@@ -207,4 +207,4 @@ const SYLDSLeveragedLooping = () => {
   );
 };
 
-export default SYLDSLeveragedLooping;
+export default SPRIMELeveragedLooping;
