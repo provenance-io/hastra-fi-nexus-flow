@@ -7,6 +7,7 @@ Hastra is part of the **Hastra Finance** platform — a forward-looking initiati
 **Hastra Finance** is an ecosystem of DeFi and TradFi financial tools designed to simplify and accelerate how value moves in today's digital economy. Built with trust, compliance, and innovation at its core, Hastra helps developers and institutions alike launch, manage, and automate financial workflows using blockchain-native primitives.
 
 ### Core Goals
+
 - **Reduce friction** in traditional finance using decentralized infrastructure
 - **Accelerate asset mobility** across tokenized and real-world financial products
 - **Enable programmability** in money movement, governance, and capital deployment
@@ -14,6 +15,7 @@ Hastra is part of the **Hastra Finance** platform — a forward-looking initiati
 ## 🔧 Technology Stack
 
 Hastra is built using:
+
 - **TypeScript** and **React**
 - **Tailwind CSS** for UI styling
 - **Vite** for front-end tooling
@@ -26,6 +28,7 @@ Hastra is built using:
 ### Prerequisites
 
 Ensure you have the following installed:
+
 - Node.js (>=18)
 - pnpm (preferred) or npm
 - Git
@@ -73,7 +76,23 @@ npm run preview
 
 ## 🧪 Testing
 
-TBD – Test suite setup and instructions coming soon.
+Testing is done using Playwright e2e tests, complete with an injected javascript wallet that allows for signing events, which is pretty cool.
+
+To run the test suite, simply run the npm shortcut:
+
+```bash
+npm run e2e
+```
+
+You can also run the tests in UI mode to watch completion:
+
+```bash
+npm run e2e-ui
+```
+
+If you are creating new test cases, we highly recommend installing the VS Code playwright extension ms-playwright.playwright
+
+This allows users to run tests using the VS Code extension, and build test cases quickly using the playwright "Record at cursor" feature, which will insert test language at the cursor through chromium interactions. You can read more about the test generator and set up your VS Code playwright extension [here](https://playwright.dev/docs/codegen)
 
 ## 📄 License
 
