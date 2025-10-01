@@ -42,8 +42,8 @@ export function loadWallet(secretKeyBase58: string): Keypair {
 }
 
 /**
- * Get a test wallet - either load from env or generate new one
- * @param envVarName - Optional environment variable name to load from (e.g., 'TEST_WALLET_1')
+ * Get a test wallet - either load from secret key or generate new one
+ * @param secretKey - Optional secret key to reuse an existing wallet
  * @param generateIfMissing - If true, generates new wallet if env var not found
  */
 export function getTestWallet(

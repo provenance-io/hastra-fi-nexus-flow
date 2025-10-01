@@ -101,6 +101,7 @@ const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
     invoke(Number(amount))
       .then((response) => {
         setTxId(response.txId);
+        console.log("MY RESPONSE TX ID", response.txId);
         toast({
           title: "Success",
           description: `Swapped ${amount} ${
@@ -411,7 +412,7 @@ const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
           .otherwise(() => (
             <div className="flex items-center justify-between">
               You must have SOL and USDC in your wallet to buy PRIME or stake
-              PRIME.
+              sPRIME.
             </div>
           ))}
       </div>

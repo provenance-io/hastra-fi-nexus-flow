@@ -1,14 +1,16 @@
-import { test, expect } from "@playwright/test";
-import { generateTestWallet } from "./utils/solana-helpers";
+import test, { expect } from "@playwright/test";
+import { getTestWallet } from "./utils/solana-helpers";
 import {
   getDirectKeypairInjection,
   exportWalletForBrowser,
 } from "./utils/direct-wallet-injection";
 
-test("Login with empty wallet", async ({ page }) => {
-  // Generate a test wallet
-  const wallet = generateTestWallet();
-
+test("Swap YLDS", async ({ page }) => {
+  // NOTE: This is the dedicated devnet testing wallet
+  const wallet = getTestWallet(
+    "29DcBEpGdNrkLtgMBZHHbdTTPrL2nN2QzeRvHURu7UQQQv28WQyiBYiVntJRBRcc4QUYVjS6pTuNCB62GgyTQBvy",
+    false
+  );
   // Inject wallet before navigation
   await page.addInitScript(
     getDirectKeypairInjection(exportWalletForBrowser(wallet))
@@ -48,27 +50,7 @@ test("Login with empty wallet", async ({ page }) => {
 
   // Login page loads
   await expect(page.getByText("Your decentralized finance")).toBeVisible();
-  // User cannot buy
-  await expect(
-    page
-      .getByText(
-        "You must have SOL and USDC in your wallet to buy PRIME or stake sPRIME."
-      )
-      .first()
-  ).toBeVisible();
-  // User cannot spend
-  await page.getByRole("tab", { name: "Send" }).click();
-  await expect(
-    page
-      .locator("div")
-      .filter({
-        hasText:
-          /^You must have SOL and USDC, PRIME, or sPRIME in your wallet to send\.$/,
-      })
-      .first()
-  ).toBeVisible();
-  // User cannot stake
-  await page.getByRole("tab", { name: "Stake" }).click();
-  await expect(page.getByText("You must have SOL and PRIME")).toBeVisible();
-  await expect(page.getByText("You must have SOL and sPRIME")).toBeVisible();
+  await page.getByPlaceholder("Enter amount in USD").click();
+  await page.getByPlaceholder("Enter amount in USD").fill("1");
+  await page.getByRole("button", { name: "Swap USDC for wYLDSdevnet" }).click();
 });

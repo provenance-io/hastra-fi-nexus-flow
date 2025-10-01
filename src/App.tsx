@@ -1,3 +1,4 @@
+import * as solanaWeb3 from "@solana/web3.js";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -28,6 +29,16 @@ import TestDebug from "./pages/TestDebug";
 import ComponentPlayground from "./pages/ComponentPlayground";
 import AdminFeatureToggle from "./components/admin/AdminFeatureToggle";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
+// For testing, to expose solana/web3.js
+if (import.meta.env.DEV || import.meta.env.MODE === "test") {
+  (
+    window as unknown as Window & {
+      __SOLANA_WEB3__: undefined | typeof solanaWeb3;
+    }
+  ).__SOLANA_WEB3__ = solanaWeb3;
+  console.log("[APP] Exposed @solana/web3.js for testing");
+}
 
 const queryClient = new QueryClient();
 
