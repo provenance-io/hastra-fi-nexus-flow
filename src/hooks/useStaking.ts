@@ -66,7 +66,7 @@ export const useStaking = () => {
   const [state, setState] = useState<StakingState>(INITIAL_STATE);
   const { isConnected, address } = useWallet();
   const { rate, loading: aprLoading, error: aprError } = useSYLDSAPR();
-  const { tokens } = useTokenPortfolio();
+  const { tokens, refetchTokens } = useTokenPortfolio();
   const { invoke: invokeStake } = useStake();
   const { invoke: invokeUnbond } = useUnbond();
   const { invoke: invokeRedeem } = useRedeem();
@@ -321,7 +321,8 @@ export const useStaking = () => {
           variant: "destructive",
         });
         return { success: false, error: JSON.stringify(error) };
-      });
+      })
+      .finally(() => refetchTokens());
   }, [
     state.stakingForm.isValid,
     state.stakingForm.amount,
@@ -329,6 +330,7 @@ export const useStaking = () => {
     invokeStake,
     updateTransactionStatus,
     toast,
+    refetchTokens,
   ]);
 
   const executeUnstaking = useCallback(async (): Promise<TransactionResult> => {
@@ -367,13 +369,15 @@ export const useStaking = () => {
           variant: "destructive",
         });
         return { success: false, error: JSON.stringify(error) };
-      });
+      })
+      .finally(() => refetchTokens());
   }, [
     state.unstakingForm,
     isConnected,
     updateTransactionStatus,
     invokeUnbond,
     toast,
+    refetchTokens,
   ]);
 
   const executeClaim = useCallback(async (): Promise<TransactionResult> => {
@@ -422,8 +426,15 @@ export const useStaking = () => {
           variant: "destructive",
         });
         return { success: false, error: JSON.stringify(error) };
-      });
-  }, [isConnected, updateTransactionStatus, invokeRedeem, toast]);
+      })
+      .finally(() => refetchTokens());
+  }, [
+    isConnected,
+    updateTransactionStatus,
+    invokeRedeem,
+    toast,
+    refetchTokens,
+  ]);
 
   const resetTransaction = useCallback(() => {
     setState((prev) => ({
