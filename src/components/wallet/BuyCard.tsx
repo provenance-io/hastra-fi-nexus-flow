@@ -28,7 +28,7 @@ const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
 
   const { toast } = useToast();
   const { data: geckoPrice } = useCoinGeckoPrice();
-  const { tokens } = useTokenPortfolio();
+  const { tokens, refetchTokens } = useTokenPortfolio();
   const { invoke } = useDepositAndMint();
 
   useEffect(() => {
@@ -124,7 +124,8 @@ const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
           description: response,
           variant: "destructive",
         });
-      });
+      })
+      .finally(() => refetchTokens());
   };
 
   const balance = (address: string) => {

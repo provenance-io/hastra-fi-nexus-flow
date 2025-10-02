@@ -120,9 +120,11 @@ export const useTokenPortfolioQuery = (
 
 export const useTokenPortfolio = () => {
   const { address, isConnected } = useWallet();
-  const { data: tokenData, isLoading: tokensLoading } = useTokenPortfolioQuery(
-    new PublicKey(address)
-  );
+  const {
+    data: tokenData,
+    isLoading: tokensLoading,
+    refetch: refetchTokens,
+  } = useTokenPortfolioQuery(new PublicKey(address));
   const [tokens, setTokens] = useState<TokenData[]>(
     isConnected ? tokenData : []
   );
@@ -214,6 +216,7 @@ export const useTokenPortfolio = () => {
   return {
     tokens: tokens, // Return the tokens with PRIME included
     tokensLoading,
+    refetchTokens,
     claimInterest,
     claimAllInterest,
     getTotalPortfolioValue,
