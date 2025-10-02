@@ -2,31 +2,24 @@ import { useCallback, useEffect, useState } from "react";
 import { useWallet } from "@/contexts/WalletContext";
 import { useToast } from "@/hooks/use-toast";
 import {
-  PendingUnstake,
-  ProtocolMetrics,
   StakingState,
   TransactionResult,
   TransactionStatus,
   ValidationError,
 } from "@/types/staking";
 import { useTokenPortfolio } from "@/hooks/useTokenPortfolio.ts";
-import { sYLDS, wYLDS } from "@/types/tokens.ts";
-import {
-  useAnchorWallet,
-  useRedeem,
-  useStake,
-  useUnbond,
-} from "@/hooks/use-solana-tx.ts";
+import { PRIME, wYLDS } from "@/types/tokens.ts";
+import { useRedeem, useStake, useUnbond } from "@/hooks/use-solana-tx.ts";
 import {
   usePendingUnstakeQuery,
   useUnbondingPeriodConfigQuery,
 } from "@/hooks/useSolanaQuery.ts";
-import { useSYLDSAPR } from "./use-sylds-apr";
+import { usePRIMEAPR } from "./use-prime-apr";
 
 const INITIAL_STATE: StakingState = {
   userBalance: {
     wYLDS: "0",
-    sYLDS: "0",
+    PRIME: "0",
     isLoading: false,
   },
   widgetMode: "stake",
@@ -65,7 +58,7 @@ const INITIAL_STATE: StakingState = {
 export const useStaking = () => {
   const [state, setState] = useState<StakingState>(INITIAL_STATE);
   const { isConnected, address } = useWallet();
-  const { rate, loading: aprLoading, error: aprError } = useSYLDSAPR();
+  const { rate, loading: aprLoading, error: aprError } = usePRIMEAPR();
   const { tokens, refetchTokens } = useTokenPortfolio();
   const { invoke: invokeStake } = useStake();
   const { invoke: invokeUnbond } = useUnbond();
@@ -127,7 +120,7 @@ export const useStaking = () => {
         ...prev,
         userBalance: {
           wYLDS: tokens.find((t) => t.mint === wYLDS)?.amount.toString() || "0",
-          sYLDS: tokens.find((t) => t.mint === sYLDS)?.amount.toString() || "0",
+          PRIME: tokens.find((t) => t.mint === PRIME)?.amount.toString() || "0",
           isLoading: false,
         },
       }));
@@ -173,7 +166,7 @@ export const useStaking = () => {
     (amount: string): ValidationError[] => {
       const errors: ValidationError[] = [];
       const numAmount = parseFloat(amount);
-      const balance = parseFloat(state.userBalance.sYLDS);
+      const balance = parseFloat(state.userBalance.PRIME);
 
       if (!amount || isNaN(numAmount) || numAmount <= 0) {
         errors.push({
@@ -186,7 +179,7 @@ export const useStaking = () => {
       if (numAmount > balance) {
         errors.push({
           field: "amount",
-          message: "Insufficient sYLDS balance",
+          message: "Insufficient PRIME balance",
           type: "insufficient_balance",
         });
       }
@@ -194,14 +187,14 @@ export const useStaking = () => {
       if (numAmount < 0.01) {
         errors.push({
           field: "amount",
-          message: "Minimum unstake amount is 0.01 sYLDS",
+          message: "Minimum unstake amount is 0.01 PRIME",
           type: "min_amount",
         });
       }
 
       return errors;
     },
-    [state.userBalance.sYLDS]
+    [state.userBalance.PRIME]
   );
 
   const setStakingAmount = useCallback(
@@ -268,8 +261,8 @@ export const useStaking = () => {
   }, [state.userBalance.wYLDS, setStakingAmount]);
 
   const setMaxUnstakeAmount = useCallback(() => {
-    setUnstakingAmount(state.userBalance.sYLDS);
-  }, [state.userBalance.sYLDS, setUnstakingAmount]);
+    setUnstakingAmount(state.userBalance.PRIME);
+  }, [state.userBalance.PRIME, setUnstakingAmount]);
 
   const updateTransactionStatus = useCallback(
     (status: TransactionStatus, txHash?: string, error?: string) => {
@@ -345,8 +338,8 @@ export const useStaking = () => {
         toast({
           title: tx.success ? "🟢 Unstaking Successful" : "❌ Staking Failed",
           description: tx.success
-            ? `Successfully initiated unstake ${state.unstakingForm.amount} sYLDS`
-            : `Unstake of ${state.unstakingForm.amount} sYLDS failed: ${tx.error}`,
+            ? `Successfully initiated unstake ${state.unstakingForm.amount} PRIME`
+            : `Unstake of ${state.unstakingForm.amount} PRIME failed: ${tx.error}`,
           className: tx.success ? "toast-action-success" : "toast-action-error",
         });
         if (!tx.success) {
@@ -392,21 +385,21 @@ export const useStaking = () => {
         updateTransactionStatus("success", tx.txId);
         toast({
           title: "🟢 Unstaked to wYLDS",
-          description: `Successfully unstaked sYLDS to wYLDS`,
+          description: `Successfully unstaked PRIME to wYLDS`,
           className: "toast-action-success",
         });
         if (!tx.success) {
           console.error(JSON.stringify(tx));
         }
 
-        // Update balances: decrease sYLDS, increase wYLDS
+        // Update balances: decrease PRIME, increase wYLDS
         setState((prev) => {
-          const newSYLDS = 0;
+          const newSPRIME = 0;
           return {
             ...prev,
             userBalance: {
               ...prev.userBalance,
-              sYLDS: newSYLDS.toString(),
+              PRIME: newSPRIME.toString(),
             },
             pendingUnstakes: {
               data: null,

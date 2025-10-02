@@ -1,0 +1,120 @@
+import { Card } from "@/components/ui/card";
+import { fetchCurrentAPR } from "@/utils/solana-utils";
+import { useQuery } from "@tanstack/react-query";
+import { ArrowRight, Coins, Layers, TrendingUp, Zap } from "lucide-react";
+
+const steps = (rate: string) => [
+  {
+    number: "1",
+    icon: Coins,
+    title: "Get wYLDS",
+    description:
+      "Acquire wYLDS tokens backed by Figure Markets' SEC-registered YLDS stablecoin",
+    details:
+      "Purchase wYLDS on supported exchanges or mint directly through Hastra Protocol",
+  },
+  {
+    number: "2",
+    icon: Layers,
+    title: "Stake for PRIME",
+    description: `Stake your PRIME on Hastra to receive PRIME and start earning ${rate}% APY immediately`,
+    details: "Simple one-click staking process with instant PRIME receipt",
+  },
+  {
+    number: "3",
+    icon: TrendingUp,
+    title: "Earn Real Yield",
+    description:
+      "Your PRIME earns yield from DemoPrime's HELOC lending operations - real assets, real returns",
+    details:
+      "Yield is automatically compounded and distributed based on real lending performance",
+  },
+  {
+    number: "4",
+    icon: Zap,
+    title: "Use in DeFi",
+    description: `Leverage your PRIME on Kamino for enhanced yields while maintaining your base ${rate}% earnings`,
+    details:
+      "Collateralize PRIME for loans or use in leverage strategies for up to 12% total yield",
+  },
+];
+
+const PRIMEHowItWorks = () => {
+  // TODO: Replace this with a single hook
+  const { data: currentAPR, isLoading: apyLoading } = useQuery({
+    queryKey: ["currentAPR"],
+    queryFn: fetchCurrentAPR,
+    refetchInterval: 5 * 60 * 1000,
+  });
+  return (
+    <section className="py-16 px-4 relative overflow-hidden">
+      <div className="max-w-5xl mx-auto px-4 relative z-10">
+        {/* Combined Dashboard Box - How PRIME Works */}
+        <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
+          <div className="relative z-10">
+            <div className="text-center mb-16">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground/90 mb-4">
+                How PRIME Works
+              </h2>
+              <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+                Simple staking, powerful yields
+              </p>
+            </div>
+
+            {/* Step Cards */}
+            <div className="grid gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-4">
+              {steps(currentAPR ? currentAPR.toFixed(1) : "Loading...").map(
+                (step, index) => (
+                  <Card
+                    key={step.number}
+                    className="relative p-6 bg-background/50 backdrop-blur-sm border-border/40 hover:bg-background/70 transition-all duration-300 group"
+                  >
+                    {/* Step Number */}
+                    <div className="absolute -top-3 -left-3 w-8 h-8 bg-gradient-to-br from-crypto-accent to-auburn-primary rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg">
+                      {step.number}
+                    </div>
+
+                    {/* Icon */}
+                    <div className="w-12 h-12 bg-gradient-to-br from-header-glow/20 to-crypto-accent/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <step.icon className="h-6 w-6 text-crypto-accent" />
+                    </div>
+
+                    {/* Content */}
+                    <h3 className="font-bold text-foreground mb-2">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      {step.description}
+                    </p>
+                    <p className="text-xs text-muted-foreground/80">
+                      {step.details}
+                    </p>
+
+                    {/* Arrow for flow (except last item) */}
+                    {index < steps.length - 1 && (
+                      <div className="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2 z-10">
+                        <ArrowRight className="h-6 w-6 text-crypto-accent/60" />
+                      </div>
+                    )}
+                  </Card>
+                )
+              )}
+            </div>
+
+            {/* Bottom CTA */}
+            <div className="text-center mt-12">
+              <p className="text-muted-foreground mb-4">
+                Ready to start earning with PRIME?
+              </p>
+              <div className="inline-flex items-center space-x-2 text-sm text-crypto-accent">
+                <span>Simple • Secure • Sustainable</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default PRIMEHowItWorks;

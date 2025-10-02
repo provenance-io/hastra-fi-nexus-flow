@@ -1,16 +1,19 @@
 // anchor-privy-setup.ts
 import {
-    Connection,
-    LAMPORTS_PER_SOL,
-    PublicKey, SystemProgram,
-    Transaction,
-    type TransactionSignature,
+  Connection,
+  LAMPORTS_PER_SOL,
+  PublicKey,
+  SystemProgram,
+  Transaction,
+  type TransactionSignature,
 } from "@solana/web3.js";
 import {
-    AnchorProvider,
-    type Idl,
-    Program,
-    type Wallet as AnchorWallet, web3, workspace,
+  AnchorProvider,
+  type Idl,
+  Program,
+  type Wallet as AnchorWallet,
+  web3,
+  workspace,
 } from "@coral-xyz/anchor";
 import { SolanaResponse } from "../types/solana-tx";
 import { useCallback } from "react";
@@ -22,9 +25,9 @@ import {
   TOKEN_PROGRAM_ID,
 } from "@solana/spl-token";
 import BN from "bn.js";
-import {sYLDS, USDC, wYLDS} from "@/types/tokens.ts";
-import {HastraSolVaultStake as HastraSolVaultStakeIdl} from "@/types/idl/hastra-sol-vault-stake.ts";
-import {HastraSolVaultMint as HastraSolVaultMintIdl} from "@/types/idl/hastra-sol-vault-mint.ts";
+import { PRIME, USDC, wYLDS } from "@/types/tokens.ts";
+import { HastraSolVaultStake as HastraSolVaultStakeIdl } from "@/types/idl/hastra-sol-vault-stake.ts";
+import { HastraSolVaultMint as HastraSolVaultMintIdl } from "@/types/idl/hastra-sol-vault-mint.ts";
 
 const RPC_ENDPOINT = import.meta.env.VITE_SOLANA_RPC_URL;
 
@@ -46,18 +49,17 @@ const confirmTransaction = async (
   return new SolanaResponse(confirmation.value.err === null, confirmation, sig);
 };
 
-const ataInstruction = async (connection: Connection, signer: PublicKey, to: PublicKey, mint: PublicKey) => {
-    const toTokenAccountInfo = await connection.getAccountInfo(to);
-    return  toTokenAccountInfo ? [] : [
-        createAssociatedTokenAccountInstruction(
-            signer,
-            to,
-            signer,
-            mint
-        )
-    ];
-
-}
+const ataInstruction = async (
+  connection: Connection,
+  signer: PublicKey,
+  to: PublicKey,
+  mint: PublicKey
+) => {
+  const toTokenAccountInfo = await connection.getAccountInfo(to);
+  return toTokenAccountInfo
+    ? []
+    : [createAssociatedTokenAccountInstruction(signer, to, signer, mint)];
+};
 export const useAnchorWallet = (): AnchorWallet | undefined => {
   const { publicKey, signAllTransactions, signTransaction } = useWallet();
   if (publicKey && signTransaction && signAllTransactions) {
@@ -68,6 +70,7 @@ export const useAnchorWallet = (): AnchorWallet | undefined => {
       signAllTransactions,
     };
   }
+  return undefined;
 };
 
 export const useDepositAndMint = () => {
@@ -109,7 +112,12 @@ export const useDepositAndMint = () => {
         import.meta.env.VITE_SOLANA_USDC_WYLDS_MINT_AUTHORITY_PDA
       );
 
-      const createAtaInstructions = await ataInstruction(connection, signer, userMintTokenAccount, mint);
+      const createAtaInstructions = await ataInstruction(
+        connection,
+        signer,
+        userMintTokenAccount,
+        mint
+      );
 
       console.log(`signer:        ${signer.toBase58()}`);
       console.log(`swapToken:     ${userVaultTokenAccount.toBase58()}`);
@@ -300,228 +308,248 @@ export const useTransfer = () => {
 };
 
 export const useStake = () => {
-    const { connection } = useConnection();
-    const { publicKey } = useWallet();
-    const wallet = useAnchorWallet();
+  const { connection } = useConnection();
+  const { publicKey } = useWallet();
+  const wallet = useAnchorWallet();
 
-    const stake = useCallback(
-        async (amount: number) => {
-            if (!wallet) {
-                console.error("No wallet found. Please connect your wallet.");
-                return;
-            }
-            if (!publicKey) {
-                console.error("No public key found. Please connect your wallet.");
-                return;
-            }
-            const provider = new AnchorProvider(connection, wallet, {
-                preflightCommitment: "confirmed",
-            });
-            const program = new Program(HastraSolVaultStakeIdl as Idl, provider);
+  const stake = useCallback(
+    async (amount: number) => {
+      if (!wallet) {
+        console.error("No wallet found. Please connect your wallet.");
+        return;
+      }
+      if (!publicKey) {
+        console.error("No public key found. Please connect your wallet.");
+        return;
+      }
+      const provider = new AnchorProvider(connection, wallet, {
+        preflightCommitment: "confirmed",
+      });
+      const program = new Program(HastraSolVaultStakeIdl as Idl, provider);
 
-            // program accounts
-            const signer = publicKey;
-            const userVaultTokenAccount: PublicKey = await getAssociatedTokenAddress(
-                new PublicKey(wYLDS),
-                signer
-            );
-            const userMintTokenAccount: PublicKey = await getAssociatedTokenAddress(
-                new PublicKey(sYLDS),
-                signer
-            );
-            const syldsMint = new PublicKey(sYLDS);
-            const vault = new PublicKey(import.meta.env.VITE_SOLANA_SYLDS_VAULT);
-            const configPda = new PublicKey(
-                import.meta.env.VITE_SOLANA_SYLDS_CONFIG_PDA
-            );
-            const mintAuthorityPda = new PublicKey(
-                import.meta.env.VITE_SOLANA_SYLDS_MINT_AUTHORITY_PDA
-            );
-            const vaultTokenAccount = new PublicKey(
-                import.meta.env.VITE_SOLANA_SYLDS_VAULT_TOKEN_ACCOUNT,
-            )
+      // program accounts
+      const signer = publicKey;
+      const userVaultTokenAccount: PublicKey = await getAssociatedTokenAddress(
+        new PublicKey(wYLDS),
+        signer
+      );
+      const userMintTokenAccount: PublicKey = await getAssociatedTokenAddress(
+        new PublicKey(PRIME),
+        signer
+      );
+      const PRIMEMint = new PublicKey(PRIME);
+      const vault = new PublicKey(import.meta.env.VITE_SOLANA_PRIME_VAULT);
+      const configPda = new PublicKey(
+        import.meta.env.VITE_SOLANA_PRIME_CONFIG_PDA
+      );
+      const mintAuthorityPda = new PublicKey(
+        import.meta.env.VITE_SOLANA_PRIME_MINT_AUTHORITY_PDA
+      );
+      const vaultTokenAccount = new PublicKey(
+        import.meta.env.VITE_SOLANA_PRIME_VAULT_TOKEN_ACCOUNT
+      );
 
-            const createAtaInstructions = await ataInstruction(connection, signer, userMintTokenAccount, syldsMint);
+      const createAtaInstructions = await ataInstruction(
+        connection,
+        signer,
+        userMintTokenAccount,
+        PRIMEMint
+      );
 
-            console.log(`signer:        ${signer.toBase58()}`);
-            console.log(`userVaultTokenAccount:     ${userVaultTokenAccount.toBase58()}`);
-            console.log(`userMintTokenAccount:     ${userMintTokenAccount.toBase58()}`);
-            console.log(`vault:         ${vault.toBase58()}`);
-            console.log(`vault TA:      ${vaultTokenAccount.toBase58()}`);
-            console.log(`mint:          ${syldsMint.toBase58()}`);
-            console.log(`configPda:     ${configPda.toBase58()}`);
-            console.log(`mintAuthority: ${mintAuthorityPda.toBase58()}`);
-            console.log(`tokenProgram:  ${TOKEN_PROGRAM_ID.toBase58()}`);
-            return await confirmTransaction(connection, () =>
-                program?.methods
-                    .deposit(new BN(amount * 1_000_000))
-                    .accounts({
-                        config: configPda,
-                        vaultTokenAccount: vaultTokenAccount,
-                        mint: syldsMint,
-                        mintAuthority: mintAuthorityPda,
-                        signer: signer,
-                        userVaultTokenAccount: userVaultTokenAccount,
-                        userMintTokenAccount: userMintTokenAccount,
-                        tokenProgram: TOKEN_PROGRAM_ID
-                    })
-                    .preInstructions(createAtaInstructions)
-                    .rpc()
-            );
-        },
-        [connection, wallet, publicKey]
-    );
+      console.log(`signer:        ${signer.toBase58()}`);
+      console.log(
+        `userVaultTokenAccount:     ${userVaultTokenAccount.toBase58()}`
+      );
+      console.log(
+        `userMintTokenAccount:     ${userMintTokenAccount.toBase58()}`
+      );
+      console.log(`vault:         ${vault.toBase58()}`);
+      console.log(`vault TA:      ${vaultTokenAccount.toBase58()}`);
+      console.log(`mint:          ${PRIMEMint.toBase58()}`);
+      console.log(`configPda:     ${configPda.toBase58()}`);
+      console.log(`mintAuthority: ${mintAuthorityPda.toBase58()}`);
+      console.log(`tokenProgram:  ${TOKEN_PROGRAM_ID.toBase58()}`);
+      return await confirmTransaction(connection, () =>
+        program?.methods
+          .deposit(new BN(amount * 1_000_000))
+          .accounts({
+            config: configPda,
+            vaultTokenAccount: vaultTokenAccount,
+            mint: PRIMEMint,
+            mintAuthority: mintAuthorityPda,
+            signer: signer,
+            userVaultTokenAccount: userVaultTokenAccount,
+            userMintTokenAccount: userMintTokenAccount,
+            tokenProgram: TOKEN_PROGRAM_ID,
+          })
+          .preInstructions(createAtaInstructions)
+          .rpc()
+      );
+    },
+    [connection, wallet, publicKey]
+  );
 
-    return {
-        invoke: stake,
-    };
+  return {
+    invoke: stake,
+  };
 };
 
 export const useUnbond = () => {
-    const { connection } = useConnection();
-    const { publicKey } = useWallet();
-    const wallet = useAnchorWallet();
+  const { connection } = useConnection();
+  const { publicKey } = useWallet();
+  const wallet = useAnchorWallet();
 
-    const unbond = useCallback(
-        async (amount: number) => {
-            if (!wallet) {
-                console.error("No wallet found. Please connect your wallet.");
-                return;
-            }
-            if (!publicKey) {
-                console.error("No public key found. Please connect your wallet.");
-                return;
-            }
-            const provider = new AnchorProvider(connection, wallet, {
-                preflightCommitment: "confirmed",
-            });
-            const program = new Program(HastraSolVaultStakeIdl as Idl, provider);
+  const unbond = useCallback(
+    async (amount: number) => {
+      if (!wallet) {
+        console.error("No wallet found. Please connect your wallet.");
+        return;
+      }
+      if (!publicKey) {
+        console.error("No public key found. Please connect your wallet.");
+        return;
+      }
+      const provider = new AnchorProvider(connection, wallet, {
+        preflightCommitment: "confirmed",
+      });
+      const program = new Program(HastraSolVaultStakeIdl as Idl, provider);
 
-            // program accounts
-            const signer = publicKey;
-            const userMintTokenAccount: PublicKey = await getAssociatedTokenAddress(
-                new PublicKey(sYLDS),
-                signer
-            );
+      // program accounts
+      const signer = publicKey;
+      const userMintTokenAccount: PublicKey = await getAssociatedTokenAddress(
+        new PublicKey(PRIME),
+        signer
+      );
 
-            const syldsMint = new PublicKey(sYLDS);
+      const PRIMEMint = new PublicKey(PRIME);
 
-            const configPda = new PublicKey(
-                import.meta.env.VITE_SOLANA_SYLDS_CONFIG_PDA
-            );
-            const [ticketPda] = web3.PublicKey.findProgramAddressSync(
-                [Buffer.from("ticket"), signer.toBuffer()],
-                program.programId
-            );
+      const configPda = new PublicKey(
+        import.meta.env.VITE_SOLANA_PRIME_CONFIG_PDA
+      );
+      const [ticketPda] = web3.PublicKey.findProgramAddressSync(
+        [Buffer.from("ticket"), signer.toBuffer()],
+        program.programId
+      );
 
-            console.log(`signer:                        ${signer.toBase58()}`);
-            console.log(`userMintTokenAccount:          ${userMintTokenAccount.toBase58()}`);
-            console.log(`ticketPda:                     ${ticketPda.toBase58()}`);
-            console.log(`mint:                          ${syldsMint.toBase58()}`);
-            console.log(`configPda:                     ${configPda.toBase58()}`);
-            console.log(`tokenProgram:                  ${TOKEN_PROGRAM_ID.toBase58()}`);
-            return await confirmTransaction(connection, () =>
-                program?.methods
-                    .unbond(new BN(amount * 1_000_000))
-                    .accounts({
-                        config: configPda,
-                        signer: signer,
-                        mint: syldsMint,
-                        userMintTokenAccount: userMintTokenAccount,
-                        tokenProgram: TOKEN_PROGRAM_ID,
-                        ticket: ticketPda,
-                        systemProgram: SystemProgram.programId
-                    })
-                    .rpc()
-            );
-        },
-        [connection, wallet, publicKey]
-    );
+      console.log(`signer:                        ${signer.toBase58()}`);
+      console.log(
+        `userMintTokenAccount:          ${userMintTokenAccount.toBase58()}`
+      );
+      console.log(`ticketPda:                     ${ticketPda.toBase58()}`);
+      console.log(`mint:                          ${PRIMEMint.toBase58()}`);
+      console.log(`configPda:                     ${configPda.toBase58()}`);
+      console.log(
+        `tokenProgram:                  ${TOKEN_PROGRAM_ID.toBase58()}`
+      );
+      return await confirmTransaction(connection, () =>
+        program?.methods
+          .unbond(new BN(amount * 1_000_000))
+          .accounts({
+            config: configPda,
+            signer: signer,
+            mint: PRIMEMint,
+            userMintTokenAccount: userMintTokenAccount,
+            tokenProgram: TOKEN_PROGRAM_ID,
+            ticket: ticketPda,
+            systemProgram: SystemProgram.programId,
+          })
+          .rpc()
+      );
+    },
+    [connection, wallet, publicKey]
+  );
 
-    return {
-        invoke: unbond,
-    };
+  return {
+    invoke: unbond,
+  };
 };
 
 export const useRedeem = () => {
-    const { connection } = useConnection();
-    const { publicKey } = useWallet();
-    const wallet = useAnchorWallet();
+  const { connection } = useConnection();
+  const { publicKey } = useWallet();
+  const wallet = useAnchorWallet();
 
-    const redeem = useCallback(
-        async () => {
-            if (!wallet) {
-                console.error("No wallet found. Please connect your wallet.");
-                return;
-            }
-            if (!publicKey) {
-                console.error("No public key found. Please connect your wallet.");
-                return;
-            }
-            const provider = new AnchorProvider(connection, wallet, {
-                preflightCommitment: "confirmed",
-            });
-            const program = new Program(HastraSolVaultStakeIdl as Idl, provider);
+  const redeem = useCallback(async () => {
+    if (!wallet) {
+      console.error("No wallet found. Please connect your wallet.");
+      return;
+    }
+    if (!publicKey) {
+      console.error("No public key found. Please connect your wallet.");
+      return;
+    }
+    const provider = new AnchorProvider(connection, wallet, {
+      preflightCommitment: "confirmed",
+    });
+    const program = new Program(HastraSolVaultStakeIdl as Idl, provider);
 
-            const syldsMint = new PublicKey(sYLDS);
+    const PRIMEMint = new PublicKey(PRIME);
 
-            const signer = publicKey;
-            const userMintTokenAccount: PublicKey = await getAssociatedTokenAddress(
-                new PublicKey(sYLDS),
-                signer
-            );
-            const userVaultTokenAccount: PublicKey = await getAssociatedTokenAddress(
-                new PublicKey(wYLDS),
-                signer
-            );
-
-            const vaultTokenAccount = new PublicKey(
-                import.meta.env.VITE_SOLANA_SYLDS_VAULT_TOKEN_ACCOUNT,
-            )
-
-            const configPda = new PublicKey(
-                import.meta.env.VITE_SOLANA_SYLDS_CONFIG_PDA
-            );
-            const [ticketPda] = web3.PublicKey.findProgramAddressSync(
-                [Buffer.from("ticket"), signer.toBuffer()],
-                program.programId
-            );
-            const [vaultAuthorityPda] = web3.PublicKey.findProgramAddressSync(
-                [Buffer.from("vault_authority")],
-                program.programId
-            );
-
-            console.log(`config:                        ${configPda.toBase58()}`);
-            console.log(`vaultTokenAccount:             ${vaultTokenAccount.toBase58()}`);
-            console.log(`vaultAuthority:                ${vaultAuthorityPda.toBase58()}`);
-            console.log(`signer:                        ${signer.toBase58()}`);
-            console.log(`userMintTokenAccount:          ${userMintTokenAccount.toBase58()}`);
-            console.log(`userVaultTokenAccount:         ${userVaultTokenAccount.toBase58()}`);
-            console.log(`mint:                          ${syldsMint.toBase58()}`);
-            console.log(`ticketPda:                     ${ticketPda.toBase58()}`);
-            console.log(`tokenProgram:                  ${TOKEN_PROGRAM_ID.toBase58()}`);
-            return await confirmTransaction(connection, () =>
-                program?.methods
-                    .redeem()
-                    .accounts({
-                        config: configPda,
-                        vaultTokenAccount: vaultTokenAccount,
-                        vaultAuthority: vaultAuthorityPda,
-                        signer: signer,
-                        userMintTokenAccount: userMintTokenAccount,
-                        userVaultTokenAccount: userVaultTokenAccount,
-                        mint: syldsMint,
-                        tokenProgram: TOKEN_PROGRAM_ID,
-                        ticket: ticketPda,
-                        systemProgram: SystemProgram.programId
-                    })
-                    .rpc()
-            );
-        },
-        [connection, wallet, publicKey]
+    const signer = publicKey;
+    const userMintTokenAccount: PublicKey = await getAssociatedTokenAddress(
+      new PublicKey(PRIME),
+      signer
+    );
+    const userVaultTokenAccount: PublicKey = await getAssociatedTokenAddress(
+      new PublicKey(wYLDS),
+      signer
     );
 
-    return {
-        invoke: redeem,
-    };
+    const vaultTokenAccount = new PublicKey(
+      import.meta.env.VITE_SOLANA_PRIME_VAULT_TOKEN_ACCOUNT
+    );
+
+    const configPda = new PublicKey(
+      import.meta.env.VITE_SOLANA_PRIME_CONFIG_PDA
+    );
+    const [ticketPda] = web3.PublicKey.findProgramAddressSync(
+      [Buffer.from("ticket"), signer.toBuffer()],
+      program.programId
+    );
+    const [vaultAuthorityPda] = web3.PublicKey.findProgramAddressSync(
+      [Buffer.from("vault_authority")],
+      program.programId
+    );
+
+    console.log(`config:                        ${configPda.toBase58()}`);
+    console.log(
+      `vaultTokenAccount:             ${vaultTokenAccount.toBase58()}`
+    );
+    console.log(
+      `vaultAuthority:                ${vaultAuthorityPda.toBase58()}`
+    );
+    console.log(`signer:                        ${signer.toBase58()}`);
+    console.log(
+      `userMintTokenAccount:          ${userMintTokenAccount.toBase58()}`
+    );
+    console.log(
+      `userVaultTokenAccount:         ${userVaultTokenAccount.toBase58()}`
+    );
+    console.log(`mint:                          ${PRIMEMint.toBase58()}`);
+    console.log(`ticketPda:                     ${ticketPda.toBase58()}`);
+    console.log(
+      `tokenProgram:                  ${TOKEN_PROGRAM_ID.toBase58()}`
+    );
+    return await confirmTransaction(connection, () =>
+      program?.methods
+        .redeem()
+        .accounts({
+          config: configPda,
+          vaultTokenAccount: vaultTokenAccount,
+          vaultAuthority: vaultAuthorityPda,
+          signer: signer,
+          userMintTokenAccount: userMintTokenAccount,
+          userVaultTokenAccount: userVaultTokenAccount,
+          mint: PRIMEMint,
+          tokenProgram: TOKEN_PROGRAM_ID,
+          ticket: ticketPda,
+          systemProgram: SystemProgram.programId,
+        })
+        .rpc()
+    );
+  }, [connection, wallet, publicKey]);
+
+  return {
+    invoke: redeem,
+  };
 };

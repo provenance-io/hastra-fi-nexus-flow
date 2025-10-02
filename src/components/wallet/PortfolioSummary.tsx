@@ -9,6 +9,7 @@ import {
   calculateStakingRewards,
 } from "@/utils/stakingUtils";
 import { useUnbond } from "@/hooks/use-solana-tx.ts";
+import { useSolBalanceQuery } from "@/hooks/useSolanaQuery";
 
 interface PortfolioSummaryProps {
   totalPortfolioValue: number;
@@ -35,12 +36,12 @@ const PortfolioSummary = ({
   const [isUnstaking, setIsUnstaking] = useState(false);
 
   // Calculate staking data
-  const stakedBalance = parseFloat(userBalance.sYLDS);
+  const stakedBalance = parseFloat(userBalance.PRIME);
   const pendingBalance = parseFloat(pendingUnstake?.data?.amount || "0");
   const totalInStaking = stakedBalance + pendingBalance;
 
   const dailyRewards = calculateStakingRewards(
-    userBalance.sYLDS,
+    userBalance.PRIME,
     protocolData.currentAPR,
     "daily"
   );
@@ -69,13 +70,13 @@ const PortfolioSummary = ({
 
   const executeUnstakeAll = () => {
     setIsUnstaking(true);
-    invokeUnbond(parseFloat(userBalance.sYLDS))
+    invokeUnbond(parseFloat(userBalance.PRIME))
       .then((tx) => {
         toast({
           title: tx.success ? "🟢 Unstaking Successful" : "❌ Staking Failed",
           description: tx.success
-            ? `Successfully initiated unstake ${userBalance.sYLDS} sYLDS`
-            : `Unstake of ${userBalance.sYLDS} sYLDS failed: ${tx.error}`,
+            ? `Successfully initiated unstake ${userBalance.PRIME} PRIME`
+            : `Unstake of ${userBalance.PRIME} PRIME failed: ${tx.error}`,
           className: tx.success ? "toast-action-success" : "toast-action-error",
         });
         return { success: tx.success, txHash: tx.txId };
@@ -219,7 +220,7 @@ const PortfolioSummary = ({
                 </p>
               </div>
               <p className="text-3xl lg:text-4xl font-bold text-white mb-1">
-                {formatStakingAmount(userBalance.sYLDS)}
+                {formatStakingAmount(userBalance.PRIME)}
               </p>
               <p className="text-xs text-muted-foreground">
                 {protocolData.currentAPR}% APR
@@ -253,12 +254,12 @@ const PortfolioSummary = ({
                 </p>
               </div>
               <p className="text-3xl lg:text-4xl font-bold text-white mb-3">
-                {formatStakingAmount(userBalance.sYLDS)}
+                {formatStakingAmount(userBalance.PRIME)}
               </p>
 
               {pendingUnstake?.data ? (
                 <div className="text-xs text-muted-foreground mb-2">
-                  Pending Unstake: {formatStakingAmount(pendingBalance)} sYLDS
+                  Pending Unstake: {formatStakingAmount(pendingBalance)} PRIME
                   (Available on{" "}
                   {new Date(
                     pendingUnstake.data.availableAt
@@ -270,7 +271,7 @@ const PortfolioSummary = ({
                   size="sm"
                   variant="secondary"
                   className="w-full"
-                  disabled={parseFloat(userBalance.sYLDS) <= 0}
+                  disabled={parseFloat(userBalance.PRIME) <= 0}
                   onClick={executeUnstakeAll}
                 >
                   {isUnstaking ? (

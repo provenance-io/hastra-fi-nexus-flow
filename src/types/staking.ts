@@ -1,14 +1,10 @@
 export interface StakingState {
   // User Data
-  userBalance: {
-    wYLDS: string;
-    sYLDS: string;
-    isLoading: boolean;
-  };
-  
+  userBalance: UserBalance;
+
   // Widget Mode
-  widgetMode: 'stake' | 'unstake';
-  
+  widgetMode: "stake" | "unstake";
+
   // Staking Form
   stakingForm: {
     amount: string;
@@ -16,7 +12,7 @@ export interface StakingState {
     errors: ValidationError[];
     estimatedOutput: string;
   };
-  
+
   // Unstaking Form
   unstakingForm: {
     amount: string;
@@ -26,22 +22,22 @@ export interface StakingState {
     availableDate: Date;
     cooldownWarning: string;
   };
-  
+
   // Pending Unstake
   pendingUnstake: {
-    data: PendingUnstake | null,
+    data: PendingUnstake | null;
     isLoading: boolean;
-  }
-  
+  };
+
   // Transaction
   transaction: {
-    type: 'stake' | 'unstake' | 'claim';
+    type: "stake" | "unstake" | "claim";
     status: TransactionStatus;
     hash?: string;
     error?: string;
     gasEstimate?: string;
   };
-  
+
   // Protocol Data
   protocolData: {
     currentAPR: string;
@@ -56,12 +52,16 @@ export interface StakingState {
 export interface ValidationError {
   field: string;
   message: string;
-  type: 'insufficient_balance' | 'min_amount' | 'invalid_input' | 'network_error';
+  type:
+    | "insufficient_balance"
+    | "min_amount"
+    | "invalid_input"
+    | "network_error";
 }
 
 export interface ValidationWarning {
   message: string;
-  type: 'cooldown' | 'fee' | 'slippage';
+  type: "cooldown" | "fee" | "slippage";
 }
 
 export interface PendingUnstake {
@@ -69,18 +69,18 @@ export interface PendingUnstake {
   amount: string;
   initiatedAt: Date;
   availableAt: Date;
-  status: 'pending' | 'ready' | 'claimed';
+  status: "pending" | "ready" | "claimed";
   canClaim: boolean;
   canCancel: boolean;
 }
 
 export interface StakingTransaction {
   id: string;
-  type: 'stake' | 'unstake' | 'claim';
+  type: "stake" | "unstake" | "claim";
   amount: string;
   txHash: string;
   timestamp: Date;
-  status: 'pending' | 'confirmed' | 'failed';
+  status: "pending" | "confirmed" | "failed";
 }
 
 export interface ProtocolMetrics {
@@ -112,18 +112,18 @@ export interface TransactionResult {
   unstakeId?: string; // For unstaking transactions
 }
 
-export type TransactionStatus = 
-  | 'idle' 
-  | 'preparing' 
-  | 'signing' 
-  | 'broadcasting' 
-  | 'confirming' 
-  | 'success' 
-  | 'error';
+export type TransactionStatus =
+  | "idle"
+  | "preparing"
+  | "signing"
+  | "broadcasting"
+  | "confirming"
+  | "success"
+  | "error";
 
 export interface UserBalance {
   wYLDS: string;
-  sYLDS: string;
+  PRIME: string;
   isLoading: boolean;
 }
 
@@ -137,13 +137,13 @@ export interface UnstakingInfo {
 export interface FAQ {
   question: string;
   answer: string;
-  category: 'staking' | 'unstaking' | 'rewards' | 'security';
+  category: "staking" | "unstaking" | "rewards" | "security";
 }
 
 export interface RiskItem {
   title: string;
   description: string;
-  severity: 'low' | 'medium' | 'high';
+  severity: "low" | "medium" | "high";
 }
 
 export interface HelpLink {

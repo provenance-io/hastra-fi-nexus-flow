@@ -1,17 +1,17 @@
-import { Building2, ExternalLink, FileText, Shield } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Building2, ExternalLink, FileText, Shield } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-const SYLDSInvestmentDetails = () => {
+const PRIMEInvestmentDetails = () => {
   return (
     <section className="py-16 px-4 relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 relative z-10">
-        {/* Combined Dashboard Box - What sYLDS Invests In */}
+        {/* Combined Dashboard Box - What PRIME Invests In */}
         <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
           <div className="relative z-10">
             {/* Section Header */}
             <div className="mb-8 text-center">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground/90">
-                What sYLDS Invests In
+                What PRIME Invests In
               </h2>
             </div>
 
@@ -71,7 +71,8 @@ const SYLDSInvestmentDetails = () => {
                             Learn More
                           </h4>
                           <p className="text-xs text-white/80 leading-relaxed">
-                            Discover how {feature.title.toLowerCase()} contributes to your sYLDS yields
+                            Discover how {feature.title.toLowerCase()}{" "}
+                            contributes to your PRIME yields
                           </p>
                           <Button
                             size="sm"
@@ -130,9 +131,11 @@ const SYLDSInvestmentDetails = () => {
             {/* Disclaimer */}
             <div className="mt-8 p-4 bg-background/20 rounded-xl border border-border/20">
               <p className="text-xs text-muted-foreground leading-relaxed">
-                <strong>Investment Details:</strong> sYLDS yield is generated through DemoPrime's HELOC lending operations, 
-                providing exposure to real estate-backed lending. All investments carry risk and past performance 
-                does not guarantee future results. Please review all documentation before investing.
+                <strong>Investment Details:</strong> PRIME yield is generated
+                through DemoPrime's HELOC lending operations, providing exposure
+                to real estate-backed lending. All investments carry risk and
+                past performance does not guarantee future results. Please
+                review all documentation before investing.
               </p>
             </div>
           </div>
@@ -142,4 +145,4 @@ const SYLDSInvestmentDetails = () => {
   );
 };
 
-export default SYLDSInvestmentDetails;
+export default PRIMEInvestmentDetails;

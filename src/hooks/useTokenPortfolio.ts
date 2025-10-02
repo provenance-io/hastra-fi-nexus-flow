@@ -31,8 +31,8 @@ const token = (address: string) => {
       return "USDC";
     case import.meta.env.VITE_SOLANA_WYLDS_MINT:
       return "wYLDS";
-    case import.meta.env.VITE_SOLANA_SYLDS_MINT:
-      return "sYLDS";
+    case import.meta.env.VITE_SOLANA_PRIME_MINT:
+      return "PRIME";
     default:
       return "UNKNOWN";
   }
@@ -42,7 +42,7 @@ export const useTokenPortfolioQuery = (
   tokenMintAddresses: string[] = [
     `${import.meta.env.VITE_SOLANA_USDC_MINT}`,
     `${import.meta.env.VITE_SOLANA_WYLDS_MINT}`,
-    `${import.meta.env.VITE_SOLANA_SYLDS_MINT}`,
+    `${import.meta.env.VITE_SOLANA_PRIME_MINT}`,
   ]
 ) => {
   return useQuery<TokenData[], Error>({
@@ -141,13 +141,13 @@ export const useTokenPortfolio = () => {
     (tokenSymbol: string, claimedAmount: number) => {
       setTokens((prevTokens) =>
         prevTokens.map((token) => {
-          // Only allow claiming for wYLDS and sYLDS tokens
+          // Only allow claiming for wYLDS and PRIME tokens
           if (token.token === "USDC" || token.token === "HASH") {
             return token; // No claiming for USDC or HASH
           }
 
-          // For sYLDS claims, add wYLDS instead of sYLDS
-          if (tokenSymbol === "sYLDS") {
+          // For PRIME claims, add wYLDS instead of PRIME
+          if (tokenSymbol === "PRIME") {
             if (token.token === "wYLDS") {
               return {
                 ...token,
@@ -155,7 +155,7 @@ export const useTokenPortfolio = () => {
                 value: token.value + claimedAmount,
                 totalInterestEarned: token.totalInterestEarned + claimedAmount,
               };
-            } else if (token.token === "sYLDS") {
+            } else if (token.token === "PRIME") {
               return {
                 ...token,
                 totalInterestEarned: token.totalInterestEarned + claimedAmount,
@@ -214,7 +214,7 @@ export const useTokenPortfolio = () => {
   }, [tokens]);
 
   return {
-    tokens: tokens, // Return the tokens with sYLDS included
+    tokens: tokens, // Return the tokens with PRIME included
     tokensLoading,
     refetchTokens,
     claimInterest,

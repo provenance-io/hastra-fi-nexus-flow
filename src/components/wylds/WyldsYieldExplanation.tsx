@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import {
-  ArrowRight,
   ChevronDown,
   ChevronRight,
   TrendingUp,
@@ -12,24 +11,24 @@ import {
   Loader2,
 } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
-import yieldIcon from "/lovable-uploads/1d678c0f-09c8-4451-a9a6-3e635e0fef72.png";
+import primeIcon from "/lovable-uploads/1d678c0f-09c8-4451-a9a6-3e635e0fef72.png";
 import {
   fetchCurrentAPY,
   fetchActiveHolders,
   fetchTotalCirculation,
 } from "@/utils/solana-utils";
 import { useQuery } from "@tanstack/react-query";
-import { formatNumber } from "./WYLDsStatsDashboard";
+import { formatNumber } from "./WyldsStatsDashboard";
 
-const YieldTokenIcon = ({ className }: { className?: string }) => (
+const WyldsTokenIcon = ({ className }: { className?: string }) => (
   <img
-    src={yieldIcon}
+    src={primeIcon}
     alt="wYLDS Token"
     className={`${className} object-contain`}
   />
 );
 
-const WYLDsYieldExplanation = () => {
+const WyldsYieldExplanation = () => {
   const {
     data: apy,
     isLoading: apyLoading,
@@ -65,7 +64,7 @@ const WYLDsYieldExplanation = () => {
   const steps = [
     {
       number: 1,
-      icon: YieldTokenIcon,
+      icon: WyldsTokenIcon,
       title: "Hold wYLDS tokens",
       description: "Simply hold wYLDS tokens in any compatible Solana wallet",
       color: "from-header-glow to-crypto-accent",
@@ -431,9 +430,6 @@ const WYLDsYieldExplanation = () => {
           </div>
         </div>
 
-        {/* Watch sYLDS as it Grows text section */}
-        
-
         {/* By the Numbers Dashboard Box */}
         <div className="card-gradient rounded-3xl p-8 md:p-12 border border-transparent mb-16 relative">
           <div className="relative z-10">
@@ -583,4 +579,4 @@ const WYLDsYieldExplanation = () => {
   );
 };
 
-export default WYLDsYieldExplanation;
+export default WyldsYieldExplanation;

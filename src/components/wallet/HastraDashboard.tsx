@@ -4,10 +4,8 @@ import BuyCard from "./BuyCard";
 import SendCard from "./SendCard";
 import TradingPlatformsSection from "../start-earning/TradingPlatformsSection";
 import StakingSection from "../staking/StakingSection";
-import { useTokenPortfolio } from "@/hooks/useTokenPortfolio.ts";
 import { useOfac } from "@/hooks/use-ofac.ts";
 import { useEffect, useState } from "react";
-import { Progress } from "@/components/ui/progress.tsx";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "../ui/tabs";
 import { match } from "ts-pattern";
 import { cn } from "@/lib/utils";
@@ -19,15 +17,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
-import {
-  ArrowUpDown,
-  ChartCandlestick,
-  FolderOpen,
-  Send,
-  TrendingUp,
-  Wallet,
-} from "lucide-react";
+import { ArrowUpDown, ChartCandlestick, Send, TrendingUp } from "lucide-react";
 import { TokenHoldings } from "./TokenHoldings";
+import { useAvailableActions } from "@/hooks/use-available-actions";
 
 const tabSections = ["Buy", "Send", "Stake", "Trade"] as const;
 
@@ -44,8 +36,8 @@ const ofacLimitedSections = ["Buy", "Send", "Stake"];
 
 const HastraDashboard = () => {
   const { isConnected, address } = useWallet();
-  const { tokens } = useTokenPortfolio();
   const [tabsValue, setTabsValue] = useState("Buy");
+  const actions = useAvailableActions();
 
   const {
     isLoading: ofacLoading,
@@ -179,7 +171,7 @@ const HastraDashboard = () => {
                   <div id="buy-section" className="mb-8 md:mb-12">
                     <div id="buy-section" className="mb-8 md:mb-12 relative">
                       <div className="card-gradient rounded-3xl border border-border/30 shadow-lg p-4 lg:p-6">
-                        <BuyCard />
+                        <BuyCard canBuy={actions.canBuy} />
                       </div>
                     </div>
                   </div>
@@ -192,7 +184,7 @@ const HastraDashboard = () => {
                   <div id="buy-section" className="mb-8 md:mb-12">
                     <div id="buy-section" className="mb-8 md:mb-12 relative">
                       <div className="card-gradient rounded-3xl border border-border/30 shadow-lg p-4 lg:p-6">
-                        <SendCard />
+                        <SendCard canSend={actions.canSend} />
                       </div>
                     </div>
                   </div>

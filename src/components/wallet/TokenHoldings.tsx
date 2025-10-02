@@ -1,6 +1,6 @@
 import { useTokenPortfolio } from "@/hooks/useTokenPortfolio";
 import TokenLineItem from "./TokenLineItem";
-import { sYLDS, wYLDS } from "@/types/tokens.ts";
+import { PRIME, wYLDS } from "@/types/tokens.ts";
 import { Wallet } from "lucide-react";
 
 export const TokenHoldings = () => {
@@ -32,19 +32,13 @@ export const TokenHoldings = () => {
                   icon={token.icon}
                   tokenAddress={token.tokenAddress}
                   onClaim={
-                    token.address === wYLDS || token.address == sYLDS
+                    token.address === wYLDS || token.address == PRIME
                       ? handleTokenClaim(token.token)
                       : undefined
                   }
                 />
               );
             })}
-          </div>
-        )}
-        {(!tokens || tokens.length === 0) && (
-          <div className="flex items-center justify-between">
-            You must have SOL and USDC in your wallet to buy wYLDS or stake
-            wYLDS.
           </div>
         )}
       </div>

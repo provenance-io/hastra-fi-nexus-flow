@@ -1,8 +1,27 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { TrendingUp, BarChart3, Play, ArrowRight, ExternalLink, Target, AlertTriangle } from 'lucide-react';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+  TrendingUp,
+  BarChart3,
+  Play,
+  ArrowRight,
+  ExternalLink,
+  Target,
+  AlertTriangle,
+} from "lucide-react";
 
 interface MasteringDefiModalProps {
   isOpen: boolean;
@@ -12,23 +31,26 @@ interface MasteringDefiModalProps {
 /**
  * Lesson card component for Mastering DeFi
  */
-const LessonCard = ({ 
-  title, 
-  description, 
-  duration, 
-  level, 
-  topics 
+const LessonCard = ({
+  title,
+  description,
+  duration,
+  level,
+  topics,
 }: {
   title: string;
   description: string;
   duration: string;
-  level: 'Intermediate' | 'Advanced';
+  level: "Intermediate" | "Advanced";
   topics: string[];
 }) => (
   <Card className="group hover:shadow-lg transition-all duration-300 hover:border-header-glow/40">
     <CardHeader className="pb-3">
       <div className="flex items-start justify-between mb-2">
-        <Badge variant={level === 'Intermediate' ? 'secondary' : 'outline'} className="mb-2">
+        <Badge
+          variant={level === "Intermediate" ? "secondary" : "outline"}
+          className="mb-2"
+        >
           {level}
         </Badge>
         <span className="text-sm text-muted-foreground">{duration}</span>
@@ -43,10 +65,15 @@ const LessonCard = ({
     <CardContent className="pt-0">
       <div className="space-y-3">
         <div>
-          <h4 className="text-sm font-medium mb-2 text-foreground/90">What you'll master:</h4>
+          <h4 className="text-sm font-medium mb-2 text-foreground/90">
+            What you'll master:
+          </h4>
           <ul className="space-y-1">
             {topics.map((topic, index) => (
-              <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
+              <li
+                key={index}
+                className="flex items-start gap-2 text-sm text-muted-foreground"
+              >
                 <div className="w-1 h-1 rounded-full bg-header-glow mt-2 flex-shrink-0" />
                 <span>{topic}</span>
               </li>
@@ -69,40 +96,43 @@ const MasteringDefiModal = ({ isOpen, onClose }: MasteringDefiModalProps) => {
   const lessons = [
     {
       title: "Understanding Lending Pools",
-      description: "Deep dive into how lending pools work, their mechanics, and how to participate safely and profitably.",
+      description:
+        "Deep dive into how lending pools work, their mechanics, and how to participate safely and profitably.",
       duration: "20 min",
       level: "Intermediate" as const,
       topics: [
         "How lending pools generate yield",
         "Borrowing vs lending strategies",
         "Pool selection criteria",
-        "Understanding liquidation risks"
-      ]
+        "Understanding liquidation risks",
+      ],
     },
     {
       title: "Interpreting Tokenomics",
-      description: "Master the art of analyzing token economics to make informed investment decisions.",
+      description:
+        "Master the art of analyzing token economics to make informed investment decisions.",
       duration: "25 min",
       level: "Intermediate" as const,
       topics: [
         "Token distribution analysis",
         "Utility and value accrual mechanisms",
         "Inflation and deflation models",
-        "Governance token evaluation"
-      ]
+        "Governance token evaluation",
+      ],
     },
     {
       title: "Risk & Reward Analysis",
-      description: "Advanced frameworks for evaluating and managing risk-reward ratios in DeFi investments.",
+      description:
+        "Advanced frameworks for evaluating and managing risk-reward ratios in DeFi investments.",
       duration: "22 min",
       level: "Advanced" as const,
       topics: [
         "Advanced risk assessment models",
         "Correlation and diversification strategies",
         "Yield sustainability analysis",
-        "Portfolio optimization techniques"
-      ]
-    }
+        "Portfolio optimization techniques",
+      ],
+    },
   ];
 
   return (
@@ -125,7 +155,7 @@ const MasteringDefiModal = ({ isOpen, onClose }: MasteringDefiModalProps) => {
               </div>
             </div>
           </DialogHeader>
-          
+
           {/* Quick Stats */}
           <div className="grid grid-cols-3 gap-4 mt-6">
             <div className="text-center">
@@ -137,7 +167,9 @@ const MasteringDefiModal = ({ isOpen, onClose }: MasteringDefiModalProps) => {
               <div className="text-sm text-muted-foreground">Total Time</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-header-glow">Intermediate</div>
+              <div className="text-2xl font-bold text-header-glow">
+                Intermediate
+              </div>
               <div className="text-sm text-muted-foreground">Level</div>
             </div>
           </div>
@@ -152,9 +184,10 @@ const MasteringDefiModal = ({ isOpen, onClose }: MasteringDefiModalProps) => {
               Advanced DeFi Mastery
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              Take your DeFi knowledge to the next level with intermediate and advanced concepts. 
-              Master lending pools, learn to interpret tokenomics like a pro, and develop sophisticated 
-              risk assessment skills that will set you apart from casual DeFi users.
+              Take your DeFi knowledge to the next level with intermediate and
+              advanced concepts. Master lending pools, learn to interpret
+              tokenomics like a pro, and develop sophisticated risk assessment
+              skills that will set you apart from casual DeFi users.
             </p>
           </div>
 
@@ -168,8 +201,9 @@ const MasteringDefiModal = ({ isOpen, onClose }: MasteringDefiModalProps) => {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-blue-700/90 leading-relaxed">
-                Complete Track 1: DeFi Basics before starting this track. You should be comfortable 
-                with wallet management, basic DeFi concepts, and have some hands-on DeFi experience.
+                Complete Track 1: DeFi Basics before starting this track. You
+                should be comfortable with wallet management, basic DeFi
+                concepts, and have some hands-on DeFi experience.
               </p>
             </CardContent>
           </Card>
@@ -248,7 +282,12 @@ const MasteringDefiModal = ({ isOpen, onClose }: MasteringDefiModalProps) => {
               Start Mastering DeFi
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
-            <Button size="lg" variant="outline" className="flex-1 group" asChild>
+            <Button
+              size="lg"
+              variant="outline"
+              className="flex-1 group"
+              asChild
+            >
               <a href="/earn">
                 Apply Knowledge
                 <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover:scale-110" />

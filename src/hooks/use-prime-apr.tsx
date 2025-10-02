@@ -7,7 +7,7 @@ interface LeveragePool {
   };
 }
 
-export const useSYLDSAPR = () => {
+export const usePRIMEAPR = () => {
   const [rate, setRate] = useState<number>(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -39,9 +39,9 @@ export const useSYLDSAPR = () => {
         throw new Error("YLDS HELOC pool not found");
       }
     } catch (err) {
-      console.error("Error fetching sYLDS APR data:", err);
+      console.error("Error fetching PRIME APR data:", err);
       setError(
-        err instanceof Error ? err.message : "Failed to fetch sYLDS APR data"
+        err instanceof Error ? err.message : "Failed to fetch PRIME APR data"
       );
     } finally {
       setLoading(false);

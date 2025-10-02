@@ -1,24 +1,33 @@
-import { useState } from 'react';
-import { Menu, X, ExternalLink, Copy, LogOut, Check, TrendingUp } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
-import { useWallet } from '@/contexts/WalletContext';
-import { useToast } from '@/hooks/use-toast';
-import { WalletIconComponent } from '@/utils/walletIcons';
-import HastraLogo from '@/components/HastraLogo';
-import { isFeatureEnabled } from '@/utils/featureFlags';
+import { useState } from "react";
+import {
+  Menu,
+  X,
+  ExternalLink,
+  Copy,
+  LogOut,
+  Check,
+  TrendingUp,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { useWallet } from "@/contexts/WalletContext";
+import { useToast } from "@/hooks/use-toast";
+import { WalletIconComponent } from "@/utils/walletIcons";
+import HastraLogo from "@/components/HastraLogo";
+import { isFeatureEnabled } from "@/utils/featureFlags";
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from '@/components/ui/sheet';
+} from "@/components/ui/sheet";
 
 const MobileMenu = () => {
   const [open, setOpen] = useState(false);
   const [addressCopied, setAddressCopied] = useState(false);
-  const { isConnected, address, disconnectWallet, walletType, connectWallet } = useWallet();
+  const { isConnected, address, disconnectWallet, walletType, connectWallet } =
+    useWallet();
   const { toast } = useToast();
 
   const formatAddress = (addr: string) => {
@@ -53,17 +62,17 @@ const MobileMenu = () => {
 
   const getNavItems = () => {
     const items = [
-      { label: 'About', href: '/about' },
-      { label: 'wYLDS', href: '/yield' },
-      { label: 'sYLDS', href: '/swylds' },
-      { label: 'Earn', href: '/earn' },
-      { label: '(L)earn', href: '/learn' },
+      { label: "About", href: "/about" },
+      { label: "wYLDS", href: "/wylds" },
+      { label: "PRIME", href: "/prime" },
+      { label: "Earn", href: "/earn" },
+      { label: "(L)earn", href: "/learn" },
     ];
-    
-    if (isFeatureEnabled('homesEnabled')) {
-      items.splice(3, 0, { label: 'HOMES', href: '/homes' });
+
+    if (isFeatureEnabled("homesEnabled")) {
+      items.splice(3, 0, { label: "HOMES", href: "/homes" });
     }
-    
+
     return items;
   };
 
@@ -77,11 +86,14 @@ const MobileMenu = () => {
           <span className="sr-only">Open menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-80 bg-background/20 backdrop-blur-xl border-border/30 flex flex-col h-full shadow-2xl rounded-l-3xl">
+      <SheetContent
+        side="right"
+        className="w-80 bg-background/20 backdrop-blur-xl border-border/30 flex flex-col h-full shadow-2xl rounded-l-3xl"
+      >
         <SheetHeader className="flex-shrink-0">
           <SheetTitle className="text-left">
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               onClick={() => setOpen(false)}
               className="inline-block hover:scale-105 transition-transform duration-200"
             >
@@ -89,33 +101,40 @@ const MobileMenu = () => {
             </Link>
           </SheetTitle>
         </SheetHeader>
-        
+
         <div className="flex-1 overflow-y-auto py-3 space-y-3">
           {/* Wallet Section - Show when connected */}
           {isConnected && address && (
             <div className="p-4 bg-background/30 backdrop-blur-md border border-border/20 hover:border-orange-300/20 rounded-xl shadow-2xl">
               <div className="flex items-center gap-3 mb-4 pb-3 border-b border-orange-300/20">
-                <WalletIconComponent walletType={walletType} className="w-8 h-8" />
+                <WalletIconComponent
+                  walletType={walletType}
+                  className="w-8 h-8"
+                />
                 <div>
                   <p className="font-medium text-platinum/90 text-sm">
-                    {walletType && walletType !== 'Connected' ? walletType : 'Connected Wallet'}
+                    {walletType && walletType !== "Connected"
+                      ? walletType
+                      : "Connected Wallet"}
                   </p>
-                  <p className="text-sm text-platinum/70 font-mono">{formatAddress(address)}</p>
+                  <p className="text-sm text-platinum/70 font-mono">
+                    {formatAddress(address)}
+                  </p>
                 </div>
               </div>
-              
+
               <div className="space-y-1">
                 <button
                   onClick={() => {
                     setOpen(false);
-                    window.location.href = '/earn';
+                    window.location.href = "/earn";
                   }}
                   className="w-full flex items-center gap-3 p-3 text-sm text-platinum/90 hover:bg-orange-300/10 hover:text-orange-300 rounded-lg transition-colors"
                 >
                   <TrendingUp className="w-4 h-4 text-platinum/60" />
                   View My Earnings
                 </button>
-                
+
                 <button
                   onClick={copyAddress}
                   className="w-full flex items-center gap-3 p-3 text-sm text-platinum/90 hover:bg-orange-300/10 hover:text-orange-300 rounded-lg transition-colors"
@@ -125,9 +144,9 @@ const MobileMenu = () => {
                   ) : (
                     <Copy className="w-4 h-4 text-platinum/60" />
                   )}
-                  {addressCopied ? 'Address Copied!' : 'Copy Address'}
+                  {addressCopied ? "Address Copied!" : "Copy Address"}
                 </button>
-                
+
                 <button
                   onClick={handleDisconnect}
                   className="w-full flex items-center gap-3 p-3 text-sm text-red-400 hover:bg-red-900/20 hover:text-red-300 rounded-lg transition-colors"
@@ -156,9 +175,9 @@ const MobileMenu = () => {
           {/* Connect Wallet Button - Show when not connected */}
           {!isConnected && (
             <div className="px-1 pt-2">
-              <Button 
+              <Button
                 onClick={handleConnectWallet}
-                size="lg" 
+                size="lg"
                 variant="destructive"
                 className="w-full tracking-widest"
               >
