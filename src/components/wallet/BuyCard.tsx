@@ -12,9 +12,12 @@ import { ArrowUpDown, DollarSign } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import hastraIcon from "/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png";
 import { useTokenPortfolio } from "@/hooks/useTokenPortfolio.ts";
-import { useCoinGeckoPrice } from "@/hooks/useSolanaQuery.ts";
+import {
+  useCoinGeckoPrice,
+  usePendingRedemptionRequest
+} from "@/hooks/useSolanaQuery.ts";
 import { PRIME, USDC, wYLDS } from "@/types/tokens";
-import { useDepositAndMint } from "@/hooks/use-solana-tx.ts";
+import {useDepositAndMint, useRequestRedeem} from "@/hooks/use-solana-tx.ts";
 import { AnchorError } from "@coral-xyz/anchor";
 import { match } from "ts-pattern";
 
@@ -29,7 +32,9 @@ const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
   const { toast } = useToast();
   const { data: geckoPrice } = useCoinGeckoPrice();
   const { tokens, refetchTokens } = useTokenPortfolio();
-  const { invoke } = useDepositAndMint();
+  const { invoke: depositAndMint } = useDepositAndMint();
+  const { invoke: requestRedeem } = useRequestRedeem();
+  const { data: pendingRedemptionRequest, isLoading: pendingRedemptionRequestLoading } = usePendingRedemptionRequest();
 
   useEffect(() => {
     const o = {};
@@ -97,10 +102,19 @@ const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
         "border-l-4 border-l-hastra-teal bg-hastra-teal/10 shadow-hastra",
     });
 
-    //FIXME - this is called for both USDC -> wYLDS and wYLDS -> USDC, but the latter is not implemented in the program yet
-    invoke(Number(amount))
+    const isSellWYLDSForUSDC = sellAsset === wYLDS && buyAsset === USDC;
+    const invokeFn = isSellWYLDSForUSDC ? requestRedeem : depositAndMint;
+    invokeFn(Number(amount))
       .then((response) => {
         setTxId(response.txId);
+        const description = isSellWYLDSForUSDC
+          ? `Request Completed: Sell ${amount} ${symbol(sellAsset)} for ${receiveAmount.tokens.toFixed(
+              6
+            )} ${symbol(buyAsset)}. It may take 1-2 business days for ${symbol(buyAsset)} to appear in your wallet.`
+          : `Swapped ${amount} ${
+              denomination === "usd" ? "USD" : symbol(sellAsset)
+            } for ${receiveAmount.tokens.toFixed(6)} ${symbol(buyAsset)}`;
+
         toast({
           title: "Success",
           description: `Swapped ${amount} ${
@@ -396,14 +410,35 @@ const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
                   </div>
                 </div>
               )}
+              {/* Swap Button
+                  if selling wYLDS and a pending redemption request exists, disable the button and show a message
+               */}
+              {sellAsset === wYLDS && pendingRedemptionRequest && !pendingRedemptionRequestLoading && (
+                  <div className="bg-orange-500/10 border border-orange-500/30 rounded-xl p-4">
+                    <div className="flex items-start gap-3">
+                      <div className="text-orange-500 mt-0.5">⏳</div>
+                      <div>
+                        <div className="text-sm font-medium text-orange-500 mb-1">
+                          Pending Redemption Request
+                        </div>
+                        <div className="text-xs text-orange-500/80">
+                          You have a pending {pendingRedemptionRequest.amount} {symbol(sellAsset)} redemption request. Please wait for it to complete before initiating another swap.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              )}
 
-              {/* Swap Button */}
               <Button
-                onClick={handleSwap}
-                size="lg"
-                className="w-full px-6 py-4 md:py-3 text-base md:text-sm font-medium rounded-xl min-w-[200px] group"
-                variant="secondary"
-                disabled={!amount || receiveAmount.tokens === 0}
+                  onClick={handleSwap}
+                  size="lg"
+                  className="w-full px-6 py-4 md:py-3 text-base md:text-sm font-medium rounded-xl min-w-[200px] group"
+                  variant="secondary"
+                  disabled={
+                      !amount ||
+                      receiveAmount.tokens === 0 ||
+                      (sellAsset === wYLDS && pendingRedemptionRequest && !pendingRedemptionRequestLoading)
+                  }
               >
                 Swap {symbol(sellAsset)} for {symbol(buyAsset)}
               </Button>

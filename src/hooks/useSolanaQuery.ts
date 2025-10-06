@@ -7,6 +7,9 @@ import { useAnchorWallet } from "@/hooks/use-solana-tx.ts";
 import { PendingUnstake } from "@/types/staking.ts";
 import { HastraSolVaultStake } from "@/types/hastra-sol-vault-stake.ts";
 import { HastraSolVaultStake as HastraSolVaultStakeIdl } from "@/types/idl/hastra-sol-vault-stake.ts";
+import {HastraSolVaultMint as HastraSolVaultMintIdl} from "@/types/idl/hastra-sol-vault-mint.ts";
+import {RedemptionRequest} from "@/types/tokens.ts";
+import {HastraSolVaultMint} from "@/types/hastra-sol-vault-mint.ts";
 
 const connection = new Connection(
   clusterApiUrl(import.meta.env.VITE_SOLANA_CLUSTER_NAME),
@@ -195,6 +198,46 @@ export function usePendingUnstakeQuery() {
         canClaim: status === "ready",
         canCancel: status === "pending",
       } as PendingUnstake;
+    },
+    refetchInterval: 15_000, // optional
+  });
+}
+
+export function usePendingRedemptionRequest() {
+  const wallet = useAnchorWallet();
+  const provider = new AnchorProvider(connection, wallet, {
+    preflightCommitment: "confirmed",
+  });
+  const program = new Program(
+      HastraSolVaultMintIdl as Idl,
+      provider
+  ) as Program<HastraSolVaultMint>;
+
+  return useQuery<RedemptionRequest | null, Error>({
+    queryKey: [
+      "redemption-request",
+      program.programId.toBase58(),
+      ...(wallet && wallet.publicKey ? [wallet.publicKey.toBase58()] : []),
+    ],
+    enabled: !!program && !!wallet && !!wallet.publicKey,
+    queryFn: async () => {
+      const [pda] = PublicKey.findProgramAddressSync(
+          [Buffer.from("redemption_request"), wallet.publicKey!.toBuffer()],
+          program.programId
+      );
+
+      const accountInfo = await connection.getAccountInfo(pda);
+      if (!accountInfo) return null;
+
+      const ticket = await program.account.redemptionRequest.fetchNullable(pda);
+      if (!ticket) return null;
+
+      return {
+        user: ticket?.user?.toBase58() || "",
+        amount: ((ticket?.amount.toNumber() || 0) / 1e6).toString(),
+        vaultMint: ticket?.vaultMint?.toBase58() || "",
+        mint: ticket?.mint?.toBase58() || "",
+      } as RedemptionRequest;
     },
     refetchInterval: 15_000, // optional
   });

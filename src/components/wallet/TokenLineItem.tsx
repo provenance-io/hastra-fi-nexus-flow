@@ -3,6 +3,8 @@ import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
 import { TrendingUp } from "lucide-react";
 import { useState } from "react";
+import {useRequestRedeem} from "@/hooks/use-solana-tx.ts";
+import {wYLDS} from "@/types/tokens.ts";
 
 interface TokenLineItemProps {
   token: string;

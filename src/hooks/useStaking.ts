@@ -9,7 +9,7 @@ import {
 } from "@/types/staking";
 import { useTokenPortfolio } from "@/hooks/useTokenPortfolio.ts";
 import { PRIME, wYLDS } from "@/types/tokens.ts";
-import { useRedeem, useStake, useUnbond } from "@/hooks/use-solana-tx.ts";
+import { useRedeemStake, useStake, useUnbond } from "@/hooks/use-solana-tx.ts";
 import {
   usePendingUnstakeQuery,
   useUnbondingPeriodConfigQuery,
@@ -62,7 +62,7 @@ export const useStaking = () => {
   const { tokens, refetchTokens } = useTokenPortfolio();
   const { invoke: invokeStake } = useStake();
   const { invoke: invokeUnbond } = useUnbond();
-  const { invoke: invokeRedeem } = useRedeem();
+  const { invoke: invokeRedeem } = useRedeemStake();
   const { data: unbondingData, isLoading: unbondingLoading } =
     usePendingUnstakeQuery();
   const { data: unbondingPeriod } = useUnbondingPeriodConfigQuery();
