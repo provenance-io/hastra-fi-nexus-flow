@@ -83,16 +83,16 @@ const Terms = () => {
                       <li>Connect a compatible digital wallet;</li>
                       <li>Lock up USDC (a U.S. dollar–backed stablecoin);</li>
                       <li>
-                        Receive in return a Solana-based token, PRIME,
+                        Receive in return a Solana-based token, YIELD,
                         representing a claim against fully collateralized assets
                         held by Hastra.
                       </li>
                     </ul>
                     <p>
-                      The PRIME token is backed 1:1 by YLDS, a yield-bearing
+                      The YIELD token is backed 1:1 by YLDS, a yield-bearing
                       stablecoin issued by Figure and registered with the U.S.
                       Securities and Exchange Commission (SEC). Hastra holds
-                      YLDS as collateral for PRIME, but does not issue YLDS and
+                      YLDS as collateral for YIELD, but does not issue YLDS and
                       makes no representations or warranties whatsoever
                       regarding the nature, risk profile, regulatory status, or
                       performance of YLDS or any associated parties.
@@ -104,7 +104,7 @@ const Terms = () => {
                       2A. Yield Mechanism
                     </h3>
                     <p>
-                      Holders of PRIME may accrue yield over time, which is
+                      Holders of YIELD may accrue yield over time, which is
                       distributed based on the underlying performance of the
                       collateralized YLDS tokens. Yield is accumulated and held
                       in a designated smart contract. Users who wish to claim
@@ -112,7 +112,7 @@ const Terms = () => {
                     </p>
                     <ul className="list-disc pl-6 space-y-2">
                       <li>Visit the Site at https://hastra.io;</li>
-                      <li>Connect their wallet holding PRIME;</li>
+                      <li>Connect their wallet holding YIELD;</li>
                       <li>
                         Follow on-screen prompts to initiate a claim
                         transaction.
@@ -136,7 +136,7 @@ const Terms = () => {
                       3. No Custodial Relationship
                     </h2>
                     <p>
-                      While Hastra facilitates the exchange of USDC for PRIME
+                      While Hastra facilitates the exchange of USDC for YIELD
                       through its interfaces and smart contracts, Hastra does
                       not act as a custodian of user funds. Users retain full
                       control of their wallets and initiate all transactions
@@ -341,7 +341,7 @@ const Terms = () => {
                       </li>
                       <li>
                         You understand that your participation in any
-                        distribution of PRIME is entirely at your own risk;
+                        distribution of YIELD is entirely at your own risk;
                       </li>
                       <li>
                         You will not interfere with, disrupt, or harm the
@@ -357,7 +357,7 @@ const Terms = () => {
                         administered by OFAC or OFSI, and you will not directly
                         or indirectly use the Site to finance the activities of
                         any person currently subject to any sanctions
-                        administered by OFAC or OFSI;
+                        administered by OFAC or OFSI (see Section 5.2 below);
                       </li>
                       <li>
                         You will not use, display, mirror, or frame the Site or
@@ -400,7 +400,7 @@ const Terms = () => {
                     </h3>
                     <p>
                       By using the Site, including but not limited to
-                      participating in any distribution of PRIME, you represent
+                      participating in any distribution of YIELD, you represent
                       and warrant that you are not:
                     </p>
                     <ul className="list-disc pl-6 space-y-2">
@@ -589,7 +589,7 @@ const Terms = () => {
                       to keep the Site available at all times, but access may be
                       suspended for maintenance, for protection from attacks or
                       other threats, or due to events beyond our reasonable
-                      control.
+                      control. Online support for the Site is available at [X].
                     </p>
                   </section>
 
@@ -619,7 +619,7 @@ const Terms = () => {
                       such an event and that you will not be entitled to a
                       refund of any amounts that you have already paid to Hastra
                       or any third party, to the fullest extent permitted by
-                      applicable law.
+                      applicable law. Upon any termination, discontinuation, or cancellation of these Terms or the Site, the following Sections will survive: [X].
                     </p>
                   </section>
 
@@ -663,6 +663,27 @@ const Terms = () => {
                       Subject to the foregoing, these Terms will bind and inure
                       to the benefit of the parties, their successors, and
                       permitted assigns.
+                    </p>
+
+                    <h3 className="text-xl font-bold text-foreground mb-3">
+                      Headings and Interpretation
+                    </h3>
+                    <p>
+                      Headings and the summary explanations at the beginning of each Section of these Terms are for reference only and do not affect the parties' rights and obligations hereunder. As used herein, "may" means "has the right, but not the obligation, to," and "includes" and its variations means "includes, but is not limited to."
+                    </p>
+
+                    <h3 className="text-xl font-bold text-foreground mb-3">
+                      Notices
+                    </h3>
+                    <p>
+                      Any notices or other communications provided by Hastra under these Terms will be given by posting to the Site.
+                    </p>
+
+                    <h3 className="text-xl font-bold text-foreground mb-3">
+                      Waiver of Rights
+                    </h3>
+                    <p>
+                      Hastra's failure to enforce any right or provision of these Terms will not be considered a waiver of such right or provision. The waiver of any such right or provision will be effective only if in writing and signed by a duly authorized representative of Hastra. Except as expressly set forth in these Terms, the exercise by either party of any of its remedies under these Terms will be without prejudice to its other remedies under these Terms or otherwise.
                     </p>
 
                     <h3 className="text-xl font-bold text-foreground mb-3">
