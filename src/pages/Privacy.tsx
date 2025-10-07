@@ -78,52 +78,56 @@ const Privacy = () => {
                       We use the data we collect in accordance with your instructions, including any applicable terms in our Terms of Service, and as required by law. We may also use data for the following purposes:
                     </p>
                     
-                    <p>
-                      <strong>Providing the Services.</strong> We use the data we collect to provide, maintain, customize and improve our Services and features of our Services.
-                    </p>
-                    
-                    <p>
-                      <strong>Customer support.</strong> We may use information to provide customer support for and answer inquiries about the Services.
-                    </p>
-                    
-                    <p>
-                      <strong>Safety and security.</strong> We may use data to protect against, investigate, and stop fraudulent, unauthorized, or illegal activity. We may also use it to address security risks, solve potential security issues such as bugs, enforce our agreements, and protect our users and Company.
-                    </p>
-                    
-                    <p>
-                      <strong>Legal compliance.</strong> We may use the information we collect as needed or requested by regulators, government entities, and law enforcement to comply with applicable laws and regulations.
-                    </p>
-                    
-                    <p>
-                      <strong>Aggregated data.</strong> We may use some of the information we collect or access to compile aggregated data that helps us learn more about how users use the Services and where we can improve your experience.
-                    </p>
+                    <ul className="list-disc pl-6 space-y-4 mt-4">
+                      <li>
+                        <strong>Providing the Services.</strong> We use the data we collect to provide, maintain, customize and improve our Services and features of our Services.
+                      </li>
+                      
+                      <li>
+                        <strong>Customer support.</strong> We may use information to provide customer support for and answer inquiries about the Services.
+                      </li>
+                      
+                      <li>
+                        <strong>Safety and security.</strong> We may use data to protect against, investigate, and stop fraudulent, unauthorized, or illegal activity. We may also use it to address security risks, solve potential security issues such as bugs, enforce our agreements, and protect our users and Company.
+                      </li>
+                      
+                      <li>
+                        <strong>Legal compliance.</strong> We may use the information we collect as needed or requested by regulators, government entities, and law enforcement to comply with applicable laws and regulations.
+                      </li>
+                      
+                      <li>
+                        <strong>Aggregated data.</strong> We may use some of the information we collect or access to compile aggregated data that helps us learn more about how users use the Services and where we can improve your experience.
+                      </li>
+                    </ul>
                   </section>
 
                   <section>
                     <h2 className="text-2xl font-bold text-foreground mb-4">How We Share Data</h2>
                     <p>We may share or disclose the data we collect:</p>
                     
-                    <p>
-                      <strong>With service providers.</strong> We may share your information with our service providers and vendors to assist us in providing, delivering, and improving the Services. For example, we may share your wallet address with service providers like Infura and Cloudflare to provide technical infrastructure services, your wallet address with blockchain analytics providers to detect, prevent, and mitigate financial crime and other illicit or harmful activities, and your activity on our social media pages with our analytics provider to learn more about you interact with us and the Services.
-                    </p>
+                    <ul className="list-disc pl-6 space-y-4 mt-4">
+                      <li>
+                        <strong>With service providers.</strong> We may share your information with our service providers and vendors to assist us in providing, delivering, and improving the Services. For example, we may share your wallet address with service providers like Infura and Cloudflare to provide technical infrastructure services, your wallet address with blockchain analytics providers to detect, prevent, and mitigate financial crime and other illicit or harmful activities, and your activity on our social media pages with our analytics provider to learn more about you interact with us and the Services.
+                      </li>
+                      
+                      <li>
+                        <strong>To comply with our legal obligations.</strong> We may share your data in the course of litigation, regulatory proceedings, compliance measures, and when compelled by subpoena, court order, or other legal procedure. We may also share data when we believe it is necessary to prevent harm to our users, our Company, or others, and to enforce our agreements and policies, including our Terms of Service.
+                      </li>
+                      
+                      <li>
+                        <strong>Safety and Security.</strong> We may share data to protect against, investigate, and stop fraudulent, unauthorized, or illegal activity. We may also use it to address security risks, solve potential security issues such as bugs, enforce our agreements, and protect our users, Company, and ecosystem.
+                      </li>
+                      
+                      <li>
+                        <strong>Business changes.</strong> We may transfer or share data to another entity in the event of a merger, acquisition, bankruptcy, dissolution, reorganization, asset or stock sale, or other business transaction.
+                      </li>
+                      
+                      <li>
+                        <strong>With your consent.</strong> We may share your information any other time you provide us with your consent to do so.
+                      </li>
+                    </ul>
                     
-                    <p>
-                      <strong>To comply with our legal obligations.</strong> We may share your data in the course of litigation, regulatory proceedings, compliance measures, and when compelled by subpoena, court order, or other legal procedure. We may also share data when we believe it is necessary to prevent harm to our users, our Company, or others, and to enforce our agreements and policies, including our Terms of Service.
-                    </p>
-                    
-                    <p>
-                      <strong>Safety and Security.</strong> We may share data to protect against, investigate, and stop fraudulent, unauthorized, or illegal activity. We may also use it to address security risks, solve potential security issues such as bugs, enforce our agreements, and protect our users, Company, and ecosystem.
-                    </p>
-                    
-                    <p>
-                      <strong>Business changes.</strong> We may transfer or share data to another entity in the event of a merger, acquisition, bankruptcy, dissolution, reorganization, asset or stock sale, or other business transaction.
-                    </p>
-                    
-                    <p>
-                      <strong>With your consent.</strong> We may share your information any other time you provide us with your consent to do so.
-                    </p>
-                    
-                    <p>
+                    <p className="mt-4">
                       We do not share your information with any third parties for any marketing purposes whatsoever.
                     </p>
                   </section>
