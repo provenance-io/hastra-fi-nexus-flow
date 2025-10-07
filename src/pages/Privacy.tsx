@@ -41,33 +41,35 @@ const Privacy = () => {
                       Privacy is central to Hastra. We aspire to be transparent about what little data we do collect. We do not maintain user accounts and do not collect and store personal data, such as your name or internet protocol ("IP") address. When you interact with the Services, we collect only:
                     </p>
                     
-                    <p>
-                      <strong>Publicly-available blockchain data.</strong> When you connect your non-custodial blockchain wallet to the Services, we collect and log your publicly-available blockchain address to learn more about your use of the Services and to screen your wallet for any prior illicit activity. We screen your wallet using intelligence provided by leading blockchain analytics providers. Note that blockchain addresses are publicly-available data that are not created or assigned by us or any central party, and by themselves are not personally identifying.
-                    </p>
-                    
-                    <p>
-                      <strong>Information from localStorage and other tracking technologies.</strong> We and our third-party services providers may access and collect information from localStorage, mobile deviceID, cookies, web beacons, and other similar technologies to provide and personalize the Services and features of the Services for you across sessions. For example, we may use this information to remember tokens you import, star, or add to your shopping bag. We may also use this information to learn about your preferences, your use of the Services, and our interactions with you. Information we collect from these technologies may include things such as browser type, referring/exit pages, operating system, device or browser language, and other device information. We group and analyze these user journeys collectively, in the aggregate, to improve our product user experience.
-                    </p>
-                    
-                    <p>
-                      <strong>Information from other sources.</strong> We may receive information about your wallet address or transactions made through the Services from our service providers in order to comply with our legal obligations and prevent the use of our Services in connection with fraudulent or other illicit activities.
-                    </p>
-                    
-                    <p>
-                      <strong>Survey or usability information.</strong> If you participate in a survey or usability study with us, we will record any biographical information you directly provide to us (for example, your name, email, and job title), the responses you provide to us, and your interactions with the Services.
-                    </p>
-                    
-                    <p>
-                      <strong>Correspondence.</strong> We will receive any communications and information you provide directly to us via email, customer support, social media, or another support channel (such as Twitter or Discord), or when you participate in any surveys or questionnaires.
-                    </p>
-                    
-                    <p>
-                      <strong>Biographical information.</strong> If you apply for a job with us, we collect all information provided through our Jobs form, including name, email phone, work and immigration status, and any other resume, cover letter, or free form text you include.
-                    </p>
-                    
-                    <p>
-                      <strong>Information you specifically provide us.</strong> If you specifically provide us with information (such as your email address), we may use that information for the purposes described when you provide it to us. We will not attempt to link any information you provide to your wallet address, IP address, or other personal data. You do not need to provide us with any personal data to use the Services.
-                    </p>
+                    <ul className="list-disc pl-6 space-y-4 mt-4">
+                      <li>
+                        <strong>Publicly-available blockchain data.</strong> When you connect your non-custodial blockchain wallet to the Services, we collect and log your publicly-available blockchain address to learn more about your use of the Services and to screen your wallet for any prior illicit activity. We screen your wallet using intelligence provided by leading blockchain analytics providers. Note that blockchain addresses are publicly-available data that are not created or assigned by us or any central party, and by themselves are not personally identifying.
+                      </li>
+                      
+                      <li>
+                        <strong>Information from localStorage and other tracking technologies.</strong> We and our third-party services providers may access and collect information from localStorage, mobile deviceID, cookies, web beacons, and other similar technologies to provide and personalize the Services and features of the Services for you across sessions. For example, we may use this information to remember tokens you import, star, or add to your shopping bag. We may also use this information to learn about your preferences, your use of the Services, and our interactions with you. Information we collect from these technologies may include things such as browser type, referring/exit pages, operating system, device or browser language, and other device information. We group and analyze these user journeys collectively, in the aggregate, to improve our product user experience.
+                      </li>
+                      
+                      <li>
+                        <strong>Information from other sources.</strong> We may receive information about your wallet address or transactions made through the Services from our service providers in order to comply with our legal obligations and prevent the use of our Services in connection with fraudulent or other illicit activities.
+                      </li>
+                      
+                      <li>
+                        <strong>Survey or usability information.</strong> If you participate in a survey or usability study with us, we will record any biographical information you directly provide to us (for example, your name, email, and job title), the responses you provide to us, and your interactions with the Services.
+                      </li>
+                      
+                      <li>
+                        <strong>Correspondence.</strong> We will receive any communications and information you provide directly to us via email, customer support, social media, or another support channel (such as Twitter or Discord), or when you participate in any surveys or questionnaires.
+                      </li>
+                      
+                      <li>
+                        <strong>Biographical information.</strong> If you apply for a job with us, we collect all information provided through our Jobs form, including name, email phone, work and immigration status, and any other resume, cover letter, or free form text you include.
+                      </li>
+                      
+                      <li>
+                        <strong>Information you specifically provide us.</strong> If you specifically provide us with information (such as your email address), we may use that information for the purposes described when you provide it to us. We will not attempt to link any information you provide to your wallet address, IP address, or other personal data. You do not need to provide us with any personal data to use the Services.
+                      </li>
+                    </ul>
                   </section>
 
                   <section>
