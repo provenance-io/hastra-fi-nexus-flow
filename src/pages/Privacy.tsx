@@ -174,11 +174,11 @@ const Privacy = () => {
                       We process personal data for the purposes described in the section titled "How We Use Data" above. Our bases for processing your data include: (i) you have given consent to the process to us or our service provides for one or more specific purposes; (ii) processing is necessary for the performance of a contract with you; (iii) processing is necessary for compliance with a legal obligation; and/or (iv) processing is necessary for the purposes of the legitimate interested pursued by us or a third party, and your interests and fundamental rights and freedoms do not override those interests.
                     </p>
                     
-                    <p>
+                    <p className="mt-6">
                       Your rights under the General Data Protection Regulations ("GDPR") include the right to (i) request access and obtain a copy of your personal data, (ii) request rectification or erasure of your personal data, (iii) object to or restrict the processing of your personal data; and (iv) request portability of your personal data. Additionally, you may withdraw your consent to our collection at any time. Nevertheless, we cannot edit or delete information that is stored on a particular blockchain. Information such as your transaction data, blockchain wallet address, and assets held by your address that may be related to the data we collect is beyond our control.
                     </p>
                     
-                    <p>
+                    <p className="mt-6">
                       To exercise any of your rights under the GDPR, please contact us at privacy@hastra.io. We may require additional information from you to process your request. Please note that we may retain information as necessary to fulfill the purpose for which it was collected and may continue to do so even after a data subject request in accordance with our legitimate interests, including to comply with our legal obligations, resolves disputes, prevent fraud, and enforce our agreements.
                     </p>
                   </section>
