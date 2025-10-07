@@ -12,14 +12,14 @@ const Privacy = () => {
                   PRIVACY POLICY
                 </h1>
                 <p className="text-xl text-foreground/90">
-                  Last updated: July 15, 2025
+                  Effective October 7, 2025
                 </p>
               </div>
 
               <div className="card-gradient rounded-3xl p-8 md:p-12 card-bottom-static border border-transparent">
                 <div className="space-y-8 text-foreground/90 leading-relaxed">
                   <p>
-                    This Privacy Policy (the "Policy") explains how Hastra Technologies Inc., ("Hastra", the "Company", "we", "us" or "our") collects, uses, and shares data in connection with the Hastra web app (hastra.io/earn), https://hastra.io (the "Site") and all of our other properties, products, and services (the "Services"). Your use of the Services is subject to this Policy as well as our Terms of Service.
+                    This Privacy Policy (the "Policy") explains how Signum Ltd., doing business as "Hastra" ("Hastra", the "Company", "we", "us" or "our") collects, uses, and shares data in connection with the Hastra web app (hastra.io/earn), https://hastra.io (the "Site") and all of our other properties, products, and services (the "Services"). Your use of the Services is subject to this Policy as well as our Terms of Service.
                   </p>
 
                   <section>
@@ -159,33 +159,6 @@ const Privacy = () => {
                     <h2 className="text-2xl font-bold text-foreground mb-4">Age Requirements</h2>
                     <p>
                       The Services are intended for a general audience and are not directed at children. We do not knowingly receive personal information (as defined by the U.S. Children's Privacy Protection Act, or "COPPA") from children. If you believe we have received personal information about a child under the age of 18, please contact us at privacy@hastra.io.
-                    </p>
-                  </section>
-
-                  <section>
-                    <h2 className="text-2xl font-bold text-foreground mb-4">Additional Notice to California Residents ("CCPA Notice")</h2>
-                    <p>
-                      We voluntarily comply with The California Consumer Privacy Act of 2018 ("CCPA") which requires certain businesses to provide a CCPA Notice to California residents to explain how we collect, use, and share their personal information, and the rights and choices we offer California residents regarding our handling of their information.
-                    </p>
-                    
-                    <p>
-                      <strong>Privacy Practices.</strong> We do not "sell" personal information as defined under the CCPA. Please review the "Sharing and Disclosure of Information" section above for further details about the categories of parties with whom we share information.
-                    </p>
-                    
-                    <p>
-                      <strong>Privacy Rights.</strong> The CCPA gives individuals the right to request information about how we have collected, used, and shared your personal information. It also gives you the right to request a copy of any information we may maintain about you. You may also ask us to delete any personal information that we may have received about you. Please note that the CCPA limits these rights, for example, by prohibiting us from providing certain sensitive information in response to access requests and limiting the circumstances under which we must comply with a deletion request. We will respond to requests for information, access, and deletion only to the extent we are able to associate, with a reasonable effort, the information we maintain with the identifying details you provide in your request. If we deny the request, we will communicate the decision to you. You are entitled to exercise the rights described above free from discrimination.
-                    </p>
-                    
-                    <p>
-                      <strong>Submitting a Request.</strong> You can submit a request for information, access, or deletion to privacy@hastra.io.
-                    </p>
-                    
-                    <p>
-                      <strong>Identity Verification.</strong> The CCPA requires us to collect and verify the identity of any individual submitting a request to access or delete personal information before providing a substantive response.
-                    </p>
-                    
-                    <p>
-                      <strong>Authorized Agents.</strong> California residents can designate an "authorized agent" to submit requests on their behalf. We will require the authorized agent to have a written authorization confirming their authority.
                     </p>
                   </section>
 
