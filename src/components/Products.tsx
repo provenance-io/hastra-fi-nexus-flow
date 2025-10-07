@@ -17,6 +17,7 @@ import {
   fetchActiveHolders,
   fetchCurrentAPY,
 } from "@/utils/solana-utils";
+import primeToken from "@/assets/prime-token.png";
 
 interface ProvenanceDenomOwnersResponse {
   pagination: {
@@ -269,7 +270,7 @@ const Products = () => {
               <div className="flex items-center gap-4">
                 <div className="relative">
                   <img
-                    src="/lovable-uploads/fa075607-859f-443d-828d-52aff1ecade8.png"
+                    src={primeToken}
                     alt="PRIME Token"
                     className="w-16 h-16 rounded-full object-cover"
                   />

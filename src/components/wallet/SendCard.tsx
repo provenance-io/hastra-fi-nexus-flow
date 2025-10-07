@@ -14,7 +14,7 @@ import { useCoinGeckoPrice } from "@/hooks/useSolanaQuery.ts";
 import { USDC, wYLDS } from "@/types/tokens.ts";
 import { PublicKey } from "@solana/web3.js";
 import hastraIcon from "/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png";
-
+import primeToken from "@/assets/prime-token.png";
 import { useTokenPortfolio } from "@/hooks/useTokenPortfolio.ts";
 import { useTransfer } from "@/hooks/use-solana-tx.ts";
 import { AnchorError } from "@coral-xyz/anchor";
@@ -79,8 +79,7 @@ const SendCard = ({ canSend }: { canSend: boolean }) => {
       return "/lovable-uploads/d73baf3a-34c8-4ad7-8378-e419bb8268ff.png";
     if (address === USDC)
       return "/lovable-uploads/4bfd88a4-fef5-42d3-81d9-236145936adc.png";
-    if (address === "PRIME")
-      return "/lovable-uploads/fa075607-859f-443d-828d-52aff1ecade8.png";
+    if (address === "PRIME") return primeToken;
     if (address === "hash-mock") return "/src/assets/hash-icon.png";
     const t = tokens.find((t) => t.address === address);
     return t?.icon ? t.icon : defaultIcon;

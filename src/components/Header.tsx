@@ -14,6 +14,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useWallet } from "@/contexts/WalletContext";
 import { fetchCurrentAPY } from "@/utils/solana-utils";
 import { isFeatureEnabled } from "@/utils/featureFlags";
+import primeToken from "@/assets/prime-token.png";
 
 interface FigureYieldResponse {
   rate: number;
@@ -164,7 +165,7 @@ const Header = () => {
                   >
                     <div className="flex items-center gap-3">
                       <img
-                        src="/lovable-uploads/fa075607-859f-443d-828d-52aff1ecade8.png"
+                        src={primeToken}
                         alt="PRIME Token"
                         className="w-10 h-10 rounded-lg object-cover group-hover:scale-105 transition-transform"
                       />

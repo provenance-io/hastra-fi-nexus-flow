@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { X, DollarSign, TrendingUp, Shield, Bell } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import primeToken from "@/assets/prime-token.png";
+
 interface HOMESComingSoonModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -55,7 +57,7 @@ const HOMESComingSoonModal: React.FC<HOMESComingSoonModalProps> = ({
             <div className="text-center mb-6">
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-header-glow/20 to-crypto-accent/10 mb-3">
                 <img
-                  src="/lovable-uploads/fa075607-859f-443d-828d-52aff1ecade8.png"
+                  src={primeToken}
                   alt="PRIME Token"
                   className="h-12 w-12 rounded-full object-cover"
                 />
