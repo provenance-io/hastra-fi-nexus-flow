@@ -130,8 +130,8 @@ export function HastraWalletConnectModal() {
                 Terms and Conditions
               </AccordionTrigger>
               <AccordionContent>
-                <ScrollArea className="h-[220px] space-y-4 text-sm">
-                  <CardContent>
+                <ScrollArea className="h-[220px]">
+                  <CardContent className="space-y-4 text-sm">
                     <p>
                       The Hastra Protocol is not available to residents of
                       Belarus, the Central African Republic, The Democratic
@@ -180,12 +180,17 @@ export function HastraWalletConnectModal() {
           <AccordionItem value="wallets">
             <AccordionTrigger
               disabled={showTerms && !termsAccepted && !agreed}
+              showChevron={!termsAccepted}
               className={
-                showTerms && !termsAccepted && !agreed ? "opacity-50" : ""
+                showTerms && !termsAccepted && !agreed
+                  ? "opacity-50"
+                  : termsAccepted
+                  ? "pointer-events-none"
+                  : ""
               }
               onClick={() => setAccordionValue("wallets")}
             >
-              Connect Wallet
+              Select a wallet
             </AccordionTrigger>
             <AccordionContent>
               {/* Wallet List */}
