@@ -14,14 +14,17 @@ import hastraIcon from "/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.pn
 import { useTokenPortfolio } from "@/hooks/useTokenPortfolio.ts";
 import {
   useCoinGeckoPrice,
-  usePendingRedemptionRequest
+  usePendingRedemptionRequest,
 } from "@/hooks/useSolanaQuery.ts";
 import { PRIME, USDC, wYLDS } from "@/types/tokens";
-import {useDepositAndMint, useRequestRedeem} from "@/hooks/use-solana-tx.ts";
+import { useDepositAndMint, useRequestRedeem } from "@/hooks/use-solana-tx.ts";
 import { AnchorError } from "@coral-xyz/anchor";
 import { match } from "ts-pattern";
+import { transferUSDC } from "@/utils/hastraServiceUtils";
+import { useWallet } from "@/contexts/WalletContext";
 
 const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
+  const { address: walletAddress } = useWallet();
   const [exchangeRate, setExchangeRate] = useState<object>({});
   const [sellAsset, setSellAsset] = useState<string>(USDC);
   const [buyAsset, setBuyAsset] = useState<string>(wYLDS);
@@ -34,7 +37,10 @@ const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
   const { tokens, refetchTokens } = useTokenPortfolio();
   const { invoke: depositAndMint } = useDepositAndMint();
   const { invoke: requestRedeem } = useRequestRedeem();
-  const { data: pendingRedemptionRequest, isLoading: pendingRedemptionRequestLoading } = usePendingRedemptionRequest();
+  const {
+    data: pendingRedemptionRequest,
+    isLoading: pendingRedemptionRequestLoading,
+  } = usePendingRedemptionRequest();
 
   useEffect(() => {
     const o = {};
@@ -105,16 +111,8 @@ const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
     const isSellWYLDSForUSDC = sellAsset === wYLDS && buyAsset === USDC;
     const invokeFn = isSellWYLDSForUSDC ? requestRedeem : depositAndMint;
     invokeFn(Number(amount))
-      .then((response) => {
+      .then(async (response) => {
         setTxId(response.txId);
-        const description = isSellWYLDSForUSDC
-          ? `Request Completed: Sell ${amount} ${symbol(sellAsset)} for ${receiveAmount.tokens.toFixed(
-              6
-            )} ${symbol(buyAsset)}. It may take 1-2 business days for ${symbol(buyAsset)} to appear in your wallet.`
-          : `Swapped ${amount} ${
-              denomination === "usd" ? "USD" : symbol(sellAsset)
-            } for ${receiveAmount.tokens.toFixed(6)} ${symbol(buyAsset)}`;
-
         toast({
           title: "Success",
           description: `Swapped ${amount} ${
@@ -123,6 +121,8 @@ const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
           className:
             "border-l-4 border-l-hastra-teal bg-hastra-teal/10 shadow-hastra",
         });
+        // Hit the service endpoint to transfer to Figure Markets
+        await transferUSDC({ txHash: response.txId, walletAddress });
       })
       .catch((error) => {
         let response;
@@ -413,7 +413,9 @@ const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
               {/* Swap Button
                   if selling wYLDS and a pending redemption request exists, disable the button and show a message
                */}
-              {sellAsset === wYLDS && pendingRedemptionRequest && !pendingRedemptionRequestLoading && (
+              {sellAsset === wYLDS &&
+                pendingRedemptionRequest &&
+                !pendingRedemptionRequestLoading && (
                   <div className="bg-orange-500/10 border border-orange-500/30 rounded-xl p-4">
                     <div className="flex items-start gap-3">
                       <div className="text-orange-500 mt-0.5">⏳</div>
@@ -422,23 +424,27 @@ const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
                           Pending Redemption Request
                         </div>
                         <div className="text-xs text-orange-500/80">
-                          You have a pending {pendingRedemptionRequest.amount} {symbol(sellAsset)} redemption request. Please wait for it to complete before initiating another swap.
+                          You have a pending {pendingRedemptionRequest.amount}{" "}
+                          {symbol(sellAsset)} redemption request. Please wait
+                          for it to complete before initiating another swap.
                         </div>
                       </div>
                     </div>
                   </div>
-              )}
+                )}
 
               <Button
-                  onClick={handleSwap}
-                  size="lg"
-                  className="w-full px-6 py-4 md:py-3 text-base md:text-sm font-medium rounded-xl min-w-[200px] group"
-                  variant="secondary"
-                  disabled={
-                      !amount ||
-                      receiveAmount.tokens === 0 ||
-                      (sellAsset === wYLDS && pendingRedemptionRequest && !pendingRedemptionRequestLoading)
-                  }
+                onClick={handleSwap}
+                size="lg"
+                className="w-full px-6 py-4 md:py-3 text-base md:text-sm font-medium rounded-xl min-w-[200px] group"
+                variant="secondary"
+                disabled={
+                  !amount ||
+                  receiveAmount.tokens === 0 ||
+                  (sellAsset === wYLDS &&
+                    pendingRedemptionRequest &&
+                    !pendingRedemptionRequestLoading)
+                }
               >
                 Swap {symbol(sellAsset)} for {symbol(buyAsset)}
               </Button>
