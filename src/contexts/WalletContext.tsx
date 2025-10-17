@@ -7,12 +7,12 @@ import React, {
 } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { useWallet as useSolanaWallet } from "@solana/wallet-adapter-react";
-import { useWalletModal } from "@solana/wallet-adapter-react-ui";
 import {
   useAtaBalanceQuery,
   useCoinGeckoPrice,
   useSolBalanceQuery,
 } from "../hooks/useSolanaQuery";
+import { useHastraWalletConnectModal } from "./HastraWalletModalContext";
 
 export interface WalletState {
   isConnected: boolean;
@@ -68,7 +68,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     connecting,
     disconnect: solanaDisconnect,
   } = useSolanaWallet();
-  const { setVisible } = useWalletModal();
+  const { setVisible } = useHastraWalletConnectModal();
 
   const { data: geckoPrice } = useCoinGeckoPrice();
 
@@ -98,7 +98,6 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   // Update our state based on Solana wallet adapter state
   useEffect(() => {
     // Wallet state monitoring for development debugging if needed
-
     const previouslyConnected = walletState.isConnected;
     const portfolioBalance = () => {
       return (
@@ -149,8 +148,6 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   ]);
 
   const connectWallet = async (): Promise<void> => {
-    // Opening Solana wallet selection modal
-
     try {
       setWalletState((prev) => ({
         ...prev,
