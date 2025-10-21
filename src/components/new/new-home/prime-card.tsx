@@ -47,7 +47,10 @@ export const PrimeCard = () => {
   const { rate, loading, error } = usePRIMEAPR();
   const isMobile = useIsMobile();
   return (
-    <section className="mx-auto px-10 pt-[100px]" aria-label="PRIME card">
+    <section
+      className="max-w-[96rem] mx-auto px-10 pt-[100px]"
+      aria-label="PRIME card"
+    >
       <Card
         className="shadow-brand-card rounded-[50px] bg-center"
         style={{ backgroundImage: `url(${primeBg})` }}

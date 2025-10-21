@@ -47,7 +47,10 @@ export const WYLDSCard = () => {
   const { displayApy } = useYLDSApy();
   const isMobile = useIsMobile();
   return (
-    <section className="mx-auto px-10 pt-[100px]" aria-label="wYLDS card">
+    <section
+      className="max-w-[96rem] mx-auto px-10 pt-[100px]"
+      aria-label="wYLDS card"
+    >
       <Card
         className="shadow-brand-card rounded-[50px] bg-center"
         style={{ backgroundImage: `url(${wyldsBg})` }}
