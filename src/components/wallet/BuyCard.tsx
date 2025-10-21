@@ -21,10 +21,10 @@ import { useDepositAndMint, useRequestRedeem } from "@/hooks/use-solana-tx.ts";
 import { AnchorError } from "@coral-xyz/anchor";
 import { match } from "ts-pattern";
 // import { transferUSDC } from "@/utils/hastraServiceUtils";
-import { useWallet } from "@/contexts/WalletContext";
+// import { useWallet } from "@/contexts/WalletContext";
 
 const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
-  const { address: walletAddress } = useWallet();
+  // const { address: walletAddress } = useWallet();
   const [exchangeRate, setExchangeRate] = useState<object>({});
   const [sellAsset, setSellAsset] = useState<string>(USDC);
   const [buyAsset, setBuyAsset] = useState<string>(wYLDS);
