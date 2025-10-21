@@ -29,6 +29,9 @@ import TestDebug from "./pages/TestDebug";
 import ComponentPlayground from "./pages/ComponentPlayground";
 import AdminFeatureToggle from "./components/admin/AdminFeatureToggle";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { NewHome } from "./pages/new-home";
+import { NewHeader } from "./components/new/navigation/new-header";
+import { NewLearn } from "./pages/new-learn";
 
 // For testing, to expose solana/web3.js
 if (import.meta.env.DEV || import.meta.env.MODE === "test") {
@@ -51,13 +54,15 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <ScrollToTop />
-            <div className="flex flex-col min-h-screen bg-gradient-to-br from-background via-header-glow/5 to-crypto-accent/5">
+            <div className="flex flex-col min-h-screen bg-brand-background">
               <AccessibilityFeatures />
               <PerformanceOptimizer />
               <TestOnlyBadge />
-              <Header />
+              <NewHeader />
               <main id="main-content" className="flex-grow" role="main">
                 <Routes>
+                  <Route path="/new-home" element={<NewHome />} />
+                  <Route path="/new-learn" element={<NewLearn />} />
                   <Route path="/" element={<Index />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/learn" element={<Learn />} />

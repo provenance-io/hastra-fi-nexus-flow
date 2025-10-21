@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -25,7 +24,7 @@
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
     --radius: 0.5rem;
-    
+
     /* HASTRA Brand Colors */
     --hastra-teal: 180 100% 50%;
     --hastra-teal-dark: 180 100% 30%;
@@ -33,17 +32,17 @@
     --hastra-slate: 215 25% 27%;
     --hastra-slate-light: 215 25% 35%;
     --hastra-slate-dark: 215 25% 20%;
-    
+
     /* Muted Hastra colors for subtle gradients */
     --hastra-muted: 180 30% 15%;
     --hastra-muted-light: 180 15% 8%;
     --hastra-muted-dark: 180 40% 10%;
-    
+
     /* Glass Morphism */
     --glass-bg: 255 255 255 / 0.05;
     --glass-border: 255 255 255 / 0.1;
     --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-    
+
     /* Enhanced crypto-native colors */
     --header-bg: 0 0% 100%; /* White header background */
     --header-footer-bg: 0 0% 100%;
@@ -52,15 +51,15 @@
     --mint-green: 152 68% 55%;
     --mint-green-light: 152 68% 70%;
     --mint-green-dark: 152 68% 40%;
-    
+
     /* Enhanced Auburn brand colors - sophisticated orange/amber scheme */
-    --auburn-primary: 24 95% 53%;   /* orange-500 */
-    --auburn-light: 34 100% 84%;    /* orange-300 */
-    --auburn-dark: 15 86% 30%;      /* orange-900 */
+    --auburn-primary: 24 95% 53%; /* orange-500 */
+    --auburn-light: 34 100% 84%; /* orange-300 */
+    --auburn-dark: 15 86% 30%; /* orange-900 */
     --auburn-glow: 24 95% 63%;
-    --amber-warm: 45 93% 58%;       /* warm amber */
-    --amber-glow: 43 96% 75%;       /* light amber glow */
-    
+    --amber-warm: 45 93% 58%; /* warm amber */
+    --amber-glow: 43 96% 75%; /* light amber glow */
+
     /* Premium color palette for sophisticated design */
     --platinum: 0 0% 85%;
     --charcoal: 240 8% 12%;
@@ -69,14 +68,35 @@
     --neon-cyan: 180 100% 50%;
     --premium-gold: 48 100% 67%;
     --rose-gold: 15 100% 75%;
-    
+
     /* Advanced gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(180 100% 50% / 0.1), hsl(120 70% 45% / 0.05));
-    --gradient-auburn: linear-gradient(135deg, hsl(var(--auburn-primary)), hsl(var(--auburn-light)));
-    --gradient-premium: linear-gradient(135deg, hsl(var(--electric-blue) / 0.1), hsl(var(--neon-cyan) / 0.05));
-    --gradient-glass: linear-gradient(145deg, hsl(var(--glass-bg)), hsl(240 10% 20% / 0.6));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--charcoal)) 50%, hsl(var(--deep-navy)) 100%);
-    
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(180 100% 50% / 0.1),
+      hsl(120 70% 45% / 0.05)
+    );
+    --gradient-auburn: linear-gradient(
+      135deg,
+      hsl(var(--auburn-primary)),
+      hsl(var(--auburn-light))
+    );
+    --gradient-premium: linear-gradient(
+      135deg,
+      hsl(var(--electric-blue) / 0.1),
+      hsl(var(--neon-cyan) / 0.05)
+    );
+    --gradient-glass: linear-gradient(
+      145deg,
+      hsl(var(--glass-bg)),
+      hsl(240 10% 20% / 0.6)
+    );
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(var(--background)) 0%,
+      hsl(var(--charcoal)) 50%,
+      hsl(var(--deep-navy)) 100%
+    );
+
     /* Enhanced shadows */
     --shadow-glow: 0 0 20px hsl(120 70% 45% / 0.3);
     --shadow-auburn: 0 0 20px hsl(var(--auburn-primary) / 0.3);
@@ -84,6 +104,11 @@
     --shadow-elegant: 0 25px 50px -12px hsl(240 8% 12% / 0.25);
     --shadow-glass: var(--glass-shadow);
     --shadow-hastra: 0 0 20px hsl(var(--hastra-teal) / 0.3);
+
+    /* Glass effect variables */
+    --glass-bg: 0 0% 100% / 0.05;
+    --glass-border: 0 0% 100% / 0.1;
+    --glass-blur: 20px;
   }
 
   .dark {
@@ -117,8 +142,8 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
-    font-family: 'Inter', 'Space Grotesk', sans-serif;
+    @apply bg-brand-background text-foreground;
+    font-family: "Inter", "Space Grotesk", sans-serif;
     letter-spacing: 0.01em;
   }
 }
@@ -128,12 +153,41 @@
   .toast-action-success {
     @apply border-l-4 border-l-crypto-accent bg-crypto-accent/10 shadow-glow;
   }
-  
+
   .toast-action-warning {
     @apply border-l-4 border-l-auburn-primary bg-auburn-primary/10 shadow-auburn;
   }
-  
+
   .toast-action-info {
     @apply border-l-4 border-l-hastra-teal bg-hastra-teal/10 shadow-hastra;
+  }
+
+  .glassContainer {
+    position: relative;
+    display: inline-block;
+    width: auto;
+    height: auto;
+  }
+
+  .glassContainer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .glassContainer::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    /* border-radius: 30px; */
+    -webkit-backdrop-filter: blur(0px);
+    backdrop-filter: blur(0px);
+    -webkit-filter: url(#container-glass);
+    filter: url(#container-glass);
+    overflow: hidden;
+    isolation: isolate;
   }
 }
