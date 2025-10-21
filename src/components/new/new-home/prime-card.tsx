@@ -5,7 +5,7 @@ import cardOneBg from "@/assets/new/about-page/prime-card-bg-one.png";
 import cardTwoBg from "@/assets/new/about-page/prime-card-bg-two.png";
 import cardThreeBg from "@/assets/new/about-page/prime-card-bg-three.png";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { usePrimeApr } from "@/hooks/use-prime-apr";
+import { usePRIMEAPR } from "@/hooks/use-prime-apr";
 
 const SubCards = ({ input }: { input: ReturnType<typeof primeCards>[0] }) => (
   <Card
@@ -44,7 +44,7 @@ const primeCards = ({
 ];
 
 export const PrimeCard = () => {
-  const { displayApr } = usePrimeApr();
+  const { rate, loading, error } = usePRIMEAPR();
   const isMobile = useIsMobile();
   return (
     <section className="mx-auto px-10 pt-[100px]" aria-label="PRIME card">
@@ -95,7 +95,7 @@ export const PrimeCard = () => {
           </div>
           <div className="gap-x-10 flex flex-nowrap overflow-x-scroll pb-10 px-6">
             {primeCards({
-              apy: String(displayApr),
+              apy: loading ? "loading..." : error ? "error" : String(rate),
               supply: "$0.00",
               activeWallets: "2",
             }).map((c) => (
