@@ -1,3 +1,4 @@
+import { Build } from "@/components/new/new-learn/built";
 import { Hero } from "@/components/new/new-learn/hero";
 import { Unlock } from "@/components/new/new-learn/unlock";
 
@@ -6,6 +7,7 @@ export const NewLearn = () => {
     <div className="mx-auto bg-brand-background max-w-screen overflow-x-hidden">
       <Hero />
       <Unlock />
+      <Build />
     </div>
   );
 };
