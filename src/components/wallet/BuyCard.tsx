@@ -20,7 +20,7 @@ import { PRIME, USDC, wYLDS } from "@/types/tokens";
 import { useDepositAndMint, useRequestRedeem } from "@/hooks/use-solana-tx.ts";
 import { AnchorError } from "@coral-xyz/anchor";
 import { match } from "ts-pattern";
-import { transferUSDC } from "@/utils/hastraServiceUtils";
+// import { transferUSDC } from "@/utils/hastraServiceUtils";
 import { useWallet } from "@/contexts/WalletContext";
 
 const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
@@ -121,8 +121,10 @@ const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
           className:
             "border-l-4 border-l-hastra-teal bg-hastra-teal/10 shadow-hastra",
         });
-        // Hit the service endpoint to transfer to Figure Markets
-        await transferUSDC({ txHash: response.txId, walletAddress });
+        // If needed, hit the service endpoint to transfer to Figure Markets.
+        // We are listening to events now, so this code can likely be removed
+        // entirely in the near future.
+        // await transferUSDC({ txHash: response.txId, walletAddress });
       })
       .catch((error) => {
         let response;
