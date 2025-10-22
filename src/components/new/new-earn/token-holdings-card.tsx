@@ -1,7 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useTokenPortfolio } from "@/hooks/useTokenPortfolio";
-import { SmallTokenCard } from "./components/small-token-card";
 import { LargeTokenCard } from "./components/large-token-card";
 import { PRIME, wYLDS } from "@/types/tokens";
 

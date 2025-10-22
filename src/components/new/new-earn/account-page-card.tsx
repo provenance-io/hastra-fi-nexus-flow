@@ -141,10 +141,10 @@ export const AccountPageCard = () => {
         className="shadow-brand-card rounded-[50px] bg-center"
         style={{ backgroundImage: `url(${wyldsBg})` }}
       >
-        <CardHeader className="pt-[49px] md:pt-[60px] pb-10 md:pb-[73px] px-[20px] md:px-[37px]">
+        <CardHeader className="pt-[81px] md:pt-[60px] pb-10 md:pb-[73px] px-[20px] md:px-[37px]">
           <CardTitle className="flex flex-col md:flex-row flex-wrap md:items-center md:justify-between md:gap-10 px-[20px] md:px-[37px]">
             <div className="flex gap-5 items-center text-brand-white pb-10 md:pb-0">
-              <h3 className="text-[24px] md:text-[35px] font-[650] leading-[111%]">
+              <h3 className="text-[30px] md:text-[35px] font-[650] leading-[111%]">
                 Portfolio Overview
               </h3>
             </div>
