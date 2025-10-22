@@ -5,7 +5,7 @@ import { TokenData } from "@/hooks/useTokenPortfolio";
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 
-export const LargeTokenCard = ({
+export const TokenCard = ({
   token,
   amount,
   value,
@@ -65,7 +65,7 @@ export const LargeTokenCard = ({
     : unclaimedInterest * tokenPrice;
 
   return (
-    <Card className="p-0 bg-[#021E4830] py-[18px] lg:py-[51px] lg:px-7 grid grid-cols-[repeat(7,minmax(150px,1fr))] pr-8 w-fill overflow-x-scroll rounded-[39px] text-[16px] lg:text-[22px] leading-[98%] border-[0.1px] border-l-0 border-r-0 border-gray-600">
+    <Card className="p-0 bg-[#021E4830] py-[18px] w-fit lg:w-full lg:py-[51px] lg:px-7 grid grid-cols-[repeat(7,minmax(150px,1fr))] pr-8 rounded-[39px] text-[16px] lg:text-[22px] leading-[98%] border-[0.1px] border-l-0 border-r-0 border-gray-600">
       {isImage ? (
         <div className="flex items-center justify-center">
           <img
@@ -136,7 +136,7 @@ export const LargeTokenCard = ({
               onClick={handleClaim}
               disabled={unclaimedInterest <= 0 || isClaiming}
               size="sm"
-              className="rounded-full text-base leading-[110%] shadow-brand-card text-brand-white"
+              className="rounded-full text-base leading-[110%] shadow-brand-card text-brand-white py-[20px] px-[26px]"
               variant="ghost"
             >
               {isClaiming ? (
@@ -146,7 +146,7 @@ export const LargeTokenCard = ({
                 </div>
               ) : (
                 <>
-                  Claim {token}{" "}
+                  Claim <span className="hidden sm:block">{token}</span>{" "}
                   <ArrowRight strokeWidth={0.5} className="size-6" />
                 </>
               )}

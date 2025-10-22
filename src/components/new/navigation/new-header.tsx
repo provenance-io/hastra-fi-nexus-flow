@@ -1,9 +1,11 @@
 import hastraWithName from "@/assets/purple-hastra-name.png";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useWallet } from "@/contexts/WalletContext";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { match } from "ts-pattern";
 
 export const headerNavItems = [
   {
@@ -28,6 +30,7 @@ export const NewHeader = () => {
   const { pathname } = useLocation();
   const [activeTab, setActiveTab] = useState("About");
   const [isScrolled, setIsScrolled] = useState(false);
+  const { isConnected, disconnectWallet, connectWallet } = useWallet();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,14 +79,36 @@ export const NewHeader = () => {
           </TabsList>
         </Tabs>
       </div>
-      <Link to="/earn">
-        <Button
-          className="rounded-full w-[230px] h-[63px] text-base leading-[110%] shadow-button text-brand-white"
-          variant="ghost"
-        >
-          Launch Protocol
-        </Button>
-      </Link>
+      {pathname !== "/new-earn" ? (
+        <Link to="/earn">
+          <Button
+            className="rounded-full w-[230px] h-[63px] text-base leading-[110%] shadow-button text-brand-white"
+            variant="ghost"
+          >
+            Launch Protocol
+          </Button>
+        </Link>
+      ) : (
+        match(isConnected)
+          .with(true, () => (
+            <Button
+              className="rounded-full w-[230px] h-[63px] text-base leading-[110%] shadow-button text-brand-white"
+              variant="ghost"
+              onClick={disconnectWallet}
+            >
+              Disconnect Wallet
+            </Button>
+          ))
+          .otherwise(() => (
+            <Button
+              className="rounded-full w-[230px] h-[63px] text-base leading-[110%] shadow-button text-brand-white"
+              variant="ghost"
+              onClick={connectWallet}
+            >
+              Connect Wallet
+            </Button>
+          ))
+      )}
     </nav>
   );
 };

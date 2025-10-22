@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useTokenPortfolio } from "@/hooks/useTokenPortfolio";
-import { LargeTokenCard } from "./components/large-token-card";
+import { TokenCard } from "./components/token-card";
 import { PRIME, wYLDS } from "@/types/tokens";
 
 export const TokenHoldingsCard = () => {
@@ -26,7 +26,7 @@ export const TokenHoldingsCard = () => {
         <CardContent className="space-y-6">
           {tokens.map((t) => (
             <div className="flex-wrap overflow-x-scroll" key={t.token}>
-              <LargeTokenCard
+              <TokenCard
                 {...t}
                 onClaim={
                   t.address === wYLDS || t.address == PRIME

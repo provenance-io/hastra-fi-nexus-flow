@@ -1,4 +1,5 @@
 import { AccountPageCard } from "./account-page-card";
+import { BuySendSection } from "./buy-send-section";
 import { TokenHoldingsCard } from "./token-holdings-card";
 
 export const AccountPage = () => {
@@ -20,6 +21,7 @@ export const AccountPage = () => {
       <div className="space-y-6">
         <AccountPageCard />
         <TokenHoldingsCard />
+        <BuySendSection />
       </div>
     </section>
   );

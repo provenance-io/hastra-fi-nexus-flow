@@ -58,7 +58,7 @@ const App = () => (
             <div className="flex flex-col min-h-screen bg-brand-background">
               <AccessibilityFeatures />
               <PerformanceOptimizer />
-              <TestOnlyBadge />
+              {/* <TestOnlyBadge /> */}
               <NewHeader />
               <main id="main-content" className="flex-grow" role="main">
                 <Routes>
