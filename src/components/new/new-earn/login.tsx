@@ -2,11 +2,15 @@ import leftImage from "@/assets/new/about-page/about-hero-left-side.png";
 import rightImage from "@/assets/new/about-page/about-hero-right-side.png";
 import mobileLeft from "@/assets/new/about-page/grow-mobile-left.png";
 import mobileRight from "@/assets/new/about-page/grow-mobile-right.png";
-import x from "@/assets/x.png";
-import discord from "@/assets/discord.png";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Wallet } from "lucide-react";
 
-export const Connect = () => {
+export const Login = ({
+  handleConnectWallet,
+}: {
+  handleConnectWallet: () => Promise<void>;
+}) => {
   return (
     <section
       aria-label="Connect with us"
@@ -36,31 +40,19 @@ export const Connect = () => {
       </div>
       <div className="flex flex-col justify-center items-center text-center">
         <h2 className="text-[35px] md:text-[54px] leading-[98%] pb-14">
-          Join Our Mission
+          Start <span className="text-brand-purple">Earning</span>
         </h2>
         <p className="max-w-[591px] text-[20px] md:text-[25px] leading-[98%] pb-14">
-          Ready to be part of the financial revolution? Connect with us and help
-          democratize access to institutional-grade DeFi opportunities.
+          Buy wYLDS on Hastra. Start earning from day one with proven strategies
+          backed by real-world assets.
         </p>
-        <h2 className="text-[35px] md:text-[54px] leading-[98%] pb-10">
-          Connect With Us
-        </h2>
-        <div className="flex gap-4">
-          <Link to="#" target="_blank" rel="noopener noreferrer">
-            <img
-              src={discord}
-              alt="discord"
-              className="size-[40px] md:size-[73px]"
-            />
-          </Link>
-          <Link
-            to="https://x.com/HastraFi"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={x} alt="X" className="size-[40px] md:size-[73px]" />
-          </Link>
-        </div>
+        <Button
+          onClick={handleConnectWallet}
+          className="rounded-full w-[230px] h-[63px] text-base leading-[110%] shadow-brand-card text-brand-white"
+          variant="ghost"
+        >
+          Connect Wallet <Wallet className="size-6" />
+        </Button>
       </div>
     </section>
   );

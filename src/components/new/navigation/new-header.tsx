@@ -54,7 +54,7 @@ export const NewHeader = () => {
     <nav
       className={cn(
         "fixed top-0 z-50 w-full flex justify-between transition-all duration-300 items-center px-4 md:px-6 pt-[37px] pb-4 max-w-screen overflow-x-hidden",
-        isScrolled ? "bg-brand-background" : "bg-transparent"
+        isScrolled ? "bg-brand-background pt-4" : "bg-transparent"
       )}
     >
       <div className="flex items-center justify-between gap-[72px]">
@@ -76,9 +76,14 @@ export const NewHeader = () => {
           </TabsList>
         </Tabs>
       </div>
-      <Button className="rounded-full w-[230px] h-[63px] text-base leading-[110%]">
-        Launch Protocol
-      </Button>
+      <Link to="/earn">
+        <Button
+          className="rounded-full w-[230px] h-[63px] text-base leading-[110%] shadow-button text-brand-white"
+          variant="ghost"
+        >
+          Launch Protocol
+        </Button>
+      </Link>
     </nav>
   );
 };

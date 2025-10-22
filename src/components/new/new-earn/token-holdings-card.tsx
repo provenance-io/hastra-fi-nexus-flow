@@ -1,0 +1,44 @@
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { useTokenPortfolio } from "@/hooks/useTokenPortfolio";
+import { SmallTokenCard } from "./components/small-token-card";
+import { LargeTokenCard } from "./components/large-token-card";
+import { PRIME, wYLDS } from "@/types/tokens";
+
+export const TokenHoldingsCard = () => {
+  const { tokens, claimInterest } = useTokenPortfolio();
+  const isMobile = useIsMobile();
+  const handleTokenClaim = (tokenSymbol: string) => (claimedAmount: number) => {
+    claimInterest(tokenSymbol, claimedAmount);
+  };
+  return (
+    <section
+      className="max-w-[96rem] mx-auto px-[20px] md:px-[37px]"
+      aria-label="Account Overview card"
+    >
+      <Card className="shadow-token-holdings rounded-[50px] bg-brand-background">
+        <CardHeader className="pt-[49px] md:pt-[60px] pb-10 md:pb-[73px] px-[20px] md:px-[37px]">
+          <CardTitle className="flex flex-col md:flex-row flex-wrap md:items-center md:justify-between md:gap-10 px-[20px] md:px-[37px]">
+            <h3 className="text-[24px] md:text-[35px] font-[650] leading-[111%]">
+              Token Holdings
+            </h3>
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          {tokens.map((t) => (
+            <div className="flex-wrap overflow-x-scroll" key={t.token}>
+              <LargeTokenCard
+                {...t}
+                onClaim={
+                  t.address === wYLDS || t.address == PRIME
+                    ? handleTokenClaim(t.token)
+                    : undefined
+                }
+              />
+            </div>
+          ))}
+        </CardContent>
+      </Card>
+    </section>
+  );
+};

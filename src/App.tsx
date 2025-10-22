@@ -32,6 +32,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { NewHome } from "./pages/new-home";
 import { NewHeader } from "./components/new/navigation/new-header";
 import { NewLearn } from "./pages/new-learn";
+import { NewEarn } from "./pages/new-earn";
 
 // For testing, to expose solana/web3.js
 if (import.meta.env.DEV || import.meta.env.MODE === "test") {
@@ -63,6 +64,7 @@ const App = () => (
                 <Routes>
                   <Route path="/new-home" element={<NewHome />} />
                   <Route path="/new-learn" element={<NewLearn />} />
+                  <Route path="/new-earn" element={<NewEarn />} />
                   <Route path="/" element={<Index />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/learn" element={<Learn />} />

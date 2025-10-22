@@ -101,6 +101,10 @@ export default {
         "hastra-lg": "0 0 30px hsl(var(--hastra-teal) / 0.4)",
         "brand-card":
           "11.813px 20.083px 27.52px 0 rgba(255, 255, 255, 0.30) inset, 4.17px 2.363px 23.627px 0 rgba(255, 255, 255, 0.30) inset",
+        "token-holdings":
+          "4.161px 2.358px 23.577px 0 rgba(255, 255, 255, 0.30) inset",
+        button:
+          "8.004px 13.606px 18.645px 0 rgba(255, 255, 255, 0.30) inset, 2.825px 1.601px 16.007px 0 rgba(255, 255, 255, 0.30) inset",
       },
       borderRadius: {
         lg: "var(--radius)",

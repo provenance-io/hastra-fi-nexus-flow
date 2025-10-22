@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useYLDSApy } from "@/hooks/use-ylds-apy";
 import { ArrowRight } from "lucide-react";
-import aboutHero from "@/assets/new/about-page/about-hero.png";
+import aboutHero from "@/assets/new/about-page/about-hero.jpg";
 import aboutHeroMobile from "@/assets/new/about-page/about-hero-mobile.png";
 import leftImage from "@/assets/new/about-page/about-hero-left-side.png";
 import rightImage from "@/assets/new/about-page/about-hero-right-side.png";
