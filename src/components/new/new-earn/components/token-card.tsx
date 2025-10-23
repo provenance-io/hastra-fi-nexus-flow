@@ -65,7 +65,7 @@ export const TokenCard = ({
     : unclaimedInterest * tokenPrice;
 
   return (
-    <Card className="p-0 bg-[#021E4830] py-[18px] w-fit lg:w-full lg:py-[51px] lg:px-7 grid grid-cols-[repeat(7,minmax(150px,1fr))] pr-8 rounded-[39px] text-[16px] lg:text-[22px] leading-[98%] border-[0.1px] border-l-0 border-r-0 border-gray-600">
+    <Card className="p-0 bg-[#021E4830] py-[18px] w-fit lg:w-full min-w-[1200px] md:min-w-[1300px] lg:py-[51px] lg:px-7 grid grid-cols-[repeat(7,minmax(150px,1fr))] pr-8 rounded-[39px] text-[16px] lg:text-[22px] leading-[98%] border-[0.1px] border-l-0 border-r-0 border-gray-600">
       {isImage ? (
         <div className="flex items-center justify-center">
           <img
@@ -75,7 +75,7 @@ export const TokenCard = ({
           />
         </div>
       ) : (
-        <div className="size-[50px] lg:size-[84px] rounded-xl bg-hastra-teal/10 flex items-center justify-center shadow-sm flex-shrink-0">
+        <div className="size-[50px] lg:size-[84px] max-h-[84px] rounded-xl bg-hastra-teal/10 flex items-center justify-center shadow-sm flex-shrink-0">
           <span className="text-hastra-teal font-bold text-base">{icon}</span>
         </div>
       )}

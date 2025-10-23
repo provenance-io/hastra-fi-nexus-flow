@@ -17,6 +17,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { BuyTokensCard } from "./components/buy-tokens-card";
+import { SendTokensCard } from "./components/send-tokens-card";
 
 const tabSections = ["Buy", "Send", "Stake", "Trade"] as const;
 
@@ -91,28 +93,12 @@ export const BuySendSection = () => {
           match(t)
             .with("Buy", () => (
               <TabsContent value={t} key={t}>
-                {ofacPass() ? (
-                  <div id="buy-section" className="mb-8 md:mb-12">
-                    <div id="buy-section" className="mb-8 md:mb-12 relative">
-                      <div className="card-gradient rounded-3xl border border-border/30 shadow-lg p-4 lg:p-6">
-                        <BuyCard canBuy={actions.canBuy} />
-                      </div>
-                    </div>
-                  </div>
-                ) : undefined}
+                {ofacPass() ? <BuyTokensCard /> : undefined}
               </TabsContent>
             ))
             .with("Send", () => (
               <TabsContent value={t} key={t}>
-                {ofacPass() ? (
-                  <div id="buy-section" className="mb-8 md:mb-12">
-                    <div id="buy-section" className="mb-8 md:mb-12 relative">
-                      <div className="card-gradient rounded-3xl border border-border/30 shadow-lg p-4 lg:p-6">
-                        <SendCard canSend={actions.canSend} />
-                      </div>
-                    </div>
-                  </div>
-                ) : undefined}
+                {ofacPass() ? <SendTokensCard /> : undefined}
               </TabsContent>
             ))
             .with("Stake", () => (

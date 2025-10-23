@@ -14,7 +14,7 @@ const SubCards = ({ input }: { input: ReturnType<typeof wYLDSCards>[0] }) => (
     style={{ backgroundImage: `url(${input.bg})` }}
     className="bg-cover bg-center overflow-hidden rounded-[39px] border-[0.1px] border-l-0 border-r-0 border-brand-white p-0 min-w-[193px] pt-[60px] pb-[64px] md:min-h-[241px] px-5 md:min-w-[275px] h-full w-full flex flex-col gap-y-[18px] md:gap-y-[37px] justify-center md:items-center"
   >
-    <p className="flex items-center justify-center text-center gap-4 text-[18px] xl:text-[28px] leading-[98%]">
+    <p className="flex items-center justify-center text-center gap-2 text-[18px] xl:text-[28px] leading-[98%]">
       <ArrowRight className="size-6 hidden md:block" />
       {input.label}
     </p>
