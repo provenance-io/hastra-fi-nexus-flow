@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/select";
 import { BuyTokensCard } from "./components/buy-tokens-card";
 import { SendTokensCard } from "./components/send-tokens-card";
+import { TradeCard } from "./components/trade-card";
 
 const tabSections = ["Buy", "Send", "Stake", "Trade"] as const;
 
@@ -112,11 +113,7 @@ export const BuySendSection = () => {
             ))
             .with("Trade", () => (
               <TabsContent value={t} key={t}>
-                <div id="trade-lend-section" className="mb-8 md:mb-12">
-                  <div className="card-gradient rounded-3xl border border-border/30 shadow-lg p-4 md:p-6">
-                    <TradingPlatformsSection />
-                  </div>
-                </div>
+                <TradeCard />
               </TabsContent>
             ))
             .exhaustive()
