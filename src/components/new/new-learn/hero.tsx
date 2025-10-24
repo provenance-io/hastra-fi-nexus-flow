@@ -1,9 +1,8 @@
-import heroImage from "@/assets/new/learn-page/learn-hero.png";
-import heroImageMobile from "@/assets/new/learn-page/learn-hero-mobile.png";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import left from "@/assets/new/learn-page/learn-hero-left.png";
 import right from "@/assets/new/learn-page/learn-hero-right.png";
+import phoneAnimation from "@/assets/new/learn-page/build-animation.mp4";
 
 export const HighlightCard = ({
   title,
@@ -35,19 +34,14 @@ export const Hero = () => {
   return (
     <section
       aria-label="Learn Page Hero Section"
-      className="relative overflow-y-hidden"
+      className="relative overflow-y-hidden font-season-sans"
     >
       <div
-        className="relative mx-auto overflow-x-hidden overflow-y-hidden flex flex-col gap-4 text-brand-white max-w-screen h-screen min-h-[1093px]"
+        className="relative mx-auto overflow-x-hidden overflow-y-hidden flex flex-col gap-4 text-brand-white max-w-screen h-screen min-h-[1093px] bg-black"
         aria-label="Hero Image"
       >
-        <img
-          src={heroImageMobile}
-          alt="Learn Hero"
-          className="md:hidden sm:pb-0"
-        />
-        <div className="hidden md:block absolute top-[30%] right-[5%] lg:right-[15%] xl:right-[20%] 2xl:top-[40%] 2xl:right-[30%] z-10">
-          <div className="flex flex-col md:text-[45px] text-[65px] leading-[98%]">
+        <div className="absolute top-[30%] right-[1%] lg:right-[5%] xl:right-[10%] 2xl:top-[40%] 2xl:right-[30%] z-10">
+          <div className="flex flex-col text-[45px] lg:text-[65px] leading-[98%]">
             Repeat after Us:
             <p>
               Accessing <span className="text-brand-purple">good</span>
@@ -58,20 +52,16 @@ export const Hero = () => {
             <p>require a trust fund.</p>
           </div>
         </div>
-        <div className="md:hidden top-[85%] sm:top-[70%] pb-[400px] sm:pb-[300px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 absolute w-full px-5 z-10 bg-gradient-to-b from-transparent to-[#021323]">
-          <div className="flex flex-col items-center text-[45px] leading-[108%]">
-            Repeat after Us: Accessing{" "}
-            <span className="text-brand-purple w-full sm:w-fit">
-              good investments
-            </span>{" "}
-            shouldn't require a trust fund.
-          </div>
-        </div>
-        <img
-          src={heroImage}
-          alt="About Hero"
-          className="hidden md:block absolute inset-0 object-cover left-0 overflow-hidden min-h-[1093px]"
-        />
+        <video
+          className="absolute inset-0 w-[150%] min-h-[944px] h-full object-cover -left-[25%] overflow-hidden"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src={phoneAnimation} type="video/mp4" />
+        </video>
+        <div className="absolute w-full right-0 min-h-[944px] h-full bg-gradient-to-r from-transparent to-black to-[80%] border border-white" />
         <div className="absolute bottom-0 w-screen h-[511px] bg-gradient-to-b from-transparent to-[#021323]" />
       </div>
       <img

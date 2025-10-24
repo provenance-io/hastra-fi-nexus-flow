@@ -1,22 +1,10 @@
-import StakingSection from "@/components/staking/StakingSection";
-import TradingPlatformsSection from "@/components/start-earning/TradingPlatformsSection";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import BuyCard from "@/components/wallet/BuyCard";
-import SendCard from "@/components/wallet/SendCard";
 import { useAvailableActions } from "@/hooks/use-available-actions";
 import { useOfac } from "@/hooks/use-ofac";
 import { cn } from "@/lib/utils";
 import { match } from "ts-pattern";
 import { useEffect, useState } from "react";
 import { useWallet } from "@/contexts/WalletContext";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { BuyTokensCard } from "./components/buy-tokens-card";
 import { SendTokensCard } from "./components/send-tokens-card";
 import { TradeCard } from "./components/trade-card";
@@ -67,7 +55,7 @@ export const BuySendSection = () => {
   return (
     <section
       aria-label="buy send section"
-      className="font-season-sans pt-[100px] pb-[47px] max-w-[96rem] mx-auto px-[20px] md:px-[37px]"
+      className="font-season-sans pt-[100px] pb-[47px] max-w-[96rem] mx-auto px-[20px] md:px-[37px] font-season-sans"
     >
       <h2 className="font-season-sans pb-[58px] md:pb-[78px] text-[35px] font-[650] leading-[111%] pl-5 md:pl-10">
         Buy & Send

@@ -13,7 +13,7 @@ export const Hero = () => {
   const { displayApy } = useYLDSApy();
   return (
     <section
-      className="relative mx-auto overflow-x-hidden overflow-y-hidden flex flex-col gap-4 text-brand-white max-w-screen"
+      className="relative mx-auto overflow-x-hidden overflow-y-hidden flex flex-col gap-4 text-brand-white max-w-screen font-season-sans"
       aria-label="About Page Hero"
     >
       <img

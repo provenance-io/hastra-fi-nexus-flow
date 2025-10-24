@@ -5,7 +5,7 @@ export const ComingSoon = () => {
   return (
     <section
       aria-label="Coming Soon"
-      className="max-w-[96rem] mx-auto px-4 lg:px-10"
+      className="max-w-[96rem] mx-auto px-4 lg:px-10 font-season-sans"
     >
       <Card
         className="rounded-[50px] bg-center px-[10px] lg:px-[45px] lg:pt-[100px] pb-[50px]"

@@ -6,7 +6,7 @@ export const AccountPage = () => {
   return (
     <section
       aria-label="Hastra Account Page"
-      className="w-screen min-h-screen mt-[108px]"
+      className="w-screen min-h-screen mt-[108px] font-season-sans"
     >
       <div className="px-[37px] w-full h-full flex md:justify-center md:items-center py-[118px]">
         <h3 className="md:text-center md:w-1/2 text-[55px] leading-[98%] text-wrap hyphens-auto sm:hyphens-none">

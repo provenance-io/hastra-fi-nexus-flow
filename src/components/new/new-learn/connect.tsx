@@ -10,7 +10,7 @@ export const Connect = () => {
   return (
     <section
       aria-label="Connect with us"
-      className="relative flex items-center md:my-[100px] justify-center z-10 min-h-[795px] w-screen text-brand-white px-[37px]"
+      className="relative flex items-center md:my-[100px] justify-center z-10 min-h-[795px] w-screen text-brand-white px-[37px] font-season-sans"
     >
       <div className="h-fit flex items-center justify-center self-center z-10">
         <img

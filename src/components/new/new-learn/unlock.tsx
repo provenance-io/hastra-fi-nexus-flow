@@ -4,7 +4,7 @@ import figure from "@/assets/figure-logo-name.png";
 export const Unlock = () => {
   return (
     <section
-      className="max-w-[96rem] flex flex-col mx-auto px-10 py-[100px] text-center"
+      className="max-w-[96rem] flex flex-col mx-auto px-10 py-[100px] text-center font-season-sans"
       aria-label="Unlock the full potential section"
     >
       <div className="flex flex-col md:flex-row gap-5 md:gap-10 py-4 justify-between items-center w-fit mx-auto">

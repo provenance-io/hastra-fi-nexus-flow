@@ -5,6 +5,8 @@ import mobileRight from "@/assets/new/about-page/grow-mobile-right.png";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Wallet } from "lucide-react";
+import loginBackground from "@/assets/new/earn-page/start-earning-bg.png";
+import { DevelopedBy } from "../new-home/developed-by";
 
 export const Login = ({
   handleConnectWallet,
@@ -12,48 +14,43 @@ export const Login = ({
   handleConnectWallet: () => Promise<void>;
 }) => {
   return (
-    <section
-      aria-label="Connect with us"
-      className="relative flex items-center md:my-[100px] justify-center z-10 min-h-[795px] w-screen text-brand-white px-[37px]"
-    >
-      <div className="h-fit flex items-center justify-center self-center z-10">
-        <img
-          src={leftImage}
-          alt="left image"
-          className="absolute left-0 top-0 hidden md:block h-[735px]"
-        />
-        <img
-          src={rightImage}
-          alt="right image"
-          className="absolute right-0 top-0 hidden md:block h-[795px]"
-        />
-        <img
-          src={mobileLeft}
-          alt="left image"
-          className="absolute top-1/2 -translate-y-1/2 left-0 md:hidden h-[523px]"
-        />
-        <img
-          src={mobileRight}
-          alt="right image"
-          className="absolute top-1/2 -translate-y-1/2 right-0 md:hidden h-[723px]"
-        />
-      </div>
-      <div className="flex flex-col justify-center items-center text-center">
-        <h2 className="text-[35px] md:text-[54px] leading-[98%] pb-14">
-          Start <span className="text-brand-purple">Earning</span>
-        </h2>
-        <p className="max-w-[591px] text-[20px] md:text-[25px] leading-[98%] pb-14">
-          Buy wYLDS on Hastra. Start earning from day one with proven strategies
-          backed by real-world assets.
-        </p>
-        <Button
-          onClick={handleConnectWallet}
-          className="rounded-full w-[230px] h-[63px] text-base leading-[110%] shadow-brand-card text-brand-white"
-          variant="ghost"
-        >
-          Connect Wallet <Wallet className="size-6" />
-        </Button>
-      </div>
-    </section>
+    <>
+      <section
+        className="px-[37px] pt-[200px] pb-[284px] md:py-[284px] bg-cover bg-center font-season-sans flex items-center justify-center"
+        aria-label="Start earning immediately"
+        style={{ backgroundImage: `url(${loginBackground})` }}
+      >
+        <div className="space-y-[42px] flex flex-col items-center">
+          <h2 className="text-[60px] md:text-[77px] leading-[98%] md:text-center">
+            Start Earning
+            <br className="hidden md:block" />{" "}
+            <span className="text-brand-purple">Immediately</span>
+          </h2>
+          <p className="text-[22px] leading-[118%] md:w-2/3 text-center">
+            Buy wYLDS on Hastra. Start earning from day one with proven
+            strategies backed by real-world assets.
+          </p>
+        </div>
+      </section>
+      <section
+        className="px-[37px] py-[100px] lg:py-[171px] font-season-sans flex items-center justify-center"
+        aria-label="Connect Wallet"
+      >
+        <div className="space-y-[42px] flex flex-col items-center">
+          <h2 className="text-[35px] md:text-[45px] leading-[98%] text-center">
+            Ready to start earning
+            <br className="hidden md:block" /> with premium DeFi products?
+          </h2>
+          <Button
+            onClick={handleConnectWallet}
+            className="rounded-full w-full sm:w-[230px] h-[63px] text-base leading-[110%] shadow-brand-card text-brand-white"
+            variant="ghost"
+          >
+            Connect Wallet <Wallet className="size-6" />
+          </Button>
+        </div>
+      </section>
+      <DevelopedBy />
+    </>
   );
 };

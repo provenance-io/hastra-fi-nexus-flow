@@ -10,7 +10,7 @@ export const TokenHoldingsCard = () => {
   };
   return (
     <section
-      className="max-w-[96rem] mx-auto px-[20px] md:px-[37px]"
+      className="max-w-[96rem] mx-auto px-[20px] md:px-[37px] font-season-sans"
       aria-label="Account Overview card"
     >
       <Card className="shadow-token-holdings rounded-[50px] bg-brand-background">

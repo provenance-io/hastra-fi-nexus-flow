@@ -6,7 +6,7 @@ export const Build = () => {
   const isMobile = useIsMobile();
   return (
     <section
-      className="bg-cover bg-bottom lg:bg-center"
+      className="bg-cover bg-bottom lg:bg-center font-season-sans"
       aria-label="Hastra is built on Provenance"
       style={{ backgroundImage: `url(${isMobile ? chainBgMobile : chainBg})` }}
     >

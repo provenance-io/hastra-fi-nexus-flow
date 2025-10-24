@@ -10,7 +10,7 @@ import { usePRIMEAPR } from "@/hooks/use-prime-apr";
 const SubCards = ({ input }: { input: ReturnType<typeof primeCards>[0] }) => (
   <Card
     style={{ backgroundImage: `url(${input.bg})` }}
-    className="bg-cover bg-center overflow-hidden rounded-[39px] border-[0.1px] border-l-0 border-r-0 border-brand-white p-0 min-h-[256px] md:min-h-[292px] min-w-[275px] md:h-full md:w-full flex flex-col gap-y-[37px] justify-center items-center"
+    className="font-season-sans bg-cover bg-center overflow-hidden rounded-[39px] border-[0.1px] border-l-0 border-r-0 border-brand-white p-0 min-h-[256px] md:min-h-[292px] min-w-[275px] md:h-full md:w-full flex flex-col gap-y-[37px] justify-center items-center"
   >
     <p className="text-[51px] leading-[98%] font-[650]">{input.value}</p>
     <p className="text-[21px] leading-[98%]">{input.label}</p>

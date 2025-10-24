@@ -2,10 +2,12 @@ import hastraWithName from "@/assets/purple-hastra-name.png";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useWallet } from "@/contexts/WalletContext";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { match } from "ts-pattern";
+import { MobileHeader } from "./mobile-header";
 
 export const headerNavItems = [
   {
@@ -28,6 +30,7 @@ export const headerNavItems = [
 
 export const NewHeader = () => {
   const { pathname } = useLocation();
+  const isMobile = useIsMobile();
   const [activeTab, setActiveTab] = useState("About");
   const [isScrolled, setIsScrolled] = useState(false);
   const { isConnected, disconnectWallet, connectWallet } = useWallet();
@@ -53,19 +56,32 @@ export const NewHeader = () => {
     });
   }, [pathname]);
 
-  return (
+  return isMobile ? (
+    <MobileHeader
+      isScrolled={isScrolled}
+      isConnected={isConnected}
+      disconnectWallet={disconnectWallet}
+      connectWallet={connectWallet}
+    />
+  ) : (
     <nav
       className={cn(
-        "fixed top-0 z-50 w-full flex justify-between transition-all duration-300 items-center px-4 md:px-6 pt-[37px] pb-4 max-w-screen overflow-x-hidden",
-        isScrolled ? "bg-brand-background pt-4" : "bg-transparent"
+        "fixed top-0 z-50 w-full flex justify-between transition-all duration-300 items-center px-4 md:px-6 pt-[37px] pb-4 max-w-screen overflow-x-hidden font-season-sans",
+        isScrolled
+          ? "bg-brand-background pt-4"
+          : "bg-gradient-to-t from-transparent to-[60%] to-brand-background"
       )}
     >
-      <div className="flex items-center justify-between gap-[72px]">
+      <div className="flex items-center justify-between gap-5 xl:gap-[72px]">
         <Link to="/">
-          <img src={hastraWithName} alt="Hastra" className="w-[161px]" />
+          <img
+            src={hastraWithName}
+            alt="Hastra"
+            className="w-[161px] flex-shrink-0"
+          />
         </Link>
         <Tabs value={activeTab} onValueChange={setActiveTab}>
-          <TabsList className="rounded-full h-[63px] gap-x-20 bg-transparent border-[0.3px] border-brand-light-purple px-[18px]">
+          <TabsList className="rounded-full h-[63px] lg:gap-x-10 xl:gap-x-20 bg-transparent border-[0.3px] border-brand-light-purple px-[18px]">
             {headerNavItems.map((item) => (
               <TabsTrigger
                 key={item.name}
@@ -82,7 +98,7 @@ export const NewHeader = () => {
       {pathname !== "/new-earn" ? (
         <Link to="/earn">
           <Button
-            className="rounded-full w-[230px] h-[63px] text-base leading-[110%] shadow-button text-brand-white"
+            className="rounded-full w-[150px] xl:w-[230px] h-[63px] text-base leading-[110%] shadow-button text-brand-white"
             variant="ghost"
           >
             Launch Protocol
@@ -92,7 +108,7 @@ export const NewHeader = () => {
         match(isConnected)
           .with(true, () => (
             <Button
-              className="rounded-full w-[230px] h-[63px] text-base leading-[110%] shadow-button text-brand-white"
+              className="rounded-full w-[150px] xl:w-[230px] h-[63px] text-base leading-[110%] shadow-button text-brand-white"
               variant="ghost"
               onClick={disconnectWallet}
             >
@@ -101,7 +117,7 @@ export const NewHeader = () => {
           ))
           .otherwise(() => (
             <Button
-              className="rounded-full w-[230px] h-[63px] text-base leading-[110%] shadow-button text-brand-white"
+              className="rounded-full w-[150px] xl:w-[230px] h-[63px] text-base leading-[110%] shadow-button text-brand-white"
               variant="ghost"
               onClick={connectWallet}
             >

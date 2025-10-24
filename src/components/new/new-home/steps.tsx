@@ -60,7 +60,7 @@ export const Steps = () => {
   return (
     <section
       aria-label="Steps to get PRIME"
-      className="flex flex-col gap-[87px] md:gap-[50px] mx-auto px-10 pt-[100px] text-center"
+      className="flex flex-col gap-[87px] md:gap-[50px] mx-auto px-10 pt-[100px] text-center font-season-sans"
     >
       <h2 className="text-[45px] md:text-[65px] leading-[98%]">
         Steps to get

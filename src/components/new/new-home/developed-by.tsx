@@ -10,7 +10,7 @@ export const DevelopedBy = () => {
   return (
     <section
       aria-label="Developed By Figure"
-      className="relative w-screen flex justify-between items-center"
+      className="relative w-screen flex justify-between items-center font-season-sans"
     >
       <svg style={{ display: "none" }}>
         <filter id="container-glass" x="0%" y="0%" width="100%" height="100%">
