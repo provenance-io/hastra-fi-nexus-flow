@@ -1,0 +1,101 @@
+/* Light */
+@font-face {
+  font-family: "season-serif";
+  src: url("/fonts/SeasonSerif-Light.woff") format("woff"),
+    url("/fonts/SeasonSerif-Light.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "season-serif";
+  src: url("/fonts/SeasonSerif-LightItalic.woff") format("woff"),
+    url("/fonts/SeasonSerif-LightItalic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Regular */
+@font-face {
+  font-family: "season-serif";
+  src: url("/fonts/SeasonSerif-Regular.woff") format("woff"),
+    url("/fonts/SeasonSerif-Regular.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "season-serif";
+  src: url("/fonts/SeasonSerif-RegularItalic.woff") format("woff"),
+    url("/fonts/SeasonSerif-RegularItalic.woff2") format("woff2");
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* Medium */
+@font-face {
+  font-family: "season-serif";
+  src: url("/fonts/SeasonSerif-Medium.woff") format("woff"),
+    url("/fonts/SeasonSerif-Medium.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "season-serif";
+  src: url("/fonts/SeasonSerif-MediumItalic.woff") format("woff"),
+    url("/fonts/SeasonSerif-MediumItalic.woff2") format("woff2");
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* Semibold */
+@font-face {
+  font-family: "season-serif";
+  src: url("/fonts/SeasonSerif-SemiBold.woff") format("woff"),
+    url("/fonts/SeasonSerif-SemiBold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "season-serif";
+  src: url("/fonts/SeasonSerif-SemiBoldItalic.woff") format("woff"),
+    url("/fonts/SeasonSerif-SemiBoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Bold */
+@font-face {
+  font-family: "season-serif";
+  src: url("/fonts/SeasonSerif-Bold.woff") format("woff"),
+    url("/fonts/SeasonSerif-Bold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "season-serif";
+  src: url("/fonts/SeasonSerif-BoldItalic.woff") format("woff"),
+    url("/fonts/SeasonSerif-BoldItalic.woff2") format("woff2");
+  font-weight: 800;
+  font-style: italic;
+}
+
+/* Heavy */
+@font-face {
+  font-family: "season-serif";
+  src: url("/fonts/SeasonSerif-Heavy.woff") format("woff"),
+    url("/fonts/SeasonSerif-Heavy.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "season-serif";
+  src: url("/fonts/SeasonSerif-HeavyItalic.woff") format("woff"),
+    url("/fonts/SeasonSerif-HeavyItalic.woff2") format("woff2");
+  font-weight: 900;
+  font-style: italic;
+}

@@ -20,6 +20,7 @@ import {
 import { BuyTokensCard } from "./components/buy-tokens-card";
 import { SendTokensCard } from "./components/send-tokens-card";
 import { TradeCard } from "./components/trade-card";
+import { StakeTokensCard } from "./components/stake-tokens-card";
 
 const tabSections = ["Buy", "Send", "Stake", "Trade"] as const;
 
@@ -66,9 +67,9 @@ export const BuySendSection = () => {
   return (
     <section
       aria-label="buy send section"
-      className="pt-[100px] pb-[47px] max-w-[96rem] mx-auto px-[20px] md:px-[37px]"
+      className="font-season-sans pt-[100px] pb-[47px] max-w-[96rem] mx-auto px-[20px] md:px-[37px]"
     >
-      <h2 className="pb-[58px] md:pb-[78px] text-[35px] font-[650] leading-[111%] pl-5 md:pl-10">
+      <h2 className="font-season-sans pb-[58px] md:pb-[78px] text-[35px] font-[650] leading-[111%] pl-5 md:pl-10">
         Buy & Send
       </h2>
       <Tabs value={tabsValue} onValueChange={(val) => setTabsValue(val)}>
@@ -83,7 +84,7 @@ export const BuySendSection = () => {
           {displayedTabs.map((t) => (
             <TabsTrigger
               key={t}
-              className="w-full text-[19px] md:text-[25px] font-[650] leading-[111%] flex items-center gap-2 rounded-full py-4 md:py-[23px] text-brand-white"
+              className="font-season-sans w-full text-[19px] md:text-[25px] font-[650] leading-[111%] flex items-center gap-2 rounded-full py-4 md:py-[23px] text-brand-white"
               value={t}
             >
               {t}
@@ -105,7 +106,7 @@ export const BuySendSection = () => {
             .with("Stake", () => (
               <TabsContent value={t} key={t}>
                 {ofacPass() ? (
-                  <StakingSection />
+                  <StakeTokensCard />
                 ) : (
                   "Staking is disabled until OFAC checks are passed."
                 )}

@@ -20,6 +20,8 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Inter", "Space Grotesk", "sans-serif"],
+        "season-sans": ["season-sans", "sans-serif"],
+        "season-serif": ["season-serif", "sans-serif"],
       },
       colors: {
         brand: {
