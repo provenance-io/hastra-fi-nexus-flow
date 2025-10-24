@@ -7,12 +7,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { WalletProvider } from "@/contexts/WalletContext";
 import { SolanaWalletProvider } from "@/contexts/SolanaWalletContext";
 import { isFeatureEnabled } from "@/utils/featureFlags";
-import Header from "@/components/Header";
 import ScrollToTop from "@/components/ScrollToTop";
-import Footer from "@/components/Footer";
+import { Footer } from "@/components/new/navigation/footer";
 import AccessibilityFeatures from "@/components/AccessibilityFeatures";
 import PerformanceOptimizer from "@/components/PerformanceOptimizer";
-import TestOnlyBadge from "@/components/test/TestOnlyBadge";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
@@ -31,7 +29,7 @@ import AdminFeatureToggle from "./components/admin/AdminFeatureToggle";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { NewHome } from "./pages/new-home";
 import { NewHeader } from "./components/new/navigation/new-header";
-import { NewLearn } from "./pages/new-learn";
+import { NewAbout } from "./pages/new-about";
 import { NewEarn } from "./pages/new-earn";
 import { NewWYLDS } from "./pages/new-wylds";
 
@@ -63,19 +61,19 @@ const App = () => (
               <NewHeader />
               <main id="main-content" className="flex-grow" role="main">
                 <Routes>
-                  <Route path="/new-home" element={<NewHome />} />
-                  <Route path="/new-wylds" element={<NewWYLDS />} />
-                  <Route path="/new-learn" element={<NewLearn />} />
-                  <Route path="/new-earn" element={<NewEarn />} />
-                  <Route path="/" element={<Index />} />
-                  <Route path="/about" element={<About />} />
+                  <Route path="/" element={<NewHome />} />
+                  <Route path="/product" element={<NewWYLDS />} />
+                  <Route path="/about" element={<NewAbout />} />
+                  <Route path="/earn" element={<NewEarn />} />
+                  {/* <Route path="/" element={<Index />} /> */}
+                  {/* <Route path="/about" element={<About />} /> */}
                   <Route path="/learn" element={<Learn />} />
-                  <Route path="/earn" element={<Earn />} />
+                  {/* <Route path="/earn" element={<Earn />} /> */}
                   <Route path="/terms" element={<Terms />} />
                   <Route path="/privacy" element={<Privacy />} />
                   <Route path="/brand-guide" element={<BrandGuidePage />} />
 
-                  <Route path="/wylds" element={<WyldsPage />} />
+                  {/* <Route path="/wylds" element={<WyldsPage />} /> */}
                   <Route path="/prime" element={<PRIMEPage />} />
                   <Route path="/homes" element={<HOMESPage />} />
                   <Route path="/sendit" element={<SendIt />} />
@@ -92,6 +90,7 @@ const App = () => (
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </main>
+              {/* <Footer /> */}
               <Footer />
               <AdminFeatureToggle />
             </div>

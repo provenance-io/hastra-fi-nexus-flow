@@ -95,7 +95,7 @@ export const NewHeader = () => {
           </TabsList>
         </Tabs>
       </div>
-      {pathname !== "/new-earn" ? (
+      {pathname !== "/earn" ? (
         <Link to="/earn">
           <Button
             className="rounded-full w-[150px] xl:w-[230px] h-[63px] text-base leading-[110%] shadow-button text-brand-white"

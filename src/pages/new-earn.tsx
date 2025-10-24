@@ -1,6 +1,5 @@
 import { AccountPage } from "@/components/new/new-earn/account-page";
 import { Login } from "@/components/new/new-earn/login";
-import EnhancedWalletConnection from "@/components/wallet/EnhancedWalletConnection";
 import { useWallet } from "@/contexts/WalletContext";
 import { match } from "ts-pattern";
 
@@ -24,13 +23,6 @@ export const NewEarn = () => {
   };
 
   return match(isConnected)
-    .with(true, () => (
-      //   <section className="py-12 md:py-16" data-section="wallet-dashboard">
-      //     <div className="container">
-      //       <EnhancedWalletConnection />
-      //     </div>
-      //   </section>
-      <AccountPage />
-    ))
+    .with(true, () => <AccountPage />)
     .otherwise(() => <Login handleConnectWallet={handleConnectWallet} />);
 };

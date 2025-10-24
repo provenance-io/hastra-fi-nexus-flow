@@ -1,47 +1,20 @@
 import heroImage from "@/assets/new/wylds-page/wylds-hero.png";
 import heroImageMobile from "@/assets/new/learn-page/learn-hero-mobile.png";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
+import { Card } from "@/components/ui/card";
 import sideImage from "@/assets/new/wylds-page/wylds-hero-side.png";
 import { useYLDSApy } from "@/hooks/use-ylds-apy";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-
-export const HighlightCard = ({
-  title,
-  description,
-  className,
-}: {
-  title: string;
-  description: string | React.ReactNode;
-  className?: string;
-}) => (
-  <Card
-    className={cn(
-      "text-brand-white bg-[#0a1936] opacity-75 rounded-[60px] p-0 px-10 lg:px-[67px] xl:px-[87px] pt-10 pb-10 lg:pt-[51px] lg:pb-[60px] xl:pt-[71px] xl:pb-[90px] shadow-brand-card",
-      className
-    )}
-  >
-    <CardHeader className="p-0 pb-[57px]">
-      <CardTitle className="p-0 text-[35px] md:text-[45px] leading-[98%] font-[400]">
-        {title}
-      </CardTitle>
-    </CardHeader>
-    <CardContent className="p-0 text-base md:text-[25px] leading-[110%]">
-      {description}
-    </CardContent>
-  </Card>
-);
 
 export const Hero = () => {
   const { displayApy } = useYLDSApy();
   return (
     <section
       aria-label="Learn Page Hero Section"
-      className="relative overflow-y-hidden font-season-sans"
+      className="relative overflow-y-hidden font-season-sans bg-black"
     >
       <div
-        className="mx-auto overflow-x-hidden overflow-y-hidden flex flex-col gap-4 text-brand-white max-w-screen h-screen min-h-[1093px] border border-white z-10"
+        className="mx-auto overflow-x-hidden overflow-y-hidden flex flex-col gap-4 text-brand-white max-w-screen h-screen min-h-[1093px] z-10"
         aria-label="Hero Image"
       >
         <img
@@ -76,9 +49,9 @@ export const Hero = () => {
           alt="About Hero"
           className="hidden md:block absolute inset-0 object-cover left-0 overflow-hidden min-h-[1093px]"
         />
-        <div className="absolute bottom-0 w-screen h-[511px] bg-gradient-to-b from-transparent to-[#021323]" />
+        <div className="absolute bottom-0 w-screen h-[411px] bg-gradient-to-b from-transparent to-black" />
       </div>
-      <div className="relative flex flex-col gap-[35px] items-center justify-center w-screen -mt-[300px] z-30 overflow-y-hidden min-h-[675px] mb-[100px]">
+      <div className="relative flex flex-col gap-[35px] items-center justify-center w-screen -mt-[550px] z-30 overflow-y-hidden min-h-[475px] lg:min-h-[675px] mb-[100px] bg-gradient-to-b from-transparent to-black">
         <Card className="w-fit bg-[#021E4830] backdrop-blur-md text-[#CBCBCB] rounded-[42px] py-[56px] px-[121px] flex items-center justify-center gap-[117px] border-r-0 border-l-0 border-y-[0.3] border-gray-600">
           <div className="flex flex-col items-center gap-y-[18px] text-[25px]">
             <p className="leading-[98%]">Current APY</p>
@@ -105,12 +78,12 @@ export const Hero = () => {
         <img
           src={sideImage}
           alt="side image left"
-          className="h-[675px] absolute left-0 top-0 rotate-180"
+          className="hidden lg:block h-[675px] absolute left-0 top-0 rotate-180"
         />
         <img
           src={sideImage}
           alt="side image right"
-          className="h-[675px] absolute right-0 top-0"
+          className="hidden lg:block h-[675px] absolute right-0 top-0"
         />
       </div>
     </section>

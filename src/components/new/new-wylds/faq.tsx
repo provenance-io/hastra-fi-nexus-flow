@@ -7,9 +7,10 @@ import {
 import { Card } from "@/components/ui/card";
 
 const accordionItem =
-  "border-none rounded-[35px] p-0 py-[35px] bg-[#1F273678] px-[55px] text-[30px] font-season-sans leading-[103%]";
+  "border-none rounded-[35px] p-0 py-6 lg:py-[35px] bg-[#1F273678] px-6 lg:px-[55px] text-[20px] lg:text-[30px] font-season-sans leading-[103%] items-start";
 
-const accordionContent = "pt-5 text-[28px] leading-[110%] text-start";
+const accordionContent =
+  "pt-5 text-base lg:text-[28px] leading-[110%] text-start";
 
 const faqs = [
   {
@@ -47,15 +48,21 @@ const faqs = [
 export const FAQs = () => {
   return (
     <section
-      className="max-w-[96rem] mx-auto px-10 font-season-sans"
+      className="max-w-[96rem] mx-auto px-4 lg:px-10 font-season-sans"
       aria-label="FAQs"
     >
       <Card className="bg-[#1F273678] rounded-[35px] py-[80px] px-[22px] text-center">
         <h3 className="text-[45px] md:text-[60px] pb-[110px]">FAQ</h3>
         <Accordion type="single" collapsible className="space-y-[22px]">
           {faqs.map((f) => (
-            <AccordionItem value={f.question} className={accordionItem}>
-              <AccordionTrigger className="p-0">{f.question}</AccordionTrigger>
+            <AccordionItem
+              value={f.question}
+              className={accordionItem}
+              key={f.question}
+            >
+              <AccordionTrigger className="p-0 text-start">
+                {f.question}
+              </AccordionTrigger>
               <AccordionContent className={accordionContent}>
                 {f.answer}
               </AccordionContent>

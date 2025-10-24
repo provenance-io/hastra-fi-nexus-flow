@@ -33,17 +33,18 @@ const cards = [
 export const HowItWorks = () => {
   return (
     <section
-      className="px-[37px] lg:px-[100px] py-[130px] font-season-sans flex items-center"
+      className="px-[37px] lg:px-[100px] py-[130px] font-season-sans flex items-center justify-center"
       aria-label="How it works"
     >
-      <div className="flex flex-col max-w-[96rem]">
-        <h3 className="text-[60px] leading-[103%] pb-20 lg:pb-[326px]">
+      <div className="flex flex-col max-w-[96rem] mx-auto">
+        <h3 className="text-[60px] leading-[103%] pb-20 lg:pb-[226px]">
           How It Works
         </h3>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           {cards.map((c, index) => (
             <Card
-              className="pt-10 lg:pt-[121px] pb-10 lg:pb-[90px] px-[53px] bg-cover bg-center grid lg:grid-cols-[1fr_2fr] gap-10 rounded-[65px] items-start"
+              key={c.title}
+              className="pt-10 lg:pt-[121px] pb-10 lg:pb-[90px] px-[53px] bg-cover bg-center grid lg:grid-cols-[1fr_2fr] gap-10 rounded-[65px] items-start h-full"
               style={{ backgroundImage: `url(${c.background})` }}
             >
               <h2 className="text-[70px] lg:text-[171px] leading-[70%] text-start lg:text-end">

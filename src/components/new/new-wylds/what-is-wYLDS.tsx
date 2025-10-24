@@ -15,7 +15,7 @@ const WhatIsCard = ({
   title: string;
   description: string;
 }) => (
-  <Card className="mx-4 md:mx-0 bg-[#0A1936BF] pt-[30px] md:pt-[69px] px-[18px] md:px-[29px] pb-[20px] md:pb-[27px] flex flex-col min-w-[300px] min-h-[300px] md:min-w-[402px] lg:w-[402px] md:min-h-[400px] items-center text-center">
+  <Card className="mx-4 lg:mx-0 bg-[#0A1936BF] pt-[30px] md:pt-[69px] px-[18px] md:px-[29px] pb-[20px] md:pb-[27px] flex flex-col min-w-[300px] min-h-[300px] md:min-w-[402px] lg:w-[402px] md:min-h-[400px] items-center text-center">
     <div className="pb-[58px] flex flex-col items-center gap-y-[35px]">
       {icon}
       <p className="text-[34px] md:text-[40px] leading-[108%]">{title}</p>

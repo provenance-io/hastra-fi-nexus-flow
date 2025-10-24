@@ -63,7 +63,7 @@ export const MobileHeader = ({
           </Link>
         </div>
         <div className="flex items-center space-x-4 md:space-x-8">
-          {pathname !== "/new-earn" ? (
+          {pathname !== "/earn" ? (
             <Link to="/earn">
               <Button
                 className="rounded-full w-fit px-7 h-[40px] text-base leading-[110%] shadow-button text-brand-white"
