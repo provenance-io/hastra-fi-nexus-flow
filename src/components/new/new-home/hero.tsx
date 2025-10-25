@@ -35,14 +35,24 @@ export const Hero = () => {
           <br className="hidden md:block" /> Backed by Real-World Assets.
         </p>
         <div className="flex items-center gap-5 text-[18px] pb-[110px]">
-          <Link to="">
-            <Button className="h-[45px] px-[23px] md:h-[63px] rounded-full">
-              Get wYLDS <ArrowRight className="size-4" />
+          <Link to="/earn">
+            <Button
+              size="custom"
+              className="rounded-full text-[13px] md:text-base leading-[110%] shadow-purple-button text-brand-white py-[20px] px-[32px] hover:bg-brand-background bg-brand-background w-fit"
+              variant="noShadow"
+            >
+              GET wYLDS
+              <ArrowRight className="size-6" />
             </Button>
           </Link>
-          <Link to="">
-            <Button className="h-[45px] px-[23px] md:h-[63px] rounded-full">
-              Explore wYLDS <ArrowRight className="size-4" />
+          <Link to="/learn">
+            <Button
+              size="custom"
+              className="rounded-full text-[13px] md:text-base leading-[110%] shadow-purple-button text-brand-white py-[20px] px-[32px] hover:bg-brand-background bg-brand-background w-fit"
+              variant="noShadow"
+            >
+              Explore wYLDS
+              <ArrowRight className="size-6" />
             </Button>
           </Link>
         </div>
