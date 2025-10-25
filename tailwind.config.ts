@@ -107,6 +107,8 @@ export default {
           "4.161px 2.358px 23.577px 0 rgba(255, 255, 255, 0.30) inset",
         button:
           "8.004px 13.606px 18.645px 0 rgba(255, 255, 255, 0.30) inset, 2.825px 1.601px 16.007px 0 rgba(255, 255, 255, 0.30) inset",
+        "button-small-shadow":
+          "4.161px 2.358px 23.577px 0 rgba(255, 255, 255, 0.30) inset",
         "purple-button":
           "8.554px 14.542px 19.927px 0 rgba(255, 255, 255, 0.30) inset, 3.019px 1.711px 17.108px 0 rgba(255, 255, 255, 0.30) inset",
       },

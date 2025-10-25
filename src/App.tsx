@@ -32,6 +32,7 @@ import { NewHeader } from "./components/new/navigation/new-header";
 import { NewAbout } from "./pages/new-about";
 import { NewEarn } from "./pages/new-earn";
 import { NewWYLDS } from "./pages/new-wylds";
+import { NewLearn } from "./pages/new-learn";
 
 // For testing, to expose solana/web3.js
 if (import.meta.env.DEV || import.meta.env.MODE === "test") {
@@ -65,9 +66,10 @@ const App = () => (
                   <Route path="/product" element={<NewWYLDS />} />
                   <Route path="/about" element={<NewAbout />} />
                   <Route path="/earn" element={<NewEarn />} />
+                  <Route path="/learn" element={<NewLearn />} />
                   {/* <Route path="/" element={<Index />} /> */}
                   {/* <Route path="/about" element={<About />} /> */}
-                  <Route path="/learn" element={<Learn />} />
+                  {/* <Route path="/learn" element={<Learn />} /> */}
                   {/* <Route path="/earn" element={<Earn />} /> */}
                   <Route path="/terms" element={<Terms />} />
                   <Route path="/privacy" element={<Privacy />} />
