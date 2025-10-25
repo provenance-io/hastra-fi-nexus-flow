@@ -50,17 +50,22 @@ export const DevelopedBy = () => {
       <img src={mobileRight} className="lg:hidden h-[354px]" />
       <div className="hidden lg:flex items-center gap-[67px]">
         <img src={farLeft} alt="far left image" className="h-[794px]" />
-        {/* <div className="glassContainer z-20">
+        <div className="glassContainer z-20">
+          <img
+            src={left}
+            alt="left image"
+            className="relative h-[781px] z-10"
+          />
+        </div>
+      </div>
+      <div className="hidden lg:flex items-center gap-[67px]">
+        <div className="glassContainer z-20">
           <img
             src={right}
             alt="left image"
-            className="relative h-[781px] z-10 rotate-180"
+            className="relative h-[523px] z-10"
           />
-        </div> */}
-        <img src={left} alt="left image" className="h-[781px]" />
-      </div>
-      <div className="hidden lg:flex items-center gap-[67px]">
-        <img src={right} alt="right image" className="h-[523px]" />
+        </div>
         <img src={farRight} alt="far right image" className="h-[691px]" />
       </div>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col text-[12px] md:text-[18px] gap-y-[15px] md:gap-y-[23px] leading-[98%]">
