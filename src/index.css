@@ -1,7 +1,8 @@
-
 /* Import modular stylesheets */
-@import './styles/base.css';
-@import './styles/components.css';
-@import './styles/lightning-animations.css';
-@import './styles/animations.css';
-@import './styles/responsive.css';
+@import "./styles/base.css";
+@import "./styles/components.css";
+@import "./styles/lightning-animations.css";
+@import "./styles/animations.css";
+@import "./styles/responsive.css";
+@import "./styles/season-sans.css";
+@import "./styles/season-serif.css";

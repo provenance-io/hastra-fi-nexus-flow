@@ -74,6 +74,8 @@ const BuyCard = ({ canBuy }: { canBuy: boolean }) => {
     };
   };
 
+  console.log("sellAsset", sellAsset);
+
   const handleMaxClick = () => {
     const maxBalance = tokens.find((t) => t.address === sellAsset);
     const gasBuffer = sellAsset === "SOL" ? 0.01 : 0; // Reserve SOL for gas

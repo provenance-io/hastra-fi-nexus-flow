@@ -1,0 +1,101 @@
+/* Light */
+@font-face {
+  font-family: "season-sans";
+  src: url("/fonts/SeasonSans-Light.woff") format("woff"),
+    url("/fonts/SeasonSans-Light.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "season-sans";
+  src: url("/fonts/SeasonSans-LightItalic.woff") format("woff"),
+    url("/fonts/SeasonSans-LightItalic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Regular */
+@font-face {
+  font-family: "season-sans";
+  src: url("/fonts/SeasonSans-Regular.woff") format("woff"),
+    url("/fonts/SeasonSans-Regular.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "season-sans";
+  src: url("/fonts/SeasonSans-RegularItalic.woff") format("woff"),
+    url("/fonts/SeasonSans-RegularItalic.woff2") format("woff2");
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* Medium */
+@font-face {
+  font-family: "season-sans";
+  src: url("/fonts/SeasonSans-Medium.woff") format("woff"),
+    url("/fonts/SeasonSans-Medium.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "season-sans";
+  src: url("/fonts/SeasonSans-MediumItalic.woff") format("woff"),
+    url("/fonts/SeasonSans-MediumItalic.woff2") format("woff2");
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* Semibold */
+@font-face {
+  font-family: "season-sans";
+  src: url("/fonts/SeasonSans-SemiBold.woff") format("woff"),
+    url("/fonts/SeasonSans-SemiBold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "season-sans";
+  src: url("/fonts/SeasonSans-SemiBoldItalic.woff") format("woff"),
+    url("/fonts/SeasonSans-SemiBoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Bold */
+@font-face {
+  font-family: "season-sans";
+  src: url("/fonts/SeasonSans-Bold.woff") format("woff"),
+    url("/fonts/SeasonSans-Bold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "season-sans";
+  src: url("/fonts/SeasonSans-BoldItalic.woff") format("woff"),
+    url("/fonts/SeasonSans-BoldItalic.woff2") format("woff2");
+  font-weight: 800;
+  font-style: italic;
+}
+
+/* Heavy */
+@font-face {
+  font-family: "season-sans";
+  src: url("/fonts/SeasonSans-Heavy.woff") format("woff"),
+    url("/fonts/SeasonSans-Heavy.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "season-sans";
+  src: url("/fonts/SeasonSans-HeavyItalic.woff") format("woff"),
+    url("/fonts/SeasonSans-HeavyItalic.woff2") format("woff2");
+  font-weight: 900;
+  font-style: italic;
+}
