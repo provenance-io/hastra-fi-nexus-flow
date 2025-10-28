@@ -139,10 +139,9 @@ export const HastraSolVaultStake = {
           "name": "proof",
           "type": {
             "vec": {
-              "array": [
-                "u8",
-                32
-              ]
+              "defined": {
+                "name": "ProofNode"
+              }
             }
           }
         }
@@ -330,7 +329,6 @@ export const HastraSolVaultStake = {
         },
         {
           "name": "signer",
-          "writable": true,
           "signer": true
         },
         {
@@ -531,6 +529,9 @@ export const HastraSolVaultStake = {
         {
           "name": "rent",
           "address": "SysvarRent111111111111111111111111111111111"
+        },
+        {
+          "name": "program_data"
         }
       ],
       "args": [
@@ -557,6 +558,57 @@ export const HastraSolVaultStake = {
           "type": {
             "vec": "pubkey"
           }
+        }
+      ]
+    },
+    {
+      "name": "pause",
+      "docs": [
+        "Pauses or unpauses the protocol operations:",
+        "- pause: true to pause, false to unpause"
+      ],
+      "discriminator": [
+        211,
+        22,
+        221,
+        251,
+        74,
+        121,
+        193,
+        47
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "program_data"
+        },
+        {
+          "name": "signer",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "pause",
+          "type": "bool"
         }
       ]
     },
@@ -793,12 +845,10 @@ export const HastraSolVaultStake = {
           "signer": true
         },
         {
-          "name": "mint",
-          "writable": true
+          "name": "mint"
         },
         {
-          "name": "user_mint_token_account",
-          "writable": true
+          "name": "user_mint_token_account"
         },
         {
           "name": "ticket",
@@ -1043,6 +1093,73 @@ export const HastraSolVaultStake = {
       ]
     }
   ],
+  "events": [
+    {
+      "name": "DepositEvent",
+      "discriminator": [
+        120,
+        248,
+        61,
+        83,
+        31,
+        142,
+        107,
+        144
+      ]
+    },
+    {
+      "name": "RedeemEvent",
+      "discriminator": [
+        90,
+        114,
+        83,
+        146,
+        212,
+        26,
+        217,
+        59
+      ]
+    },
+    {
+      "name": "RewardsClaimed",
+      "discriminator": [
+        75,
+        98,
+        88,
+        18,
+        219,
+        112,
+        88,
+        121
+      ]
+    },
+    {
+      "name": "UnbondEvent",
+      "discriminator": [
+        123,
+        188,
+        223,
+        76,
+        174,
+        70,
+        46,
+        123
+      ]
+    },
+    {
+      "name": "UnbondingPeriodUpdated",
+      "discriminator": [
+        124,
+        81,
+        241,
+        240,
+        54,
+        118,
+        249,
+        182
+      ]
+    }
+  ],
   "errors": [
     {
       "code": 6001,
@@ -1168,6 +1285,21 @@ export const HastraSolVaultStake = {
       "code": 6025,
       "name": "InvalidRewardsAdministrator",
       "msg": "Invalid rewards administrator"
+    },
+    {
+      "code": 6026,
+      "name": "VaultAndMintCannotBeSame",
+      "msg": "Vault and mint cannot be the same"
+    },
+    {
+      "code": 6027,
+      "name": "ProtocolPaused",
+      "msg": "Protocol is paused"
+    },
+    {
+      "code": 6028,
+      "name": "InvalidBondingPeriod",
+      "msg": "Invalid bonding period"
     }
   ],
   "types": [
@@ -1210,6 +1342,110 @@ export const HastraSolVaultStake = {
           {
             "name": "bump",
             "type": "u8"
+          },
+          {
+            "name": "paused",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "DepositEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "user",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "vault",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ProofNode",
+      "docs": [
+        "One Merkle proof element."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "sibling",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "is_left",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RedeemEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "user",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "vault",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RewardsClaimed",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "user",
+            "type": "pubkey"
+          },
+          {
+            "name": "epoch",
+            "type": "u64"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "vault",
+            "type": "pubkey"
           }
         ]
       }
@@ -1239,6 +1475,58 @@ export const HastraSolVaultStake = {
           {
             "name": "created_ts",
             "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UnbondEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "user",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "vault",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UnbondingPeriodUpdated",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "admin",
+            "type": "pubkey"
+          },
+          {
+            "name": "old_period",
+            "type": "i64"
+          },
+          {
+            "name": "new_period",
+            "type": "i64"
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "vault",
+            "type": "pubkey"
           }
         ]
       }

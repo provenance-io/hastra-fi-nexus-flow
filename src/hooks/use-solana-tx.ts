@@ -1,33 +1,37 @@
 // anchor-privy-setup.ts
 import {
-  Connection,
-  LAMPORTS_PER_SOL,
-  PublicKey,
-  SystemProgram,
-  Transaction,
-  type TransactionSignature,
+    Connection,
+    LAMPORTS_PER_SOL,
+    PublicKey,
+    SystemProgram,
+    Transaction,
+    type TransactionSignature,
 } from "@solana/web3.js";
 import {
-  AnchorProvider,
-  type Idl,
-  Program,
-  type Wallet as AnchorWallet,
-  web3,
-  workspace,
+    AnchorProvider,
+    type Idl,
+    Program,
+    type Wallet as AnchorWallet,
+    web3,
 } from "@coral-xyz/anchor";
-import { SolanaResponse } from "../types/solana-tx";
-import { useCallback } from "react";
-import { useConnection, useWallet } from "@solana/wallet-adapter-react";
+import {SolanaResponse} from "../types/solana-tx";
+import {useCallback} from "react";
+import {useConnection, useWallet} from "@solana/wallet-adapter-react";
 import {
-  createAssociatedTokenAccountInstruction,
-  createTransferCheckedInstruction,
-  getAssociatedTokenAddress,
-  TOKEN_PROGRAM_ID,
+    createAssociatedTokenAccountInstruction,
+    createTransferCheckedInstruction,
+    getAssociatedTokenAddress,
+    TOKEN_PROGRAM_ID,
 } from "@solana/spl-token";
 import BN from "bn.js";
-import { PRIME, USDC, wYLDS } from "@/types/tokens.ts";
-import { HastraSolVaultStake as HastraSolVaultStakeIdl } from "@/types/idl/hastra-sol-vault-stake.ts";
-import { HastraSolVaultMint as HastraSolVaultMintIdl } from "@/types/idl/hastra-sol-vault-mint.ts";
+import {PRIME, USDC, wYLDS} from "@/types/tokens.ts";
+import {
+    HastraSolVaultStake as HastraSolVaultStakeIdl
+} from "@/types/idl/hastra-sol-vault-stake.ts";
+import {
+    HastraSolVaultMint as HastraSolVaultMintIdl
+} from "@/types/idl/hastra-sol-vault-mint.ts";
+import {ClaimProof, DistributionDetail} from "@/types/staking.ts";
 
 const RPC_ENDPOINT = import.meta.env.VITE_SOLANA_RPC_URL;
 
@@ -619,3 +623,134 @@ export const useRequestRedeem = () => {
         invoke: redeem,
     };
 };
+
+export const useClaimWYLDS = () => {
+    const { connection } = useConnection();
+    const { publicKey } = useWallet();
+    const wallet = useAnchorWallet();
+
+    const claim = useCallback(
+        async () => {
+            if (!wallet) {
+                console.error("No wallet found. Please connect your wallet.");
+                //throw new Error("No wallet found. Please connect your wallet.");
+            }
+            if (!publicKey) {
+                console.error("No public key found. Please connect your wallet.");
+                //throw new Error("No public key found. Please connect your wallet.");
+            }
+            console.log("\n\n--- Claiming wYLDS Rewards ---\n");
+
+            const fetchDistroUrl = `${import.meta.env.VITE_HASTRA_PULSE_URL}/distributions/address/${publicKey.toBase58()}/type/ylds-distribution`;
+            // retrieve unclaimed distributions from backend API
+            let unclaimedDistributions: DistributionDetail[] = [];
+            await fetch(fetchDistroUrl)
+                .then((res) => res.json())
+                .then((data: unknown) => {
+                    unclaimedDistributions = (data as DistributionDetail[]).filter(d => !d.claimed && d.published);
+                })
+                .catch((err) => {
+                    console.error("Error fetching interest earned data:", err);
+                });
+
+            console.dir(unclaimedDistributions);
+
+            const provider = new AnchorProvider(connection, wallet, {
+                preflightCommitment: "confirmed",
+            });
+            const program = new Program(HastraSolVaultMintIdl as Idl, provider);
+
+            const signer = publicKey;
+            const mint = new PublicKey(wYLDS);
+            const tokenAccount: PublicKey = await getAssociatedTokenAddress(
+                new PublicKey(wYLDS),
+                signer
+            );
+
+            const configPda = new PublicKey(
+                import.meta.env.VITE_SOLANA_USDC_WYLDS_CONFIG_PDA
+            );
+            const mintAuthorityPda = new PublicKey(
+                import.meta.env.VITE_SOLANA_USDC_WYLDS_MINT_AUTHORITY_PDA
+            );
+
+            const transactions: Transaction[] = [];
+            for (const d of unclaimedDistributions) {
+                // TODO secure this fetch to avoid tampering by having the wallet holder sign a JWT token with the request
+                const fetchProofUrl = `${import.meta.env.VITE_HASTRA_PULSE_URL}/distributions/claim/proof/address/${publicKey.toBase58()}/epoch/${d.epochIndex}`;
+
+                let proof: ClaimProof | null = null;
+                await fetch(fetchProofUrl)
+                    .then((res) => res.json())
+                    .then((data: unknown) => {
+                        proof = data as ClaimProof;
+                    })
+                    .catch((err) => {
+                        throw new Error(`Error fetching claim proof data: ${err}`);
+                    });
+                if(!proof) {
+                    throw new Error("No proof found for distribution");
+                }
+
+                const hastraProof = proof.hastraProof.map((p) => ({
+                    isLeft: p.position === "left",
+                    sibling: Buffer.from(p.data, "hex"),
+                }));
+
+                const [epochPda] = PublicKey.findProgramAddressSync(
+                    [Buffer.from("epoch"), new BN(d.epochIndex).toArrayLike(Buffer, "le", 8)],
+                    program.programId
+                );
+                // derive claim record PDA
+                const [claimPda] = PublicKey.findProgramAddressSync(
+                    [Buffer.from("claim"), epochPda.toBuffer(), provider.wallet.publicKey.toBuffer()],
+                    program.programId
+                );
+
+                console.dir(hastraProof);
+                const ix = await program?.methods
+                    .claimRewards(new BN(proof.amount), hastraProof)
+                    .accountsStrict({
+                        config: configPda,
+                        user: provider.wallet.publicKey,
+                        epoch: epochPda,
+                        claimRecord: claimPda,
+                        mintAuthority: mintAuthorityPda,
+                        mint: mint,
+                        userMintTokenAccount: tokenAccount,
+                        systemProgram: SystemProgram.programId,
+                        tokenProgram: TOKEN_PROGRAM_ID
+                    }).instruction();
+                const tx = new Transaction().add(ix);
+                tx.feePayer = provider.wallet.publicKey;
+                tx.recentBlockhash = (await connection.getLatestBlockhash()).blockhash;
+                transactions.push(tx);
+            }
+
+            //sign all transactions
+            const signedTxs = await wallet.signAllTransactions!(transactions);
+            const confirmations = [];
+            for (const signedTx of signedTxs) {
+                const sig = await connection.sendRawTransaction(signedTx.serialize(), {})
+                const { blockhash, lastValidBlockHeight } =
+                    await connection.getLatestBlockhash();
+                const confirmation = await connection.confirmTransaction(
+                    {
+                        signature: sig,
+                        blockhash,
+                        lastValidBlockHeight,
+                    },
+                    "confirmed"
+                );
+                confirmations.push(confirmation);
+            }
+            return confirmations;
+        },
+        [connection, wallet, publicKey]
+    );
+
+    return {
+        invoke: claim,
+    };
+};
+

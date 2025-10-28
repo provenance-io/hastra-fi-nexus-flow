@@ -164,3 +164,42 @@ export interface RewardEntry {
   amount: string;
   apr: string;
 }
+
+export interface DistributionYieldInfo {
+  totalYieldAmount: number;
+  distributionAmount: number;
+  denom: string;
+  startHeight: number;
+  endHeight: number;
+  startSlot: number;
+  endSlot: number;
+  startTime: string;
+  endTime: string;
+}
+export interface DistributionDetail {
+  address: string;
+  amount: number;
+  leafBase64: string;
+  epochIndex: number;
+  claimed: boolean;
+  published: boolean;
+  distributionYieldInfo: DistributionYieldInfo;
+}
+
+export interface HastraProof {
+  position: string;
+  data: string;
+}
+
+export interface MerkleTreeProof {
+  Hashes: string[];
+  Index: number;
+}
+export interface ClaimProof {
+  hastraProof: HastraProof[];
+  merkleTreeProof: MerkleTreeProof;
+  amount: number;
+  epoch: number;
+  verified: boolean;
+}
+
