@@ -1,11 +1,13 @@
-import { useCallback, useEffect, useState } from "react";
-import { useWallet } from "@/contexts/WalletContext.tsx";
-import { clusterApiUrl, Connection, PublicKey } from "@solana/web3.js";
-import { useQuery } from "@tanstack/react-query";
-import { getAssociatedTokenAddress } from "@solana/spl-token";
-import { Metaplex } from "@metaplex-foundation/js";
-import hastraIcon from "/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png";
+import {useCallback, useEffect, useState} from "react";
+import {useWallet} from "@/contexts/WalletContext.tsx";
+import {Connection, PublicKey} from "@solana/web3.js";
+import {useQuery} from "@tanstack/react-query";
+import {getAssociatedTokenAddress} from "@solana/spl-token";
+import {Metaplex} from "@metaplex-foundation/js";
+import hastraIcon
+  from "/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png";
 import {DistributionDetail} from "@/types/staking.ts";
+import {getNetworkUrl} from "@/utils/solana-utils";
 
 export interface TokenData {
   address: string;
@@ -21,7 +23,7 @@ export interface TokenData {
 }
 
 const connection = new Connection(
-  clusterApiUrl(import.meta.env.VITE_SOLANA_CLUSTER_NAME),
+  getNetworkUrl(),
   "confirmed"
 );
 const metaplex = Metaplex.make(connection);
@@ -62,6 +64,7 @@ export const useTokenPortfolioQuery = (
             fetchUrl += "/prime-distribution";
           }
           // retrieve interest earned and interest unclaimed from backend API for wYLDS
+            console.log(`Fetching interest earned data from: ${fetchUrl}`);
           await fetch(fetchUrl)
             .then((res) => res.json())
             .then((data: unknown) => {

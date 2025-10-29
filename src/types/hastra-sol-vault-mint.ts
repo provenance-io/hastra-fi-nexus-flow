@@ -1415,10 +1415,6 @@ export type HastraSolVaultMint = {
             "type": "u64"
           },
           {
-            "name": "vaultMint",
-            "type": "pubkey"
-          },
-          {
             "name": "mint",
             "type": "pubkey"
           },

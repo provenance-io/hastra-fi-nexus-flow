@@ -1,18 +1,23 @@
-import { clusterApiUrl, Connection, PublicKey } from "@solana/web3.js";
-import { getAssociatedTokenAddress } from "@solana/spl-token";
-import { useQuery } from "@tanstack/react-query";
-import type { CoinGeckoPrice } from "../types/coin-gecko";
-import { AnchorProvider, type Idl, Program, Wallet } from "@coral-xyz/anchor";
-import { useAnchorWallet } from "@/hooks/use-solana-tx.ts";
-import { PendingUnstake } from "@/types/staking.ts";
-import { HastraSolVaultStake } from "@/types/hastra-sol-vault-stake.ts";
-import { HastraSolVaultStake as HastraSolVaultStakeIdl } from "@/types/idl/hastra-sol-vault-stake.ts";
-import {HastraSolVaultMint as HastraSolVaultMintIdl} from "@/types/idl/hastra-sol-vault-mint.ts";
+import {Connection, PublicKey} from "@solana/web3.js";
+import {getAssociatedTokenAddress} from "@solana/spl-token";
+import {useQuery} from "@tanstack/react-query";
+import type {CoinGeckoPrice} from "../types/coin-gecko";
+import {AnchorProvider, type Idl, Program} from "@coral-xyz/anchor";
+import {useAnchorWallet} from "@/hooks/use-solana-tx.ts";
+import {PendingUnstake} from "@/types/staking.ts";
+import {HastraSolVaultStake} from "@/types/hastra-sol-vault-stake.ts";
+import {
+  HastraSolVaultStake as HastraSolVaultStakeIdl
+} from "@/types/idl/hastra-sol-vault-stake.ts";
+import {
+  HastraSolVaultMint as HastraSolVaultMintIdl
+} from "@/types/idl/hastra-sol-vault-mint.ts";
 import {RedemptionRequest} from "@/types/tokens.ts";
 import {HastraSolVaultMint} from "@/types/hastra-sol-vault-mint.ts";
+import {getNetworkUrl} from "@/utils/solana-utils";
 
 const connection = new Connection(
-  clusterApiUrl(import.meta.env.VITE_SOLANA_CLUSTER_NAME),
+  getNetworkUrl(),
   "confirmed"
 );
 

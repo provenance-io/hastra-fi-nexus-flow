@@ -1300,6 +1300,11 @@ export const HastraSolVaultStake = {
       "code": 6028,
       "name": "InvalidBondingPeriod",
       "msg": "Invalid bonding period"
+    },
+    {
+      "code": 6029,
+      "name": "InvalidTokenOwner",
+      "msg": "Invalid token owner"
     }
   ],
   "types": [
