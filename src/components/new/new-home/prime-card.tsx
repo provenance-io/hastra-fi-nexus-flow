@@ -48,7 +48,7 @@ export const PrimeCard = () => {
   const isMobile = useIsMobile();
   return (
     <section
-      className="max-w-[96rem] mx-auto px-10 pt-[100px]"
+      className="max-w-[96rem] mx-auto px-4 md:px-10 pt-[100px]"
       aria-label="PRIME card"
     >
       <Card

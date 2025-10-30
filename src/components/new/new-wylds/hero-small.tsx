@@ -1,7 +1,5 @@
-import heroImage from "@/assets/new/wylds-page/wylds-hero.png";
-import heroImageMobile from "@/assets/new/learn-page/learn-hero-mobile.png";
+import heroImageMobile from "@/assets/new/wylds-page/wylds-hero.png";
 import { Card } from "@/components/ui/card";
-import sideImage from "@/assets/new/wylds-page/wylds-hero-side.png";
 import { useYLDSApy } from "@/hooks/use-ylds-apy";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -11,14 +9,14 @@ export const HeroSmall = () => {
   return (
     <section
       aria-label="Learn Page Hero Section"
-      className="font-season-sans bg-cover bg-top pt-[200px] min-h-[1200px] flex items-end justify-center"
+      className="font-season-sans bg-cover bg-[center_top_-15rem] pt-[200px] min-h-[1200px] flex items-end justify-center"
       style={{ backgroundImage: `url(${heroImageMobile})` }}
     >
       <div className="w-full flex flex-col items-center z-10 bg-gradient-to-b from-transparent to-black to-[40%] py-20 h-fit px-[37px]">
-        <div className="flex flex-col items-center text-[45px] leading-[108%]">
-          Buy it. Trade it. <br />
+        <div className="flex flex-col items-center text-center text-[45px] leading-[108%]">
           <p>
-            Lend it. <span className="text-brand-purple">Send it.</span>
+            Buy it. Trade it. Lend it.{" "}
+            <span className="text-brand-purple">Send it.</span>
           </p>
         </div>
         <p className="py-[42px] text-[22px] leading-[118%] text-center w-full">
