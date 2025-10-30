@@ -40,39 +40,6 @@ const formSchema = z.object({
   amount: z.string().min(1),
 });
 
-const DisplayTokenSelect = ({
-  token,
-}: {
-  token:
-    | TokenData
-    | { mint: string; icon: string; token: string; amount: string };
-}) => {
-  const isImage = token.icon.startsWith("/") || token.icon.startsWith("http");
-  return (
-    <div className="flex items-center justify-between w-full text-[20px] md:text-[25px] leading-[116%] ">
-      <div className="flex items-center gap-4 w-full">
-        {isImage ? (
-          <div className="flex items-center justify-center">
-            <img
-              src={token.icon}
-              alt={`${token.token} Token`}
-              className="size-[36px] rounded-full object-cover shadow-sm flex-shrink-0"
-            />
-          </div>
-        ) : (
-          <div className="size-[36px] rounded-xl bg-hastra-teal/10 flex items-center justify-center shadow-sm flex-shrink-0">
-            <span className="text-hastra-teal font-bold text-base">
-              {token.icon}
-            </span>
-          </div>
-        )}
-        {token.token}
-      </div>
-      <div className="w-full text-end pr-2">{token.amount}</div>
-    </div>
-  );
-};
-
 export const BuyTokensCard = () => {
   const [exchangeRate, setExchangeRate] = useState<object>({});
   const [txId, setTxId] = useState("");
@@ -247,6 +214,30 @@ export const BuyTokensCard = () => {
       });
   };
 
+  const DisplayTokenSelect = ({
+    tokenMintAddress,
+  }: {
+    tokenMintAddress: string;
+  }) => {
+    return (
+      <div className="flex items-center justify-between w-full text-[20px] md:text-[25px] leading-[116%] ">
+        <div className="flex items-center gap-4 w-full">
+          <div className="flex items-center justify-center">
+            <img
+              src={icon(tokenMintAddress)}
+              alt={symbol(tokenMintAddress)}
+              className="size-[36px] rounded-full object-cover shadow-sm flex-shrink-0"
+            />
+          </div>
+          {symbol(tokenMintAddress)}
+        </div>
+        <div className="w-full text-end pr-2">{balance(tokenMintAddress)}</div>
+      </div>
+    );
+  };
+
+  console.log("selling: ", watchSelling, "buying: ", watchBuying);
+
   return (
     <Card className="py-[52px] md:py-[70px] px-[17px] md:px-[58px] text-brand-white bg-[#1F273678] rounded-[35px]">
       <CardHeader className="p-0 pb-[58px] md:pb-[142px]">
@@ -268,7 +259,11 @@ export const BuyTokensCard = () => {
                         You're swapping
                       </FormLabel>
                       <Select
-                        onValueChange={field.onChange}
+                        onValueChange={(e) => {
+                          field.onChange(e);
+                          form.setValue("buying", e === USDC ? wYLDS : USDC);
+                        }}
+                        value={field.value}
                         defaultValue={field.value}
                       >
                         <FormControl>
@@ -278,20 +273,19 @@ export const BuyTokensCard = () => {
                           >
                             {tokens && tokens.length > 0 ? (
                               <DisplayTokenSelect
-                                token={
-                                  tokens.find((t) => t.mint === watchSelling) ||
-                                  tokens[0]
-                                }
+                                tokenMintAddress={watchSelling || USDC}
                               />
                             ) : (
-                              "Loading..."
+                              <p className="text-[20px] md:text-[25px] leading-[116%]">
+                                Loading...
+                              </p>
                             )}
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent className="w-full">
-                          {tokens.map((t) => (
-                            <SelectItem value={t.mint} key={t.mint}>
-                              <DisplayTokenSelect token={t} />
+                          {[USDC, wYLDS].map((t) => (
+                            <SelectItem value={t} key={t}>
+                              <DisplayTokenSelect tokenMintAddress={t} />
                             </SelectItem>
                           ))}
                         </SelectContent>
@@ -309,24 +303,24 @@ export const BuyTokensCard = () => {
                         You're getting
                       </FormLabel>
                       <Select
-                        onValueChange={field.onChange}
+                        onValueChange={(e) => {
+                          field.onChange(e);
+                          form.setValue("selling", e === USDC ? wYLDS : USDC);
+                        }}
+                        value={field.value}
                         defaultValue={field.value}
                       >
                         <FormControl>
                           <SelectTrigger className="bg-[#021E4830] rounded-[39px] flex items-center py-8 border-l-0 border-r-0 border-y-[0.1px] border-gray-600 w-full">
                             <DisplayTokenSelect
-                              token={
-                                tokensToPurchase.find(
-                                  (t) => t.mint === watchBuying
-                                ) || tokensToPurchase[0]
-                              }
+                              tokenMintAddress={watchBuying}
                             />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent className="w-full">
-                          {tokens.map((t) => (
-                            <SelectItem value={t.mint} key={t.mint}>
-                              <DisplayTokenSelect token={t} />
+                          {[wYLDS, USDC].map((t) => (
+                            <SelectItem value={t} key={t}>
+                              <DisplayTokenSelect tokenMintAddress={t} />
                             </SelectItem>
                           ))}
                         </SelectContent>

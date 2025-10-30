@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { TokenData } from "@/hooks/useTokenPortfolio";
+import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 
@@ -65,7 +66,14 @@ export const TokenCard = ({
     : unclaimedInterest * tokenPrice;
 
   return (
-    <Card className="p-0 bg-[#021E4830] py-[18px] w-fit lg:w-full min-w-[1200px] md:min-w-[1300px] lg:py-[51px] lg:px-7 grid grid-cols-[repeat(7,minmax(150px,1fr))] pr-8 rounded-[39px] text-[16px] lg:text-[22px] leading-[98%] border-[0.1px] border-l-0 border-r-0 border-gray-600">
+    <Card
+      className={cn(
+        "p-0 bg-[#021E4830] py-[18px] w-fit lg:w-full pr-8 rounded-[39px] text-[16px] lg:text-[22px] leading-[98%] border-[0.1px] border-l-0 border-r-0 border-gray-600 lg:py-[51px] lg:px-7",
+        onClaim
+          ? "min-w-[1200px] md:min-w-[1300px] grid grid-cols-[repeat(7,minmax(150px,1fr))]"
+          : "grid grid-cols-[repeat(7,minmax(150px,1fr))]"
+      )}
+    >
       {isImage ? (
         <div className="flex items-center justify-center">
           <img
@@ -105,30 +113,34 @@ export const TokenCard = ({
           })}
         </p>
       </div>
-      <div className="text-center flex flex-col items-center justify-center gap-2">
-        <p className="font-[650]">Total Claimed</p>
-        <p>
-          $
-          {totalInterestEarnedUSD.toLocaleString("en-US", {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-          })}
-        </p>
-      </div>
-      <div className="text-center flex flex-col items-center justify-center gap-2">
-        <p className="font-[650]">Available</p>
-        <p
-          className={`${
-            unclaimedInterest > 0 ? "text-white" : "text-muted-foreground"
-          }`}
-        >
-          $
-          {unclaimedInterestUSD.toLocaleString("en-US", {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-          })}
-        </p>
-      </div>
+      {onClaim && (
+        <>
+          <div className="text-center flex flex-col items-center justify-center gap-2">
+            <p className="font-[650]">Total Claimed</p>
+            <p>
+              $
+              {totalInterestEarnedUSD.toLocaleString("en-US", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              })}
+            </p>
+          </div>
+          <div className="text-center flex flex-col items-center justify-center gap-2">
+            <p className="font-[650]">Available</p>
+            <p
+              className={`${
+                unclaimedInterest > 0 ? "text-white" : "text-muted-foreground"
+              }`}
+            >
+              $
+              {unclaimedInterestUSD.toLocaleString("en-US", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              })}
+            </p>
+          </div>
+        </>
+      )}
       <div className="flex flex-col items-center justify-center">
         {onClaim &&
           (console.log(`${token} has onClaim prop`, !!onClaim), true) && (
