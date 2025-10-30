@@ -105,7 +105,7 @@ export const BuyTokensCard = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     defaultValues: {
       amount: "0",
-      selling: tokens.find((t) => t.mint === USDC)?.mint || "",
+      selling: USDC,
       buying: wYLDS,
     },
     resolver: zodResolver(formSchema),
@@ -241,7 +241,10 @@ export const BuyTokensCard = () => {
           variant: "destructive",
         });
       })
-      .finally(() => refetchTokens());
+      .finally(() => {
+        refetchTokens();
+        form.reset();
+      });
   };
 
   return (
@@ -262,30 +265,32 @@ export const BuyTokensCard = () => {
                   render={({ field }) => (
                     <FormItem className="space-y-8 w-full">
                       <FormLabel className="text-[22px] md:text-[25px] leading-[111%]">
-                        You're selling
+                        You're swapping
                       </FormLabel>
                       <Select
                         onValueChange={field.onChange}
                         defaultValue={field.value}
                       >
                         <FormControl>
-                          <SelectTrigger className="bg-[#021E4830] rounded-[39px] flex items-center py-8 border-l-0 border-r-0 border-y-[0.1px] border-gray-600 w-full">
-                            {tokens && tokens.length > 0 && (
+                          <SelectTrigger
+                            disabled={!tokens}
+                            className="bg-[#021E4830] rounded-[39px] flex items-center py-8 border-l-0 border-r-0 border-y-[0.1px] border-gray-600 w-full"
+                          >
+                            {tokens && tokens.length > 0 ? (
                               <DisplayTokenSelect
                                 token={
                                   tokens.find((t) => t.mint === watchSelling) ||
                                   tokens[0]
                                 }
                               />
+                            ) : (
+                              "Loading..."
                             )}
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent className="w-full">
                           {tokens.map((t) => (
-                            <SelectItem
-                              value={t.mint}
-                              disabled={watchBuying === t.mint}
-                            >
+                            <SelectItem value={t.mint} key={t.mint}>
                               <DisplayTokenSelect token={t} />
                             </SelectItem>
                           ))}
@@ -301,7 +306,7 @@ export const BuyTokensCard = () => {
                   render={({ field }) => (
                     <FormItem className="space-y-8 w-full">
                       <FormLabel className="text-[22px] md:text-[25px] leading-[111%]">
-                        You're buying
+                        You're getting
                       </FormLabel>
                       <Select
                         onValueChange={field.onChange}
@@ -320,10 +325,7 @@ export const BuyTokensCard = () => {
                         </FormControl>
                         <SelectContent className="w-full">
                           {tokens.map((t) => (
-                            <SelectItem
-                              value={t.mint}
-                              disabled={watchSelling === t.mint}
-                            >
+                            <SelectItem value={t.mint} key={t.mint}>
                               <DisplayTokenSelect token={t} />
                             </SelectItem>
                           ))}
@@ -390,7 +392,7 @@ export const BuyTokensCard = () => {
                         <Input
                           type="number"
                           min={0}
-                          step={1}
+                          step={0.01}
                           className="[&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [-moz-appearance:textfield] text-[20px] md:text-[25px] bg-[#021E4830] leading-[116%] rounded-[39px] pl-10 flex items-center py-8 border-l-0 border-r-0 border-y-[0.1px] border-gray-600 w-full"
                           {...field}
                         />
@@ -449,22 +451,34 @@ export const BuyTokensCard = () => {
             <div className="pt-10 text-gray-500 w-full text-center">
               Always verify transactions before confirming
             </div>
-            <div className="w-full flex justify-center pt-10 md:pt-20">
+            <div className="w-full flex flex-col items-center justify-center pt-10 md:pt-20">
               <Button
                 disabled={
                   !Number(watchAmount) ||
+                  watchSelling === watchBuying ||
                   receiveAmount.tokens === 0 ||
                   (watchSelling === wYLDS &&
                     pendingRedemptionRequest &&
                     !pendingRedemptionRequestLoading)
                 }
                 size="custom"
-                className="rounded-full text-[13px] md:text-base leading-[110%] shadow-brand-card text-brand-white py-[20px] px-[26px] hover:bg-brand-background bg-brand-background"
+                className="rounded-full text-[13px] md:text-base leading-[110%] shadow-brand-card text-brand-white py-[20px] px-[26px] hover:bg-brand-background bg-brand-background w-fit"
                 variant="noShadow"
               >
-                Swap {symbol(watchSelling)} for {symbol(watchBuying)}
-                <ArrowRight className="size-6" />
+                {!tokens ? (
+                  "Loading..."
+                ) : (
+                  <>
+                    Swap {symbol(watchSelling)} for {symbol(watchBuying)}
+                    <ArrowRight className="size-6" />
+                  </>
+                )}
               </Button>
+              {watchSelling === watchBuying && (
+                <p className="text-red-500 text-sm pt-4">
+                  Please select different tokens to swap
+                </p>
+              )}
             </div>
           </form>
         </Form>
