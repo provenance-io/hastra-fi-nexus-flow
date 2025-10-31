@@ -1,10 +1,10 @@
-export const HastraSolVaultStake = {
-  "address": "dyXhxx6Y6LeMwZwb78oeTGWqwJkufPAMFEzH2QJ4mcp",
+export const VaultMint = {
+  "address": "9WUyNREiPDMgwMh5Gt81Fd3JpiCKxpjZ5Dpq9Bo1RhMV",
   "metadata": {
-    "name": "hastra_sol_vault_stake",
+    "name": "vault_mint",
     "version": "0.1.0",
     "spec": "0.1.0",
-    "description": "Vault, Mint, and Stake Contract for Hastra"
+    "description": "Solana Vault Mint Contract for Hastra"
   },
   "instructions": [
     {
@@ -15,13 +15,13 @@ export const HastraSolVaultStake = {
         "1.\tOff-chain (admin does this each epoch):",
         "•\tCalculate each user’s reward for this epoch.",
         "•\tBuild a Merkle tree of (user, amount, epoch_index).",
-        "•\tPublish the Merkle root on-chain with create_rewards_epoch function above.",
+        "•\tPublish the Merkle root on-chain with the create_rewards_epoch function above.",
         "",
         "2.\tOn-chain:",
         "•\tStore each epoch’s Merkle root in a PDA.",
         "•\tWhen a user claims, they present (amount, proof) for their pubkey.",
         "•\tThe program verifies the Merkle proof against the root.",
-        "•\tIf valid, transfer reward tokens (PRIME) from the rewards vault to the user's staking mint token account.",
+        "•\tIf valid, transfer reward tokens (wYLDS) from the rewards vault to the user's mint token account.",
         "•\tMark the claim as redeemed so they can’t double-claim."
       ],
       "discriminator": [
@@ -118,7 +118,7 @@ export const HastraSolVaultStake = {
           }
         },
         {
-          "name": "user_stake_token_account",
+          "name": "user_mint_token_account",
           "writable": true
         },
         {
@@ -146,6 +146,142 @@ export const HastraSolVaultStake = {
           }
         }
       ]
+    },
+    {
+      "name": "complete_redeem",
+      "discriminator": [
+        234,
+        40,
+        26,
+        254,
+        202,
+        90,
+        42,
+        209
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "signer": true
+        },
+        {
+          "name": "user",
+          "docs": [
+            "The original user (to validate and to receive close rent)",
+            "(Not required to be a signer here.)",
+            "must be writeable to close the account = user will transfer rent to user"
+          ],
+          "writable": true
+        },
+        {
+          "name": "redemption_request",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  101,
+                  100,
+                  101,
+                  109,
+                  112,
+                  116,
+                  105,
+                  111,
+                  110,
+                  95,
+                  114,
+                  101,
+                  113,
+                  117,
+                  101,
+                  115,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user_mint_token_account",
+          "writable": true
+        },
+        {
+          "name": "user_vault_token_account",
+          "writable": true
+        },
+        {
+          "name": "redeem_vault_token_account",
+          "writable": true
+        },
+        {
+          "name": "mint",
+          "writable": true
+        },
+        {
+          "name": "redeem_vault_authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  101,
+                  100,
+                  101,
+                  101,
+                  109,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": []
     },
     {
       "name": "create_rewards_epoch",
@@ -233,9 +369,9 @@ export const HastraSolVaultStake = {
     {
       "name": "deposit",
       "docs": [
-        "Handles user deposits of vault tokens (e.g., wYLDS):",
+        "Handles user deposits of vault tokens (e.g., USDC):",
         "- Transfers vault tokens to program vault account",
-        "- Mints equivalent amount of stake tokens (e.g., PRIME) to user"
+        "- Mints equivalent amount of mint tokens (e.g., wYLDS) to user"
       ],
       "discriminator": [
         242,
@@ -269,33 +405,6 @@ export const HastraSolVaultStake = {
         {
           "name": "vault_token_account",
           "writable": true
-        },
-        {
-          "name": "vault_authority",
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  118,
-                  97,
-                  117,
-                  108,
-                  116,
-                  95,
-                  97,
-                  117,
-                  116,
-                  104,
-                  111,
-                  114,
-                  105,
-                  116,
-                  121
-                ]
-              }
-            ]
-          }
         },
         {
           "name": "mint",
@@ -337,6 +446,93 @@ export const HastraSolVaultStake = {
         },
         {
           "name": "user_mint_token_account",
+          "writable": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "external_program_mint",
+      "docs": [
+        "Allows an external authorized program to mint tokens to a specified account."
+      ],
+      "discriminator": [
+        97,
+        91,
+        212,
+        77,
+        203,
+        242,
+        83,
+        216
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "external_mint_program_caller"
+        },
+        {
+          "name": "mint",
+          "writable": true
+        },
+        {
+          "name": "mint_authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "signer",
+          "signer": true
+        },
+        {
+          "name": "destination",
           "writable": true
         },
         {
@@ -432,9 +628,11 @@ export const HastraSolVaultStake = {
       "name": "initialize",
       "docs": [
         "Initializes the vault program with the required token configurations:",
-        "- vault_mint: The token that users deposit (e.g., wYLDS)",
-        "- stake_mint: The token users receive when staking (e.g., PRIME)",
-        "- unbonding_period: Time in seconds users must wait before redeeming"
+        "- vault_mint: The token that users deposit (e.g., USDC)",
+        "- mint: The token users receive when deposit received (e.g., wYLDS)",
+        "- freeze_administrators: List of pubkeys authorized to freeze/thaw token accounts",
+        "- rewards_administrators: List of pubkeys authorized to create rewards epochs",
+        "- allowed_external_mint_program: An external program authorized to mint tokens"
       ],
       "discriminator": [
         175,
@@ -467,12 +665,15 @@ export const HastraSolVaultStake = {
           }
         },
         {
-          "name": "vault_authority",
+          "name": "vault_token_account"
+        },
+        {
+          "name": "redeem_vault_authority",
           "docs": [
-            "This PDA will be set as the owner of the vault_token_account in the config",
-            "The vault token account holds the deposited vault tokens (e.g., wYLDS)",
-            "and is controlled by this program via the vault_authority PDA",
-            "This ensures that only this program can move tokens out of the vault",
+            "This PDA will be set as the owner of the redeem_vault_token_account in the config",
+            "The redeem vault token account holds the deposited vault tokens (e.g., USDC)",
+            "and is controlled by this program via the redeem_vault_authority PDA",
+            "This ensures that only this program can move tokens out of the redeem vault",
             "and prevents unauthorized access."
           ],
           "pda": {
@@ -480,6 +681,13 @@ export const HastraSolVaultStake = {
               {
                 "kind": "const",
                 "value": [
+                  114,
+                  101,
+                  100,
+                  101,
+                  101,
+                  109,
+                  95,
                   118,
                   97,
                   117,
@@ -501,14 +709,11 @@ export const HastraSolVaultStake = {
           }
         },
         {
-          "name": "vault_token_account",
-          "docs": [
-            "The vault token account that should be owned by vault_authority"
-          ],
+          "name": "redeem_vault_token_account",
           "writable": true
         },
         {
-          "name": "vault_mint"
+          "name": "vault_token_mint"
         },
         {
           "name": "mint"
@@ -527,25 +732,17 @@ export const HastraSolVaultStake = {
           "address": "11111111111111111111111111111111"
         },
         {
-          "name": "rent",
-          "address": "SysvarRent111111111111111111111111111111111"
-        },
-        {
           "name": "program_data"
         }
       ],
       "args": [
         {
-          "name": "vault_mint",
+          "name": "vault_token_mint",
           "type": "pubkey"
         },
         {
-          "name": "stake_mint",
+          "name": "mint",
           "type": "pubkey"
-        },
-        {
-          "name": "unbonding_period",
-          "type": "i64"
         },
         {
           "name": "freeze_administrators",
@@ -558,14 +755,17 @@ export const HastraSolVaultStake = {
           "type": {
             "vec": "pubkey"
           }
+        },
+        {
+          "name": "allowed_external_mint_program",
+          "type": "pubkey"
         }
       ]
     },
     {
       "name": "pause",
       "docs": [
-        "Pauses or unpauses the protocol operations:",
-        "- pause: true to pause, false to unpause"
+        "Pauses or unpauses the program, disabling or enabling deposit and redeem functions."
       ],
       "discriminator": [
         211,
@@ -613,52 +813,81 @@ export const HastraSolVaultStake = {
       ]
     },
     {
-      "name": "redeem",
+      "name": "request_redeem",
       "docs": [
-        "Completes the unbonding process after the period expires:",
-        "- Burns unbonding tokens (e.g., uwYLDS)",
-        "- Returns vault tokens (e.g., wYLDS) to user"
+        "The redeem function allows users to withdraw their original vault tokens:",
+        "- Transfers vault tokens from a program vault account to user",
+        "- Burns the corresponding amount of mint tokens (e.g., wYLDS) from user"
       ],
       "discriminator": [
-        184,
-        12,
-        86,
-        149,
-        70,
-        196,
-        97,
-        225
+        105,
+        49,
+        44,
+        38,
+        207,
+        241,
+        33,
+        173
       ],
       "accounts": [
         {
-          "name": "config",
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "user_mint_token_account",
+          "writable": true
+        },
+        {
+          "name": "redemption_request",
+          "writable": true,
           "pda": {
             "seeds": [
               {
                 "kind": "const",
                 "value": [
-                  99,
+                  114,
+                  101,
+                  100,
+                  101,
+                  109,
+                  112,
+                  116,
+                  105,
                   111,
                   110,
-                  102,
-                  105,
-                  103
+                  95,
+                  114,
+                  101,
+                  113,
+                  117,
+                  101,
+                  115,
+                  116
                 ]
+              },
+              {
+                "kind": "account",
+                "path": "signer"
               }
             ]
           }
         },
         {
-          "name": "vault_token_account",
-          "writable": true
-        },
-        {
-          "name": "vault_authority",
+          "name": "redeem_vault_authority",
           "pda": {
             "seeds": [
               {
                 "kind": "const",
                 "value": [
+                  114,
+                  101,
+                  100,
+                  101,
+                  101,
+                  109,
+                  95,
                   118,
                   97,
                   117,
@@ -680,51 +909,41 @@ export const HastraSolVaultStake = {
           }
         },
         {
-          "name": "signer",
-          "writable": true,
-          "signer": true
+          "name": "mint"
         },
         {
-          "name": "ticket",
-          "writable": true,
+          "name": "config",
           "pda": {
             "seeds": [
               {
                 "kind": "const",
                 "value": [
-                  116,
-                  105,
                   99,
-                  107,
-                  101,
-                  116
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
                 ]
-              },
-              {
-                "kind": "account",
-                "path": "signer"
               }
             ]
           }
         },
         {
-          "name": "user_vault_token_account",
-          "writable": true
-        },
-        {
-          "name": "user_mint_token_account",
-          "writable": true
-        },
-        {
-          "name": "mint",
-          "writable": true
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         },
         {
           "name": "token_program",
           "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         }
       ],
-      "args": []
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
     },
     {
       "name": "thaw_token_account",
@@ -802,143 +1021,6 @@ export const HastraSolVaultStake = {
         }
       ],
       "args": []
-    },
-    {
-      "name": "unbond",
-      "docs": [
-        "Initiates the unbonding process:",
-        "- Burns user's stake tokens (e.g., PRIME)",
-        "- Starts unbonding period timer via user ticket"
-      ],
-      "discriminator": [
-        151,
-        129,
-        36,
-        46,
-        102,
-        195,
-        111,
-        122
-      ],
-      "accounts": [
-        {
-          "name": "config",
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  99,
-                  111,
-                  110,
-                  102,
-                  105,
-                  103
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "name": "signer",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "mint"
-        },
-        {
-          "name": "user_mint_token_account"
-        },
-        {
-          "name": "ticket",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  116,
-                  105,
-                  99,
-                  107,
-                  101,
-                  116
-                ]
-              },
-              {
-                "kind": "account",
-                "path": "signer"
-              }
-            ]
-          }
-        },
-        {
-          "name": "system_program",
-          "address": "11111111111111111111111111111111"
-        }
-      ],
-      "args": [
-        {
-          "name": "amount",
-          "type": "u64"
-        }
-      ]
-    },
-    {
-      "name": "update_config",
-      "docs": [
-        "Updates the program configuration with new token addresses:",
-        "- new_unbonding_period: New unbonding period in seconds"
-      ],
-      "discriminator": [
-        29,
-        158,
-        252,
-        191,
-        10,
-        83,
-        219,
-        99
-      ],
-      "accounts": [
-        {
-          "name": "config",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  99,
-                  111,
-                  110,
-                  102,
-                  105,
-                  103
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "name": "program_data"
-        },
-        {
-          "name": "rent",
-          "address": "SysvarRent111111111111111111111111111111111"
-        },
-        {
-          "name": "signer",
-          "signer": true
-        }
-      ],
-      "args": [
-        {
-          "name": "new_unbonding_period",
-          "type": "i64"
-        }
-      ]
     },
     {
       "name": "update_freeze_administrators",
@@ -1067,6 +1149,19 @@ export const HastraSolVaultStake = {
       ]
     },
     {
+      "name": "RedemptionRequest",
+      "discriminator": [
+        117,
+        157,
+        214,
+        214,
+        64,
+        160,
+        31,
+        58
+      ]
+    },
+    {
       "name": "RewardsEpoch",
       "discriminator": [
         19,
@@ -1077,19 +1172,6 @@ export const HastraSolVaultStake = {
         245,
         249,
         74
-      ]
-    },
-    {
-      "name": "UnbondingTicket",
-      "discriminator": [
-        213,
-        129,
-        239,
-        0,
-        7,
-        4,
-        215,
-        83
       ]
     }
   ],
@@ -1108,16 +1190,42 @@ export const HastraSolVaultStake = {
       ]
     },
     {
-      "name": "RedeemEvent",
+      "name": "ExternalProgramMintEvent",
       "discriminator": [
-        90,
-        114,
-        83,
-        146,
-        212,
-        26,
-        217,
-        59
+        203,
+        36,
+        160,
+        37,
+        198,
+        195,
+        30,
+        139
+      ]
+    },
+    {
+      "name": "RedeemCompleted",
+      "discriminator": [
+        28,
+        209,
+        89,
+        218,
+        229,
+        197,
+        84,
+        47
+      ]
+    },
+    {
+      "name": "RedemptionRequested",
+      "discriminator": [
+        245,
+        155,
+        98,
+        131,
+        210,
+        25,
+        137,
+        146
       ]
     },
     {
@@ -1132,32 +1240,6 @@ export const HastraSolVaultStake = {
         88,
         121
       ]
-    },
-    {
-      "name": "UnbondEvent",
-      "discriminator": [
-        123,
-        188,
-        223,
-        76,
-        174,
-        70,
-        46,
-        123
-      ]
-    },
-    {
-      "name": "UnbondingPeriodUpdated",
-      "discriminator": [
-        124,
-        81,
-        241,
-        240,
-        54,
-        118,
-        249,
-        182
-      ]
     }
   ],
   "errors": [
@@ -1168,143 +1250,133 @@ export const HastraSolVaultStake = {
     },
     {
       "code": 6002,
-      "name": "InvalidTokenReceived",
-      "msg": "Invalid token received"
-    },
-    {
-      "code": 6003,
-      "name": "InvalidVault",
-      "msg": "Invalid vault"
-    },
-    {
-      "code": 6004,
       "name": "InvalidAuthority",
       "msg": "Invalid authority"
     },
     {
-      "code": 6005,
+      "code": 6003,
       "name": "InsufficientBalance",
       "msg": "Insufficient balance"
     },
     {
-      "code": 6006,
-      "name": "UnbondingPeriodNotElapsed",
-      "msg": "Unbonding period not elapsed"
-    },
-    {
-      "code": 6007,
-      "name": "InsufficientUnbondingBalance",
-      "msg": "Insufficient unbonding balance"
-    },
-    {
-      "code": 6008,
-      "name": "UnbondingInProgress",
-      "msg": "Unbonding is currently in progress"
-    },
-    {
-      "code": 6009,
+      "code": 6004,
       "name": "InvalidMint",
       "msg": "Invalid mint provided"
     },
     {
-      "code": 6010,
+      "code": 6005,
       "name": "InvalidVaultMint",
       "msg": "Invalid vault mint provided"
     },
     {
-      "code": 6011,
-      "name": "InvalidTicketOwner",
-      "msg": "Invalid ticket owner"
-    },
-    {
-      "code": 6012,
+      "code": 6006,
       "name": "InvalidMintAuthority",
       "msg": "Invalid mint authority"
     },
     {
-      "code": 6013,
+      "code": 6007,
       "name": "InsufficientVaultBalance",
       "msg": "Insufficient vault balance"
     },
     {
-      "code": 6014,
+      "code": 6008,
       "name": "InvalidVaultAuthority",
       "msg": "Invalid vault authority"
     },
     {
-      "code": 6015,
+      "code": 6009,
       "name": "InvalidFreezeAuthority",
       "msg": "Invalid freeze authority"
     },
     {
-      "code": 6016,
+      "code": 6010,
       "name": "InvalidProgramData",
       "msg": "ProgramData account did not match expected PDA."
     },
     {
-      "code": 6017,
+      "code": 6011,
       "name": "NoUpgradeAuthority",
       "msg": "Program has no upgrade authority (set to None)."
     },
     {
-      "code": 6018,
+      "code": 6012,
       "name": "InvalidUpgradeAuthority",
       "msg": "Signer is not the upgrade authority."
     },
     {
-      "code": 6019,
+      "code": 6013,
       "name": "MissingSigner",
       "msg": "Signer account missing."
     },
     {
-      "code": 6020,
+      "code": 6014,
       "name": "TooManyAdministrators",
       "msg": "Too many freeze administrators."
     },
     {
-      "code": 6021,
+      "code": 6015,
       "name": "UnauthorizedFreezeAdministrator",
       "msg": "Unauthorized freeze administrator"
     },
     {
-      "code": 6022,
+      "code": 6016,
       "name": "InvalidRewardsEpoch",
       "msg": "Invalid rewards epoch"
     },
     {
-      "code": 6023,
+      "code": 6017,
       "name": "InvalidMerkleProof",
       "msg": "Invalid merkle proof"
     },
     {
-      "code": 6024,
+      "code": 6018,
       "name": "RewardsAlreadyClaimed",
       "msg": "Rewards already claimed for this epoch"
     },
     {
-      "code": 6025,
+      "code": 6019,
       "name": "InvalidRewardsAdministrator",
       "msg": "Invalid rewards administrator"
     },
     {
-      "code": 6026,
+      "code": 6020,
+      "name": "InvalidTokenOwner",
+      "msg": "Invalid token owner"
+    },
+    {
+      "code": 6021,
+      "name": "AlreadyFulfilled",
+      "msg": "Redemption request already fulfilled"
+    },
+    {
+      "code": 6022,
+      "name": "RequestNotFound",
+      "msg": "Redemption request not found"
+    },
+    {
+      "code": 6023,
+      "name": "InsufficientRedeemVaultFunds",
+      "msg": "Insufficient lamport funds in redeem vault authority"
+    },
+    {
+      "code": 6024,
+      "name": "RequestAlreadyExists",
+      "msg": "Redeem request already exists"
+    },
+    {
+      "code": 6025,
       "name": "VaultAndMintCannotBeSame",
       "msg": "Vault and mint cannot be the same"
     },
     {
-      "code": 6027,
+      "code": 6026,
       "name": "ProtocolPaused",
       "msg": "Protocol is paused"
     },
     {
-      "code": 6028,
-      "name": "InvalidBondingPeriod",
-      "msg": "Invalid bonding period"
-    },
-    {
-      "code": 6029,
-      "name": "InvalidTokenOwner",
-      "msg": "Invalid token owner"
+      "code": 6027,
+      "name": "InvalidMintProgramCaller",
+      "msg": "Invalid program calling mint"
     }
   ],
   "types": [
@@ -1329,10 +1401,6 @@ export const HastraSolVaultStake = {
             "type": "pubkey"
           },
           {
-            "name": "unbonding_period",
-            "type": "i64"
-          },
-          {
             "name": "freeze_administrators",
             "type": {
               "vec": "pubkey"
@@ -1345,12 +1413,24 @@ export const HastraSolVaultStake = {
             }
           },
           {
+            "name": "vault_authority",
+            "type": "pubkey"
+          },
+          {
+            "name": "redeem_vault",
+            "type": "pubkey"
+          },
+          {
             "name": "bump",
             "type": "u8"
           },
           {
             "name": "paused",
             "type": "bool"
+          },
+          {
+            "name": "allowed_external_mint_program",
+            "type": "pubkey"
           }
         ]
       }
@@ -1362,6 +1442,38 @@ export const HastraSolVaultStake = {
         "fields": [
           {
             "name": "user",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "vault",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ExternalProgramMintEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "admin",
+            "type": "pubkey"
+          },
+          {
+            "name": "external_mint_program_caller",
+            "type": "pubkey"
+          },
+          {
+            "name": "destination",
             "type": "pubkey"
           },
           {
@@ -1404,7 +1516,35 @@ export const HastraSolVaultStake = {
       }
     },
     {
-      "name": "RedeemEvent",
+      "name": "RedeemCompleted",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "user",
+            "type": "pubkey"
+          },
+          {
+            "name": "admin",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "vault",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RedemptionRequest",
       "type": {
         "kind": "struct",
         "fields": [
@@ -1421,7 +1561,31 @@ export const HastraSolVaultStake = {
             "type": "pubkey"
           },
           {
-            "name": "vault",
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RedemptionRequested",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "user",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "vault_token_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "mint",
             "type": "pubkey"
           }
         ]
@@ -1479,82 +1643,6 @@ export const HastraSolVaultStake = {
           },
           {
             "name": "created_ts",
-            "type": "i64"
-          }
-        ]
-      }
-    },
-    {
-      "name": "UnbondEvent",
-      "type": {
-        "kind": "struct",
-        "fields": [
-          {
-            "name": "user",
-            "type": "pubkey"
-          },
-          {
-            "name": "amount",
-            "type": "u64"
-          },
-          {
-            "name": "mint",
-            "type": "pubkey"
-          },
-          {
-            "name": "vault",
-            "type": "pubkey"
-          }
-        ]
-      }
-    },
-    {
-      "name": "UnbondingPeriodUpdated",
-      "type": {
-        "kind": "struct",
-        "fields": [
-          {
-            "name": "admin",
-            "type": "pubkey"
-          },
-          {
-            "name": "old_period",
-            "type": "i64"
-          },
-          {
-            "name": "new_period",
-            "type": "i64"
-          },
-          {
-            "name": "mint",
-            "type": "pubkey"
-          },
-          {
-            "name": "vault",
-            "type": "pubkey"
-          }
-        ]
-      }
-    },
-    {
-      "name": "UnbondingTicket",
-      "type": {
-        "kind": "struct",
-        "fields": [
-          {
-            "name": "owner",
-            "type": "pubkey"
-          },
-          {
-            "name": "requested_amount",
-            "type": "u64"
-          },
-          {
-            "name": "start_balance",
-            "type": "u64"
-          },
-          {
-            "name": "start_ts",
             "type": "i64"
           }
         ]

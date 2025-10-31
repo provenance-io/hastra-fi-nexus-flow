@@ -26,11 +26,11 @@ import {
 import BN from "bn.js";
 import {PRIME, USDC, wYLDS} from "@/types/tokens.ts";
 import {
-    HastraSolVaultStake as HastraSolVaultStakeIdl
-} from "@/types/idl/hastra-sol-vault-stake.ts";
+    VaultStake as HastraSolVaultStakeIdl
+} from "@/types/idl/vault-stake";
 import {
-    HastraSolVaultMint as HastraSolVaultMintIdl
-} from "@/types/idl/hastra-sol-vault-mint.ts";
+    VaultMint as HastraSolVaultMintIdl
+} from "@/types/idl/vault-mint";
 import {ClaimProof, DistributionDetail} from "@/types/staking.ts";
 
 const RPC_ENDPOINT = import.meta.env.VITE_SOLANA_RPC_URL;
@@ -109,11 +109,14 @@ export const useDepositAndMint = () => {
       );
       const mint = new PublicKey(wYLDS);
       const vault = new PublicKey(import.meta.env.VITE_SOLANA_USDC_VAULT);
-      const configPda = new PublicKey(
-        import.meta.env.VITE_SOLANA_USDC_WYLDS_CONFIG_PDA
+      const [configPda] = web3.PublicKey.findProgramAddressSync(
+        [Buffer.from("config")],
+        program.programId
       );
-      const mintAuthorityPda = new PublicKey(
-        import.meta.env.VITE_SOLANA_USDC_WYLDS_MINT_AUTHORITY_PDA
+
+      const [mintAuthorityPda] = web3.PublicKey.findProgramAddressSync(
+        [Buffer.from("mint_authority")],
+        program.programId
       );
 
       const createAtaInstructions = await ataInstruction(
@@ -343,12 +346,15 @@ export const useStake = () => {
       );
       const PRIMEMint = new PublicKey(PRIME);
       const vault = new PublicKey(import.meta.env.VITE_SOLANA_PRIME_VAULT);
-      const configPda = new PublicKey(
-        import.meta.env.VITE_SOLANA_PRIME_CONFIG_PDA
+      const [configPda] = web3.PublicKey.findProgramAddressSync(
+        [Buffer.from("stake_config")],
+        program.programId
       );
-      const mintAuthorityPda = new PublicKey(
-        import.meta.env.VITE_SOLANA_PRIME_MINT_AUTHORITY_PDA
+      const [mintAuthorityPda] = web3.PublicKey.findProgramAddressSync(
+        [Buffer.from("mint_authority")],
+        program.programId
       );
+
       const vaultTokenAccount = new PublicKey(
         import.meta.env.VITE_SOLANA_PRIME_VAULT_TOKEN_ACCOUNT
       );
@@ -376,8 +382,8 @@ export const useStake = () => {
       return await confirmTransaction(connection, () =>
         program?.methods
           .deposit(new BN(amount * 1_000_000))
-          .accounts({
-            config: configPda,
+          .accountsStrict({
+            stakingConfig: configPda,
             vaultTokenAccount: vaultTokenAccount,
             mint: PRIMEMint,
             mintAuthority: mintAuthorityPda,
@@ -427,8 +433,9 @@ export const useUnbond = () => {
 
       const PRIMEMint = new PublicKey(PRIME);
 
-      const configPda = new PublicKey(
-        import.meta.env.VITE_SOLANA_PRIME_CONFIG_PDA
+      const [configPda] = web3.PublicKey.findProgramAddressSync(
+         [Buffer.from("stake_config")],
+         program.programId
       );
       const [ticketPda] = web3.PublicKey.findProgramAddressSync(
         [Buffer.from("ticket"), signer.toBuffer()],
@@ -445,8 +452,8 @@ export const useUnbond = () => {
       return await confirmTransaction(connection, () =>
         program?.methods
           .unbond(new BN(amount * 1_000_000))
-          .accounts({
-            config: configPda,
+          .accountsStrict({
+            stakingConfig: configPda,
             signer: signer,
             mint: PRIMEMint,
             userMintTokenAccount: userMintTokenAccount,
@@ -500,9 +507,11 @@ export const useRedeemStake = () => {
       import.meta.env.VITE_SOLANA_PRIME_VAULT_TOKEN_ACCOUNT
     );
 
-    const configPda = new PublicKey(
-      import.meta.env.VITE_SOLANA_PRIME_CONFIG_PDA
+    const [configPda] = web3.PublicKey.findProgramAddressSync(
+      [Buffer.from("stake_config")],
+      program.programId
     );
+
     const [ticketPda] = web3.PublicKey.findProgramAddressSync(
       [Buffer.from("ticket"), signer.toBuffer()],
       program.programId
@@ -534,8 +543,8 @@ export const useRedeemStake = () => {
     return await confirmTransaction(connection, () =>
       program?.methods
         .redeem()
-        .accounts({
-          config: configPda,
+        .accountsStrict({
+          stakingConfig: configPda,
           vaultTokenAccount: vaultTokenAccount,
           vaultAuthority: vaultAuthorityPda,
           signer: signer,
@@ -582,9 +591,11 @@ export const useRequestRedeem = () => {
             signer
         );
 
-        const configPda = new PublicKey(
-            import.meta.env.VITE_SOLANA_USDC_WYLDS_CONFIG_PDA
+        const [configPda] = web3.PublicKey.findProgramAddressSync(
+            [Buffer.from("config")],
+            program.programId
         );
+
         const [redemptionRequestPda] = web3.PublicKey.findProgramAddressSync(
             [Buffer.from("redemption_request"), signer.toBuffer()],
             program.programId
@@ -667,11 +678,13 @@ export const useClaimWYLDS = () => {
                 signer
             );
 
-            const configPda = new PublicKey(
-                import.meta.env.VITE_SOLANA_USDC_WYLDS_CONFIG_PDA
+            const [configPda] = web3.PublicKey.findProgramAddressSync(
+                [Buffer.from("config")],
+                program.programId
             );
-            const mintAuthorityPda = new PublicKey(
-                import.meta.env.VITE_SOLANA_USDC_WYLDS_MINT_AUTHORITY_PDA
+            const [mintAuthorityPda] = web3.PublicKey.findProgramAddressSync(
+                [Buffer.from("mint_authority")],
+                program.programId
             );
 
             const transactions: Transaction[] = [];
