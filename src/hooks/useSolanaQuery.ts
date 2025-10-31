@@ -5,15 +5,15 @@ import type {CoinGeckoPrice} from "../types/coin-gecko";
 import {AnchorProvider, type Idl, Program} from "@coral-xyz/anchor";
 import {useAnchorWallet} from "@/hooks/use-solana-tx.ts";
 import {PendingUnstake} from "@/types/staking.ts";
-import {HastraSolVaultStake} from "@/types/hastra-sol-vault-stake.ts";
+import {VaultStake} from "@/types/vault-stake";
 import {
-  HastraSolVaultStake as HastraSolVaultStakeIdl
-} from "@/types/idl/hastra-sol-vault-stake.ts";
+  VaultStake as HastraSolVaultStakeIdl
+} from "@/types/idl/vault-stake";
 import {
-  HastraSolVaultMint as HastraSolVaultMintIdl
-} from "@/types/idl/hastra-sol-vault-mint.ts";
+  VaultMint as HastraSolVaultMintIdl
+} from "@/types/idl/vault-mint";
 import {RedemptionRequest} from "@/types/tokens.ts";
-import {HastraSolVaultMint} from "@/types/hastra-sol-vault-mint.ts";
+import {VaultMint} from "@/types/vault-mint";
 import {getNetworkUrl} from "@/utils/solana-utils";
 
 const connection = new Connection(
@@ -126,13 +126,13 @@ export const useAtaBalanceQuery = (
 };
 
 const unbondingConfig = async (
-  program: Program<HastraSolVaultStake>
+  program: Program<VaultStake>
 ): Promise<number> => {
   const [pda] = PublicKey.findProgramAddressSync(
-    [Buffer.from("config")],
+    [Buffer.from("stake_config")],
     program.programId
   );
-  const config = await program.account.config.fetch(pda);
+  const config = await program.account.stakeConfig.fetch(pda);
   return config?.unbondingPeriod.toNumber() || 0;
 };
 
@@ -144,7 +144,7 @@ export function useUnbondingPeriodConfigQuery() {
   const program = new Program(
     HastraSolVaultStakeIdl as Idl,
     provider
-  ) as Program<HastraSolVaultStake>;
+  ) as Program<VaultStake>;
   return useQuery<number, Error>({
     queryKey: ["staking-config", program.programId.toBase58()],
     enabled: !!program,
@@ -162,7 +162,7 @@ export function usePendingUnstakeQuery() {
   const program = new Program(
     HastraSolVaultStakeIdl as Idl,
     provider
-  ) as Program<HastraSolVaultStake>;
+  ) as Program<VaultStake>;
 
   return useQuery<PendingUnstake | null, Error>({
     queryKey: [
@@ -216,7 +216,7 @@ export function usePendingRedemptionRequest() {
   const program = new Program(
       HastraSolVaultMintIdl as Idl,
       provider
-  ) as Program<HastraSolVaultMint>;
+  ) as Program<VaultMint>;
 
   return useQuery<RedemptionRequest | null, Error>({
     queryKey: [

@@ -26,11 +26,11 @@ import {
 import BN from "bn.js";
 import {PRIME, USDC, wYLDS} from "@/types/tokens.ts";
 import {
-    HastraSolVaultStake as HastraSolVaultStakeIdl
-} from "@/types/idl/hastra-sol-vault-stake.ts";
+    VaultStake as HastraSolVaultStakeIdl
+} from "@/types/idl/vault-stake";
 import {
-    HastraSolVaultMint as HastraSolVaultMintIdl
-} from "@/types/idl/hastra-sol-vault-mint.ts";
+    VaultMint as HastraSolVaultMintIdl
+} from "@/types/idl/vault-mint";
 import {ClaimProof, DistributionDetail} from "@/types/staking.ts";
 
 const RPC_ENDPOINT = import.meta.env.VITE_SOLANA_RPC_URL;
@@ -376,8 +376,8 @@ export const useStake = () => {
       return await confirmTransaction(connection, () =>
         program?.methods
           .deposit(new BN(amount * 1_000_000))
-          .accounts({
-            config: configPda,
+          .accountsStrict({
+            stakingConfig: configPda,
             vaultTokenAccount: vaultTokenAccount,
             mint: PRIMEMint,
             mintAuthority: mintAuthorityPda,
@@ -445,8 +445,8 @@ export const useUnbond = () => {
       return await confirmTransaction(connection, () =>
         program?.methods
           .unbond(new BN(amount * 1_000_000))
-          .accounts({
-            config: configPda,
+          .accountsStrict({
+            stakingConfig: configPda,
             signer: signer,
             mint: PRIMEMint,
             userMintTokenAccount: userMintTokenAccount,
@@ -534,8 +534,8 @@ export const useRedeemStake = () => {
     return await confirmTransaction(connection, () =>
       program?.methods
         .redeem()
-        .accounts({
-          config: configPda,
+        .accountsStrict({
+          stakingConfig: configPda,
           vaultTokenAccount: vaultTokenAccount,
           vaultAuthority: vaultAuthorityPda,
           signer: signer,
