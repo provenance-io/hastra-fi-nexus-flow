@@ -3,7 +3,11 @@ interface APYResponse {
 }
 
 export const fetchCurrentAPY = async (): Promise<number> => {
-  const response = await fetch(new URL(`${import.meta.env.VITE_HASTRA_PULSE_URL}/apy/estimated`));
+  const response = await fetch(
+    new URL(
+      `${import.meta.env.VITE_HASTRA_PULSE_URL}/public/api/v1/apy/estimated`
+    )
+  );
   if (!response.ok) {
     throw new Error("Failed to fetch APY data");
   }

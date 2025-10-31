@@ -32,7 +32,7 @@ const WyldsTypeformEmbed = () => {
     setSuccess(false);
     if (!data.honeypot) {
       const response = await fetch(
-        "https://hastra.io/hastra-pulse/notion-contact-form",
+        `${import.meta.env.VITE_HASTRA_PULSE_URL}/public/api/v1/contact`,
         {
           method: "POST",
           body: JSON.stringify({

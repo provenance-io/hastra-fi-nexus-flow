@@ -1,13 +1,12 @@
-import {useCallback, useEffect, useState} from "react";
-import {useWallet} from "@/contexts/WalletContext.tsx";
-import {Connection, PublicKey} from "@solana/web3.js";
-import {useQuery} from "@tanstack/react-query";
-import {getAssociatedTokenAddress} from "@solana/spl-token";
-import {Metaplex} from "@metaplex-foundation/js";
-import hastraIcon
-  from "/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png";
-import {DistributionDetail} from "@/types/staking.ts";
-import {getNetworkUrl} from "@/utils/solana-utils";
+import { useCallback, useEffect, useState } from "react";
+import { useWallet } from "@/contexts/WalletContext.tsx";
+import { Connection, PublicKey } from "@solana/web3.js";
+import { useQuery } from "@tanstack/react-query";
+import { getAssociatedTokenAddress } from "@solana/spl-token";
+import { Metaplex } from "@metaplex-foundation/js";
+import hastraIcon from "/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png";
+import { DistributionDetail } from "@/types/staking.ts";
+import { getNetworkUrl } from "@/utils/solana-utils";
 
 export interface TokenData {
   address: string;
@@ -22,10 +21,7 @@ export interface TokenData {
   tokenAddress: string;
 }
 
-const connection = new Connection(
-  getNetworkUrl(),
-  "confirmed"
-);
+const connection = new Connection(getNetworkUrl(), "confirmed");
 const metaplex = Metaplex.make(connection);
 
 const token = (address: string) => {
@@ -57,23 +53,25 @@ export const useTokenPortfolioQuery = (
         tokenMintAddresses.map(async (address) => {
           let totalInterestEarned = 0;
           let unclaimedInterest = 0;
-          let fetchUrl = `${import.meta.env.VITE_HASTRA_PULSE_URL}/distributions/address/${publicKey.toBase58()}/type`;
+          let fetchUrl = `${
+            import.meta.env.VITE_HASTRA_PULSE_URL
+          }/public/api/v1/accounts/distributions/address/${publicKey.toBase58()}/type`;
           if (address === import.meta.env.VITE_SOLANA_WYLDS_MINT) {
             fetchUrl += "/ylds-distribution";
           } else {
             fetchUrl += "/prime-distribution";
           }
           // retrieve interest earned and interest unclaimed from backend API for wYLDS
-            console.log(`Fetching interest earned data from: ${fetchUrl}`);
+          console.log(`Fetching interest earned data from: ${fetchUrl}`);
           await fetch(fetchUrl)
             .then((res) => res.json())
             .then((data: unknown) => {
               const distributions = data as DistributionDetail[];
               distributions.forEach((distribution) => {
                 if (distribution.claimed) {
-                  totalInterestEarned += distribution.amount / Math.pow(10, 6)
+                  totalInterestEarned += distribution.amount / Math.pow(10, 6);
                 } else {
-                  unclaimedInterest += distribution.amount / Math.pow(10, 6)
+                  unclaimedInterest += distribution.amount / Math.pow(10, 6);
                 }
               });
             })
