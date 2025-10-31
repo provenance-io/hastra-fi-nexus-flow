@@ -371,7 +371,7 @@ export const SendTokensCard = () => {
                         <Input
                           type="number"
                           min={0}
-                          step={1}
+                          step={0.01}
                           className="[&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [-moz-appearance:textfield] text-[20px] md:text-[25px] bg-[#021E4830] leading-[116%] rounded-[39px] pl-10 flex items-center py-8 border-l-0 border-r-0 border-y-[0.1px] border-gray-600 w-full"
                           {...field}
                         />
