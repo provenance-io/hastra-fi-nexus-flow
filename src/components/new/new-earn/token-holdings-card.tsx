@@ -5,6 +5,7 @@ import { PRIME, wYLDS } from "@/types/tokens";
 
 export const TokenHoldingsCard = () => {
   const { tokens, claimInterest } = useTokenPortfolio();
+  console.log(`tokens ${tokens}`);
   const handleTokenClaim = (tokenSymbol: string) => (claimedAmount: number) => {
     claimInterest(tokenSymbol, claimedAmount);
   };

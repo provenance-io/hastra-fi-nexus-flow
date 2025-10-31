@@ -3,8 +3,8 @@ import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
 import { TrendingUp } from "lucide-react";
 import { useState } from "react";
-import { useRequestRedeem } from "@/hooks/use-solana-tx.ts";
-import { wYLDS } from "@/types/tokens.ts";
+import {useClaimWYLDS, useRequestRedeem} from "@/hooks/use-solana-tx.ts";
+import {PRIME, wYLDS} from "@/types/tokens.ts";
 
 interface TokenLineItemProps {
   token: string;
@@ -31,32 +31,30 @@ const TokenLineItem = ({
 }: TokenLineItemProps) => {
   const [isClaiming, setIsClaiming] = useState(false);
   const { toast } = useToast();
+  const { invoke } = useClaimWYLDS();
   const isImage = icon.startsWith("/") || icon.startsWith("http");
 
   const handleClaim = async () => {
     if (unclaimedInterest <= 0) return;
 
-    console.log(`Claiming ${unclaimedInterest} ${token} interest`);
     setIsClaiming(true);
 
-    // Simulate claim transaction
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    onClaim?.(unclaimedInterest);
-
-    toast({
-      title: "Interest Claimed",
-      description:
-        token === "PRIME"
-          ? `Successfully claimed ${unclaimedInterest.toFixed(
-              4
-            )} wYLDS tokens from PRIME staking rewards`
-          : `Successfully claimed ${unclaimedInterest.toFixed(
-              4
-            )} ${token} tokens`,
+    await invoke().then(() => {
+      toast({
+        title: "Interest Claimed",
+        description: `Successfully claimed ${unclaimedInterest.toFixed(4)} ${token} tokens`,
+      });
+    }).catch(err => {
+        toast({
+            variant: "destructive",
+            title: "Error Claiming Interest",
+            description: err,
+        });
+    }).finally(() => {
+      onClaim?.(unclaimedInterest);
+      setIsClaiming(false);
     });
 
-    setIsClaiming(false);
   };
 
   const copyToClipboard = () => {

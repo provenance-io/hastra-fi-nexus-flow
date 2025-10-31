@@ -5,6 +5,7 @@ import { TokenData } from "@/hooks/useTokenPortfolio";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
+import {useClaimWYLDS} from "@/hooks/use-solana-tx.ts";
 
 export const TokenCard = ({
   token,
@@ -19,6 +20,8 @@ export const TokenCard = ({
 }: TokenData & { onClaim: (amount: number) => void }) => {
   const [isClaiming, setIsClaiming] = useState(false);
   const { toast } = useToast();
+  const { invoke } = useClaimWYLDS();
+
   const isImage = icon.startsWith("/") || icon.startsWith("http");
 
   const copyToClipboard = () => {
@@ -33,27 +36,24 @@ export const TokenCard = ({
   const handleClaim = async () => {
     if (unclaimedInterest <= 0) return;
 
-    console.log(`Claiming ${unclaimedInterest} ${token} interest`);
     setIsClaiming(true);
 
-    // Simulate claim transaction
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    onClaim?.(unclaimedInterest);
-
-    toast({
-      title: "Interest Claimed",
-      description:
-        token === "PRIME"
-          ? `Successfully claimed ${unclaimedInterest.toFixed(
-              4
-            )} wYLDS tokens from PRIME staking rewards`
-          : `Successfully claimed ${unclaimedInterest.toFixed(
-              4
-            )} ${token} tokens`,
+    await invoke().then(() => {
+      toast({
+        title: "Interest Claimed",
+        description: `Successfully claimed ${unclaimedInterest.toFixed(4)} ${token} tokens`,
+      });
+    }).catch(err => {
+      console.error(err);
+      toast({
+        variant: "destructive",
+        title: "Error Claiming Interest",
+        description: err,
+      });
+    }).finally(() => {
+      onClaim?.(unclaimedInterest);
+      setIsClaiming(false);
     });
-
-    setIsClaiming(false);
   };
 
   // Calculate dollar values for interest

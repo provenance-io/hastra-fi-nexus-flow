@@ -1,10 +1,13 @@
-import { useCallback, useEffect, useState } from "react";
-import { useWallet } from "@/contexts/WalletContext.tsx";
-import { clusterApiUrl, Connection, PublicKey } from "@solana/web3.js";
-import { useQuery } from "@tanstack/react-query";
-import { getAssociatedTokenAddress } from "@solana/spl-token";
-import { Metaplex } from "@metaplex-foundation/js";
-import hastraIcon from "/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png";
+import {useCallback, useEffect, useState} from "react";
+import {useWallet} from "@/contexts/WalletContext.tsx";
+import {Connection, PublicKey} from "@solana/web3.js";
+import {useQuery} from "@tanstack/react-query";
+import {getAssociatedTokenAddress} from "@solana/spl-token";
+import {Metaplex} from "@metaplex-foundation/js";
+import hastraIcon
+  from "/lovable-uploads/bb5fd324-8133-40de-98e0-34ae8f181798.png";
+import {DistributionDetail} from "@/types/staking.ts";
+import {getNetworkUrl} from "@/utils/solana-utils";
 
 export interface TokenData {
   address: string;
@@ -20,7 +23,7 @@ export interface TokenData {
 }
 
 const connection = new Connection(
-  clusterApiUrl(import.meta.env.VITE_SOLANA_CLUSTER_NAME),
+  getNetworkUrl(),
   "confirmed"
 );
 const metaplex = Metaplex.make(connection);
@@ -52,6 +55,31 @@ export const useTokenPortfolioQuery = (
       if (!publicKey) throw new Error("No pubkey");
       return await Promise.all(
         tokenMintAddresses.map(async (address) => {
+          let totalInterestEarned = 0;
+          let unclaimedInterest = 0;
+          let fetchUrl = `${import.meta.env.VITE_HASTRA_PULSE_URL}/distributions/address/${publicKey.toBase58()}/type`;
+          if (address === import.meta.env.VITE_SOLANA_WYLDS_MINT) {
+            fetchUrl += "/ylds-distribution";
+          } else {
+            fetchUrl += "/prime-distribution";
+          }
+          // retrieve interest earned and interest unclaimed from backend API for wYLDS
+            console.log(`Fetching interest earned data from: ${fetchUrl}`);
+          await fetch(fetchUrl)
+            .then((res) => res.json())
+            .then((data: unknown) => {
+              const distributions = data as DistributionDetail[];
+              distributions.forEach((distribution) => {
+                if (distribution.claimed) {
+                  totalInterestEarned += distribution.amount / Math.pow(10, 6)
+                } else {
+                  unclaimedInterest += distribution.amount / Math.pow(10, 6)
+                }
+              });
+            })
+            .catch((err) => {
+              console.error("Error fetching interest earned data:", err);
+            });
           const mint = new PublicKey(address);
           const ta = await getAssociatedTokenAddress(mint, publicKey);
 
@@ -81,8 +109,8 @@ export const useTokenPortfolioQuery = (
                 amount: amount,
                 value: value,
                 apy: 0,
-                totalInterestEarned: 0,
-                unclaimedInterest: 0,
+                totalInterestEarned: totalInterestEarned,
+                unclaimedInterest: unclaimedInterest,
                 icon: j.image,
                 mint: mint.toBase58(),
                 tokenAddress: ta.toBase58(),

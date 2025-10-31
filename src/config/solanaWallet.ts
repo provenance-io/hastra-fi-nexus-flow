@@ -3,16 +3,16 @@ import {
   SolflareWalletAdapter,
   WalletConnectWalletAdapter,
 } from "@solana/wallet-adapter-wallets";
-import { clusterApiUrl } from "@solana/web3.js";
-import { useMemo } from "react";
-import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
+import {useMemo} from "react";
+import {WalletAdapterNetwork} from "@solana/wallet-adapter-base";
+import {getNetworkUrl} from "@/utils/solana-utils";
 
 export const useSolanaWalletConfig = () => {
   // The network can be set to 'devnet', 'testnet', or 'mainnet-beta'.
   const network = import.meta.env.VITE_SOLANA_CLUSTER_NAME;
 
   // You can also provide a custom RPC endpoint.
-  const endpoint = useMemo(() => clusterApiUrl(network), [network]);
+  const endpoint = getNetworkUrl();
   const WC_NETWORK =
     network === "mainnet-beta"
       ? WalletAdapterNetwork.Mainnet

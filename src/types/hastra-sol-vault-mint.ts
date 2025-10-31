@@ -145,10 +145,9 @@ export type HastraSolVaultMint = {
           "name": "proof",
           "type": {
             "vec": {
-              "array": [
-                "u8",
-                32
-              ]
+              "defined": {
+                "name": "proofNode"
+              }
             }
           }
         }
@@ -169,7 +168,6 @@ export type HastraSolVaultMint = {
       "accounts": [
         {
           "name": "admin",
-          "writable": true,
           "signer": true
         },
         {
@@ -446,7 +444,6 @@ export type HastraSolVaultMint = {
         },
         {
           "name": "signer",
-          "writable": true,
           "signer": true
         },
         {
@@ -584,8 +581,7 @@ export type HastraSolVaultMint = {
           }
         },
         {
-          "name": "vaultTokenAccount",
-          "writable": true
+          "name": "vaultTokenAccount"
         },
         {
           "name": "redeemVaultAuthority",
@@ -652,8 +648,7 @@ export type HastraSolVaultMint = {
           "address": "11111111111111111111111111111111"
         },
         {
-          "name": "rent",
-          "address": "SysvarRent111111111111111111111111111111111"
+          "name": "programData"
         }
       ],
       "args": [
@@ -676,6 +671,56 @@ export type HastraSolVaultMint = {
           "type": {
             "vec": "pubkey"
           }
+        }
+      ]
+    },
+    {
+      "name": "pause",
+      "docs": [
+        "Pauses or unpauses the program, disabling or enabling deposit and redeem functions."
+      ],
+      "discriminator": [
+        211,
+        22,
+        221,
+        251,
+        74,
+        121,
+        193,
+        47
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "programData"
+        },
+        {
+          "name": "signer",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "pause",
+          "type": "bool"
         }
       ]
     },
@@ -1044,6 +1089,19 @@ export type HastraSolVaultMint = {
   ],
   "events": [
     {
+      "name": "depositEvent",
+      "discriminator": [
+        120,
+        248,
+        61,
+        83,
+        31,
+        142,
+        107,
+        144
+      ]
+    },
+    {
       "name": "redeemCompleted",
       "discriminator": [
         28,
@@ -1067,6 +1125,19 @@ export type HastraSolVaultMint = {
         25,
         137,
         146
+      ]
+    },
+    {
+      "name": "rewardsClaimed",
+      "discriminator": [
+        75,
+        98,
+        88,
+        18,
+        219,
+        112,
+        88,
+        121
       ]
     }
   ],
@@ -1190,6 +1261,16 @@ export type HastraSolVaultMint = {
       "code": 6024,
       "name": "requestAlreadyExists",
       "msg": "Redeem request already exists"
+    },
+    {
+      "code": 6025,
+      "name": "vaultAndMintCannotBeSame",
+      "msg": "Vault and mint cannot be the same"
+    },
+    {
+      "code": 6026,
+      "name": "protocolPaused",
+      "msg": "Protocol is paused"
     }
   ],
   "types": [
@@ -1236,6 +1317,58 @@ export type HastraSolVaultMint = {
           {
             "name": "bump",
             "type": "u8"
+          },
+          {
+            "name": "paused",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "depositEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "user",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "vault",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "proofNode",
+      "docs": [
+        "One Merkle proof element."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "sibling",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "isLeft",
+            "type": "bool"
           }
         ]
       }
@@ -1282,10 +1415,6 @@ export type HastraSolVaultMint = {
             "type": "u64"
           },
           {
-            "name": "vaultMint",
-            "type": "pubkey"
-          },
-          {
             "name": "mint",
             "type": "pubkey"
           },
@@ -1315,6 +1444,34 @@ export type HastraSolVaultMint = {
           },
           {
             "name": "mint",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "rewardsClaimed",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "user",
+            "type": "pubkey"
+          },
+          {
+            "name": "epoch",
+            "type": "u64"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "vault",
             "type": "pubkey"
           }
         ]
