@@ -240,7 +240,6 @@ export function usePendingRedemptionRequest() {
       return {
         user: ticket?.user?.toBase58() || "",
         amount: ((ticket?.amount.toNumber() || 0) / 1e6).toString(),
-        vaultMint: ticket?.vaultMint?.toBase58() || "",
         mint: ticket?.mint?.toBase58() || "",
       } as RedemptionRequest;
     },
