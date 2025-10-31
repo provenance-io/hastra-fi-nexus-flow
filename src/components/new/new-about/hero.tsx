@@ -40,7 +40,7 @@ export const Hero = () => {
         className="relative mx-auto overflow-x-hidden overflow-y-hidden flex flex-col gap-4 text-brand-white max-w-screen h-screen min-h-[1093px] bg-black"
         aria-label="Hero Image"
       >
-        <div className="absolute top-[30%] right-[1%] lg:right-[5%] xl:right-[10%] 2xl:top-[40%] 2xl:right-[30%] z-10">
+        <div className="absolute top-[30%] right-[1%] lg:right-[5%] xl:right-[10%] 2xl:top-[40%] 2xl:right-[10%] z-10">
           <div className="flex flex-col text-[45px] lg:text-[65px] leading-[98%]">
             Repeat after Us:
             <p>

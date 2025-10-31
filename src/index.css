@@ -6,3 +6,13 @@
 @import "./styles/responsive.css";
 @import "./styles/season-sans.css";
 @import "./styles/season-serif.css";
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

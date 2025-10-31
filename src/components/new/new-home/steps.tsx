@@ -65,7 +65,7 @@ export const Steps = () => {
       <h2 className="text-[45px] md:text-[65px] leading-[98%]">
         Steps to get
         <br />
-        to <span className="text-brand-purple">sPRIME</span>
+        to <span className="text-brand-purple">PRIME</span>
       </h2>
       <div className="gap-x-10 flex flex-nowrap overflow-x-scroll pb-10 px-6">
         {stepCards.map((s) => (

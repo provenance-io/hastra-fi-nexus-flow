@@ -28,9 +28,7 @@ export const TokenHoldingsCard = () => {
               <TokenCard
                 {...t}
                 onClaim={
-                  t.address === wYLDS || t.address == PRIME
-                    ? handleTokenClaim(t.token)
-                    : undefined
+                  t.address === wYLDS ? handleTokenClaim(t.token) : undefined
                 }
               />
             </div>

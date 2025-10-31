@@ -48,7 +48,7 @@ export const WYLDSCard = () => {
   const isMobile = useIsMobile();
   return (
     <section
-      className="max-w-[96rem] mx-auto px-10 pt-[100px] font-season-sans"
+      className="max-w-[96rem] mx-auto px-4 md:px-10 pt-[100px] font-season-sans"
       aria-label="wYLDS card"
     >
       <Card
